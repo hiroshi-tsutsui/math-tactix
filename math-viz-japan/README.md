@@ -1,4 +1,4 @@
-# Project Omega: Japanese High School Math Visualization
+# Math-Tactix: Japanese High School Math Visualization
 
 A comprehensive interactive learning platform for Japanese High School Mathematics (Math I, A, II, B, III).
 

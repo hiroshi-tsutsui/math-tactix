@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-noto-sans-jp" });
 
 export const metadata: Metadata = {
-  title: "プロジェクト・オメガ | シミュレーション",
+  title: "マスタク | シミュレーション",
   description: "現実のソースコードと同期せよ。オメガ・プロトコルへようこそ。",
 };
 

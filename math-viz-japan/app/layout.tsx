@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-noto-sans-jp" });
 
 export const metadata: Metadata = {
-  title: "Project Omega | 数学可視化プラットフォーム",
+  title: "Math-Tactix | 数学可視化プラットフォーム",
   description: "日本の高校数学を直感的に学ぶためのインタラクティブな学習プラットフォーム",
 };
 
@@ -27,7 +27,7 @@ export default function RootLayout({
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gray-900 to-gray-600 shadow-inner flex items-center justify-center transition-transform group-hover:scale-105">
                 <span className="text-white font-bold text-lg">Ω</span>
               </div>
-              <span className="text-xl font-semibold tracking-tight text-[#1d1d1f]">Project Omega</span>
+              <span className="text-xl font-semibold tracking-tight text-[#1d1d1f]">Math-Tactix</span>
             </Link>
             <nav className="hidden md:flex items-center space-x-8 text-[15px] font-medium text-[#1d1d1f]/80">
               <Link href="#" className="hover:text-[#0071e3] transition-colors">概要</Link>
@@ -46,7 +46,7 @@ export default function RootLayout({
 
         <footer className="bg-white border-t border-gray-200 py-12 mt-20">
           <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-[#86868b] text-xs">Copyright © 2026 Project Omega. All rights reserved.</p>
+            <p className="text-[#86868b] text-xs">Copyright © 2026 Math-Tactix. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0 text-[#86868b] text-xs font-medium">
               <Link href="#" className="hover:text-[#1d1d1f]">プライバシーポリシー</Link>
               <Link href="#" className="hover:text-[#1d1d1f]">利用規約</Link>

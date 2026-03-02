@@ -2,7 +2,7 @@
 
 > **"Mathematics is the source code of reality."**
 
-Project Omega is not a learning platform. It is an **Operator Training Interface** designed to synchronize human consciousness with the mathematical underpinnings of the universe.
+Math-Tactix is not a learning platform. It is an **Operator Training Interface** designed to synchronize human consciousness with the mathematical underpinnings of the universe.
 
 ## 🟢 The Mission
 
