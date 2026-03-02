@@ -214,3 +214,4 @@ Import traces:
 ⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
  GET /quadratics 200 in 100ms (compile: 6ms, render: 94ms)
  GET /quadratics 200 in 128ms (compile: 3ms, render: 125ms)
+✓ Compiled in 77ms

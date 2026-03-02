@@ -1,194 +1,229 @@
-// @ts-nocheck
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect, useRef, useReducer } from 'react';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, CheckCircle2, ChevronRight, Activity, Waves, Volume2, Info } from 'lucide-react';
-import { useProgress } from '../contexts/ProgressContext';
+import { 
+  ChevronLeft, ChevronRight, Zap, Target, 
+  RefreshCw, CheckCircle2, HelpCircle, 
+  TrendingUp, Circle, Compass, Activity,
+  Trophy, Star
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import 'katex/dist/katex.min.css';
+import katex from 'katex';
+import Link from 'next/link';
 
-const MODULE_ID = 'trig';
+// --- Types ---
+type State = {
+  angle: number; 
+  step: number; // 0: Free Play, 1: Quiz Mode, 2: Level Clear
+  quizTarget: { type: 'sin' | 'cos', angle: number, value: string };
+};
 
-export default function TrigPage() {
-  const { moduleProgress, completeLevel } = useProgress();
-  const [currentLevel, setCurrentLevel] = useState(1);
-  const [showUnlock, setShowUnlock] = useState(false);
-  const [log, setLog] = useState<string[]>([]);
+type Action = 
+  | { type: 'SET_ANGLE'; payload: number }
+  | { type: 'NEXT_STEP' }
+  | { type: 'SET_QUIZ'; payload: { type: 'sin' | 'cos', angle: number, value: string } }
+  | { type: 'RESET' };
+
+const FAMOUS_ANGLES = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360];
+
+const EXACT_VALUES: Record<number, { sin: string, cos: string }> = {
+  0:   { sin: "0", cos: "1" },
+  30:  { sin: "\\frac{1}{2}", cos: "\\frac{\\sqrt{3}}{2}" },
+  45:  { sin: "\\frac{\\sqrt{2}}{2}", cos: "\\frac{\\sqrt{2}}{2}" },
+  60:  { sin: "\\frac{\\sqrt{3}}{2}", cos: "\\frac{1}{2}" },
+  90:  { sin: "1", cos: "0" },
+  120: { sin: "\\frac{\\sqrt{3}}{2}", cos: "-\\frac{1}{2}" },
+  135: { sin: "\\frac{\\sqrt{2}}{2}", cos: "-\\frac{\\sqrt{2}}{2}" },
+  150: { sin: "\\frac{1}{2}", cos: "-\\frac{\\sqrt{3}}{2}" },
+  180: { sin: "0", cos: "-1" },
+  210: { sin: "-\\frac{1}{2}", cos: "-\\frac{\\sqrt{3}}{2}" },
+  225: { sin: "-\\frac{\\sqrt{2}}{2}", cos: "-\\frac{\\sqrt{2}}{2}" },
+  240: { sin: "-\\frac{\\sqrt{3}}{2}", cos: "-\\frac{1}{2}" },
+  270: { sin: "-1", cos: "0" },
+  300: { sin: "-\\frac{\\sqrt{3}}{2}", cos: "\\frac{1}{2}" },
+  315: { sin: "-\\frac{\\sqrt{2}}{2}", cos: "\\frac{\\sqrt{2}}{2}" },
+  330: { sin: "-\\frac{1}{2}", cos: "\\frac{\\sqrt{3}}{2}" },
+  360: { sin: "0", cos: "1" }
+};
+
+// --- Components ---
+const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
+  const containerRef = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (containerRef.current) {
+      katex.render(tex, containerRef.current, { throwOnError: false, displayMode: false });
+    }
+  }, [tex]);
+  return <span ref={containerRef} className={className} />;
+};
+
+// --- Reducer ---
+function trigReducer(state: State, action: Action): State {
+  switch (action.type) {
+    case 'SET_ANGLE': {
+      let angle = action.payload;
+      const snapTarget = FAMOUS_ANGLES.find(fa => Math.abs(fa - angle) < 3);
+      if (snapTarget !== undefined) angle = snapTarget;
+      return { ...state, angle };
+    }
+    case 'NEXT_STEP': return { ...state, step: state.step + 1 };
+    case 'SET_QUIZ': return { ...state, quizTarget: action.payload, step: 1 };
+    case 'RESET': return { angle: 30, step: 0, quizTarget: { type: 'sin', angle: 60, value: "\\frac{\\sqrt{3}}{2}" } };
+    default: return state;
+  }
+}
+
+export default function TrigEvolutionCycle03() {
+  const [state, dispatch] = useReducer(trigReducer, { 
+    angle: 30, 
+    step: 0,
+    quizTarget: { type: 'sin', angle: 60, value: "\\frac{\\sqrt{3}}{2}" }
+  });
+  const { angle, step, quizTarget } = state;
+  const [feedback, setFeedback] = useState<{status: 'idle'|'correct'|'wrong', msg: string}>({status: 'idle', msg: ''});
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Params
-  const [amplitude, setAmplitude] = useState(1.0);
-  const [frequency, setFrequency] = useState(1.0);
-  const [phase, setPhase] = useState(0);
-  
-  // Targets
-  const [targetAmp, setTargetAmp] = useState(1.5);
-  const [targetFreq, setTargetFreq] = useState(1.0);
-  const [targetPhase, setTargetPhase] = useState(45);
-
-  useEffect(() => {
-    const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
-    setCurrentLevel(progress.length + 1 > 3 ? 3 : progress.length + 1);
-    addLog(`ステージ ${progress.length + 1} を開始しました`);
-  }, [moduleProgress]);
-
-  const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
-
-  // Match logic
-  const ampDiff = Math.abs(amplitude - targetAmp);
-  const freqDiff = Math.abs(frequency - targetFreq);
-  const phaseDiff = Math.abs(phase - targetPhase) % 360;
-  const matchRate = Math.max(0, 100 - (ampDiff * 30 + freqDiff * 30 + phaseDiff / 2));
-
-  useEffect(() => {
-    if (matchRate > 95 && !showUnlock) {
-      setShowUnlock(true);
-      addLog("波形が同期しました！ターゲットを捕捉。");
-    }
-  }, [matchRate]);
-
-  const handleNext = () => {
-    completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 3) {
-      setCurrentLevel(currentLevel + 1);
-      setTargetAmp(0.5 + Math.random() * 2);
-      setTargetFreq(0.5 + Math.random() * 2);
-      setTargetPhase(Math.random() * 180);
-      setShowUnlock(false);
-    } else {
-      window.location.href = "/";
-    }
-  };
-
-  // Drawing Loop
+  // --- Visual Engine ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    const w = canvas.width, h = canvas.height, cy = h/2, unit = 40;
+    const w = canvas.width, h = canvas.height;
+    const radius = 120, ox = w / 2, oy = h / 2;
 
-    let frame = 0;
     const render = () => {
-        frame++;
-        ctx.clearRect(0, 0, w, h);
-        
-        // Grid
-        ctx.strokeStyle = '#f1f5f9'; ctx.lineWidth = 1;
-        for(let x=0; x<w; x+=unit) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
-        for(let y=0; y<h; y+=unit) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+      ctx.clearRect(0, 0, w, h);
+      
+      // Grid
+      ctx.strokeStyle = 'rgba(0,0,0,0.03)'; ctx.lineWidth = 1;
+      for(let i=-200; i<=200; i+=50) {
+        ctx.beginPath(); ctx.moveTo(ox + i, 0); ctx.lineTo(ox + i, h); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, oy + i); ctx.lineTo(w, oy + i); ctx.stroke();
+      }
 
-        // Target (Ghost)
-        ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 2; ctx.setLineDash([5, 5]);
-        ctx.beginPath();
-        for (let x = 0; x < w; x++) {
-            const rad = (x / unit);
-            const ty = cy - (targetAmp * unit) * Math.sin((targetFreq * rad) + (targetPhase * Math.PI / 180));
-            if (x===0) ctx.moveTo(x,ty); else ctx.lineTo(x,ty);
-        }
-        ctx.stroke();
-        ctx.setLineDash([]);
+      // Unit Circle
+      ctx.strokeStyle = 'rgba(0,0,0,0.1)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(ox, oy, radius, 0, Math.PI * 2); ctx.stroke();
 
-        // Player
-        ctx.strokeStyle = matchRate > 90 ? '#22c55e' : '#3b82f6';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        for (let x = 0; x < w; x++) {
-            const rad = (x / unit);
-            const py = cy - (amplitude * unit) * Math.sin((frequency * rad) + (phase * Math.PI / 180));
-            if (x===0) ctx.moveTo(x,py); else ctx.lineTo(x,py);
-        }
-        ctx.stroke();
+      // Axes
+      ctx.strokeStyle = 'rgba(0,0,0,0.15)'; ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
 
-        requestAnimationFrame(render);
+      const rad = (angle * Math.PI) / 180;
+      const targetX = ox + Math.cos(rad) * radius;
+      const targetY = oy - Math.sin(rad) * radius;
+
+      const isSnapped = FAMOUS_ANGLES.includes(angle);
+      if (isSnapped) {
+        ctx.fillStyle = 'rgba(0, 122, 255, 0.05)';
+        ctx.beginPath(); ctx.arc(ox, oy, radius + 10, 0, Math.PI * 2); ctx.fill();
+      }
+
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = '#007AFF'; ctx.beginPath(); ctx.moveTo(targetX, oy); ctx.lineTo(targetX, targetY); ctx.stroke();
+      ctx.strokeStyle = '#FF3B30'; ctx.beginPath(); ctx.moveTo(ox, targetY); ctx.lineTo(targetX, targetY); ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.strokeStyle = '#1D1D1F'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetX, targetY); ctx.stroke();
+
+      ctx.strokeStyle = '#007AFF'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetX, oy); ctx.stroke();
+      ctx.strokeStyle = '#FF3B30'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox, targetY); ctx.stroke();
+
+      ctx.fillStyle = isSnapped ? '#007AFF' : '#1D1D1F';
+      ctx.beginPath(); ctx.arc(targetX, targetY, 8, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'white'; ctx.lineWidth = 3; ctx.stroke();
     };
-    const animId = requestAnimationFrame(render);
-    return () => cancelAnimationFrame(animId);
-  }, [amplitude, frequency, phase, targetAmp, targetFreq, targetPhase, matchRate]);
+    render();
+  }, [angle]);
+
+  const checkQuiz = () => {
+    if (angle === quizTarget.angle) {
+      setFeedback({status: 'correct', msg: 'ミッション成功！'});
+    } else {
+      setFeedback({status: 'wrong', msg: '角度が違います。'});
+    }
+  };
 
   return (
-    <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans ${GeistSans.className}`}>
-      <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 h-16">
-        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 font-bold text-sm">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 戻る
-          </Link>
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-bold">三角関数</span>
-            <div className="h-4 w-px bg-slate-200 mx-2"></div>
-            <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">ステージ {currentLevel} / 3</div>
+    <div className={`h-screen bg-white text-black flex flex-col ${GeistSans.className} selection:bg-blue-100 overflow-hidden`}>
+      <header className="h-14 flex items-center justify-between px-6 shrink-0 border-b border-slate-50 bg-white/90 backdrop-blur-md z-50">
+        <Link href="/" className="p-2 -ml-2 text-slate-400 hover:text-black transition-colors"><ChevronLeft className="w-6 h-6" /></Link>
+        <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">Trig Evolution V1.3</div>
+        <div className="w-10" />
+      </header>
+
+      <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative">
+        <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
+          <canvas ref={canvasRef} width={400} height={400} className="w-full h-full" />
+          
+          <AnimatePresence>
+            {EXACT_VALUES[angle] && (
+              <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                 <div className="bg-white/80 backdrop-blur-xl p-4 rounded-3xl border border-blue-100 shadow-2xl flex flex-col items-center gap-2">
+                    <div className="text-[10px] font-black text-blue-600 uppercase tracking-widest">Exact Value</div>
+                    <div className="flex gap-4">
+                       <div className="flex flex-col items-center"><span className="text-[9px] text-slate-400">cos</span><MathComponent tex={EXACT_VALUES[angle].cos} className="text-xl font-bold" /></div>
+                       <div className="flex flex-col items-center"><span className="text-[9px] text-slate-400">sin</span><MathComponent tex={EXACT_VALUES[angle].sin} className="text-xl font-bold" /></div>
+                    </div>
+                 </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
+             <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-sm border border-slate-100 font-mono font-bold text-slate-900 text-sm">
+                θ = {angle}°
+             </div>
           </div>
         </div>
-      </nav>
+      </section>
 
-      <main className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 space-y-8">
-           <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
-              <div className="p-8 border-b border-slate-100 flex justify-between items-center">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><Waves className="w-5 h-5 text-blue-600" /> 波形の同調</h2>
-                 <div className="flex items-center gap-4">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">一致率</span>
-                    <div className="w-32 h-2 bg-slate-100 rounded-full overflow-hidden">
-                       <div className={`h-full transition-all ${matchRate > 90 ? 'bg-green-500' : 'bg-blue-600'}`} style={{ width: `${matchRate}%` }}></div>
-                    </div>
-                    <span className="text-sm font-mono font-bold">{matchRate.toFixed(0)}%</span>
+      <main className="flex-1 overflow-y-auto bg-white">
+        <div className="max-w-lg mx-auto px-8 py-8 pb-32">
+          <AnimatePresence mode="wait">
+            
+            {step === 0 && (
+              <motion.div key="intro" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
+                 <div className="space-y-4 text-center">
+                    <h1 className="text-3xl font-extrabold tracking-tight">有名角を支配する</h1>
+                    <p className="text-slate-500 text-sm leading-relaxed">試験に出る30°や45°の地点で<strong>「磁石のように」</strong>吸い付く感覚を体験してください。</p>
                  </div>
-              </div>
-
-              <div className="p-10 space-y-10">
-                 <div className="relative aspect-video bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden shadow-inner">
-                    <canvas ref={canvasRef} width={800} height={450} className="w-full h-full" />
+                 
+                 <div className="space-y-6">
+                    <input type="range" min="0" max="360" step="1" value={angle} onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-black cursor-pointer" />
+                    <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="w-full bg-black text-white py-4 rounded-2xl font-bold shadow-xl flex items-center justify-center gap-2">実戦：有名角ミッションへ <ChevronRight className="w-4 h-4" /></button>
                  </div>
+              </motion.div>
+            )}
 
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="space-y-4">
-                       <div className="flex justify-between"><span className="text-[10px] font-bold text-slate-400 uppercase">振幅 (A) - 高さ</span><span className="font-bold">{amplitude.toFixed(2)}</span></div>
-                       <input type="range" min="0.1" max="3" step="0.1" value={amplitude} onChange={e=>setAmplitude(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer accent-blue-600" />
-                    </div>
-                    <div className="space-y-4">
-                       <div className="flex justify-between"><span className="text-[10px] font-bold text-slate-400 uppercase">周波数 (f) - 速さ</span><span className="font-bold">{frequency.toFixed(2)}</span></div>
-                       <input type="range" min="0.1" max="3" step="0.1" value={frequency} onChange={e=>setFrequency(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer accent-blue-600" />
-                    </div>
-                    <div className="space-y-4">
-                       <div className="flex justify-between"><span className="text-[10px] font-bold text-slate-400 uppercase">位相 (φ) - ズレ</span><span className="font-bold">{phase.toFixed(0)}°</span></div>
-                       <input type="range" min="0" max="360" step="5" value={phase} onChange={e=>setPhase(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer accent-blue-600" />
-                    </div>
+            {step === 1 && (
+              <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
+                 <div className="bg-red-50 p-6 rounded-[32px] border border-red-100 text-center space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100 rounded-full text-red-600 text-[10px] font-black uppercase tracking-widest">Mission</div>
+                    <h2 className="text-xl font-bold text-slate-800"><MathComponent tex={`${quizTarget.type} ${quizTarget.angle}^\\circ`} /> を再現せよ</h2>
                  </div>
-              </div>
+                 <div className="space-y-6">
+                    <input type="range" min="0" max="360" step="1" value={angle} onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-red-500 cursor-pointer" />
+                    <button onClick={checkQuiz} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold">戦術を確定する</button>
+                    <AnimatePresence>
+                      {feedback.status === 'correct' && (
+                        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 bg-emerald-50 rounded-3xl border border-emerald-100 text-center space-y-3">
+                           <h4 className="text-emerald-700 font-bold">ミッション成功</h4>
+                           <p className="text-[11px] text-emerald-600">この位置を脳に焼き付けてください。</p>
+                           <button onClick={() => dispatch({type: 'RESET'})} className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs">次の問題へ</button>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                 </div>
+              </motion.div>
+            )}
 
-              <AnimatePresence>
-                {showUnlock && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-30 flex items-center justify-center p-6 bg-white/90 backdrop-blur-md">
-                    <div className="bg-white border border-slate-200 p-10 rounded-[40px] shadow-2xl text-center max-w-sm">
-                      <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold mb-2">同期成功</h3>
-                      <p className="text-sm text-slate-500 mb-8 leading-relaxed">ターゲット波形との一致を確認しました。周期性の概念をクリアしました。</p>
-                      <button onClick={handleNext} className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2">
-                        {currentLevel < 3 ? '次のレベルへ' : '完了して戻る'} <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-           </div>
-        </div>
-
-        <div className="lg:col-span-4 space-y-6">
-           <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">波の三要素</h3>
-              <div className="space-y-4 text-xs leading-relaxed text-slate-400 font-medium">
-                 <p><strong className="text-white">振幅:</strong> 波の上下の幅です。音の大きさや光の強さに対応します。</p>
-                 <p><strong className="text-white">周波数:</strong> 波の繰り返しの細かさです。音の高さや電波のチャンネルに対応します。</p>
-                 <p><strong className="text-white">位相:</strong> 波の開始タイミングのズレです。複数の波を重ね合わせる際に重要になります。</p>
-              </div>
-           </div>
-           <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">活動ログ</h4>
-              <div className="space-y-2 font-mono text-[11px]">
-                {log.map((msg, i) => <div key={i} className={i===0 ? 'text-blue-600' : 'text-slate-400'}>{msg}</div>)}
-              </div>
-           </div>
+          </AnimatePresence>
         </div>
       </main>
     </div>
