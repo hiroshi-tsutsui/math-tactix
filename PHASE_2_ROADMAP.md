@@ -1,7 +1,7 @@
 # PHASE 2 ROADMAP: The Pivot (Pedagogy & Localization)
 
 ## Mission
-Shift Project Omega from a "content dump" to a "structured curriculum" (Tier 1: The Sandbox).
+Shift Math-Tactix from a "content dump" to a "structured curriculum" (Tier 1: The Sandbox).
 Implement Japanese localization to prepare for the regional launch.
 
 ## Status Overview

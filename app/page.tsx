@@ -194,7 +194,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-start border-b border-slate-200 pb-12 gap-8">
             <div className="space-y-3">
                <h1 className="text-6xl md:text-7xl font-black tracking-tighter text-slate-900 italic">
-                  Project Omega
+                  Math-Tactix
                </h1>
                <p className="text-lg text-slate-500 font-bold">次世代の数学学習 OS</p>
             </div>
@@ -288,7 +288,7 @@ export default function Home() {
           </div>
 
           <footer className="pt-20 border-t border-slate-200 text-center text-[10px] text-slate-300 font-black uppercase tracking-[0.4em]">
-              Project Omega — {new Date().getFullYear()} — Mathematical OS
+              Math-Tactix — {new Date().getFullYear()} — Mathematical OS
           </footer>
 
       </div>

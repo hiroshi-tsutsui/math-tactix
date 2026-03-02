@@ -45,7 +45,7 @@ export default function OverviewPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-2 text-blue-600">
                   <Sparkles className="w-5 h-5" />
-                  <span className="text-sm font-black tracking-widest uppercase">Project Omega Vision</span>
+                  <span className="text-sm font-black tracking-widest uppercase">Math-Tactix Vision</span>
                 </div>
                 <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[0.95]">
                   数学は、「お勉強」<br/>ではない。
@@ -82,7 +82,7 @@ export default function OverviewPage() {
             </div>
 
             <footer className="pt-24 text-[10px] text-slate-300 font-black tracking-[0.3em] uppercase">
-              Project Omega // Mathematical OS v2.7.0
+              Math-Tactix // Mathematical OS v2.7.0
             </footer>
           </motion.main>
         )}

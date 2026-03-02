@@ -158,7 +158,7 @@ export default function CodexPage() {
         </div>
 
         <footer className="text-center text-[10px] text-slate-300 font-bold uppercase tracking-[0.2em]">
-            Project Omega — Knowledge Repository v2.7.0
+            Math-Tactix — Knowledge Repository v2.7.0
         </footer>
       </main>
     </div>

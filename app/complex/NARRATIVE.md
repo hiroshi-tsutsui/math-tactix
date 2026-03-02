@@ -5,7 +5,7 @@
 
 ## 1. The Operational Truth
 In standard education, "Imaginary Numbers" are taught as a mathematical curiosity or a workaround for negative roots.
-**In Project Omega, they are a Navigation Tool.**
+**In Math-Tactix, they are a Navigation Tool.**
 
 - **Real Axis (x):** The Material Plane. Where we live. Visible, tangible.
 - **Imaginary Axis (y):** The Void. A hidden dimension perpendicular to reality.

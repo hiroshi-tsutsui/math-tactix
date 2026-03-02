@@ -83,7 +83,7 @@ export default function SettingsPage() {
                             </div>
                             <div>
                                 <h3 className="text-sm font-bold text-slate-600">システムバージョン</h3>
-                                <p className="text-xs text-slate-400">Project Omega Core Engine</p>
+                                <p className="text-xs text-slate-400">Math-Tactix Core Engine</p>
                             </div>
                         </div>
                         <span className="font-mono text-xs font-bold text-slate-400">v2.7.0 (Stable)</span>

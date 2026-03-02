@@ -102,7 +102,7 @@ export default function OverviewPage() {
         </section>
 
         <footer className="pt-24 text-center text-xs text-gray-600 uppercase tracking-widest">
-            Project Omega // Internal Use Only // Auth: Architecture
+            Math-Tactix // Internal Use Only // Auth: Architecture
         </footer>
       </div>
     </div>

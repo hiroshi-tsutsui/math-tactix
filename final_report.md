@@ -4,7 +4,7 @@
 1.  **Created Interactive Module:** `app/math/quadratic/page.tsx`
     -   Implemented a real-time canvas visualizer for quadratic functions (`y = ax^2 + bx + c`).
     -   Added interactive sliders for coefficients `a`, `b`, and `c`.
-    -   Designed a "snappy" UI with a dark mode aesthetic (Project Omega style).
+    -   Designed a "snappy" UI with a dark mode aesthetic (Math-Tactix style).
 2.  **Localization:**
     -   Added English keys to `locales/en.json` (`math_quadratic`).
     -   Added Japanese keys to `locales/ja.json` ("二次関数イノベーション").
