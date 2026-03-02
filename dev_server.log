@@ -207,3 +207,10 @@ Import traces:
 ✓ Compiled in 42ms
  GET /quadratics 200 in 76ms (compile: 5ms, render: 71ms)
  GET /quadratics 200 in 50ms (compile: 14ms, render: 36ms)
+ GET /quadratics 200 in 58ms (compile: 13ms, render: 45ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 59ms
+ GET /quadratics 200 in 174ms (compile: 73ms, render: 101ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 100ms (compile: 6ms, render: 94ms)
+ GET /quadratics 200 in 128ms (compile: 3ms, render: 125ms)
