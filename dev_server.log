@@ -1,0 +1,199 @@
+
+> project_omega@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.3:3000
+
+✓ Starting...
+✓ Ready in 716ms
+ GET /quadratics 200 in 1271ms (compile: 1090ms, render: 181ms)
+ GET /quadratics 200 in 1278ms (compile: 1125ms, render: 153ms)
+ GET /quadratics 200 in 1120ms (compile: 1032ms, render: 89ms)
+ GET /quadratics 200 in 25ms (compile: 2ms, render: 23ms)
+ GET /quadratics 200 in 32ms (compile: 3ms, render: 30ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /quadratics 200 in 366ms (compile: 92ms, render: 274ms)
+ GET /quadratics 200 in 369ms (compile: 76ms, render: 293ms)
+ GET /quadratics 200 in 351ms (compile: 261ms, render: 90ms)
+✓ Compiled in 9ms
+ GET /quadratics 200 in 30ms (compile: 3ms, render: 27ms)
+ GET /quadratics 200 in 39ms (compile: 5ms, render: 33ms)
+ GET / 200 in 74ms (compile: 27ms, render: 46ms)
+ GET /quadratics 200 in 21ms (compile: 9ms, render: 12ms)
+ GET / 200 in 39ms (compile: 5ms, render: 34ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 231ms
+ GET /quadratics 200 in 124ms (compile: 57ms, render: 67ms)
+ GET /quadratics 200 in 54ms (compile: 1663µs, render: 53ms)
+ GET /quadratics 200 in 56ms (compile: 19ms, render: 37ms)
+ GET /quadratics 200 in 46ms (compile: 12ms, render: 33ms)
+ GET /quadratics 200 in 37ms (compile: 5ms, render: 31ms)
+✓ Compiled in 114ms
+ GET /quadratics 200 in 97ms (compile: 66ms, render: 30ms)
+✓ Compiled in 97ms
+✓ Compiled in 1235ms
+✓ Compiled in 285ms
+ GET /quadratics 200 in 163ms (compile: 54ms, render: 109ms)
+ GET /quadratics 200 in 25ms (compile: 2ms, render: 23ms)
+ GET / 200 in 38ms (compile: 4ms, render: 34ms)
+ GET /quadratics 200 in 12ms (compile: 2ms, render: 9ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 68ms
+⨯ Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object. You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.
+    at ignore-listed frames {
+  digest: '890557086'
+}
+ GET /quadratics 500 in 524ms (compile: 102ms, render: 422ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 50ms
+ GET /quadratics 200 in 376ms (compile: 82ms, render: 294ms)
+ GET /quadratics 200 in 379ms (compile: 244ms, render: 135ms)
+ GET /quadratics 200 in 117ms (compile: 20ms, render: 97ms)
+✓ Compiled in 49ms
+ GET /quadratics 200 in 175ms (compile: 56ms, render: 118ms)
+ GET /quadratics 200 in 39ms (compile: 6ms, render: 33ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 78ms
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 207ms (compile: 185ms, render: 22ms)
+ GET /quadratics 200 in 293ms (compile: 83ms, render: 210ms)
+ GET /quadratics 200 in 97ms (compile: 5ms, render: 92ms)
+ GET /quadratics 200 in 79ms (compile: 4ms, render: 76ms)
+ GET /quadratics 200 in 40ms (compile: 7ms, render: 33ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 89ms
+ GET /quadratics 200 in 172ms (compile: 72ms, render: 100ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 115ms (compile: 3ms, render: 112ms)
+ GET /quadratics 200 in 101ms (compile: 3ms, render: 97ms)
+ GET /quadratics 200 in 82ms (compile: 7ms, render: 74ms)
+ GET /quadratics 200 in 75ms (compile: 29ms, render: 46ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 117ms
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 330ms (compile: 208ms, render: 122ms)
+ GET /quadratics 200 in 143ms (compile: 1819µs, render: 141ms)
+ GET /quadratics 200 in 147ms (compile: 23ms, render: 124ms)
+ GET /quadratics 200 in 111ms (compile: 9ms, render: 102ms)
+ GET /quadratics 200 in 147ms (compile: 62ms, render: 85ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 64ms
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 313ms (compile: 185ms, render: 127ms)
+ GET /quadratics 200 in 94ms (compile: 5ms, render: 89ms)
+ GET /quadratics 200 in 70ms (compile: 1944µs, render: 68ms)
+ GET /quadratics 200 in 56ms (compile: 11ms, render: 44ms)
+ GET /quadratics 200 in 39ms (compile: 5ms, render: 34ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 111ms
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 116ms (compile: 6ms, render: 109ms)
+ GET /quadratics 200 in 95ms (compile: 5ms, render: 90ms)
+ GET /quadratics 200 in 76ms (compile: 3ms, render: 73ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 70ms
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 279ms (compile: 102ms, render: 177ms)
+ GET /quadratics 200 in 274ms (compile: 187ms, render: 87ms)
+ GET /quadratics 200 in 77ms (compile: 7ms, render: 70ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 94ms
+ GET /quadratics 200 in 74ms (compile: 4ms, render: 70ms)
+ GET /quadratics 200 in 50ms (compile: 3ms, render: 47ms)
+ GET /quadratics 200 in 28ms (compile: 4ms, render: 24ms)
+ GET /quadratics 200 in 27ms (compile: 3ms, render: 24ms)
+ GET / 200 in 40ms (compile: 4ms, render: 36ms)
+ GET /quadratics 200 in 18ms (compile: 3ms, render: 15ms)
+ GET /quadratics 200 in 30ms (compile: 3ms, render: 27ms)
+✓ Compiled in 61ms
+⨯ ./app/quadratics/page.tsx:368:100
+Parsing ecmascript source code failed
+[0m [90m 366 |[39m                           [33m<[39m[33mmotion[39m[33m.[39mdiv initial[33m=[39m{{ opacity[33m:[39m [35m0[39m }} animate[33m=[39m{{ opacity[33m:[39m [35m1[39m }} className[33m=[39m[32m"p-5 bg-emerald-50 rounded-2xl border border-emerald-100"[39m[33m>[39m
+ [90m 367 |[39m                              [33m<[39m[33mp[39m className[33m=[39m[32m"text-xs text-emerald-700 font-bold flex items-center gap-2"[39m[33m>[39m[33m<[39m[33mLightbulb[39m className[33m=[39m[32m"w-4 h-4"[39m [33m/[39m[33m>[39m 勝利のポイント[33m<[39m[33m/[39m[33mp[39m[33m>[39m
+[31m[1m>[22m[39m[90m 368 |[39m                              [33m<[39m[33mp[39m className[33m=[39m[32m"text-[11px] text-emerald-600 mt-2"[39m[33m>[39m頂点が定義域 [[33m<[39m[33m![39m[33m--[39m [33m--[39m[33m>[39m{tacticsProblem[33m.[39mdomain[[35m0[39m]}[33m,[39m {tacticsProblem[33m.[39mdomain[[35m1[39m]}[33m<[39m[33m![39m[33m--[39m [33m--[39m[33m>[39m] に含まれているため、頂点で最小値をとります。[33m<[39m[33m/[39m[33mp[39m[33m>[39m
+ [90m     |[39m                                                                                                    [31m[1m^[22m[39m
+ [90m 369 |[39m                           [33m<[39m[33m/[39m[33mmotion[39m[33m.[39mdiv[33m>[39m
+ [90m 370 |[39m                           [33m<[39m[33mbutton[39m onClick[33m=[39m{generateProblem} className[33m=[39m[32m"w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg flex items-center justify-center gap-2"[39m[33m>[39m
+ [90m 371 |[39m                              [33m<[39m[33mRefreshCw[39m className[33m=[39m[32m"w-4 h-4"[39m [33m/[39m[33m>[39m 次のミッションへ挑む[0m
+
+Expected '</', got '!'
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+
+ GET /quadratics 500 in 936ms (compile: 858ms, render: 77ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /quadratics 200 in 228ms (compile: 133ms, render: 95ms)
+ GET /quadratics 200 in 97ms (compile: 24ms, render: 73ms)
+ GET /quadratics 200 in 117ms (compile: 2ms, render: 115ms)
+ GET /quadratics 200 in 129ms (compile: 13ms, render: 116ms)
+ GET /quadratics 200 in 78ms (compile: 3ms, render: 75ms)
+ GET /quadratics 200 in 57ms (compile: 3ms, render: 55ms)
+ GET /quadratics 200 in 50ms (compile: 15ms, render: 35ms)
+ GET / 200 in 75ms (compile: 15ms, render: 60ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 107ms
+ GET /quadratics 200 in 173ms (compile: 67ms, render: 107ms)
+ GET /quadratics 200 in 71ms (compile: 4ms, render: 67ms)
+ GET /quadratics 200 in 71ms (compile: 26ms, render: 45ms)
+ GET /quadratics 200 in 68ms (compile: 26ms, render: 42ms)
+ GET /quadratics 200 in 40ms (compile: 9ms, render: 31ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 83ms
+ GET /quadratics 200 in 277ms (compile: 82ms, render: 195ms)
+ GET /quadratics 200 in 115ms (compile: 6ms, render: 109ms)
+ GET /quadratics 200 in 74ms (compile: 33ms, render: 41ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 95ms
+ GET /quadratics 200 in 343ms (compile: 85ms, render: 258ms)
+ GET /quadratics 200 in 136ms (compile: 9ms, render: 127ms)
+ GET /quadratics 200 in 39ms (compile: 5ms, render: 34ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 94ms
+ GET /quadratics 200 in 254ms (compile: 104ms, render: 149ms)
+ GET /quadratics 200 in 39ms (compile: 3ms, render: 36ms)
+✓ Compiled in 44ms
+✓ Compiled in 53ms
