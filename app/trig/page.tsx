@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import Link from 'next/link';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // --- Types ---
 type State = {
@@ -76,6 +77,7 @@ function trigReducer(state: State, action: Action): State {
 }
 
 export default function TrigEvolutionCycle03() {
+  const { t } = useLanguage();
   const [state, dispatch] = useReducer(trigReducer, { 
     angle: 30, 
     step: 0,
@@ -143,9 +145,9 @@ export default function TrigEvolutionCycle03() {
 
   const checkQuiz = () => {
     if (angle === quizTarget.angle) {
-      setFeedback({status: 'correct', msg: 'ミッション成功！'});
+      setFeedback({status: 'correct', msg: t('modules.trig.quiz.success_title')});
     } else {
-      setFeedback({status: 'wrong', msg: '角度が違います。'});
+      setFeedback({status: 'wrong', msg: t('modules.trig.quiz.wrong')});
     }
   };
 
@@ -153,7 +155,7 @@ export default function TrigEvolutionCycle03() {
     <div className={`h-screen bg-white text-black flex flex-col ${GeistSans.className} selection:bg-blue-100 overflow-hidden`}>
       <header className="h-14 flex items-center justify-between px-6 shrink-0 border-b border-slate-50 bg-white/90 backdrop-blur-md z-50">
         <Link href="/" className="p-2 -ml-2 text-slate-400 hover:text-black transition-colors"><ChevronLeft className="w-6 h-6" /></Link>
-        <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">Trig Evolution V1.3</div>
+        <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">{t('modules.trig.header_title')}</div>
         <div className="w-10" />
       </header>
 
@@ -165,7 +167,7 @@ export default function TrigEvolutionCycle03() {
             {EXACT_VALUES[angle] && (
               <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                  <div className="bg-white/80 backdrop-blur-xl p-4 rounded-3xl border border-blue-100 shadow-2xl flex flex-col items-center gap-2">
-                    <div className="text-[10px] font-black text-blue-600 uppercase tracking-widest">Exact Value</div>
+                    <div className="text-[10px] font-black text-blue-600 uppercase tracking-widest">{t('modules.trig.exact_value')}</div>
                     <div className="flex gap-4">
                        <div className="flex flex-col items-center"><span className="text-[9px] text-slate-400">cos</span><MathComponent tex={EXACT_VALUES[angle].cos} className="text-xl font-bold" /></div>
                        <div className="flex flex-col items-center"><span className="text-[9px] text-slate-400">sin</span><MathComponent tex={EXACT_VALUES[angle].sin} className="text-xl font-bold" /></div>
@@ -177,7 +179,7 @@ export default function TrigEvolutionCycle03() {
 
           <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
              <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-sm border border-slate-100 font-mono font-bold text-slate-900 text-sm">
-                θ = {angle}°
+                {t('modules.trig.angle_label')} {angle}°
              </div>
           </div>
         </div>
@@ -190,13 +192,13 @@ export default function TrigEvolutionCycle03() {
             {step === 0 && (
               <motion.div key="intro" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
                  <div className="space-y-4 text-center">
-                    <h1 className="text-3xl font-extrabold tracking-tight">有名角を支配する</h1>
-                    <p className="text-slate-500 text-sm leading-relaxed">試験に出る30°や45°の地点で<strong>「磁石のように」</strong>吸い付く感覚を体験してください。</p>
+                    <h1 className="text-3xl font-extrabold tracking-tight">{t('modules.trig.intro.title')}</h1>
+                    <p className="text-slate-500 text-sm leading-relaxed" dangerouslySetInnerHTML={{__html: t('modules.trig.intro.desc')}} />
                  </div>
                  
                  <div className="space-y-6">
                     <input type="range" min="0" max="360" step="1" value={angle} onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-black cursor-pointer" />
-                    <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="w-full bg-black text-white py-4 rounded-2xl font-bold shadow-xl flex items-center justify-center gap-2">実戦：有名角ミッションへ <ChevronRight className="w-4 h-4" /></button>
+                    <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="w-full bg-black text-white py-4 rounded-2xl font-bold shadow-xl flex items-center justify-center gap-2">{t('modules.trig.intro.action')} <ChevronRight className="w-4 h-4" /></button>
                  </div>
               </motion.div>
             )}
@@ -204,18 +206,20 @@ export default function TrigEvolutionCycle03() {
             {step === 1 && (
               <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
                  <div className="bg-red-50 p-6 rounded-[32px] border border-red-100 text-center space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100 rounded-full text-red-600 text-[10px] font-black uppercase tracking-widest">Mission</div>
-                    <h2 className="text-xl font-bold text-slate-800"><MathComponent tex={`${quizTarget.type} ${quizTarget.angle}^\\circ`} /> を再現せよ</h2>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100 rounded-full text-red-600 text-[10px] font-black uppercase tracking-widest">{t('modules.trig.quiz.mission_label')}</div>
+                    <h2 className="text-xl font-bold text-slate-800">
+                      <MathComponent tex={t('modules.trig.quiz.mission_title', { type: quizTarget.type, angle: quizTarget.angle })} />
+                    </h2>
                  </div>
                  <div className="space-y-6">
                     <input type="range" min="0" max="360" step="1" value={angle} onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-red-500 cursor-pointer" />
-                    <button onClick={checkQuiz} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold">戦術を確定する</button>
+                    <button onClick={checkQuiz} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold">{t('modules.trig.quiz.action')}</button>
                     <AnimatePresence>
                       {feedback.status === 'correct' && (
                         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 bg-emerald-50 rounded-3xl border border-emerald-100 text-center space-y-3">
-                           <h4 className="text-emerald-700 font-bold">ミッション成功</h4>
-                           <p className="text-[11px] text-emerald-600">この位置を脳に焼き付けてください。</p>
-                           <button onClick={() => dispatch({type: 'RESET'})} className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs">次の問題へ</button>
+                           <h4 className="text-emerald-700 font-bold">{t('modules.trig.quiz.success_title')}</h4>
+                           <p className="text-[11px] text-emerald-600">{t('modules.trig.quiz.success_desc')}</p>
+                           <button onClick={() => dispatch({type: 'RESET'})} className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs">{t('modules.trig.quiz.next')}</button>
                         </motion.div>
                       )}
                     </AnimatePresence>

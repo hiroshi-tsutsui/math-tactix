@@ -2,8 +2,10 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function BallsInBins() {
+  const { t } = useLanguage();
   const [bins, setBins] = useState<number>(10);
   const [counts, setCounts] = useState<number[]>(new Array(10).fill(0));
   const [running, setRunning] = useState(false);
@@ -53,27 +55,27 @@ export default function BallsInBins() {
         <div>
             <div className="flex items-center gap-3 mb-2">
                 <span className="w-10 h-10 rounded-xl bg-[#0071e3]/10 flex items-center justify-center text-xl">🎲</span>
-                <h3 className="text-xl font-bold text-[#1d1d1f]">球と箱のシミュレーション</h3>
+                <h3 className="text-xl font-bold text-[#1d1d1f]">{t('modules.balls_in_bins.title')}</h3>
             </div>
-            <p className="text-sm text-[#86868b] mt-1 font-medium">{bins} 個の箱にランダムに球を投げ入れる実験 (大数の法則)</p>
+            <p className="text-sm text-[#86868b] mt-1 font-medium">{t('modules.balls_in_bins.subtitle', { bins })}</p>
         </div>
         
         <div className="flex items-center gap-4 bg-[#F5F5F7] p-2 rounded-2xl">
              <div className="px-4 py-1 border-r border-gray-200">
-                <span className="text-[10px] uppercase font-bold text-[#86868b] tracking-wide block">総数</span>
+                <span className="text-[10px] uppercase font-bold text-[#86868b] tracking-wide block">{t('modules.balls_in_bins.total_count')}</span>
                 <span className="font-mono text-lg font-bold text-[#1d1d1f]">{totalBalls}</span>
              </div>
              <button 
                 onClick={() => setRunning(!running)}
                 className={`btn-apple transition-colors ${running ? 'bg-[#ff3b30] hover:bg-[#ff453a]' : 'bg-[#0071e3] hover:bg-[#0077ED]'}`}
             >
-                {running ? '停止' : '開始'}
+                {running ? t('modules.balls_in_bins.stop') : t('modules.balls_in_bins.start')}
             </button>
             <button 
                 onClick={reset}
                 className="btn-secondary"
             >
-                リセット
+                {t('modules.balls_in_bins.reset')}
             </button>
         </div>
       </div>
@@ -81,7 +83,7 @@ export default function BallsInBins() {
       <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F5F5F7] p-6 rounded-2xl">
          <div className="space-y-3">
             <div className="flex justify-between items-end">
-                <span className="text-xs font-bold text-[#86868b] uppercase tracking-wide">箱の数</span>
+                <span className="text-xs font-bold text-[#86868b] uppercase tracking-wide">{t('modules.balls_in_bins.bin_count')}</span>
                 <span className="font-mono text-lg font-bold text-[#1d1d1f]">{bins}</span>
             </div>
             <input 
@@ -96,7 +98,7 @@ export default function BallsInBins() {
          </div>
          <div className="space-y-3">
             <div className="flex justify-between items-end">
-                <span className="text-xs font-bold text-[#86868b] uppercase tracking-wide">速度</span>
+                <span className="text-xs font-bold text-[#86868b] uppercase tracking-wide">{t('modules.balls_in_bins.speed')}</span>
                 <span className="font-mono text-lg font-bold text-[#34c759]">{speed}</span>
             </div>
             <input 
@@ -125,7 +127,7 @@ export default function BallsInBins() {
                 className="absolute left-0 right-0 border-t-2 border-dotted border-[#ff3b30] z-20 pointer-events-none opacity-80 flex items-end justify-end px-2 transition-all duration-500 ease-out"
                 style={{ bottom: `calc(${(average / maxCount) * 100}% + 2px)` }}
              >
-                <span className="text-[10px] font-bold text-[#ff3b30] bg-white/90 px-1.5 py-0.5 rounded shadow-sm mb-1 transform translate-y-full">平均: {average.toFixed(1)}</span>
+                <span className="text-[10px] font-bold text-[#ff3b30] bg-white/90 px-1.5 py-0.5 rounded shadow-sm mb-1 transform translate-y-full">{t('modules.balls_in_bins.average')}: {average.toFixed(1)}</span>
              </div>
         )}
 
@@ -136,7 +138,7 @@ export default function BallsInBins() {
                 style={{ height: `${Math.max((count / maxCount) * 100, 2)}%`, opacity: 0.9 }}
             >
                 <div className="opacity-0 group-hover:opacity-100 absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-[#1d1d1f] text-white text-[10px] font-bold px-2 py-1 rounded-lg shadow-xl z-30 whitespace-nowrap pointer-events-none transition-opacity duration-200">
-                    箱 {i + 1}: {count}個
+                    {t('modules.balls_in_bins.bin_label', { index: i + 1, count })}
                 </div>
             </div>
         ))}

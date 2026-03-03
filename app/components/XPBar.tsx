@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { useProgress } from '../contexts/ProgressContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { GeistMono } from 'geist/font/mono';
+import { Languages } from 'lucide-react';
 
 export default function XPBar() {
   const { xp, level, title } = useProgress();
+  const { language, toggleLanguage, t } = useLanguage();
 
   // Level calculation logic (matches context)
   // Level N starts at (N-1)*1000 XP.
@@ -21,7 +24,7 @@ export default function XPBar() {
         
         {/* Level Indicator */}
         <div className="flex flex-col items-center justify-center min-w-[60px]">
-          <span className="text-[10px] text-gray-500 uppercase tracking-widest">Level</span>
+          <span className="text-[10px] text-gray-500 uppercase tracking-widest">{t('components.xp_bar.level_label')}</span>
           <span className="text-2xl font-bold text-white">{level}</span>
         </div>
 
@@ -43,9 +46,16 @@ export default function XPBar() {
           </div>
         </div>
 
-        {/* XP Gain Indicator (could be animated later) */}
-        <div className="hidden md:block text-[10px] text-gray-600 uppercase tracking-widest">
-           System // Online
+        {/* Language Toggle & System Status */}
+        <div className="hidden md:flex items-center gap-4 text-[10px] text-gray-600 uppercase tracking-widest">
+           <button 
+             onClick={toggleLanguage}
+             className="flex items-center gap-1 hover:text-white transition-colors border border-white/10 px-2 py-1 rounded"
+           >
+             <Languages className="w-3 h-3" />
+             {language === 'ja' ? 'JP' : 'EN'}
+           </button>
+           <span>{t('components.xp_bar.system_online')}</span>
         </div>
 
       </div>

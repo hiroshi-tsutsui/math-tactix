@@ -26,6 +26,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // --- Types ---
 type Mode = 'LEARN' | 'TACTICS';
@@ -75,6 +76,7 @@ function curriculumReducer(state: State, action: Action): State {
 }
 
 export default function MathTactixFinalSolution() {
+  const { t } = useLanguage();
   const [state, dispatch] = useReducer(curriculumReducer, { mode: 'LEARN', level: 0, step: 0 });
   const { mode, level, step } = state;
   
@@ -95,7 +97,7 @@ export default function MathTactixFinalSolution() {
       answer: "(5, -6)",
       options: ["(5, -6)", "(-5, 6)", "(10, 44)", "(5, 6)"],
       vertex: [5, -6],
-      instruction: "係数 2 を括り出し、頂点を特定せよ。"
+      instruction: t('modules.quadratics.tactics.q1_inst')
     },
     {
       generalForm: "y = -x^2 - 4x + 1",
@@ -103,7 +105,7 @@ export default function MathTactixFinalSolution() {
       answer: "(-2, 5)",
       options: ["(-2, 5)", "(2, 1)", "(-2, 1)", "(2, -5)"],
       vertex: [-2, 5],
-      instruction: "マイナスで括る際の符号ミスに注意して頂点を求めよ。"
+      instruction: t('modules.quadratics.tactics.q2_inst')
     },
     {
       generalForm: "y = x^2 - 3x + 2",
@@ -111,7 +113,7 @@ export default function MathTactixFinalSolution() {
       answer: "(1.5, -0.25)",
       options: ["(1.5, -0.25)", "(3, 2)", "(-1.5, 0.25)", "(1.5, 0.25)"],
       vertex: [1.5, -0.25],
-      instruction: "分数が絡むケース。半分の二乗を正確に引け。"
+      instruction: t('modules.quadratics.tactics.q3_inst')
     }
   ];
 
@@ -176,10 +178,13 @@ export default function MathTactixFinalSolution() {
   const checkTacticsAnswer = (opt: string) => {
     setSelectedOption(opt);
     if (opt === currentQ.answer) {
-      setFeedback({status: 'correct', msg: '正解です。頂点を正しく特定しました。'});
+      setFeedback({
+        status: 'correct', 
+        msg: t('modules.quadratics.tactics.correct') + " " + opt + " " + t('modules.quadratics.tactics.correct_suffix_2')
+      });
       setUserX(currentQ.vertex[0]);
     } else {
-      setFeedback({status: 'wrong', msg: '不正解。平方完成を見直しましょう。'});
+      setFeedback({status: 'wrong', msg: t('modules.quadratics.tactics.wrong')});
     }
   };
 
@@ -196,7 +201,7 @@ export default function MathTactixFinalSolution() {
       <header className="h-14 flex items-center justify-between px-6 shrink-0 border-b border-slate-50 bg-white/90 backdrop-blur-md z-50">
         <button onClick={() => dispatch({type: 'RESET'})} className="p-2 -ml-2 text-slate-400 hover:text-black transition-colors"><ChevronLeft className="w-6 h-6" /></button>
         <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">
-          {mode === 'LEARN' ? `Mission 0${level + 1}` : 'Pro Tactics'}
+          {mode === 'LEARN' ? `${t('modules.quadratics.ui.mission_prefix')}${level + 1}` : t('modules.quadratics.tactics.header')}
         </div>
         <div className="w-10" />
       </header>
@@ -227,18 +232,18 @@ export default function MathTactixFinalSolution() {
               <motion.div key="lvl0" className="space-y-8 text-center">
                 {step === 0 ? (
                    <div className="space-y-6">
-                     <h1 className="text-3xl font-extrabold tracking-tight">2次関数の極意</h1>
-                     <p className="text-slate-500 text-[15px] leading-relaxed">まずはグラフの<strong>向き</strong>を支配しましょう。</p>
-                     <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="bg-black text-white px-14 py-4 rounded-full font-bold shadow-xl">開始する</button>
+                     <h1 className="text-3xl font-extrabold tracking-tight">{t('modules.quadratics.levels.0.title')}</h1>
+                     <p className="text-slate-500 text-[15px] leading-relaxed" dangerouslySetInnerHTML={{__html: t('modules.quadratics.levels.0.desc')}} />
+                     <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="bg-black text-white px-14 py-4 rounded-full font-bold shadow-xl">{t('modules.quadratics.levels.0.start')}</button>
                    </div>
                 ) : (
                   <div className="space-y-6">
-                    <h2 className="text-xl font-bold">{a >= 0 ? "器（プラス）の形" : "山（マイナス）の形"}</h2>
+                    <h2 className="text-xl font-bold">{a >= 0 ? t('modules.quadratics.levels.0.shape_pos') : t('modules.quadratics.levels.0.shape_neg')}</h2>
                     <div className="space-y-4 pt-4">
-                       <div className="flex justify-between items-center px-1"><span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">開き方の係数 (a)</span><span className="font-mono font-bold text-blue-600">{a.toFixed(1)}</span></div>
+                       <div className="flex justify-between items-center px-1"><span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('modules.quadratics.levels.0.coeff_a')}</span><span className="font-mono font-bold text-blue-600">{a.toFixed(1)}</span></div>
                        <input type="range" min="-3" max="3" step="0.1" value={a} onChange={e => setA(Number(e.target.value))} className="w-full h-1.5 bg-slate-100 rounded-full appearance-none accent-blue-600 cursor-pointer" />
                     </div>
-                    {Math.abs(a) > 2.5 && <button onClick={() => dispatch({type: 'NEXT_LEVEL'})} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold shadow-lg">Lesson 02へ</button>}
+                    {Math.abs(a) > 2.5 && <button onClick={() => dispatch({type: 'NEXT_LEVEL'})} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold shadow-lg">{t('modules.quadratics.levels.0.next_lesson')}</button>}
                   </div>
                 )}
               </motion.div>
@@ -249,22 +254,22 @@ export default function MathTactixFinalSolution() {
               <motion.div key="lvl1" className="space-y-8">
                 {step === 0 ? (
                   <div className="text-center space-y-4">
-                    <h2 className="text-2xl font-bold">頂点の暗号を解く</h2>
-                    <p className="text-slate-500 text-sm leading-relaxed">$\displaystyle y = (x - p)^2 + q$ の形は頂点を見つけるための暗号です。</p>
-                    <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="bg-black text-white px-12 py-4 rounded-full font-bold">解読を開始</button>
+                    <h2 className="text-2xl font-bold">{t('modules.quadratics.levels.1.title')}</h2>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('modules.quadratics.levels.1.desc')}</p>
+                    <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="bg-black text-white px-12 py-4 rounded-full font-bold">{t('modules.quadratics.levels.1.start')}</button>
                   </div>
                 ) : (
                   <div className="space-y-6">
                     <div className="bg-blue-50 p-6 rounded-3xl border border-blue-100 space-y-3">
-                      <h3 className="font-bold text-blue-900 text-sm mb-2 flex items-center gap-2"><HelpCircle className="w-4 h-4" /> なぜ x - p なのか？</h3>
-                      <p className="text-xs text-blue-700 leading-relaxed">カッコ内を <strong>ゼロ</strong> にする横位置と、外に残った数字の高さを合わせます。目標の (2.0, -1.0) に頂点を重ねましょう。</p>
+                      <h3 className="font-bold text-blue-900 text-sm mb-2 flex items-center gap-2"><HelpCircle className="w-4 h-4" /> {t('modules.quadratics.levels.1.why_title')}</h3>
+                      <p className="text-xs text-blue-700 leading-relaxed" dangerouslySetInnerHTML={{__html: t('modules.quadratics.levels.1.why_desc')}} />
                     </div>
                     <div className="space-y-5">
-                       <div className="space-y-1"><span className="text-[10px] font-bold text-slate-400">横移動 (p) を 2.0 へ</span><input type="range" min="-4" max="4" step="0.1" value={p} onChange={e => setP(Number(e.target.value))} className="w-full h-1.5 bg-slate-100 rounded-full appearance-none accent-blue-600 cursor-pointer" /></div>
-                       <div className="space-y-1"><span className="text-[10px] font-bold text-slate-400">縦移動 (q) を -1.0 へ</span><input type="range" min="-4" max="4" step="0.1" value={q} onChange={e => setQ(Number(e.target.value))} className="w-full h-1.5 bg-slate-100 rounded-full appearance-none accent-blue-600 cursor-pointer" /></div>
+                       <div className="space-y-1"><span className="text-[10px] font-bold text-slate-400">{t('modules.quadratics.levels.1.move_p')}</span><input type="range" min="-4" max="4" step="0.1" value={p} onChange={e => setP(Number(e.target.value))} className="w-full h-1.5 bg-slate-100 rounded-full appearance-none accent-blue-600 cursor-pointer" /></div>
+                       <div className="space-y-1"><span className="text-[10px] font-bold text-slate-400">{t('modules.quadratics.levels.1.move_q')}</span><input type="range" min="-4" max="4" step="0.1" value={q} onChange={e => setQ(Number(e.target.value))} className="w-full h-1.5 bg-slate-100 rounded-full appearance-none accent-blue-600 cursor-pointer" /></div>
                     </div>
                     {Math.abs(p - 2) < 0.2 && Math.abs(q - (-1)) < 0.2 && (
-                      <button onClick={() => dispatch({type: 'NEXT_LEVEL'})} className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold shadow-lg">Lesson 03へ</button>
+                      <button onClick={() => dispatch({type: 'NEXT_LEVEL'})} className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold shadow-lg">{t('modules.quadratics.levels.1.next_lesson')}</button>
                     )}
                   </div>
                 )}
@@ -276,12 +281,12 @@ export default function MathTactixFinalSolution() {
               <motion.div key={`lvl${level}`} className="space-y-6">
                 <div className="bg-slate-900 p-8 rounded-[40px] shadow-2xl space-y-8 flex flex-col items-center">
                    <div className="text-center pb-4 border-b border-white/5 w-full">
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Target Equation</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">{t('modules.quadratics.levels.2_3.target_eq')}</p>
                       <MathComponent tex={level === 2 ? "y = x^2 - 4x + 3" : "y = 2x^2 - 20x + 44"} className="text-2xl text-white font-mono opacity-50" />
                    </div>
                    
                    <div className="w-full space-y-8 flex flex-col items-center">
-                      {step === 0 && <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="w-full bg-white text-black py-4 rounded-2xl font-bold">変形プロセスを開始</button>}
+                      {step === 0 && <button onClick={() => dispatch({type: 'NEXT_STEP'})} className="w-full bg-white text-black py-4 rounded-2xl font-bold">{t('modules.quadratics.levels.2_3.start_process')}</button>}
                       
                       {/* Unified Process View */}
                       {step >= 1 && (
@@ -300,7 +305,7 @@ export default function MathTactixFinalSolution() {
                                 <div className="text-center">
                                    <MathComponent tex={level === 2 ? "(x - 2)^2 - 4 + 3" : "2(x - 5)^2 - 50 + 44"} className="text-amber-400 text-xl font-bold" />
                                    <p className="text-slate-500 text-[10px] mt-1">
-                                      {level === 2 ? "(-2)^2 = 4 を引き算して調整" : "2 * (-5)^2 = 50 を引き算して調整"}
+                                      {level === 2 ? t('modules.quadratics.levels.2_3.adjust_desc_2') : t('modules.quadratics.levels.2_3.adjust_desc_3')}
                                    </p>
                                 </div>
                              </>
@@ -319,7 +324,7 @@ export default function MathTactixFinalSolution() {
                            )}
 
                            <button onClick={() => step < 3 ? dispatch({type: 'NEXT_STEP'}) : dispatch({type: 'NEXT_LEVEL'})} className={`w-full py-4 mt-4 rounded-2xl font-bold ${step < 3 ? 'bg-white text-black' : 'bg-emerald-600 text-white'}`}>
-                              {step < 3 ? "次の手順へ" : (level === 2 ? "Lesson 04：応用編へ" : "Lesson 05：架け橋へ")}
+                              {step < 3 ? t('modules.quadratics.levels.2_3.next_step') : (level === 2 ? t('modules.quadratics.levels.2_3.next_lesson_4') : t('modules.quadratics.levels.2_3.next_lesson_5'))}
                            </button>
                         </div>
                       )}
@@ -333,13 +338,11 @@ export default function MathTactixFinalSolution() {
               <motion.div key="lvl4" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="space-y-8 text-center">
                 <div className="w-20 h-20 bg-blue-600 rounded-[32px] flex items-center justify-center mx-auto shadow-2xl shadow-blue-200"><TrendingUp className="w-10 h-10 text-white" /></div>
                 <div className="space-y-4">
-                   <h1 className="text-3xl font-extrabold tracking-tight">戦術の目的</h1>
-                   <p className="text-slate-500 text-sm leading-relaxed px-2 text-left">
-                      世の中には必ず<strong>限界（範囲）</strong>があります。その限られた範囲の中で、最も良い結果（頂点）を狙い撃つのが数学の戦術です。
-                   </p>
+                   <h1 className="text-3xl font-extrabold tracking-tight">{t('modules.quadratics.levels.4.title')}</h1>
+                   <p className="text-slate-500 text-sm leading-relaxed px-2 text-left" dangerouslySetInnerHTML={{__html: t('modules.quadratics.levels.4.desc')}} />
                 </div>
                 <button onClick={() => { dispatch({type: 'SWITCH_MODE', payload: 'TACTICS'}); nextTactics(); }} className="w-full bg-slate-900 text-white py-5 rounded-3xl font-black text-lg flex items-center justify-center gap-3">
-                   <Target className="w-6 h-6 text-red-500" /> 実戦ミッションを開始
+                   <Target className="w-6 h-6 text-red-500" /> {t('modules.quadratics.levels.4.start_mission')}
                 </button>
               </motion.div>
             )}
@@ -348,7 +351,7 @@ export default function MathTactixFinalSolution() {
             {mode === 'TACTICS' && (
               <motion.div key={currentQ.generalForm} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
                  <div className="bg-red-50 p-6 rounded-[28px] border border-red-100 space-y-3">
-                    <div className="flex items-center gap-2 text-red-600 font-black text-[10px] uppercase tracking-widest"><FileText className="w-3 h-3" /> Exam Drill</div>
+                    <div className="flex items-center gap-2 text-red-600 font-black text-[10px] uppercase tracking-widest"><FileText className="w-3 h-3" /> {t('modules.quadratics.tactics.drill_label')}</div>
                     <h3 className="text-[15px] font-bold leading-relaxed text-slate-800"><MathComponent tex={currentQ.instruction} /></h3>
                     <div className="bg-white/50 p-3 rounded-xl border border-red-100 text-center"><MathComponent tex={currentQ.generalForm} className="text-xl font-bold text-slate-900" /></div>
                  </div>
@@ -368,8 +371,10 @@ export default function MathTactixFinalSolution() {
                           </div>
                           {feedback.status === 'correct' && (
                              <>
-                                <p className="text-[11px] text-emerald-600 leading-relaxed">正解です！この式を平方完成すると <MathComponent tex={currentQ.standardForm} /> となり、頂点は <MathComponent tex={currentQ.answer} /> です。</p>
-                                <button onClick={nextTactics} className="w-full mt-4 bg-slate-900 text-white py-4 rounded-2xl font-bold">次の問題へ</button>
+                                <p className="text-[11px] text-emerald-600 leading-relaxed">
+                                    {t('modules.quadratics.tactics.correct')} <MathComponent tex={currentQ.standardForm} /> {t('modules.quadratics.tactics.correct_suffix')} <MathComponent tex={currentQ.answer} /> {t('modules.quadratics.tactics.correct_suffix_2')}
+                                </p>
+                                <button onClick={nextTactics} className="w-full mt-4 bg-slate-900 text-white py-4 rounded-2xl font-bold">{t('modules.quadratics.tactics.next_q')}</button>
                              </>
                           )}
                        </motion.div>
@@ -384,10 +389,10 @@ export default function MathTactixFinalSolution() {
       {/* Footer */}
       <footer className="h-20 bg-white/90 backdrop-blur-md border-t border-slate-50 flex items-center justify-around px-6 shrink-0 z-50">
         <button onClick={() => dispatch({type: 'SWITCH_MODE', payload: 'LEARN'})} className={`flex flex-col items-center gap-1 transition-opacity ${mode === 'LEARN' ? 'opacity-100' : 'opacity-20'}`}>
-          <div className="w-5 h-5 rounded-md bg-blue-600" /><span className="text-[10px] font-bold text-blue-600">Learn</span>
+          <div className="w-5 h-5 rounded-md bg-blue-600" /><span className="text-[10px] font-bold text-blue-600">{t('modules.quadratics.ui.learn_mode')}</span>
         </button>
         <button onClick={() => { dispatch({type: 'SWITCH_MODE', payload: 'TACTICS'}); nextTactics(); }} className={`flex flex-col items-center gap-1 transition-opacity ${mode === 'TACTICS' ? 'opacity-100' : 'opacity-20'}`}>
-          <div className="w-5 h-5 rounded-md bg-red-500" /><span className="text-[10px] font-bold text-red-500">Tactics</span>
+          <div className="w-5 h-5 rounded-md bg-red-500" /><span className="text-[10px] font-bold text-red-500">{t('modules.quadratics.ui.tactics_mode')}</span>
         </button>
       </footer>
     </div>

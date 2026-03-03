@@ -1,6 +1,7 @@
 // @ts-nocheck
 "use client";
 
+import { useLanguage } from '../contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
@@ -8,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Sparkles, Binary, Globe, GraduationCap } from 'lucide-react';
 
 export default function OverviewPage() {
+  const { t } = useLanguage();
   const [phase, setPhase] = useState<'LOADING' | 'CONTENT'>('LOADING');
 
   useEffect(() => {
@@ -45,21 +47,23 @@ export default function OverviewPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-2 text-blue-600">
                   <Sparkles className="w-5 h-5" />
-                  <span className="text-sm font-black tracking-widest uppercase">Math-Tactix Vision</span>
+                  <span className="text-sm font-black tracking-widest uppercase">{t('overview.vision')}</span>
                 </div>
-                <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[0.95]">
-                  数学は、「お勉強」<br/>ではない。
-                </h1>
-                <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-2xl">
-                  世界を記述する唯一の言語であり、<br/>未来をハックするための最強の武器だ。
-                </p>
+                <h1 
+                  className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[0.95]"
+                  dangerouslySetInnerHTML={{ __html: t('overview.headline') }}
+                />
+                <p 
+                  className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed max-w-2xl"
+                  dangerouslySetInnerHTML={{ __html: t('overview.subheadline') }}
+                />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                  {[
-                   { icon: Binary, title: "論理の構築", desc: "単なる計算ではなく、事象の背後にあるルールを見つけ出し、論理を組み立てる力を養います。" },
-                   { icon: Globe, title: "現実との接続", desc: "教科書の中だけで完結せず、AI開発や金融、物理シミュレーションなど、実社会での数学の使い道を提示します。" },
-                   { icon: GraduationCap, title: "プロツールの視点", desc: "「正解」を出すだけの学習から卒業し、数学を自らのアイデアを形にするための「道具」として扱います。" }
+                   { icon: Binary, title: t('overview.features.logic.title'), desc: t('overview.features.logic.desc') },
+                   { icon: Globe, title: t('overview.features.reality.title'), desc: t('overview.features.reality.desc') },
+                   { icon: GraduationCap, title: t('overview.features.tool.title'), desc: t('overview.features.tool.desc') }
                  ].map((item, i) => (
                    <div key={i} className="space-y-4">
                       <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center">
@@ -73,16 +77,16 @@ export default function OverviewPage() {
 
               <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row gap-6 items-center">
                  <Link href="/" className="px-10 py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-900/10 flex items-center gap-2 group">
-                   メインメニューへ <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                   {t('overview.main_menu')} <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                  </Link>
                  <Link href="/quiz" className="text-sm font-bold text-slate-400 hover:text-slate-900 transition-colors">
-                   実力判定テストを受ける
+                   {t('overview.take_test')}
                  </Link>
               </div>
             </div>
 
             <footer className="pt-24 text-[10px] text-slate-300 font-black tracking-[0.3em] uppercase">
-              Math-Tactix // Mathematical OS v2.7.0
+              {t('overview.footer')}
             </footer>
           </motion.main>
         )}

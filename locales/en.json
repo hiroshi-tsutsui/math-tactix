@@ -14,396 +14,785 @@
     "warning": "WARNING",
     "op": "OP"
   },
+  "components": {
+    "profile_header": {
+      "clearance": "CLEARANCE: L"
+    },
+    "xp_bar": {
+      "level_label": "Level",
+      "system_online": "System // Online"
+    }
+  },
+  "dashboard": {
+    "title_main": "Math-Tactix",
+    "title_sub": "Next-Gen Math Learning OS",
+    "rank_label": "Current Rank",
+    "profile_btn": "PROFILE",
+    "settings_btn": "SETTINGS",
+    "manual_btn": "SYSTEM MANUAL",
+    "launch_btn": "LAUNCH MODULE",
+    "status_completed": "COMPLETE",
+    "status_dev": "DEV",
+    "footer": "Math-Tactix — {{year}} — Mathematical OS",
+    "modules": {
+      "algebraic_logic": {
+        "title": "Algebraic Logic",
+        "subtitle": "Algebraic Logic",
+        "desc": "From positive/negative numbers to equations and factorization. Master the 'literacy' of logic."
+      },
+      "functional_dynamics_jh": {
+        "title": "Functional Dynamics",
+        "subtitle": "Functional Dynamics",
+        "desc": "Proportionality, inverse proportionality, linear functions. Learn the basics of describing change with formulas."
+      },
+      "geometric_space": {
+        "title": "Geometric Space",
+        "subtitle": "Geometric Space",
+        "desc": "Similarity, inscribed angles, Pythagorean theorem. Cultivate the ability to grasp space logically."
+      },
+      "data_chance_jh": {
+        "title": "Data & Chance",
+        "subtitle": "Data & Chance",
+        "desc": "Basics of data distribution and probability. The first step to capturing an uncertain world numerically."
+      },
+      "quadratics": {
+        "title": "Quadratics",
+        "subtitle": "Mathematics I",
+        "desc": "Design parabolas and derive optimal solutions for parameters."
+      },
+      "data": {
+        "title": "Data Analysis",
+        "subtitle": "Mathematics I",
+        "desc": "Identify the truth behind data using correlation coefficients (r)."
+      },
+      "probability": {
+        "title": "Probability",
+        "subtitle": "Mathematics A",
+        "desc": "Calculate uncertain events and compute future expected values."
+      },
+      "calculus": {
+        "title": "Calculus",
+        "subtitle": "Mathematics II",
+        "desc": "Master the moving world using laws of instantaneous change and accumulation."
+      },
+      "sequences": {
+        "title": "Sequences",
+        "subtitle": "Mathematics B",
+        "desc": "Find continuity in patterns and predict future trends."
+      },
+      "logs": {
+        "title": "Logarithms",
+        "subtitle": "Mathematics II",
+        "desc": "Compress exponential growth into a manageable scale."
+      },
+      "trig": {
+        "title": "Trigonometry",
+        "subtitle": "Mathematics II",
+        "desc": "Synchronize circular motion with wave properties and analyze periodicity."
+      },
+      "vectors": {
+        "title": "Vectors",
+        "subtitle": "Mathematics C",
+        "desc": "Manipulate 'direction' and 'magnitude' to define multi-dimensional space."
+      },
+      "complex": {
+        "title": "Complex Plane",
+        "subtitle": "Mathematics C",
+        "desc": "Visualize new dimensions using imaginary rotation."
+      },
+      "matrices": {
+        "title": "Matrices",
+        "subtitle": "Mathematics C",
+        "desc": "Learn the mechanism of linear transformations that freely distort space."
+      },
+      "functions": {
+        "title": "Functions & Limits",
+        "subtitle": "Mathematics III",
+        "desc": "Master input/output logic and completely decode the black box."
+      },
+      "quiz": {
+        "title": "Proficiency Test",
+        "subtitle": "Assessment",
+        "desc": "Measure current understanding and optimize your learning plan."
+      }
+    },
+    "sections": {
+      "prep": {
+        "name": "Preparation: Assessment",
+        "desc": "Verify the version of your current mathematical OS."
+      },
+      "jh": {
+        "name": "Junior High: Foundations",
+        "desc": "Solidify the logical thinking and spatial grasp required for High School math."
+      },
+      "hs_1a": {
+        "name": "High School: Math I・A",
+        "desc": "Basic tools directly connected to modern data science and design."
+      },
+      "hs_2b": {
+        "name": "High School: Math II・B",
+        "desc": "Advanced analysis tools for handling phenomenon transitions and energy accumulation."
+      },
+      "hs_3c": {
+        "name": "High School: Math III・C",
+        "desc": "The ultimate OS for manipulating space, dimensions, and limits to approach universal truths."
+      }
+    }
+  },
+  "settings": {
+    "title": "System Settings",
+    "subtitle": "Adjust application environment preferences.",
+    "back": "Back",
+    "audio": {
+      "title": "Audio Feedback",
+      "desc": "Enable sound effects during interaction.",
+      "on": "ON",
+      "off": "OFF"
+    },
+    "version": {
+      "title": "System Version",
+      "desc": "Math-Tactix Core Engine"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "wipe_title": "Initialize Learning Data",
+      "wipe_desc": "Delete all learning progress, XP, and rank. This action cannot be undone.",
+      "wipe_btn": "Erase All Data",
+      "wipe_confirm": "Are you sure?",
+      "cancel": "Cancel"
+    }
+  },
+  "manual": {
+    "title": "System Manual",
+    "back": "Back",
+    "nav": {
+      "basic": "Basics",
+      "modules": "Learning Modes",
+      "glossary": "Glossary",
+      "ranks": "Ranks"
+    },
+    "sections": {
+      "basic": {
+        "title": "Basics",
+        "mastery": {
+          "title": "Mastery",
+          "desc": "Displays the completion status of all units as a percentage. Clear 3 stages in all units to aim for 100% Mastery (OMEGA Rank)."
+        },
+        "score": {
+          "title": "Proficiency Score",
+          "desc": "Your mathematical baseline based on initial assessment. Improve this precision by learning each unit."
+        }
+      },
+      "modules": {
+        "title": "Learning Modes",
+        "vis": {
+          "title": "Visualization Mission",
+          "desc": "Manipulate graphs and figures directly (e.g., vectors, data analysis) to achieve objectives. Emphasizes the link between 'intuition' and 'theory'."
+        },
+        "logic": {
+          "title": "Logic Identification",
+          "desc": "Infer the hidden 'function (rule)' of a black box by observing output changes. Cultivates thinking similar to programming and AI training."
+        }
+      },
+      "glossary": {
+        "title": "Glossary",
+        "terms": {
+          "correlation": { "term": "Correlation", "def": "Relationship between two numerical data sets." },
+          "diff": { "term": "Differentiation", "def": "Momentary rate of change or graph slope." },
+          "int": { "term": "Integration", "def": "Accumulated total or area of small changes." },
+          "vec": { "term": "Vector", "def": "Quantity with magnitude and direction." },
+          "exp": { "term": "Exponent", "def": "Calculation mechanism that grows snowball-style." },
+          "complex": { "term": "Complex Number", "def": "Advanced number capable of describing planar rotation." }
+        }
+      },
+      "ranks": {
+        "title": "Rank System",
+        "list": {
+          "omega": { "name": "OMEGA", "desc": "100% Mastery. One who has mastered all concepts." },
+          "architect": { "name": "ARCHITECT", "desc": "80%+ Mastery. Capable of advanced design." },
+          "operator": { "name": "OPERATOR", "desc": "50%+ Mastery. Can use math as a tool." },
+          "learner": { "name": "LEARNER", "desc": "0%+. A learner building foundations." }
+        }
+      }
+    }
+  },
+  "overview": {
+    "vision": "MATH-TACTIX VISION",
+    "headline": "Math is not just<br/>'Studying'.",
+    "subheadline": "It is the only language that describes the world,<br/>and the strongest weapon to hack the future.",
+    "features": {
+      "logic": {
+        "title": "Construction of Logic",
+        "desc": "Cultivate the ability to find the rules behind phenomena and build logic, rather than just simple calculation."
+      },
+      "reality": {
+        "title": "Connection to Reality",
+        "desc": "Present the use of mathematics in the real world, such as AI development, finance, and physics simulation, not just in textbooks."
+      },
+      "tool": {
+        "title": "Professional Tool Perspective",
+        "desc": "Graduate from learning only to produce 'correct answers' and treat mathematics as a 'tool' to shape your own ideas."
+      }
+    },
+    "main_menu": "Main Menu",
+    "take_test": "Take Assessment Test",
+    "footer": "Math-Tactix // Mathematical OS v2.7.0"
+  },
   "modules": {
-    "math_quadratic": {
-      "title": "QUADRATIC INNOVATION",
-      "subtitle": "PROTOCOL: PARABOLIC ARCHITECT",
-      "controls": "PARAMETER CONTROLS"
+    "algebraic_logic": {
+      "title": "Algebraic Logic",
+      "subtitle": "Algebraic Logic",
+      "desc": "From positive/negative numbers to equations and factorization. Master the 'literacy' of logic."
+    },
+    "functional_dynamics_jh": {
+      "title": "Functional Dynamics",
+      "subtitle": "Functional Dynamics",
+      "desc": "Proportionality, inverse proportionality, linear functions. Learn the basics of describing change with formulas."
+    },
+    "geometric_space": {
+      "title": "Geometric Space",
+      "subtitle": "Geometric Space",
+      "desc": "Similarity, inscribed angles, Pythagorean theorem. Cultivate the ability to grasp space logically."
+    },
+    "data_chance_jh": {
+      "title": "Data & Chance",
+      "subtitle": "Data & Chance",
+      "desc": "Basics of data distribution and probability. The first step to capturing an uncertain world numerically."
     },
     "quadratics": {
-      "title": "GRAVITY SIMULATION",
+      "title": "Quadratics",
+      "subtitle": "Mathematics I",
+      "desc": "Design parabolas and derive optimal solutions for parameters.",
       "levels": {
         "0": {
-          "title": "The Art of Quadratics",
-          "desc": "First, master the **Orientation** of the graph.",
-          "start": "INITIALIZE",
-          "shape_pos": "The Vessel (Positive)",
-          "shape_neg": "The Mountain (Negative)",
-          "coeff_a": "Coefficient of Opening (a)",
-          "next_lesson": "Proceed to Lesson 02"
+          "title": "Secrets of Quadratics",
+          "desc": "First, control the <strong>direction</strong> of the graph.",
+          "start": "Start",
+          "shape_pos": "Cup Shape (+)",
+          "shape_neg": "Mountain Shape (-)",
+          "coeff_a": "Coefficient (a)",
+          "next_lesson": "To Lesson 02"
         },
         "1": {
-          "title": "Deciphering the Vertex",
-          "desc": "The form y = (x - p)^2 + q is a cipher for locating the vertex.",
-          "start": "BEGIN DECRYPTION",
+          "title": "Decoding the Vertex",
+          "desc": "y = (x - p)^2 + q is the code to find the vertex.",
+          "start": "Start Decoding",
           "why_title": "Why x - p?",
-          "why_desc": "Match the horizontal position that makes the bracket **zero**, and the height of the remaining number. Align vertex to (2.0, -1.0).",
-          "move_p": "Shift Horizontal (p) to 2.0",
-          "move_q": "Shift Vertical (q) to -1.0",
-          "next_lesson": "Proceed to Lesson 03"
+          "why_desc": "Match the horizontal position that makes the inside of the parenthesis <strong>zero</strong>, and the height of the remaining number outside. Overlap the vertex at target (2.0, -1.0).",
+          "move_p": "Horizontal (p) to 2.0",
+          "move_q": "Vertical (q) to -1.0",
+          "next_lesson": "To Lesson 03"
         },
         "2_3": {
-          "target_eq": "TARGET EQUATION",
-          "start_process": "INITIATE TRANSFORMATION",
+          "target_eq": "Target Equation",
+          "start_process": "Start Transformation",
           "adjust_desc_2": "Subtract (-2)^2 = 4 to adjust",
           "adjust_desc_3": "Subtract 2 * (-5)^2 = 50 to adjust",
-          "next_step": "NEXT STEP",
-          "next_lesson_4": "Lesson 04: Advanced Application",
-          "next_lesson_5": "Lesson 05: The Bridge"
+          "next_step": "Next Step",
+          "next_lesson_4": "To Lesson 04: Applied",
+          "next_lesson_5": "To Lesson 05: Bridge"
         },
         "4": {
           "title": "Tactical Objective",
-          "desc": "There are always **limits (ranges)** in the world. Mathematical tactics aim for the best result (vertex) within those limits.",
-          "start_mission": "START COMBAT MISSION"
+          "desc": "There is always a <strong>limit (range)</strong> in the world. Mathematical tactics is about aiming for the best result (vertex) within that limited range.",
+          "start_mission": "Start Combat Mission"
         }
       },
       "tactics": {
-        "header": "PRO TACTICS",
-        "drill_label": "EXAM DRILL",
-        "correct": "Correct! Completing the square yields",
-        "correct_suffix": "and the vertex is",
+        "header": "Pro Tactics",
+        "drill_label": "Exam Drill",
+        "correct": "Correct! Completing the square gives",
+        "correct_suffix": ", so the vertex is",
         "correct_suffix_2": ".",
-        "wrong": "Incorrect. Review your square completion.",
-        "next_q": "NEXT QUESTION",
+        "wrong": "Incorrect. Review completing the square.",
+        "next_q": "Next Question",
         "q1_inst": "Factor out coefficient 2 and identify the vertex.",
-        "q2_inst": "Find the vertex, watching for sign errors when factoring the negative.",
-        "q3_inst": "Fraction case. Accurately subtract the square of half."
+        "q2_inst": "Beware of sign errors when factoring out negative.",
+        "q3_inst": "Fraction involved. Subtract the square of half correctly."
       },
       "ui": {
-        "mission_prefix": "MISSION 0",
-        "learn_mode": "LEARN",
-        "tactics_mode": "TACTICS"
+        "mission_prefix": "Mission 0",
+        "learn_mode": "Learn",
+        "tactics_mode": "Tactics"
+      }
+    },
+    "data": {
+      "title": "Data Analysis",
+      "subtitle": "Mathematics I",
+      "desc": "Identify the truth behind data using correlation coefficients (r).",
+      "levels": {
+        "1": {
+          "name": "Signal Generation",
+          "desc": "Generate baseline data. Plot 5+ points to achieve Correlation (r) > 0.90.",
+          "log_start": "Starting data generation...",
+          "log_guide": "Click to plot points and create a data trend."
+        },
+        "2": {
+          "name": "Noise Removal",
+          "desc": "Eliminate noise from data. Remove outliers to improve data precision.",
+          "log_start": "Scanning for noise...",
+          "log_guide": "Click outliers that deviate from the trend to remove them."
+        },
+        "3": {
+          "name": "Maximize Precision",
+          "desc": "Aim for high synchronization. Maintain Correlation > 0.99 with 10+ points.",
+          "log_start": "Starting final adjustment...",
+          "log_guide": "Plot points densely to approximate a straight line."
+        }
+      },
+      "concepts": {
+        "title": "01. Basic Concepts",
+        "correlation_title": "What is Correlation?",
+        "correlation_body": "An index indicating the relationship between two numerical datasets. For example, if 'Temperature' rises and 'Ice Cream Sales' rise, they have a <strong>Positive Correlation</strong>. If 'Rainfall' increases and 'Customer Count' decreases, they have a <strong>Negative Correlation</strong>.",
+        "importance_title": "Why is it important?",
+        "importance_body": "It is essential for predicting the future in the real world. Stock movements, disease progression, cosmic expansion. Everything is controlled by finding patterns in data relationships and predicting the next move."
+      },
+      "theory": {
+        "title": "02. Theoretical Model",
+        "def_title": "Definition //",
+        "def_term": "Correlation Coefficient (r)",
+        "r_desc": "Correlation coefficient <em>r</em> ranges from -1 to +1.<br/>Closer to +1 means strong positive correlation, closer to -1 means strong negative correlation, 0 means no relationship."
+      },
+      "viz": {
+        "title": "03. Data Visualization",
+        "integrity": "Precision (r)",
+        "target": "Target",
+        "regression": "Regression Line",
+        "data_count": "Data Count (N)",
+        "residuals": "Show Residuals",
+        "viewport": "Viewport // Click to add/remove points"
+      },
+      "apps": {
+        "title": "04. Applications",
+        "finance_title": "Finance & Investment",
+        "finance_body": "Used in 'Portfolio Theory' to analyze asset relationships and disperse risk. Combining assets with inverse movements reduces damage during crashes.",
+        "ai_title": "AI & Machine Learning",
+        "ai_body": "Used to select data strongly related to the prediction target when training AI. Removing irrelevant noise makes AI smarter.",
+        "spurious_title": "Spurious Correlation",
+        "spurious_body": "'Ice cream sales' and 'drowning accidents' are strongly related, but one didn't cause the other (common cause: 'Temperature'). In data analysis, not being fooled by this 'spurious' relationship is key."
+      },
+      "completion": {
+        "synced": "Analysis Complete",
+        "msg": "Data integrity confirmed. Your analysis result is approved."
+      },
+      "actions": {
+        "node_deleted": "Data Deleted",
+        "node_injected": "Data Added"
       }
     },
     "probability": {
-      "title": "PROBABILITY & STATISTICS",
+      "title": "Probability",
+      "subtitle": "Mathematics A",
+      "desc": "Calculate uncertain events and compute future expected values.",
       "levels": {
-        "1": { "mission": "Shift the data center to the right by moving Mean (μ) to 2.0." },
-        "2": { "mission": "Reduce data variance by lowering Standard Deviation (σ)." },
-        "3": { "mission": "Challenge the Monty Hall Problem and experience counter-intuitive probability." }
+        "1": { "mission": "Move Mean (μ) to 2.0 to shift data center to the right." },
+        "2": { "mission": "Decrease Standard Deviation (σ) to reduce data spread." },
+        "3": { "mission": "Challenge the Monty Hall Problem and experience counter-intuitive probability." },
+        "4": { "mission": "Observe the Law of Large Numbers. Increase trials and see distribution approach theoretical mean." }
       },
       "monty_hall": {
         "title": "Monty Hall Problem",
         "reset": "RESET",
-        "door_reveal": "Door {{opened}} was a goat. Do you want to switch?",
-        "keep": "KEEP",
-        "switch": "SWITCH",
+        "door_reveal": "Door {{opened}} was empty. Change selection?",
+        "keep": "Keep",
+        "switch": "Switch",
         "win_rate_stay": "Win Rate (Stay)",
         "win_rate_switch": "Win Rate (Switch)"
       },
       "normal_dist": {
         "title": "Normal Distribution Simulator",
         "mean": "Mean (μ)",
-        "std_dev": "Standard Deviation (σ)",
-        "check": "CHECK STATUS"
+        "std_dev": "Std Dev (σ)",
+        "check": "Check Status"
       },
       "completion": {
-        "title": "MISSION CLEAR",
-        "next": "PROCEED"
-      }
-    },
-    "complex": {
-      "title": "COMPLEX PLANE VISUALIZATION"
-    },
-    "logs": {
-      "title": "LOGARITHMIC COMPRESSION"
-    },
-    "matrices": {
-      "title": "MATRIX TRANSFORMATION",
-      "levels": {
-        "1": { "name": "90° ROTATION", "desc": "Manipulate the matrix to rotate the space 90 degrees counter-clockwise." },
-        "2": { "name": "SCALING (2x)", "desc": "Uniformly expand the entire space by a factor of 2." },
-        "3": { "name": "SHEAR (SKEW)", "desc": "Distort the space horizontally (along the x-axis)." }
-      },
-      "ui": {
-        "analysis_title": "SPATIAL DEFORMATION ANALYSIS",
-        "matrix_label": "TRANSFORMATION MATRIX T",
-        "red_arrow": "RED VECTOR: Basis i (1,0) Destination",
-        "green_arrow": "GREEN VECTOR: Basis j (0,1) Destination",
-        "mission_title": "MISSION OBJECTIVE",
-        "activity_log": "ACTIVITY LOG",
-        "log_start": "INITIATING LEVEL {{level}}...",
-        "log_success": "MATRIX TRANSFORMATION SUCCESSFUL.",
-        "next_btn": "PROCEED",
-        "back": "RETURN"
-      }
-    },
-    "quiz": {
-      "title": "PROFICIENCY TEST"
-    },
-    "data": {
-      "title": "DATA_ARCHIVE (Data Analysis)",
-      "levels": {
-        "1": {
-          "name": "SIGNAL INJECTION",
-          "desc": "Establish a carrier wave. Inject 5+ signal nodes and achieve correlation (r) > 0.90.",
-          "log_start": "Initializing Signal Injection...",
-          "log_guide": "Please inject signal nodes to form a carrier wave."
-        },
-        "2": {
-          "name": "NOISE PURGE",
-          "desc": "Eliminate interference. Remove anomalies (outliers) to restore signal integrity.",
-          "log_start": "Initializing Noise Purge...",
-          "log_guide": "Signal corruption detected. Please purge anomalies."
-        },
-        "3": {
-          "name": "ARCHIVE LOCK",
-          "desc": "Achieve full synchronization. Maintain stability > 0.99 with 10+ nodes.",
-          "log_start": "Initializing Archive Lock...",
-          "log_guide": "Stabilize the signal. Increase node density (10+) and coherence."
-        }
-      },
-      "concepts": {
-        "title": "01. BASIC CONCEPTS",
-        "correlation_title": "What is Correlation?",
-        "correlation_body": "A measure of the relationship between two variables. If 'Temperature' rises and 'Ice Cream Sales' rise, this is a **Positive Correlation**. If 'Rain' increases and 'Customers' decrease, this is a **Negative Correlation**.",
-        "importance_title": "Why is it important?",
-        "importance_body": "In the real world (outside the simulation), it is essential for prediction. Stock prices, disease progression, cosmic expansion. All are controllable by finding patterns in data correlations to predict the next 'frame'."
-      },
-      "theory": {
-        "title": "02. THEORY",
-        "def_title": "DEFINITION //",
-        "def_term": "Correlation Coefficient (r)",
-        "r_desc": "The correlation coefficient *r* ranges from -1 to +1. Closer to +1 means strong positive correlation, -1 means strong negative correlation, and 0 means no correlation."
-      },
-      "viz": {
-        "title": "03. VISUALIZATION",
-        "integrity": "INTEGRITY (r)",
-        "target": "TARGET",
-        "regression": "Regression",
-        "data_count": "Count (N)",
-        "residuals": "Residuals",
-        "viewport": "VIEWPORT_01 // CLICK TO ADD/REMOVE NODES"
-      },
-      "apps": {
-        "title": "04. APPLICATIONS",
-        "finance_title": "Finance",
-        "finance_body": "Used in Portfolio Theory to analyze asset correlations and diversify risk. combining negatively correlated assets reduces damage during crashes.",
-        "ai_title": "AI & Machine Learning",
-        "ai_body": "Used in Feature Selection to pick data strongly correlated with target variables. Removing irrelevant noise improves model accuracy.",
-        "spurious_title": "The Trap of Spurious Correlation",
-        "spurious_body": "There is a strong correlation between 'Ice Cream Sales' and 'Drowning Accidents', but no causation (the common factor is 'Temperature'). An Operator must never confuse correlation with causation."
-      },
-      "completion": {
-        "synced": "PROTOCOL SYNCED",
-        "msg": "Signal integrity restored. The Archive acknowledges your contribution."
-      },
-      "actions": {
-        "node_deleted": "Node Deleted",
-        "node_injected": "Node Injected"
+        "title": "Mission Clear",
+        "next": "Next"
       }
     },
     "calculus": {
-        "title": "FLUX_ENGINE (Calculus Protocol)",
+        "title": "Calculus",
+        "subtitle": "Mathematics II",
+        "desc": "Master the moving world using laws of instantaneous change and accumulation.",
         "levels": {
-            "1": { "name": "FLUX DETECTOR", "desc": "Capture the world's movement. Manipulate parameter (t) and observe Slope > 1.0.", "log_start": "Initializing Flux Detector...", "log_guide": "System is static. Exceed critical velocity." },
-            "2": { "name": "ZERO POINT", "desc": "Identify the moment change stops. Locate Slope ≈ 0.", "log_start": "Scanning for Zero Point...", "log_guide": "Searching for equilibrium. Locate the extremum." },
-            "3": { "name": "INTEGRAL FIELD", "desc": "Accumulate infinitesimal forces. Achieve Area > 5.0.", "log_start": "Deploying Integral Field...", "log_guide": "Accumulate energy. Maximize the area under the curve." },
-            "4": { "name": "REALITY HACK", "desc": "Gradient descent, physics, economics. Apply this power outside the simulation.", "log_start": "Optimizing System...", "log_guide": "Initiating external variable application protocol." }
+            "1": { "name": "Detect Change", "desc": "Capture 'movement'. Manipulate parameters and observe slope > 2.0.", "log_start": "Starting change detection...", "log_guide": "Move points on graph to create sharp change (slope)." },
+            "2": { "name": "Identify Vertex", "desc": "Find the moment change stops. Identify the point where slope becomes 0.", "log_start": "Searching for peak...", "log_guide": "Find the peak/valley (extremum). Change stops momentarily there." },
+            "3": { "name": "Calculate Area", "desc": "Accumulate small changes. Achieve area under graph > 10.0.", "log_start": "Starting area calculation...", "log_guide": "Use integration to calculate total amount enclosed by graph." },
+            "4": { "name": "Real World App", "desc": "AI training, physics sim, economics. This math is used everywhere.", "log_start": "Optimizing system...", "log_guide": "Starting application to real data." }
         },
         "concepts": {
-            "title": "01. CORE CONCEPTS",
-            "diff_title": "Differentiation: Instant Analysis",
-            "diff_body": "The world is not static. How is it changing <span class='text-cyan-400'>'right now'</span>? That is differentiation. A speedometer displays the derivative of position in real-time.",
-            "int_title": "Integration: Accumulated Result",
-            "int_body": "The <span class='text-cyan-400'>'accumulation'</span> of the past. Adding up infinite slices to find total distance, volume, or energy. A CT scan reconstructs a 3D object by integrating slices."
+            "title": "01. Basic Concepts",
+            "diff_title": "Differentiation: Seeing Momentary Movement",
+            "diff_body": "The world is always moving. How it changes <span class='text-cyan-400'>'right now'</span>. That is differentiation. Speedometers differentiate position changes in real-time." },
+            "int_title": "Integration: Seeing Accumulated Results",
+            "int_body": "<span class='text-cyan-400'>'Accumulation'</span> from the past. Summing up scattered pieces to calculate total distance, area, or energy. CT scans integrate body cross-sections to create 3D models."
         },
         "theory": {
-            "title": "02. THEORETICAL FRAMEWORK",
-            "def_title": "DEFINITION //",
-            "def_term": "Flux Dynamics",
-            "derivative_desc": "<strong>Derivative f'(x):</strong> The slope of the tangent at a point. Captures instantaneous rate of change via limits.<br/><br/><strong>Definite Integral ∫ f(x)dx:</strong> The area between the graph and the X-axis. Represents the total accumulation of infinitesimal changes."
+            "title": "02. Theoretical System",
+            "def_title": "Definition //",
+            "def_term": "Flow Equation",
+            "derivative_desc": "<strong>Derivative f'(x):</strong> 'Momentum' or 'Slope' at a point. Captures momentary movement in infinitesimally small time.<br/><br/><strong>Definite Integral ∫ f(x)dx:</strong> 'Area' between graph and horizontal axis. Sum of all small changes. Enables 'future prediction' and 'past analysis'."
         },
         "viz": {
-            "title": "03. FLUX ENGINE (VISUALIZATION)",
+            "title": "03. Change Analysis Engine",
             "controls": {
-                "function_label": "INPUT FUNCTION f(x)",
-                "time_label": "PARAMETER (t)",
-                "telemetry": "LIVE TELEMETRY",
-                "value": "VALUE f(t)",
-                "slope": "SLOPE f'(t)",
-                "area": "AREA ∫f(x)dx",
-                "enable_3d": "3D MODE (VORTEX)",
-                "disable_3d": "2D MODE (FLAT)",
-                "rotation_active": "ROTATION LOCK: OFF"
+                "function_label": "Input Function f(x)",
+                "time_label": "Parameter (x)",
+                "telemetry": "Real-time Telemetry",
+                "value": "Current Value f(x)",
+                "slope": "Momentary Slope f'(x)",
+                "area": "Total Area ∫f(x)dx",
+                "enable_3d": "Switch to 3D",
+                "disable_3d": "Back to 2D",
+                "rotation_active": "Lock Rotation"
             },
-            "viewport_label": "VIEWPORT: "
+            "viewport_label": "Viewport: "
         },
         "apps": {
-            "title": "04. APPLICATIONS",
-            "physics_title": "Physics (Kinematics)",
-            "physics_body": "Motion prediction. From falling apples to orbital mechanics, all motion is described by differential equations. God wrote the world in calculus.",
-            "ml_title": "Machine Learning",
-            "ml_body": "Gradient Descent. AI learns by 'sliding down' (differentiating) the slope of error to find the smartest state (local minimum).",
+            "title": "04. Applications",
+            "physics_title": "Physics",
+            "physics_body": "Motion prediction. From falling apples to rocket trajectories, all movement is written in differential equations. Language to decode cosmic laws.",
+            "ml_title": "AI & Machine Learning",
+            "ml_body": "'Learning' mechanism. AI finds the correct answer by descending the slope of its own errors (differentiation).",
             "econ_title": "Economics",
-            "econ_body": "Marginal Analysis. Calculating 'what happens if we produce one more unit?' to identify the profit maximization point (slope=0)."
+            "econ_body": "Profit maximization. Calculating 'how profit changes if we sell one more' to pinpoint the most profitable point."
         },
         "completion": {
-            "synced": "SYNC COMPLETE",
-            "msg": "Flux Engine parameters optimized. The flow of time is now under your control."
+            "synced": "Analysis Complete",
+            "msg": "Numeric optimization complete. Change laws mastered."
         },
         "actions": {
-            "sync": "SYNC MODULE"
+            "sync": "Execute Analysis"
         }
     },
     "vectors": {
-        "title": "VOID SCOUT",
+        "title": "Vectors",
+        "subtitle": "Mathematics C",
+        "desc": "Manipulate 'direction' and 'magnitude' to define multi-dimensional space.",
         "levels": {
-            "1": { "name": "BASICS", "desc": "Direction & Magnitude.", "log_guide": "Initialize system. Set Vector A magnitude > 5.0.", "log_start": "Initializing Void Scout..." },
-            "2": { "name": "THEORY", "desc": "Dot & Cross Products.", "log_guide": "Orthogonality check. Make Vector A and B perpendicular (Dot Product ≈ 0)." },
-            "3": { "name": "VISUALIZATION", "desc": "Drone Calibration.", "log_guide": "Alignment check. Make Vector A and B parallel (Angle ≈ 0°)." },
-            "4": { "name": "APPLY", "desc": "Navigation & Forces." }
+            "1": { "name": "Basics", "desc": "Quantity with 'direction' and 'magnitude'.", "log_start": "Starting spatial control...", "log_guide": "Adjust vector length to 5.0+." },
+            "2": { "name": "Theory", "desc": "Dot and Cross Product mechanics.", "log_start": "Checking calculation engine...", "log_guide": "Make two vectors perpendicular (Dot Product = 0)." },
+            "3": { "name": "Visualization", "desc": "Drone attitude control protocol.", "log_start": "Adjusting alignment...", "log_guide": "Align two vectors in same direction." },
+            "4": { "name": "Applied", "desc": "3D Space Control." }
         },
         "concepts": {
-            "title": "01. CONCEPT: THE ARROW OF REALITY",
-            "def_title": "Vectors",
-            "def_body": "A vector is not just a number; it's an instruction. <strong>Go this far, in this direction.</strong> It describes movement, force, and flow.",
-            "comp_title": "Components",
-            "comp_body": "We break vectors down into X, Y, and Z steps. A diagonal flight path is just a combination of forward, right, and up movements."
+            "title": "01. Concept: Arrow Pointing to World",
+            "def_title": "What is Vector",
+            "def_body": "Not just a number, but a command: <strong>'Go that way, this strongly'</strong>. Force, velocity, wind flow - all world-moving elements are vectors.",
+            "comp_title": "Component Decomposition",
+            "comp_body": "Complex diagonal movement can be decomposed into simple 'horizontal' and 'vertical' movements. These are called 'components'."
         },
         "theory": {
-            "title": "02. THEORY: SPATIAL LOGIC",
-            "dot_term": "Dot Product (Inner)",
-            "dot_desc": "A · B = |A||B|cos(θ). Measures alignment. If 0, they are perpendicular (Orthogonal). Used for lighting calculations and checking 'facing' direction.",
-            "cross_term": "Cross Product (Outer)",
-            "cross_desc": "A × B. Creates a new vector perpendicular to both. Essential for finding rotation axes, torque, and surface normals."
+            "title": "02. Theory: Spatial Laws",
+            "dot_term": "Dot Product",
+            "dot_desc": "How much two arrows point in the 'same direction'. 0 if perpendicular. Used in game lighting calculations.",
+            "cross_term": "Cross Product",
+            "cross_desc": "Creates a new arrow perpendicular to both. Essential for finding rotational force (torque) or surface direction (normal)."
         },
         "viz": {
-            "title": "03. PROTOCOL: VOID SCOUT",
-            "log_start": "VOID SCOUT CALIBRATION...",
-            "log_guide": "ALIGN THRUSTERS. ORTHOGONALITY CHECK REQUIRED.",
+            "title": "03. Practice: Spatial Grasp",
+            "log_start": "Initializing system...",
+            "log_guide": "Adjust thrusters to maintain spatial balance.",
             "controls": {
-                "vec_a": "VECTOR A (Main Thrust)",
-                "vec_b": "VECTOR B (Stabilizer)",
-                "telemetry": "TELEMETRY",
-                "dot": "DOT PROD (Align)",
-                "cross": "CROSS PROD (Torque)",
-                "angle": "ANGLE (Deg)",
-                "show_plane": "VISUALIZE PLANE",
-                "show_comp": "SHOW COMPONENTS",
-                "main_thruster": "MAIN_THRUSTER",
-                "stabilizer": "STABILIZER",
-                "sensor_active": "SENSOR_ARRAY_ACTIVE",
-                "system_log_label": "SYSTEM_LOG",
-                "viewport_hint": "VIEWPORT_01 // DRAG TO ROTATE"
+                "vec_a": "Vector A",
+                "vec_b": "Vector B",
+                "telemetry": "Data Telemetry",
+                "dot": "Dot Product (Orthogonality)",
+                "cross": "Cross Product (Axis)",
+                "angle": "Angle (deg)",
+                "show_plane": "Show Plane",
+                "show_comp": "Show Components",
+                "main_thruster": "Main Engine",
+                "stabilizer": "Stabilizer",
+                "sensor_active": "Sensor Active",
+                "system_log_label": "Log",
+                "viewport_hint": "Viewport // Drag to rotate"
             },
-            "viewport": "SIMULATION_VIEWPORT"
+            "viewport": "Simulation Screen"
         },
         "apps": {
-            "title": "04. APPLICATIONS: 3D SPACE",
-            "cg_title": "Computer Graphics",
-            "cg_body": "Every 3D game uses vectors for everything. Lighting (dot product with normals), camera direction, and movement.",
-            "phys_title": "Physics & Forces",
-            "phys_body": "Gravity, wind, and thrust are all vectors. We sum them up (Net Force) to determine where an object will go.",
+            "title": "04. Applications: 3D World",
+            "cg_title": "CG & Game Dev",
+            "cg_body": "3D game visuals are collections of vectors. Polygon direction and light direction determine brightness.",
+            "phys_title": "Physics Engine",
+            "phys_body": "Gravity, wind, engine power. Summing all these forces as vectors determines object movement.",
             "nav_title": "Navigation",
-            "nav_body": "GPS and flight paths. 'Heading' and 'Speed' combine to form the velocity vector."
+            "nav_body": "GPS and flight. Velocity vector combining 'direction' and 'speed' is used."
         },
         "completion": {
-            "synced": "SENSORS CALIBRATED",
-            "msg": "The Void Scout is ready for deep space. You command the dimensions."
+            "synced": "Spatial Grasp Complete",
+            "msg": "Vector operation mastered. You can freely manipulate 3D space."
         }
     },
     "trig": {
-        "title": "Trigonometry (Master Famous Angles)",
+        "title": "Trigonometry",
+        "subtitle": "Mathematics II",
+        "desc": "Synchronize circular motion with wave properties and analyze periodicity.",
         "header_title": "TRIG EVOLUTION V1.3",
-        "exact_value": "EXACT VALUE",
+        "exact_value": "Exact Value",
         "angle_label": "θ =",
         "intro": {
-            "title": "Dominate the Famous Angles",
-            "desc": "Experience the sensation of <strong>magnetically snapping</strong> to the critical 30°, 45°, and 60° points.",
-            "action": "Mission: Engage Famous Angles"
+            "title": "Master Famous Angles",
+            "desc": "Experience the sensation of snapping <strong>'like a magnet'</strong> to 30° and 45°.",
+            "action": "Combat: Famous Angle Mission"
         },
         "quiz": {
             "mission_label": "Mission",
             "mission_title": "Reproduce {{type}} {{angle}}^\\circ",
             "action": "Confirm Tactics",
-            "success_title": "Mission Successful",
-            "success_desc": "Burn this position into your memory.",
-            "next": "Next Problem",
-            "wrong": "Incorrect Angle."
+            "success_title": "Mission Success",
+            "success_desc": "Burn this position into your brain.",
+            "next": "Next Question",
+            "wrong": "Wrong angle."
         }
     },
     "functions": {
-      "title": "CAUSALITY_ENGINE (Functions)",
+      "title": "Functions & Limits",
+      "subtitle": "Mathematics III",
+      "desc": "Master input/output logic and completely decode the black box.",
       "levels": {
-        "1": { "name": "Sector 1: Drift", "hint": "The signal is shifting uniformly." },
-        "2": { "name": "Sector 2: Distortion", "hint": "Amplitude is doubling, with a slight offset." },
-        "3": { "name": "Sector 3: Surge", "hint": "Power is accumulating rapidly." },
-        "4": { "name": "Sector 4: Reflection", "hint": "Negative polarity is being inverted." },
-        "5": { "name": "Sector 5: Runaway", "hint": "Growth is exponential. Containment critical." }
+        "1": { "name": "Sector 1: Translation", "hint": "Signal shifted horizontally by fixed distance." },
+        "2": { "name": "Sector 2: Scaling", "hint": "Wave height changing, slight offset occurring." },
+        "3": { "name": "Sector 3: Rapid Growth", "hint": "Value increasing with acceleration." },
+        "4": { "name": "Sector 4: Inversion", "hint": "Positive and negative swapped." },
+        "5": { "name": "Sector 5: Exponential Explosion", "hint": "Growing at uncontrollable speed. Containment required." }
       },
       "status": {
-        "idle": "IDLE",
-        "computing": "COMPUTING",
-        "synced": "SYNCED",
-        "error": "ERROR"
+        "idle": "Idle",
+        "computing": "Computing",
+        "synced": "Synced",
+        "error": "Error"
       },
       "ui": {
-        "input_signal": "Input Signal (x)",
-        "output_signal": "Output Signal (y)",
-        "inject_signal": "INJECT SIGNAL",
-        "black_box": "BLACK BOX",
-        "system_advisory": "SYSTEM ADVISORY",
-        "kernel_log": "KERNEL LOG",
-        "define_logic": "DEFINE CAUSALITY LOGIC",
-        "execute_patch": "EXECUTE PATCH",
-        "system_stabilized": "SYSTEM STABILIZED"
+        "input_signal": "Input Data (x)",
+        "output_signal": "Output Result (y)",
+        "inject_signal": "Inject Data",
+        "black_box": "Unknown Function",
+        "system_advisory": "System Advisory",
+        "kernel_log": "Kernel Log",
+        "define_logic": "Infer Causality",
+        "execute_patch": "Execute Program",
+        "system_stabilized": "System Stabilized"
       }
     },
     "sequences": {
-        "title": "CHRONOS PATTERN",
-        "levels": {
-            "1": { "name": "BASICS", "desc": "Steps & Multipliers." },
-            "2": { "name": "THEORY", "desc": "The General Term." },
-            "3": { "name": "VISUALIZATION", "desc": "Timeline Simulation." },
-            "4": { "name": "APPLY", "desc": "Growth & Decay." }
+      "title": "Sequences",
+      "subtitle": "Mathematics B",
+      "desc": "Find continuity in patterns and predict future trends.",
+      "stage_label": "Stage {{current}} / {{total}}",
+      "simulation_title": "Trend Simulation",
+      "legend": {
+        "arithmetic": "Arithmetic Seq",
+        "geometric": "Geometric Seq"
+      },
+      "controls": {
+        "first_term": "First Term (a)",
+        "diff": "Diff (d) - Add",
+        "ratio": "Ratio (r) - Mult",
+        "count": "Count (n)",
+        "confirm_btn": "Confirm Settings"
+      },
+      "modal": {
+        "success_title": "Stage Complete",
+        "success_desc": "Sequence trend pattern confirmed. Proceeding to next step.",
+        "next_btn": "Next Level",
+        "finish_btn": "Complete & Return"
+      },
+      "explanation": {
+        "title": "Explanation: Sequence Properties",
+        "arithmetic_title": "Arithmetic Sequence",
+        "arithmetic_desc": "Change by adding fixed number. Draws straight line graph, steady growth.",
+        "geometric_title": "Geometric Sequence",
+        "geometric_desc": "Change by multiplying fixed number. Slow at first, then jumps up rapidly (exponential growth)."
+      },
+      "log": {
+        "title": "Activity Log",
+        "start": "Started Stage {{level}}"
+      }
+    },
+    "logs": {
+      "title": "Logarithms"
+    },
+    "matrices": {
+      "title": "Matrices",
+      "subtitle": "Mathematics C",
+      "desc": "Learn the mechanism of linear transformations that freely distort space.",
+      "levels": {
+        "1": { "name": "90° Rotation", "desc": "Manipulate matrix to rotate space 90 degrees counter-clockwise." },
+        "2": { "name": "2x Scale", "desc": "Uniformly expand entire space to double size." },
+        "3": { "name": "Shear", "desc": "Distort horizontally (x-axis)." }
+      },
+      "ui": {
+        "analysis_title": "Spatial Deformation Analysis",
+        "matrix_label": "Transformation Matrix T",
+        "red_arrow": "Red Arrow: i-hat (1,0) destination",
+        "green_arrow": "Green Arrow: j-hat (0,1) destination",
+        "mission_title": "Mission",
+        "activity_log": "Activity Log",
+        "log_start": "Started Stage {{level}}",
+        "log_success": "Matrix transformation successful!",
+        "next_btn": "Next",
+        "back": "Back"
+      }
+    },
+    "complex": {
+      "title": "Complex Plane",
+      "subtitle": "Mathematics C",
+      "desc": "Visualize new dimensions using imaginary rotation.",
+      "rotation_vis": "Rotation Visualization",
+      "stage_start": "Started Stage {{level}}",
+      "stage_clear": "Condition Cleared! Complex rotation mastered.",
+      "real_part": "Original (Re)",
+      "imaginary_part": "Original (Im)",
+      "original_num": "Original (z1)",
+      "multiplier": "Multiplier (z2)",
+      "result": "Result (z1 * z2)",
+      "mission_title": "Mission",
+      "log_title": "Activity Log",
+      "levels": {
+        "1": {
+          "name": "Imaginary Rotation",
+          "desc": "Multiply real number 1 by i, move result to 'Imaginary Axis (Vertical)'."
         },
-        "concepts": {
-            "title": "01. CONCEPT: The Flow of Time",
-            "arith_title": "Arithmetic (Linear)",
-            "arith_body": "Adding the same amount every step. Like walking up stairs. 1, 2, 3, 4... Steady, predictable progress.",
-            "geo_title": "Geometric (Exponential)",
-            "geo_body": "Multiplying by the same factor. Like cell division or viral spread. 1, 2, 4, 8... Explosive growth or rapid decay."
+        "2": {
+          "name": "Scale & Rotate",
+          "desc": "Multiply by (1+i) to rotate 45 degrees and expand length."
         },
-        "theory": {
-            "title": "02. THEORY: Prediction Algorithms",
-            "arith_term": "Arithmetic Sequence",
-            "arith_eq": "a_n = a + (n-1)d",
-            "arith_desc": "To find the n-th term, we start at 'a' and add the difference 'd', (n-1) times.",
-            "geo_term": "Geometric Sequence",
-            "geo_eq": "a_n = a * r^(n-1)",
-            "geo_desc": "To find the n-th term, we start at 'a' and multiply by the ratio 'r', (n-1) times."
-        },
-        "viz": {
-            "title": "03. PROTOCOL: CHRONOS PATTERN",
-            "log_start": "TIMELINE SIMULATION INITIALIZED...",
-            "log_guide": "ESTABLISH STASIS. TARGET LINEAR VELOCITY (d) = 0 AND DIVERGENCE (r) = 1.0.",
-            "controls": {
-                "anchor": "ANCHOR POINT (a)",
-                "linear": "LINEAR VELOCITY (d)",
-                "divergence": "DIVERGENCE FACTOR (r)",
-                "depth": "SIMULATION DEPTH (n)",
-                "telemetry": "TELEMETRY",
-                "status_critical": "CRITICAL: RUNAWAY",
-                "status_decay": "WARNING: DECAY",
-                "status_stable": "STABLE: LINEAR",
-                "status_stasis": "COMPLETE: STASIS LOCK"
-            },
-            "viewport": "TIMELINE_RENDER"
-        },
-        "apps": {
-            "title": "04. APPLICATIONS: Future Casting",
-            "finance_title": "Compound Interest",
-            "finance_body": "Money grows geometrically. A small interest rate, given enough time (n), creates massive wealth.",
-            "bio_title": "Population Growth",
-            "bio_body": "Populations multiply. One bacteria becomes two, then four. Understanding 'r' helps us predict pandemics.",
-            "algo_title": "Algorithms",
-            "algo_body": "Binary Search cuts the problem size in half each step (r=0.5). It's a geometric decay of complexity."
-        },
-        "completion": {
-            "synced": "TIMELINE STABILIZED",
-            "msg": "You have mastered the patterns of time. The future is now calculable."
+        "3": {
+          "name": "Realize via Conjugate",
+          "desc": "Manipulate current complex number to return result to 'Real Axis (Horizontal)'."
         }
+      },
+      "controls": {
+        "next_btn": "Next",
+        "finish_btn": "Finish"
+      }
+    },
+    "quiz": {
+      "title": "Proficiency Test",
+      "subtitle": "Assessment",
+      "desc": "Measure current understanding and optimize your learning plan.",
+      "abort": "Abort",
+      "nav": {
+        "precision": "Precision",
+        "score": "{{score}}%",
+        "progress": "Progress",
+        "estimated_score": "Est. Score"
+      },
+      "status": {
+        "title": "Status"
+      },
+      "log": {
+        "title": "Log",
+        "start": "Assessment started.",
+        "correct": "Q{{id}}: Correct.",
+        "wrong": "Q{{id}}: Incorrect."
+      },
+      "question": {
+        "label": "Question {{id}}",
+        "correct_badge": "CORRECT",
+        "incorrect_badge": "INCORRECT",
+        "explanation_title": "Explanation"
+      },
+      "result": {
+        "completed_title": "Assessment Complete",
+        "completed_desc": "Current mathematical proficiency measured.",
+        "score_label": "Score",
+        "rank_label": "Rank",
+        "ranks": {
+          "omega": "OMEGA",
+          "architect": "ARCHITECT",
+          "operator": "OPERATOR",
+          "learner": "LEARNER"
+        },
+        "start_btn": "Start Learning",
+        "retry_btn": "Retry Assessment"
+      },
+      "failed": {
+        "title": "Aborted",
+        "desc": "Assessment stopped due to instability.",
+        "retry_btn": "Restart"
+      }
+    },
+    "math_quadratic": {
+      "title": "QUADRATIC INNOVATION",
+      "subtitle": "PROTOCOL: PARABOLIC ARCHITECT",
+      "controls": "PARAMETER CONTROLS"
+    },
+    "balls_in_bins": {
+      "title": "Balls in Bins",
+      "subtitle": "Randomly throwing balls into {{bins}} bins (Law of Large Numbers)",
+      "total_count": "Total",
+      "start": "Start",
+      "stop": "Stop",
+      "reset": "Reset",
+      "bin_count": "Bins",
+      "speed": "Speed",
+      "average": "Avg",
+      "bin_label": "Bin {{index}}: {{count}}"
+    }
+  },
+  "codex": {
+    "title": "Mathematical Codex",
+    "back": "Back",
+    "header_title": "Mathematical Insights",
+    "header_desc": "Fundamental explanations of mathematical concepts unlocked upon module mastery.",
+    "locked": "Completion Required",
+    "reveal_btn": "Reveal Insight",
+    "revealing_btn": "Decrypting...",
+    "footer": "Math-Tactix — Knowledge Repository v2.7.0",
+    "insights": {
+      "genesis": {
+        "title": "Genesis: The Language of Math",
+        "content": "Mathematics is not merely a tool for calculation. It is the sole universal language for describing the mechanics of this world. By understanding the rules behind phenomena, we gain the power to control reality."
+      },
+      "quadratics": {
+        "title": "Quadratics: Parabolas & Optimization",
+        "content": "The parabola drawn by a quadratic function exists everywhere in nature. From ball trajectories to satellite dishes. Finding the vertex is the very process of finding the 'optimal solution' in society."
+      },
+      "trig": {
+        "title": "Trigonometry: Rhythm & Periodicity",
+        "content": "Everything in the universe vibrates. Sound, light, heartbeats. The sine wave describes all these periodicities. Learning trigonometry is nothing less than decoding the pulse of the universe."
+      },
+      "vectors": {
+        "title": "Vectors: Mastery of Direction & Force",
+        "content": "Position is relative, but direction and magnitude are absolute. Mastering vectors allows you to organize and uniquely determine the movement of objects and complex forces in multi-dimensional space."
+      },
+      "data": {
+        "title": "Data Analysis: Order in Chaos",
+        "content": "The world is full of informational noise. Correlation coefficients are the compass for extracting meaningful 'truth' from that chaos. Seeing the true connections between data is the first step in prediction."
+      },
+      "calculus": {
+        "title": "Calculus: The Science of Change & Accumulation",
+        "content": "There is no static moment. Differentiation captures the change 'right now', and integration quantifies the 'accumulation from the past'. Everything in the moving world is described through the lens of calculus."
+      }
+    }
+  },
+  "profile": {
+    "label": "User Profile",
+    "back": "Back",
+    "stats": {
+      "level": "LEVEL {{level}}",
+      "xp_progress": "XP Progress",
+      "xp_total": "Total XP"
+    },
+    "calibration": {
+      "title": "Calibration Status",
+      "prev_score": "Previous Score",
+      "not_taken": "No calibration record found.",
+      "start_test": "Start Test"
+    },
+    "progress": {
+      "title": "Learning Progress",
+      "subtitle": "Check mastery status for all modules.",
+      "total_mastery": "Total Mastery",
+      "module_count": "Total Modules",
+      "mastered_count": "Mastered"
+    },
+    "card": {
+      "mastered": "MASTERED",
+      "progress": "Progress",
+      "stages": "{{count}} / 3 Stages"
     }
   }
 }

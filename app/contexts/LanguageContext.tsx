@@ -1,52 +1,70 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import en from '../../locales/en.json';
 import ja from '../../locales/ja.json';
+import en from '../../locales/en.json';
 
-type Locale = 'en' | 'ja';
-type Translations = typeof en;
+type Locale = 'ja' | 'en';
+type Translations = typeof ja;
 
 interface LanguageContextType {
-  locale: Locale;
-  setLocale: (locale: Locale) => void;
-  t: (key: string) => string;
+  language: Locale;
+  t: (key: string, params?: Record<string, string | number>) => string;
+  toggleLanguage: () => void;
+  setLanguage: (lang: Locale) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations: Record<Locale, Translations> = {
-  en,
-  ja,
-};
-
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('ja');
+  const [language, setLanguage] = useState<Locale>('ja');
+  const [translations, setTranslations] = useState<Translations>(ja);
 
-  // Force Japanese on mount to override any potential persisted state or browser defaults
   useEffect(() => {
-    if (locale !== 'ja') {
-      setLocale('ja');
+    // Load preference from localStorage if available
+    const savedLang = localStorage.getItem('math-tactix-lang') as Locale;
+    if (savedLang && (savedLang === 'ja' || savedLang === 'en')) {
+      setLanguage(savedLang);
     }
   }, []);
 
-  const t = (path: string): string => {
-    const keys = path.split('.');
-    let current: any = translations[locale];
-    
-    for (const key of keys) {
-      if (current[key] === undefined) {
-        console.warn(`Missing translation for key: ${path} in locale: ${locale}`);
-        return path;
+  useEffect(() => {
+    setTranslations(language === 'ja' ? ja : en);
+    localStorage.setItem('math-tactix-lang', language);
+  }, [language]);
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === 'ja' ? 'en' : 'ja'));
+  };
+
+  const t = (key: string, params?: Record<string, string | number>): string => {
+    const keys = key.split('.');
+    let value: any = translations;
+
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k as keyof typeof value];
+      } else {
+        console.warn(`Translation key not found: ${key}`);
+        return key;
       }
-      current = current[key];
     }
-    
-    return current as string;
+
+    if (typeof value !== 'string') {
+      return key;
+    }
+
+    if (params) {
+      return Object.entries(params).reduce((acc, [k, v]) => {
+        return acc.replace(new RegExp(`{{${k}}}`, 'g'), String(v));
+      }, value);
+    }
+
+    return value;
   };
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t }}>
+    <LanguageContext.Provider value={{ language, t, toggleLanguage, setLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

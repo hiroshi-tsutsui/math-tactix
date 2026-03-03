@@ -31,8 +31,8 @@ export default function MatricesPage() {
   // Helper to safely get level data
   const getLevelData = (levelId: number) => {
     return {
-      name: t(`matrices.levels.${levelId}.name`),
-      desc: t(`matrices.levels.${levelId}.desc`),
+      name: t(`modules.matrices.levels.${levelId}.name`),
+      desc: t(`modules.matrices.levels.${levelId}.desc`),
       target: LEVEL_TARGETS[levelId - 1]?.target || [[1,0],[0,1]]
     };
   };
@@ -43,7 +43,7 @@ export default function MatricesPage() {
     const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
     const next = progress.length + 1 > 3 ? 3 : progress.length + 1;
     setCurrentLevel(next);
-    addLog(t('matrices.ui.log_start', { level: next }));
+    addLog(t('modules.matrices.ui.log_start', { level: next }));
   }, [moduleProgress]);
 
   const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
@@ -57,7 +57,7 @@ export default function MatricesPage() {
   useEffect(() => {
     if (isMatch(matrix, levelData.target) && !showUnlock) {
       setShowUnlock(true);
-      addLog(t('matrices.ui.log_success'));
+      addLog(t('modules.matrices.ui.log_success'));
     }
   }, [matrix, levelData]);
 
@@ -124,7 +124,7 @@ export default function MatricesPage() {
           <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 font-bold text-sm">
             <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back_root')}
           </Link>
-          <span className="text-sm font-bold">{t('matrices.title')}</span>
+          <span className="text-sm font-bold">{t('modules.matrices.title')}</span>
         </div>
       </nav>
 
@@ -132,7 +132,7 @@ export default function MatricesPage() {
         <div className="lg:col-span-8 space-y-8">
            <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
               <div className="p-8 border-b border-slate-100">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><Grid className="w-5 h-5 text-blue-600" /> {t('matrices.ui.analysis_title')}</h2>
+                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><Grid className="w-5 h-5 text-blue-600" /> {t('modules.matrices.ui.analysis_title')}</h2>
               </div>
               <div className="p-10 space-y-10">
                  <div className="relative aspect-video bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden shadow-inner flex items-center justify-center">
@@ -140,7 +140,7 @@ export default function MatricesPage() {
                  </div>
 
                  <div className="flex flex-col items-center gap-8">
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('matrices.ui.matrix_label')}</div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('modules.matrices.ui.matrix_label')}</div>
                     <div className="flex items-center gap-4 text-4xl text-slate-200">
                         [
                         <div className="grid grid-cols-2 gap-4">
@@ -158,24 +158,24 @@ export default function MatricesPage() {
 
         <div className="lg:col-span-4 space-y-6">
            <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('matrices.ui.mission_title')}</h3>
+              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('modules.matrices.ui.mission_title')}</h3>
               <h4 className="text-xl font-bold mb-4">{levelData.name}</h4>
               <p className="text-sm text-slate-300 leading-relaxed font-medium">{levelData.desc}</p>
               <div className="mt-6 pt-6 border-t border-white/10 space-y-2">
-                 <div className="flex items-center gap-2 text-xs text-red-400"><div className="w-2 h-2 rounded-full bg-red-500"></div> {t('matrices.ui.red_arrow')}</div>
-                 <div className="flex items-center gap-2 text-xs text-green-400"><div className="w-2 h-2 rounded-full bg-green-500"></div> {t('matrices.ui.green_arrow')}</div>
+                 <div className="flex items-center gap-2 text-xs text-red-400"><div className="w-2 h-2 rounded-full bg-red-500"></div> {t('modules.matrices.ui.red_arrow')}</div>
+                 <div className="flex items-center gap-2 text-xs text-green-400"><div className="w-2 h-2 rounded-full bg-green-500"></div> {t('modules.matrices.ui.green_arrow')}</div>
               </div>
            </div>
            <AnimatePresence>
             {showUnlock && (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white border border-slate-200 p-8 rounded-[32px] text-center shadow-xl">
                     <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto mb-4" />
-                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">{t('matrices.ui.next_btn')}</button>
+                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">{t('modules.matrices.ui.next_btn')}</button>
                 </motion.div>
             )}
            </AnimatePresence>
            <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">{t('matrices.ui.activity_log')}</h4>
+              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">{t('modules.matrices.ui.activity_log')}</h4>
               <div className="space-y-2 font-mono text-[11px]">
                 {log.map((msg, i) => <div key={i} className={i===0 ? 'text-blue-600' : 'text-slate-400'}>{msg}</div>)}
               </div>

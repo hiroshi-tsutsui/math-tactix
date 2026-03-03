@@ -215,3 +215,829 @@ Import traces:
  GET /quadratics 200 in 100ms (compile: 6ms, render: 94ms)
  GET /quadratics 200 in 128ms (compile: 3ms, render: 125ms)
 ✓ Compiled in 77ms
+ GET /quadratics 200 in 81ms (compile: 57ms, render: 23ms)
+⚠ Fast Refresh had to perform a full reload when ./app/contexts/LanguageContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/contexts/LanguageContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 278ms
+ GET /quadratics 200 in 445ms (compile: 206ms, render: 239ms)
+ GET /quadratics 200 in 146ms (compile: 4ms, render: 142ms)
+✓ Compiled in 139ms
+✓ Compiled in 0ms
+ GET /quadratics 200 in 327ms (compile: 81ms, render: 246ms)
+ GET /quadratics 200 in 125ms (compile: 2ms, render: 123ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 47ms
+ GET /quadratics 200 in 343ms (compile: 149ms, render: 193ms)
+ GET /quadratics 200 in 70ms (compile: 3ms, render: 66ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 25ms
+ GET /quadratics 200 in 232ms (compile: 158ms, render: 74ms)
+ GET /quadratics 200 in 53ms (compile: 4ms, render: 49ms)
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:29:1
+Module not found: Can't resolve '../../contexts/LanguageContext'
+[0m [90m 27 |[39m [36mimport[39m [32m'katex/dist/katex.min.css'[39m[33m;[39m
+ [90m 28 |[39m [36mimport[39m katex [36mfrom[39m [32m'katex'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 29 |[39m [36mimport[39m { useLanguage } [36mfrom[39m [32m'../../contexts/LanguageContext'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 30 |[39m
+ [90m 31 |[39m [90m// --- Types ---[39m
+ [90m 32 |[39m type [33mMode[39m [33m=[39m [32m'LEARN'[39m [33m|[39m [32m'TACTICS'[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+✓ Compiled in 68ms
+ GET /quadratics 200 in 111ms (compile: 77ms, render: 34ms)
+ GET /quadratics 200 in 14ms (compile: 1691µs, render: 12ms)
+✓ Compiled in 155ms
+✓ Compiled in 52ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 18ms
+ GET /quadratics 200 in 324ms (compile: 118ms, render: 206ms)
+ GET /quadratics 200 in 86ms (compile: 3ms, render: 82ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 11ms
+ GET /quadratics 200 in 322ms (compile: 159ms, render: 163ms)
+ GET /quadratics 200 in 69ms (compile: 3ms, render: 66ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 28ms
+ GET /quadratics 200 in 591ms (compile: 326ms, render: 265ms)
+ GET /quadratics 200 in 138ms (compile: 1969µs, render: 136ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 14ms
+ GET /quadratics 200 in 110ms (compile: 1812µs, render: 108ms)
+ GET /quadratics 200 in 82ms (compile: 4ms, render: 78ms)
+⚠ Fast Refresh had to perform a full reload when ./app/contexts/LanguageContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/contexts/LanguageContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 72ms
+ GET /quadratics 200 in 65ms (compile: 1535µs, render: 64ms)
+ GET /quadratics 200 in 50ms (compile: 3ms, render: 47ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 60ms
+ GET /quadratics 200 in 412ms (compile: 158ms, render: 254ms)
+ GET /quadratics 200 in 104ms (compile: 3ms, render: 101ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 9ms
+ GET /quadratics 200 in 280ms (compile: 223ms, render: 57ms)
+ GET /quadratics 200 in 41ms (compile: 3ms, render: 37ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 19ms
+ GET /quadratics 200 in 339ms (compile: 159ms, render: 180ms)
+ GET /quadratics 200 in 34ms (compile: 2ms, render: 32ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 7ms
+ GET /quadratics 200 in 61ms (compile: 2ms, render: 59ms)
+ GET /quadratics 200 in 49ms (compile: 2ms, render: 46ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 13ms
+ GET /quadratics 200 in 224ms (compile: 86ms, render: 138ms)
+ GET /quadratics 200 in 79ms (compile: 1931µs, render: 77ms)
+ GET /quadratics 200 in 51ms (compile: 3ms, render: 48ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 28ms
+ GET /quadratics 200 in 588ms (compile: 248ms, render: 340ms)
+ GET /quadratics 200 in 186ms (compile: 68ms, render: 118ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 10ms
+ GET /quadratics 200 in 340ms (compile: 277ms, render: 62ms)
+ GET /quadratics 200 in 65ms (compile: 3ms, render: 62ms)
+✓ Compiled in 125ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 35ms
+ GET /quadratics 200 in 350ms (compile: 129ms, render: 221ms)
+ GET /quadratics 200 in 49ms (compile: 3ms, render: 46ms)
+✓ Compiled in 51ms
+✓ Compiled in 27ms
+✓ Compiled in 14ms
+✓ Compiled in 12ms
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 17ms
+ GET /quadratics 200 in 320ms (compile: 116ms, render: 204ms)
+ GET /quadratics 200 in 48ms (compile: 3ms, render: 45ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 17ms
+ GET /quadratics 200 in 69ms (compile: 2ms, render: 66ms)
+ GET /quadratics 200 in 57ms (compile: 3ms, render: 54ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 12ms
+ GET /quadratics 200 in 95ms (compile: 1984µs, render: 93ms)
+ GET /quadratics 200 in 73ms (compile: 4ms, render: 69ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 14ms
+ GET /quadratics 200 in 63ms (compile: 1954µs, render: 61ms)
+ GET /quadratics 200 in 60ms (compile: 1781µs, render: 58ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 10ms
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 177ms (compile: 158ms, render: 19ms)
+ GET /quadratics 200 in 52ms (compile: 1590µs, render: 50ms)
+ GET /quadratics 200 in 40ms (compile: 1617µs, render: 39ms)
+⚠ Fast Refresh had to perform a full reload when ./app/contexts/LanguageContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./app/contexts/LanguageContext.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 92ms
+ GET /quadratics 200 in 218ms (compile: 74ms, render: 144ms)
+ GET /quadratics 200 in 36ms (compile: 1958µs, render: 34ms)
+✓ Compiled in 45ms
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 18ms
+ GET /quadratics 200 in 289ms (compile: 103ms, render: 186ms)
+ GET /quadratics 200 in 43ms (compile: 3ms, render: 40ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 11ms
+ GET /quadratics 200 in 291ms (compile: 78ms, render: 213ms)
+ GET /quadratics 200 in 65ms (compile: 3ms, render: 61ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 14ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 49ms (compile: 1440µs, render: 48ms)
+ GET /quadratics 200 in 34ms (compile: 1710µs, render: 32ms)
+✓ Compiled in 49ms
+ GET / 200 in 212ms (compile: 84ms, render: 128ms)
+ GET /quadratics 200 in 76ms (compile: 54ms, render: 21ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 9ms
+ GET /quadratics 200 in 161ms (compile: 3ms, render: 157ms)
+ GET /quadratics 200 in 140ms (compile: 4ms, render: 136ms)
+ GET /quadratics 200 in 102ms (compile: 5ms, render: 97ms)
+ GET / 200 in 159ms (compile: 67ms, render: 92ms)
+ GET /trig 200 in 1869ms (compile: 1857ms, render: 12ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 18ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 460ms (compile: 158ms, render: 302ms)
+ GET /trig 200 in 302ms (compile: 49ms, render: 253ms)
+ GET /quadratics 200 in 154ms (compile: 3ms, render: 151ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 12ms
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 234ms (compile: 3ms, render: 231ms)
+ GET /trig 200 in 223ms (compile: 49ms, render: 174ms)
+ GET /quadratics 200 in 73ms (compile: 5ms, render: 68ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 10ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /trig 200 in 176ms (compile: 61ms, render: 115ms)
+ GET /trig 200 in 151ms (compile: 4ms, render: 147ms)
+ GET /quadratics 200 in 130ms (compile: 3ms, render: 128ms)
+ GET /quadratics 200 in 100ms (compile: 8ms, render: 92ms)
+✓ Compiled in 57ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 13ms
+ GET /quadratics 200 in 311ms (compile: 89ms, render: 223ms)
+ GET /trig 200 in 120ms (compile: 3ms, render: 117ms)
+ GET /quadratics 200 in 130ms (compile: 23ms, render: 107ms)
+ GET /quadratics 200 in 78ms (compile: 2ms, render: 76ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 11ms
+Translation key not found: modules.trig.header_title
+Translation key not found: modules.trig.exact_value
+Translation key not found: modules.trig.angle_label
+Translation key not found: modules.trig.intro.title
+Translation key not found: modules.trig.intro.desc
+Translation key not found: modules.trig.intro.action
+Translation key not found: modules.trig.header_title
+Translation key not found: modules.trig.exact_value
+Translation key not found: modules.trig.angle_label
+Translation key not found: modules.trig.intro.title
+Translation key not found: modules.trig.intro.desc
+Translation key not found: modules.trig.intro.action
+Translation key not found: modules.quadratics.tactics.q1_inst
+Translation key not found: modules.quadratics.tactics.q2_inst
+Translation key not found: modules.quadratics.tactics.q3_inst
+Translation key not found: modules.quadratics.ui.mission_prefix
+Translation key not found: modules.quadratics.levels.0.title
+Translation key not found: modules.quadratics.levels.0.desc
+Translation key not found: modules.quadratics.levels.0.start
+Translation key not found: modules.quadratics.ui.learn_mode
+Translation key not found: modules.quadratics.ui.tactics_mode
+Translation key not found: modules.quadratics.tactics.q1_inst
+Translation key not found: modules.quadratics.tactics.q2_inst
+Translation key not found: modules.quadratics.tactics.q3_inst
+Translation key not found: modules.quadratics.ui.mission_prefix
+Translation key not found: modules.quadratics.levels.0.title
+Translation key not found: modules.quadratics.levels.0.desc
+Translation key not found: modules.quadratics.levels.0.start
+Translation key not found: modules.quadratics.ui.learn_mode
+Translation key not found: modules.quadratics.ui.tactics_mode
+ GET /trig 200 in 230ms (compile: 2ms, render: 228ms)
+ GET /quadratics 200 in 206ms (compile: 38ms, render: 168ms)
+ GET /quadratics 200 in 86ms (compile: 4ms, render: 82ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 14ms
+Translation key not found: modules.trig.header_title
+Translation key not found: modules.trig.exact_value
+Translation key not found: modules.trig.angle_label
+Translation key not found: modules.trig.intro.title
+Translation key not found: modules.trig.intro.desc
+Translation key not found: modules.trig.intro.action
+Translation key not found: modules.trig.header_title
+Translation key not found: modules.trig.exact_value
+Translation key not found: modules.trig.angle_label
+Translation key not found: modules.trig.intro.title
+Translation key not found: modules.trig.intro.desc
+Translation key not found: modules.trig.intro.action
+Translation key not found: modules.quadratics.tactics.q1_inst
+Translation key not found: modules.quadratics.tactics.q2_inst
+Translation key not found: modules.quadratics.tactics.q3_inst
+Translation key not found: modules.quadratics.ui.mission_prefix
+Translation key not found: modules.quadratics.levels.0.title
+Translation key not found: modules.quadratics.levels.0.desc
+Translation key not found: modules.quadratics.levels.0.start
+Translation key not found: modules.quadratics.ui.learn_mode
+Translation key not found: modules.quadratics.ui.tactics_mode
+Translation key not found: modules.quadratics.tactics.q1_inst
+Translation key not found: modules.quadratics.tactics.q2_inst
+Translation key not found: modules.quadratics.tactics.q3_inst
+Translation key not found: modules.quadratics.ui.mission_prefix
+Translation key not found: modules.quadratics.levels.0.title
+Translation key not found: modules.quadratics.levels.0.desc
+Translation key not found: modules.quadratics.levels.0.start
+Translation key not found: modules.quadratics.ui.learn_mode
+Translation key not found: modules.quadratics.ui.tactics_mode
+ GET /trig 200 in 213ms (compile: 2ms, render: 210ms)
+ GET /quadratics 200 in 194ms (compile: 35ms, render: 159ms)
+ GET /quadratics 200 in 86ms (compile: 5ms, render: 81ms)
+✓ Compiled in 33ms
+✓ Compiled in 12ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 16ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /trig 200 in 215ms (compile: 1591µs, render: 213ms)
+ GET /quadratics 200 in 202ms (compile: 45ms, render: 157ms)
+ GET /quadratics 200 in 88ms (compile: 3ms, render: 85ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 13ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 194ms (compile: 1330µs, render: 193ms)
+ GET /trig 200 in 201ms (compile: 47ms, render: 154ms)
+ GET /quadratics 200 in 84ms (compile: 1895µs, render: 82ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 12ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 176ms (compile: 158ms, render: 18ms)
+ GET /quadratics 200 in 216ms (compile: 1454µs, render: 214ms)
+ GET /trig 200 in 221ms (compile: 47ms, render: 174ms)
+ GET /quadratics 200 in 83ms (compile: 4ms, render: 80ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 10ms
+ GET /quadratics 200 in 123ms (compile: 46ms, render: 77ms)
+ GET /quadratics 200 in 208ms (compile: 2ms, render: 206ms)
+ GET /trig 200 in 213ms (compile: 51ms, render: 163ms)
+ GET /quadratics 200 in 87ms (compile: 2ms, render: 85ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 14ms
+ GET /trig 200 in 161ms (compile: 56ms, render: 105ms)
+ GET /trig 200 in 204ms (compile: 1717µs, render: 202ms)
+ GET /quadratics 200 in 206ms (compile: 59ms, render: 146ms)
+ GET /quadratics 200 in 82ms (compile: 10ms, render: 72ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 15ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 376ms (compile: 135ms, render: 241ms)
+ GET /trig 200 in 233ms (compile: 38ms, render: 195ms)
+ GET /quadratics 200 in 125ms (compile: 2ms, render: 122ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 13ms
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 356ms (compile: 126ms, render: 230ms)
+ GET /trig 200 in 236ms (compile: 34ms, render: 202ms)
+ GET /quadratics 200 in 238ms (compile: 121ms, render: 117ms)

@@ -6,19 +6,20 @@ Implement Japanese localization to prepare for the regional launch.
 
 ## Status Overview
 - [x] **DATA (The Archive)** - *Refined & Localized*
-    - Interactive Regression Game (3 Levels).
-    - Pedagogy: Signal vs Noise, Correlation.
-    - Localization: English/Japanese toggle implemented.
-- [ ] **FUNCTIONS (Causality Engine)** - *Pending Refinement*
-    - Current State: Basic "Guess the Function" game.
-    - Needs: Localization, "Causality" narrative reinforcement.
+- [x] **FUNCTIONS (Causality Engine)** - *Refined & Localized*
 - [x] **CALCULUS (Flux Engine)** - *Refined & Localized*
-    - Interactive Flux Engine (4 Levels: Basics, Theory, Viz, Apps).
-    - Pedagogy: Study of Change, Accumulation (Area).
-    - Features: System Log, Flux Win Condition (Area > 5.0).
-- [ ] **PROBABILITY (Entropy)** - *Planned*
+- [x] **PROBABILITY (Entropy)** - *Refined & Localized*
+- [x] **VECTORS (Void Scout)** - *Refined & Localized*
+- [x] **MATRICES (Spatial Deformation)** - *Refined & Localized*
+- [x] **TRIGONOMETRY (Harmonic Tuner)** - *Refined & Localized*
+- [x] **QUADRATICS (Gravity Simulation)** - *Refined & Localized*
+- [x] **SEQUENCES (Pattern Prediction)** - *Refined & Localized*
+- [x] **COMPLEX NUMBERS (Complex Plane)** - *Refined & Localized*
+- [x] **SETTINGS (System Config)** - *Refined & Localized*
+- [x] **MANUAL (Documentation)** - *Refined & Localized*
+- [x] **DASHBOARD (Global UI)** - *Refined & Localized*
 
-## Next Steps
-1.  **Functions Module:** Apply the `LanguageContext` and `locales` structure.
-2.  **Global UI:** Add a persistent language toggle in the main layout (currently only in Data module header).
-3.  **Syllabus:** Ensure all modules align with the "Tier 1" philosophy.
+## Next Steps (Phase 3 Prep)
+1.  **Deployment**: Push to Vercel and verify production build.
+2.  **User Testing**: Verify language switching persists across sessions.
+3.  **Content Expansion**: Add more levels to existing modules.

@@ -14,7 +14,393 @@
     "warning": "警告",
     "op": "操作者"
   },
+  "components": {
+    "profile_header": {
+      "clearance": "クリアランス: L"
+    },
+    "xp_bar": {
+      "level_label": "レベル",
+      "system_online": "システム // 稼働中"
+    }
+  },
+  "dashboard": {
+    "title_main": "Math-Tactix",
+    "title_sub": "次世代の数学学習 OS",
+    "rank_label": "Current Rank",
+    "profile_btn": "プロフ",
+    "settings_btn": "設定",
+    "manual_btn": "マニュアル",
+    "launch_btn": "モジュールを起動",
+    "status_completed": "完了",
+    "status_dev": "開発中",
+    "footer": "Math-Tactix — {{year}} — Mathematical OS",
+    "modules": {
+      "algebraic_logic": {
+        "title": "数と式の論理",
+        "subtitle": "Algebraic Logic",
+        "desc": "正負の数から方程式、因数分解まで。論理の「読み書き」を習得します。"
+      },
+      "functional_dynamics_jh": {
+        "title": "関数と変化の法則",
+        "subtitle": "Functional Dynamics",
+        "desc": "比例・反比例、一次関数。事象の変化を数式で記述する基礎を学びます。"
+      },
+      "geometric_space": {
+        "title": "図形と空間の構造",
+        "subtitle": "Geometric Space",
+        "desc": "相似、円周角、三平方の定理。空間を論理的に把握する力を養います。"
+      },
+      "data_chance_jh": {
+        "title": "確率とデータの分析",
+        "subtitle": "Data & Chance",
+        "desc": "データの分布と確率の基礎。不確実な世界を数値で捉える第一歩。"
+      },
+      "quadratics": {
+        "title": "二次関数",
+        "subtitle": "Mathematics I",
+        "desc": "放物線を設計し、パラメータの最適解を導く。"
+      },
+      "data": {
+        "title": "データの分析",
+        "subtitle": "Mathematics I",
+        "desc": "相関係数(r)を用いて、データの背後にある真実を特定する。"
+      },
+      "probability": {
+        "title": "確率",
+        "subtitle": "Mathematics A",
+        "desc": "不確実な事象を計算し、未来の期待値を算出する。"
+      },
+      "calculus": {
+        "title": "微分・積分",
+        "subtitle": "Mathematics II",
+        "desc": "瞬間の変化と蓄積の法則を使い、動く世界を掌握する。"
+      },
+      "sequences": {
+        "title": "数列",
+        "subtitle": "Mathematics B",
+        "desc": "パターンの連続性を見出し、未来の推移を予測する。"
+      },
+      "logs": {
+        "title": "対数関数",
+        "subtitle": "Mathematics II",
+        "desc": "指数関数的な増殖を、扱いやすいスケールに圧縮する。"
+      },
+      "trig": {
+        "title": "三角関数",
+        "subtitle": "Mathematics II",
+        "desc": "円運動と波の性質を同期させ、周期性を解析する。"
+      },
+      "vectors": {
+        "title": "ベクトル",
+        "subtitle": "Mathematics C",
+        "desc": "多次元空間を定義する「向き」と「大きさ」を操る。"
+      },
+      "complex": {
+        "title": "複素数平面",
+        "subtitle": "Mathematics C",
+        "desc": "虚数の回転を用いて、新たな次元を可視化する。"
+      },
+      "matrices": {
+        "title": "行列",
+        "subtitle": "Mathematics C",
+        "desc": "空間を自在に変形させる線形変換の仕組みを学ぶ。"
+      },
+      "functions": {
+        "title": "関数と極限",
+        "subtitle": "Mathematics III",
+        "desc": "入出力の論理を極め、ブラックボックスを完全に解明する。"
+      },
+      "quiz": {
+        "title": "実力判定テスト",
+        "subtitle": "Assessment",
+        "desc": "現在の理解度を測定し、学習プランを最適化します。"
+      }
+    },
+    "sections": {
+      "prep": {
+        "name": "準備: 実力判定",
+        "desc": "現在のあなたの数学的OSのバージョンを確認します。"
+      },
+      "jh": {
+        "name": "中学数学：思考の土台 (Junior High)",
+        "desc": "高校数学へと繋がる、論理的思考と空間把握の基礎を固めます。"
+      },
+      "hs_1a": {
+        "name": "高校数学：数学 I・A",
+        "desc": "現代社会のデータサイエンスや設計に直結する基本ツール。"
+      },
+      "hs_2b": {
+        "name": "高校数学：数学 II・B",
+        "desc": "現象の推移やエネルギーの集積を扱う、高度な解析ツール。"
+      },
+      "hs_3c": {
+        "name": "高校数学：数学 III・C",
+        "desc": "空間・次元・極限を操り、世界の真理に迫る究極のOS。"
+      }
+    },
+    "modules": {
+      "algebraic_logic": {
+        "title": "数と式の論理",
+        "subtitle": "Algebraic Logic",
+        "desc": "正負の数から方程式、因数分解まで。論理の「読み書き」を習得します。"
+      },
+      "functional_dynamics_jh": {
+        "title": "関数と変化の法則",
+        "subtitle": "Functional Dynamics",
+        "desc": "比例・反比例、一次関数。事象の変化を数式で記述する基礎を学びます。"
+      },
+      "geometric_space": {
+        "title": "図形と空間の構造",
+        "subtitle": "Geometric Space",
+        "desc": "相似、円周角、三平方の定理。空間を論理的に把握する力を養います。"
+      },
+      "data_chance_jh": {
+        "title": "確率とデータの分析",
+        "subtitle": "Data & Chance",
+        "desc": "データの分布と確率の基礎。不確実な世界を数値で捉える第一歩。"
+      },
+      "quadratics": {
+        "title": "二次関数",
+        "subtitle": "Mathematics I",
+        "desc": "放物線を設計し、パラメータの最適解を導く。"
+      },
+      "data": {
+        "title": "データの分析",
+        "subtitle": "Mathematics I",
+        "desc": "相関係数(r)を用いて、データの背後にある真実を特定する。"
+      },
+      "probability": {
+        "title": "確率",
+        "subtitle": "Mathematics A",
+        "desc": "不確実な事象を計算し、未来の期待値を算出する。"
+      },
+      "calculus": {
+        "title": "微分・積分",
+        "subtitle": "Mathematics II",
+        "desc": "瞬間の変化と蓄積の法則を使い、動く世界を掌握する。"
+      },
+      "sequences": {
+        "title": "数列",
+        "subtitle": "Mathematics B",
+        "desc": "パターンの連続性を見出し、未来の推移を予測する。"
+      },
+      "logs": {
+        "title": "対数関数",
+        "subtitle": "Mathematics II",
+        "desc": "指数関数的な増殖を、扱いやすいスケールに圧縮する。"
+      },
+      "trig": {
+        "title": "三角関数",
+        "subtitle": "Mathematics II",
+        "desc": "円運動と波の性質を同期させ、周期性を解析する。"
+      },
+      "vectors": {
+        "title": "ベクトル",
+        "subtitle": "Mathematics C",
+        "desc": "多次元空間を定義する「向き」と「大きさ」を操る。"
+      },
+      "complex": {
+        "title": "複素数平面",
+        "subtitle": "Mathematics C",
+        "desc": "虚数の回転を用いて、新たな次元を可視化する。"
+      },
+      "matrices": {
+        "title": "行列",
+        "subtitle": "Mathematics C",
+        "desc": "空間を自在に変形させる線形変換の仕組みを学ぶ。"
+      },
+      "functions": {
+        "title": "関数と極限",
+        "subtitle": "Mathematics III",
+        "desc": "入出力の論理を極め、ブラックボックスを完全に解明する。"
+      },
+      "quiz": {
+        "title": "実力判定テスト",
+        "subtitle": "Assessment",
+        "desc": "現在の理解度を測定し、学習プランを最適化します。"
+      }
+    }
+  },
+  "settings": {
+    "title": "システム設定",
+    "subtitle": "アプリケーションの環境設定を調整します。",
+    "back": "戻る",
+    "audio": {
+      "title": "音声フィードバック",
+      "desc": "操作時のサウンドエフェクトを有効にします。",
+      "on": "ON",
+      "off": "OFF"
+    },
+    "version": {
+      "title": "システムバージョン",
+      "desc": "Math-Tactix Core Engine"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "wipe_title": "学習データの初期化",
+      "wipe_desc": "すべての学習進捗、獲得XP、および判定ランクを削除します。この操作は取り消すことができません。",
+      "wipe_btn": "すべてのデータを消去する",
+      "wipe_confirm": "本当に初期化しますか？",
+      "cancel": "キャンセル"
+    }
+  },
+  "manual": {
+    "title": "説明書 / マニュアル",
+    "back": "戻る",
+    "nav": {
+      "basic": "基本操作",
+      "modules": "学習形式",
+      "glossary": "用語集",
+      "ranks": "階級"
+    },
+    "sections": {
+      "basic": {
+        "title": "基本操作",
+        "mastery": {
+          "title": "習得率 (Mastery)",
+          "desc": "全単元のクリア状況をパーセンテージで表示します。すべての単元で3つのステージをクリアすることで、習得率100%（OMEGAランク）を目指しましょう。"
+        },
+        "score": {
+          "title": "実力判定スコア",
+          "desc": "初期テストの結果に基づいた数学的なベースラインです。各単元を学習することで、この精度をさらに高めていくことができます。"
+        }
+      },
+      "modules": {
+        "title": "学習の形式",
+        "vis": {
+          "title": "可視化ミッション",
+          "desc": "ベクトルやデータ解析など、グラフや図形を直接操作して目標を達成する形式です。「感覚」と「理論」の結びつきを重視します。"
+        },
+        "logic": {
+          "title": "論理特定ミッション",
+          "desc": "ブラックボックスに入力を与え、出力の変化から背後にある「関数（ルール）」を推測する形式です。プログラミングやAI学習に近い思考を養います。"
+        }
+      },
+      "glossary": {
+        "title": "用語集",
+        "terms": {
+          "correlation": { "term": "相関", "def": "2つの数値データの間の関係性。" },
+          "diff": { "term": "微分", "def": "ある瞬間の変化の勢いやグラフの傾き。" },
+          "int": { "term": "積分", "def": "細かい変化を積み重ねた合計量や面積。" },
+          "vec": { "term": "ベクトル", "def": "向きと大きさを持つ量。" },
+          "exp": { "term": "指数", "def": "雪だるま式に増えていく計算の仕組み。" },
+          "complex": { "term": "複素数", "def": "平面上の回転を記述できる高度な数。" }
+        }
+      },
+      "ranks": {
+        "title": "階級システム",
+        "list": {
+          "omega": { "name": "OMEGA", "desc": "習得率100%。すべての概念を掌握した者。" },
+          "architect": { "name": "ARCHITECT", "desc": "習得率80%以上。高度な設計が可能なレベル。" },
+          "operator": { "name": "OPERATOR", "desc": "習得率50%以上。数学を道具として扱えるレベル。" },
+          "learner": { "name": "LEARNER", "desc": "習得率0%〜。基礎を構築中の学習者。" }
+        }
+      }
+    }
+  },
+  "overview": {
+    "vision": "MATH-TACTIX VISION",
+    "headline": "数学は、「お勉強」<br/>ではない。",
+    "subheadline": "世界を記述する唯一の言語であり、<br/>未来をハックするための最強の武器だ。",
+    "features": {
+      "logic": {
+        "title": "論理の構築",
+        "desc": "単なる計算ではなく、事象の背後にあるルールを見つけ出し、論理を組み立てる力を養います。"
+      },
+      "reality": {
+        "title": "現実との接続",
+        "desc": "教科書の中だけで完結せず、AI開発や金融、物理シミュレーションなど、実社会での数学の使い道を提示します。"
+      },
+      "tool": {
+        "title": "プロツールの視点",
+        "desc": "「正解」を出すだけの学習から卒業し、数学を自らのアイデアを形にするための「道具」として扱います。"
+      }
+    },
+    "main_menu": "メインメニューへ",
+    "take_test": "実力判定テストを受ける",
+    "footer": "Math-Tactix // Mathematical OS v2.7.0"
+  },
   "modules": {
+    "algebraic_logic": {
+      "title": "数と式の論理",
+      "subtitle": "Algebraic Logic",
+      "desc": "正負の数から方程式、因数分解まで。論理の「読み書き」を習得します。"
+    },
+    "functional_dynamics_jh": {
+      "title": "関数と変化の法則",
+      "subtitle": "Functional Dynamics",
+      "desc": "比例・反比例、一次関数。事象の変化を数式で記述する基礎を学びます。"
+    },
+    "geometric_space": {
+      "title": "図形と空間の構造",
+      "subtitle": "Geometric Space",
+      "desc": "相似、円周角、三平方の定理。空間を論理的に把握する力を養います。"
+    },
+    "data_chance_jh": {
+      "title": "確率とデータの分析",
+      "subtitle": "Data & Chance",
+      "desc": "データの分布と確率の基礎。不確実な世界を数値で捉える第一歩。"
+    },
+    "quadratics": {
+      "title": "二次関数",
+      "subtitle": "Mathematics I",
+      "desc": "放物線を設計し、パラメータの最適解を導く。"
+    },
+    "data": {
+      "title": "データの分析",
+      "subtitle": "Mathematics I",
+      "desc": "相関係数(r)を用いて、データの背後にある真実を特定する。"
+    },
+    "probability": {
+      "title": "確率",
+      "subtitle": "Mathematics A",
+      "desc": "不確実な事象を計算し、未来の期待値を算出する。"
+    },
+    "calculus": {
+      "title": "微分・積分",
+      "subtitle": "Mathematics II",
+      "desc": "瞬間の変化と蓄積の法則を使い、動く世界を掌握する。"
+    },
+    "sequences": {
+      "title": "数列",
+      "subtitle": "Mathematics B",
+      "desc": "パターンの連続性を見出し、未来の推移を予測する。"
+    },
+    "logs": {
+      "title": "対数関数",
+      "subtitle": "Mathematics II",
+      "desc": "指数関数的な増殖を、扱いやすいスケールに圧縮する。"
+    },
+    "trig": {
+      "title": "三角関数",
+      "subtitle": "Mathematics II",
+      "desc": "円運動と波の性質を同期させ、周期性を解析する。"
+    },
+    "vectors": {
+      "title": "ベクトル",
+      "subtitle": "Mathematics C",
+      "desc": "多次元空間を定義する「向き」と「大きさ」を操る。"
+    },
+    "complex": {
+      "title": "複素数平面",
+      "subtitle": "Mathematics C",
+      "desc": "虚数の回転を用いて、新たな次元を可視化する。"
+    },
+    "matrices": {
+      "title": "行列",
+      "subtitle": "Mathematics C",
+      "desc": "空間を自在に変形させる線形変換の仕組みを学ぶ。"
+    },
+    "functions": {
+      "title": "関数と極限",
+      "subtitle": "Mathematics III",
+      "desc": "入出力の論理を極め、ブラックボックスを完全に解明する。"
+    },
+    "quiz": {
+      "title": "実力判定テスト",
+      "subtitle": "Assessment",
+      "desc": "現在の理解度を測定し、学習プランを最適化します。"
+    },
     "math_quadratic": {
       "title": "二次関数の最適化",
       "subtitle": "解析：放物線の設計",
@@ -80,7 +466,8 @@
       "levels": {
         "1": { "mission": "平均値 (μ) を 2.0 に動かして、データの中心を右へシフトさせてください。" },
         "2": { "mission": "標準偏差 (σ) を小さくして、データのばらつきを抑えてください。" },
-        "3": { "mission": "モンティ・ホール問題に挑戦し、直感に反する確率の正体を体感してください。" }
+        "3": { "mission": "モンティ・ホール問題に挑戦し、直感に反する確率の正体を体感してください。" },
+        "4": { "mission": "大数の法則を観測してください。試行回数を増やし、実際の分布が理論値（平均）に近づく様子を確認してください。" }
       },
       "monty_hall": {
         "title": "モンティ・ホール問題",
@@ -103,7 +490,35 @@
       }
     },
     "complex": {
-      "title": "複素数平面の可視化"
+      "title": "複素数平面の可視化",
+      "rotation_vis": "回転の可視化",
+      "stage_start": "ステージ {{level}} を開始しました",
+      "stage_clear": "条件をクリアしました！複素数の回転を掌握。",
+      "real_part": "元の数 z1 (実部)",
+      "imaginary_part": "元の数 z1 (虚部)",
+      "original_num": "元の数 (z1)",
+      "multiplier": "掛ける数 (z2)",
+      "result": "結果 (z1 * z2)",
+      "mission_title": "ミッション",
+      "log_title": "活動ログ",
+      "levels": {
+        "1": {
+          "name": "虚数単位の回転",
+          "desc": "実数 1 に対し、虚数単位 i を掛けて、結果を「虚軸（縦軸）」の上に移動させてください。"
+        },
+        "2": {
+          "name": "拡大と回転",
+          "desc": "複素数 (1+i) を掛けて、元のベクトルを45度回転させつつ、長さを拡大してください。"
+        },
+        "3": {
+          "name": "共役による実数化",
+          "desc": "現在の複素数を操作して、結果を再び「実軸（横軸）」の上に戻してください。"
+        }
+      },
+      "controls": {
+        "next_btn": "次へ進む",
+        "finish_btn": "完了して戻る"
+      }
     },
     "logs": {
       "title": "対数によるデータ圧縮"
@@ -129,7 +544,48 @@
       }
     },
     "quiz": {
-      "title": "実力判定テスト"
+      "title": "実力判定テスト",
+      "abort": "中止",
+      "nav": {
+        "precision": "精度",
+        "score": "{{score}}%",
+        "progress": "進捗",
+        "estimated_score": "推定精度"
+      },
+      "status": {
+        "title": "判定ステータス"
+      },
+      "log": {
+        "title": "判定ログ",
+        "start": "実力判定テストを開始しました。",
+        "correct": "問題 {{id}}: 正解しました。",
+        "wrong": "問題 {{id}}: 不正解です。"
+      },
+      "question": {
+        "label": "問題 {{id}}",
+        "correct_badge": "正解",
+        "incorrect_badge": "不正解",
+        "explanation_title": "解説"
+      },
+      "result": {
+        "completed_title": "実力判定完了",
+        "completed_desc": "現在の数学的な習熟度が測定されました。",
+        "score_label": "スコア",
+        "rank_label": "判定ランク",
+        "ranks": {
+          "omega": "OMEGA",
+          "architect": "ARCHITECT",
+          "operator": "OPERATOR",
+          "learner": "LEARNER"
+        },
+        "start_btn": "学習をはじめる",
+        "retry_btn": "もう一度判定する"
+      },
+      "failed": {
+        "title": "中断されました",
+        "desc": "安定性が低下したため判定を停止しました。",
+        "retry_btn": "最初からやり直す"
+      }
     },
     "data": {
       "title": "データ解析と相関",
@@ -196,9 +652,9 @@
     "calculus": {
         "title": "微分・積分（変化の解析）",
         "levels": {
-            "1": { "name": "変化の検出", "desc": "「動き」を捉えてください。パラメータを操作し、グラフの傾き > 1.0 を観測してください。", "log_start": "変化の検出を開始...", "log_guide": "グラフ上の点を動かし、急激な変化（傾き）を作ってください。" },
+            "1": { "name": "変化の検出", "desc": "「動き」を捉えてください。パラメータを操作し、グラフの傾き > 2.0 を観測してください。", "log_start": "変化の検出を開始...", "log_guide": "グラフ上の点を動かし、急激な変化（傾き）を作ってください。" },
             "2": { "name": "頂点の特定", "desc": "変化が止まる瞬間を見極めてください。傾きが 0 になる点を特定してください。", "log_start": "ピーク値を探索中...", "log_guide": "山や谷の頂点（極値）を見つけてください。そこでは変化が一時的に止まります。" },
-            "3": { "name": "面積の算出", "desc": "細かい変化を積み重ねてください。グラフの下側の面積 > 5.0 を達成してください。", "log_start": "面積の計算を開始...", "log_guide": "積分を使って、グラフに囲まれた部分の総量を計算してください。" },
+            "3": { "name": "面積の算出", "desc": "細かい変化を積み重ねてください。グラフの下側の面積 > 10.0 を達成してください。", "log_start": "面積の計算を開始...", "log_guide": "積分を使って、グラフに囲まれた部分の総量を計算してください。" },
             "4": { "name": "実社会への適用", "desc": "AIの学習、物理シミュレーション、経済予測。この数学はあらゆる場所で使われています。", "log_start": "システム最適化中...", "log_guide": "現実のデータへの適用を開始します。" }
         },
         "concepts": {
@@ -266,22 +722,7 @@
             "dot_term": "内積（ドット積）",
             "dot_desc": "2つの矢印が「どれだけ同じ方向を向いているか」を表します。値が0なら真横（直角）。ゲームのライティング（光の当たり方）の計算に使われます。",
             "cross_term": "外積（クロス積）",
-            "cross_desc": "2つの矢印の両方に垂直な、新しい矢印を作り出します。回転する力（トルク）や、面の向き（法線）を見つけるために欠かせません。",
-            "controls": {
-                "vec_a": "ベクトル A",
-                "vec_b": "ベクトル B",
-                "telemetry": "データ計測",
-                "dot": "内積（直交の度合い）",
-                "cross": "外積（回転軸）",
-                "angle": "角度 (度)",
-                "show_plane": "平面を表示",
-                "show_comp": "成分を表示",
-                "main_thruster": "メインエンジン",
-                "stabilizer": "安定化装置",
-                "sensor_active": "センサー作動中",
-                "system_log_label": "ログ",
-                "viewport_hint": "ビューポート // ドラッグで視点移動"
-            }
+            "cross_desc": "2つの矢印の両方に垂直な、新しい矢印を作り出します。回転する力（トルク）や、面の向き（法線）を見つけるために欠かせません。"
         },
         "viz": {
             "title": "03. 実践：空間把握",
@@ -366,59 +807,112 @@
       }
     },
     "sequences": {
-        "title": "数列（パターンの予測）",
-        "levels": {
-            "1": { "name": "基礎", "desc": "足し算と掛け算による連鎖。" },
-            "2": { "name": "理論", "desc": "n番目の数を見つける法則。" },
-            "3": { "name": "予測", "desc": "タイムライン・シミュレーション。" },
-            "4": { "name": "応用", "desc": "増殖と減少のメカニズム。" }
-        },
-        "concepts": {
-            "title": "01. 概念：並びの中のルール",
-            "arith_title": "等差数列（足し算のルール）",
-            "arith_body": "一定の数を足し続ける変化。階段を上るような動きです。1, 2, 3, 4... 着実で予測しやすい進歩です。",
-            "geo_title": "等比数列（掛け算のルール）",
-            "geo_body": "一定の数を掛け続ける変化。細胞の分裂やウイルスの広がり。1, 2, 4, 8... 爆発的な成長、あるいは急速な減少。"
-        },
-        "theory": {
-            "title": "02. 理論：未来予測の方程式",
-            "arith_term": "等差数列の一般項",
-            "arith_eq": "a_n = a + (n-1)d",
-            "arith_desc": "n番目の数を知るには、最初の数 a に、増える分 d を (n-1)回 足します。",
-            "geo_term": "等比数列の一般項",
-            "geo_eq": "a_n = a * r^(n-1)",
-            "geo_desc": "n番目の数を知るには、最初の数 a に、かける倍率 r を (n-1)回 掛けます。"
-        },
-        "viz": {
-            "title": "03. 実践：予測シミュレーション",
-            "log_start": "予測エンジンの準備中...",
-            "log_guide": "「変化のない世界」を作ってください。増える分(d)を0、倍率(r)を1.0にして、数値を固定しましょう。",
-            "controls": {
-                "anchor": "最初の数 (a)",
-                "linear": "足す数 (d)",
-                "divergence": "かける数 (r)",
-                "depth": "予測する深さ (n)",
-                "telemetry": "計測結果",
-                "status_critical": "危険：数値が爆発中",
-                "status_decay": "警告：数値が消滅中",
-                "status_stable": "安定：一定の変化",
-                "status_stasis": "完了：静止状態"
-            },
-            "viewport": "予測レンダリング画面"
-        },
-        "apps": {
-            "title": "04. 応用：お金と生命",
-            "finance_title": "利息の計算",
-            "finance_body": "銀行の利息などは数列（掛け算）で増えます。わずかな違いも、時間が経てば大きな差になります。",
-            "bio_title": "生物の増殖",
-            "bio_body": "生き物は掛け算で増えます。1匹が2匹、4匹... この「増える倍率」を理解することが、感染症の予測などに繋がります。",
-            "algo_title": "コンピュータの仕組み",
-            "algo_body": "検索アルゴリズムの中には、探す範囲を毎回半分にしていくものがあります。これは数列の「半分になっていく性質」を利用した高速化です。"
-        },
-        "completion": {
-            "synced": "パターンの解読完了",
-            "msg": "数列の法則を掴みました。これで未来を計算できます。"
-        }
+      "title": "数列（パターンの予測）",
+      "stage_label": "ステージ {{current}} / {{total}}",
+      "simulation_title": "推移のシミュレーション",
+      "legend": {
+        "arithmetic": "等差数列",
+        "geometric": "等比数列"
+      },
+      "controls": {
+        "first_term": "初項 (a)",
+        "diff": "公差 (d) - 足し算",
+        "ratio": "公比 (r) - 掛け算",
+        "count": "項数 (n)",
+        "confirm_btn": "現在の設定を確定する"
+      },
+      "modal": {
+        "success_title": "ステージ完了",
+        "success_desc": "数列の推移パターンを確認しました。次のステップへ進みましょう。",
+        "next_btn": "次のレベルへ",
+        "finish_btn": "完了して戻る"
+      },
+      "explanation": {
+        "title": "解説：数列の性質",
+        "arithmetic_title": "等差数列 (Arithmetic)",
+        "arithmetic_desc": "一定の数を足し続ける変化です。直線のグラフを描き、着実な成長を表します。",
+        "geometric_title": "等比数列 (Geometric)",
+        "geometric_desc": "一定の数を掛け続ける変化です。最初は緩やかですが、ある時点から急激に跳ね上がります（指数関数的成長）。"
+      },
+      "log": {
+        "title": "活動ログ",
+        "start": "ステージ {{level}} を開始しました"
+      }
+    },
+    "balls_in_bins": {
+      "title": "球と箱のシミュレーション",
+      "subtitle": "{{bins}} 個の箱にランダムに球を投げ入れる実験 (大数の法則)",
+      "total_count": "総数",
+      "start": "開始",
+      "stop": "停止",
+      "reset": "リセット",
+      "bin_count": "箱の数",
+      "speed": "速度",
+      "average": "平均",
+      "bin_label": "箱 {{index}}: {{count}}個"
+    }
+  },
+  "codex": {
+    "title": "数学の記録 / アーカイブ",
+    "back": "戻る",
+    "header_title": "Mathematical Insights",
+    "header_desc": "各単元を修了することで解放される、数学の本質的な解説です。",
+    "locked": "単元の修了が必要です",
+    "reveal_btn": "記録を閲覧する",
+    "revealing_btn": "読み込み中...",
+    "footer": "Math-Tactix — Knowledge Repository v2.7.0",
+    "insights": {
+      "genesis": {
+        "title": "はじめに：数学という言語",
+        "content": "数学は、単なる計算の道具ではありません。この世界の仕組みを記述するための唯一の共通言語です。事象の背後にあるルールを理解することで、私たちは初めて現実をコントロールする力を手にします。"
+      },
+      "quadratics": {
+        "title": "二次関数：放物線と最適化",
+        "content": "二次関数の描く放物線は、自然界の至る所に存在します。ボールの軌道から、衛星アンテナの形状まで。頂点を見出すことは、現実社会における「最適解」を見つけ出すプロセスそのものです。"
+      },
+      "trig": {
+        "title": "三角関数：リズムと周期性",
+        "content": "宇宙のあらゆるものは振動しています。音、光、心拍。これらすべての周期性を記述するのがサイン波です。三角関数を学ぶことは、宇宙の鼓動を読み解くことに他なりません。"
+      },
+      "vectors": {
+        "title": "ベクトル：方向と力の掌握",
+        "content": "位置は相対的なものですが、方向と大きさは絶対的な情報です。ベクトルをマスターすることで、多次元空間における物体の動きや、複雑に絡み合う力の関係を整理し、一意に決定できるようになります。"
+      },
+      "data": {
+        "title": "データ解析：混沌の中の秩序",
+        "content": "世界は情報のノイズで溢れています。相関係数は、その混沌の中から意味のある「真実」を抽出するためのコンパスです。データ間の真の繋がりを見抜くことが、予測の第一歩となります。"
+      },
+      "calculus": {
+        "title": "微分積分：変化と集積の科学",
+        "content": "静止した瞬間は存在しません。微分は「今、この瞬間」の変化を捉え、積分は「過去からの積み重ね」を定量化します。動き続ける世界のすべては、微積分というレンズを通して記述されます。"
+      }
+    }
+  },
+  "profile": {
+    "label": "User Profile",
+    "back": "戻る",
+    "stats": {
+      "level": "LEVEL {{level}}",
+      "xp_progress": "XP Progress",
+      "xp_total": "累計ポイント"
+    },
+    "calibration": {
+      "title": "実力判定状況",
+      "prev_score": "前回の判定スコア",
+      "not_taken": "まだ実力判定を受けていません。",
+      "start_test": "テストを受ける"
+    },
+    "progress": {
+      "title": "学習の進捗",
+      "subtitle": "全単元の習得状況を確認できます。",
+      "total_mastery": "Total Mastery",
+      "module_count": "単元数",
+      "mastered_count": "完了済み"
+    },
+    "card": {
+      "mastered": "マスター",
+      "progress": "Progress",
+      "stages": "{{count}} / 3 Stages"
     }
   }
 }

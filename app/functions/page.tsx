@@ -31,13 +31,26 @@ export default function FunctionsPage() {
   const [log, setLog] = useState<string[]>([]);
   const [showComplete, setShowComplete] = useState(false);
 
-  const currentTarget = LEVELS[levelIdx];
+  // Using t() to get level data dynamically based on current language
+  const getCurrentLevelData = (idx: number) => {
+    // We use the index (1-based for locale keys) to fetch the localized name/hint
+    const levelKey = (idx + 1).toString();
+    // Fallback or type safety could be improved, but assuming structure matches
+    return {
+      id: LEVELS[idx].id,
+      func: LEVELS[idx].func,
+      name: t(`modules.functions.levels.${levelKey}.name`),
+      hint: t(`modules.functions.levels.${levelKey}.hint`)
+    };
+  };
+
+  const currentTarget = getCurrentLevelData(levelIdx);
 
   const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
 
   useEffect(() => {
-    addLog(`${currentTarget.name} の解析を開始しました`);
-  }, [levelIdx]);
+    addLog(`${currentTarget.name} ${t('modules.functions.status.idle')}`); 
+  }, [levelIdx, t]); // Added t dependency to refresh on language change
 
   const injectSignal = () => {
     setStatus('COMPUTING');
@@ -46,17 +59,17 @@ export default function FunctionsPage() {
         const out = math.evaluate(currentTarget.func, { x: testInput });
         setHistory(prev => [...prev, { in: testInput, out }]);
         setStatus('IDLE');
-        addLog(`入力: ${testInput} → 出力: ${out}`);
+        addLog(`${t('modules.functions.ui.input_signal')}: ${testInput} → ${t('modules.functions.ui.output_signal')}: ${out}`);
       } catch (e) {
         setStatus('ERROR');
-        addLog("エラー: 信号の処理に失敗しました。");
+        addLog(t('modules.functions.status.error'));
       }
     }, 400);
   };
 
   const verifyFunction = () => {
     try {
-      addLog("関数の整合性をチェック中...");
+      addLog(t('modules.functions.ui.computing'));
       const testValues = [-5, -2, 0, 1, 2, 5, 10];
       let correct = true;
       for (const x of testValues) {
@@ -70,16 +83,16 @@ export default function FunctionsPage() {
       
       if (correct) {
         setStatus('SYNCED');
-        addLog("正解！関数の構造を特定しました。");
+        addLog(t('modules.functions.status.synced'));
         completeLevel(MODULE_ID, levelIdx + 1);
         setShowComplete(true);
       } else {
         setStatus('ERROR');
-        addLog("不一致。定義した関数と出力が合いません。");
+        addLog(t('modules.functions.status.error'));
       }
     } catch (e) {
       setStatus('ERROR');
-      addLog("数式にエラーがあります。");
+      addLog(t('modules.functions.status.error'));
     }
   };
 
@@ -103,16 +116,16 @@ export default function FunctionsPage() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 transition-colors font-bold text-sm">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            戻る
+            {t('common.back_root')}
           </Link>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">現在の項目</span>
-              <span className="text-sm font-bold text-slate-900">関数と論理</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('common.protocol')}</span>
+              <span className="text-sm font-bold text-slate-900">{t('modules.functions.title')}</span>
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              ステージ {levelIdx + 1} / {LEVELS.length}
+              {t('common.level')} {levelIdx + 1} / {LEVELS.length}
             </div>
           </div>
         </div>
@@ -126,10 +139,10 @@ export default function FunctionsPage() {
             <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-white">
               <h2 className="font-bold flex items-center gap-2 text-slate-800">
                 <Cpu className="w-4 h-4 text-blue-600" />
-                ブラックボックス解析
+                {t('modules.functions.ui.black_box')}
               </h2>
               {status === 'COMPUTING' && (
-                <span className="text-[10px] font-bold text-blue-600 animate-pulse uppercase tracking-widest">Processing...</span>
+                <span className="text-[10px] font-bold text-blue-600 animate-pulse uppercase tracking-widest">{t('modules.functions.status.computing')}...</span>
               )}
             </div>
 
@@ -139,7 +152,7 @@ export default function FunctionsPage() {
                 <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 z-10">
                     {/* Input */}
                     <div className="flex flex-col items-center gap-4">
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">入力 (x)</span>
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('modules.functions.ui.input_signal')}</span>
                         <div className="w-24 h-24 bg-white border border-slate-200 rounded-xl shadow-sm flex items-center justify-center relative group">
                             <input 
                                 type="number" 
@@ -148,7 +161,7 @@ export default function FunctionsPage() {
                                 onChange={(e) => setTestInput(Number(e.target.value))}
                             />
                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="text-[9px] bg-slate-900 text-white px-2 py-0.5 rounded whitespace-nowrap">数値を入力</span>
+                                <span className="text-[9px] bg-slate-900 text-white px-2 py-0.5 rounded whitespace-nowrap">{t('modules.functions.ui.inject_signal')}</span>
                             </div>
                         </div>
                         <button 
@@ -157,7 +170,7 @@ export default function FunctionsPage() {
                             className="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold text-xs hover:bg-blue-700 transition-all flex items-center gap-2 shadow-md shadow-blue-500/10 disabled:opacity-50"
                         >
                             <Play className="w-3 h-3 fill-current" />
-                            実行
+                            {t('common.op')}
                         </button>
                     </div>
 
@@ -177,7 +190,7 @@ export default function FunctionsPage() {
 
                     {/* Output */}
                     <div className="flex flex-col items-center gap-4">
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">出力 (y)</span>
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('modules.functions.ui.output_signal')}</span>
                         <div className="w-24 h-24 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center">
                            <span className={`text-3xl font-bold ${status === 'COMPUTING' ? 'text-blue-200 animate-pulse' : 'text-blue-600'}`}>
                              {status === 'COMPUTING' ? '...' : history.length > 0 ? history[history.length-1].out : '-'}
@@ -191,7 +204,7 @@ export default function FunctionsPage() {
                 <div className="w-full max-w-md bg-blue-50 border border-blue-100 p-4 rounded-xl flex gap-4 items-start">
                     <Info className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
                     <div>
-                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">ヒント</p>
+                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">{t('modules.functions.ui.system_advisory')}</p>
                         <p className="text-xs text-blue-800 leading-relaxed font-medium">{currentTarget.hint}</p>
                     </div>
                 </div>
@@ -211,13 +224,13 @@ export default function FunctionsPage() {
                             className="bg-white border border-slate-200 p-8 rounded-3xl shadow-2xl text-center max-w-sm"
                         >
                             <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">解析成功！</h3>
-                            <p className="text-sm text-slate-500 mb-6">正しい関数のロジックを特定しました。</p>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">{t('modules.functions.status.synced')}!</h3>
+                            <p className="text-sm text-slate-500 mb-6">{t('modules.functions.ui.system_stabilized')}</p>
                             <button 
                                 onClick={handleNextLevel}
                                 className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"
                             >
-                                {levelIdx < LEVELS.length - 1 ? '次のレベルへ' : '完了して戻る'} <ChevronRight className="w-4 h-4" />
+                                {levelIdx < LEVELS.length - 1 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                             </button>
                         </motion.div>
                     </motion.div>
@@ -228,21 +241,21 @@ export default function FunctionsPage() {
           {/* History */}
           <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
             <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">変換履歴</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('modules.functions.ui.kernel_log')}</span>
               <button onClick={() => setHistory([])} className="text-[10px] font-bold text-slate-400 hover:text-red-500 uppercase tracking-widest">Clear</button>
             </div>
             <div className="max-h-40 overflow-y-auto">
                 <table className="w-full text-sm">
                     <thead>
                         <tr className="text-[10px] text-slate-400 uppercase border-b border-slate-100">
-                            <th className="px-6 py-2 font-bold text-center">入力 (x)</th>
-                            <th className="px-6 py-2 font-bold text-center">出力 (y)</th>
+                            <th className="px-6 py-2 font-bold text-center">{t('modules.functions.ui.input_signal')}</th>
+                            <th className="px-6 py-2 font-bold text-center">{t('modules.functions.ui.output_signal')}</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-50 font-mono">
                         {history.length === 0 ? (
                             <tr>
-                                <td colSpan={2} className="px-6 py-8 text-center text-slate-300 italic text-xs">信号が入力されていません</td>
+                                <td colSpan={2} className="px-6 py-8 text-center text-slate-300 italic text-xs">{t('modules.functions.status.idle')}</td>
                             </tr>
                         ) : (
                             history.map((h, i) => (
@@ -268,7 +281,7 @@ export default function FunctionsPage() {
              
              <div className="space-y-6">
                 <div>
-                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">関数の推測</h3>
+                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">{t('modules.functions.ui.define_logic')}</h3>
                     <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-4 rounded-2xl focus-within:border-blue-500 transition-colors">
                         <span className="text-2xl font-serif italic text-slate-400">f(x) =</span>
                         <input 
@@ -286,11 +299,11 @@ export default function FunctionsPage() {
                     onClick={verifyFunction}
                     className="w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-2xl font-bold tracking-tight transition-all active:scale-[0.98]"
                 >
-                    論理を確認する
+                    {t('modules.functions.ui.execute_patch')}
                 </button>
 
                 <div className="pt-6 border-t border-white/5">
-                    <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">活動ログ</h3>
+                    <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">{t('common.system_log')}</h3>
                     <div className="space-y-2 font-mono text-[11px]">
                         {log.map((msg, i) => (
                             <div key={i} className={`flex gap-3 ${i === 0 ? 'text-blue-400' : 'text-slate-600'}`}>
@@ -305,9 +318,9 @@ export default function FunctionsPage() {
 
           <div className="bg-white rounded-3xl border border-slate-200 p-8 space-y-6 shadow-sm">
              <div className="space-y-3">
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">数学的本質</h4>
+                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">MATH TACTIX // CORE</h4>
                 <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                  関数とは、ある入力値に対して、決まったルール（論理）に基づいて一つの出力値を返す「関係性」のことです。このブラックボックスの中身を当てる作業は、まさにAIがデータから規則性を学ぶプロセスと同じです。
+                  {t('modules.functions.title')} - {t('modules.functions.levels.1.hint')}
                 </p>
              </div>
           </div>

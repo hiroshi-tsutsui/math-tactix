@@ -34,3 +34,48 @@
     - Migrated all hardcoded UI text (Levels, Descriptions, Logs) to `locales/ja.json` and `locales/en.json`.
     - Implemented dynamic level data fetching (`getLevelData`) to switch text based on the active language.
     - Standardized UI keys (`analysis_title`, `mission_title`, `activity_log`, `red_arrow`, `green_arrow`).
+- **2026-03-03**: **Calculus Module (Flux Engine) Localization & Global Fixes**:
+    - Refactored `app/calculus/page.tsx` to use `LanguageContext`, removing hardcoded strings.
+    - Updated `locales/ja.json` and `locales/en.json` to align with Calculus logic (thresholds and descriptions).
+    - **Global Fix**: Corrected localization key paths in `matrices/page.tsx`, `probability/page.tsx`, and `trig/page.tsx` (added missing `modules.` prefix).
+    - Verified build success with zero localization warnings.
+- **2026-03-03**: **Dashboard (Global UI) Localization**:
+    - Refactored `app/page.tsx` (Landing Page) to use `LanguageContext`.
+    - Replaced all hardcoded strings (Titles, Descriptions, Module Names) with `t('dashboard.xxx')`.
+    - Added comprehensive `dashboard` section to `locales/ja.json` and `locales/en.json`.
+    - Validated build success.
+- **2026-03-03**: **Proficiency Test (Quiz Module) Localization**:
+    - Refactored `app/quiz/page.tsx` to use `LanguageContext`.
+    - Implemented dual-language support for questions (JA/EN) dynamically selected via `language` state.
+    - Extracted all UI strings to `locales/ja.json` and `locales/en.json`.
+    - Standardized terminology (Precision, Progress, Status).
+- **2026-03-03**: **Complex Numbers Module (Complex Plane Visualization) Localization**:
+    - Refactored `app/complex/page.tsx` to use `LanguageContext`.
+    - Migrated all hardcoded strings (Rotation, Expansion, Logic) to `locales/ja.json` and `locales/en.json`.
+    - Added detailed level descriptions and mission titles for Complex Plane.
+    - Fixed build error related to `useLanguage` usage (switched `language` -> `locale`).
+    - Verified JSON integrity for localization files.
+- **2026-03-03**: **Data Analysis Module (Signal Injection) Localization**:
+    - Refactored `app/data/page.tsx` to use `LanguageContext`.
+    - Replaced hardcoded Japanese strings with `t('data.xxx')` keys.
+    - Implemented `getLevels()` function to dynamically switch mission text (Signal Injection, Noise Purge, Archive Lock).
+    - Validated that `locales/en.json` and `locales/ja.json` contain the necessary keys.
+- **2026-03-03**: **Settings Module (System Configuration) Localization**:
+    - Refactored `app/settings/page.tsx` to use `LanguageContext`.
+    - Replaced hardcoded Japanese strings with `t('settings.xxx')` keys.
+    - Added `settings` section to `locales/ja.json` and `locales/en.json` (Audio, Version, Danger Zone).
+    - Standardized terminology (Wipe Data, Audio Feedback).
+    - Validated JSON structure.
+- **2026-03-03**: **Sequences Module (Pattern Prediction) Localization**:
+    - Refactored `app/sequences/page.tsx` to use `LanguageContext`.
+    - Updated keys to use `modules.sequences` prefix.
+    - Verified `locales/ja.json` and `locales/en.json` contain the keys.
+- **2026-03-03**: **Build Stabilization**:
+    - Fixed `app/complex/page.tsx` missing `useLanguage` import.
+    - Corrected localization paths in `complex`, `data`, and `sequences` (added `modules.` prefix).
+    - Restored missing `settings` key in localization files.
+- **2026-03-04**: **Manual Module (Documentation) Localization**:
+    - Refactored `app/manual/page.tsx` to use `LanguageContext`.
+    - Extracted all hardcoded Japanese text (Basics, Modules, Glossary, Ranks) to `locales/ja.json`.
+    - Created English translations in `locales/en.json` (System Manual, Learning Modes, etc.).
+    - Implemented dynamic rendering for Glossary terms and Rank descriptions.

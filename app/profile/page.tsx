@@ -6,10 +6,12 @@ import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, User, Shield, Activity, Award, CheckCircle2, TrendingUp } from 'lucide-react';
 import { useProgress, ModuleId } from '../contexts/ProgressContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { motion } from 'framer-motion';
 
 export default function ProfilePage() {
   const { xp, level, title, moduleProgress, calibration } = useProgress();
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -29,10 +31,10 @@ export default function ProfilePage() {
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 font-bold text-sm transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 戻る
+            <ArrowLeft className="w-4 h-4 mr-2" /> {t('profile.back')}
           </Link>
           <div className="flex items-center gap-4">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">User Profile</span>
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('profile.label')}</span>
             <div className="h-4 w-px bg-slate-200"></div>
             <span className="text-sm font-bold">{title}</span>
           </div>
@@ -52,12 +54,14 @@ export default function ProfilePage() {
                 <h2 className="text-2xl font-bold mb-1">{title}</h2>
                 <div className="flex items-center gap-2 mb-8">
                   <Shield className="w-3.5 h-3.5 text-slate-400" />
-                  <span className="text-xs font-bold text-slate-500 tracking-wider">LEVEL {level}</span>
+                  <span className="text-xs font-bold text-slate-500 tracking-wider">
+                      {t('profile.stats.level', { level })}
+                  </span>
                 </div>
 
                 <div className="w-full space-y-4">
                    <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                     <span>XP Progress</span>
+                     <span>{t('profile.stats.xp_progress')}</span>
                      <span>{xp % 1000} / 1000</span>
                    </div>
                    <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -74,18 +78,24 @@ export default function ProfilePage() {
             <div className="bg-slate-900 rounded-[32px] p-8 text-white">
               <div className="flex items-center gap-2 mb-6">
                 <Activity className="w-4 h-4 text-blue-400" />
-                <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">実力判定状況</span>
+                <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest">
+                    {t('profile.calibration.title')}
+                </span>
               </div>
               {calibration.status === 'COMPLETED' ? (
                 <div>
                    <div className="text-4xl font-bold mb-2">{calibration.rate}%</div>
-                   <p className="text-xs text-slate-400 font-medium">前回の判定スコア</p>
+                   <p className="text-xs text-slate-400 font-medium">
+                       {t('profile.calibration.prev_score')}
+                   </p>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <p className="text-sm text-slate-400 leading-relaxed">まだ実力判定を受けていません。</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                      {t('profile.calibration.not_taken')}
+                  </p>
                   <Link href="/quiz" className="inline-block text-xs font-bold bg-white text-black px-4 py-2 rounded-lg hover:bg-blue-400 transition-colors">
-                    テストを受ける
+                    {t('profile.calibration.start_test')}
                   </Link>
                 </div>
               )}
@@ -96,12 +106,14 @@ export default function ProfilePage() {
           <div className="lg:col-span-8 space-y-10">
             <div className="flex items-end justify-between border-b border-slate-200 pb-6">
                <div className="space-y-1">
-                 <h3 className="text-2xl font-bold tracking-tight">学習の進捗</h3>
-                 <p className="text-sm text-slate-500 font-medium">全単元の習得状況を確認できます。</p>
+                 <h3 className="text-2xl font-bold tracking-tight">{t('profile.progress.title')}</h3>
+                 <p className="text-sm text-slate-500 font-medium">{t('profile.progress.subtitle')}</p>
                </div>
                <div className="text-right">
                   <div className="text-3xl font-black text-slate-900">{syncRate}%</div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Mastery</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      {t('profile.progress.total_mastery')}
+                  </div>
                </div>
             </div>
 
@@ -114,10 +126,15 @@ export default function ProfilePage() {
                   `}
                 >
                   <div className="flex justify-between items-start mb-4">
-                    <span className="font-bold text-sm text-slate-700 capitalize">{mod.id}</span>
+                    <span className="font-bold text-sm text-slate-700 capitalize">
+                        {/* We use module IDs as keys, so we check if a translation exists, else fallback to ID */}
+                        {t(`dashboard.modules.${mod.id}.title`) !== `dashboard.modules.${mod.id}.title` 
+                            ? t(`dashboard.modules.${mod.id}.title`) 
+                            : mod.id}
+                    </span>
                     {mod.isMastered && (
                       <span className="flex items-center gap-1 text-[9px] font-black text-green-600 bg-green-50 px-2 py-0.5 rounded-full uppercase">
-                        <CheckCircle2 className="w-2.5 h-2.5" /> マスター
+                        <CheckCircle2 className="w-2.5 h-2.5" /> {t('profile.card.mastered')}
                       </span>
                     )}
                   </div>
@@ -131,8 +148,10 @@ export default function ProfilePage() {
                   </div>
 
                   <div className="flex justify-between items-center text-[10px] font-bold">
-                    <span className="text-slate-400 uppercase tracking-widest">Progress</span>
-                    <span className="text-slate-600 font-mono">{mod.completedLevels.length} / 3 Stages</span>
+                    <span className="text-slate-400 uppercase tracking-widest">{t('profile.card.progress')}</span>
+                    <span className="text-slate-600 font-mono">
+                        {t('profile.card.stages', { count: mod.completedLevels.length })}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -141,15 +160,21 @@ export default function ProfilePage() {
             <div className="grid grid-cols-3 gap-8 pt-10 border-t border-slate-100">
                <div className="space-y-1">
                   <div className="text-xl font-bold text-slate-900">{totalModules}</div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">単元数</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      {t('profile.progress.module_count')}
+                  </div>
                </div>
                <div className="space-y-1">
                   <div className="text-xl font-bold text-slate-900">{masteredCount}</div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">完了済み</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      {t('profile.progress.mastered_count')}
+                  </div>
                </div>
                <div className="space-y-1">
                   <div className="text-xl font-bold text-slate-900">{xp}</div>
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">累計ポイント</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      {t('profile.stats.xp_total')}
+                  </div>
                </div>
             </div>
           </div>

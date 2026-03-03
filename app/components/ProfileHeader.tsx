@@ -1,9 +1,11 @@
 "use client";
 
 import { useProgress } from '../contexts/ProgressContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ProfileHeader() {
   const { xp, level, title } = useProgress();
+  const { t } = useLanguage();
   const syncRate = (xp % 1000) / 10;
   const isSyncHigh = syncRate > 90;
 
@@ -12,7 +14,7 @@ export default function ProfileHeader() {
       <div className="flex flex-col items-end">
         <div className="flex items-center gap-1.5">
             <div className={`w-1.5 h-1.5 rounded-full ${isSyncHigh ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
-            <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">CLEARANCE: L{level}</span>
+            <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">{t('components.profile_header.clearance')}{level}</span>
         </div>
         <span className="text-sm font-semibold text-gray-900 leading-none font-mono tracking-tight">{title}</span>
       </div>

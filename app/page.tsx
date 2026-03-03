@@ -16,33 +16,33 @@ export default function Home() {
     // --- Junior High ---
     {
       id: 'algebraic-logic',
-      title: '数と式の論理',
-      subtitle: 'Algebraic Logic',
-      desc: '正負の数から方程式、因数分解まで。論理の「読み書き」を習得します。',
+      title: t('dashboard.modules.algebraic_logic.title'),
+      subtitle: t('dashboard.modules.algebraic_logic.subtitle'),
+      desc: t('dashboard.modules.algebraic_logic.desc'),
       status: 'LOCKED',
       color: 'text-slate-400',
     },
     {
       id: 'functional-dynamics-jh',
-      title: '関数と変化の法則',
-      subtitle: 'Functional Dynamics',
-      desc: '比例・反比例、一次関数。事象の変化を数式で記述する基礎を学びます。',
+      title: t('dashboard.modules.functional_dynamics_jh.title'),
+      subtitle: t('dashboard.modules.functional_dynamics_jh.subtitle'),
+      desc: t('dashboard.modules.functional_dynamics_jh.desc'),
       status: 'LOCKED',
       color: 'text-slate-400',
     },
     {
       id: 'geometric-space',
-      title: '図形と空間の構造',
-      subtitle: 'Geometric Space',
-      desc: '相似、円周角、三平方の定理。空間を論理的に把握する力を養います。',
+      title: t('dashboard.modules.geometric_space.title'),
+      subtitle: t('dashboard.modules.geometric_space.subtitle'),
+      desc: t('dashboard.modules.geometric_space.desc'),
       status: 'LOCKED',
       color: 'text-slate-400',
     },
     {
       id: 'data-chance-jh',
-      title: '確率とデータの分析',
-      subtitle: 'Data & Chance',
-      desc: 'データの分布と確率の基礎。不確実な世界を数値で捉える第一歩。',
+      title: t('dashboard.modules.data_chance_jh.title'),
+      subtitle: t('dashboard.modules.data_chance_jh.subtitle'),
+      desc: t('dashboard.modules.data_chance_jh.desc'),
       status: 'LOCKED',
       color: 'text-slate-400',
     },
@@ -50,97 +50,97 @@ export default function Home() {
     // --- High School ---
     {
       id: 'quadratics',
-      title: '二次関数',
-      subtitle: 'Mathematics I',
-      desc: '放物線を設計し、パラメータの最適解を導く。',
+      title: t('dashboard.modules.quadratics.title'),
+      subtitle: t('dashboard.modules.quadratics.subtitle'),
+      desc: t('dashboard.modules.quadratics.desc'),
       status: 'READY',
       color: 'text-blue-500',
     },
     {
       id: 'data',
-      title: 'データの分析',
-      subtitle: 'Mathematics I',
-      desc: '相関係数(r)を用いて、データの背後にある真実を特定する。',
+      title: t('dashboard.modules.data.title'),
+      subtitle: t('dashboard.modules.data.subtitle'),
+      desc: t('dashboard.modules.data.desc'),
       status: 'READY',
       color: 'text-teal-400',
     },
     {
       id: 'probability',
-      title: '確率',
-      subtitle: 'Mathematics A',
-      desc: '不確実な事象を計算し、未来の期待値を算出する。',
+      title: t('dashboard.modules.probability.title'),
+      subtitle: t('dashboard.modules.probability.subtitle'),
+      desc: t('dashboard.modules.probability.desc'),
       status: 'READY',
       color: 'text-orange-400',
     },
     {
       id: 'calculus',
-      title: '微分・積分',
-      subtitle: 'Mathematics II',
-      desc: '瞬間の変化と蓄積の法則を使い、動く世界を掌握する。',
+      title: t('dashboard.modules.calculus.title'),
+      subtitle: t('dashboard.modules.calculus.subtitle'),
+      desc: t('dashboard.modules.calculus.desc'),
       status: 'READY',
       color: 'text-red-500',
     },
     {
       id: 'sequences',
-      title: '数列',
-      subtitle: 'Mathematics B',
-      desc: 'パターンの連続性を見出し、未来の推移を予測する。',
+      title: t('dashboard.modules.sequences.title'),
+      subtitle: t('dashboard.modules.sequences.subtitle'),
+      desc: t('dashboard.modules.sequences.desc'),
       status: 'READY',
       color: 'text-cyan-400',
     },
     {
       id: 'logs',
-      title: '対数関数',
-      subtitle: 'Mathematics II',
-      desc: '指数関数的な増殖を、扱いやすいスケールに圧縮する。',
+      title: t('dashboard.modules.logs.title'),
+      subtitle: t('dashboard.modules.logs.subtitle'),
+      desc: t('dashboard.modules.logs.desc'),
       status: 'READY',
       color: 'text-rose-400',
     },
     {
       id: 'trig',
-      title: '三角関数',
-      subtitle: 'Mathematics II',
-      desc: '円運動と波の性質を同期させ、周期性を解析する。',
+      title: t('dashboard.modules.trig.title'),
+      subtitle: t('dashboard.modules.trig.subtitle'),
+      desc: t('dashboard.modules.trig.desc'),
       status: 'READY',
       color: 'text-indigo-400',
     },
     {
       id: 'vectors',
-      title: 'ベクトル',
-      subtitle: 'Mathematics C',
-      desc: '多次元空間を定義する「向き」と「大きさ」を操る。',
+      title: t('dashboard.modules.vectors.title'),
+      subtitle: t('dashboard.modules.vectors.subtitle'),
+      desc: t('dashboard.modules.vectors.desc'),
       status: 'READY',
       color: 'text-purple-400',
     },
     {
       id: 'complex',
-      title: '複素数平面',
-      subtitle: 'Mathematics C',
-      desc: '虚数の回転を用いて、新たな次元を可視化する。',
+      title: t('dashboard.modules.complex.title'),
+      subtitle: t('dashboard.modules.complex.subtitle'),
+      desc: t('dashboard.modules.complex.desc'),
       status: 'READY',
       color: 'text-pink-400',
     },
     {
       id: 'matrices',
-      title: '行列',
-      subtitle: 'Mathematics C',
-      desc: '空間を自在に変形させる線形変換の仕組みを学ぶ。',
+      title: t('dashboard.modules.matrices.title'),
+      subtitle: t('dashboard.modules.matrices.subtitle'),
+      desc: t('dashboard.modules.matrices.desc'),
       status: 'READY',
       color: 'text-emerald-400',
     },
     {
       id: 'functions',
-      title: '関数と極限',
-      subtitle: 'Mathematics III',
-      desc: '入出力の論理を極め、ブラックボックスを完全に解明する。',
+      title: t('dashboard.modules.functions.title'),
+      subtitle: t('dashboard.modules.functions.subtitle'),
+      desc: t('dashboard.modules.functions.desc'),
       status: 'READY',
       color: 'text-amber-400',
     },
     {
       id: 'quiz',
-      title: '実力判定テスト',
-      subtitle: 'Assessment',
-      desc: '現在の理解度を測定し、学習プランを最適化します。',
+      title: t('dashboard.modules.quiz.title'),
+      subtitle: t('dashboard.modules.quiz.subtitle'),
+      desc: t('dashboard.modules.quiz.desc'),
       status: 'READY',
       color: 'text-red-500',
     }
@@ -148,28 +148,28 @@ export default function Home() {
 
   const sections = [
     {
-      name: "準備: 実力判定",
-      desc: "現在のあなたの数学的OSのバージョンを確認します。",
+      name: t('dashboard.sections.prep.name'),
+      desc: t('dashboard.sections.prep.desc'),
       ids: ['quiz']
     },
     {
-      name: "中学数学：思考の土台 (Junior High)",
-      desc: "高校数学へと繋がる、論理的思考と空間把握の基礎を固めます。",
+      name: t('dashboard.sections.jh.name'),
+      desc: t('dashboard.sections.jh.desc'),
       ids: ['algebraic-logic', 'functional-dynamics-jh', 'geometric-space', 'data-chance-jh']
     },
     {
-      name: "高校数学：数学 I・A",
-      desc: "現代社会のデータサイエンスや設計に直結する基本ツール。",
+      name: t('dashboard.sections.hs_1a.name'),
+      desc: t('dashboard.sections.hs_1a.desc'),
       ids: ['quadratics', 'data', 'probability']
     },
     {
-      name: "高校数学：数学 II・B",
-      desc: "現象の推移やエネルギーの集積を扱う、高度な解析ツール。",
+      name: t('dashboard.sections.hs_2b.name'),
+      desc: t('dashboard.sections.hs_2b.desc'),
       ids: ['calculus', 'sequences', 'logs', 'trig']
     },
     {
-      name: "高校数学：数学 III・C",
-      desc: "空間・次元・極限を操り、世界の真理に迫る究極のOS。",
+      name: t('dashboard.sections.hs_3c.name'),
+      desc: t('dashboard.sections.hs_3c.desc'),
       ids: ['vectors', 'complex', 'matrices', 'functions']
     }
   ];
@@ -194,15 +194,15 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-start border-b border-slate-200 pb-12 gap-8">
             <div className="space-y-3">
                <h1 className="text-6xl md:text-7xl font-black tracking-tighter text-slate-900 italic">
-                  Math-Tactix
+                  {t('dashboard.title_main')}
                </h1>
-               <p className="text-lg text-slate-500 font-bold">次世代の数学学習 OS</p>
+               <p className="text-lg text-slate-500 font-bold">{t('dashboard.title_sub')}</p>
             </div>
 
             <div className="w-full md:w-80 bg-white border border-slate-200 p-8 shadow-2xl rounded-[32px]">
                 <div className="flex justify-between items-end mb-4">
                     <div>
-                        <div className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">Current Rank</div>
+                        <div className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">{t('dashboard.rank_label')}</div>
                         <div className="text-2xl font-black text-slate-900 tracking-tighter">{rank}</div>
                     </div>
                     <div className="text-right">
@@ -212,14 +212,17 @@ export default function Home() {
                 <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-6">
                     <div className="h-full bg-blue-600 transition-all duration-1000" style={{ width: `${syncRate}%` }}></div>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3 mb-3">
                     <Link href="/profile" className="text-[11px] font-black py-3 px-4 bg-slate-900 text-white rounded-2xl text-center hover:bg-blue-600 transition-all">
-                        プロフ
+                        {t('dashboard.profile_btn')}
                     </Link>
                     <Link href="/settings" className="text-[11px] font-black py-3 px-4 bg-slate-100 text-slate-600 rounded-2xl text-center hover:bg-slate-200 transition-all">
-                        設定
+                        {t('dashboard.settings_btn')}
                     </Link>
                 </div>
+                <Link href="/manual" className="block text-[11px] font-black py-3 px-4 border-2 border-slate-100 text-slate-400 rounded-2xl text-center hover:border-slate-300 hover:text-slate-600 transition-all">
+                    {t('dashboard.manual_btn')}
+                </Link>
             </div>
           </div>
 
@@ -251,12 +254,12 @@ export default function Home() {
                             >
                                 {isMastered && (
                                     <div className="absolute top-6 right-6 bg-green-50 text-green-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">
-                                    完了
+                                    {t('dashboard.status_completed')}
                                     </div>
                                 )}
                                 {isLocked && (
                                     <div className="absolute top-6 right-6 bg-slate-50 text-slate-400 text-[10px] font-black px-3 py-1 rounded-full uppercase flex items-center gap-1">
-                                    <Lock className="w-3 h-3" /> 開発中
+                                    <Lock className="w-3 h-3" /> {t('dashboard.status_dev')}
                                     </div>
                                 )}
 
@@ -274,7 +277,7 @@ export default function Home() {
 
                                 {!isLocked && (
                                     <div className="flex items-center text-xs font-black text-slate-400 group-hover:text-blue-600 transition-colors">
-                                        <span>モジュールを起動</span>
+                                        <span>{t('dashboard.launch_btn')}</span>
                                         <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 )}
@@ -288,7 +291,7 @@ export default function Home() {
           </div>
 
           <footer className="pt-20 border-t border-slate-200 text-center text-[10px] text-slate-300 font-black uppercase tracking-[0.4em]">
-              Math-Tactix — {new Date().getFullYear()} — Mathematical OS
+              {t('dashboard.footer', { year: new Date().getFullYear() })}
           </footer>
 
       </div>

@@ -6,12 +6,15 @@ import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, CheckCircle2, ChevronRight, RotateCw, Activity, Info, Zap } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'complex';
 
 export default function ComplexPage() {
   const { moduleProgress, completeLevel } = useProgress();
+  const { t, locale } = useLanguage();
+  const language = locale; // Alias for compatibility with effect hook
   const [currentLevel, setCurrentLevel] = useState(1);
   const [re1, setRe1] = useState(1);
   const [im1, setIm1] = useState(0);
@@ -23,17 +26,17 @@ export default function ComplexPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const LEVELS = [
-    { id: 1, name: "虚数単位の回転", desc: "実数 1 に対し、虚数単位 i を掛けて、結果を「虚軸（縦軸）」の上に移動させてください。", condition: (r, i) => Math.abs(r) < 0.1 && Math.abs(i - 1) < 0.1 },
-    { id: 2, name: "拡大と回転", desc: "複素数 (1+i) を掛けて、元のベクトルを45度回転させつつ、長さを拡大してください。", condition: (r, i) => Math.abs(r - i) < 0.2 && Math.sqrt(r*r + i*i) > 1.2 },
-    { id: 3, name: "共役による実数化", desc: "現在の複素数を操作して、結果を再び「実軸（横軸）」の上に戻してください。", condition: (r, i) => Math.abs(i) < 0.1 && Math.abs(r) > 0.5 }
+    { id: 1, name: t('modules.complex.levels.1.name'), desc: t('modules.complex.levels.1.desc'), condition: (r, i) => Math.abs(r) < 0.1 && Math.abs(i - 1) < 0.1 },
+    { id: 2, name: t('modules.complex.levels.2.name'), desc: t('modules.complex.levels.2.desc'), condition: (r, i) => Math.abs(r - i) < 0.2 && Math.sqrt(r*r + i*i) > 1.2 },
+    { id: 3, name: t('modules.complex.levels.3.name'), desc: t('modules.complex.levels.3.desc'), condition: (r, i) => Math.abs(i) < 0.1 && Math.abs(r) > 0.5 }
   ];
 
   useEffect(() => {
     const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
     const next = progress.length + 1 > 3 ? 3 : progress.length + 1;
     setCurrentLevel(next);
-    addLog(`ステージ ${next} を開始しました`);
-  }, [moduleProgress]);
+    addLog(t('modules.complex.stage_start', { level: next }));
+  }, [moduleProgress, language]);
 
   const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
 
@@ -44,7 +47,7 @@ export default function ComplexPage() {
   useEffect(() => {
     if (LEVELS[currentLevel - 1].condition(resRe, resIm) && !showUnlock) {
       setShowUnlock(true);
-      addLog("条件をクリアしました！複素数の回転を掌握。");
+      addLog(t('modules.complex.stage_clear'));
     }
   }, [resRe, resIm]);
 
@@ -83,20 +86,20 @@ export default function ComplexPage() {
         ctx.fillText(label, tx + 10, ty);
     };
 
-    drawVec(re1, im1, '#3b82f6', '元の数 (z1)');
-    drawVec(re2, im2, '#10b981', '掛ける数 (z2)');
-    drawVec(resRe, resIm, '#ef4444', '結果 (z1 * z2)', true);
+    drawVec(re1, im1, '#3b82f6', t('modules.complex.original_num'));
+    drawVec(re2, im2, '#10b981', t('modules.complex.multiplier'));
+    drawVec(resRe, resIm, '#ef4444', t('modules.complex.result'), true);
 
-  }, [re1, im1, re2, im2, resRe, resIm]);
+  }, [re1, im1, re2, im2, resRe, resIm, language]);
 
   return (
     <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans ${GeistSans.className}`}>
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 font-bold text-sm">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 戻る
+            <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back_root')}
           </Link>
-          <span className="text-sm font-bold">複素数平面</span>
+          <span className="text-sm font-bold">{t('modules.complex.title')}</span>
         </div>
       </nav>
 
@@ -104,7 +107,7 @@ export default function ComplexPage() {
         <div className="lg:col-span-8 space-y-8">
            <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
               <div className="p-8 border-b border-slate-100 flex justify-between items-center">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><RotateCw className="w-5 h-5 text-blue-600" /> 回転の可視化</h2>
+                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><RotateCw className="w-5 h-5 text-blue-600" /> {t('modules.complex.rotation_vis')}</h2>
                  <div className="bg-slate-900 px-4 py-2 rounded-xl text-white font-mono text-sm">
                     {resRe.toFixed(1)} {resIm >= 0 ? '+' : ''} {resIm.toFixed(1)}i
                  </div>
@@ -116,12 +119,12 @@ export default function ComplexPage() {
 
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-6">
-                       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">元の数 z1</h3>
+                       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">{t('modules.complex.real_part')}</h3>
                        <input type="range" min="-3" max="3" step="0.5" value={re1} onChange={e=>setRe1(parseFloat(e.target.value))} className="w-full accent-blue-600" />
                        <input type="range" min="-3" max="3" step="0.5" value={im1} onChange={e=>setIm1(parseFloat(e.target.value))} className="w-full accent-blue-600" />
                     </div>
                     <div className="space-y-6">
-                       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">掛ける数 z2 (演算)</h3>
+                       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">{t('modules.complex.multiplier')}</h3>
                        <input type="range" min="-2" max="2" step="0.5" value={re2} onChange={e=>setRe2(parseFloat(e.target.value))} className="w-full accent-green-600" />
                        <input type="range" min="-2" max="2" step="0.5" value={im2} onChange={e=>setIm2(parseFloat(e.target.value))} className="w-full accent-green-600" />
                     </div>
@@ -132,7 +135,7 @@ export default function ComplexPage() {
 
         <div className="lg:col-span-4 space-y-6">
            <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">ミッション</h3>
+              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('modules.complex.mission_title')}</h3>
               <h4 className="text-xl font-bold mb-4">{LEVELS[currentLevel-1].name}</h4>
               <p className="text-sm text-slate-300 leading-relaxed font-medium">{LEVELS[currentLevel-1].desc}</p>
            </div>
@@ -140,12 +143,12 @@ export default function ComplexPage() {
             {showUnlock && (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white border border-slate-200 p-8 rounded-[32px] text-center shadow-xl">
                     <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto mb-4" />
-                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">次へ進む</button>
+                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">{t('modules.complex.controls.next_btn')}</button>
                 </motion.div>
             )}
            </AnimatePresence>
            <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">活動ログ</h4>
+              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">{t('modules.complex.log_title')}</h4>
               <div className="space-y-2 font-mono text-[11px]">
                 {log.map((msg, i) => <div key={i} className={i===0 ? 'text-blue-600' : 'text-slate-400'}>{msg}</div>)}
               </div>

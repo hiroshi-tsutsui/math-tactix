@@ -13,7 +13,7 @@ const MODULE_ID = 'sequences';
 
 export default function SequencesPage() {
   const { moduleProgress, completeLevel } = useProgress();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentLevel, setCurrentLevel] = useState(1);
   const [showUnlock, setShowUnlock] = useState(false);
   const [log, setLog] = useState<string[]>([]);
@@ -32,8 +32,8 @@ export default function SequencesPage() {
     if (progress.includes(1)) nextLvl = 2;
     if (progress.includes(2)) nextLvl = 3;
     setCurrentLevel(nextLvl);
-    addLog(`ステージ ${nextLvl} を開始しました`);
-  }, [moduleProgress]);
+    addLog(t('modules.sequences.log.start', { level: nextLvl }));
+  }, [moduleProgress, language]);
 
   const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
 
@@ -100,12 +100,14 @@ export default function SequencesPage() {
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 font-bold text-sm">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 戻る
+            <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back_root')}
           </Link>
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-slate-900">数列</span>
+            <span className="text-sm font-bold text-slate-900">{t('dashboard.modules.sequences.title')}</span>
             <div className="h-4 w-px bg-slate-200 mx-2"></div>
-            <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">ステージ {currentLevel} / 3</div>
+            <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              {t('modules.sequences.stage_label', { current: currentLevel, total: 3 })}
+            </div>
           </div>
         </div>
       </nav>
@@ -114,10 +116,10 @@ export default function SequencesPage() {
         <div className="lg:col-span-8 space-y-8">
            <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
               <div className="p-8 border-b border-slate-100 flex justify-between items-center">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><LineChart className="w-5 h-5 text-blue-600" /> 推移のシミュレーション</h2>
+                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><LineChart className="w-5 h-5 text-blue-600" /> {t('modules.sequences.simulation_title')}</h2>
                  <div className="flex gap-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                    <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-blue-500"></div> 等差数列</div>
-                    <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-pink-500"></div> 等比数列</div>
+                    <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-blue-500"></div> {t('modules.sequences.legend.arithmetic')}</div>
+                    <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-pink-500"></div> {t('modules.sequences.legend.geometric')}</div>
                  </div>
               </div>
 
@@ -130,14 +132,14 @@ export default function SequencesPage() {
                     <div className="space-y-6">
                        <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-[10px] font-bold text-slate-400 uppercase">初項 (a)</span>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase">{t('modules.sequences.controls.first_term')}</span>
                             <span className="text-xs font-bold">{a}</span>
                           </div>
                           <input type="range" min="1" max="10" step="1" value={a} onChange={e => setA(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600" />
                        </div>
                        <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-[10px] font-bold text-slate-400 uppercase">公差 (d) - 足し算</span>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase">{t('modules.sequences.controls.diff')}</span>
                             <span className="text-xs font-bold text-blue-600">+{d}</span>
                           </div>
                           <input type="range" min="0" max="5" step="0.5" value={d} onChange={e => setD(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600" />
@@ -146,14 +148,14 @@ export default function SequencesPage() {
                     <div className="space-y-6">
                         <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-[10px] font-bold text-slate-400 uppercase">公比 (r) - 掛け算</span>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase">{t('modules.sequences.controls.ratio')}</span>
                             <span className="text-xs font-bold text-pink-600">x{r}</span>
                           </div>
                           <input type="range" min="0.5" max="2" step="0.1" value={r} onChange={e => setR(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-pink-500" />
                        </div>
                        <div>
                           <div className="flex justify-between mb-2">
-                            <span className="text-[10px] font-bold text-slate-400 uppercase">項数 (n)</span>
+                            <span className="text-[10px] font-bold text-slate-400 uppercase">{t('modules.sequences.controls.count')}</span>
                             <span className="text-xs font-bold">{n}</span>
                           </div>
                           <input type="range" min="5" max="40" step="1" value={n} onChange={e => setN(Number(e.target.value))} className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-slate-400" />
@@ -162,7 +164,7 @@ export default function SequencesPage() {
                  </div>
 
                  <button onClick={handleComplete} className="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-900/10">
-                    現在の設定を確定する
+                    {t('modules.sequences.controls.confirm_btn')}
                  </button>
               </div>
 
@@ -171,10 +173,10 @@ export default function SequencesPage() {
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 z-30 flex items-center justify-center p-6 bg-white/90 backdrop-blur-md">
                     <div className="bg-white border border-slate-200 p-10 rounded-[40px] shadow-2xl text-center max-w-sm">
                       <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                      <h3 className="text-2xl font-bold mb-2">ステージ完了</h3>
-                      <p className="text-sm text-slate-500 mb-8 leading-relaxed">数列の推移パターンを確認しました。次のステップへ進みましょう。</p>
+                      <h3 className="text-2xl font-bold mb-2">{t('modules.sequences.modal.success_title')}</h3>
+                      <p className="text-sm text-slate-500 mb-8 leading-relaxed">{t('modules.sequences.modal.success_desc')}</p>
                       <button onClick={handleNext} className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2">
-                        {currentLevel < 3 ? '次のレベルへ' : '完了して戻る'} <ChevronRight className="w-4 h-4" />
+                        {currentLevel < 3 ? t('modules.sequences.modal.next_btn') : t('modules.sequences.modal.finish_btn')} <ChevronRight className="w-4 h-4" />
                       </button>
                     </div>
                   </motion.div>
@@ -185,21 +187,21 @@ export default function SequencesPage() {
 
         <div className="lg:col-span-4 space-y-6">
            <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">解説：数列の性質</h3>
+              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">{t('modules.sequences.explanation.title')}</h3>
               <div className="space-y-6">
                  <div>
-                    <h4 className="text-sm font-bold mb-2">等差数列 (Arithmetic)</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">一定の数を足し続ける変化です。直線のグラフを描き、着実な成長を表します。</p>
+                    <h4 className="text-sm font-bold mb-2">{t('modules.sequences.explanation.arithmetic_title')}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{t('modules.sequences.explanation.arithmetic_desc')}</p>
                  </div>
                  <div>
-                    <h4 className="text-sm font-bold mb-2">等比数列 (Geometric)</h4>
-                    <p className="text-xs text-slate-400 leading-relaxed">一定の数を掛け続ける変化です。最初は緩やかですが、ある時点から急激に跳ね上がります（指数関数的成長）。</p>
+                    <h4 className="text-sm font-bold mb-2">{t('modules.sequences.explanation.geometric_title')}</h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">{t('modules.sequences.explanation.geometric_desc')}</p>
                  </div>
               </div>
            </div>
 
            <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">活動ログ</h4>
+              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">{t('modules.sequences.log.title')}</h4>
               <div className="space-y-2 font-mono text-[11px]">
                 {log.map((msg, i) => (
                     <div key={i} className={`flex gap-3 ${i === 0 ? 'text-blue-600' : 'text-slate-400'}`}>
