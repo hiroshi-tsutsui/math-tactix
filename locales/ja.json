@@ -21,10 +21,86 @@
       "controls": "数値制御"
     },
     "quadratics": {
-      "title": "重力シミュレーション"
+      "title": "重力シミュレーション",
+      "levels": {
+        "0": {
+          "title": "2次関数の極意",
+          "desc": "まずはグラフの<strong>向き</strong>を支配しましょう。",
+          "start": "開始する",
+          "shape_pos": "器（プラス）の形",
+          "shape_neg": "山（マイナス）の形",
+          "coeff_a": "開き方の係数 (a)",
+          "next_lesson": "Lesson 02へ"
+        },
+        "1": {
+          "title": "頂点の暗号を解く",
+          "desc": "y = (x - p)^2 + q の形は頂点を見つけるための暗号です。",
+          "start": "解読を開始",
+          "why_title": "なぜ x - p なのか？",
+          "why_desc": "カッコ内を <strong>ゼロ</strong> にする横位置と、外に残った数字の高さを合わせます。目標の (2.0, -1.0) に頂点を重ねましょう。",
+          "move_p": "横移動 (p) を 2.0 へ",
+          "move_q": "縦移動 (q) を -1.0 へ",
+          "next_lesson": "Lesson 03へ"
+        },
+        "2_3": {
+          "target_eq": "Target Equation",
+          "start_process": "変形プロセスを開始",
+          "adjust_desc_2": "(-2)^2 = 4 を引き算して調整",
+          "adjust_desc_3": "2 * (-5)^2 = 50 を引き算して調整",
+          "next_step": "次の手順へ",
+          "next_lesson_4": "Lesson 04：応用編へ",
+          "next_lesson_5": "Lesson 05：架け橋へ"
+        },
+        "4": {
+          "title": "戦術の目的",
+          "desc": "世の中には必ず<strong>限界（範囲）</strong>があります。その限られた範囲の中で、最も良い結果（頂点）を狙い撃つのが数学の戦術です。",
+          "start_mission": "実戦ミッションを開始"
+        }
+      },
+      "tactics": {
+        "header": "Pro Tactics",
+        "drill_label": "Exam Drill",
+        "correct": "正解です！この式を平方完成すると",
+        "correct_suffix": "となり、頂点は",
+        "correct_suffix_2": "です。",
+        "wrong": "不正解。平方完成を見直しましょう。",
+        "next_q": "次の問題へ",
+        "q1_inst": "係数 2 を括り出し、頂点を特定せよ。",
+        "q2_inst": "マイナスで括る際の符号ミスに注意して頂点を求めよ。",
+        "q3_inst": "分数が絡むケース。半分の二乗を正確に引け。"
+      },
+      "ui": {
+        "mission_prefix": "Mission 0",
+        "learn_mode": "Learn",
+        "tactics_mode": "Tactics"
+      }
     },
     "probability": {
-      "title": "確率統計の解析"
+      "title": "確率統計の解析",
+      "levels": {
+        "1": { "mission": "平均値 (μ) を 2.0 に動かして、データの中心を右へシフトさせてください。" },
+        "2": { "mission": "標準偏差 (σ) を小さくして、データのばらつきを抑えてください。" },
+        "3": { "mission": "モンティ・ホール問題に挑戦し、直感に反する確率の正体を体感してください。" }
+      },
+      "monty_hall": {
+        "title": "モンティ・ホール問題",
+        "reset": "RESET",
+        "door_reveal": "ドア {{opened}} はハズレでした。選択を変更しますか？",
+        "keep": "変えない",
+        "switch": "変える",
+        "win_rate_stay": "初志貫徹の勝率",
+        "win_rate_switch": "変更した時の勝率"
+      },
+      "normal_dist": {
+        "title": "正規分布シミュレーター",
+        "mean": "平均値 (μ)",
+        "std_dev": "標準偏差 (σ)",
+        "check": "状態を確認する"
+      },
+      "completion": {
+        "title": "ミッションクリア",
+        "next": "次へ進む"
+      }
     },
     "complex": {
       "title": "複素数平面の可視化"
@@ -33,7 +109,24 @@
       "title": "対数によるデータ圧縮"
     },
     "matrices": {
-      "title": "行列による空間変形"
+      "title": "行列（空間の歪曲）",
+      "levels": {
+        "1": { "name": "90度回転", "desc": "行列の値を操作して、空間を反時計回りに90度回転させてください。" },
+        "2": { "name": "2倍に拡大", "desc": "空間全体を2倍の大きさに均等に拡大させてください。" },
+        "3": { "name": "剪断（せんだん）", "desc": "横方向（x軸方向）に歪ませる変換を行ってください。" }
+      },
+      "ui": {
+        "analysis_title": "空間変形の解析",
+        "matrix_label": "変換行列 T",
+        "red_arrow": "赤の矢印: 基底ベクトル i (1,0) の行き先",
+        "green_arrow": "緑の矢印: 基底ベクトル j (0,1) の行き先",
+        "mission_title": "ミッション",
+        "activity_log": "活動ログ",
+        "log_start": "ステージ {{level}} を開始しました",
+        "log_success": "行列の変換に成功しました！",
+        "next_btn": "次へ進む",
+        "back": "戻る"
+      }
     },
     "quiz": {
       "title": "実力判定テスト"
@@ -226,58 +319,23 @@
         }
     },
     "trig": {
-        "title": "三角関数（リズムと波）",
-        "levels": {
-            "1": { "name": "基礎", "desc": "円の動きと波の発生。", "log_start": "計測システム起動...", "log_guide": "円運動が波（サイン波）に変わる様子を観測してください。" },
-            "2": { "name": "理論", "desc": "波を操る方程式。", "log_start": "解析プロトコル実行...", "log_guide": "式の数値を変えて、波の形がどう変わるか理解してください。" },
-            "3": { "name": "同調", "desc": "ターゲットとの共鳴。", "log_start": "共鳴スキャン開始...", "log_guide": "目標の波形と重なるように、自分の波の高さや速さを調整してください。" },
-            "4": { "name": "応用", "desc": "デジタル信号の世界。" }
+        "title": "三角関数（有名角の支配）",
+        "header_title": "TRIG EVOLUTION V1.3",
+        "exact_value": "厳密値",
+        "angle_label": "θ =",
+        "intro": {
+            "title": "有名角を支配する",
+            "desc": "試験に出る30°や45°の地点で<strong>「磁石のように」</strong>吸い付く感覚を体験してください。",
+            "action": "実戦：有名角ミッションへ"
         },
-        "concepts": {
-            "title": "01. 概念：円が生み出す波",
-            "circle_title": "単位円",
-            "circle_body": "三角関数は三角形だけのものではなく、<strong>「繰り返し（サイクル）」</strong>の数学です。円の上を回る点の「高さ」を横に並べていくと、美しい波（サイン波）が生まれます。",
-            "periodic_title": "繰り返しの法則",
-            "periodic_body": "自然界はループにあふれています。季節の巡り、心臓の鼓動、音の振動。繰り返される現象はすべて三角関数で説明できます。"
-        },
-        "theory": {
-            "title": "02. 理論：波の正体",
-            "eq_title": "波を操る基本の式",
-            "eq_term": "y = A sin(B(x - C)) + D",
-            "eq_desc": "このたった一つの式が、宇宙のあらゆる「揺れ」を表現します。",
-            "params_title": "動かすレバー",
-            "params_list_1": "<strong>A (振幅):</strong> 波の高さ。音の大きさやエネルギーの強さ。",
-            "params_list_2": "<strong>B (周波数):</strong> 波の細かさ。音の高さや繰り返しの速さ。",
-            "params_list_3": "<strong>C (位相):</strong> 波のズレ。タイミングや開始位置。"
-        },
-        "viz": {
-            "title": "03. 実践：波の同期",
-            "log_start": "システム起動...",
-            "log_guide": "目標の波形に自分の波をピッタリ重ねてください。振幅、周波数、位相を調整して「共鳴」させましょう。",
-            "controls": {
-                "amp": "波の高さ (振幅)",
-                "freq": "波の細かさ (周波数)",
-                "phase": "タイミング (位相)",
-                "telemetry": "計測データ",
-                "resonance": "同期率 (SYNC)",
-                "status_locked": "同期完了 (LOCKED)",
-                "status_searching": "探索中 (SEARCHING)",
-                "toggle_audio": "音響の確認"
-            },
-            "viewport": "オシロスコープ画面"
-        },
-        "apps": {
-            "title": "04. 応用：信号と通信",
-            "audio_title": "音楽・シンセサイザー",
-            "audio_body": "音楽は「聴こえる数学」です。単純な波を組み合わせることで、ピアノやバイオリンなど、あらゆる音を作り出すことができます。",
-            "ac_title": "電気 (交流)",
-            "ac_body": "コンセントから流れる電気は、1秒間に50回または60回振動しています。これも電圧のサイン波です。",
-            "fourier_title": "デジタル圧縮",
-            "fourier_body": "画像(JPG)、音楽(MP3)、WiFiなど。複雑なデータを波の塊として分析する技術が、現代のデジタル社会を支えています。"
-        },
-        "completion": {
-            "synced": "共鳴成功",
-            "msg": "宇宙のリズムと同期しました。信号は非常にクリアです。"
+        "quiz": {
+            "mission_label": "Mission",
+            "mission_title": "{{type}} {{angle}}^\\circ を再現せよ",
+            "action": "戦術を確定する",
+            "success_title": "ミッション成功",
+            "success_desc": "この位置を脳に焼き付けてください。",
+            "next": "次の問題へ",
+            "wrong": "角度が違います。"
         }
     },
     "functions": {

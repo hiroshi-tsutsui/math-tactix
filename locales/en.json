@@ -20,6 +20,117 @@
       "subtitle": "PROTOCOL: PARABOLIC ARCHITECT",
       "controls": "PARAMETER CONTROLS"
     },
+    "quadratics": {
+      "title": "GRAVITY SIMULATION",
+      "levels": {
+        "0": {
+          "title": "The Art of Quadratics",
+          "desc": "First, master the **Orientation** of the graph.",
+          "start": "INITIALIZE",
+          "shape_pos": "The Vessel (Positive)",
+          "shape_neg": "The Mountain (Negative)",
+          "coeff_a": "Coefficient of Opening (a)",
+          "next_lesson": "Proceed to Lesson 02"
+        },
+        "1": {
+          "title": "Deciphering the Vertex",
+          "desc": "The form y = (x - p)^2 + q is a cipher for locating the vertex.",
+          "start": "BEGIN DECRYPTION",
+          "why_title": "Why x - p?",
+          "why_desc": "Match the horizontal position that makes the bracket **zero**, and the height of the remaining number. Align vertex to (2.0, -1.0).",
+          "move_p": "Shift Horizontal (p) to 2.0",
+          "move_q": "Shift Vertical (q) to -1.0",
+          "next_lesson": "Proceed to Lesson 03"
+        },
+        "2_3": {
+          "target_eq": "TARGET EQUATION",
+          "start_process": "INITIATE TRANSFORMATION",
+          "adjust_desc_2": "Subtract (-2)^2 = 4 to adjust",
+          "adjust_desc_3": "Subtract 2 * (-5)^2 = 50 to adjust",
+          "next_step": "NEXT STEP",
+          "next_lesson_4": "Lesson 04: Advanced Application",
+          "next_lesson_5": "Lesson 05: The Bridge"
+        },
+        "4": {
+          "title": "Tactical Objective",
+          "desc": "There are always **limits (ranges)** in the world. Mathematical tactics aim for the best result (vertex) within those limits.",
+          "start_mission": "START COMBAT MISSION"
+        }
+      },
+      "tactics": {
+        "header": "PRO TACTICS",
+        "drill_label": "EXAM DRILL",
+        "correct": "Correct! Completing the square yields",
+        "correct_suffix": "and the vertex is",
+        "correct_suffix_2": ".",
+        "wrong": "Incorrect. Review your square completion.",
+        "next_q": "NEXT QUESTION",
+        "q1_inst": "Factor out coefficient 2 and identify the vertex.",
+        "q2_inst": "Find the vertex, watching for sign errors when factoring the negative.",
+        "q3_inst": "Fraction case. Accurately subtract the square of half."
+      },
+      "ui": {
+        "mission_prefix": "MISSION 0",
+        "learn_mode": "LEARN",
+        "tactics_mode": "TACTICS"
+      }
+    },
+    "probability": {
+      "title": "PROBABILITY & STATISTICS",
+      "levels": {
+        "1": { "mission": "Shift the data center to the right by moving Mean (μ) to 2.0." },
+        "2": { "mission": "Reduce data variance by lowering Standard Deviation (σ)." },
+        "3": { "mission": "Challenge the Monty Hall Problem and experience counter-intuitive probability." }
+      },
+      "monty_hall": {
+        "title": "Monty Hall Problem",
+        "reset": "RESET",
+        "door_reveal": "Door {{opened}} was a goat. Do you want to switch?",
+        "keep": "KEEP",
+        "switch": "SWITCH",
+        "win_rate_stay": "Win Rate (Stay)",
+        "win_rate_switch": "Win Rate (Switch)"
+      },
+      "normal_dist": {
+        "title": "Normal Distribution Simulator",
+        "mean": "Mean (μ)",
+        "std_dev": "Standard Deviation (σ)",
+        "check": "CHECK STATUS"
+      },
+      "completion": {
+        "title": "MISSION CLEAR",
+        "next": "PROCEED"
+      }
+    },
+    "complex": {
+      "title": "COMPLEX PLANE VISUALIZATION"
+    },
+    "logs": {
+      "title": "LOGARITHMIC COMPRESSION"
+    },
+    "matrices": {
+      "title": "MATRIX TRANSFORMATION",
+      "levels": {
+        "1": { "name": "90° ROTATION", "desc": "Manipulate the matrix to rotate the space 90 degrees counter-clockwise." },
+        "2": { "name": "SCALING (2x)", "desc": "Uniformly expand the entire space by a factor of 2." },
+        "3": { "name": "SHEAR (SKEW)", "desc": "Distort the space horizontally (along the x-axis)." }
+      },
+      "ui": {
+        "analysis_title": "SPATIAL DEFORMATION ANALYSIS",
+        "matrix_label": "TRANSFORMATION MATRIX T",
+        "red_arrow": "RED VECTOR: Basis i (1,0) Destination",
+        "green_arrow": "GREEN VECTOR: Basis j (0,1) Destination",
+        "mission_title": "MISSION OBJECTIVE",
+        "activity_log": "ACTIVITY LOG",
+        "log_start": "INITIATING LEVEL {{level}}...",
+        "log_success": "MATRIX TRANSFORMATION SUCCESSFUL.",
+        "next_btn": "PROCEED",
+        "back": "RETURN"
+      }
+    },
+    "quiz": {
+      "title": "PROFICIENCY TEST"
+    },
     "data": {
       "title": "DATA_ARCHIVE (Data Analysis)",
       "levels": {
@@ -193,58 +304,23 @@
         }
     },
     "trig": {
-        "title": "HARMONIC TUNER",
-        "levels": {
-            "1": { "name": "BASICS", "desc": "Circles & Waves.", "log_start": "Initializing Oscillator Bank...", "log_guide": "Observe circular motion." },
-            "2": { "name": "THEORY", "desc": "The Wave Equation.", "log_start": "Analyzing Equation...", "log_guide": "Understand y = A sin(B(x - C)) + D." },
-            "3": { "name": "VISUALIZATION", "desc": "Resonance Alignment.", "log_start": "Scanning for Resonance...", "log_guide": "Match the target waveform. Tune Amplitude, Frequency, and Phase." },
-            "4": { "name": "APPLY", "desc": "Signal Processing." }
+        "title": "Trigonometry (Master Famous Angles)",
+        "header_title": "TRIG EVOLUTION V1.3",
+        "exact_value": "EXACT VALUE",
+        "angle_label": "θ =",
+        "intro": {
+            "title": "Dominate the Famous Angles",
+            "desc": "Experience the sensation of <strong>magnetically snapping</strong> to the critical 30°, 45°, and 60° points.",
+            "action": "Mission: Engage Famous Angles"
         },
-        "concepts": {
-            "title": "01. CONCEPTS: Circles & Waves",
-            "circle_title": "The Unit Circle",
-            "circle_body": "Trigonometry isn't just about triangles; it's about <strong>cycles</strong>. As you move around a circle, your height creates a Sine wave.",
-            "periodic_title": "Periodicity",
-            "periodic_body": "Nature loves loops. Days, seasons, heartbeats, and sound waves all repeat. Trig functions are the math of repetition."
-        },
-        "theory": {
-            "title": "02. THEORY: Wave Mechanics",
-            "eq_title": "The Master Equation",
-            "eq_term": "y = A sin(B(x - C)) + D",
-            "eq_desc": "This one formula describes almost every vibration in the universe.",
-            "params_title": "Parameters",
-            "params_list_1": "<strong>A (Amplitude):</strong> Loudness / Energy / Height.",
-            "params_list_2": "<strong>B (Frequency):</strong> Pitch / Speed / How fast it cycles.",
-            "params_list_3": "<strong>C (Phase Shift):</strong> Timing / Offset / When it starts."
-        },
-        "viz": {
-            "title": "03. PROTOCOL: HARMONIC TUNER",
-            "log_start": "OSCILLATOR BANK INITIALIZED...",
-            "log_guide": "MATCH THE TARGET WAVEFORM. TUNE AMPLITUDE, FREQUENCY, AND PHASE.",
-            "controls": {
-                "amp": "AMPLITUDE (Energy)",
-                "freq": "FREQUENCY (Pitch)",
-                "phase": "PHASE (Offset)",
-                "telemetry": "TELEMETRY",
-                "resonance": "RESONANCE SYNC",
-                "status_locked": "LOCKED",
-                "status_searching": "SEARCHING",
-                "toggle_audio": "AUDIO ENGINE"
-            },
-            "viewport": "OSCILLOSCOPE_VIEW"
-        },
-        "apps": {
-            "title": "04. APPLICATIONS: Signals",
-            "audio_title": "Audio Synthesis",
-            "audio_body": "Music is just math we can hear. Synthesizers add sine waves together to create instruments.",
-            "ac_title": "Electricity (AC)",
-            "ac_body": "The power in your wall socket oscillates 50/60 times a second (Hz). It's a sine wave of voltage.",
-            "fourier_title": "Fourier Transform",
-            "fourier_body": "The algorithm that runs the world (JPG, MP3, WiFi). It proves that *any* signal can be broken down into simple sine waves."
-        },
-        "completion": {
-            "synced": "HARMONY RESTORED",
-            "msg": "You have attuned to the rhythm of the cosmos. The signal is clear."
+        "quiz": {
+            "mission_label": "Mission",
+            "mission_title": "Reproduce {{type}} {{angle}}^\\circ",
+            "action": "Confirm Tactics",
+            "success_title": "Mission Successful",
+            "success_desc": "Burn this position into your memory.",
+            "next": "Next Problem",
+            "wrong": "Incorrect Angle."
         }
     },
     "functions": {
