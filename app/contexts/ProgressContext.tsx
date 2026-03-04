@@ -33,6 +33,7 @@ interface ProgressContextType {
   resetProgress: () => void;
   calibration: { status: 'PENDING' | 'COMPLETED'; rate: number };
   completeCalibration: (rate: number) => void;
+  isLoaded: boolean;
 }
 
 // --- Defaults ---
@@ -148,7 +149,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       completeLevel,
       resetProgress,
       calibration,
-      completeCalibration
+      completeCalibration,
+      isLoaded
     }}>
       {children}
     </ProgressContext.Provider>

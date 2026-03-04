@@ -27,6 +27,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 
 // --- Types ---
 type Mode = 'LEARN' | 'TACTICS';
@@ -77,6 +78,7 @@ function curriculumReducer(state: State, action: Action): State {
 
 export default function MathTactixFinalSolution() {
   const { t } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [state, dispatch] = useReducer(curriculumReducer, { mode: 'LEARN', level: 0, step: 0 });
   const { mode, level, step } = state;
   
@@ -183,6 +185,11 @@ export default function MathTactixFinalSolution() {
         msg: t('modules.quadratics.tactics.correct') + " " + opt + " " + t('modules.quadratics.tactics.correct_suffix_2')
       });
       setUserX(currentQ.vertex[0]);
+      
+      // Check if it's the last question in the set (or cycled back to it)
+      if (tacticsIdx % QUESTIONS.length === QUESTIONS.length - 1) {
+        unlockBadge('gravity_master');
+      }
     } else {
       setFeedback({status: 'wrong', msg: t('modules.quadratics.tactics.wrong')});
     }

@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, CheckCircle2, ChevronRight, BarChart3, HelpCircle, Activity, Info, Target } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'probability';
@@ -93,6 +94,7 @@ function MontyHallGame({ onWin }) {
 export default function ProbabilityPage() {
   const { t } = useLanguage();
   const { completeLevel } = useProgress();
+  const { unlockBadge } = useGamification();
   const [currentLevel, setCurrentLevel] = useState(1);
   const [mean, setMean] = useState(0);
   const [stdDev, setStdDev] = useState(1);
@@ -130,6 +132,7 @@ export default function ProbabilityPage() {
       setCurrentLevel(currentLevel + 1);
       setShowUnlock(false);
     } else {
+      unlockBadge('entropy_seeker');
       window.location.href = "/";
     }
   };

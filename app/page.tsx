@@ -7,10 +7,15 @@ import { useLanguage } from './contexts/LanguageContext';
 import { GeistSans } from 'geist/font/sans';
 import { ArrowRight, Lock } from 'lucide-react';
 import SystemMessages from './components/SystemMessages';
+import DashboardSkeleton from './components/DashboardSkeleton';
 
 export default function Home() {
-  const { moduleProgress, calibration } = useProgress();
+  const { moduleProgress, calibration, isLoaded } = useProgress();
   const { t } = useLanguage();
+
+  if (!isLoaded) {
+    return <DashboardSkeleton />;
+  }
 
   const modules = [
     // --- Junior High ---

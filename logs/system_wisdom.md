@@ -4,6 +4,7 @@
 1.  **Localization First**: All UI text must use `locales/{lang}.json`. Hardcoded strings are technical debt.
 2.  **Pedagogy Over Content**: Features must teach a concept (e.g., "Flux", "Void", "Entropy"), not just display math.
 3.  **Modular Architecture**: Components should be self-contained but share the global `LanguageContext`.
+4.  **Resilient UX**: Error boundaries and 404 pages must handle failures gracefully ("Void Sector").
 
 ## Cycle Log
 - **2026-03-03**: Initialized Wisdom Log. Targeting Vectors (Void Scout) for localization refactor.
@@ -84,3 +85,28 @@
     - Updated `PHASE_2_ROADMAP.md` to reflect 100% completion of localization tasks.
     - Committed massive refactor to `main` branch.
     - Ready for Phase 3 (Deployment & User Testing).
+- **2026-03-04**: **Phase 3 Initiation (Optimization & Scale)**:
+    - Archived `PHASE_2_ROADMAP.md` to `logs/PHASE_2_ROADMAP_ARCHIVE.md`.
+    - Created `PHASE_3_ROADMAP.md` targeting Infrastructure Hardening, Gamification, and Content Expansion.
+    - **Infrastructure Hardening**: Created `app/error.tsx` (Global Error Boundary) and `app/not-found.tsx` (Void Sector).
+    - Verified build (`npm run build`) passed with new error components.
+    - **Status**: Ready for Deployment Prep.
+- **2026-03-04**: **Phase 3 Gamification (Badges System)**:
+    - Expanded `GamificationContext.tsx` to support `unlockedBadges` (persistence via `localStorage`).
+    - Added "Achievements" section to `locales/en.json` and `locales/ja.json`.
+    - Integrated Badge unlocking logic into `app/vectors/page.tsx` (`first_step` & `vector_master`).
+    - Added "Achievements" UI to `app/profile/page.tsx` to visualize unlocked badges.
+    - Verified build: Success.
+- **2026-03-04**: **Phase 3 Gamification Expansion (Functions Module)**:
+    - Integrated `useGamification` into `app/functions/page.tsx` (Causality Engine).
+    - Added new badges: `function_novice` (Decode First Box) and `causality_master` (Clear All Levels).
+    - Updated `locales/en.json` and `locales/ja.json` with badge metadata.
+    - Updated `app/profile/page.tsx` to display new badges dynamically.
+    - **Fix**: Added `GamificationProvider` to `app/layout.tsx` to resolve context errors.
+    - Verified build: Success.
+- **2026-03-04**: **Phase 3 Gamification Continued (Quadratics & Probability)**:
+    - Added `gravity_master` (Quadratics) and `entropy_seeker` (Probability) badges.
+    - Updated `locales` (JA/EN) with new badge definitions.
+    - Integrated unlock logic into `app/quadratics/page.tsx` (Tactics Mode completion) and `app/probability/page.tsx` (Level 3 completion).
+    - **Fix**: Resolved missing translation key `modules.vectors.mission_title` in both localization files (required for 404 page placeholder).
+    - Verified build: Success (Zero Localization Warnings).

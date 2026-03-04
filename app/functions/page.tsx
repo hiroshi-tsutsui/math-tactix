@@ -8,6 +8,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, Play, CheckCircle2, AlertCircle, ChevronRight, Activity, Cpu, Info } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LEVELS = [
@@ -23,6 +24,7 @@ const MODULE_ID = 'functions';
 export default function FunctionsPage() {
   const { completeLevel } = useProgress();
   const { t } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [levelIdx, setLevelIdx] = useState(0);
   const [userFunc, setUserFunc] = useState("");
   const [testInput, setTestInput] = useState(1);
@@ -85,6 +87,14 @@ export default function FunctionsPage() {
         setStatus('SYNCED');
         addLog(t('modules.functions.status.synced'));
         completeLevel(MODULE_ID, levelIdx + 1);
+        
+        if (levelIdx === 0) {
+            unlockBadge('function_novice');
+        }
+        if (levelIdx === LEVELS.length - 1) {
+            unlockBadge('causality_master');
+        }
+
         setShowComplete(true);
       } else {
         setStatus('ERROR');

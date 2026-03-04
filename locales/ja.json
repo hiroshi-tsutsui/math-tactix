@@ -703,6 +703,7 @@
         }
     },
     "vectors": {
+        "mission_title": "空間偵察",
         "title": "ベクトル（空間の支配）",
         "levels": {
             "1": { "name": "基礎", "desc": "「向き」と「大きさ」を持つ量。", "log_start": "空間制御システム起動...", "log_guide": "ベクトルの長さを 5.0 以上に調整してください。" },
@@ -913,6 +914,37 @@
       "mastered": "マスター",
       "progress": "Progress",
       "stages": "{{count}} / 3 Stages"
+    }
+  },
+  "badges": {
+    "title": "獲得した称号 (Achievements)",
+    "first_step": {
+      "name": "First Step",
+      "desc": "最初のミッションを完了した証。"
+    },
+    "vector_master": {
+      "name": "Vector Master",
+      "desc": "すべてのベクトル・ミッションをクリアした。"
+    },
+    "function_novice": {
+      "name": "Function Novice",
+      "desc": "最初のブラックボックスを解読した証。"
+    },
+    "causality_master": {
+      "name": "Causality Master",
+      "desc": "すべての関数ミッションを制覇した。"
+    },
+    "flux_pioneer": {
+      "name": "Flux Pioneer",
+      "desc": "すべての微分積分・ミッションをクリアした。"
+    },
+    "gravity_master": {
+      "name": "Gravity Master",
+      "desc": "二次関数のすべてのミッションを制覇した。"
+    },
+    "entropy_seeker": {
+      "name": "Entropy Seeker",
+      "desc": "確率のすべてのミッションを制覇した。"
     }
   }
 }

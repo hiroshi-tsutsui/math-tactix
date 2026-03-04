@@ -466,6 +466,7 @@
         }
     },
     "vectors": {
+        "mission_title": "Void Scout",
         "title": "Vectors",
         "subtitle": "Mathematics C",
         "desc": "Manipulate 'direction' and 'magnitude' to define multi-dimensional space.",
@@ -714,24 +715,6 @@
         "retry_btn": "Restart"
       }
     },
-    "math_quadratic": {
-      "title": "QUADRATIC INNOVATION",
-      "subtitle": "PROTOCOL: PARABOLIC ARCHITECT",
-      "controls": "PARAMETER CONTROLS"
-    },
-    "balls_in_bins": {
-      "title": "Balls in Bins",
-      "subtitle": "Randomly throwing balls into {{bins}} bins (Law of Large Numbers)",
-      "total_count": "Total",
-      "start": "Start",
-      "stop": "Stop",
-      "reset": "Reset",
-      "bin_count": "Bins",
-      "speed": "Speed",
-      "average": "Avg",
-      "bin_label": "Bin {{index}}: {{count}}"
-    }
-  },
   "codex": {
     "title": "Mathematical Codex",
     "back": "Back",
@@ -793,6 +776,37 @@
       "mastered": "MASTERED",
       "progress": "Progress",
       "stages": "{{count}} / 3 Stages"
+    }
+  },
+  "badges": {
+    "title": "Achievements",
+    "first_step": {
+      "name": "First Step",
+      "desc": "Complete your first mission."
+    },
+    "vector_master": {
+      "name": "Vector Master",
+      "desc": "Clear all Vector missions."
+    },
+    "function_novice": {
+      "name": "Function Novice",
+      "desc": "Decode your first black box."
+    },
+    "causality_master": {
+      "name": "Causality Master",
+      "desc": "Master all Function levels."
+    },
+    "flux_pioneer": {
+      "name": "Flux Pioneer",
+      "desc": "Clear all Calculus missions."
+    },
+    "gravity_master": {
+      "name": "Gravity Master",
+      "desc": "Master all Quadratics missions."
+    },
+    "entropy_seeker": {
+      "name": "Entropy Seeker",
+      "desc": "Master all Probability missions."
     }
   }
 }

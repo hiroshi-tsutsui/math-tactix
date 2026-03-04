@@ -29,7 +29,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    setTranslations(language === 'ja' ? ja : en);
+    setTranslations(language === 'ja' ? ja : en as unknown as Translations);
     localStorage.setItem('math-tactix-lang', language);
   }, [language]);
 

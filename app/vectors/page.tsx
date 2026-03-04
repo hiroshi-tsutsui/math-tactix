@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, MoveUpRight, CheckCircle2, ChevronRight, Info, Layers } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'vectors';
@@ -14,6 +15,7 @@ const MODULE_ID = 'vectors';
 export default function VectorsPage() {
   const { t } = useLanguage();
   const { completeLevel } = useProgress();
+  const { unlockBadge } = useGamification();
   const [levelIdx, setLevelIdx] = useState(0);
   const [vecA, setVecA] = useState({ x: 2, y: 1 });
   const [vecB, setVecB] = useState({ x: 1, y: 2 });
@@ -61,12 +63,15 @@ export default function VectorsPage() {
 
   const handleNext = () => {
     completeLevel(MODULE_ID, levelIdx + 1);
+    unlockBadge('first_step');
+
     if (levelIdx < LEVELS.length - 1) {
       setLevelIdx(levelIdx + 1);
       setVecA({ x: 0, y: 0 });
       setVecB({ x: 0, y: 0 });
       setShowComplete(false);
     } else {
+      unlockBadge('vector_master');
       window.location.href = "/";
     }
   };

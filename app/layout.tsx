@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./main.css";
 import { ProgressProvider } from "./contexts/ProgressContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { GamificationProvider } from "./contexts/GamificationContext";
 import XPBar from "./components/XPBar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -22,13 +23,15 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${inter.variable} ${notoSansJP.variable} font-sans antialiased bg-black text-white`}>
         <ProgressProvider>
-          <LanguageProvider>
-            {/* Global Layout - Minimal. Header handled by individual pages for specific protocols. */}
-            <main className="min-h-screen pb-20">
-              {children}
-            </main>
-            <XPBar />
-          </LanguageProvider>
+          <GamificationProvider>
+            <LanguageProvider>
+              {/* Global Layout - Minimal. Header handled by individual pages for specific protocols. */}
+              <main className="min-h-screen pb-20">
+                {children}
+              </main>
+              <XPBar />
+            </LanguageProvider>
+          </GamificationProvider>
         </ProgressProvider>
       </body>
     </html>

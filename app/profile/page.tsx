@@ -7,11 +7,21 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, User, Shield, Activity, Award, CheckCircle2, TrendingUp } from 'lucide-react';
 import { useProgress, ModuleId } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion } from 'framer-motion';
+
+const BADGES = [
+  { id: 'first_step', icon: '🎯' },
+  { id: 'vector_master', icon: '📐' },
+  { id: 'flux_pioneer', icon: '∫' },
+  { id: 'function_novice', icon: '📦' },
+  { id: 'causality_master', icon: '⚡' }
+];
 
 export default function ProfilePage() {
   const { xp, level, title, moduleProgress, calibration } = useProgress();
   const { t } = useLanguage();
+  const { unlockedBadges } = useGamification();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -99,6 +109,34 @@ export default function ProfilePage() {
                   </Link>
                 </div>
               )}
+            </div>
+            
+            {/* Achievements Section */}
+            <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
+                <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                    <Award className="w-5 h-5 text-yellow-500" />
+                    {t('badges.title')}
+                </h3>
+                <div className="space-y-4">
+                    {BADGES.map(badge => {
+                        const isUnlocked = unlockedBadges.includes(badge.id);
+                        return (
+                            <div key={badge.id} className={`flex items-center gap-4 p-4 rounded-xl border ${isUnlocked ? 'bg-yellow-50 border-yellow-100' : 'bg-slate-50 border-slate-100 opacity-50'}`}>
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${isUnlocked ? 'bg-white shadow-sm' : 'bg-slate-200 grayscale'}`}>
+                                    {badge.icon}
+                                </div>
+                                <div>
+                                    <div className={`text-sm font-bold ${isUnlocked ? 'text-yellow-900' : 'text-slate-500'}`}>
+                                        {t(`badges.${badge.id}.name`)}
+                                    </div>
+                                    <div className="text-xs text-slate-400 font-medium">
+                                        {isUnlocked ? t(`badges.${badge.id}.desc`) : 'Locked'}
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
           </div>
 
