@@ -618,11 +618,13 @@
       "title": "Matrices",
       "subtitle": "Mathematics C",
       "desc": "Learn the mechanism of linear transformations that freely distort space.",
-      "levels": {
-        "1": { "name": "90° Rotation", "desc": "Manipulate matrix to rotate space 90 degrees counter-clockwise." },
-        "2": { "name": "2x Scale", "desc": "Uniformly expand entire space to double size." },
-        "3": { "name": "Shear", "desc": "Distort horizontally (x-axis)." }
-      },
+      "level_1_name": "90° Rotation",
+      "level_1_desc": "Manipulate matrix to rotate space 90 degrees counter-clockwise.",
+      "level_2_name": "2x Scale",
+      "level_2_desc": "Uniformly expand entire space to double size.",
+      "level_3_name": "Shear",
+      "level_3_desc": "Distort horizontally (x-axis).",
+      "log_match": "Matrix transformation successful!",
       "ui": {
         "analysis_title": "Spatial Deformation Analysis",
         "matrix_label": "Transformation Matrix T",
@@ -631,7 +633,6 @@
         "mission_title": "Mission",
         "activity_log": "Activity Log",
         "log_start": "Started Stage {{level}}",
-        "log_success": "Matrix transformation successful!",
         "next_btn": "Next",
         "back": "Back"
       }

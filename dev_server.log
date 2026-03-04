@@ -2835,3 +2835,14 @@ https://nextjs.org/docs/messages/module-not-found
  GET /quadratics 200 in 84ms (compile: 4ms, render: 80ms)
 ✓ Compiled in 1100ms
 ✓ Compiled in 139ms
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/en.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 39ms
+ GET /quadratics 200 in 378ms (compile: 183ms, render: 195ms)
+ GET /quadratics 200 in 44ms (compile: 2ms, render: 42ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 12ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 200ms (compile: 138ms, render: 62ms)
+ GET /quadratics 200 in 42ms (compile: 3ms, render: 40ms)
+✓ Compiled in 99ms

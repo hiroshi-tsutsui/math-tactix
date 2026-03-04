@@ -127,3 +127,11 @@
     - **Fix**: Resolved critical duplicate import errors in `app/matrices/page.tsx` (ArrowLeft, Grid, CheckCircle2) that blocked the build.
     - **Accessibility**: Implemented full Dark Mode support in `app/quadratics/page.tsx` (added `dark:` classes for high-contrast visibility).
     - **Status**: Verified build (`npm run build`). Detected missing translation keys for Matrices (logged for next cycle).
+- **2026-03-04**: **Phase 3 Accessibility (Matrices Complete)**:
+    - **Localization Fix**: Updated `locales/ja.json` and `locales/en.json` to flatten `levels` object in `matrices` to match `t('level_1_name')` calls.
+    - **Accessibility**: Implemented full Dark Mode support in `app/matrices/page.tsx`.
+        - Backgrounds: `bg-slate-50` -> `dark:bg-slate-950`
+        - Cards: `bg-white` -> `dark:bg-slate-900`
+        - Text: `text-slate-900` -> `dark:text-white`
+        - Inputs: `bg-slate-50` -> `dark:bg-slate-800`
+    - **Status**: Matrices module fully modernized (Localized + Dark Mode).
