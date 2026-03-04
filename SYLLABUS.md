@@ -1,35 +1,42 @@
-# SYLLABUS: THE OMEGA PROTOCOL
+# math-tactix 学習シラバス
 
-## Tier 1: The Sandbox (Interactive Foundation)
-*Goal: Build intuition before rigor.*
+本プロジェクトでは、日本の高校数学カリキュラムに基づき、各単元の「概念の視覚化」と「典型問題の習得」を段階的に進めます。
 
-### 1. DATA (The Archive) - **LIVE & LOCALIZED**
-*Concept: Signal vs. Noise*
-*   **Mission:** Signal Injection & Noise Purge.
-*   **Mechanic:** Interactive Regression Game.
-*   **Math:** Correlation ($r$), Regression Line ($y = ax + b$), Outliers.
-*   **Lore:** "The Archive remembers everything. Find the pattern in the void."
+## 🟢 数学 I (最優先)
 
-### 2. FUNCTIONS (The Causality Engine) - **PENDING REFINEMENT**
-*Concept: Input/Output & Transformation*
-*   **Mission:** Black Box Decryption.
-*   **Mechanic:** "Guess the Function" via I/O pairs.
-*   **Math:** Linear, Quadratic, Exponential functions. Domain/Range.
-*   **Lore:** "Every action has a reaction. Decode the causality."
+### 1. 二次関数 (Quadratic Functions) - **重点開発中**
+*   **基礎:** 係数 ($a, b, c$) の変化によるグラフの動き、平方完成の視覚的意味。
+*   **応用:** 動く定義域・動く軸における最大・最小問題（場合分けの視覚化）。
+*   **発展:** 二次方程式の解の配置、グラフと $x$ 軸の共有点。
 
-### 3. CALCULUS (Flux Dynamics) - **LIVE & LOCALIZED**
-*Concept: Change over Time*
-*   **Mission:** Flux Engine Protocol (Speed vs Accumulation).
-*   **Mechanic:** Interactive 2D/3D Revolution Surface.
-*   **Math:** Derivatives (slope), Integrals (area).
-*   **Lore:** "The language of change. Master the Flux Engine."
+### 2. 図形と計量 (Trigonometry) - **開発中**
+*   **基礎:** 単位円を用いた三角比 ($\sin, \cos, \tan$) の定義。
+*   **応用:** 正弦定理・余弦定理の幾何学的証明と活用。
+*   **発展:** 3D空間における図形の計量。
 
-### 4. PROBABILITY (Entropy) - **PLANNED**
-*Concept: Uncertainty*
-*   **Mission:** Predict the Unpredictable.
-*   **Mechanic:** Dice rolling / Distribution simulation.
-*   **Math:** Probability distributions, Expected Value.
+### 3. データの分析 (Data Analysis) - **実装済**
+*   **基礎:** 散布図と相関係数。
+*   **応用:** 最小二乗法による回帰直線の理解。
+*   **発展:** 外れ値が分析に与える影響のシミュレーション。
 
-## Tier 2: The Codex (Rigor)
-*Goal: Formalize the intuition.*
-(Details TBD)
+---
+
+## 🟡 数学 A / II / B
+
+### 1. ベクトル (Vectors)
+*   **平面ベクトル:** ベクトルの加法・減法・スカラー倍、内積の射影としての理解。
+*   **空間ベクトル:** 3D空間での成分表示と位置関係。
+
+### 2. 微分・積分 (Calculus)
+*   **微分:** 接線の傾き（微分係数）の極限としての理解。
+*   **積分:** 定積分と面積の関係、リーマン和の視覚化。
+
+### 3. 複素数平面 (Complex Plane)
+*   **幾何:** 複素数の加減と平行移動、極形式と回転・拡大。
+
+---
+
+## 🔴 開発方針
+1.  **直感を先に、厳密さを後に**: グラフを触らせてから数式を提示する。
+2.  **テスト頻出パターンの網羅**: 網羅系参考書（青チャート等）の典型題をビジュアルで解けるようにする。
+3.  **ステップアップ形式**: レベル1（基本操作）からレベル3（入試レベル）まで段階を設ける。

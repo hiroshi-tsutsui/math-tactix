@@ -945,6 +945,34 @@
     "entropy_seeker": {
       "name": "Entropy Seeker",
       "desc": "確率のすべてのミッションを制覇した。"
+    },
+    "trig_master": {
+      "name": "Harmonic Tuner",
+      "desc": "すべての三角関数ミッションを制覇した。"
+    },
+    "matrix_architect": {
+      "name": "Matrix Architect",
+      "desc": "すべての行列変換ミッションを制覇した。"
+    },
+    "flux_master": {
+      "name": "Flux Master",
+      "desc": "変化率（微積分）を完全に制御した。"
+    },
+    "complex_navigator": {
+      "name": "Complex Navigator",
+      "desc": "虚数平面の回転と拡大を自在に操った。"
+    },
+    "data_analyst": {
+      "name": "Data Analyst",
+      "desc": "ノイズから真の信号（シグナル）を解読した。"
+    },
+    "pattern_seeker": {
+      "name": "Pattern Seeker",
+      "desc": "数列の法則を見抜き、未来を予測した。"
+    },
+    "quiz_ace": {
+      "name": "Quiz Ace",
+      "desc": "実力テストで満点（100%）を達成した。"
     }
   }
 }

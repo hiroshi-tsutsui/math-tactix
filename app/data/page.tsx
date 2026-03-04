@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, Plus, Trash2, CheckCircle2, ChevronRight, BarChart2 } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Types ---
@@ -17,6 +18,7 @@ const MODULE_ID = 'data';
 export default function DataPage() {
   const { moduleProgress, completeLevel } = useProgress();
   const { t, language } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [currentLevel, setCurrentLevel] = useState(1);
   const [points, setPoints] = useState<Point[]>([]);
   const [showResiduals, setShowResiduals] = useState(false);
@@ -133,6 +135,7 @@ export default function DataPage() {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
+      unlockBadge('data_analyst');
       window.location.href = "/";
     }
   };

@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, Activity, CheckCircle2, ChevronRight, Play, Info } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'calculus';
@@ -14,6 +15,7 @@ const MODULE_ID = 'calculus';
 export default function CalculusPage() {
   const { completeLevel } = useProgress();
   const { t } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [levelIdx, setLevelIdx] = useState(0);
   const [tParam, setTParam] = useState(0.5); // Renamed to avoid collision with t()
   const [showComplete, setShowComplete] = useState(false);
@@ -86,6 +88,7 @@ export default function CalculusPage() {
       setLevelIdx(levelIdx + 1);
       setShowComplete(false);
     } else {
+      unlockBadge('flux_master');
       window.location.href = "/";
     }
   };

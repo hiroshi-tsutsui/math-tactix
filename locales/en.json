@@ -807,6 +807,34 @@
     "entropy_seeker": {
       "name": "Entropy Seeker",
       "desc": "Master all Probability missions."
+    },
+    "trig_master": {
+      "name": "Harmonic Tuner",
+      "desc": "Master all Trigonometry missions."
+    },
+    "matrix_architect": {
+      "name": "Matrix Architect",
+      "desc": "Master all Matrix transformations."
+    },
+    "flux_master": {
+      "name": "Flux Master",
+      "desc": "Controlled the rate of change (Calculus)."
+    },
+    "complex_navigator": {
+      "name": "Complex Navigator",
+      "desc": "Navigated the imaginary plane."
+    },
+    "data_analyst": {
+      "name": "Data Analyst",
+      "desc": "Decoded the signal from the noise."
+    },
+    "pattern_seeker": {
+      "name": "Pattern Seeker",
+      "desc": "Predicted the future sequence."
+    },
+    "quiz_ace": {
+      "name": "Quiz Ace",
+      "desc": "Achieved a perfect score in the Proficiency Test."
     }
   }
 }

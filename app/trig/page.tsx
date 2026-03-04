@@ -13,21 +13,31 @@ import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 
 // --- Types ---
+type QuizItem = { type: 'sin' | 'cos', angle: number, value: string };
+
 type State = {
   angle: number; 
   step: number; // 0: Free Play, 1: Quiz Mode, 2: Level Clear
-  quizTarget: { type: 'sin' | 'cos', angle: number, value: string };
+  quizIndex: number;
 };
 
 type Action = 
   | { type: 'SET_ANGLE'; payload: number }
   | { type: 'NEXT_STEP' }
-  | { type: 'SET_QUIZ'; payload: { type: 'sin' | 'cos', angle: number, value: string } }
+  | { type: 'NEXT_QUIZ' }
   | { type: 'RESET' };
 
 const FAMOUS_ANGLES = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360];
+
+const QUIZ_SEQUENCE: QuizItem[] = [
+  { type: 'sin', angle: 30, value: "\\frac{1}{2}" },
+  { type: 'cos', angle: 180, value: "-1" },
+  { type: 'sin', angle: 270, value: "-1" },
+  { type: 'cos', angle: 45, value: "\\frac{\\sqrt{2}}{2}" }
+];
 
 const EXACT_VALUES: Record<number, { sin: string, cos: string }> = {
   0:   { sin: "0", cos: "1" },
@@ -70,20 +80,29 @@ function trigReducer(state: State, action: Action): State {
       return { ...state, angle };
     }
     case 'NEXT_STEP': return { ...state, step: state.step + 1 };
-    case 'SET_QUIZ': return { ...state, quizTarget: action.payload, step: 1 };
-    case 'RESET': return { angle: 30, step: 0, quizTarget: { type: 'sin', angle: 60, value: "\\frac{\\sqrt{3}}{2}" } };
+    case 'NEXT_QUIZ': {
+      const nextIndex = state.quizIndex + 1;
+      if (nextIndex >= QUIZ_SEQUENCE.length) {
+        return { ...state, step: 2 }; // Completed
+      }
+      return { ...state, quizIndex: nextIndex, angle: 0 };
+    }
+    case 'RESET': return { angle: 30, step: 0, quizIndex: 0 };
     default: return state;
   }
 }
 
 export default function TrigEvolutionCycle03() {
   const { t } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [state, dispatch] = useReducer(trigReducer, { 
     angle: 30, 
     step: 0,
-    quizTarget: { type: 'sin', angle: 60, value: "\\frac{\\sqrt{3}}{2}" }
+    quizIndex: 0
   });
-  const { angle, step, quizTarget } = state;
+  const { angle, step, quizIndex } = state;
+  const currentQuiz = QUIZ_SEQUENCE[quizIndex];
+  
   const [feedback, setFeedback] = useState<{status: 'idle'|'correct'|'wrong', msg: string}>({status: 'idle', msg: ''});
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -94,6 +113,7 @@ export default function TrigEvolutionCycle03() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    // ... (rendering code unchanged) ...
     const w = canvas.width, h = canvas.height;
     const radius = 120, ox = w / 2, oy = h / 2;
 
@@ -143,12 +163,23 @@ export default function TrigEvolutionCycle03() {
     render();
   }, [angle]);
 
+  useEffect(() => {
+    if (step === 2) {
+      unlockBadge('trig_master');
+    }
+  }, [step, unlockBadge]);
+
   const checkQuiz = () => {
-    if (angle === quizTarget.angle) {
+    if (angle === currentQuiz.angle) {
       setFeedback({status: 'correct', msg: t('modules.trig.quiz.success_title')});
     } else {
       setFeedback({status: 'wrong', msg: t('modules.trig.quiz.wrong')});
     }
+  };
+
+  const handleNextQuiz = () => {
+    setFeedback({status: 'idle', msg: ''});
+    dispatch({type: 'NEXT_QUIZ'});
   };
 
   return (
@@ -206,25 +237,59 @@ export default function TrigEvolutionCycle03() {
             {step === 1 && (
               <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
                  <div className="bg-red-50 p-6 rounded-[32px] border border-red-100 text-center space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100 rounded-full text-red-600 text-[10px] font-black uppercase tracking-widest">{t('modules.trig.quiz.mission_label')}</div>
+                    <div className="flex items-center justify-between">
+                       <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100 rounded-full text-red-600 text-[10px] font-black uppercase tracking-widest">{t('modules.trig.quiz.mission_label')} {quizIndex + 1}/{QUIZ_SEQUENCE.length}</div>
+                    </div>
                     <h2 className="text-xl font-bold text-slate-800">
-                      <MathComponent tex={t('modules.trig.quiz.mission_title', { type: quizTarget.type, angle: quizTarget.angle })} />
+                      <MathComponent tex={t('modules.trig.quiz.mission_title', { type: currentQuiz.type, angle: currentQuiz.angle })} />
                     </h2>
                  </div>
                  <div className="space-y-6">
                     <input type="range" min="0" max="360" step="1" value={angle} onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-red-500 cursor-pointer" />
-                    <button onClick={checkQuiz} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold">{t('modules.trig.quiz.action')}</button>
+                    
+                    {feedback.status === 'idle' && (
+                        <button onClick={checkQuiz} className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold">{t('modules.trig.quiz.action')}</button>
+                    )}
+
                     <AnimatePresence>
                       {feedback.status === 'correct' && (
                         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-6 bg-emerald-50 rounded-3xl border border-emerald-100 text-center space-y-3">
                            <h4 className="text-emerald-700 font-bold">{t('modules.trig.quiz.success_title')}</h4>
                            <p className="text-[11px] text-emerald-600">{t('modules.trig.quiz.success_desc')}</p>
-                           <button onClick={() => dispatch({type: 'RESET'})} className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs">{t('modules.trig.quiz.next')}</button>
+                           <button onClick={handleNextQuiz} className="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold text-xs">{t('modules.trig.quiz.next')}</button>
                         </motion.div>
+                      )}
+                      {feedback.status === 'wrong' && (
+                         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-4 bg-red-50 rounded-2xl border border-red-100 text-center">
+                            <p className="text-red-600 font-bold text-sm">{feedback.msg}</p>
+                            <button onClick={() => setFeedback({status: 'idle', msg: ''})} className="mt-2 text-[10px] text-red-500 underline">Try Again</button>
+                         </motion.div>
                       )}
                     </AnimatePresence>
                  </div>
               </motion.div>
+            )}
+
+            {step === 2 && (
+                <motion.div key="completed" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center justify-center space-y-6 py-12">
+                   <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center shadow-2xl shadow-blue-200">
+                      <Trophy className="w-10 h-10 text-white" />
+                   </div>
+                   <div className="text-center space-y-2">
+                      <h2 className="text-2xl font-black text-slate-900">MISSION COMPLETE</h2>
+                      <p className="text-slate-500 text-sm">You have mastered the Harmonic Cycle.</p>
+                   </div>
+                   <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-2xl flex items-center gap-3">
+                      <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                      <div className="text-left">
+                         <div className="text-[10px] font-bold text-yellow-600 uppercase tracking-wider">Badge Unlocked</div>
+                         <div className="text-sm font-bold text-slate-800">Harmonic Tuner</div>
+                      </div>
+                   </div>
+                   <Link href="/" className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 py-4 rounded-2xl font-bold text-center transition-colors">
+                      Return to Dashboard
+                   </Link>
+                </motion.div>
             )}
 
           </AnimatePresence>

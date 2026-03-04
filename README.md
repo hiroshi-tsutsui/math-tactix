@@ -1,68 +1,55 @@
-# PROJECT OMEGA | THE SIMULATION
+# math-tactix
 
-> **"Mathematics is the source code of reality."**
+> **「数学を、見て、触れて、理解する。」**
 
-Math-Tactix is not a learning platform. It is an **Operator Training Interface** designed to synchronize human consciousness with the mathematical underpinnings of the universe.
+`math-tactix` は、中高数学の概念を視覚的に理解し、学校のテストや受験で点数を取るための力を養うためのインタラクティブな学習プラットフォームです。
 
-## 🟢 The Mission
+## 🎯 プロジェクトの目的
 
-You are an **Operator**. Your goal is to stabilize the simulation by mastering 10 core protocols:
+数式を暗記するだけでなく、動的なグラフや3Dビジュアライゼーションを通じて数学の「本質」を直感的に掴むことを目指します。
 
-1.  **Quadratics (Gravity Well):** Contain singularities.
-2.  **Trigonometry (Harmonic Resonance):** Tune the universal carrier wave.
-3.  **Vectors (Void Navigation):** Traverse the grid without a tether.
-4.  **Data (Signal Archive):** Extract truth from noise.
-5.  **Sequences (Chronos Pattern):** Predict the next frame of time.
-6.  **Probability (Entropy Weaver):** Weave chance into certainty.
-7.  **Calculus (Flux Engine):** Control the flow of time (derivative) and history (integral).
-8.  **Complex (Void Phase):** Access hidden dimensions via the imaginary unit.
-9.  **Logs (Entropy Compressor):** Compress infinite growth into manageable scales.
-10. **Matrices (Fabric Weaver):** Warp the fabric of space-time.
+1.  **直感的理解**: グラフを動かし、変化を観察することで、数式の意味を理解します。
+2.  **テスト対策**: 基礎から応用まで、日本の数学カリキュラム（数Iから順次対応）を網羅します。
+3.  **視覚的フィードバック**: 正解・不正解だけでなく、なぜそうなるのかを視覚的に示します。
 
-## 🛠️ Tech Stack
+## 📚 対応カリキュラム（ロードマップ）
 
--   **Core:** Next.js 15 (App Router)
+### 数学 I
+- **二次関数**: グラフの移動、最大・最小、解の配置。
+- **図形と計量**: 三角比の単位円による理解、正弦・余弦定理。
+- **データの分析**: 相関関係、回帰直線の視覚化。
+
+### 数学 A / II / B / III
+- **確率・統計**: 試行のシミュレーション。
+- **微分・積分**: 接線の傾きと面積の動的理解。
+- **ベクトル**: 平面・空間ベクトルの視覚的合成。
+- **複素数平面**: 回転と拡大の幾何学的意味。
+
+## 🛠️ 技術スタック
+
+-   **Frontend:** Next.js 15 (App Router)
 -   **Visuals:** React Three Fiber (R3F), Drei, Framer Motion
--   **State:** React Context (Global Operator Profile)
--   **Audio:** Web Audio API (Sonification)
--   **Deploy:** Vercel
+-   **Math Logic:** mathjs, katex
+-   **Styling:** Tailwind CSS
 
-## 🚀 Initialization
+## 🚀 開発環境のセットアップ
 
-1.  **Clone the Repository**
+1.  **リポジトリのクローン**
     ```bash
-    git clone https://github.com/your-repo/project-omega.git
-    cd project-omega
+    git clone https://github.com/hiroshi-tsutsui/math-tactix.git
+    cd math-tactix
     ```
 
-2.  **Install Dependencies**
+2.  **依存関係のインストール**
     ```bash
-    npm install --legacy-peer-deps
+    npm install
     ```
 
-3.  **Launch Simulation**
+3.  **開発サーバーの起動**
     ```bash
     npm run dev
     ```
 
-4.  **Access Terminal**
-    Open [http://localhost:3000](http://localhost:3000)
-
-## 📂 Structure
-
--   `app/`: The Simulation Core (Next.js Pages)
--   `app/codex/`: System Logs (Lore Database)
--   `app/overview/`: The Awakening (Manifesto)
--   `app/profile/`: Operator Dossier
--   `components/`: UI Elements (HUD, Terminals)
--   `contexts/`: Global State (Progress, XP, Level)
-
-## ⚠️ Warning
-
-Reality anomalies may occur during high-level calculus operations. Ensure your browser supports WebGL 2.0.
-
 ---
-
-**Status:** PHASE 2 ACTIVE // THE AWAKENING
-**Architect:** Tony
-**Version:** 2.6.0
+**Status:** 開発進行中（数Iモジュール強化期間）
+**Internal Code:** math-tactix

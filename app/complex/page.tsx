@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, CheckCircle2, ChevronRight, RotateCw, Activity, Info, Zap } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'complex';
@@ -14,6 +15,7 @@ const MODULE_ID = 'complex';
 export default function ComplexPage() {
   const { moduleProgress, completeLevel } = useProgress();
   const { t, locale } = useLanguage();
+  const { unlockBadge } = useGamification();
   const language = locale; // Alias for compatibility with effect hook
   const [currentLevel, setCurrentLevel] = useState(1);
   const [re1, setRe1] = useState(1);
@@ -57,6 +59,7 @@ export default function ComplexPage() {
       setCurrentLevel(currentLevel + 1);
       setShowUnlock(false);
     } else {
+      unlockBadge('complex_navigator');
       window.location.href = "/";
     }
   };

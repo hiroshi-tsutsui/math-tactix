@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, TrendingUp, CheckCircle2, ChevronRight, Activity, LineChart, Info } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'sequences';
@@ -14,6 +15,7 @@ const MODULE_ID = 'sequences';
 export default function SequencesPage() {
   const { moduleProgress, completeLevel } = useProgress();
   const { t, language } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [currentLevel, setCurrentLevel] = useState(1);
   const [showUnlock, setShowUnlock] = useState(false);
   const [log, setLog] = useState<string[]>([]);
@@ -47,6 +49,7 @@ export default function SequencesPage() {
         setCurrentLevel(currentLevel + 1);
         setShowUnlock(false);
     } else {
+        unlockBadge('pattern_seeker');
         window.location.href = "/";
     }
   };

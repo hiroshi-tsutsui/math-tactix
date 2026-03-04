@@ -4,6 +4,7 @@ import "./main.css";
 import { ProgressProvider } from "./contexts/ProgressContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { GamificationProvider } from "./contexts/GamificationContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import XPBar from "./components/XPBar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -21,18 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.variable} ${notoSansJP.variable} font-sans antialiased bg-black text-white`}>
-        <ProgressProvider>
-          <GamificationProvider>
-            <LanguageProvider>
-              {/* Global Layout - Minimal. Header handled by individual pages for specific protocols. */}
-              <main className="min-h-screen pb-20">
-                {children}
-              </main>
-              <XPBar />
-            </LanguageProvider>
-          </GamificationProvider>
-        </ProgressProvider>
+      <body className={`${inter.variable} ${notoSansJP.variable} font-sans antialiased bg-white dark:bg-black text-black dark:text-white`}>
+        <ThemeProvider>
+          <ProgressProvider>
+            <GamificationProvider>
+              <LanguageProvider>
+                {/* Global Layout - Minimal. Header handled by individual pages for specific protocols. */}
+                <main className="min-h-screen pb-20">
+                  {children}
+                </main>
+                <XPBar />
+              </LanguageProvider>
+            </GamificationProvider>
+          </ProgressProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,62 +4,47 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, CheckCircle2, ChevronRight, Grid, Maximize, RotateCw, Activity, Info } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronRight, Grid, Maximize, RotateCw, Activity, Info, Trophy, Star } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
-import { useLanguage } from '../contexts/LanguageContext'; // Import LanguageContext
+import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'matrices';
-type Matrix2x2 = [[number, number], [number, number]];
 
 export default function MatricesPage() {
   const { moduleProgress, completeLevel } = useProgress();
-  const { t } = useLanguage(); // Use translation hook
+  const { t } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [currentLevel, setCurrentLevel] = useState(1);
-  const [matrix, setMatrix] = useState<Matrix2x2>([[1, 0], [0, 1]]);
+  const [matrix, setMatrix] = useState<[[number, number], [number, number]]>([[1, 0], [0, 1]]);
   const [showUnlock, setShowUnlock] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
   const [log, setLog] = useState<string[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Target values defined here (Logic), but text comes from t(...)
-  const LEVEL_TARGETS = [
-    { id: 1, target: [[0, -1], [1, 0]] }, // 90 deg rotation
-    { id: 2, target: [[2, 0], [0, 2]] },  // Scale 2x
-    { id: 3, target: [[1, 1], [0, 1]] }   // Shear X
-  ];
-
-  // Helper to safely get level data
-  const getLevelData = (levelId: number) => {
-    return {
-      name: t(`modules.matrices.levels.${levelId}.name`),
-      desc: t(`modules.matrices.levels.${levelId}.desc`),
-      target: LEVEL_TARGETS[levelId - 1]?.target || [[1,0],[0,1]]
-    };
+  const LEVEL_TARGETS = {
+      1: { name: t('modules.matrices.level_1_name'), desc: t('modules.matrices.level_1_desc'), target: [[2, 0], [0, 1]] }, // Scale X
+      2: { name: t('modules.matrices.level_2_name'), desc: t('modules.matrices.level_2_desc'), target: [[0, -1], [1, 0]] }, // Rotation 90
+      3: { name: t('modules.matrices.level_3_name'), desc: t('modules.matrices.level_3_desc'), target: [[1, 1], [0, 1]] }  // Shear X
   };
 
-  const levelData = getLevelData(currentLevel);
+  const levelData = LEVEL_TARGETS[currentLevel as keyof typeof LEVEL_TARGETS];
 
   useEffect(() => {
-    const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
-    const next = progress.length + 1 > 3 ? 3 : progress.length + 1;
-    setCurrentLevel(next);
-    addLog(t('modules.matrices.ui.log_start', { level: next }));
-  }, [moduleProgress]);
-
-  const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
-
-  const isMatch = (m1, m2) => {
-      if (!m2) return false;
-      return Math.abs(m1[0][0] - m2[0][0]) < 0.1 && Math.abs(m1[0][1] - m2[0][1]) < 0.1 &&
-             Math.abs(m1[1][0] - m2[1][0]) < 0.1 && Math.abs(m1[1][1] - m2[1][1]) < 0.1;
-  };
-
-  useEffect(() => {
-    if (isMatch(matrix, levelData.target) && !showUnlock) {
-      setShowUnlock(true);
-      addLog(t('modules.matrices.ui.log_success'));
+    // Check Victory
+    const isClose = (a, b) => Math.abs(a - b) < 0.1;
+    const t = levelData.target;
+    if (
+        isClose(matrix[0][0], t[0][0]) && isClose(matrix[0][1], t[0][1]) &&
+        isClose(matrix[1][0], t[1][0]) && isClose(matrix[1][1], t[1][1])
+    ) {
+        if (!showUnlock) {
+            setShowUnlock(true);
+            setLog(prev => [t('modules.matrices.log_match'), ...prev.slice(0, 4)]);
+        }
     }
-  }, [matrix, levelData]);
+  }, [matrix, currentLevel, showUnlock, levelData, t]);
 
   const handleNext = () => {
     completeLevel(MODULE_ID, currentLevel);
@@ -68,9 +53,38 @@ export default function MatricesPage() {
       setMatrix([[1, 0], [0, 1]]);
       setShowUnlock(false);
     } else {
-      window.location.href = "/";
+      unlockBadge('matrix_architect');
+      setIsCompleted(true);
     }
   };
+
+  if (isCompleted) {
+    return (
+        <div className={`min-h-screen bg-white text-black flex flex-col items-center justify-center p-8 ${GeistSans.className}`}>
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center text-center space-y-8 max-w-md">
+                <div className="w-32 h-32 bg-indigo-500 rounded-full flex items-center justify-center shadow-2xl shadow-indigo-200">
+                    <Grid className="w-16 h-16 text-white" />
+                </div>
+                <div className="space-y-4">
+                    <h2 className="text-3xl font-black text-slate-900">ARCHITECT STATUS CONFIRMED</h2>
+                    <p className="text-slate-500">You have demonstrated the ability to reshape space itself.</p>
+                </div>
+                <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-3xl flex items-center gap-4 w-full">
+                    <div className="p-3 bg-yellow-100 rounded-full">
+                        <Star className="w-6 h-6 text-yellow-600 fill-yellow-600" />
+                    </div>
+                    <div className="text-left">
+                        <div className="text-[10px] font-bold text-yellow-600 uppercase tracking-wider">Badge Unlocked</div>
+                        <div className="text-lg font-bold text-slate-900">Matrix Architect</div>
+                    </div>
+                </div>
+                <Link href="/" className="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl">
+                    Return to Dashboard
+                </Link>
+            </motion.div>
+        </div>
+    );
+  }
 
   const handleInputChange = (r, c, val) => {
       const num = parseFloat(val) || 0;
@@ -79,43 +93,6 @@ export default function MatricesPage() {
       newM[r][c] = num;
       setMatrix(newM);
   };
-
-  // Drawing
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const w = canvas.width, h = canvas.height, cx = w/2, cy = h/2, unit = 40;
-
-    const transform = (x, y, m) => {
-        const nx = m[0][0] * x + m[0][1] * y;
-        const ny = m[1][0] * x + m[1][1] * y;
-        return { x: cx + nx * unit, y: cy - ny * unit };
-    };
-
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = '#f1f5f9'; ctx.lineWidth = 1;
-
-    // Transformed Grid
-    ctx.strokeStyle = '#e2e8f0';
-    for(let i=-5; i<=5; i++) {
-        const p1 = transform(i, -5, matrix), p2 = transform(i, 5, matrix);
-        ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
-        const p3 = transform(-5, i, matrix), p4 = transform(5, i, matrix);
-        ctx.beginPath(); ctx.moveTo(p3.x, p3.y); ctx.lineTo(p4.x, p4.y); ctx.stroke();
-    }
-
-    // Basis Vectors
-    const origin = transform(0, 0, matrix);
-    const iHat = transform(1, 0, matrix);
-    const jHat = transform(0, 1, matrix);
-
-    ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(iHat.x, iHat.y); ctx.stroke();
-    ctx.strokeStyle = '#22c55e';
-    ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(jHat.x, jHat.y); ctx.stroke();
-
-  }, [matrix]);
 
   return (
     <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans ${GeistSans.className}`}>
@@ -159,8 +136,8 @@ export default function MatricesPage() {
         <div className="lg:col-span-4 space-y-6">
            <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
               <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('modules.matrices.ui.mission_title')}</h3>
-              <h4 className="text-xl font-bold mb-4">{levelData.name}</h4>
-              <p className="text-sm text-slate-300 leading-relaxed font-medium">{levelData.desc}</p>
+              <h4 className="text-xl font-bold mb-4">{levelData?.name}</h4>
+              <p className="text-sm text-slate-300 leading-relaxed font-medium">{levelData?.desc}</p>
               <div className="mt-6 pt-6 border-t border-white/10 space-y-2">
                  <div className="flex items-center gap-2 text-xs text-red-400"><div className="w-2 h-2 rounded-full bg-red-500"></div> {t('modules.matrices.ui.red_arrow')}</div>
                  <div className="flex items-center gap-2 text-xs text-green-400"><div className="w-2 h-2 rounded-full bg-green-500"></div> {t('modules.matrices.ui.green_arrow')}</div>

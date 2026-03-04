@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowLeft, CheckCircle2, AlertCircle, ChevronRight, Timer, BarChart3, HelpCircle, Info } from 'lucide-react';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const questionsData = [
@@ -100,6 +101,7 @@ const questionsData = [
 export default function QuizPage() {
   const { completeCalibration } = useProgress();
   const { t, language } = useLanguage();
+  const { unlockBadge } = useGamification();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(100); 
   const [stability, setStability] = useState(100); 
@@ -157,6 +159,9 @@ export default function QuizPage() {
       } else {
         setStatus("COMPLETED");
         completeCalibration(score);
+        if (score === 100 && isCorrect) {
+          unlockBadge('quiz_ace');
+        }
       }
     }, 1500);
   };
