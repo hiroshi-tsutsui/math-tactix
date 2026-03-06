@@ -1,147 +1,188 @@
-# System Wisdom Log - Math Tactix (v1.2)
+# System Wisdom Log - Math Tactix (v1.3)
 
 ## Principles
 1.  **Localization First**: All UI text must use `locales/{lang}.json`. Hardcoded strings are technical debt.
-2.  **Pedagogy Over Content**: Features must teach a concept (e.g., "Flux", "Void", "Entropy"), not just display math.
+2.  **Pedagogy Over Content**: Features must teach a concept (e.g., "二次関数", "平方完成"), not just display math.
 3.  **Modular Architecture**: Components should be self-contained but share the global `LanguageContext`.
-4.  **Resilient UX**: Error boundaries and 404 pages must handle failures gracefully ("Void Sector").
+4.  **Resilient UX**: Error boundaries and 404 pages must handle failures gracefully.
+5.  **NO SCI-FI**: Use standard Japanese educational terms (e.g., "学習ログ" instead of "Kernel Log").
 
 ## Cycle Log
-- **2026-03-03**: Initialized Wisdom Log. Targeting Vectors (Void Scout) for localization refactor.
-- **2026-03-03**: Refactored `app/vectors/page.tsx` to use `LanguageContext`. Replaced hardcoded strings with `t(...)` calls. Verified `locales/ja.json` and `locales/en.json` contain comprehensive keys for "Void Scout" (Vectors).
-- **2026-03-03**: **Functions Module (Causality Engine) Localization**:
-    - Refactored `app/functions/page.tsx` to use `t(...)` for all UI text.
-    - Implemented dynamic level data fetching based on locale.
-    - Removed hardcoded Japanese strings.
-- **2026-03-03**: **Global UI Update**:
-    - Modified `app/contexts/LanguageContext.tsx` to allow dynamic locale switching (removed forced 'ja').
-    - Added a persistent Language Toggle button (JP/EN) to `app/components/XPBar.tsx`.
-- **2026-03-03**: **Quadratics Module (Gravity Simulation) Localization**:
-    - Refactored `app/quadratics/page.tsx` to use `LanguageContext`.
-    - Migrated all hardcoded UI text and instructions to `locales/ja.json` and `locales/en.json`.
-    - Ensured `QUESTIONS` array is generated inside the component to support dynamic translation of math instructions.
-- **2026-03-03**: **Probability Module (Entropy) Localization**:
-    - Refactored `app/probability/page.tsx` to use `LanguageContext`.
-    - Implemented localization for "Monty Hall Game" and "Normal Distribution Simulator".
-    - Added comprehensive keys to `locales/ja.json` and `locales/en.json`.
-    - Ensured missions and UI labels are fully dynamic.
-- **2026-03-03**: **Trigonometry Module (Harmonic Tuner/Famous Angles) Localization**:
-    - Updated `locales/ja.json` and `locales/en.json` to match the "Famous Angles" (Unit Circle) UI.
-    - Enhanced `LanguageContext.tsx` to support parameter interpolation (e.g., `{{angle}}`).
-    - Refactored `app/trig/page.tsx` to use `useLanguage` and removed all hardcoded Japanese strings.
-    - Validated dynamic mission titles like "Reproduce sin 60°".
-- **2026-03-03**: **Matrices Module (Spatial Deformation) Localization**:
-    - Refactored `app/matrices/page.tsx` to use `LanguageContext`.
-    - Migrated all hardcoded UI text (Levels, Descriptions, Logs) to `locales/ja.json` and `locales/en.json`.
-    - Implemented dynamic level data fetching (`getLevelData`) to switch text based on the active language.
-    - Standardized UI keys (`analysis_title`, `mission_title`, `activity_log`, `red_arrow`, `green_arrow`).
-- **2026-03-03**: **Calculus Module (Flux Engine) Localization & Global Fixes**:
-    - Refactored `app/calculus/page.tsx` to use `LanguageContext`, removing hardcoded strings.
-    - Updated `locales/ja.json` and `locales/en.json` to align with Calculus logic (thresholds and descriptions).
-    - **Global Fix**: Corrected localization key paths in `matrices/page.tsx`, `probability/page.tsx`, and `trig/page.tsx` (added missing `modules.` prefix).
-    - Verified build success with zero localization warnings.
-- **2026-03-03**: **Dashboard (Global UI) Localization**:
-    - Refactored `app/page.tsx` (Landing Page) to use `LanguageContext`.
-    - Replaced all hardcoded strings (Titles, Descriptions, Module Names) with `t('dashboard.xxx')`.
-    - Added comprehensive `dashboard` section to `locales/ja.json` and `locales/en.json`.
-    - Validated build success.
-- **2026-03-03**: **Proficiency Test (Quiz Module) Localization**:
-    - Refactored `app/quiz/page.tsx` to use `LanguageContext`.
-    - Implemented dual-language support for questions (JA/EN) dynamically selected via `language` state.
-    - Extracted all UI strings to `locales/ja.json` and `locales/en.json`.
-    - Standardized terminology (Precision, Progress, Status).
-- **2026-03-03**: **Complex Numbers Module (Complex Plane Visualization) Localization**:
-    - Refactored `app/complex/page.tsx` to use `LanguageContext`.
-    - Migrated all hardcoded strings (Rotation, Expansion, Logic) to `locales/ja.json` and `locales/en.json`.
-    - Added detailed level descriptions and mission titles for Complex Plane.
-    - Fixed build error related to `useLanguage` usage (switched `language` -> `locale`).
-    - Verified JSON integrity for localization files.
-- **2026-03-03**: **Data Analysis Module (Signal Injection) Localization**:
-    - Refactored `app/data/page.tsx` to use `LanguageContext`.
-    - Replaced hardcoded Japanese strings with `t('data.xxx')` keys.
-    - Implemented `getLevels()` function to dynamically switch mission text (Signal Injection, Noise Purge, Archive Lock).
-    - Validated that `locales/en.json` and `locales/ja.json` contain the necessary keys.
-- **2026-03-03**: **Settings Module (System Configuration) Localization**:
-    - Refactored `app/settings/page.tsx` to use `LanguageContext`.
-    - Replaced hardcoded Japanese strings with `t('settings.xxx')` keys.
-    - Added `settings` section to `locales/ja.json` and `locales/en.json` (Audio, Version, Danger Zone).
-    - Standardized terminology (Wipe Data, Audio Feedback).
-    - Validated JSON structure.
-- **2026-03-03**: **Sequences Module (Pattern Prediction) Localization**:
-    - Refactored `app/sequences/page.tsx` to use `LanguageContext`.
-    - Updated keys to use `modules.sequences` prefix.
-    - Verified `locales/ja.json` and `locales/en.json` contain the keys.
-- **2026-03-03**: **Build Stabilization**:
-    - Fixed `app/complex/page.tsx` missing `useLanguage` import.
-    - Corrected localization paths in `complex`, `data`, and `sequences` (added `modules.` prefix).
-    - Restored missing `settings` key in localization files.
-- **2026-03-04**: **Manual Module (Documentation) Localization**:
-    - Refactored `app/manual/page.tsx` to use `LanguageContext`.
-    - Extracted all hardcoded Japanese text (Basics, Modules, Glossary, Ranks) to `locales/ja.json`.
-    - Created English translations in `locales/en.json` (System Manual, Learning Modes, etc.).
-    - Implemented dynamic rendering for Glossary terms and Rank descriptions.
-- **2026-03-04**: **Phase 2 Completion (Localization & Stabilization)**:
-    - Verified build of all localized modules.
-    - Updated `PHASE_2_ROADMAP.md` to reflect 100% completion of localization tasks.
-    - Committed massive refactor to `main` branch.
-    - Ready for Phase 3 (Deployment & User Testing).
-- **2026-03-04**: **Phase 3 Initiation (Optimization & Scale)**:
-    - Archived `PHASE_2_ROADMAP.md` to `logs/PHASE_2_ROADMAP_ARCHIVE.md`.
-    - Created `PHASE_3_ROADMAP.md` targeting Infrastructure Hardening, Gamification, and Content Expansion.
-    - **Infrastructure Hardening**: Created `app/error.tsx` (Global Error Boundary) and `app/not-found.tsx` (Void Sector).
-    - Verified build (`npm run build`) passed with new error components.
-    - **Status**: Ready for Deployment Prep.
-- **2026-03-04**: **Phase 3 Gamification (Badges System)**:
-    - Expanded `GamificationContext.tsx` to support `unlockedBadges` (persistence via `localStorage`).
-    - Added "Achievements" section to `locales/en.json` and `locales/ja.json`.
-    - Integrated Badge unlocking logic into `app/vectors/page.tsx` (`first_step` & `vector_master`).
-    - Added "Achievements" UI to `app/profile/page.tsx` to visualize unlocked badges.
-    - Verified build: Success.
-- **2026-03-04**: **Phase 3 Gamification Expansion (Functions Module)**:
-    - Integrated `useGamification` into `app/functions/page.tsx` (Causality Engine).
-    - Added new badges: `function_novice` (Decode First Box) and `causality_master` (Clear All Levels).
-    - Updated `locales/en.json` and `locales/ja.json` with badge metadata.
-    - Updated `app/profile/page.tsx` to display new badges dynamically.
-    - **Fix**: Added `GamificationProvider` to `app/layout.tsx` to resolve context errors.
-    - Verified build: Success.
-- **2026-03-04**: **Phase 3 Gamification Continued (Quadratics & Probability)**:
-    - Added `gravity_master` (Quadratics) and `entropy_seeker` (Probability) badges.
-    - Updated `locales` (JA/EN) with new badge definitions.
-    - Integrated unlock logic into `app/quadratics/page.tsx` (Tactics Mode completion) and `app/probability/page.tsx` (Level 3 completion).
-    - **Fix**: Resolved missing translation key `modules.vectors.mission_title` in both localization files (required for 404 page placeholder).
-    - Verified build: Success (Zero Localization Warnings).
-- **2026-03-04**: **Phase 3 Gamification Complete (All Modules)**:
-    - Added `flux_master` (Calculus), `complex_navigator` (Complex), `data_analyst` (Data), `pattern_seeker` (Sequences), and `quiz_ace` (Quiz) badges.
-    - Updated `locales/en.json` and `locales/ja.json` with new badge metadata.
-    - Implemented unlocking logic in `app/calculus/page.tsx`, `app/complex/page.tsx`, `app/data/page.tsx`, `app/sequences/page.tsx`, and `app/quiz/page.tsx`.
-    - **Logic**: Unlocks trigger upon completing the final level or achieving perfect score (Quiz).
-    - Verified build: Success.
-    - **Status**: Gamification System Fully Operational. ready for Deployment.
-- **2026-03-04**: **Phase 3 Accessibility (Dark Mode Infrastructure)**:
-    - Implemented `ThemeContext` for 'light' | 'dark' | 'system' support.
-    - Updated `tailwind.config.js` to enable `darkMode: 'class'`.
-    - Integrated `ThemeProvider` into `app/layout.tsx`.
-    - Created `ThemeToggle` component and added it to `XPBar`.
-    - **Status**: Infrastructure ready. Pending individual module color audit.
-- **2026-03-04**: **Phase 3 Accessibility (Quadratics Module & Build Fixes)**:
-    - **Fix**: Resolved critical duplicate import errors in `app/matrices/page.tsx` (ArrowLeft, Grid, CheckCircle2) that blocked the build.
-    - **Accessibility**: Implemented full Dark Mode support in `app/quadratics/page.tsx` (added `dark:` classes for high-contrast visibility).
-    - **Status**: Verified build (`npm run build`). Detected missing translation keys for Matrices (logged for next cycle).
-- **2026-03-04**: **Phase 3 Accessibility (Matrices Complete)**:
-    - **Localization Fix**: Updated `locales/ja.json` and `locales/en.json` to flatten `levels` object in `matrices` to match `t('level_1_name')` calls.
-    - **Accessibility**: Implemented full Dark Mode support in `app/matrices/page.tsx`.
-        - Backgrounds: `bg-slate-50` -> `dark:bg-slate-950`
-        - Cards: `bg-white` -> `dark:bg-slate-900`
-        - Text: `text-slate-900` -> `dark:text-white`
-        - Inputs: `bg-slate-50` -> `dark:bg-slate-800`
-    - **Status**: Matrices module fully modernized (Localized + Dark Mode).
-- **2026-03-04**: **Phase 3 Accessibility (Vectors Module)**:
-    - **Accessibility**: Refactored `app/vectors/page.tsx` to include full Dark Mode support (`dark:` variants).
-    - **Details**:
-        - Global Background: `bg-slate-50` -> `dark:bg-slate-950`
-        - Navigation: `bg-white/80` -> `dark:bg-slate-900/80`
-        - Cards: `bg-white` -> `dark:bg-slate-900`
-        - SVG Elements: Grid lines (`stroke-slate-100` -> `dark:stroke-slate-800`), Axes (`stroke-slate-200` -> `dark:stroke-slate-700`).
-        - Text: Contrast adjusted for readability on dark backgrounds.
-    - **Verification**: `npm run build` passed successfully.
-    - **Status**: Vectors module is now Dark Mode compatible.
+- **2026-03-06 (Cycle 16)**: **COSINE RULE & RE-ALIGNMENT (v1.5.1)**:
+    - **Target**: Trigonometric Ratios (三角比) - Mathematics I.
+    - **Action**: Corrected module structure and added missing Level 5.
+    - **Implementation**:
+        - Added **Level 5**: Cosine Rule Visualization (余弦定理).
+        - **Visual**: Triangle with fixed sides $b=10, c=14$ and variable angle $A$.
+        - **Logic**: Real-time calculation of $a^2 = b^2 + c^2 - 2bc \cos A$.
+        - **Overlay**: Displays the formula and values dynamically.
+        - **Refactor**: Moved "Practice Quiz" to **Level 6**.
+    - **Educational Value**: Visualizes the generalized Pythagorean theorem. Students can see how the term $-2bc \cos A$ adjusts the side length $a$ as angle $A$ changes.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-06 (Cycle 15)**: **COEFFICIENT ANALYSIS (v1.5.0)**:
+    - **Target**: Quadratic Functions (二次関数) - Mathematics I.
+    - **Implementation**:
+        - Added **Level 10**: Coefficient Analysis (係数とグラフ).
+        - **Visual**: Displays a random parabola (e.g., $y = ax^2 + bx + c$).
+        - **Interactive**: Users must determine the signs (+, 0, -) of $a, b, c$ and Discriminant $D$.
+        - **Logic**: Real-time validation of user inputs against generated graph properties.
+        - **Refactor**: Moved "Final Exam" to **Level 14** to accommodate intermediate levels (11-13) defined in localization.
+        - **Educational Value**: Connects algebraic coefficients directly to geometric features (opening direction, axis position, y-intercept, x-intercepts).
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 13)**: **COSINE RULE (v1.4.3)**:
+    - **Target**: Trigonometric Ratios (三角比) - Mathematics I.
+    - **Implementation**:
+        - Added **Level 4**: Cosine Rule Visualization (余弦定理).
+        - **Visual**: Triangle with side lengths $a, b, c$ and angle $A$.
+        - **Logic**: Real-time calculation of $a^2$ vs $b^2 + c^2 - 2bc \cos A$.
+        - **Educational Value**: Visually proves the generalized Pythagorean theorem.
+        - **Localization**: Added Japanese text for Levels 3 & 4 in `locales/ja.json`.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 14)**: **TRIANGLE AREA (v1.4.4)**:
+    - **Target**: Trigonometric Ratios (三角比) - Mathematics I.
+    - **Implementation**:
+        - Added **Level 5**: Triangle Area Visualization (三角形の面積).
+        - **Visual**: Highlights two sides ($b, c$) and the included angle ($A$). Drops a perpendicular height line ($h = b \sin A$).
+        - **Logic**: Real-time calculation of $S = \frac{1}{2}bc \sin A$.
+        - **Educational Value**: Visually demonstrates *why* the sine function is used to find the area (it calculates the height).
+        - **Localization**: Added Japanese text for Level 5 in `locales/ja.json`.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 12)**: **SINE RULE (v1.4.2)**:
+    - **Target**: Trigonometric Ratios (三角比) - Mathematics I.
+    - **Implementation**:
+        - Added **Level 3**: Sine Rule Visualization (正弦定理).
+        - **Visual**: Triangle inscribed in a Circumcircle (Radius $R$).
+        - **Interactive**: Users manipulate vertices A, B, C on the circle.
+        - **Logic**: Real-time calculation of $\frac{a}{\sin A}, \frac{b}{\sin B}, \frac{c}{\sin C}$ and comparison with Diameter $2R$.
+        - **Educational Value**: Visually proves that the ratio of a side to its opposite angle's sine is constant and equal to the diameter of the circumcircle.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 11)**: **UNIT CIRCLE (v1.4.1)**:
+    - **Target**: Trigonometric Ratios (三角比) - Mathematics I.
+    - **Implementation**:
+        - Added **Level 2**: Interactive Unit Circle (単位円).
+        - **Concept**: Extended definition from "Triangle Ratios" to "Circle Coordinates".
+        - **Visual**: Users manipulate a point on the Unit Circle (r=1).
+        - **Logic**: Handles angles $0^\circ \le \theta \le 180^\circ$. Shows $\cos \theta = x$ and $\sin \theta = y$.
+        - **UI**: Added Level Selector (Step 1 / Step 2) in the header.
+        - **Localization**: Added Japanese text for "Unit Circle and Obtuse Angles".
+    - **Educational Value**: Bridges the gap between "Geometry" (Triangle) and "Analysis" (Functions), crucial for understanding why $\cos 120^\circ = -0.5$.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 10)**: **TRIGONOMETRY GENESIS (v1.4.0)**:
+    - **Target**: Trigonometric Ratios (三角比) - Mathematics I.
+    - **Implementation**:
+        - Created **New Module**: `app/trig_ratios/` (Math I focus).
+        - **Level 1**: Interactive Right Triangle (SOH CAH TOA).
+        - **Visual**: Draggable vertex changes angle $\theta$ (5°-85°). Real-time updates of $\sin, \cos, \tan$ values.
+        - **UI**: Color-coded sides (Hypotenuse=Green, Opposite=Red, Adjacent=Blue) to match ratio formulas.
+        - **Integration**: Added to `modules_ja.json` and `locales/ja.json`.
+    - **Educational Value**: Visualizes *why* ratios are constant for a given angle, regardless of triangle size (similarity).
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 9)**: **FULL LOCALIZATION & TACTICS EXPANSION (v1.3.8)**:
+    - **Target**: Quadratic Functions (二次関数) - Completion & Exam.
+    - **Status**: Implemented missing localization for Levels 10-13 and expanded Tactics Mode.
+    - **Implementation**:
+        - **Localized**: Added Japanese text for:
+            - Level 10: Coefficient Analysis (係数とグラフ).
+            - Level 11: Floating/Sinking (2次不等式の解なし/すべて).
+            - Level 12: Roots Placement (解の配置問題).
+            - Level 13: Moving Domain (動く定義域).
+        - **Tactics Mode**: Added 3 new questions:
+            - Q4: Intersection Count ($D > 0$).
+            - Q5: Inequality Solution ($x^2 - 4 > 0$).
+            - Q6: Max Value with fixed domain.
+    - **Educational Value**: The module now fully covers the standard "Math I" Quadratic Functions curriculum, from basic graphs to advanced "Moving Domain" problems.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 8)**: **TRANSLATION (v1.3.7)**:
+    - **Target**: Quadratic Functions (二次関数) - グラフの平行移動 (Graph Translation).
+    - **Implementation**:
+        - Added **Level 9**: Interactive Graph Translation ($y = f(x-p) + q$).
+        - **Visual**: Users must shift the blue graph ($y=2x^2$) to match the red target graph ($y=2(x-1)^2+1$).
+        - **UI**: Sliders for $p$ (horizontal) and $q$ (vertical).
+        - **Logic**: Visualizes the transformation $y - q = f(x - p)$.
+        - Renamed previous "Final Exam" to Level 10.
+    - **Educational Value**: Reinforces the concept that replacing $x$ with $(x-p)$ shifts right, and adding $q$ shifts up.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 7)**: **DETERMINATION (v1.3.6)**:
+    - **Target**: Quadratic Functions (二次関数) - 2次関数の決定 (Determining Quadratic Functions).
+    - **Implementation**:
+        - Added **Level 8**: Interactive Determination Visualization.
+        - **Scenario**: Given Vertex $(2, 1)$ and Point $A(4, 5)$, find coefficient $a$.
+        - **Visual**: Shows a dashed line from the parabola to point A when aligned.
+        - **UI**: Slider for $a$ (0.1 to 2.0). Success when $a=1.0$.
+        - Renamed previous "Final Exam" to Level 9.
+    - **Educational Value**: Helps students visualize *why* plugging in a point determines the shape (aperture) of the parabola once the vertex is fixed.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 6)**: **TACTICAL EXERCISES (v1.3.5)**:
+    - **Target**: Quadratic Functions (二次関数) - 総合演習 (Comprehensive Exercises).
+    - **Implementation**:
+        - Expanded **Tactics Mode**: Added real-world exam-style questions (Center Test / Common Test style basics).
+        - **New Questions**:
+            - Intersection problems (find k for 2 points).
+            - Inequality problems (integer solutions).
+            - Max/Min problems with parameters.
+        - **Feedback Engine**: Enhanced explanation for wrong answers (e.g., "Hint: Check the discriminant").
+    - **Educational Value**: Bridges the gap between "Visual Understanding" (Learn Mode) and "Test Solving" (Tactics Mode).
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 5)**: **INTERSECTION (v1.3.4)**:
+    - **Target**: Quadratic Functions (二次関数) - 放物線と直線の共有点 (Intersection of Parabola and Line).
+    - **Implementation**:
+        - Added **Level 7**: Interactive Intersection Visualization ($y = 0.5x^2$ vs $y = mx + k$).
+        - **Visual**: Users can control slope ($m$) and intercept ($k$) of the line.
+        - **Logic**: Real-time calculation of Discriminant ($D = m^2 + 2k$) to determine intersection status (2 points, 1 point, or none).
+        - **Feedback**: Displays status "異なる2点で交わる", "接する", "共有点なし" based on $D$.
+        - Renamed previous "Final Exam" to Level 8.
+    - **Educational Value**: Visually connects the geometric concept of intersection to the algebraic concept of the Discriminant.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-05 (Cycle 4)**: **INEQUALITIES (v1.3.3)**:
+    - **Target**: Quadratic Functions (二次関数) - 2次不等式 (Quadratic Inequalities).
+    - **Implementation**:
+        - Added **Level 6**: Interactive Inequality Visualization ($x^2 - 4 > 0$ vs $x^2 - 4 < 0$).
+        - **Visual**: Highlights the region on the x-axis corresponding to the part of the parabola above/below the axis.
+        - **UI**: Buttons to toggle between $> 0$ and $< 0$. Shows the solution set ($x < -2, 2 < x$ vs $-2 < x < 2$).
+        - Renamed previous "Final Exam" to Level 7.
+    - **Educational Value**: Directly connects the graph's vertical position (y-value) to the horizontal solution set (x-range), a key concept often missed by students.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-04 (Cycle 3)**: **DOMAIN & RANGE (v1.3.2)**:
+    - **Target**: Quadratic Functions (二次関数) - 定義域と最大・最小 (Domain & Range).
+    - **Implementation**:
+        - Added **Level 5**: Domain Restrictions & Max/Min Analysis.
+        - **Interactive Canvas**: Added shaded region for domain ($x_1 \le x \le x_2$).
+        - **Visual cues**: Blue dot for Min, Red dot for Max. Automatically updates based on vertex position relative to domain.
+        - **UI**: Added sliders for Domain Start/End and Axis Position.
+        - Renamed previous "Bridge" level to Level 6 (Final Exam).
+    - **Educational Value**: Helping students visualize the "Vertex vs Boundary" logic for finding max/min values, a common stumbling block in Math I.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-04 (Cycle 2)**: **DISCRIMINANT (v1.3.1)**:
+    - **Target**: Quadratic Functions (二次関数) - 判別式 (Discriminant).
+    - **Implementation**:
+        - Added **Level 4**: Interactive Discriminant Visualization ($D = b^2 - 4ac$).
+        - Users can manipulate coefficients $a, b, c$ via sliders.
+        - Real-time calculation of $D$ and root visualization (Green dots for $D > 0$).
+        - Renamed previous "Bridge" level to Level 5.
+    - **Educational Value**: Visual proof of how coefficients affect the existence of real roots.
+    - **Build Status**: `npm run build` PASSED.
+
+- **2026-03-04**: **RE-ALIGNMENT (v1.3)**:
+    - **Policy Shift**: Stopped Dark Mode/Sci-Fi development. Pivoted to "Math I" (Mathematics I) curriculum focus.
+    - **Target**: Quadratic Functions (二次関数).
+    - **Action**: Removed "Gravity Simulation" branding. Replaced with "二次関数 (Quadratic Functions)".
+    - **Implementation**:
+        - Updated `app/quadratics/page.tsx` to remove game-like terminology.
+        - Refined "Completing the Square" visualization (Levels 2 & 3) to be more educational.
+        - Renamed badge display from "Gravity Master" to "Quadratics Master".
+    - **Localization**: Updated `locales/ja.json` with standard math terms (e.g., "頂点の移動", "平方完成").
+    - **Build Status**: `npm run build` PASSED.
