@@ -2847,3 +2847,1200 @@ https://nextjs.org/docs/messages/module-not-found
  GET /quadratics 200 in 42ms (compile: 3ms, render: 40ms)
 ✓ Compiled in 99ms
 ✓ Compiled in 95ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 17ms
+ GET /quadratics 200 in 285ms (compile: 104ms, render: 181ms)
+ GET /quadratics 200 in 64ms (compile: 1590µs, render: 63ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 6ms
+ GET /quadratics 200 in 195ms (compile: 134ms, render: 61ms)
+ GET /quadratics 200 in 38ms (compile: 1732µs, render: 37ms)
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 94ms
+⚠ Fast Refresh had to perform a full reload when ./app/quadratics/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 62ms (compile: 2ms, render: 60ms)
+ GET /quadratics 200 in 44ms (compile: 2ms, render: 41ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 7ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /quadratics 200 in 110ms (compile: 2ms, render: 107ms)
+ GET /quadratics 200 in 83ms (compile: 2ms, render: 81ms)
+✓ Compiled in 49ms
+✓ Compiled in 55ms
+✓ Compiled in 69ms
+✓ Compiled in 49ms
+✓ Compiled in 48ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 18ms
+ GET /quadratics 200 in 346ms (compile: 157ms, render: 190ms)
+ GET /quadratics 200 in 44ms (compile: 4ms, render: 40ms)
+✓ Compiled in 101ms
+✓ Compiled in 79ms
+✓ Compiled in 65ms
+✓ Compiled in 61ms
+✓ Compiled in 72ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 10ms
+ GET /quadratics 200 in 70ms (compile: 3ms, render: 67ms)
+ GET /quadratics 200 in 42ms (compile: 2ms, render: 40ms)
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 16ms
+ GET /quadratics 200 in 318ms (compile: 124ms, render: 195ms)
+ GET /quadratics 200 in 57ms (compile: 3ms, render: 54ms)
+✓ Compiled in 87ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 20ms
+ GET /quadratics 200 in 319ms (compile: 85ms, render: 234ms)
+ GET /quadratics 200 in 61ms (compile: 1602µs, render: 59ms)
+✓ Compiled in 78ms
+✓ Compiled in 63ms
+✓ Compiled in 60ms
+✓ Compiled in 54ms
+✓ Compiled in 65ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 28ms
+ GET /quadratics 200 in 387ms (compile: 143ms, render: 243ms)
+ GET /quadratics 200 in 63ms (compile: 1928µs, render: 61ms)
+✓ Compiled in 94ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 21ms
+ GET /quadratics 200 in 298ms (compile: 73ms, render: 225ms)
+ GET /quadratics 200 in 68ms (compile: 3ms, render: 65ms)
+✓ Compiled in 78ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 30ms
+ GET /quadratics 200 in 372ms (compile: 129ms, render: 243ms)
+ GET /quadratics 200 in 93ms (compile: 3ms, render: 90ms)
+✓ Compiled in 69ms
+✓ Compiled in 56ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 22ms
+ GET /quadratics 200 in 445ms (compile: 222ms, render: 223ms)
+ GET /quadratics 200 in 64ms (compile: 2ms, render: 62ms)
+ GET /quadratics 200 in 72ms (compile: 57ms, render: 14ms)
+ GET /quadratics 200 in 157ms (compile: 105ms, render: 52ms)
+ GET /quadratics 200 in 57ms (compile: 1909µs, render: 55ms)
+ GET /quadratics 200 in 59ms (compile: 1877µs, render: 57ms)
+ GET /quadratics 200 in 59ms (compile: 2ms, render: 57ms)
+ GET /quadratics 200 in 60ms (compile: 6ms, render: 55ms)
+ GET /quadratics 200 in 56ms (compile: 3ms, render: 53ms)
+ GET /quadratics 200 in 49ms (compile: 3ms, render: 46ms)
+ GET /quadratics 200 in 47ms (compile: 1798µs, render: 46ms)
+ GET /quadratics 200 in 45ms (compile: 3ms, render: 42ms)
+ GET /quadratics 200 in 60ms (compile: 2ms, render: 58ms)
+ GET /quadratics 200 in 51ms (compile: 1881µs, render: 49ms)
+ GET /quadratics 200 in 61ms (compile: 1945µs, render: 59ms)
+ GET /quadratics 200 in 62ms (compile: 1895µs, render: 60ms)
+ GET /quadratics 200 in 62ms (compile: 5ms, render: 57ms)
+ GET /quadratics 200 in 72ms (compile: 3ms, render: 69ms)
+ GET /quadratics 200 in 64ms (compile: 2ms, render: 62ms)
+ GET /quadratics 200 in 62ms (compile: 1726µs, render: 60ms)
+ GET /quadratics 200 in 62ms (compile: 1811µs, render: 60ms)
+ GET /quadratics 200 in 64ms (compile: 2ms, render: 61ms)
+ GET /quadratics 200 in 49ms (compile: 3ms, render: 46ms)
+ GET /quadratics 200 in 49ms (compile: 1423µs, render: 48ms)
+ GET /quadratics 200 in 50ms (compile: 1649µs, render: 48ms)
+ GET /quadratics 200 in 59ms (compile: 2ms, render: 57ms)
+ GET /quadratics 200 in 58ms (compile: 2ms, render: 56ms)
+ GET /quadratics 200 in 58ms (compile: 2ms, render: 56ms)
+ GET /quadratics 200 in 48ms (compile: 2ms, render: 45ms)
+ GET /quadratics 200 in 53ms (compile: 1586µs, render: 52ms)
+ GET /quadratics 200 in 58ms (compile: 1406µs, render: 57ms)
+ GET /quadratics 200 in 61ms (compile: 3ms, render: 58ms)
+ GET /quadratics 200 in 63ms (compile: 2ms, render: 61ms)
+✓ Compiled in 225ms
+ GET /quadratics 200 in 104ms (compile: 3ms, render: 101ms)
+ GET /quadratics 200 in 103ms (compile: 3ms, render: 100ms)
+ GET /quadratics 200 in 98ms (compile: 3ms, render: 95ms)
+ GET /quadratics 200 in 97ms (compile: 3ms, render: 94ms)
+ GET /quadratics 200 in 54ms (compile: 3ms, render: 51ms)
+ GET /quadratics 200 in 50ms (compile: 1828µs, render: 48ms)
+ GET /quadratics 200 in 49ms (compile: 1717µs, render: 48ms)
+ GET /quadratics 200 in 58ms (compile: 2ms, render: 55ms)
+ GET /quadratics 200 in 47ms (compile: 1814µs, render: 46ms)
+ GET /quadratics 200 in 57ms (compile: 3ms, render: 55ms)
+ GET /quadratics 200 in 48ms (compile: 1805µs, render: 46ms)
+ GET /quadratics 200 in 52ms (compile: 1507µs, render: 50ms)
+ GET /quadratics 200 in 51ms (compile: 1838µs, render: 49ms)
+ GET /quadratics 200 in 56ms (compile: 2ms, render: 53ms)
+ GET /quadratics 200 in 54ms (compile: 2ms, render: 51ms)
+ GET /quadratics 200 in 49ms (compile: 2ms, render: 47ms)
+ GET /quadratics 200 in 60ms (compile: 2ms, render: 58ms)
+ GET /quadratics 200 in 56ms (compile: 2ms, render: 54ms)
+ GET /quadratics 200 in 47ms (compile: 1624µs, render: 45ms)
+ GET /quadratics 200 in 55ms (compile: 1669µs, render: 53ms)
+ GET /quadratics 200 in 54ms (compile: 1962µs, render: 52ms)
+ GET /quadratics 200 in 55ms (compile: 2ms, render: 53ms)
+ GET /quadratics 200 in 56ms (compile: 2ms, render: 54ms)
+ GET /quadratics 200 in 54ms (compile: 2ms, render: 52ms)
+ GET /quadratics 200 in 55ms (compile: 2ms, render: 53ms)
+ GET /quadratics 200 in 52ms (compile: 3ms, render: 49ms)
+ GET /quadratics 200 in 59ms (compile: 1932µs, render: 57ms)
+ GET /quadratics 200 in 44ms (compile: 1737µs, render: 42ms)
+ GET /quadratics 200 in 44ms (compile: 1913µs, render: 42ms)
+ GET /quadratics 200 in 44ms (compile: 1873µs, render: 42ms)
+ GET /quadratics 200 in 43ms (compile: 1312µs, render: 42ms)
+ GET /quadratics 200 in 44ms (compile: 2ms, render: 42ms)
+ GET /quadratics 200 in 45ms (compile: 3ms, render: 42ms)
+ GET /quadratics 200 in 45ms (compile: 1860µs, render: 44ms)
+ GET /quadratics 200 in 65ms (compile: 1945µs, render: 63ms)
+ GET /quadratics 200 in 56ms (compile: 2ms, render: 54ms)
+ GET /quadratics 200 in 65ms (compile: 1891µs, render: 63ms)
+ GET /quadratics 200 in 54ms (compile: 1798µs, render: 52ms)
+ GET /quadratics 200 in 46ms (compile: 1931µs, render: 45ms)
+ GET /quadratics 200 in 34ms (compile: 1786µs, render: 32ms)
+ GET /quadratics 200 in 35ms (compile: 2ms, render: 33ms)
+ GET /quadratics 200 in 45ms (compile: 1993µs, render: 43ms)
+ GET /quadratics 200 in 47ms (compile: 2ms, render: 45ms)
+ GET /quadratics 200 in 46ms (compile: 2ms, render: 44ms)
+ GET /quadratics 200 in 46ms (compile: 1826µs, render: 44ms)
+ GET /quadratics 200 in 60ms (compile: 1952µs, render: 58ms)
+ GET /quadratics 200 in 50ms (compile: 2ms, render: 48ms)
+ GET /quadratics 200 in 59ms (compile: 2ms, render: 56ms)
+ GET /quadratics 200 in 60ms (compile: 2ms, render: 58ms)
+ GET /quadratics 200 in 55ms (compile: 1801µs, render: 53ms)
+ GET /quadratics 200 in 46ms (compile: 2ms, render: 43ms)
+ GET /quadratics 200 in 26ms (compile: 1928µs, render: 25ms)
+ GET /quadratics 200 in 14ms (compile: 1688µs, render: 12ms)
+✓ Compiled in 83ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 14ms
+ GET /quadratics 200 in 88ms (compile: 2ms, render: 86ms)
+ GET /quadratics 200 in 67ms (compile: 1866µs, render: 65ms)
+✓ Compiled in 91ms
+✓ Compiled in 78ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 10ms
+ GET /quadratics 200 in 79ms (compile: 19ms, render: 60ms)
+ GET /quadratics 200 in 43ms (compile: 3ms, render: 40ms)
+✓ Compiled in 97ms
+✓ Compiled in 85ms
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./locales/ja.json (json) changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 18ms
+ GET /quadratics 200 in 66ms (compile: 1825µs, render: 64ms)
+ GET /quadratics 200 in 45ms (compile: 4ms, render: 41ms)
+✓ Compiled in 77ms
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:31:1
+Module not found: Can't resolve './utils/parametric-inequality-generator'
+[0m [90m 29 |[39m [36mimport[39m { generateDeterminationProblem[33m,[39m [33mDeterminationProblem[39m } [36mfrom[39m [32m'./utils/determination-generator'[39m[33m;[39m
+ [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:32:1
+Module not found: Can't resolve './components/ParametricInequalityViz'
+[0m [90m 30 |[39m [36mimport[39m { generateDiscriminantProblem[33m,[39m [33mDiscriminantProblem[39m } [36mfrom[39m [32m'./utils/discriminant-generator'[39m[33m;[39m
+ [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 33 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 34 |[39m
+ [90m 35 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+✓ Compiled in 61ms
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:34:1
+Module not found: Can't resolve './components/RootsLocationViz'
+[0m [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m
+ [90m 37 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:34:1
+Module not found: Can't resolve './components/RootsLocationViz'
+[0m [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m
+ [90m 37 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:34:1
+Module not found: Can't resolve './components/RootsLocationViz'
+[0m [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m
+ [90m 37 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:34:1
+Module not found: Can't resolve './components/RootsLocationViz'
+[0m [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+ [90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m
+ [90m 37 |[39m [90m// --- Types ---[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./app/quadratics/page.tsx:33:1
+Module not found: Can't resolve './utils/roots-location-generator'
+[0m [90m 31 |[39m [36mimport[39m { generateParametricInequality[33m,[39m [33mParametricInequalityProblem[39m } [36mfrom[39m [32m'./utils/parametric-inequality-generator'[39m[33m;[39m
+ [90m 32 |[39m [36mimport[39m [33mParametricInequalityViz[39m [36mfrom[39m [32m'./components/ParametricInequalityViz'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 33 |[39m [36mimport[39m { generateRootsLocationProblem[33m,[39m [33mRootsLocationProblem[39m } [36mfrom[39m [32m'./utils/roots-location-generator'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 34 |[39m [36mimport[39m [33mRootsLocationViz[39m [36mfrom[39m [32m'./components/RootsLocationViz'[39m[33m;[39m
+ [90m 35 |[39m [36mimport[39m [33mQuadraticGraph[39m [36mfrom[39m [32m'../components/math/QuadraticGraph'[39m[33m;[39m
+ [90m 36 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/quadratics/page.tsx [Client Component Browser]
+    ./app/quadratics/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/quadratics/page.tsx [Client Component SSR]
+    ./app/quadratics/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+Persisting failed: Unable to write SST file 00003220.sst
+
+Caused by:
+    No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5502927) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Data for <ModuleAssetContext as AssetContext>::process (TaskId 460259))
+
+Caused by:
+    0: Looking up data for TaskId 460259 from database failed
+    1: Unable to open static sorted file referenced from 00002733.meta
+    2: Unable to open static sorted file 00002731.sst
+    3: No such file or directory (os error 2)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_side_effect_free_declaration (TaskId 460326))
+
+Caused by:
+    0: Looking up data for TaskId 460326 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for get_side_effect_free_declaration (TaskId 460326))
+
+Caused by:
+    0: Looking up data for TaskId 460326 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5536836) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::process_resolve_result (TaskId 460394))
+
+Caused by:
+    0: Looking up data for TaskId 460394 from database failed
+    1: Unable to open static sorted file referenced from 00002915.meta
+    2: Unable to open static sorted file 00002911.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536836) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::process_resolve_result (TaskId 460394))
+
+Caused by:
+    0: Looking up data for TaskId 460394 from database failed
+    1: Unable to open static sorted file referenced from 00002915.meta
+    2: Unable to open static sorted file 00002911.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Data for analyze_ecmascript_module (TaskId 460512))
+
+Caused by:
+    0: Looking up data for TaskId 460512 from database failed
+    1: Unable to open static sorted file referenced from 00002733.meta
+    2: Unable to open static sorted file 00002731.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5403364) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "<EcmascriptModuleAsset as ResolveOrigin>::get_inner_asset", global_name: "turbopack-ecmascript@turbopack_ecmascript::EcmascriptModuleAsset::ResolveOrigin::get_inner_asset", .. }, this: Some(RawVc::TaskCell(364697, "turbopack_ecmascript::EcmascriptModuleAsset#0")), arg: (Vc(RawVc::TaskCell(460420, "turbopack_core::resolve::parse::Request#0")),) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5426081) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for Pattern::new_internal (TaskId 460563))
+
+Caused by:
+    0: Looking up data for TaskId 460563 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "<EcmascriptModuleAsset as ResolveOrigin>::get_inner_asset", global_name: "turbopack-ecmascript@turbopack_ecmascript::EcmascriptModuleAsset::ResolveOrigin::get_inner_asset", .. }, this: Some(RawVc::TaskCell(364697, "turbopack_ecmascript::EcmascriptModuleAsset#0")), arg: (Vc(RawVc::TaskCell(460420, "turbopack_core::resolve::parse::Request#0")),) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for ResolvedMap::lookup (TaskId 460607))
+
+Caused by:
+    0: Looking up data for TaskId 460607 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5426081) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for Pattern::new_internal (TaskId 460563))
+
+Caused by:
+    0: Looking up data for TaskId 460563 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5537288) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for ResolveResult::is_unresolvable (TaskId 460622))
+
+Caused by:
+    0: Looking up data for TaskId 460622 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5537264) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for ModuleResolveResult::primary_modules (TaskId 460623))
+
+Caused by:
+    0: Looking up data for TaskId 460623 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5537288) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for ResolveResult::is_unresolvable (TaskId 460622))
+
+Caused by:
+    0: Looking up data for TaskId 460622 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for ResolvedMap::lookup (TaskId 460607))
+
+Caused by:
+    0: Looking up data for TaskId 460607 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)

@@ -24,6 +24,11 @@
       "subtitle": "Mathematics I",
       "desc": "放物線を設計し、パラメータの最適解を導く。"
     },
+    "trig_ratios": {
+      "title": "三角比",
+      "subtitle": "Mathematics I",
+      "desc": "直角三角形と単位円を用いて、測量の基礎を習得する。"
+    },
     "data": {
       "title": "データの分析",
       "subtitle": "Mathematics I",

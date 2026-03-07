@@ -452,6 +452,86 @@ export default function TrigPage() {
           ctx.beginPath(); ctx.arc(Ax, Ay, 30, 0, -(angle * Math.PI / 180), true); ctx.stroke();
       }
 
+      // Level 7: Inradius Visualization (Continued)
+      if (level === 7) {
+          const sideB = 100; // AC (visual scale)
+          const sideC = 140; // AB (visual scale)
+          
+          // Position A (Origin for local calc)
+          const Ax = ox - 50;
+          const Ay = oy + 60; // Lower it a bit
+          
+          // B (Horizontal)
+          const Bx = Ax + sideC;
+          const By = Ay;
+          
+          // C (Rotated)
+          // Canvas Y is inverted. y decreases upwards.
+          const rad = angle * Math.PI / 180;
+          const Cx = Ax + sideB * Math.cos(rad);
+          const Cy = Ay - sideB * Math.sin(rad); 
+          
+          // Calculate Side 'a' (BC) length
+          const sideA_len = Math.sqrt(sideB**2 + sideC**2 - 2 * sideB * sideC * Math.cos(rad));
+          
+          // Incenter Calculation
+          // I = (aA + bB + cC) / (a+b+c)
+          const P = sideA_len + sideB + sideC;
+          const Ix = (sideA_len * Ax + sideB * Bx + sideC * Cx) / P;
+          const Iy = (sideA_len * Ay + sideB * By + sideC * Cy) / P;
+          
+          // Inradius r (Visual)
+          // Distance from I to AB (horizontal line y=Ay)
+          // Since Cy < Ay (upwards), Iy < Ay. Distance is Ay - Iy.
+          const r_visual = Math.abs(Ay - Iy);
+          
+          // Draw Incircle
+          ctx.fillStyle = isDark ? 'rgba(245, 158, 11, 0.2)' : 'rgba(245, 158, 11, 0.1)';
+          ctx.beginPath(); ctx.arc(Ix, Iy, r_visual, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle = colors.sineRule; ctx.lineWidth = 2; // Amber
+          ctx.beginPath(); ctx.arc(Ix, Iy, r_visual, 0, Math.PI*2); ctx.stroke();
+          
+          // Draw Radius to Side c (Vertical)
+          ctx.setLineDash([3, 3]);
+          ctx.strokeStyle = colors.text; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(Ix, Iy); ctx.lineTo(Ix, Ay); ctx.stroke();
+          ctx.setLineDash([]);
+          
+          // Label r
+          ctx.fillStyle = colors.sineRule; ctx.font = "bold 12px Geist Sans";
+          ctx.fillText("r", Ix + 5, (Iy + Ay)/2);
+
+          // Draw Triangle
+          ctx.lineWidth = 3;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          
+          ctx.strokeStyle = colors.primary;
+          ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By); ctx.stroke(); // c
+          
+          ctx.strokeStyle = colors.hypotenuse;
+          ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Cx, Cy); ctx.stroke(); // b
+          
+          ctx.strokeStyle = colors.secondary;
+          ctx.beginPath(); ctx.moveTo(Bx, By); ctx.lineTo(Cx, Cy); ctx.stroke(); // a
+          
+          // Labels
+          ctx.font = "bold 16px Geist Sans";
+          ctx.fillStyle = colors.text;
+          ctx.fillText("A", Ax - 20, Ay + 10);
+          ctx.fillText("B", Bx + 10, By + 10);
+          ctx.fillText("C", Cx, Cy - 15);
+          
+          // Side Labels
+          ctx.font = "14px Geist Sans";
+          ctx.fillStyle = colors.primary; ctx.fillText("c=14", (Ax+Bx)/2, Ay + 20);
+          ctx.fillStyle = colors.hypotenuse; ctx.fillText("b=10", (Ax+Cx)/2 - 25, (Ay+Cy)/2 - 5);
+          ctx.fillStyle = colors.secondary; ctx.fillText("a=?", (Bx+Cx)/2 + 10, (By+Cy)/2);
+
+          // Angle Arc
+          ctx.strokeStyle = colors.text; ctx.lineWidth = 1; ctx.setLineDash([]);
+          ctx.beginPath(); ctx.arc(Ax, Ay, 25, 0, -rad, true); ctx.stroke();
+      }
     };
     render();
   }, [angle, level, resolvedTheme]);
@@ -478,12 +558,22 @@ export default function TrigPage() {
   const aSquared = (sideB_val**2 + sideC_val**2 - 2 * sideB_val * sideC_val * cosA).toFixed(1);
   const sideA_val = Math.sqrt(Number(aSquared)).toFixed(2);
 
-  // --- Area Logic (Level 6) ---
+  // --- Area Logic (Level 6 & 7) ---
   const area_b = 10;
   const area_c = 14;
   const area_sinA = Math.sin(angle * Math.PI / 180);
   const area_h = (area_b * area_sinA).toFixed(2);
   const area_S = (0.5 * area_b * area_c * area_sinA).toFixed(1);
+
+  // --- Inradius Logic (Level 7) ---
+  // Re-use logic from Level 5/6:
+  // Side a from Cosine Rule
+  const in_radA = angle * Math.PI / 180;
+  const in_a = Math.sqrt(area_b**2 + area_c**2 - 2 * area_b * area_c * Math.cos(in_radA));
+  const in_s = (area_b + area_c + in_a) / 2; // semi-perimeter
+  // Area = sqrt(s(s-a)(s-b)(s-c)) -- Hero's formula check? No, just stick to 1/2bc sinA
+  const in_r = (Number(area_S) / in_s).toFixed(2);
+  const in_perimeter = (area_b + area_c + in_a).toFixed(1);
 
   return (
     <div className={`h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex flex-col ${GeistSans.className} overflow-hidden`}>
@@ -507,6 +597,7 @@ export default function TrigPage() {
              level === 4 ? "正弦定理 (Sine Rule)" :
              level === 5 ? "余弦定理 (Cosine Rule)" :
              level === 6 ? "三角形の面積 (Triangle Area)" :
+             level === 7 ? "内接円の半径 (Inradius)" :
              "実践演習 (Quiz)"}
         </div>
         <div className="w-10" />
@@ -525,7 +616,8 @@ export default function TrigPage() {
                       { id: 4, title: "Level 4: 正弦定理", desc: "a/sinA = 2R の視覚的理解", icon: Activity },
                       { id: 5, title: "Level 5: 余弦定理", desc: "三辺から角度を知る力", icon: Target },
                       { id: 6, title: "Level 6: 三角形の面積", desc: "高さ = b sinA の視覚化", icon: TrendingUp },
-                      { id: 7, title: "Level 7: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
+                      { id: 7, title: "Level 7: 内接円の半径", desc: "S = 1/2 r(a+b+c) の視覚化", icon: Circle },
+                      { id: 8, title: "Level 8: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -542,8 +634,8 @@ export default function TrigPage() {
           </main>
       )}
 
-      {/* Level 1-6: Visualization Mode */}
-      {level > 0 && level <= 6 && (
+      {/* Level 1-7: Visualization Mode */}
+      {level > 0 && level <= 7 && (
           <>
             <section className="shrink-0 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white dark:bg-slate-950 rounded-[48px] border border-slate-200/60 dark:border-slate-800 shadow-inner overflow-hidden relative">
@@ -636,6 +728,30 @@ export default function TrigPage() {
                                 </div>
                                 <div className="text-sm font-bold text-green-500 mt-1">
                                     Area = {area_S}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Level 7 Overlay: Inradius */}
+                    {level === 7 && (
+                        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
+                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Inradius Formula</div>
+                            <div className="flex flex-col gap-1 text-sm font-mono">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-amber-500 font-bold">r</span>
+                                    <span>=</span>
+                                    <span className="font-bold">2S / (a+b+c)</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-500">
+                                    <div>S = {area_S}</div>
+                                    <div>a+b+c = {in_perimeter}</div>
+                                </div>
+                                <div className="text-xs font-bold text-slate-900 dark:text-white border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
+                                    r = 2 × {area_S} / {in_perimeter}
+                                </div>
+                                <div className="text-sm font-bold text-amber-500 mt-1">
+                                    r = {in_r}
                                 </div>
                             </div>
                         </div>
@@ -762,14 +878,29 @@ export default function TrigPage() {
                                 </p>
                             </div>
                         )}
+
+                        {level === 7 && (
+                            <div className="space-y-4">
+                                <h3 className="font-bold flex items-center gap-2"><Circle className="w-4 h-4" /> 内接円の半径 (Inradius)</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">
+                                    三角形の面積 <MathComponent tex="S" /> は、内接円の半径 <MathComponent tex="r" /> と三辺の長さの和を用いても表せます。
+                                </p>
+                                <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800 text-center">
+                                    <MathComponent tex="S = \frac{1}{2}r(a+b+c)" className="text-xl font-bold text-amber-700 dark:text-amber-400" />
+                                </div>
+                                <p className="text-xs text-slate-400 text-center">
+                                    ここから <MathComponent tex="r = \frac{2S}{a+b+c}" /> が導かれます。面積と周の長さから半径を決定できます。
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </main>
           </>
       )}
 
-      {/* Level 7: Tactics Mode (Quiz) */}
-      {level === 7 && (
+      {/* Level 8: Tactics Mode (Quiz) */}
+      {level === 8 && (
           <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
               {state.quizIndex < QUIZ_DATA.length ? (
                   <div className="w-full max-w-md bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">

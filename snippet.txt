@@ -1,0 +1,46 @@
+
+      // Level 10: Coefficient Analysis
+      if (mode === 'LEARN' && level === 10) {
+        // Draw Random Parabola
+        ctx.strokeStyle = '#8B5CF6'; // Violet
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        const getCoeffY = (x: number) => coeffA * x * x + coeffB * x + coeffC;
+        for (let px = 0; px <= w; px++) {
+           const x = (px - ox) / scale;
+           const y = getCoeffY(x);
+           const py = oy - y * scale;
+           if (px === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+
+        // Draw Axis of Symmetry
+        if (coeffA !== 0) {
+            const axisX = -coeffB / (2 * coeffA);
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(ox + axisX * scale, 0);
+            ctx.lineTo(ox + axisX * scale, h);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+        
+        // Draw Intercepts
+        // y-intercept
+        ctx.fillStyle = '#10B981'; // Green for c
+        ctx.beginPath(); ctx.arc(ox, oy - coeffC*scale, 4, 0, Math.PI*2); ctx.fill();
+        
+        // x-intercepts
+        const D = coeffB*coeffB - 4*coeffA*coeffC;
+        if (D >= 0 && coeffA !== 0) {
+            const x1 = (-coeffB - Math.sqrt(D))/(2*coeffA);
+            const x2 = (-coeffB + Math.sqrt(D))/(2*coeffA);
+            ctx.fillStyle = '#F59E0B'; // Amber for roots
+            ctx.beginPath(); ctx.arc(ox + x1*scale, oy, 4, 0, Math.PI*2); ctx.fill();
+            if (D > 0) {
+               ctx.beginPath(); ctx.arc(ox + x2*scale, oy, 4, 0, Math.PI*2); ctx.fill();
+            }
+        }
+      }

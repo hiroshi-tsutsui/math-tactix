@@ -1,0 +1,95 @@
+
+            {/* LEVEL 10: COEFFICIENT ANALYSIS */}
+            {mode === 'LEARN' && level === 10 && (
+              <motion.div key="lvl10" className="space-y-6">
+                 <div className="text-center space-y-2">
+                    <h2 className="text-xl font-bold text-slate-900">{t('modules.quadratics.levels.10.title')}</h2>
+                    <p className="text-xs text-slate-500">{t('modules.quadratics.levels.10.desc')}</p>
+                 </div>
+
+                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                        {/* A Sign */}
+                        <div className="bg-white p-3 rounded-lg border border-slate-200 text-center space-y-2">
+                            <div className="text-xs font-bold text-slate-500">a (Slope)</div>
+                            <div className="flex justify-center gap-1">
+                                <button onClick={() => setUserSigns({...userSigns, a: '+'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.a === '+' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>+</button>
+                                <button onClick={() => setUserSigns({...userSigns, a: '-'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.a === '-' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>-</button>
+                            </div>
+                        </div>
+                        {/* B Sign */}
+                        <div className="bg-white p-3 rounded-lg border border-slate-200 text-center space-y-2">
+                            <div className="text-xs font-bold text-slate-500">b (Axis)</div>
+                            <div className="flex justify-center gap-1">
+                                <button onClick={() => setUserSigns({...userSigns, b: '+'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.b === '+' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>+</button>
+                                <button onClick={() => setUserSigns({...userSigns, b: '0'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.b === '0' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>0</button>
+                                <button onClick={() => setUserSigns({...userSigns, b: '-'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.b === '-' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>-</button>
+                            </div>
+                        </div>
+                        {/* C Sign */}
+                        <div className="bg-white p-3 rounded-lg border border-slate-200 text-center space-y-2">
+                            <div className="text-xs font-bold text-slate-500">c (Intercept)</div>
+                            <div className="flex justify-center gap-1">
+                                <button onClick={() => setUserSigns({...userSigns, c: '+'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.c === '+' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>+</button>
+                                <button onClick={() => setUserSigns({...userSigns, c: '0'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.c === '0' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>0</button>
+                                <button onClick={() => setUserSigns({...userSigns, c: '-'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.c === '-' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>-</button>
+                            </div>
+                        </div>
+                        {/* D Sign */}
+                        <div className="bg-white p-3 rounded-lg border border-slate-200 text-center space-y-2">
+                            <div className="text-xs font-bold text-slate-500">D (Roots)</div>
+                            <div className="flex justify-center gap-1">
+                                <button onClick={() => setUserSigns({...userSigns, D: '+'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.D === '+' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>+</button>
+                                <button onClick={() => setUserSigns({...userSigns, D: '0'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.D === '0' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>0</button>
+                                <button onClick={() => setUserSigns({...userSigns, D: '-'})} className={`px-3 py-1 rounded text-sm font-bold ${userSigns.D === '-' ? 'bg-blue-600 text-white' : 'bg-slate-100'}`}>-</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onClick={() => {
+                        // Generate new random graph
+                        const newA = Math.random() > 0.5 ? 1 : -1;
+                        const newB = Math.floor(Math.random() * 5) - 2;
+                        const newC = Math.floor(Math.random() * 5) - 2;
+                        setCoeffA(newA); setCoeffB(newB); setCoeffC(newC);
+                        setUserSigns({});
+                        setCoeffFeedback(null);
+                    }} className="w-full py-2 text-sm text-slate-500 underline">
+                        {t('modules.quadratics.levels.10.refresh')}
+                    </button>
+                 </div>
+
+                 <button onClick={() => {
+                     // Check Logic
+                     const correctA = coeffA > 0 ? '+' : '-';
+                     const correctB = coeffB > 0 ? '+' : (coeffB === 0 ? '0' : '-');
+                     const correctC = coeffC > 0 ? '+' : (coeffC === 0 ? '0' : '-');
+                     const dVal = coeffB*coeffB - 4*coeffA*coeffC;
+                     const correctD = dVal > 0 ? '+' : (dVal === 0 ? '0' : '-');
+
+                     if (userSigns.a === correctA && userSigns.b === correctB && userSigns.c === correctC && userSigns.D === correctD) {
+                         setCoeffFeedback('correct');
+                     } else {
+                         setCoeffFeedback('wrong');
+                     }
+                 }} className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-md hover:bg-blue-700 transition-colors">
+                    {t('modules.quadratics.levels.10.check')}
+                 </button>
+
+                 {coeffFeedback === 'correct' && (
+                    <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
+                        <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl border border-emerald-200 text-center font-bold">
+                            {t('modules.quadratics.tactics.correct')}
+                        </div>
+                        <button onClick={() => dispatch({type: 'NEXT_LEVEL'})} className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold shadow-md hover:bg-black transition-colors">
+                            {t('modules.quadratics.levels.10.next_lesson')}
+                        </button>
+                    </motion.div>
+                 )}
+                 {coeffFeedback === 'wrong' && (
+                    <div className="bg-red-50 text-red-800 p-4 rounded-xl border border-red-200 text-center font-bold">
+                        {t('modules.quadratics.tactics.wrong')}
+                    </div>
+                 )}
+              </motion.div>
+            )}
