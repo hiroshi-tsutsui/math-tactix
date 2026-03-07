@@ -5,19 +5,22 @@ import { generateRootsLocationProblem } from './utils/roots-location-generator';
 import { generateDefiniteInequalityProblem } from './utils/definite-inequality-generator';
 import { generateParametricInequalityProblem } from './utils/parametric-inequality-generator';
 import { generateCoefficientProblem, CoefficientProblem } from './utils/coefficient-determination-generator';
+import { generateCompletingSquareProblem } from './utils/completing-square-generator';
 import RootsLocationViz from './components/RootsLocationViz';
 import DefiniteInequalityViz from './components/DefiniteInequalityViz';
 import ParametricInequalityViz from './components/ParametricInequalityViz';
 import CoefficientViz from './components/CoefficientViz';
+import GraphTransformationViz from './components/GraphTransformationViz';
+import CompletingSquareViz from './components/CompletingSquareViz';
 
-type ProblemType = 'roots_location' | 'definite_inequality' | 'parametric_inequality' | 'coefficient_determination';
+type ProblemType = 'roots_location' | 'definite_inequality' | 'parametric_inequality' | 'coefficient_determination' | 'graph_transformation' | 'completing_square';
 
 interface Problem {
   id: string;
-  type: string; // Relaxed type to allow specific subtypes
-  question: string; // Normalized property name? Generators might use questionText
+  type: string;
+  question: string;
   equation?: string;
-  params?: any; // For coefficient
+  params?: any;
   explanation?: string | string[];
   
   // Roots Location specific
@@ -34,23 +37,28 @@ interface Problem {
   inequality?: string;
   condition?: string;
   k_val?: number;
+
+  // Completing Square specific
+  expansion?: string;
 }
 
 const LEVELS = [
+  { id: 12, title: '平方完成 (Completing the Square)', type: 'completing_square' },
   { id: 13, title: '解の配置 (Location of Roots)', type: 'roots_location' },
   { id: 14, title: '定義域が動く最大・最小 (Moving Domain)', type: 'parametric_inequality' },
   { id: 15, title: '絶対不等式 (Definite Inequality)', type: 'definite_inequality' },
   { id: 16, title: '係数決定 (Coefficient Determination)', type: 'coefficient_determination' },
+  { id: 18, title: 'グラフの移動 (Graph Transformation)', type: 'graph_transformation' },
 ];
 
 export default function QuadraticPage() {
-  const [currentLevel, setCurrentLevel] = useState(13);
+  const [currentLevel, setCurrentLevel] = useState(12);
   const [problem, setProblem] = useState<Problem | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
 
   const [mValue, setMValue] = useState(0); // For RootsLocationViz
   const [kValue, setKValue] = useState(0); // For DefiniteInequalityViz
-  const [aValue, setAValue] = useState(0); // For ParametricInequalityViz (param 'a')
+  const [aValue, setAValue] = useState(0); // For ParametricInequalityViz
   
   // Reset values when problem changes
   useEffect(() => {
@@ -65,6 +73,9 @@ export default function QuadraticPage() {
     if (!levelConfig) return;
 
     switch (levelConfig.type) {
+      case 'completing_square':
+        newProblem = generateCompletingSquareProblem();
+        break;
       case 'roots_location':
         newProblem = generateRootsLocationProblem();
         break;
@@ -77,10 +88,22 @@ export default function QuadraticPage() {
       case 'coefficient_determination':
         newProblem = generateCoefficientProblem();
         break;
+      case 'graph_transformation':
+        newProblem = {
+          id: 'gt-1',
+          type: 'graph_transformation',
+          question: 'グラフの平行移動・対称移動を視覚的に確認しよう。',
+          equation: 'y = a(x-p)^2 + q'
+        };
+        break;
     }
     setProblem(newProblem as any);
     setShowExplanation(false);
   };
+
+  useEffect(() => {
+    generateProblem();
+  }, [currentLevel]);
 
   const nextProblem = () => {
     generateProblem();
@@ -125,6 +148,12 @@ export default function QuadraticPage() {
             <div className="border rounded-lg p-4 bg-gray-50">
               <h3 className="text-md font-bold text-gray-700 mb-3">視覚的理解 (Interactive Visualization)</h3>
               
+              {currentLevel === 12 && problem.equation && (
+                 <CompletingSquareViz 
+                    equation={problem.equation}
+                 />
+              )}
+
               {currentLevel === 13 && (
                 <div className="space-y-4">
                    <RootsLocationViz 
@@ -169,6 +198,11 @@ export default function QuadraticPage() {
 
               {currentLevel === 16 && problem.params && (
                 <CoefficientViz params={problem.params} />
+              )}
+              {currentLevel === 18 && (
+                <div className="space-y-4">
+                  <GraphTransformationViz />
+                </div>
               )}
             </div>
 
