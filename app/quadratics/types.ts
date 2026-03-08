@@ -1,0 +1,10 @@
+export interface Problem {
+  id: string;
+  type: string;
+  question: string;
+  equation?: string;
+  equations?: string[];
+  params?: any;
+  explanation?: string | string[];
+  answer?: string;
+}

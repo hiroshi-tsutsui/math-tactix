@@ -7,6 +7,8 @@ export const generateCompletingSquareProblem = () => {
   const equation = `y = ${a === 1 ? '' : a}x^2 ${b >= 0 ? '+' : ''}${b}x ${c >= 0 ? '+' : ''}${c}`;
   const p = -b / (2 * a);
   const q = c - (b * b) / (4 * a);
+  // vertexForm is a(x - p)^2 + q. 
+  // If p is positive, (x - p). If p is negative, (x + |p|).
   const vertexForm = `y = ${a}(x ${p >= 0 ? '-' : '+'}${Math.abs(p)})^2 ${q >= 0 ? '+' : ''}${q}`;
 
   return {
@@ -15,10 +17,10 @@ export const generateCompletingSquareProblem = () => {
     question: '次の2次関数を平方完成しなさい。',
     equation: equation,
     explanation: [
-      `まずは $x^2$ の係数 ${a} でくくります。`,
+      `まずは $x^2$ の係数 $a = ${a}$ でくくります。`,
       `次に $(x + \\alpha)^2$ の形を作ります。`,
-      `最後に定数項を整理すると、頂点は (${p}, ${q}) とわかります。`,
-      `答え: ${vertexForm}`
+      `定数項を整理すると、頂点は $(${p}, ${q})$ となります。`,
+      `答え: $${vertexForm}$`
     ]
   };
 };

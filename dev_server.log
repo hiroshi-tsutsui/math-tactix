@@ -4044,3 +4044,251 @@ Caused by:
 Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
 Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
 Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "<EcmascriptModuleAsset as ResolveOrigin>::get_inner_asset", global_name: "turbopack-ecmascript@turbopack_ecmascript::EcmascriptModuleAsset::ResolveOrigin::get_inner_asset", .. }, this: Some(RawVc::TaskCell(364697, "turbopack_ecmascript::EcmascriptModuleAsset#0")), arg: (Vc(RawVc::TaskCell(460420, "turbopack_core::resolve::parse::Request#0")),) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5922601) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "<EcmascriptModuleAsset as ResolveOrigin>::get_inner_asset", global_name: "turbopack-ecmascript@turbopack_ecmascript::EcmascriptModuleAsset::ResolveOrigin::get_inner_asset", .. }, this: Some(RawVc::TaskCell(364697, "turbopack_ecmascript::EcmascriptModuleAsset#0")), arg: (Vc(RawVc::TaskCell(460420, "turbopack_core::resolve::parse::Request#0")),) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5502927) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5502927) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::process_resolve_result (TaskId 460756))
+
+Caused by:
+    0: Looking up data for TaskId 460756 from database failed
+    1: Unable to open static sorted file referenced from 00003198.meta
+    2: Unable to open static sorted file 00003194.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::process_resolve_result (TaskId 460756))
+
+Caused by:
+    0: Looking up data for TaskId 460756 from database failed
+    1: Unable to open static sorted file referenced from 00003198.meta
+    2: Unable to open static sorted file 00003194.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536836) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for resolve (TaskId 460761))
+
+Caused by:
+    0: Looking up data for TaskId 460761 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536836) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for resolve (TaskId 460761))
+
+Caused by:
+    0: Looking up data for TaskId 460761 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "AssetIdent::new_inner", global_name: "turbopack-core@turbopack_core::ident::AssetIdent::new_inner", .. }, this: None, arg: (AssetIdent { path: FileSystemPath { fs: ResolvedVc(RawVc::TaskCell(215001, "turbo_tasks_fs::DiskFileSystem#0")), path: "app/quadratics/components/CompletingSquareViz.tsx" }, query: "", fragment: "", assets: [], modifiers: [], parts: [], layer: None, content_type: None },) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5426081) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for AssetIdent::path (TaskId 460816))
+
+Caused by:
+    0: Looking up data for TaskId 460816 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for Pattern::new_internal (TaskId 460861))
+
+Caused by:
+    0: Looking up data for TaskId 460861 from database failed
+    1: Unable to open static sorted file referenced from 00003198.meta
+    2: Unable to open static sorted file 00003194.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5447791) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for Pattern::new_internal (TaskId 460861))
+
+Caused by:
+    0: Looking up data for TaskId 460861 from database failed
+    1: Unable to open static sorted file referenced from 00003198.meta
+    2: Unable to open static sorted file 00003194.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536811) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5922601) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "value_to_string", global_name: "turbo-tasks-fs@turbo_tasks_fs::value_to_string", .. }, this: None, arg: (FileSystemPath { fs: ResolvedVc(RawVc::TaskCell(215001, "turbo_tasks_fs::DiskFileSystem#0")), path: "app/quadratics/utils/simultaneous-inequality-generator.ts" },) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5926237) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "value_to_string", global_name: "turbo-tasks-fs@turbo_tasks_fs::value_to_string", .. }, this: None, arg: (FileSystemPath { fs: ResolvedVc(RawVc::TaskCell(215001, "turbo_tasks_fs::DiskFileSystem#0")), path: "app/quadratics/utils/simultaneous-inequality-generator.ts" },) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5426081) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for ModuleResolveResult::primary_modules (TaskId 460623))
+
+Caused by:
+    0: Looking up data for TaskId 460623 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5502927) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5502927) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <ModuleAssetContext as AssetContext>::resolve_asset (TaskId 460635))
+
+Caused by:
+    0: Looking up data for TaskId 460635 from database failed
+    1: Unable to open static sorted file referenced from 00003216.meta
+    2: Unable to open static sorted file 00003210.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5502927) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "get_side_effect_free_declaration", global_name: "turbopack-ecmascript@turbopack_ecmascript::chunk::placeable::get_side_effect_free_declaration", .. }, this: None, arg: (FileSystemPath { fs: ResolvedVc(RawVc::TaskCell(215001, "turbo_tasks_fs::DiskFileSystem#0")), path: "app/quadratics/utils/moving-domain-generator.ts" }, Some(Vc(RawVc::TaskCell(660, "turbo_tasks_fs::glob::Glob#0")))) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5403364) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for <VirtualSource as Asset>::content (TaskId 268206))
+
+Caused by:
+    0: Looking up data for TaskId 268206 from database failed
+    1: Unable to open static sorted file referenced from 00003011.meta
+    2: Unable to open static sorted file 00003007.sst
+    3: No such file or directory (os error 2)
+
+thread 'tokio-runtime-worker' (5536836) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Data for <CssModuleAsset as ProcessCss>::get_css_with_placeholder (TaskId 268171))
+
+Caused by:
+    0: Looking up data for TaskId 268171 from database failed
+    1: Unable to open static sorted file referenced from 00002733.meta
+    2: Unable to open static sorted file 00002731.sst
+    3: No such file or directory (os error 2)
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to /var/folders/6p/l5yvjss91yl1h0l54vg28g5r0000gn/T/next-panic-c17617172aaa743e9baeb5cefd588a5f.log.
+
+To help make Turbopack better, report this error by clicking here: https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20%5Bproject%5D%2Fapp%2Fmain.css%20%5Bapp-client%5D%20%28css%29&body=Turbopack%20version%3A%20%6023c464985%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0ATurbopack%20Error%3A%20%5Bproject%5D%2Fapp%2Fmain.css%20%5Bapp-client%5D%20%28css%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)

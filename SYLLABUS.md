@@ -4,12 +4,20 @@
 
 ## 🟢 数学 I (最優先)
 
-### 1. 二次関数 (Quadratic Functions) - **重点開発中**
-*   **基礎:** 係数 ($a, b, c$) の変化によるグラフの動き、平方完成の視覚的意味。
-*   **応用:** 動く定義域・動く軸における最大・最小問題（場合分けの視覚化）。
-*   **発展:** 二次方程式の解の配置、グラフと $x$ 軸の共有点。
+### 1. 二次関数 (Quadratic Functions) - **実装強化済 (v1.3.9)**
+*   **基礎:** 
+    *   係数 ($a, b, c$) の変化によるグラフの動き (Level 16)
+    *   **New!** 平方完成の視覚的意味 (Level 12: Completing Square)
+    *   **New!** グラフの平行移動・対称移動 (Level 18: Graph Transformation)
+*   **応用:** 
+    *   動く定義域における最大・最小問題 (Level 14: Moving Domain)
+    *   文字係数の2次不等式 (Level 17: Parametric Inequality)
+    *   絶対不等式 (Level 15)
+    *   **New!** 連立二次不等式 (Level 21: Simultaneous Inequalities)
+*   **発展:** 
+    *   二次方程式の解の配置 (Level 13: Roots Location)
 
-### 2. 図形と計量 (Trigonometry) - **開発中**
+### 2. 図形と計量 (Trigonometry) - **着手中 (v1.4.0)**
 *   **基礎:** 単位円を用いた三角比 ($\sin, \cos, \tan$) の定義。
 *   **応用:** 正弦定理・余弦定理の幾何学的証明と活用。
 *   **発展:** 3D空間における図形の計量。

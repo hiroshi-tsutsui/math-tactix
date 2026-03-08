@@ -4,22 +4,54 @@ import React, { useState, useEffect } from 'react';
 import { generateRootsLocationProblem } from './utils/roots-location-generator';
 import { generateDefiniteInequalityProblem } from './utils/definite-inequality-generator';
 import { generateParametricInequalityProblem } from './utils/parametric-inequality-generator';
-import { generateCoefficientProblem, CoefficientProblem } from './utils/coefficient-determination-generator';
+import { generateMovingDomainProblem } from './utils/moving-domain-generator';
+import { generateCoefficientProblem } from './utils/coefficient-determination-generator';
+import { generateGraphTransformationProblem } from './utils/graph-transformation-generator';
 import { generateCompletingSquareProblem } from './utils/completing-square-generator';
+import { generateSimultaneousInequalityProblem } from './utils/simultaneous-inequality-generator';
+import { generateIntersectionProblem } from './utils/intersection-generator';
+import { generateQuadraticInequalityProblem } from './utils/quadratic-inequality-generator';
+import { generateAbsoluteValueProblem } from './utils/absolute-value-graph-generator';
+import { generateMovingAxisProblem } from './utils/moving-axis-generator';
+import { generateShapeOptimizationProblem } from './utils/shape-optimization-generator';
+import { generateAbsoluteValueEquationProblem } from './utils/absolute-value-equation-generator';
+import { generateSolutionsInRangeProblem } from './utils/solutions-in-range-generator';
+import { generateDeterminationProblem } from './utils/determination-generator';
+import { generateCommonRootsProblem } from './utils/common-roots-generator';
+import { generateAbsoluteValueMaxMinProblem } from './utils/absolute-value-max-min-generator';
+import { generateDiscriminantProblem } from './utils/discriminant-generator';
+
 import RootsLocationViz from './components/RootsLocationViz';
 import DefiniteInequalityViz from './components/DefiniteInequalityViz';
 import ParametricInequalityViz from './components/ParametricInequalityViz';
+import MovingDomainViz from './components/MovingDomainViz';
 import CoefficientViz from './components/CoefficientViz';
 import GraphTransformationViz from './components/GraphTransformationViz';
 import CompletingSquareViz from './components/CompletingSquareViz';
+import SimultaneousInequalityViz from './components/SimultaneousInequalityViz';
+import IntersectionViz from './components/IntersectionViz';
+import QuadraticInequalityViz from './components/QuadraticInequalityViz';
+import AbsoluteValueGraphViz from './components/AbsoluteValueGraphViz';
+import MovingAxisViz from './components/MovingAxisViz';
+import ShapeOptimizationViz from './components/ShapeOptimizationViz';
+import AbsoluteValueEquationViz from './components/AbsoluteValueEquationViz';
+import SolutionsInRangeViz from './components/SolutionsInRangeViz';
+import DeterminationViz from './components/DeterminationViz';
+import CommonRootsViz from './components/CommonRootsViz';
+import { AbsoluteValueMaxMinViz } from './components/AbsoluteValueMaxMinViz';
+import DiscriminantViz from './components/DiscriminantViz';
 
-type ProblemType = 'roots_location' | 'definite_inequality' | 'parametric_inequality' | 'coefficient_determination' | 'graph_transformation' | 'completing_square';
+// LaTeX Support
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
+// Problem Type Definitions
 interface Problem {
   id: string;
   type: string;
   question: string;
   equation?: string;
+  equations?: string[]; // For simultaneous inequalities
   params?: any;
   explanation?: string | string[];
   
@@ -40,65 +72,139 @@ interface Problem {
 
   // Completing Square specific
   expansion?: string;
+
+  // Simultaneous Inequality specific
+  ranges?: any[];
+
+  // Moving Domain specific
+  p?: number;
+  q?: number;
+  width?: number;
+
+  // Moving Axis specific
+  domain?: { start: number; end: number };
+
+  // Shape Optimization specific
+  totalLength?: number;
+
+  // Absolute Value Equation specific
+  a_val?: number;
+  k_param?: string;
+
+  // Solutions In Range specific
+  k?: number;
+  rangeStart?: number;
+  rangeEnd?: number;
 }
 
+// Level Configuration
 const LEVELS = [
-  { id: 12, title: '平方完成 (Completing the Square)', type: 'completing_square' },
-  { id: 13, title: '解の配置 (Location of Roots)', type: 'roots_location' },
-  { id: 14, title: '定義域が動く最大・最小 (Moving Domain)', type: 'parametric_inequality' },
-  { id: 15, title: '絶対不等式 (Definite Inequality)', type: 'definite_inequality' },
-  { id: 16, title: '係数決定 (Coefficient Determination)', type: 'coefficient_determination' },
-  { id: 18, title: 'グラフの移動 (Graph Transformation)', type: 'graph_transformation' },
+  { id: 1, title: '平方完成', type: 'completing_square' },
+  { id: 2, title: '解の配置', type: 'roots_location' },
+  { id: 3, title: '定義域が動く最大・最小', type: 'moving_domain' },
+  { id: 4, title: '軸が動く最大・最小', type: 'moving_axis' },
+  { id: 5, title: '絶対不等式', type: 'definite_inequality' },
+  { id: 6, title: '係数決定', type: 'coefficient_determination' },
+  { id: 7, title: '文字係数の2次不等式', type: 'parametric_inequality' },
+  { id: 8, title: 'グラフの移動', type: 'graph_transformation' },
+  { id: 9, title: '二次不等式の解き方', type: 'quadratic_inequality' },
+  { id: 10, title: '放物線と直線の共有点', type: 'intersection' },
+  { id: 11, title: '連立二次不等式', type: 'simultaneous_inequality' },
+  { id: 12, title: '絶対値グラフ', type: 'absolute_value_graph' },
+  { id: 13, title: '文章題（最大・最小）', type: 'shape_optimization' },
+  { id: 14, title: '絶対値方程式の解の個数', type: 'absolute_value_equation' },
+  { id: 15, title: '解の存在範囲', type: 'solutions_in_range' },
+  { id: 16, title: '二次関数の決定', type: 'determination' },
+  { id: 17, title: '共通解問題', type: 'common_roots' },
+  { id: 18, title: '絶対値関数の最大・最小', type: 'absolute_value_max_min' },
+  { id: 19, title: '判別式とグラフの共有点', type: 'discriminant' },
 ];
 
 export default function QuadraticPage() {
-  const [currentLevel, setCurrentLevel] = useState(12);
+  const [currentLevel, setCurrentLevel] = useState(1);
   const [problem, setProblem] = useState<Problem | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
 
+  // Visualization State
   const [mValue, setMValue] = useState(0); // For RootsLocationViz
   const [kValue, setKValue] = useState(0); // For DefiniteInequalityViz
-  const [aValue, setAValue] = useState(0); // For ParametricInequalityViz
   
   // Reset values when problem changes
   useEffect(() => {
     setMValue(0);
     setKValue(0);
-    setAValue(0);
-  }, [problem]);
+    setShowExplanation(false);
+  }, [problem, currentLevel]);
 
   const generateProblem = () => {
     let newProblem;
     const levelConfig = LEVELS.find(l => l.id === currentLevel);
     if (!levelConfig) return;
 
-    switch (levelConfig.type) {
-      case 'completing_square':
-        newProblem = generateCompletingSquareProblem();
-        break;
-      case 'roots_location':
-        newProblem = generateRootsLocationProblem();
-        break;
-      case 'definite_inequality':
-        newProblem = generateDefiniteInequalityProblem();
-        break;
-      case 'parametric_inequality':
-        newProblem = generateParametricInequalityProblem();
-        break;
-      case 'coefficient_determination':
-        newProblem = generateCoefficientProblem();
-        break;
-      case 'graph_transformation':
-        newProblem = {
-          id: 'gt-1',
-          type: 'graph_transformation',
-          question: 'グラフの平行移動・対称移動を視覚的に確認しよう。',
-          equation: 'y = a(x-p)^2 + q'
-        };
-        break;
+    try {
+      switch (levelConfig.type) {
+        case 'completing_square':
+          newProblem = generateCompletingSquareProblem();
+          break;
+        case 'roots_location':
+          newProblem = generateRootsLocationProblem();
+          break;
+        case 'definite_inequality':
+          newProblem = generateDefiniteInequalityProblem();
+          break;
+        case 'parametric_inequality':
+          newProblem = generateParametricInequalityProblem();
+          break;
+        case 'moving_domain':
+          newProblem = generateMovingDomainProblem();
+          break;
+        case 'moving_axis':
+          newProblem = generateMovingAxisProblem();
+          break;
+        case 'coefficient_determination':
+          newProblem = generateCoefficientProblem();
+          break;
+        case 'graph_transformation':
+          newProblem = generateGraphTransformationProblem();
+          break;
+        case 'quadratic_inequality':
+          newProblem = generateQuadraticInequalityProblem();
+          break;
+        case 'simultaneous_inequality':
+          newProblem = generateSimultaneousInequalityProblem();
+          break;
+        case 'intersection':
+          newProblem = generateIntersectionProblem();
+          break;
+        case 'absolute_value_graph':
+          newProblem = generateAbsoluteValueProblem();
+          break;
+        case 'shape_optimization':
+          newProblem = generateShapeOptimizationProblem();
+          break;
+        case 'absolute_value_equation':
+          newProblem = generateAbsoluteValueEquationProblem();
+          break;
+        case 'solutions_in_range':
+          newProblem = generateSolutionsInRangeProblem();
+          break;
+        case 'determination':
+          newProblem = generateDeterminationProblem();
+          break;
+        case 'common_roots':
+          newProblem = generateCommonRootsProblem();
+          break;
+        case 'absolute_value_max_min':
+          newProblem = generateAbsoluteValueMaxMinProblem();
+          break;
+        case 'discriminant':
+          newProblem = generateDiscriminantProblem();
+          break;
+      }
+      setProblem(newProblem as any);
+    } catch (e) {
+      console.error("Error generating problem:", e);
     }
-    setProblem(newProblem as any);
-    setShowExplanation(false);
   };
 
   useEffect(() => {
@@ -128,7 +234,7 @@ export default function QuadraticPage() {
                   : 'bg-white text-gray-600 hover:bg-gray-100 border'
               }`}
             >
-              Level {level.id}: {level.title}
+              {level.id}. {level.title}
             </button>
           ))}
         </div>
@@ -139,111 +245,224 @@ export default function QuadraticPage() {
           <div className="space-y-6">
             <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
               <h2 className="text-lg font-bold text-blue-900 mb-2">問題</h2>
-              <p className="text-xl mb-2">{problem.question || (problem as any).questionText}</p>
-              <div className="font-mono text-2xl bg-white p-3 rounded border border-blue-100 inline-block">
-                {problem.equation || (problem as any).inequality || (problem as any).questionText}
+              <p className="text-xl mb-4 text-gray-800 font-medium">
+                {problem.question || (problem as any).questionText}
+              </p>
+              
+              <div className="bg-white p-6 rounded shadow-inner border border-blue-100 flex justify-center items-center my-4">
+                {problem.equation ? (
+                  <BlockMath math={problem.equation} />
+                ) : (problem.equations ? (
+                  <div className="flex flex-col gap-2">
+                     <BlockMath math={`\\begin{cases} ${problem.equations[0]} \\\\ ${problem.equations[1]} \\end{cases}`} />
+                  </div>
+                ) : (
+                  <BlockMath math={(problem as any).inequality || (problem as any).questionText || ""} />
+                ))}
               </div>
             </div>
 
             <div className="border rounded-lg p-4 bg-gray-50">
-              <h3 className="text-md font-bold text-gray-700 mb-3">視覚的理解 (Interactive Visualization)</h3>
+              <h3 className="text-md font-bold text-gray-700 mb-3 border-b pb-2">
+                視覚的理解 (Interactive Visualization)
+              </h3>
               
-              {currentLevel === 12 && problem.equation && (
-                 <CompletingSquareViz 
-                    equation={problem.equation}
-                 />
-              )}
+              <div className="min-h-[300px] flex flex-col justify-center">
+                {currentLevel === 1 && problem.equation && (
+                   <CompletingSquareViz equation={problem.equation} />
+                )}
 
-              {currentLevel === 13 && (
-                <div className="space-y-4">
-                   <RootsLocationViz 
-                      type={problem.type as any} 
-                      m={mValue} 
-                   />
-                   <div className="flex flex-col gap-2">
-                      <label className="font-bold text-gray-700">パラメータ m: {mValue.toFixed(1)}</label>
-                      <input 
-                        type="range" 
-                        min="-5" max="5" step="0.1" 
-                        value={mValue} 
-                        onChange={(e) => setMValue(parseFloat(e.target.value))}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                      />
-                   </div>
-                </div>
-              )}
+                {currentLevel === 2 && (
+                  <div className="space-y-4 w-full">
+                     <RootsLocationViz type={problem.type as any} m={mValue} />
+                     <div className="flex flex-col gap-2 bg-white p-3 rounded border">
+                        <label className="font-bold text-gray-700 flex justify-between">
+                          <span>パラメータ m</span>
+                          <span className="text-blue-600 font-mono">{mValue.toFixed(1)}</span>
+                        </label>
+                        <input 
+                          type="range" 
+                          min="-5" max="5" step="0.1" 
+                          value={mValue} 
+                          onChange={(e) => setMValue(parseFloat(e.target.value))}
+                          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                        />
+                     </div>
+                  </div>
+                )}
 
-              {currentLevel === 14 && problem.fixedRoot !== undefined && (
-                <ParametricInequalityViz 
-                  fixedRoot={problem.fixedRoot} 
-                  inequalitySign={problem.inequalitySign || '<'} 
-                />
-              )}
+                {currentLevel === 3 && (
+                  <MovingDomainViz 
+                    p={problem.p} 
+                    q={problem.q} 
+                    width={problem.width} 
+                  />
+                )}
 
-              {currentLevel === 15 && (
-                <div className="space-y-4">
-                  <DefiniteInequalityViz k={kValue} />
-                  <div className="flex flex-col gap-2">
-                      <label className="font-bold text-gray-700">定数 k: {kValue.toFixed(1)}</label>
-                      <input 
-                        type="range" 
-                        min="-2" max="5" step="0.1" 
-                        value={kValue} 
-                        onChange={(e) => setKValue(parseFloat(e.target.value))}
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                      />
-                   </div>
-                </div>
-              )}
+                {currentLevel === 4 && problem.domain && (
+                  <MovingAxisViz 
+                    domain={problem.domain} 
+                    q={3} 
+                    initialMode={(problem as any).problemType || 'min'}
+                  />
+                )}
 
-              {currentLevel === 16 && problem.params && (
-                <CoefficientViz params={problem.params} />
-              )}
-              {currentLevel === 18 && (
-                <div className="space-y-4">
-                  <GraphTransformationViz />
-                </div>
-              )}
+                {currentLevel === 5 && (
+                  <div className="space-y-4 w-full">
+                    <DefiniteInequalityViz k={kValue} />
+                    <div className="flex flex-col gap-2 bg-white p-3 rounded border">
+                        <label className="font-bold text-gray-700 flex justify-between">
+                          <span>定数 k</span>
+                          <span className="text-blue-600 font-mono">{kValue.toFixed(1)}</span>
+                        </label>
+                        <input 
+                          type="range" 
+                          min="-2" max="5" step="0.1" 
+                          value={kValue} 
+                          onChange={(e) => setKValue(parseFloat(e.target.value))}
+                          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                        />
+                     </div>
+                  </div>
+                )}
+
+                {currentLevel === 6 && problem.params && (
+                  <CoefficientViz params={problem.params} />
+                )}
+
+                {currentLevel === 7 && problem.fixedRoot !== undefined && (
+                  <ParametricInequalityViz 
+                    fixedRoot={problem.fixedRoot} 
+                    inequalitySign={problem.inequalitySign || '<'} 
+                  />
+                )}
+
+                {currentLevel === 8 && problem && (
+                  <GraphTransformationViz 
+                     initialParams={(problem as any).original}
+                     targetParams={showExplanation ? (problem as any).answer : undefined}
+                     transformationType={(problem as any).transformation?.type}
+                  />
+                )}
+                
+                {currentLevel === 9 && (
+                  <QuadraticInequalityViz 
+                    a={(problem as any).params.a} 
+                    b={(problem as any).params.b} 
+                    c={(problem as any).params.c} 
+                    inequalitySign={(problem as any).params.inequalitySign}
+                  />
+                )}
+                
+                {currentLevel === 10 && (
+                  <IntersectionViz />
+                )}
+
+                {currentLevel === 11 && problem.ranges && (
+                  <SimultaneousInequalityViz initialRanges={problem.ranges} />
+                )}
+                
+                {currentLevel === 12 && (
+                  <AbsoluteValueGraphViz />
+                )}
+
+                {currentLevel === 13 && (problem as any).params?.totalLength && (
+                  <ShapeOptimizationViz 
+                    totalLength={(problem as any).params.totalLength}
+                  />
+                )}
+
+                {currentLevel === 14 && (problem as any).params?.a && (
+                  <AbsoluteValueEquationViz 
+                    a={(problem as any).params.a}
+                    initialK={(problem as any).params.k || 2}
+                    mode={(problem as any).params.mode}
+                  />
+                )}
+
+                {currentLevel === 14 && (problem as any).a_val && (
+                  <AbsoluteValueEquationViz 
+                    a={(problem as any).a_val}
+                  />
+                )}
+
+                {currentLevel === 15 && (
+                  <SolutionsInRangeViz problem={problem} />
+                )}
+
+                {currentLevel === 16 && (
+                  <DeterminationViz params={problem.params} />
+                )}
+
+                {currentLevel === 17 && (
+                  <CommonRootsViz />
+                )}
+                {currentLevel === 18 && (
+                  <AbsoluteValueMaxMinViz problem={problem} isCorrect={false} />
+                )}
+                {currentLevel === 19 && (
+                  <DiscriminantViz />
+                )}
+              </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 pt-4">
               <button
                 onClick={toggleExplanation}
-                className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow transition-transform active:scale-95"
+                className="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow transition-all active:scale-95 flex items-center justify-center gap-2"
               >
-                {showExplanation ? '解説を隠す' : '解説を見る'}
+                <span>{showExplanation ? '解説を隠す' : '解説を見る'}</span>
               </button>
               <button
                 onClick={nextProblem}
-                className="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow transition-transform active:scale-95"
+                className="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-lg shadow transition-all active:scale-95 flex items-center justify-center gap-2"
               >
-                次の問題
+                <span>次の問題 &rarr;</span>
               </button>
             </div>
 
             {showExplanation && (
-              <div className="mt-6 bg-yellow-50 p-6 rounded-lg border border-yellow-200 animate-fadeIn">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">解説</h3>
-                <div className="prose text-gray-800 whitespace-pre-wrap">
+              <div className="mt-6 bg-yellow-50 p-6 rounded-lg border border-yellow-200 animate-fadeIn shadow-sm">
+                <h3 className="text-lg font-bold text-yellow-800 mb-3 flex items-center gap-2">
+                  <span>💡 解説</span>
+                </h3>
+                <div className="prose text-gray-800 max-w-none">
                   {Array.isArray(problem.explanation) 
-                    ? problem.explanation.map((line, i) => <p key={i}>{line}</p>)
-                    : problem.explanation || (
-                      // Fallback for problems without explicit explanation field
-                      currentLevel === 14 ? (
-                        <div>
-                          <p>この問題はグラフを描いて定数 $a$ の位置による場合分けが必要です。</p>
-                          <ul className="list-disc pl-5 mt-2">
-                            {(problem as any).cases?.map((c: any, i: number) => (
-                              <li key={i}><strong>{c.condition}</strong> のとき: {c.solution}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ) : currentLevel === 15 ? (
-                        <div>
-                           <p>条件: {(problem as any).condition}</p>
-                           <p>答え: {(problem as any).answer}</p>
-                        </div>
-                      ) : "解説準備中"
+                    ? problem.explanation.map((line, i) => (
+                        <p key={i} className="mb-2 last:mb-0 leading-relaxed">
+                           {line.split('$').map((part, index) => 
+                             index % 2 === 1 ? <InlineMath key={index} math={part} /> : part
+                           )}
+                        </p>
+                      ))
+                    : (problem.explanation ? (
+                        <p className="leading-relaxed">
+                          {(problem.explanation as string).split('$').map((part, index) => 
+                            index % 2 === 1 ? <InlineMath key={index} math={part} /> : part
+                          )}
+                        </p>
+                      ) : (
+                        // Fallback logic
+                        currentLevel === 7 ? (
+                          <div>
+                            <p>この問題はグラフを描いて定数 <InlineMath math="a" /> の位置による場合分けが必要です。</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              {(problem as any).cases?.map((c: any, i: number) => (
+                                <li key={i}>
+                                  <strong><InlineMath math={c.condition} /></strong> のとき: <InlineMath math={c.solution} />
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : currentLevel === 5 ? (
+                          <div>
+                             <p>条件: <InlineMath math={(problem as any).condition} /></p>
+                             <p className="mt-2 font-bold">答え: <InlineMath math={(problem as any).answer} /></p>
+                          </div>
+                        ) : (
+                          <div className="text-gray-500 italic">解説は準備中です。視覚化ツールを使って確認してみましょう。</div>
+                        )
+                      )
                     )
                   }
                 </div>
@@ -251,14 +470,14 @@ export default function QuadraticPage() {
             )}
           </div>
         ) : (
-          <div className="text-center py-12 text-gray-500">
-            問題を生成中...
+          <div className="text-center py-20 text-gray-500">
+            <div className="animate-pulse">問題を生成中...</div>
           </div>
         )}
       </main>
 
-      <footer className="mt-12 text-center text-gray-400 text-sm">
-        Math Tactix v1.3 - Visual & Intuitive Math Learning
+      <footer className="mt-12 text-center text-gray-400 text-sm pb-8">
+        &copy; 2026 Math Tactix | Visual & Intuitive Math Learning
       </footer>
     </div>
   );
