@@ -57,7 +57,10 @@ import AbsoluteInequalityViz from './components/AbsoluteInequalityViz';
 import SignOfRootsViz from './components/SignOfRootsViz';
 import { generateSignOfRootsProblem } from './utils/sign-of-roots-generator';
 import AbsoluteGraphLineViz from './components/AbsoluteGraphLineViz';
+import MultipleAbsoluteViz from './components/MultipleAbsoluteViz';
+
 import { generateAbsoluteGraphLineProblem } from './utils/absolute-graph-line-generator';
+import { generateMultipleAbsoluteProblem } from './utils/multiple-absolute-generator';
 
 
 
@@ -151,6 +154,7 @@ const LEVELS = [
   { id: 26, title: '絶対値を含む不等式', type: 'absolute_value_inequality' },
   { id: 27, title: '2次方程式の実数解の符号', type: 'sign_of_roots' },
   { id: 28, title: '絶対値グラフと直線の共有点', type: 'absolute_graph_line' },
+  { id: 29, title: '複数の絶対値を含む関数', type: 'multiple_absolute' },
 
 
 
@@ -260,6 +264,9 @@ export default function QuadraticPage() {
         case 'sign_of_roots':
         case 'absolute_graph_line':
           newProblem = generateAbsoluteGraphLineProblem();
+          break;
+        case 'multiple_absolute':
+          newProblem = generateMultipleAbsoluteProblem();
           break;
 
           newProblem = generateSignOfRootsProblem();
@@ -483,10 +490,14 @@ export default function QuadraticPage() {
                   <AbsoluteValueInequalityViz a={(problem as any).params?.a || 2} initialM={(problem as any).params?.m || 1} initialN={(problem as any).params?.n || 1} />
                 )}
                 {currentLevel === 27 && problem && (
+                
                   <SignOfRootsViz problem={problem} />
                 )}
                 {currentLevel === 28 && problem && (
                   <AbsoluteGraphLineViz problem={problem as any} />
+                )}
+                {currentLevel === 29 && problem && (
+                  <MultipleAbsoluteViz />
                 )}
                 {currentLevel === 22 && problem && (
                   <SubstitutionMaxMinViz problem={problem} />

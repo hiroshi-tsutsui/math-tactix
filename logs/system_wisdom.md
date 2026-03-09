@@ -7,6 +7,15 @@
 
 ## Evolution History
 
+### v1.3.19: Multiple Absolute Value Functions Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 29 "複数の絶対値を含む関数" (Functions with Multiple Absolute Values) to Quadratics.
+- **Visualization**: `MultipleAbsoluteViz` implementation (Canvas-based).
+  - **Interactive Parameter Tuning**: Students can adjust the two boundary points $a, b$ for $y = |x - a| + |x - b|$ and slide the horizontal line $y = k$.
+  - **Visualizing Intersections**: Vividly highlights the intersections, showing how the equation $|x - a| + |x - b| = k$ can have 0, 2, or infinite solutions depending on whether $k$ is below, above, or exactly equal to the "bottom" height of the bucket-shaped graph.
+- **Learning Value**: Often appears in advanced university entrance exams. It transforms a highly complex case-by-case algebraic breakdown (x < a, a <= x <= b, b < x) into a direct, instant geometric intuition ("it's just a bucket and a line").
+- **Next Step**: Move strictly into Math I Trigonometry (図形と計量) or expand Data Analysis.
+
 ### v1.3.18: Absolute Value Graph & Line Intersections (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 28 "絶対値グラフと直線の共有点" (Intersections of Absolute Value Graph and Line) to Quadratics.
