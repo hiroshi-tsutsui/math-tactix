@@ -7,6 +7,15 @@
 
 ## Evolution History
 
+### v1.3.13: Segment Cut from X-Axis Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 23 "x軸から切り取る線分の長さ" (Segment Length from X-Axis) to Quadratics.
+- **Visualization**: `SegmentLengthViz` implementation (Canvas-based).
+  - **Interactive Parameter Tuning**: Students can adjust the y-intercept $c$ using a slider for the parabola $y = x^2 - 4x + c$.
+  - **Real-time Segment Highlight**: The line segment cut from the x-axis is vividly highlighted in red, with its exact length $L$ displayed dynamically as the parabola translates vertically.
+- **Learning Value**: Calculating the length $L = \beta - \alpha$ is algebraically taught as $\sqrt{D}/|a|$ or by using the quadratic formula. The visualizer grounds this algebraically heavy calculation in physical geometry. Students instantly see that moving the parabola down (decreasing $c$) widens the segment, linking the algebraic equation to geometric distance.
+- **Next Step**: Expand into Math I Trigonometry (図形と計量) or Data Analysis (データの分析).
+
 ### v1.3.11: Common Roots Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 18 "共通解問題" (Common Roots) to Quadratics.

@@ -45,6 +45,9 @@ import DiscriminantViz from './components/DiscriminantViz';
 import MaxMinViz from './components/MaxMinViz';
 import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
 import SubstitutionMaxMinViz from './components/SubstitutionMaxMinViz';
+import { generateSegmentLengthProblem } from './utils/segment-length-generator';
+import SegmentLengthViz from './components/SegmentLengthViz';
+
 
 
 // LaTeX Support
@@ -130,6 +133,8 @@ const LEVELS = [
   { id: 20, title: '二次関数の最大・最小 (基礎)', type: 'max_min' },
   { id: 21, title: '条件付き最大・最小', type: 'conditional_max_min' },
   { id: 22, title: '置き換えによる最大・最小', type: 'substitution_max_min' },
+  { id: 23, title: 'x軸から切り取る線分の長さ', type: 'segment_length' },
+
 ];
 
 export default function QuadraticPage() {
@@ -216,6 +221,10 @@ export default function QuadraticPage() {
           newProblem = generateMaxMinProblem();
           break;
         case 'substitution_max_min':
+      case 'segment_length': return <SegmentLengthViz />;
+
+      case 'segment_length': return generateSegmentLengthProblem();
+
           newProblem = generateSubstitutionMaxMinProblem();
           break;
       }
