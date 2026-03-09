@@ -7,6 +7,15 @@
 
 ## Evolution History
 
+### v1.3.18: Absolute Value Graph & Line Intersections (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 28 "絶対値グラフと直線の共有点" (Intersections of Absolute Value Graph and Line) to Quadratics.
+- **Visualization**: `AbsoluteGraphLineViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $y = |x^2 - 4|$ and $y = x + k$.
+  - **Parameter Tuning**: Students can slide $k$ to move the line vertically.
+  - **Learning Value**: Often appears in university exams. Students struggle to geometrically visualize how the line intersects the "folded" (absolute value) part of the parabola. Adjusting $k$ lets them instantly see when the number of solutions changes (0 -> 1 -> 2 -> 3 -> 4).
+- **Next Step**: Expand into Math I Trigonometry (図形と計量) or Data Analysis.
+
 ### v1.3.17: Sign of Real Roots Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 27 "2次方程式の実数解の符号" (Sign of Real Roots) to Quadratics. Also patched UI rendering for Levels 24-26 left over from previous cycles.
