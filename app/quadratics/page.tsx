@@ -21,6 +21,7 @@ import { generateCommonRootsProblem } from './utils/common-roots-generator';
 import { generateAbsoluteValueMaxMinProblem } from './utils/absolute-value-max-min-generator';
 import { generateDiscriminantProblem } from './utils/discriminant-generator';
 import { generateMaxMinProblem } from './utils/max-min-generator';
+import { generateSubstitutionMaxMinProblem } from './utils/substitution-max-min-generator';
 
 import RootsLocationViz from './components/RootsLocationViz';
 import DefiniteInequalityViz from './components/DefiniteInequalityViz';
@@ -43,6 +44,7 @@ import { AbsoluteValueMaxMinViz } from './components/AbsoluteValueMaxMinViz';
 import DiscriminantViz from './components/DiscriminantViz';
 import MaxMinViz from './components/MaxMinViz';
 import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
+import SubstitutionMaxMinViz from './components/SubstitutionMaxMinViz';
 
 
 // LaTeX Support
@@ -127,6 +129,7 @@ const LEVELS = [
   { id: 19, title: '判別式とグラフの共有点', type: 'discriminant' },
   { id: 20, title: '二次関数の最大・最小 (基礎)', type: 'max_min' },
   { id: 21, title: '条件付き最大・最小', type: 'conditional_max_min' },
+  { id: 22, title: '置き換えによる最大・最小', type: 'substitution_max_min' },
 ];
 
 export default function QuadraticPage() {
@@ -211,6 +214,9 @@ export default function QuadraticPage() {
           break;
         case 'max_min':
           newProblem = generateMaxMinProblem();
+          break;
+        case 'substitution_max_min':
+          newProblem = generateSubstitutionMaxMinProblem();
           break;
       }
       setProblem(newProblem as any);
@@ -417,6 +423,9 @@ export default function QuadraticPage() {
                 )}
                 {currentLevel === 21 && (
                   <ConditionalMaxMinViz />
+                )}
+                {currentLevel === 22 && problem && (
+                  <SubstitutionMaxMinViz problem={problem} />
                 )}
                 {currentLevel === 20 && (problem as any).domain && (problem as any).vertex && (
                   <MaxMinViz 

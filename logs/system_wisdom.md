@@ -155,3 +155,12 @@
   - **Max/Min Targeting**: Automatically calculates and visually pinpoints the maximum or minimum value, explaining whether it occurs at the vertex or at one of the domain boundaries.
 - **Learning Value**: Bridges the gap between "Completing the Square" and "Moving Domain/Axis" problems. Students often struggle to visually grasp why a vertex *might not* be the min/max if it falls outside the domain. This visualization explicitly trains that visual check.
 - **Next Step**: Expand into Math I Trigonometry (図形と計量) now that Quadratics is thoroughly robust, or add minor QoL improvements.
+
+### v1.3.12: Max/Min by Substitution Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 22 "置き換えによる最大・最小" (Max/Min by Substitution) to Quadratics.
+- **Visualization**: `SubstitutionMaxMinViz` implementation (Canvas-based dual graphs).
+  - **Interactive Dual Graphs**: Visualizes $t = x^2 - 2ax$ on the left and $y = t^2 - 2bt + c$ on the right simultaneously.
+  - **Domain Synchronization**: As students slide the original variable $x$, they see how $t$ moves within its restricted range, which in turn acts as the domain for finding the max/min of $y$.
+- **Learning Value**: "Max/Min by substitution" is one of the biggest hurdles in Math I. Students often substitute successfully but forget to restrict the domain of the new variable $t$. By showing the two graphs side-by-side, students visually experience *why* $t$ has a limited range and how that dictates the final answer for $y$.
+- **Next Step**: Move on to Math I Trigonometry (図形と計量) or Data Analysis.
