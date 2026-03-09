@@ -6,6 +6,16 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+
+### v1.3.21: Variance and Standard Deviation Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 2 "分散と標準偏差" (Variance and Standard Deviation) to Data Analysis (データの分析).
+- **Visualization**: `VarianceViz` implementation (1D interactive dot plot).
+  - **Interactive Data Points**: Students can drag individual data values on a 1D dot plot to manipulate the dataset.
+  - **Real-time Metrics**: Visualizes the mean as a central line, and draws the "deviation" (偏差) as squares whose areas represent the squared deviations. The average of these areas dynamically shows the Variance (分散), and the side length shows the Standard Deviation (標準偏差).
+- **Learning Value**: Variance is often just a memorized formula. By visualizing the squared deviations as literal squares on the screen, students geometrically *feel* why outliers exponentially increase the variance, connecting the algebra to visual spread.
+- **Next Step**: Expand to Level 3 "箱ひげ図とデータの散らばり" (Box Plots and Data Dispersion).
+
 ### v1.3.20: Coefficient Signs Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 30 "係数の符号とグラフ" (Coefficient Signs and Graph) to Quadratics. Fixed a lingering bug where `sign_of_roots` and `absolute_graph_line` generators were merged.
