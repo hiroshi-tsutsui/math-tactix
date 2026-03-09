@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.22: Box Plot & Data Dispersion Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 3 "箱ひげ図とデータの散らばり" (Box Plots and Data Dispersion) to Data Analysis (データの分析).
+- **Visualization**: `BoxPlotViz` implementation (1D interactive dot plot with overlaid Box Plot).
+  - **Interactive Data Points**: Students can freely add, delete, and drag individual data points horizontally.
+  - **Real-time Metrics**: Automatically calculates and graphically draws the Min, Q1, Median, Q3, Max, and Interquartile Range (IQR).
+  - **Visual Whiskers and Box**: The Box and Whiskers update instantly to reflect changes in the data distribution.
+- **Learning Value**: Box Plots can be highly abstract for students. They usually memorize the mechanical calculation of Q1, Q2, and Q3 without understanding *what* the box represents. By dynamically altering the data and seeing the box stretch, contract, or shift, students gain an intuitive grasp of data dispersion, skewness, and the robustness of the median.
+- **Next Step**: Polish UI/UX or expand into Math I Trigonometry (図形と計量) now that Data Analysis levels 1-3 are robust.
+
 ### v1.3.21: Variance and Standard Deviation Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 2 "分散と標準偏差" (Variance and Standard Deviation) to Data Analysis (データの分析).
