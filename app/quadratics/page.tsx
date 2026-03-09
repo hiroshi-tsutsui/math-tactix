@@ -47,10 +47,15 @@ import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
 import SubstitutionMaxMinViz from './components/SubstitutionMaxMinViz';
 import { generateInequalityCoefficientProblem } from './utils/inequality-coefficient-generator';
 import { generateSegmentLengthProblem } from './utils/segment-length-generator';
+import { generateConditionalMaxMinProblem } from './utils/conditional-max-min-generator';
 import { generateAbsoluteInequalityProblem } from './utils/absolute-inequality-generator';
 import InequalityCoefficientViz from './components/InequalityCoefficientViz';
+import AbsoluteValueInequalityViz from './components/AbsoluteValueInequalityViz';
+import { generateAbsoluteValueInequalityProblem } from './utils/absolute-value-inequality-generator';
 import SegmentLengthViz from './components/SegmentLengthViz';
 import AbsoluteInequalityViz from './components/AbsoluteInequalityViz';
+import SignOfRootsViz from './components/SignOfRootsViz';
+import { generateSignOfRootsProblem } from './utils/sign-of-roots-generator';
 
 
 
@@ -140,6 +145,8 @@ const LEVELS = [
   { id: 23, title: 'x軸から切り取る線分の長さ', type: 'segment_length' },
   { id: 24, title: '2次不等式の決定', type: 'inequality_coefficient' },
   { id: 25, title: '常に成り立つ2次不等式', type: 'absolute_inequality' },
+  { id: 26, title: '絶対値を含む不等式', type: 'absolute_value_inequality' },
+  { id: 27, title: '2次方程式の実数解の符号', type: 'sign_of_roots' },
 
 
 ];
@@ -227,6 +234,9 @@ export default function QuadraticPage() {
         case 'max_min':
           newProblem = generateMaxMinProblem();
           break;
+        case 'conditional_max_min':
+          newProblem = generateConditionalMaxMinProblem();
+          break;
         case 'substitution_max_min':
           newProblem = generateSubstitutionMaxMinProblem();
           break;
@@ -238,6 +248,12 @@ export default function QuadraticPage() {
           break;
         case 'absolute_inequality':
           newProblem = generateAbsoluteInequalityProblem();
+          break;
+        case 'absolute_value_inequality':
+          newProblem = generateAbsoluteValueInequalityProblem();
+          break;
+        case 'sign_of_roots':
+          newProblem = generateSignOfRootsProblem();
           break;
       }
       setProblem(newProblem as any);
@@ -444,6 +460,21 @@ export default function QuadraticPage() {
                 )}
                 {currentLevel === 21 && (
                   <ConditionalMaxMinViz />
+                )}
+                {currentLevel === 23 && (
+                  <SegmentLengthViz />
+                )}
+                {currentLevel === 24 && (
+                  <InequalityCoefficientViz levelParams={problem} onSuccess={() => {}} />
+                )}
+                {currentLevel === 25 && (
+                  <AbsoluteInequalityViz />
+                )}
+                {currentLevel === 26 && (
+                  <AbsoluteValueInequalityViz a={(problem as any).params?.a || 2} initialM={(problem as any).params?.m || 1} initialN={(problem as any).params?.n || 1} />
+                )}
+                {currentLevel === 27 && (
+                  <SignOfRootsViz problem={problem} />
                 )}
                 {currentLevel === 22 && problem && (
                   <SubstitutionMaxMinViz problem={problem} />

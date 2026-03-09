@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.17: Sign of Real Roots Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 27 "2次方程式の実数解の符号" (Sign of Real Roots) to Quadratics. Also patched UI rendering for Levels 24-26 left over from previous cycles.
+- **Visualization**: `SignOfRootsViz` implementation (Canvas-based).
+  - **Interactive Parameter Tuning**: Students can adjust parameter `m` for $x^2 + mx + m + 3 = 0$.
+  - **3 Conditions Checks**: Visually checks $D > 0$, $\alpha+\beta > 0$, and $\alpha\beta > 0$.
+  - **Real-time Graphing**: Highlights the positive domain and $y$-intercept dynamically.
+- **Learning Value**: Often students just memorize the 3 formulas. By seeing the parabola move and explicitly watching the three conditions toggle between checkmarks and crosses, they geometrically understand *why* the product of roots restricts the $y$-intercept and the sum of roots restricts the axis.
+- **Next Step**: Polish Data Analysis (データの分析) or Trigonometry (図形と計量).
+
 ### v1.3.14: Determination of Quadratic Inequalities (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 24 "2次不等式の決定" (Determination of Quadratic Inequalities) to Quadratics.
@@ -191,3 +201,21 @@
   - **Interactive Y-intercept**: Students can drag a slider to adjust the y-intercept $c$ dynamically for the parabola $y = x^2 - 4x + c$.
   - **Real-time Discriminant**: The value of $D = b^2 - 4ac$ updates automatically, visually demonstrating the connection between $D > 0$ (2 points), $D = 0$ (tangent), and $D < 0$ (no points).
 - **Learning Value**: Directly maps the algebraic property of the discriminant to the geometric behavior of the parabola, bridging the gap between formula memorization and visual intuition. Critical for "Mathematical logic of intersections".
+
+### v1.3.15: Correlation Coefficient Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 1 "相関関係と相関係数" (Correlation and Correlation Coefficient) to Data Analysis (データの分析).
+- **Visualization**: `ScatterPlotViz` implementation (Canvas-based).
+  - **Interactive Scatter Plot**: Students can drag data points on a 2D plane to manually alter the shape of the data distribution.
+  - **Real-time Coefficient Calculation**: The correlation coefficient $r$ updates instantly as points move, visually bridging the algebraic formula to the shape of the scatter plot (positive, negative, or no correlation).
+- **Learning Value**: Calculating the correlation coefficient is highly algebraic and tedious. This visualization completely removes the calculation burden, forcing students to intuitively grasp how outliers and grouping affect the $r$ value—a frequent intuitive trap in exams.
+- **Next Step**: Expand to Level 2 "分散と標準偏差" (Variance and Standard Deviation) in Data Analysis.
+
+### v1.3.16: Variance and Standard Deviation Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 2 "分散と標準偏差" (Variance and Standard Deviation) to Data Analysis (データの分析).
+- **Visualization**: `VarianceViz` implementation (Canvas-based).
+  - **Interactive Data Points**: Students can drag individual data values on a 1D dot plot to manipulate the dataset.
+  - **Real-time Metrics**: Visualizes the mean as a central line, and draws the "deviation" (偏差) as squares whose areas represent the squared deviations. The average of these areas dynamically shows the Variance (分散), and the side length shows the Standard Deviation (標準偏差).
+- **Learning Value**: Variance is often just a memorized formula ($\frac{1}{n}\sum(x_i - \bar{x})^2$). By visualizing the squared deviations as literal squares on the screen, students geometrically *feel* why outliers exponentially increase the variance, connecting the algebra to visual spread.
+- **Next Step**: Expand to Level 3 "箱ひげ図とデータの散らばり" (Box Plots and Data Dispersion) or refine Trigonometry (図形と計量).
