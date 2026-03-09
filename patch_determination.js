@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+const fs = require('fs');
+const content = fs.readFileSync('app/quadratics/components/DeterminationViz.tsx', 'utf-8');
+const newContent = `import React, { useState, useEffect, useRef } from 'react';
 
 interface DeterminationVizProps {
   params: any;
@@ -19,12 +21,9 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
     } else if (params.type === 'intercepts_point') {
         setUserB(-2); // alpha
         setUserC(2);  // beta
-    } else if (params.type === 'axis_points') {
-        setUserB(0); // axis
-        setUserC(0); // q
     } else {
-        setUserB(0); // b
-        setUserC(0); // c
+        setUserB(0); // b or axis
+        setUserC(0); // c or q
     }
   }, [params]);
 
@@ -116,8 +115,8 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
     // Draw Target Points based on type
     if (params.type === 'vertex_point') {
       const { p, q, x1, y1, a } = params;
-      plotPoint(p, q, '#dc2626', "頂点");
-      plotPoint(x1, y1, '#059669', "点");
+      plotPoint(p, q, '#dc2626', \`頂点(${p}, ${q})\`);
+      plotPoint(x1, y1, '#059669', \`点(${x1}, ${y1})\`);
       
       // Target equation: y = a(x-p)^2 + q
       // drawParabola(a, -2*a*p, a*p*p + q, '#9ca3af', true); // Optional: hint
@@ -137,8 +136,8 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
       ctx.stroke();
       ctx.setLineDash([]);
       
-      plotPoint(p1.x, p1.y, '#059669', "点1");
-      plotPoint(p2.x, p2.y, '#059669', "点2");
+      plotPoint(p1.x, p1.y, '#059669', \`点(${p1.x}, ${p1.y})\`);
+      plotPoint(p2.x, p2.y, '#059669', \`点(${p2.x}, ${p2.y})\`);
 
       // User equation: y = userA(x-userB)^2 + userC  (userB is axis)
       // Draw User Axis
@@ -154,9 +153,9 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
 
     } else if (params.type === 'intercepts_point') {
       const { alpha, beta, p1, a } = params;
-      plotPoint(alpha, 0, '#dc2626', "α");
-      plotPoint(beta, 0, '#dc2626', "β");
-      plotPoint(p1.x, p1.y, '#059669', "点");
+      plotPoint(alpha, 0, '#dc2626', \`(${alpha}, 0)\`);
+      plotPoint(beta, 0, '#dc2626', \`(${beta}, 0)\`);
+      plotPoint(p1.x, p1.y, '#059669', \`点(${p1.x}, ${p1.y})\`);
 
       // User equation: y = userA(x-userB)(x-userC) = userA(x^2 - (B+C)x + BC)
       const b = -userA * (userB + userC);
@@ -165,9 +164,9 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
 
     } else if (params.type === 'three_points') {
       const { p1, p2, p3, a, b, c } = params;
-      plotPoint(p1.x, p1.y, '#059669', "A");
-      plotPoint(p2.x, p2.y, '#059669', "B");
-      plotPoint(p3.x, p3.y, '#059669', "C");
+      plotPoint(p1.x, p1.y, '#059669', \`A(${p1.x}, ${p1.y})\`);
+      plotPoint(p2.x, p2.y, '#059669', \`B(${p2.x}, ${p2.y})\`);
+      plotPoint(p3.x, p3.y, '#059669', \`C(${p3.x}, ${p3.y})\`);
       
       // User equation: y = userA x^2 + userB x + userC
       drawParabola(userA, userB, userC, '#2563eb');
@@ -190,11 +189,11 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
         <div className="flex flex-col gap-4 w-full max-w-xs bg-slate-50 p-4 rounded-lg border border-slate-200">
           <div className="text-center font-bold text-blue-600 bg-blue-50 py-2 rounded mb-2 font-mono text-lg">
             {params.type === 'vertex_point' || params.type === 'axis_points' ? (
-              `y = ${userA}(x - (${userB}))² + (${userC})`
+              \`y = \${userA}(x - (\${userB}))² + (\${userC})\`
             ) : params.type === 'intercepts_point' ? (
-              `y = ${userA}(x - (${userB}))(x - (${userC}))`
+              \`y = \${userA}(x - (\${userB}))(x - (\${userC}))\`
             ) : (
-              `y = ${userA}x² + (${userB})x + (${userC})`
+              \`y = \${userA}x² + (\${userB})x + (\${userC})\`
             )}
           </div>
 
@@ -251,3 +250,6 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
 };
 
 export default DeterminationViz;
+`
+fs.writeFileSync('app/quadratics/components/DeterminationViz.tsx', newContent);
+console.log('Patched DeterminationViz.tsx');

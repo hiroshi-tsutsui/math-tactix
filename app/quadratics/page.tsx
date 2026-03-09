@@ -20,6 +20,7 @@ import { generateDeterminationProblem } from './utils/determination-generator';
 import { generateCommonRootsProblem } from './utils/common-roots-generator';
 import { generateAbsoluteValueMaxMinProblem } from './utils/absolute-value-max-min-generator';
 import { generateDiscriminantProblem } from './utils/discriminant-generator';
+import { generateMaxMinProblem } from './utils/max-min-generator';
 
 import RootsLocationViz from './components/RootsLocationViz';
 import DefiniteInequalityViz from './components/DefiniteInequalityViz';
@@ -40,6 +41,9 @@ import DeterminationViz from './components/DeterminationViz';
 import CommonRootsViz from './components/CommonRootsViz';
 import { AbsoluteValueMaxMinViz } from './components/AbsoluteValueMaxMinViz';
 import DiscriminantViz from './components/DiscriminantViz';
+import MaxMinViz from './components/MaxMinViz';
+import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
+
 
 // LaTeX Support
 import 'katex/dist/katex.min.css';
@@ -82,7 +86,7 @@ interface Problem {
   width?: number;
 
   // Moving Axis specific
-  domain?: { start: number; end: number };
+  domain?: any;
 
   // Shape Optimization specific
   totalLength?: number;
@@ -95,6 +99,9 @@ interface Problem {
   k?: number;
   rangeStart?: number;
   rangeEnd?: number;
+  vertex?: [number, number];
+    target?: 'max' | 'min';
+  generalForm?: string;
 }
 
 // Level Configuration
@@ -118,6 +125,8 @@ const LEVELS = [
   { id: 17, title: '共通解問題', type: 'common_roots' },
   { id: 18, title: '絶対値関数の最大・最小', type: 'absolute_value_max_min' },
   { id: 19, title: '判別式とグラフの共有点', type: 'discriminant' },
+  { id: 20, title: '二次関数の最大・最小 (基礎)', type: 'max_min' },
+  { id: 21, title: '条件付き最大・最小', type: 'conditional_max_min' },
 ];
 
 export default function QuadraticPage() {
@@ -199,6 +208,9 @@ export default function QuadraticPage() {
           break;
         case 'discriminant':
           newProblem = generateDiscriminantProblem();
+          break;
+        case 'max_min':
+          newProblem = generateMaxMinProblem();
           break;
       }
       setProblem(newProblem as any);
@@ -299,9 +311,9 @@ export default function QuadraticPage() {
                   />
                 )}
 
-                {currentLevel === 4 && problem.domain && (
+                {currentLevel === 4 && (problem as any).domain && (
                   <MovingAxisViz 
-                    domain={problem.domain} 
+                    domain={(problem as any).domain} 
                     q={3} 
                     initialMode={(problem as any).problemType || 'min'}
                   />
@@ -402,6 +414,18 @@ export default function QuadraticPage() {
                 )}
                 {currentLevel === 19 && (
                   <DiscriminantViz />
+                )}
+                {currentLevel === 21 && (
+                  <ConditionalMaxMinViz />
+                )}
+                {currentLevel === 20 && (problem as any).domain && (problem as any).vertex && (
+                  <MaxMinViz 
+                    a={(problem as any).generalForm.includes('-') && !(problem as any).generalForm.startsWith('y = x') && !(problem as any).generalForm.startsWith('y = (x') ? -1 : 1} 
+                    p={(problem as any).vertex[0]} 
+                    q={(problem as any).vertex[1]} 
+                    domain={(problem as any).domain as [number, number]} 
+                    target={(problem as any).target as 'max' | 'min'} 
+                  />
                 )}
               </div>
             </div>

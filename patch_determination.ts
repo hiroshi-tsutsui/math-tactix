@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import fs from 'fs';
+
+const newContent = `import React, { useState, useEffect, useRef } from 'react';
 
 interface DeterminationVizProps {
   params: any;
@@ -190,11 +192,11 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
         <div className="flex flex-col gap-4 w-full max-w-xs bg-slate-50 p-4 rounded-lg border border-slate-200">
           <div className="text-center font-bold text-blue-600 bg-blue-50 py-2 rounded mb-2 font-mono text-lg">
             {params.type === 'vertex_point' || params.type === 'axis_points' ? (
-              `y = ${userA}(x - (${userB}))² + (${userC})`
+              \`y = \${userA}(x - (\${userB}))² + (\${userC})\`
             ) : params.type === 'intercepts_point' ? (
-              `y = ${userA}(x - (${userB}))(x - (${userC}))`
+              \`y = \${userA}(x - (\${userB}))(x - (\${userC}))\`
             ) : (
-              `y = ${userA}x² + (${userB})x + (${userC})`
+              \`y = \${userA}x² + (\${userB})x + (\${userC})\`
             )}
           </div>
 
@@ -251,3 +253,5 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
 };
 
 export default DeterminationViz;
+`;
+fs.writeFileSync('app/quadratics/components/DeterminationViz.tsx', newContent);

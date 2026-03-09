@@ -7,6 +7,37 @@
 
 ## Evolution History
 
+### v1.3.11: Common Roots Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 18 "共通解問題" (Common Roots) to Quadratics.
+- **Visualization**: `CommonRootsViz` implementation (Canvas-based).
+  - **Interactive Dual Graphs**: Visualizes two parabolas ($y = x^2 + mx + 1$ and $y = x^2 + x + m$) simultaneously.
+  - **Parameter Tuning**: Interactive slider for parameter $m$ allows students to see how the two graphs shift and intersect.
+  - **Visualizing the Common Root**: Clearly highlights the exact moment ($m = -2$) when both graphs intersect at the exact same point on the x-axis ($x = 1$).
+- **Learning Value**: "Common roots" is notoriously abstract for students because they get lost in algebraic subtraction. By visualizing *why* substituting the common root $\alpha$ works geometrically, it demystifies the procedure.
+- **Next Step**: Polish existing levels, ensure robustness, or move on to Trigonometry (図形と計量).
+
+### v1.3.10: Conditional Max/Min Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 21 "条件付き最大・最小" (Conditional Max/Min of Two Variables) to Quadratics.
+- **Visualization**: `ConditionalMaxMinViz` implementation (Canvas-based).
+  - **Interactive Constraints**: Visualizes the constraint line $x + y = 4$ and the objective function $x^2 + y^2 = k$ as an expanding circle.
+  - **Real-time Tangency**: Students slide the value of $k$ to find the exact moment the circle is tangent to the line, geometrically representing the minimum value.
+  - **Learning Value**: Often taught purely algebraically (substituting $y = 4-x$ into $x^2+y^2$), students lose track of what they are solving. The geometric approach builds deep intuition for why a unique minimum exists and how it corresponds to the shortest distance.
+- **Next Step**: Expand into Math I Trigonometry (図形と計量) or Data Analysis.
+
+
+### v1.3.8: Interactive Determination of Quadratic Functions (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Completely overhauled Level 16 "Determination of Quadratic Functions" (二次関数の決定).
+- **Visualization**: `DeterminationViz` rewritten to be fully interactive.
+  - **Interactive Sliders**: Added sliders for students to manually adjust parameters (a, p, q or a, b, c depending on the problem type) and "fit" their own parabola to the given points.
+  - **Real-time Feedback**: The graph updates instantly as sliders move, visually demonstrating the geometric role of each coefficient (e.g., how 'a' changes the width, 'p'/'q' shift the vertex).
+  - **Problem Types Covered**: Vertex + Point, Axis + 2 Points, x-intercepts + Point, and 3 Random Points.
+- **Learning Value**: Shifted from passive observation to active geometric construction. Students can now *feel* why setting up the equation $y = a(x-p)^2+q$ is the fastest path when the vertex is known, reinforcing algebraic intuition before calculation.
+- **Next Step**: Expand into Math I Trigonometry (図形と計量) or refine advanced calculus concepts.
+
+
 ### v1.3.7: Visualizing Completing the Square (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Fully restored and overhauled Level 12 "Completing the Square" (平方完成).
@@ -114,3 +145,13 @@
   - **Real-time Discriminant**: The value of $D = b^2 - 4ac$ updates automatically, visually demonstrating the connection between $D > 0$ (2 points), $D = 0$ (tangent), and $D < 0$ (no points).
 - **Learning Value**: Directly maps the algebraic property of the discriminant to the geometric behavior of the parabola, bridging the gap between formula memorization and visual intuition. Critical for "Mathematical logic of intersections".
 - **Next Step**: Polish existing levels, ensure robustness, or move on to Trigonometry (図形と計量).
+
+### v1.3.9: Fixed Domain Max/Min Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 20 "二次関数の最大・最小 (基礎)" (Quadratic Functions Max/Min on Fixed Domain).
+- **Visualization**: `MaxMinViz` implementation (Canvas-based).
+  - **Static Definition**: Visualizes the given parabola and highlights the specific interval (domain) on the x-axis.
+  - **Dynamic Highlight**: Emphasizes the part of the parabola that falls strictly within the domain.
+  - **Max/Min Targeting**: Automatically calculates and visually pinpoints the maximum or minimum value, explaining whether it occurs at the vertex or at one of the domain boundaries.
+- **Learning Value**: Bridges the gap between "Completing the Square" and "Moving Domain/Axis" problems. Students often struggle to visually grasp why a vertex *might not* be the min/max if it falls outside the domain. This visualization explicitly trains that visual check.
+- **Next Step**: Expand into Math I Trigonometry (図形と計量) now that Quadratics is thoroughly robust, or add minor QoL improvements.
