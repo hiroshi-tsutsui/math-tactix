@@ -45,8 +45,12 @@ import DiscriminantViz from './components/DiscriminantViz';
 import MaxMinViz from './components/MaxMinViz';
 import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
 import SubstitutionMaxMinViz from './components/SubstitutionMaxMinViz';
+import { generateInequalityCoefficientProblem } from './utils/inequality-coefficient-generator';
 import { generateSegmentLengthProblem } from './utils/segment-length-generator';
+import { generateAbsoluteInequalityProblem } from './utils/absolute-inequality-generator';
+import InequalityCoefficientViz from './components/InequalityCoefficientViz';
 import SegmentLengthViz from './components/SegmentLengthViz';
+import AbsoluteInequalityViz from './components/AbsoluteInequalityViz';
 
 
 
@@ -134,6 +138,9 @@ const LEVELS = [
   { id: 21, title: '条件付き最大・最小', type: 'conditional_max_min' },
   { id: 22, title: '置き換えによる最大・最小', type: 'substitution_max_min' },
   { id: 23, title: 'x軸から切り取る線分の長さ', type: 'segment_length' },
+  { id: 24, title: '2次不等式の決定', type: 'inequality_coefficient' },
+  { id: 25, title: '常に成り立つ2次不等式', type: 'absolute_inequality' },
+
 
 ];
 
@@ -221,11 +228,16 @@ export default function QuadraticPage() {
           newProblem = generateMaxMinProblem();
           break;
         case 'substitution_max_min':
-      case 'segment_length': return <SegmentLengthViz />;
-
-      case 'segment_length': return generateSegmentLengthProblem();
-
           newProblem = generateSubstitutionMaxMinProblem();
+          break;
+        case 'segment_length':
+          newProblem = generateSegmentLengthProblem();
+          break;
+        case 'inequality_coefficient':
+          newProblem = generateInequalityCoefficientProblem();
+          break;
+        case 'absolute_inequality':
+          newProblem = generateAbsoluteInequalityProblem();
           break;
       }
       setProblem(newProblem as any);

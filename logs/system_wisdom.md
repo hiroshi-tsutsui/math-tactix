@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.14: Determination of Quadratic Inequalities (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 24 "2次不等式の決定" (Determination of Quadratic Inequalities) to Quadratics.
+- **Visualization**: `InequalityCoefficientViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes the target green/red region for the inequality `> 0` and renders the student's parabola dynamically based on their inputs for coefficients `a` and `b`.
+  - **Real-time Feedback**: Connects the shape of the graph (upward/downward opening) directly to the sign of `a` and the roots to `b`.
+- **Learning Value**: Test problems often ask "find a, b if the solution is -1 < x < 2". Students usually try to plug values blindly. This visualizer forces them to "see" that if the solution is bounded (inside), the parabola MUST be opening downward (`a < 0`). This turns an algebraic puzzle into a geometric certainty.
+- **Next Step**: Polish UI/UX or expand into Math I Trigonometry (図形と計量) or Data Analysis.
+
+
 ### v1.3.13: Segment Cut from X-Axis Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 23 "x軸から切り取る線分の長さ" (Segment Length from X-Axis) to Quadratics.
