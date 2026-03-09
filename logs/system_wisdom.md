@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.23: Symmetry and Formulas Visualization (180° - θ) (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 8 "対称性と公式 (180° - θ)" (Symmetry and Formulas) to Math I Trigonometry (図形と計量).
+- **Visualization**: Dual-triangle reflection on the Unit Circle.
+  - **Interactive Symmetry**: Students adjust the angle $\theta$ and simultaneously see the triangle for $180^\circ - \theta$ dynamically mirrored across the y-axis.
+  - **Visualizing Identities**: Clearly highlights that the height ($y$-coordinate, $\sin$) is identical, while the width ($x$-coordinate, $\cos$) is mirrored negatively.
+- **Learning Value**: The formulas $\sin(180^\circ - \theta) = \sin\theta$ and $\cos(180^\circ - \theta) = -\cos\theta$ are frequently memorized blindly by high school students, leading to errors under pressure. By seeing the physical reflection on the unit circle, the abstract formulas turn into an obvious geometric property.
+- **Next Step**: Continue expanding Math I Trigonometry (e.g., Space Geometry Applications) or polish Data Analysis.
+
+
+
 ### v1.3.22: Box Plot & Data Dispersion Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 3 "箱ひげ図とデータの散らばり" (Box Plots and Data Dispersion) to Data Analysis (データの分析).

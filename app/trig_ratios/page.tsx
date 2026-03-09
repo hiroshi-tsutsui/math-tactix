@@ -532,6 +532,49 @@ export default function TrigPage() {
           ctx.strokeStyle = colors.text; ctx.lineWidth = 1; ctx.setLineDash([]);
           ctx.beginPath(); ctx.arc(Ax, Ay, 25, 0, -rad, true); ctx.stroke();
       }
+
+      if (level === 8) {
+          ctx.strokeStyle = colors.circle; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(ox, oy, radius, 0, Math.PI * 2); ctx.stroke();
+          
+          ctx.strokeStyle = colors.axis; ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
+          
+          const rad = angle * Math.PI / 180;
+          const targetX = ox + Math.cos(rad) * radius;
+          const targetY = oy - Math.sin(rad) * radius;
+          
+          const radSupp = (180 - angle) * Math.PI / 180;
+          const targetXSupp = ox + Math.cos(radSupp) * radius;
+          const targetYSupp = oy - Math.sin(radSupp) * radius;
+
+          ctx.fillStyle = colors.snapFill;
+          ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetX, targetY); ctx.lineTo(targetX, oy); ctx.closePath(); ctx.fill();
+          
+          ctx.fillStyle = isDark ? 'rgba(244, 63, 94, 0.2)' : 'rgba(244, 63, 94, 0.1)';
+          ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetXSupp, targetYSupp); ctx.lineTo(targetXSupp, oy); ctx.closePath(); ctx.fill();
+          
+          ctx.strokeStyle = colors.primary; ctx.lineWidth = 3;
+          ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetX, targetY); ctx.stroke();
+          ctx.strokeStyle = colors.secondary; ctx.lineWidth = 3;
+          ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetXSupp, targetYSupp); ctx.stroke();
+          
+          ctx.setLineDash([4, 4]);
+          ctx.strokeStyle = colors.hypotenuse; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.moveTo(targetX, targetY); ctx.lineTo(targetX, oy); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(targetXSupp, targetYSupp); ctx.lineTo(targetXSupp, oy); ctx.stroke();
+          ctx.setLineDash([]);
+          
+          ctx.fillStyle = colors.text; ctx.font = "bold 14px Geist Sans";
+          ctx.fillText("P", targetX + 5, targetY - 5);
+          ctx.fillText("Q", targetXSupp - 20, targetYSupp - 5);
+          
+          ctx.strokeStyle = colors.primary; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(ox, oy, 20, 0, -rad, true); ctx.stroke();
+          ctx.strokeStyle = colors.secondary; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(ox, oy, 30, 0, -radSupp, true); ctx.stroke();
+      }
     };
     render();
   }, [angle, level, resolvedTheme]);
@@ -598,6 +641,7 @@ export default function TrigPage() {
              level === 5 ? "余弦定理 (Cosine Rule)" :
              level === 6 ? "三角形の面積 (Triangle Area)" :
              level === 7 ? "内接円の半径 (Inradius)" :
+             level === 8 ? "対称性と公式 (Symmetry)" :
              "実践演習 (Quiz)"}
         </div>
         <div className="w-10" />
@@ -617,7 +661,8 @@ export default function TrigPage() {
                       { id: 5, title: "Level 5: 余弦定理", desc: "三辺から角度を知る力", icon: Target },
                       { id: 6, title: "Level 6: 三角形の面積", desc: "高さ = b sinA の視覚化", icon: TrendingUp },
                       { id: 7, title: "Level 7: 内接円の半径", desc: "S = 1/2 r(a+b+c) の視覚化", icon: Circle },
-                      { id: 8, title: "Level 8: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
+                      { id: 8, title: "Level 8: 対称性と公式", desc: "180°-θ と 90°-θ の視覚化", icon: RefreshCw },
+                      { id: 9, title: "Level 9: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -635,7 +680,7 @@ export default function TrigPage() {
       )}
 
       {/* Level 1-7: Visualization Mode */}
-      {level > 0 && level <= 7 && (
+      {level > 0 && level <= 8 && (
           <>
             <section className="shrink-0 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white dark:bg-slate-950 rounded-[48px] border border-slate-200/60 dark:border-slate-800 shadow-inner overflow-hidden relative">
@@ -660,6 +705,26 @@ export default function TrigPage() {
                         </div>
                     )}
                     
+                    
+                    {level === 9 && (
+                        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
+                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">180° - θ</div>
+                            <div className="flex flex-col gap-2 text-sm font-mono mt-2">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-secondary font-bold">sin(180°-θ)</span>
+                                    <span>=</span>
+                                    <span className="text-primary font-bold">sin θ</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-secondary font-bold">cos(180°-θ)</span>
+                                    <span>=</span>
+                                    <span className="font-bold">-</span>
+                                    <span className="text-primary font-bold">cos θ</span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* Level 4 Overlay: Sine Rule */}
                     {level === 4 && (
                         <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
@@ -769,7 +834,7 @@ export default function TrigPage() {
                 <div className="max-w-md mx-auto space-y-6">
                     {/* Controls */}
                     <div>
-                        <input type="range" min={level === 4 ? 10 : 0} max={level === 1 ? 89 : 170} step="1" value={angle} 
+                        <input type="range" min={level === 4 ? 10 : 0} max={level === 1 || level === 8 ? 89 : 170} step="1" value={angle} 
                             onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} 
                             className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full appearance-none accent-black dark:accent-white cursor-pointer" />
                         <div className="flex justify-between text-[10px] text-slate-400 mt-2 font-mono">
@@ -899,8 +964,26 @@ export default function TrigPage() {
           </>
       )}
 
-      {/* Level 8: Tactics Mode (Quiz) */}
-      {level === 8 && (
+      
+                        {level === 8 && (
+                            <div className="space-y-4">
+                                <h3 className="font-bold flex items-center gap-2"><RefreshCw className="w-4 h-4" /> 対称性と公式 (180° - θ)</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">
+                                    単位円をy軸で折り返したときの対称性を確認しましょう。<br/>
+                                    角度が <MathComponent tex="180^\circ - \theta" /> の点Qは、点Pとy軸について対称になります。
+                                </p>
+                                <div className="bg-rose-50 dark:bg-rose-900/20 p-4 rounded-xl border border-rose-100 dark:border-rose-800 text-center">
+                                    <MathComponent tex="\sin(180^\circ-\theta) = \sin\theta" className="text-xl font-bold text-rose-700 dark:text-rose-400 block mb-2" />
+                                    <MathComponent tex="\cos(180^\circ-\theta) = -\cos\theta" className="text-xl font-bold text-rose-700 dark:text-rose-400 block" />
+                                </div>
+                                <p className="text-xs text-slate-400 text-center">
+                                    公式を丸暗記するのではなく、単位円上の「高さ(sin)が同じ」「横幅(cos)が逆」という図のイメージを持ちましょう。
+                                </p>
+                            </div>
+                        )}
+
+      {/* Level 9: Tactics Mode (Quiz) */}
+      {level === 9 && (
           <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
               {state.quizIndex < QUIZ_DATA.length ? (
                   <div className="w-full max-w-md bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
