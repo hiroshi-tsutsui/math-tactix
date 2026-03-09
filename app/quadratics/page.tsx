@@ -58,6 +58,8 @@ import SignOfRootsViz from './components/SignOfRootsViz';
 import { generateSignOfRootsProblem } from './utils/sign-of-roots-generator';
 import AbsoluteGraphLineViz from './components/AbsoluteGraphLineViz';
 import MultipleAbsoluteViz from './components/MultipleAbsoluteViz';
+import CoefficientSignsViz from './components/CoefficientSignsViz';
+
 
 import { generateAbsoluteGraphLineProblem } from './utils/absolute-graph-line-generator';
 import { generateMultipleAbsoluteProblem } from './utils/multiple-absolute-generator';
@@ -155,6 +157,8 @@ const LEVELS = [
   { id: 27, title: '2次方程式の実数解の符号', type: 'sign_of_roots' },
   { id: 28, title: '絶対値グラフと直線の共有点', type: 'absolute_graph_line' },
   { id: 29, title: '複数の絶対値を含む関数', type: 'multiple_absolute' },
+  { id: 30, title: '係数の符号とグラフ', type: 'coefficient_signs' },
+
 
 
 
@@ -262,14 +266,16 @@ export default function QuadraticPage() {
           newProblem = generateAbsoluteValueInequalityProblem();
           break;
         case 'sign_of_roots':
+          newProblem = generateSignOfRootsProblem();
+          break;
         case 'absolute_graph_line':
           newProblem = generateAbsoluteGraphLineProblem();
           break;
         case 'multiple_absolute':
           newProblem = generateMultipleAbsoluteProblem();
           break;
-
-          newProblem = generateSignOfRootsProblem();
+        case 'coefficient_signs':
+          newProblem = { id: Date.now(), title: "係数の符号とグラフ", target: "a, b, c, b^2-4ac, a+b+c の符号", equation: "", formula: "", hint: "スライダーを動かしてグラフとの関係を確認しましょう。", expected: [], options: [], type: "coefficient_signs" };
           break;
       }
       setProblem(newProblem as any);
@@ -498,6 +504,9 @@ export default function QuadraticPage() {
                 )}
                 {currentLevel === 29 && problem && (
                   <MultipleAbsoluteViz />
+                )}
+                {currentLevel === 30 && problem && (
+                  <CoefficientSignsViz />
                 )}
                 {currentLevel === 22 && problem && (
                   <SubstitutionMaxMinViz problem={problem} />

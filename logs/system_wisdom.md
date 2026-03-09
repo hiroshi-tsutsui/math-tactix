@@ -6,6 +6,16 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+### v1.3.20: Coefficient Signs Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 30 "係数の符号とグラフ" (Coefficient Signs and Graph) to Quadratics. Fixed a lingering bug where `sign_of_roots` and `absolute_graph_line` generators were merged.
+- **Visualization**: `CoefficientSignsViz` implementation (Canvas-based).
+  - **Interactive Sliders**: Students can adjust coefficients $a, b, c$.
+  - **Real-time Graphing**: Dynamically visualizes the parabola and specifically highlights the y-intercept, the axis of symmetry $x = -b/2a$, and the point $f(1)$.
+  - **Dynamic Sign Indicators**: Displays whether $a, b, c, b^2-4ac, a+b+c$ are positive, zero, or negative in real-time.
+- **Learning Value**: A staple problem in university exams where students must deduce signs from a given graph. This reverses the flow: students adjust the signs to see *how* the graph shapes, building concrete intuition. $a+b+c$ corresponds to $f(1)$, and $b$ shifts the axis based on the sign of $a$.
+- **Next Step**: Polish Data Analysis (データの分析) Level 3 "Box Plots" or move to Trigonometry (図形と計量).
+
 
 ### v1.3.19: Multiple Absolute Value Functions Visualization (2026-03-09)
 - **Status**: **IMPLEMENTED**.
