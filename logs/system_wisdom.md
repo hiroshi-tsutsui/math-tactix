@@ -7,6 +7,26 @@
 
 ## Evolution History
 
+### v1.3.41: Moving Axis Max/Min Visualization (軸が動く最大・最小) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Created `MovingAxisViz` component in Quadratics (二次関数) for the classic "Fixed Domain, Moving Axis" problem.
+- **Visualization**: `MovingAxisViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $y = (x - a)^2 - 1$ passing through a fixed domain $0 \le x \le 2$.
+  - **Parameter Tuning**: Students slide the axis parameter $a$.
+  - **Real-time Case Splitting**: The UI dynamically updates the text and highlights to track the Minimum (3 cases) and Maximum (3 cases) relative to the domain center ($x=1$).
+- **Learning Value**: This is arguably the most notorious "wall" in Math I Quadratics. Students struggle to simultaneously visualize the parabola moving and the boundaries standing still. By sliding $a$ interactively, the case-splits ("Is the axis left of 0?", "Is it right of 1?") become blindingly obvious geometric facts rather than memorized algebra.
+
+
+### v1.3.40: Symmetry and Formulas (90° - θ) Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Upgraded Level 8 "対称性と公式 (180° - θ)" in Math I Trigonometry (図形と計量) to include "90° - θ" (Complementary Angles).
+- **Visualization**: Enhanced `TrigPage` Level 8 implementation.
+  - **Interactive Toggle**: Added a clean toggle to switch between "180° - θ" (Supplementary) and "90° - θ" (Complementary).
+  - **Visual Proof**: For "90° - θ", draws the $y = x$ reflection line and dynamically mirrors the angle to prove that $x$ and $y$ coordinates swap.
+  - **Real-time Formulas**: Automatically updates the overlay to show $\sin(90^\circ-\theta) = \cos\theta$ and $\cos(90^\circ-\theta) = \sin\theta$.
+- **Learning Value**: Math I students frequently confuse the signs and the flipping of sine/cosine in the "90° - θ" formulas. By visualizing the literal $y = x$ reflection, it replaces memorization with geometric certainty ("the triangle just flips on its side").
+
+
 ### v1.3.39: Difference Function Visualization (2つのグラフの差の関数) (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 37 "2つのグラフの差の関数" (Difference Function of Two Graphs) to Quadratics.
