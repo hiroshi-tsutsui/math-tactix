@@ -46,6 +46,8 @@ import { generateMovingRightEdgeProblem } from './utils/moving-right-edge-genera
 
 import { generateIndependentVariablesProblem } from './utils/independent-variables-generator';
 import IndependentVariablesViz from './components/IndependentVariablesViz';
+import TranslationDeterminationViz from './components/TranslationDeterminationViz';
+import { generateTranslationDeterminationProblem } from './utils/translation-determination-generator';
 import ShapeOptimizationViz from './components/ShapeOptimizationViz';
 import AbsoluteValueEquationViz from './components/AbsoluteValueEquationViz';
 import SolutionsInRangeViz from './components/SolutionsInRangeViz';
@@ -190,6 +192,7 @@ const LEVELS = [
   { id: 38, title: '定義域の右端が動く最大・最小', type: 'moving_right_edge' },
   { id: 39, title: '2変数関数の最大・最小 (独立変数)', type: 'independent_variables' },
   { id: 40, title: '少なくとも1つの正の解をもつ条件', type: 'at_least_one_positive_root' },
+  { id: 41, title: '放物線の平行移動の決定', type: 'translation_determination' },
 
 
 

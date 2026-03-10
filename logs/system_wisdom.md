@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.54: Translation of Parabola Determination (放物線の平行移動の決定) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 41 "放物線の平行移動の決定" (Determining Parabola Translation) to Quadratic Functions (二次関数).
+- **Visualization**: `TranslationDeterminationViz` implementation.
+  - **Interactive Graphic**: Visualizes a moving parabola and a target parabola on a grid.
+  - **Parameter Tuning**: Students can adjust the x-translation ($p$) and y-translation ($q$) using sliders.
+  - **Visual Match**: The moving parabola turns green when it perfectly overlaps the target, proving the vertex translation $p = -3, q = -3$.
+- **Learning Value**: Math I students often confuse the signs when translating graphs or trying to find the translation vector between two equations. By explicitly sliding the graph to match, it trains them to always compare the vertices visually before calculating.
+- **Next Step**: Continue exploring core Math I topics such as Trigonometry (図形と計量) or Numbers and Algebraic Expressions.
+
+
 ### v1.3.54: Cyclic Quadrilateral Visualization (円に内接する四角形) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 13 "円に内接する四角形" (Cyclic Quadrilateral) to Math I Trigonometry (図形と計量), pushing the Quiz to Level 14.
