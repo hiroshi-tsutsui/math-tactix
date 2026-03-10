@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.35: Set Elements Visualization (集合の要素の個数) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 4 "集合の要素の個数" (Number of Elements in a Set) to Sets and Logic (集合と命題).
+- **Visualization**: `SetElementsViz` implementation.
+  - **Interactive Venn Diagram**: Students can adjust the number of elements in Set A, Set B, the Intersection, and the Universal Set using sliders.
+  - **Visualizing the Formula**: Dynamically calculates and displays $n(A \cup B) = n(A) + n(B) - n(A \cap B)$.
+  - **Preventing Double Counting**: The intersection area is explicitly shown and linked to why we subtract it once (because it's counted twice when adding A and B).
+- **Learning Value**: Math I students often memorize the formula blindly and fail word problems when asking for "neither A nor B" or "only A". By visually attaching the numbers to physical areas on the Venn diagram, the formula becomes a trivial geometric area calculation.
+- **Next Step**: Expand into Math I Trigonometry (図形と計量) or solidify Sets and Logic further.
+
+
 ### v1.3.34: Size Comparison of Two Quadratic Functions (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 36 "2つの2次関数の大小" (Size Comparison of Two Parabolas) to Quadratics.

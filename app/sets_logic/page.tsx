@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { GeistSans } from 'geist/font/sans';
-import { ChevronLeft, Compass, Search, SplitSquareHorizontal } from 'lucide-react';
+import { ChevronLeft, Compass, Search, SplitSquareHorizontal, Calculator } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
 
@@ -303,7 +303,8 @@ export default function SetsLogicPage() {
                   {[
                       { id: 1, title: "Level 1: ド・モルガンの法則", desc: "集合の演算とベン図の視覚的証明", icon: Compass },
                       { id: 2, title: "Level 2: 必要条件と十分条件", desc: "PとQの包含関係を視覚化", icon: Search },
-                      { id: 3, title: "Level 3: 逆・裏・対偶", desc: "命題の真偽と集合の包含関係", icon: SplitSquareHorizontal }
+                      { id: 3, title: "Level 3: 逆・裏・対偶", desc: "命題の真偽と集合の包含関係", icon: SplitSquareHorizontal },
+                      { id: 4, title: "Level 4: 集合の要素の個数", desc: "n(A∪B) = n(A) + n(B) - n(A∩B)", icon: Calculator }
                   ].map((item) => (
                       <button key={item.id} onClick={() => setLevel(item.id)}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
