@@ -232,6 +232,159 @@ const TrigEqIneqViz = () => {
 
 
 // --- Angle Bisector Viz (Level 11) ---
+
+const SurveyingViz = () => {
+  const [distance, setDistance] = useState(100);
+  const [alpha, setAlpha] = useState(30);
+  const [beta, setBeta] = useState(45);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    const width = canvas.width;
+    const height = canvas.height;
+
+    ctx.clearRect(0, 0, width, height);
+
+    const safeBeta = Math.max(alpha + 5, beta);
+
+    const radA = (alpha * Math.PI) / 180;
+    const radB = (safeBeta * Math.PI) / 180;
+
+    const tanA = Math.tan(radA);
+    const tanB = Math.tan(radB);
+    const h = distance / ((1 / tanA) - (1 / tanB));
+
+    const scale = Math.min((width * 0.7) / (distance + h / tanB), (height * 0.7) / h);
+    const originX = 50;
+    const originY = height - 50;
+
+    const pxA = originX;
+    const pxB = originX + distance * scale;
+    const pxTower = pxB + (h / tanB) * scale;
+    const pyTop = originY - h * scale;
+
+    ctx.beginPath();
+    ctx.moveTo(10, originY);
+    ctx.lineTo(width - 10, originY);
+    ctx.strokeStyle = '#6b7280';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(pxTower, originY);
+    ctx.lineTo(pxTower, pyTop);
+    ctx.strokeStyle = '#3b82f6';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(pxA, originY);
+    ctx.lineTo(pxTower, pyTop);
+    ctx.strokeStyle = '#10b981';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(pxB, originY);
+    ctx.lineTo(pxTower, pyTop);
+    ctx.strokeStyle = '#8b5cf6';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.fillStyle = '#f3f4f6';
+    ctx.font = '14px sans-serif';
+    ctx.fillText(`A (${alpha}°)`, pxA - 10, originY + 20);
+    ctx.fillText(`B (${safeBeta}°)`, pxB - 10, originY + 20);
+    ctx.fillText(`Tower (h = ${h.toFixed(1)}m)`, pxTower - 40, pyTop - 10);
+    ctx.fillText(`d = ${distance}m`, (pxA + pxB)/2 - 20, originY + 20);
+  }, [distance, alpha, beta]);
+
+  return (
+    <div className="space-y-6">
+      <div className="bg-gray-800 p-4 rounded-lg flex flex-col items-center">
+        <canvas
+          ref={canvasRef}
+          width={600}
+          height={300}
+          className="bg-gray-900 rounded-lg w-full max-w-2xl"
+        />
+        <div className="w-full max-w-2xl grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          <div className="flex flex-col">
+            <label className="text-gray-300 text-sm mb-2 flex justify-between">
+              <span>距離 $d$ (AとBの間)</span>
+              <span className="text-blue-400 font-mono">{distance} m</span>
+            </label>
+            <input
+              type="range"
+              min="10"
+              max="200"
+              step="10"
+              value={distance}
+              onChange={(e) => setDistance(Number(e.target.value))}
+              className="accent-blue-500"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-gray-300 text-sm mb-2 flex justify-between">
+              <span>仰角 $\alpha$ (地点A)</span>
+              <span className="text-emerald-400 font-mono">{alpha}°</span>
+            </label>
+            <input
+              type="range"
+              min="10"
+              max="60"
+              step="1"
+              value={alpha}
+              onChange={(e) => setAlpha(Number(e.target.value))}
+              className="accent-emerald-500"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-gray-300 text-sm mb-2 flex justify-between">
+              <span>仰角 $\beta$ (地点B)</span>
+              <span className="text-purple-400 font-mono">{beta}°</span>
+            </label>
+            <input
+              type="range"
+              min="15"
+              max="80"
+              step="1"
+              value={beta}
+              onChange={(e) => {
+                const val = Number(e.target.value);
+                setBeta(Math.max(val, alpha + 5));
+              }}
+              className="accent-purple-500"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-800 p-6 rounded-lg text-gray-300">
+        <h3 className="text-lg font-bold text-white mb-4">測量の原理：高さを求める</h3>
+        <p className="mb-4">
+          地点Aから塔の先端を見上げた角度（仰角）が $\alpha$、そこから塔に向かって $d$ メートル進んだ地点Bでの仰角が $\beta$ のとき、塔の高さ $h$ は以下の関係から求まります。
+        </p>
+        <div className="bg-gray-900 p-4 rounded-lg font-mono text-center text-blue-300 mb-4 overflow-x-auto">
+          <MathComponent tex="\\frac{h}{\\tan \\alpha} - \\frac{h}{\\tan \\beta} = d" />
+        </div>
+        <p className="mb-4 text-sm text-gray-400">
+          ※ 塔の根元までの距離を $x$ とすると、$h = x \tan \beta$、そして $h = (x + d) \tan \alpha$ となります。ここから $x$ を消去すると上の式が導かれます。
+        </p>
+        <div className="bg-blue-900/30 p-4 rounded-lg border border-blue-800">
+          <p className="text-blue-200">
+            <strong>公式として覚えるのではなく、図を描くことが重要です。</strong> スライダーを動かして、角度や距離が変わると塔の高さがどう変化するかを視覚的に確認しましょう。
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const AngleBisectorViz = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [sideB, setSideB] = useState(6); // AC
@@ -950,7 +1103,8 @@ export default function TrigPage() {
                       { id: 8, title: "Level 8: 対称性と公式", desc: "180°-θ と 90°-θ の視覚化", icon: RefreshCw },
                       { id: 9, title: "Level 9: 方程式と不等式", desc: "sin/cosと単位円の交点", icon: Target },
                       { id: 10, title: "Level 10: 角の二等分線", desc: "面積比を用いた線分の長さ", icon: Target },
-                      { id: 11, title: "Level 11: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
+                      { id: 11, title: "Level 11: 空間図形・測量", desc: "2地点からの仰角と高さ", icon: Target },
+                      { id: 12, title: "Level 12: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">

@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.44: Space Geometry and Surveying Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 11 "空間図形・測量" (Space Geometry and Surveying) to Math I Trigonometry (図形と計量), bumping Quiz to Level 12.
+- **Visualization**: `SurveyingViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes a classic surveying problem where the height of a tower $h$ is found using two observation points A and B on the same straight line.
+  - **Dynamic Parameters**: Students can adjust the distance $d$ between points A and B, and the angles of elevation $\alpha$ and $\beta$.
+  - **Real-time Geometric Calculation**: Graphically traces the lines of sight from both observers to the tower's top and explicitly displays the derived height formula dynamically $h / \tan \alpha - h / \tan \beta = d$.
+- **Learning Value**: Surveying problems often overwhelm Math I students because extracting a 2D triangle from a 3D real-world scenario (or deriving the formula algebraically by eliminating the distance $x$) is unintuitive. By letting the student stretch the distance between observers and dynamically changing the elevation angles, the formula's reliance on the difference in tangents becomes a tangible, visual experience rather than a memorized equation.
+- **Next Step**: Polish Trigonometry further (e.g., Heron's Formula) or revisit Quadratics for edge-case test questions.
+
+
 ### v1.3.43: Angle Bisector and Area Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 10 "角の二等分線" (Angle Bisector) to Math I Trigonometry (図形と計量), bumping Quiz to Level 11.
