@@ -7,6 +7,18 @@
 
 ## Evolution History
 
+### v1.3.31: Triangle Area Maximization on Parabola (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 34 "放物線上の三角形の面積最大化" (Maximizing Triangle Area on a Parabola) to Quadratics.
+- **Visualization**: `TriangleAreaViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $y = x^2$ and two fixed points A(-1, 1) and B(2, 4) on it.
+  - **Dynamic Point Tracking**: Students slide a parameter $t$ to move point $P(t, t^2)$ along the arc between A and B.
+  - **Real-time Area Calculation**: Dynamically shades the triangle PAB, calculates its area, and displays the tangent line at P.
+  - **Visualizing the Maximum**: Graphically demonstrates that the area is maximized when the tangent at P is exactly parallel to the line segment AB.
+- **Learning Value**: This is a classic, high-frequency problem in Japanese university entrance exams. It beautifully links algebra (derivative/slope) with geometry (triangle altitude). The interactive visualization replaces the tedious algebraic manipulation of finding the distance between a point and a line with a clear geometric intuition.
+- **Next Step**: Polish existing Quadratics levels, finalize Math I Data Analysis, or explore Trigonometry (図形と計量) further.
+
+
 ### v1.3.28: De Morgan's Laws Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 1 "ド・モルガンの法則" (De Morgan's Laws) to Sets and Logic (集合と命題).

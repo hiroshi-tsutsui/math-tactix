@@ -63,7 +63,9 @@ import AbsoluteGraphLineViz from './components/AbsoluteGraphLineViz';
 import MultipleAbsoluteViz from './components/MultipleAbsoluteViz';
 import CoefficientSignsViz from './components/CoefficientSignsViz';
 import VertexLocusViz from './components/VertexLocusViz';
+import TriangleAreaViz from './components/TriangleAreaViz';
 import { generateVertexLocusProblem } from './utils/vertex-locus-generator';
+import { generateTriangleAreaProblem } from './utils/triangle-area-generator';
 
 
 import { generateAbsoluteGraphLineProblem } from './utils/absolute-graph-line-generator';
@@ -166,6 +168,7 @@ const LEVELS = [
   { id: 31, title: '放物線と直線の交点間の距離', type: 'intersection_distance' },
   { id: 32, title: '放物線の頂点の軌跡', type: 'vertex_locus' },
   { id: 33, title: '2つの放物線の位置関係と接線', type: 'two_parabolas' },
+  { id: 34, title: '放物線上の三角形の面積最大化', type: 'triangle_area_optimization' },
 
 
 
@@ -291,6 +294,9 @@ export default function QuadraticPage() {
         case 'vertex_locus':
           newProblem = generateVertexLocusProblem();
           break;
+        case 'triangle_area_optimization':
+          newProblem = generateTriangleAreaProblem();
+          break;
         case 'two_parabolas':
           newProblem = generateTwoParabolasProblem();
           break;
@@ -374,6 +380,9 @@ export default function QuadraticPage() {
                 )}
                 {currentLevel === 33 && (
                   <TwoParabolasViz />
+                )}
+                {currentLevel === 34 && (
+                  <TriangleAreaViz problem={problem} />
                 )}
 
 
