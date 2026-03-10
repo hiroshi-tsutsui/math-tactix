@@ -26,6 +26,8 @@ import { generateTwoParabolasProblem } from './utils/two-parabolas-generator';
 import TwoParabolasSizeViz from './components/TwoParabolasSizeViz';
 import { generateTwoParabolasSizeProblem } from './utils/two-parabolas-size-generator';
 import TwoParabolasViz from './components/TwoParabolasViz';
+import { generateDifferenceFunctionProblem } from './utils/difference-function-generator';
+import DifferenceFunctionViz from './components/DifferenceFunctionViz';
 
 import RootsLocationViz from './components/RootsLocationViz';
 import DefiniteInequalityViz from './components/DefiniteInequalityViz';
@@ -176,6 +178,7 @@ const LEVELS = [
   { id: 34, title: '放物線上の三角形の面積最大化', type: 'triangle_area_optimization' },
   { id: 35, title: '放物線外の点から引いた接線', type: 'external_tangent' },
   { id: 36, title: '2つの2次関数の大小', type: 'two_parabolas_size' },
+  { id: 37, title: '2つのグラフの差の関数', type: 'difference_function' },
 
 
 
@@ -307,6 +310,9 @@ export default function QuadraticPage() {
         case 'two_parabolas':
           newProblem = generateTwoParabolasProblem();
           break;
+        case 'difference_function':
+          newProblem = generateDifferenceFunctionProblem();
+          break;
         case 'two_parabolas_size':
           newProblem = generateTwoParabolasSizeProblem();
           break;
@@ -400,8 +406,15 @@ export default function QuadraticPage() {
                 {currentLevel === 35 && (
                   <ExternalTangentViz />
                 )}
+                {currentLevel === 37 && (
+                  <DifferenceFunctionViz />
+                )}
+
                 {currentLevel === 36 && (
                   <TwoParabolasSizeViz />
+                )}
+                {currentLevel === 37 && (
+                  <DifferenceFunctionViz />
                 )}
                 
 
