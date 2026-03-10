@@ -92,6 +92,7 @@ import { generateMultipleAbsoluteProblem } from './utils/multiple-absolute-gener
 import { generateExternalTangentProblem } from "./utils/external-tangent-generator";
 import { ExternalTangentViz } from "./components/ExternalTangentViz";
 import DifferentSignsViz from './components/DifferentSignsViz';
+import ProfitMaximizationViz from './components/ProfitMaximizationViz';
 import { generateDifferentSignsProblem } from './utils/different-signs-generator';
 
 import 'katex/dist/katex.min.css';
@@ -196,6 +197,7 @@ const LEVELS = [
   { id: 40, title: '少なくとも1つの正の解をもつ条件', type: 'at_least_one_positive_root' },
   { id: 41, title: '放物線の平行移動の決定', type: 'translation_determination' },
   { id: 42, title: '異符号の解', type: 'different_signs' },
+  { id: 43, title: '利益の最大化 (文章題)', type: 'profit_maximization' },
 
 
 
@@ -339,6 +341,9 @@ export default function QuadraticPage() {
         case 'different_signs':
           newProblem = generateDifferentSignsProblem();
           break;
+        case 'profit_maximization':
+          newProblem = { id: Date.now(), title: '利益の最大化', questionText: 'ある商品を100円で売ると、1日に1000個売れる。10円値上げするごとに売上個数は50個減る。利益を最大にするには、価格をいくらにすればよいか。', explanationSteps: ['価格を100+10xとする', '個数を1000-50xとする', '利益 y = (100+10x)(1000-50x) を最大化する'] };
+          break;
         case 'independent_variables':
           newProblem = generateIndependentVariablesProblem();
           break;
@@ -441,6 +446,11 @@ export default function QuadraticPage() {
                 {currentLevel === 37 && (
                   <DifferenceFunctionViz />
                 )}
+
+                {currentLevel === 43 && (
+                  <ProfitMaximizationViz />
+                )}
+
 
                 {currentLevel === 36 && (
                   <TwoParabolasSizeViz />
