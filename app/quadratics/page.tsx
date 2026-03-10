@@ -51,6 +51,7 @@ import AbsoluteValueEquationViz from './components/AbsoluteValueEquationViz';
 import SolutionsInRangeViz from './components/SolutionsInRangeViz';
 import DeterminationViz from './components/DeterminationViz';
 import CommonRootsViz from './components/CommonRootsViz';
+import AtLeastOnePositiveRootViz from './components/AtLeastOnePositiveRootViz';
 import { AbsoluteValueMaxMinViz } from './components/AbsoluteValueMaxMinViz';
 import { IntersectionDistanceViz } from './components/IntersectionDistanceViz';
 import DiscriminantViz from './components/DiscriminantViz';
@@ -188,6 +189,7 @@ const LEVELS = [
   { id: 37, title: '2つのグラフの差の関数', type: 'difference_function' },
   { id: 38, title: '定義域の右端が動く最大・最小', type: 'moving_right_edge' },
   { id: 39, title: '2変数関数の最大・最小 (独立変数)', type: 'independent_variables' },
+  { id: 40, title: '少なくとも1つの正の解をもつ条件', type: 'at_least_one_positive_root' },
 
 
 
@@ -321,6 +323,9 @@ export default function QuadraticPage() {
           break;
         case 'difference_function':
           newProblem = generateDifferenceFunctionProblem();
+          break;
+        case 'at_least_one_positive_root':
+          newProblem = { id: Date.now(), title: '少なくとも1つの正の解', questionText: '方程式 x² - 2mx + m + 2 = 0 が少なくとも1つの正の解をもつような定数mの範囲を視覚的に確認せよ。', explanationSteps: ['D/4 ≥ 0', '軸 > 0', 'f(0) の符号で場合分け'] };
           break;
         case 'independent_variables':
           newProblem = generateIndependentVariablesProblem();
@@ -676,6 +681,7 @@ export default function QuadraticPage() {
             <div className="animate-pulse">問題を生成中...</div>
           </div>
         )}
+        {currentLevel === 40 && <AtLeastOnePositiveRootViz />}
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">
