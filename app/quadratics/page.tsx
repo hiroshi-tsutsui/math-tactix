@@ -91,6 +91,8 @@ import { generateMultipleAbsoluteProblem } from './utils/multiple-absolute-gener
 // LaTeX Support
 import { generateExternalTangentProblem } from "./utils/external-tangent-generator";
 import { ExternalTangentViz } from "./components/ExternalTangentViz";
+import DifferentSignsViz from './components/DifferentSignsViz';
+import { generateDifferentSignsProblem } from './utils/different-signs-generator';
 
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -193,6 +195,7 @@ const LEVELS = [
   { id: 39, title: '2変数関数の最大・最小 (独立変数)', type: 'independent_variables' },
   { id: 40, title: '少なくとも1つの正の解をもつ条件', type: 'at_least_one_positive_root' },
   { id: 41, title: '放物線の平行移動の決定', type: 'translation_determination' },
+  { id: 42, title: '異符号の解', type: 'different_signs' },
 
 
 
@@ -329,6 +332,12 @@ export default function QuadraticPage() {
           break;
         case 'at_least_one_positive_root':
           newProblem = { id: Date.now(), title: '少なくとも1つの正の解', questionText: '方程式 x² - 2mx + m + 2 = 0 が少なくとも1つの正の解をもつような定数mの範囲を視覚的に確認せよ。', explanationSteps: ['D/4 ≥ 0', '軸 > 0', 'f(0) の符号で場合分け'] };
+          break;
+        case 'translation_determination':
+          newProblem = generateTranslationDeterminationProblem();
+          break;
+        case 'different_signs':
+          newProblem = generateDifferentSignsProblem();
           break;
         case 'independent_variables':
           newProblem = generateIndependentVariablesProblem();

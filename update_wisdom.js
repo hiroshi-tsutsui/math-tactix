@@ -1,19 +1,18 @@
 const fs = require('fs');
+const file = 'logs/system_wisdom.md';
+let content = fs.readFileSync(file, 'utf-8');
 
-const date = new Date().toISOString().split('T')[0];
-const entry = `
-### v1.3.45: Independent Trials Probability Visualization (2026-03-10)
+const newEntry = `### v1.3.54: Roots with Different Signs Visualization (異符号の解) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
-- **Action**: Added Level 4 "反復試行の確率" (Independent Trials Probability) to Probability (場合の数と確率). Note: A previous uncommitted broken build for Heron's Formula was reverted to stabilize the main branch.
-- **Visualization**: \`IndependentTrialsViz\` implementation (Canvas-based Grid).
-  - **Interactive Simulation**: Students can adjust the total number of trials $n$, the target number of successes $r$, and the probability of success $p$.
-  - **Grid Navigation**: Visualizes the $2^n$ possible paths as a geometric grid where the x-axis represents successes and the y-axis represents failures.
-  - **Path Highlighting**: Explicitly highlights the node $(r, n-r)$ and displays the combinatorial count $_nC_r$ alongside the probability formula $_nC_r \\times p^r \\times (1-p)^{n-r}$.
-- **Learning Value**: Math A students frequently memorize the formula blindly without understanding the combinatorial $_nC_r$ component. By physically mapping the sequence of successes and failures onto a grid, the formula's origin (number of paths $\\times$ probability of one path) becomes a self-evident geometric property.
-- **Next Step**: Polish Data Analysis or restore Trigonometry's Heron Formula with proper types.
+- **Action**: Added Level 42 "異符号の解" (Roots with Different Signs) to Quadratic Functions (二次関数). Fixed missing switch case issues for Level 41.
+- **Visualization**: \`DifferentSignsViz\` implementation.
+  - **Focus on y-intercept**: Students adjust parameter $m$ and see that as long as $f(0) < 0$, the parabola naturally opens upwards and crosses the x-axis on both positive and negative sides.
+  - **Redundant Conditions**: Visually demonstrates why checking the discriminant ($D>0$) or the axis is unnecessary when $f(0) < 0$ and $a > 0$.
+- **Learning Value**: Math I students often over-complicate "different signs" problems by calculating $D>0$, sum of roots, and product of roots. By visually proving that pulling the y-intercept below 0 forces the parabola to cross the x-axis twice with different signs, the required calculation simplifies to just one condition.
+- **Next Step**: Continue expanding Math I topics (Trigonometry or Numbers & Algebraic Expressions).
+
 `;
 
-let file = fs.readFileSync('logs/system_wisdom.md', 'utf8');
-// Insert right after the header Evolution History
-file = file.replace('## Evolution History\n', '## Evolution History\n' + entry);
-fs.writeFileSync('logs/system_wisdom.md', file);
+content = content.replace("## Evolution History\n\n", "## Evolution History\n\n" + newEntry);
+fs.writeFileSync(file, content);
+console.log('Updated system_wisdom.md');
