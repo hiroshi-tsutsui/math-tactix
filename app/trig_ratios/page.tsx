@@ -230,6 +230,133 @@ const TrigEqIneqViz = () => {
     );
 };
 
+
+// --- Angle Bisector Viz (Level 11) ---
+const AngleBisectorViz = () => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [sideB, setSideB] = useState(6); // AC
+    const [sideC, setSideC] = useState(4); // AB
+    const [angleA, setAngleA] = useState(60);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const w = canvas.width, h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+
+        const ox = w / 2 - 20;
+        const oy = h / 2 + 80;
+        const scale = 20;
+
+        const bLength = sideB * scale;
+        const cLength = sideC * scale;
+        const aRad = angleA * Math.PI / 180;
+        const halfRad = aRad / 2;
+
+        // A is at origin
+        const ax = ox;
+        const ay = oy;
+
+        // B is on positive x-axis (wait, let's put C on x-axis and B rotated, or vice versa)
+        // Let's put B on x-axis: length c
+        const bx = ax + cLength;
+        const by = ay;
+
+        // C is rotated by angleA
+        const cx = ax + bLength * Math.cos(aRad);
+        const cy = ay - bLength * Math.sin(aRad);
+
+        // Bisector AD length x: x = (2bc cos(A/2)) / (b+c)
+        const xLen = (2 * sideB * sideC * Math.cos(halfRad)) / (sideB + sideC);
+        const adLength = xLen * scale;
+        const dx = ax + adLength * Math.cos(halfRad);
+        const dy = ay - adLength * Math.sin(halfRad);
+
+        // Areas (just for display if needed)
+        const sABD = 0.5 * sideC * xLen * Math.sin(halfRad);
+        const sACD = 0.5 * sideB * xLen * Math.sin(halfRad);
+        const sABC = 0.5 * sideB * sideC * Math.sin(aRad);
+
+        // Draw Triangle
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
+        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.lineTo(dx, dy); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.1)';
+        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(cx, cy); ctx.lineTo(dx, dy); ctx.closePath(); ctx.fill();
+
+        ctx.strokeStyle = '#334155'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.lineTo(cx, cy); ctx.closePath(); ctx.stroke();
+
+        // Bisector AD
+        ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(dx, dy); ctx.stroke();
+
+        // Points
+        ctx.fillStyle = '#0f172a';
+        ctx.beginPath(); ctx.arc(ax, ay, 4, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(bx, by, 4, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(dx, dy, 4, 0, Math.PI*2); ctx.fill();
+
+        ctx.font = 'bold 16px sans-serif';
+        ctx.fillText('A', ax - 20, ay + 10);
+        ctx.fillText('B', bx + 10, by + 10);
+        ctx.fillText('C', cx - 10, cy - 10);
+        ctx.fillStyle = '#ef4444';
+        ctx.fillText('D', dx + 10, dy - 5);
+
+        // Angles
+        ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(ax, ay, 30, 0, -halfRad, true); ctx.stroke();
+        ctx.beginPath(); ctx.arc(ax, ay, 35, -halfRad, -aRad, true); ctx.stroke();
+
+    }, [sideB, sideC, angleA]);
+
+    const halfAngle = angleA / 2;
+    const xLen = (2 * sideB * sideC * Math.cos(halfAngle * Math.PI / 180)) / (sideB + sideC);
+
+    return (
+        <div className="flex-1 flex flex-col items-center justify-center p-6 w-full max-w-md mx-auto h-full overflow-y-auto">
+            <div className="w-full aspect-square bg-white dark:bg-slate-950 rounded-[48px] border border-slate-200 dark:border-slate-800 shadow-inner overflow-hidden relative mb-6 shrink-0">
+                <canvas ref={canvasRef} width={400} height={400} className="w-full h-full" />
+                <div className="absolute top-6 left-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm font-mono text-sm">
+                    AD = {xLen.toFixed(2)}
+                </div>
+            </div>
+
+            <div className="space-y-6 w-full pb-10">
+                <div>
+                    <div className="flex justify-between text-xs font-bold text-slate-500 mb-2 font-mono">
+                        <span>b (AC) = {sideB}</span>
+                    </div>
+                    <input type="range" min="2" max="10" step="1" value={sideB} onChange={e => setSideB(parseFloat(e.target.value))} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-blue-600" />
+                </div>
+                <div>
+                    <div className="flex justify-between text-xs font-bold text-slate-500 mb-2 font-mono">
+                        <span>c (AB) = {sideC}</span>
+                    </div>
+                    <input type="range" min="2" max="10" step="1" value={sideC} onChange={e => setSideC(parseFloat(e.target.value))} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-blue-600" />
+                </div>
+                <div>
+                    <div className="flex justify-between text-xs font-bold text-slate-500 mb-2 font-mono">
+                        <span>∠A = {angleA}°</span>
+                    </div>
+                    <input type="range" min="30" max="150" step="30" value={angleA} onChange={e => setAngleA(parseFloat(e.target.value))} className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-blue-600" />
+                </div>
+                <div className="bg-emerald-50 dark:bg-emerald-900/20 p-5 rounded-3xl border border-emerald-100 dark:border-emerald-800/50">
+                    <p className="font-bold mb-2 flex items-center gap-2">角の二等分線と面積比</p>
+                    <p className="text-sm text-emerald-900 dark:text-emerald-300 leading-relaxed">
+                        面積の等式： <b>△ABC = △ABD + △ACD</b> を用いて、線分ADの長さ <MathComponent tex="x" /> を求めます。<br/><br/>
+                        <MathComponent tex="\frac{1}{2}bc \sin A = \frac{1}{2}cx \sin \frac{A}{2} + \frac{1}{2}bx \sin \frac{A}{2}" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
 export default function TrigPage() {
 
   const { t } = useLanguage();
@@ -800,6 +927,7 @@ export default function TrigPage() {
              level === 7 ? "内接円の半径 (Inradius)" :
              level === 8 ? "対称性と公式 (Symmetry)" : 
              level === 9 ? "方程式と不等式 (Eq & Ineq)" :
+             level === 10 ? "角の二等分線 (Angle Bisector)" :
              "実践演習 (Quiz)"}
         </div>
         <div className="w-10" />
@@ -821,7 +949,8 @@ export default function TrigPage() {
                       { id: 7, title: "Level 7: 内接円の半径", desc: "S = 1/2 r(a+b+c) の視覚化", icon: Circle },
                       { id: 8, title: "Level 8: 対称性と公式", desc: "180°-θ と 90°-θ の視覚化", icon: RefreshCw },
                       { id: 9, title: "Level 9: 方程式と不等式", desc: "sin/cosと単位円の交点", icon: Target },
-                      { id: 10, title: "Level 10: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
+                      { id: 10, title: "Level 10: 角の二等分線", desc: "面積比を用いた線分の長さ", icon: Target },
+                      { id: 11, title: "Level 11: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -1163,7 +1292,12 @@ export default function TrigPage() {
           <TrigEqIneqViz />
       )}
 
-      {/* Level 10: Tactics Mode (Quiz) */}
+      {/* Level 10: Angle Bisector */}
+      {level === 10 && (
+          <AngleBisectorViz />
+      )}
+
+      {/* Level 11: Tactics Mode (Quiz) */}
       {level === 10 && (
           <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
               {state.quizIndex < QUIZ_DATA.length ? (

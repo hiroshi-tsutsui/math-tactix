@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.43: Angle Bisector and Area Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 10 "角の二等分線" (Angle Bisector) to Math I Trigonometry (図形と計量), bumping Quiz to Level 11.
+- **Visualization**: `AngleBisectorViz` implementation (Canvas-based).
+  - **Interactive Triangle**: Students can adjust the lengths of side $b$ (AC) and side $c$ (AB), as well as the included angle $A$.
+  - **Visualizing the Bisector**: Dynamically draws the angle bisector AD, splitting the triangle into two smaller triangles (ABD and ACD).
+  - **Connecting to Area**: Explicitly connects the length of the bisector $x$ to the area conservation formula $\triangle ABC = \triangle ABD + \triangle ACD$.
+- **Learning Value**: Finding the length of an angle bisector using the area ratio is a classic high-frequency problem in Math I. Without a visual, students blindly memorize the formula $x = \frac{2bc \cos(A/2)}{b+c}$. By interactively changing the sides and angle, students physically see how the overall area splits exactly into the two sub-triangles sharing the height $x$, grounding the algebraic manipulation in geometric reality.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis or expand further into Sets and Logic.
+
+
 ### v1.3.42: Trigonometric Equations and Inequalities Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 9 "三角方程式・不等式" (Trigonometric Equations and Inequalities) to Math I Trigonometry (図形と計量), bumping the Quiz to Level 10.

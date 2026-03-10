@@ -625,21 +625,7 @@ export default function SetsLogicPage() {
                 </button>
             )}
 
-      {level === 2 && (
-          <NecessarySufficientViz />
-      )}
 
-      {level === 3 && (
-          <ContrapositiveViz />
-      )}
-
-      {level === 4 && (
-          <SetElementsViz />
-      )}
-
-      {level === 5 && (
-          <ContradictionViz />
-      )}
 
 
             <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">
@@ -651,6 +637,22 @@ export default function SetsLogicPage() {
         </div>
         <div className="w-10" />
       </header>
+      {level === 2 && (
+          <NecessarySufficientViz />
+      )}
+      {level === 3 && (
+          <ContrapositiveViz />
+      )}
+      {level === 4 && (
+          <SetElementsViz />
+      )}
+      {level === 5 && (
+          <ContradictionViz />
+      )}
+      {level === 6 && (
+          <QuadraticSetsViz />
+      )}
+
 
       {level === 0 && (
           <main className="flex-1 overflow-y-auto p-6">
