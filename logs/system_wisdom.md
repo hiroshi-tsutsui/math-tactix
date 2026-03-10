@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.36: Proof by Contradiction Visualization (背理法の証明) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 5 "背理法の証明" (Proof by Contradiction) to Sets and Logic (集合と命題). Also permanently fixed the missing \`SetElementsViz\` from a prior cron failure.
+- **Visualization**: \`ContradictionViz\` implementation.
+  - **Step-by-Step Logic Flow**: Students advance through the 6 classic steps of proving that $\sqrt{2}$ is irrational.
+  - **Visual Emphasis**: Explicitly highlights the logical contradiction (p and q both being even) against the initial assumption (p and q being coprime).
+  - **Color-Coded Feedback**: Uses red for the initial risky assumption and the final explosive contradiction, guiding the student emotionally through the logical trap.
+- **Learning Value**: Math I students often memorize the $\sqrt{2}$ proof without understanding *why* they are squaring or assuming coprime fractions. Breaking it into a "next step" interactive narrative turns a wall of text into a logical story where the student springs the trap on the false assumption.
+- **Next Step**: Continue refining existing modules or introduce advanced Math II concepts.
+
 ### v1.3.35: Set Elements Visualization (集合の要素の個数) (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 4 "集合の要素の個数" (Number of Elements in a Set) to Sets and Logic (集合と命題).

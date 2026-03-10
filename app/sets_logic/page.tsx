@@ -195,6 +195,220 @@ function ContrapositiveViz() {
   );
 }
 
+
+function SetElementsViz() {
+  const [nA, setNA] = useState(30);
+  const [nB, setNB] = useState(40);
+  const [nIntersection, setNIntersection] = useState(15);
+  const [nU, setNU] = useState(100);
+
+  // Auto-correct values to make mathematical sense
+  useEffect(() => {
+    if (nIntersection > Math.min(nA, nB)) {
+      setNIntersection(Math.min(nA, nB));
+    }
+    const union = nA + nB - nIntersection;
+    if (union > nU) {
+      setNU(union + 10);
+    }
+  }, [nA, nB, nIntersection, nU]);
+
+  const nUnion = nA + nB - nIntersection;
+  const nOnlyA = nA - nIntersection;
+  const nOnlyB = nB - nIntersection;
+  const nNeither = nU - nUnion;
+
+  return (
+    <div className="flex-1 flex flex-col h-full bg-white">
+      <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[300px]">
+          <div className="w-full max-w-md aspect-video bg-white rounded-3xl border border-slate-200/60 shadow-inner overflow-hidden relative flex flex-col items-center justify-center">
+            
+            <div className="absolute top-4 left-4 font-bold text-slate-400">U ({nU})</div>
+            <div className="absolute bottom-4 right-4 font-bold text-slate-400">Neither ({nNeither})</div>
+
+            <div className="relative w-64 h-48 flex items-center justify-center">
+                <div className="absolute left-4 w-40 h-40 rounded-full border-4 border-blue-200 bg-blue-50/50 flex items-center justify-start pl-6">
+                    <span className="text-blue-500 font-bold flex flex-col items-center">
+                        <span>Aのみ</span>
+                        <span className="text-2xl">{nOnlyA}</span>
+                    </span>
+                </div>
+                <div className="absolute right-4 w-40 h-40 rounded-full border-4 border-red-200 bg-red-50/50 flex items-center justify-end pr-6">
+                    <span className="text-red-500 font-bold flex flex-col items-center">
+                        <span>Bのみ</span>
+                        <span className="text-2xl">{nOnlyB}</span>
+                    </span>
+                </div>
+                <div className="absolute w-24 h-40 flex items-center justify-center z-10">
+                    <span className="text-purple-600 font-black flex flex-col items-center bg-white/80 px-2 rounded-xl backdrop-blur-sm">
+                        <span>A∩B</span>
+                        <span className="text-2xl">{nIntersection}</span>
+                    </span>
+                </div>
+            </div>
+
+          </div>
+      </section>
+
+      <main className="flex-1 overflow-y-auto bg-white p-6">
+          <div className="max-w-md mx-auto space-y-6">
+              
+              <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between text-sm font-bold text-blue-600 mb-2">
+                        <span>n(A) : {nA}</span>
+                    </div>
+                    <input type="range" min={0} max={100} value={nA} onChange={e => setNA(Number(e.target.value))} className="w-full accent-blue-500" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-sm font-bold text-red-600 mb-2">
+                        <span>n(B) : {nB}</span>
+                    </div>
+                    <input type="range" min={0} max={100} value={nB} onChange={e => setNB(Number(e.target.value))} className="w-full accent-red-500" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-sm font-bold text-purple-600 mb-2">
+                        <span>n(A ∩ B) : {nIntersection}</span>
+                    </div>
+                    <input type="range" min={0} max={Math.min(nA, nB)} value={nIntersection} onChange={e => setNIntersection(Number(e.target.value))} className="w-full accent-purple-500" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-sm font-bold text-slate-600 mb-2">
+                        <span>n(U) 全体 : {nU}</span>
+                    </div>
+                    <input type="range" min={nUnion} max={200} value={nU} onChange={e => setNU(Number(e.target.value))} className="w-full accent-slate-500" />
+                  </div>
+              </div>
+
+              <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                  <div className="space-y-4">
+                      <h3 className="font-bold flex items-center gap-2"><Calculator className="w-4 h-4" /> 集合の要素の個数</h3>
+                      
+                      <div className="bg-white p-4 rounded-xl border border-slate-200 text-center font-bold text-lg">
+                        <MathComponent tex="n(A \cup B) = n(A) + n(B) - n(A \cap B)" />
+                        <div className="mt-4 text-2xl text-slate-800">
+                            {nUnion} = <span className="text-blue-500">{nA}</span> + <span className="text-red-500">{nB}</span> - <span className="text-purple-600">{nIntersection}</span>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-slate-500 leading-relaxed mt-4">
+                          AとBを足すと、真ん中の重なった部分（A∩B）が2回足されてしまいます。
+                          だから最後に1回分引くことで、全体の個数（A∪B）が出ます。
+                      </p>
+                  </div>
+              </div>
+
+          </div>
+      </main>
+    </div>
+  );
+}
+
+
+function ContradictionViz() {
+  const [step, setStep] = useState(0);
+
+  return (
+    <div className="flex-1 flex flex-col h-full bg-white">
+      <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[300px]">
+          <div className="w-full max-w-md aspect-video bg-white rounded-3xl border border-slate-200/60 shadow-inner overflow-hidden flex flex-col items-center justify-center p-6 space-y-4">
+            
+            {step === 0 && (
+                <div className="text-center animate-fade-in">
+                    <div className="text-xl font-bold mb-4">目標: <MathComponent tex="\sqrt{2}" /> は無理数であることを証明せよ</div>
+                    <div className="bg-red-50 text-red-600 p-4 rounded-xl border border-red-100 font-bold">
+                        背理法のスタート：<br/>「有理数である（分数で表せる）」と【仮定】する！
+                    </div>
+                </div>
+            )}
+
+            {step === 1 && (
+                <div className="text-center animate-fade-in">
+                    <MathComponent tex="\sqrt{2} = \frac{p}{q}" className="text-3xl font-bold block mb-4" />
+                    <div className="text-sm text-slate-500 mb-2">（pとqは互いに素な自然数）</div>
+                    <div className="flex items-center gap-4 text-blue-600 bg-blue-50 p-4 rounded-xl border border-blue-100 font-bold">
+                        両辺を2乗して分母を払うと…<br/>
+                        <MathComponent tex="2q^2 = p^2" />
+                    </div>
+                </div>
+            )}
+
+            {step === 2 && (
+                <div className="text-center animate-fade-in">
+                    <MathComponent tex="2 \times q^2 = p^2" className="text-2xl font-bold block mb-4 text-blue-600" />
+                    <div className="bg-amber-50 text-amber-700 p-4 rounded-xl border border-amber-100 font-bold text-sm text-left">
+                        左辺は「2×何か」なので【偶数】。<br/>
+                        つまり右辺の <MathComponent tex="p^2" /> も【偶数】。<br/>
+                        <MathComponent tex="p^2" /> が偶数なら、<MathComponent tex="p" /> も【偶数】である。
+                    </div>
+                </div>
+            )}
+
+            {step === 3 && (
+                <div className="text-center animate-fade-in">
+                    <MathComponent tex="p = 2k" className="text-2xl font-bold block mb-4" />
+                    <div className="bg-slate-100 p-4 rounded-xl text-sm text-left font-bold text-slate-700">
+                        <MathComponent tex="2q^2 = (2k)^2" /> に代入<br/>
+                        <MathComponent tex="2q^2 = 4k^2" /> <br/>
+                        <MathComponent tex="q^2 = 2k^2" />
+                    </div>
+                </div>
+            )}
+
+            {step === 4 && (
+                <div className="text-center animate-fade-in">
+                    <MathComponent tex="q^2 = 2 \times k^2" className="text-2xl font-bold block mb-4 text-purple-600" />
+                    <div className="bg-amber-50 text-amber-700 p-4 rounded-xl border border-amber-100 font-bold text-sm text-left">
+                        右辺は「2×何か」なので【偶数】。<br/>
+                        つまり左辺の <MathComponent tex="q^2" /> も【偶数】。<br/>
+                        <MathComponent tex="q^2" /> が偶数なら、<MathComponent tex="q" /> も【偶数】である。
+                    </div>
+                </div>
+            )}
+
+            {step === 5 && (
+                <div className="text-center animate-fade-in">
+                    <div className="text-4xl mb-4">💥 矛盾 💥</div>
+                    <div className="bg-red-100 text-red-700 p-4 rounded-xl border border-red-200 font-bold text-sm text-left">
+                        pも偶数、qも偶数になった！<br/>
+                        最初のアサンプション「pとqは互いに素（これ以上約分できない）」に完全に矛盾する！<br/>
+                        <span className="block mt-2 text-center text-lg">∴ <MathComponent tex="\sqrt{2}" /> は無理数である。</span>
+                    </div>
+                </div>
+            )}
+
+          </div>
+      </section>
+
+      <main className="flex-1 overflow-y-auto bg-white p-6">
+          <div className="max-w-md mx-auto space-y-6">
+              
+              <div className="flex justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <button disabled={step === 0} onClick={() => setStep(s => s - 1)} className="p-3 bg-white rounded-xl shadow-sm border border-slate-200 disabled:opacity-50">
+                      戻る
+                  </button>
+                  <div className="font-bold text-slate-500">Step {step + 1} / 6</div>
+                  <button disabled={step === 5} onClick={() => setStep(s => s + 1)} className="p-3 bg-blue-500 text-white rounded-xl shadow-sm border border-blue-600 disabled:opacity-50 font-bold">
+                      次へ
+                  </button>
+              </div>
+
+              <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                  <div className="space-y-4">
+                      <h3 className="font-bold flex items-center gap-2"><Calculator className="w-4 h-4" /> 背理法（Proof by Contradiction）</h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">
+                          直接証明するのが難しいとき、「もしそれが逆だったらどうなるか？」と仮定して、論理を進めます。<br/>
+                          論理を進めて「ありえないこと（矛盾）」が起きたら、「やっぱり最初の仮定が間違っていたんだ！」と結論づける強力な証明方法です。
+                      </p>
+                  </div>
+              </div>
+
+          </div>
+      </main>
+    </div>
+  );
+}
+
 export default function SetsLogicPage() {
   const [level, setLevel] = useState<number>(0);
   const [activeSet, setActiveSet] = useState<string>("A_cup_B"); // A U B, A n B, not_A_cup_B, etc.
@@ -284,13 +498,21 @@ export default function SetsLogicPage() {
           <ContrapositiveViz />
       )}
 
+      {level === 4 && (
+          <SetElementsViz />
+      )}
+
+      {level === 5 && (
+          <ContradictionViz />
+      )}
+
 
             <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">
                 {level === 0 ? "MATHEMATICS I" : `LEVEL ${level}`}
             </div>
         </div>
         <div className="font-bold text-sm">
-            {level === 0 ? "集合と命題 (Sets & Logic)" : level === 1 ? "ド・モルガンの法則" : level === 2 ? "必要条件と十分条件" : "逆・裏・対偶"}
+            {level === 0 ? "集合と命題 (Sets & Logic)" : level === 1 ? "ド・モルガンの法則" : level === 2 ? "必要条件と十分条件" : level === 3 ? "逆・裏・対偶" : level === 4 ? "集合の要素の個数" : "背理法の証明"}
         </div>
         <div className="w-10" />
       </header>
@@ -304,7 +526,8 @@ export default function SetsLogicPage() {
                       { id: 1, title: "Level 1: ド・モルガンの法則", desc: "集合の演算とベン図の視覚的証明", icon: Compass },
                       { id: 2, title: "Level 2: 必要条件と十分条件", desc: "PとQの包含関係を視覚化", icon: Search },
                       { id: 3, title: "Level 3: 逆・裏・対偶", desc: "命題の真偽と集合の包含関係", icon: SplitSquareHorizontal },
-                      { id: 4, title: "Level 4: 集合の要素の個数", desc: "n(A∪B) = n(A) + n(B) - n(A∩B)", icon: Calculator }
+                      { id: 4, title: "Level 4: 集合の要素の個数", desc: "n(A∪B) = n(A) + n(B) - n(A∩B)", icon: Calculator },
+                      { id: 5, title: "Level 5: 背理法の証明", desc: "ルート2が無理数であることの証明", icon: SplitSquareHorizontal }
                   ].map((item) => (
                       <button key={item.id} onClick={() => setLevel(item.id)}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
