@@ -363,3 +363,13 @@
   - **Logical Equivalence**: Turns the abstract rule "Contrapositive is always true if the original is true" into a concrete visual proof about sets and their complements.
 - **Learning Value**: Math I logic often trips students up on why the contrapositive holds while the converse and inverse do not. By grounding the logic in Venn diagrams (where "not P" is just the outer region), the truth value becomes instantly obvious rather than a memorized rule.
 - **Next Step**: Polish existing logic levels or continue expanding Data Analysis.
+
+### v1.3.32: Data Transformation Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 5 "データの変換" (Data Transformation) to Data Analysis (データの分析).
+- **Visualization**: `DataTransformViz` implementation (Canvas-based).
+  - **Interactive Sliders**: Students can dynamically adjust parameters $a$ (scale) and $b$ (shift) for the transformation $y = ax + b$.
+  - **Visualizing Transformation**: Instantly shows the original data (blue dots) alongside the transformed data (orange dots) on parallel axes.
+  - **Real-time Statistics Update**: Explicitly calculates and displays how the mean ($\bar{y} = a\bar{x} + b$), variance ($s_y^2 = a^2s_x^2$), and standard deviation ($s_y = |a|s_x$) react to scaling and shifting.
+- **Learning Value**: Often taught purely through abstract formulas, students struggle to remember why adding $b$ doesn't change the variance. By interactively shifting and scaling the points and watching the "spread" indicator widen or slide, the geometric meaning behind the data transformation formulas becomes obvious.
+- **Next Step**: Polish existing data analysis levels or focus strictly on Math I Trigonometry.

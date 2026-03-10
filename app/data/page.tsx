@@ -11,6 +11,8 @@ import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import VarianceViz from './components/VarianceViz';
 import BoxPlotViz from './components/BoxPlotViz';
+import HypothesisTestingViz from './components/HypothesisTestingViz';
+import DataTransformViz from './components/DataTransformViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -55,6 +57,22 @@ export default function DataPage() {
       desc: t('modules.data.levels.3.desc'),
       logStart: t('modules.data.levels.3.log_start'),
       logGuide: t('modules.data.levels.3.log_guide')
+    },
+    {
+      id: 5,
+      targetR: 0,
+      name: 'データの変換',
+      desc: '変量xを y=ax+b で変換したときの平均・分散・標準偏差の変化',
+      logStart: '変換シミュレータ起動',
+      logGuide: 'aとbを操作してください。'
+    },
+    {
+      id: 4,
+      targetR: 0,
+      name: '仮説検定の考え方',
+      desc: '偶然か意味ある差かを有意水準5%で検定します。',
+      logStart: 'シミュレーション開始',
+      logGuide: 'コイントスを実行してください。'
     }
   ];
 
@@ -65,6 +83,8 @@ export default function DataPage() {
     let nextLvl = 1;
     if (progress.includes(1)) nextLvl = 2;
     if (progress.includes(2)) nextLvl = 3;
+    if (progress.includes(3)) nextLvl = 4;
+    if (progress.includes(4)) nextLvl = 5;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -133,7 +153,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 3) {
+    if (currentLevel < 5) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -189,7 +209,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 3
+              {t('common.level')} {currentLevel} / 5
             </div>
           </div>
         </div>
@@ -215,7 +235,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}
@@ -229,7 +249,7 @@ export default function DataPage() {
                     <h3 className="text-xl font-bold mb-2">{t('modules.data.completion.synced')}</h3>
                     <p className="text-sm text-slate-500 mb-6">{t('modules.data.completion.msg')}</p>
                     <button onClick={handleNextLevel} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 flex items-center justify-center gap-2">
-                      {currentLevel < 3 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
+                      {currentLevel < 5 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </motion.div>
