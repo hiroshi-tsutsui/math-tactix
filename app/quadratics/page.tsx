@@ -1,4 +1,5 @@
 'use client';
+import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import DomainAlwaysPositiveViz from './components/DomainAlwaysPositiveViz';
 
 import React, { useState, useEffect } from 'react';
@@ -207,6 +208,8 @@ const LEVELS = [
 
   { id: 44, title: '一方だけが実数解をもつ条件', type: 'one_real_root' },
   { id: 45, title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' },
+  { id: 46, title: '2つの解が特定の区間にある条件', type: 'both_roots_between' },
+
 ];
 
 export default function QuadraticPage() {
@@ -352,7 +355,22 @@ export default function QuadraticPage() {
         case 'one_real_root':
           newProblem = { id: Date.now(), title: '一方だけが実数解をもつ条件', type: 'one_real_root' };
           break;
-        case 'domain_always_positive':
+        
+        case 'both_roots_between':
+          newProblem = { 
+            id: Date.now(), 
+            title: '2つの解が特定の区間にある条件', 
+            type: 'both_roots_between',
+            questionText: '2次方程式 x² - 2ax + a + 2 = 0 の2つの解がともに 0 < x < 3 の範囲にあるような定数aの値の範囲を視覚的に求めよ。',
+            explanationSteps: ['D ≥ 0', '0 < 軸 < 3', 'f(0) > 0 かつ f(3) > 0']
+          };
+          break;
+
+        
+      case 'both_roots_between':
+          newProblem = { id: Date.now(), title: '2つの解が特定の区間にある条件', type: 'both_roots_between' };
+          break;
+      case 'domain_always_positive':
           newProblem = { id: Date.now(), title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' };
           break;
 
@@ -716,6 +734,8 @@ export default function QuadraticPage() {
           </div>
         )}
         {currentLevel === 40 && <AtLeastOnePositiveRootViz />}
+              {currentLevel === 45 && <DomainAlwaysPositiveViz />}
+        {currentLevel === 46 && <BothRootsBetweenViz />}
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">

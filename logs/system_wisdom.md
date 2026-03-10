@@ -7,6 +7,15 @@
 
 ## Evolution History
 
+### v1.3.60: Condition for Both Roots in a Specific Interval (2解が特定の区間にある条件) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 46 "2つの解が特定の区間にある条件" (Both roots inside a specific interval) to Quadratic Functions (二次関数). Also fixed missing UI binding for Level 45 "Domain Always Positive" (特定の区間で常に正・負となる条件).
+- **Visualization**: `BothRootsBetweenViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $f(x) = x^2 - 2ax + a + 2$ defined strictly with roots inside the interval $0 < x < 3$.
+  - **Dynamic Checks**: Visualizes the 3 critical conditions for "Roots Location" (解の配置) problems: Discriminant ($D ge 0$), Axis Location ($0 < a < 3$), and Boundary Values ($f(0) > 0, f(3) > 0$).
+  - **Learning Value**: Math I students universally struggle with "Location of Roots" (解の配置) problems. This is arguably the most complex standard problem in Quadratics. By interactively moving the parabola and explicitly watching the three physical conditions light up green when satisfied, the abstract case-splitting turns into obvious visual geometry.
+- **Next Step**: The Quadratic Functions (二次関数) module is complete up to Level 46. Move to Math I Numbers and Algebraic Expressions (数と式) or finalize edge cases in Probability.
+
 ### v1.3.57: Domain-Specific Always Positive/Negative Condition (特定の区間で常に正・負となる条件) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 45 "特定の区間で常に正・負となる条件" (Conditions for Always Positive/Negative in a Specific Domain) to Quadratic Functions (二次関数). Also successfully bound Level 44 "一方だけが実数解をもつ条件" into the page.tsx UI.
@@ -647,3 +656,21 @@
 - **Learning Value**: Math I students often over-complicate "different signs" problems by calculating $D>0$, sum of roots, and product of roots. By visually proving that pulling the y-intercept below 0 forces the parabola to cross the x-axis twice with different signs, the required calculation simplifies to just one condition.
 - **Next Step**: Continue expanding Math I topics (Trigonometry or Numbers & Algebraic Expressions).
 - **Action**: Added Level 41 "異符号の解" (Roots with Different Signs) to Quadratic Functions (二次関数).
+
+### v1.3.58: Fractional Completing the Square (分数の平方完成の視覚化) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 46 "分数の平方完成" (Fractional Completing the Square) to Quadratic Functions (二次関数).
+- **Visualization**: Enhanced `CompletingSquareViz` to support fractional coefficients (e.g. $a = 1/2, b = -3$).
+  - **Focus on fractions**: Students often make mistakes factoring out fractions. Visualizes the exact division step intuitively.
+- **Learning Value**: Math I students universally struggle with completing the square when fractions are involved. By interactively seeing the fraction pulled out of the linear term, calculation errors drop.
+- **Next Step**: Polish existing Quadratics levels and move fully into Math I Numbers and Algebraic Expressions (数と式).
+
+
+### v1.3.59: Double Radicals Visualization (二重根号の視覚化) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 1 "二重根号を外す" (Removing Double Radicals) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `DoubleRadicalViz` implementation.
+  - **Focus on Expansion**: Students visually expand $(\sqrt{a} + \sqrt{b})^2$ as areas of a square.
+  - **Connecting to Radicals**: By mapping the $(a+b)$ to the integer part and $2\sqrt{ab}$ to the radical part, taking the outer square root becomes an obvious geometric length calculation.
+- **Learning Value**: Math I students memorize $\sqrt{(a+b) + 2\sqrt{ab}}$ without seeing it as reversing a perfect square expansion. Visualizing the areas makes it concrete.
+- **Next Step**: Polish Math I Numbers and Algebraic Expressions (数と式).
