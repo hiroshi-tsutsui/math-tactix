@@ -7,6 +7,26 @@
 
 ## Evolution History
 
+### v1.3.25: Parabola Vertex Locus Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 32 "放物線の頂点の軌跡" (Locus of Parabola Vertex) to Quadratics.
+- **Visualization**: `VertexLocusViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $y = x^2 - 2px + p$ and its vertex.
+  - **Parameter Tuning**: Students can adjust the parameter $p$ using a slider to shift the parabola.
+  - **Locus Tracing**: Dynamically traces the path of the vertex on the curve $y = -x^2 + x$, leaving a red dotted locus.
+- **Learning Value**: Often taught purely algebraically ($X=p, Y=-p^2+p \Rightarrow Y=-X^2+X$), students fail to see that a single point moving in space creates a shape. This visualizer grounds the abstract parameter elimination technique into a physical geometry engine. Students see *why* substituting $p$ creates the bounding envelope.
+- **Next Step**: Polish Trigonometry (図形と計量) or introduce Data Analysis edge cases.
+
+### v1.3.24: Intersection Distance Visualization (2026-03-09)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 31 "放物線と直線の交点間の距離" (Distance between intersections of a parabola and a line) to Quadratics.
+- **Visualization**: `IntersectionDistanceViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $y = x^2$ and $y = mx + n$.
+  - **Parameter Tuning**: Students can adjust the slope $m$ and y-intercept $n$ of the line using sliders.
+  - **Distance Calculation**: Dynamically highlights the line segment between the two intersection points in red and displays the calculated distance. Connects this distance to the formula $L = \frac{\sqrt{D}}{|a|} \sqrt{1 + m^2}$.
+- **Learning Value**: The intersection distance formula is notoriously difficult to memorize and visually grasp. Students often blindly memorize the $\sqrt{1+m^2}$ part without understanding that it comes directly from the Pythagorean theorem on the line's slope. By interactively moving the line and watching the segment stretch or shrink as it approaches tangency, the geometric origin of the formula becomes clear.
+- **Next Step**: Continue focusing on core Math I topics such as Trigonometry (図形と計量) or expand Data Analysis.
+
 ### v1.3.23: Symmetry and Formulas Visualization (180° - θ) (2026-03-09)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 8 "対称性と公式 (180° - θ)" (Symmetry and Formulas) to Math I Trigonometry (図形と計量).

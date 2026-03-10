@@ -41,6 +41,7 @@ import SolutionsInRangeViz from './components/SolutionsInRangeViz';
 import DeterminationViz from './components/DeterminationViz';
 import CommonRootsViz from './components/CommonRootsViz';
 import { AbsoluteValueMaxMinViz } from './components/AbsoluteValueMaxMinViz';
+import { IntersectionDistanceViz } from './components/IntersectionDistanceViz';
 import DiscriminantViz from './components/DiscriminantViz';
 import MaxMinViz from './components/MaxMinViz';
 import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
@@ -59,6 +60,8 @@ import { generateSignOfRootsProblem } from './utils/sign-of-roots-generator';
 import AbsoluteGraphLineViz from './components/AbsoluteGraphLineViz';
 import MultipleAbsoluteViz from './components/MultipleAbsoluteViz';
 import CoefficientSignsViz from './components/CoefficientSignsViz';
+import VertexLocusViz from './components/VertexLocusViz';
+import { generateVertexLocusProblem } from './utils/vertex-locus-generator';
 
 
 import { generateAbsoluteGraphLineProblem } from './utils/absolute-graph-line-generator';
@@ -158,6 +161,8 @@ const LEVELS = [
   { id: 28, title: '絶対値グラフと直線の共有点', type: 'absolute_graph_line' },
   { id: 29, title: '複数の絶対値を含む関数', type: 'multiple_absolute' },
   { id: 30, title: '係数の符号とグラフ', type: 'coefficient_signs' },
+  { id: 31, title: '放物線と直線の交点間の距離', type: 'intersection_distance' },
+  { id: 32, title: '放物線の頂点の軌跡', type: 'vertex_locus' },
 
 
 
@@ -276,6 +281,12 @@ export default function QuadraticPage() {
           break;
         case 'coefficient_signs':
           newProblem = { id: Date.now(), title: "係数の符号とグラフ", target: "a, b, c, b^2-4ac, a+b+c の符号", equation: "", formula: "", hint: "スライダーを動かしてグラフとの関係を確認しましょう。", expected: [], options: [], type: "coefficient_signs" };
+          break;
+        case 'intersection_distance':
+          newProblem = { id: Date.now(), title: "放物線と直線の交点間の距離", target: "距離 L", equation: "", formula: "", hint: "スライダーを動かして交点間の距離が変わる様子を確認しましょう。", expected: [], options: [], type: "intersection_distance" };
+          break;
+        case 'vertex_locus':
+          newProblem = generateVertexLocusProblem();
           break;
       }
       setProblem(newProblem as any);
