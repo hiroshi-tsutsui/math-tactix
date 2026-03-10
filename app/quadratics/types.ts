@@ -7,4 +7,8 @@ export interface Problem {
   params?: any;
   explanation?: string | string[];
   answer?: string;
+  title?: string;
+  options?: string[];
+  difficulty?: number;
+  level?: number;
 }

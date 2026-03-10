@@ -7,6 +7,29 @@
 
 ## Evolution History
 
+### v1.3.27: Positional Relationship of Two Parabolas (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 33 "2つの放物線の位置関係と接線" (Positional Relationship and Tangency of Two Parabolas) to Quadratics.
+- **Visualization**: `TwoParabolasViz` implementation (Canvas-based).
+  - **Interactive Parameter Tuning**: Students can adjust the constant $k$ in $y = -x^2 + 2x + k$.
+  - **Real-time Intersection**: Dynamically visualizes the two parabolas $y = x^2$ and $y = -x^2 + 2x + k$.
+  - **Discriminant Connection**: Automatically calculates the discriminant $D/4$ of the difference equation $2x^2 - 2x - k = 0$.
+  - **Visualizing Tangency**: Vividly highlights the intersections and clearly marks the exact moment ($k = -0.5$) when the two graphs are tangent ($D = 0$), turning yellow to indicate tangency.
+- **Learning Value**: Often appears in university entrance exams. It transforms an abstract algebraic operation (setting equations equal and solving for $D=0$) into a direct geometric intuition ("sliding the parabola until it exactly touches").
+- **Next Step**: Continue to refine Math I Data Analysis or expand into Sets and Logic (集合と命題).
+
+
+### v1.3.26: Hypothesis Testing Concept (仮説検定の考え方) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 4 "仮説検定の考え方" (Hypothesis Testing Concept) to Data Analysis (データの分析).
+- **Visualization**: `HypothesisTestingViz` implementation (Coin Toss Simulator & Binomial Distribution).
+  - **Interactive Simulation**: Students simulate coin tosses (1 by 1 or 10 at once) to see if a coin is biased (e.g., getting 9 heads out of 10).
+  - **Real-time Distribution**: Draws a dynamic histogram of the binomial distribution $B(10, 0.5)$.
+  - **P-Value Visualized**: Highlights the probability of the observed extreme event (9 or 10 heads) and compares it dynamically to the 5% significance level.
+- **Learning Value**: Math I newly includes "Hypothesis Testing Concept". This is notoriously difficult to grasp through text alone. Visualizing the *distribution of what is normal* allows students to intuitively see why getting 9 heads is "too rare to be a coincidence," seamlessly introducing the p-value concept.
+- **Next Step**: Continue to refine other topics like Math I Trigonometry.
+
+
 ### v1.3.25: Parabola Vertex Locus Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 32 "放物線の頂点の軌跡" (Locus of Parabola Vertex) to Quadratics.

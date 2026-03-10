@@ -22,6 +22,8 @@ import { generateAbsoluteValueMaxMinProblem } from './utils/absolute-value-max-m
 import { generateDiscriminantProblem } from './utils/discriminant-generator';
 import { generateMaxMinProblem } from './utils/max-min-generator';
 import { generateSubstitutionMaxMinProblem } from './utils/substitution-max-min-generator';
+import { generateTwoParabolasProblem } from './utils/two-parabolas-generator';
+import TwoParabolasViz from './components/TwoParabolasViz';
 
 import RootsLocationViz from './components/RootsLocationViz';
 import DefiniteInequalityViz from './components/DefiniteInequalityViz';
@@ -163,6 +165,7 @@ const LEVELS = [
   { id: 30, title: '係数の符号とグラフ', type: 'coefficient_signs' },
   { id: 31, title: '放物線と直線の交点間の距離', type: 'intersection_distance' },
   { id: 32, title: '放物線の頂点の軌跡', type: 'vertex_locus' },
+  { id: 33, title: '2つの放物線の位置関係と接線', type: 'two_parabolas' },
 
 
 
@@ -288,6 +291,9 @@ export default function QuadraticPage() {
         case 'vertex_locus':
           newProblem = generateVertexLocusProblem();
           break;
+        case 'two_parabolas':
+          newProblem = generateTwoParabolasProblem();
+          break;
       }
       setProblem(newProblem as any);
     } catch (e) {
@@ -359,6 +365,17 @@ export default function QuadraticPage() {
                 {currentLevel === 1 && problem.equation && (
                    <CompletingSquareViz equation={problem.equation} />
                 )}
+
+                {currentLevel === 31 && (
+                  <IntersectionDistanceViz />
+                )}
+                {currentLevel === 32 && (
+                  <VertexLocusViz />
+                )}
+                {currentLevel === 33 && (
+                  <TwoParabolasViz />
+                )}
+
 
                 {currentLevel === 2 && (
                   <div className="space-y-4 w-full">
