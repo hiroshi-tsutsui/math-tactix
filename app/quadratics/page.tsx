@@ -75,6 +75,9 @@ import { generateMultipleAbsoluteProblem } from './utils/multiple-absolute-gener
 
 
 // LaTeX Support
+import { generateExternalTangentProblem } from "./utils/external-tangent-generator";
+import { ExternalTangentViz } from "./components/ExternalTangentViz";
+
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 
@@ -169,6 +172,7 @@ const LEVELS = [
   { id: 32, title: '放物線の頂点の軌跡', type: 'vertex_locus' },
   { id: 33, title: '2つの放物線の位置関係と接線', type: 'two_parabolas' },
   { id: 34, title: '放物線上の三角形の面積最大化', type: 'triangle_area_optimization' },
+  { id: 35, title: '放物線外の点から引いた接線', type: 'external_tangent' },
 
 
 
@@ -300,6 +304,9 @@ export default function QuadraticPage() {
         case 'two_parabolas':
           newProblem = generateTwoParabolasProblem();
           break;
+        case "external_tangent":
+          newProblem = generateExternalTangentProblem();
+          break;
       }
       setProblem(newProblem as any);
     } catch (e) {
@@ -383,6 +390,9 @@ export default function QuadraticPage() {
                 )}
                 {currentLevel === 34 && (
                   <TriangleAreaViz problem={problem} />
+                )}
+                {currentLevel === 35 && (
+                  <ExternalTangentViz />
                 )}
 
 

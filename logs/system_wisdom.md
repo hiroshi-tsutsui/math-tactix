@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.33: Tangent from External Point Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 35 "放物線外の点から引いた接線" (Tangent from an External Point) to Quadratics.
+- **Visualization**: `ExternalTangentViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $y = x^2$ and a fixed external point P(p, q).
+  - **Parameter Tuning**: Students can adjust the coordinates of point P and the slope $m$ of a line passing through P.
+  - **Real-time Tangency Check**: Vividly highlights the line in yellow when the slope $m$ matches the exact theoretical slope that makes the discriminant $D = 0$, explicitly calculating and displaying the discriminant's zero-points.
+- **Learning Value**: Often taught algebraically by setting up $y - q = m(x - p)$ and solving $D=0$. Students lose track of what the two solutions for $m$ represent. By physically rotating the line around point P, they intuitively see that there are exactly two "grazing" slopes that touch the parabola.
+- **Next Step**: Polish existing Quadratics levels or explore more Math I topics.
+
+
 ### v1.3.31: Triangle Area Maximization on Parabola (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 34 "放物線上の三角形の面積最大化" (Maximizing Triangle Area on a Parabola) to Quadratics.
