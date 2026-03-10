@@ -521,3 +521,13 @@
   - **Visual Subtraction**: By showing the larger $k \\times k$ square (where max $\\le k$) and a grayed-out smaller $(k-1) \\times (k-1)$ square (where max $\\le k-1$), the L-shaped difference physically demonstrates the $k^2 - (k-1)^2$ formula.
 - **Learning Value**: Math A students classically struggle with the "max/min probability" questions, often getting lost trying to enumerate cases (e.g. "one is 4, the other is 1,2,3, or both are 4"). By transforming the probability calculation into a literal area calculation of an L-shaped boundary on a grid, it turns algebraic case-splitting into obvious geometry.
 - **Next Step**: Polish existing probability modules or begin work on Math I "Numbers and Algebraic Expressions" (数と式).
+
+### v1.3.48: Moving Domain Maximum/Minimum Redesign (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Completely redesigned Level 3 "定義域が動く最大・最小" (Moving Domain Max/Min) in Quadratic Functions (二次関数).
+- **Visualization**: `MovingDomainViz` update.
+  - **Min/Max Toggle**: Added a toggle to switch between analyzing Minimum (最小値) and Maximum (最大値).
+  - **Midpoint Visualization**: For Maximum, added a visual indicator for "定義域の中央" (Center of the Domain).
+  - **Dynamic Case Logic**: Shows explicit real-time text explaining the 3-case split depending on whether the Axis is left/right of the Domain Center (for Max) or left/inside/right of the Domain (for Min).
+- **Learning Value**: Math I students universally struggle with "Case Splitting" (場合分け) when the domain moves. Minimum is relatively intuitive, but Maximum requires comparing the axis to the *center* of the domain. By dynamically drawing the center line and highlighting the "farther edge" as the maximum point, it turns an abstract algebraic distance comparison into an immediate visual rule.
+- **Next Step**: Continue aligning existing Quadratic Functions visualizations (like Coefficient Signs) with concrete problem generators for test-style exercises.

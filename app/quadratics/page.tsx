@@ -63,6 +63,8 @@ import SegmentLengthViz from './components/SegmentLengthViz';
 import AbsoluteInequalityViz from './components/AbsoluteInequalityViz';
 import SignOfRootsViz from './components/SignOfRootsViz';
 import { generateSignOfRootsProblem } from './utils/sign-of-roots-generator';
+import { generateCoefficientSignsProblem } from './utils/coefficient-signs-generator';
+
 import AbsoluteGraphLineViz from './components/AbsoluteGraphLineViz';
 import MultipleAbsoluteViz from './components/MultipleAbsoluteViz';
 import CoefficientSignsViz from './components/CoefficientSignsViz';
@@ -296,7 +298,7 @@ export default function QuadraticPage() {
           newProblem = generateMultipleAbsoluteProblem();
           break;
         case 'coefficient_signs':
-          newProblem = { id: Date.now(), title: "係数の符号とグラフ", target: "a, b, c, b^2-4ac, a+b+c の符号", equation: "", formula: "", hint: "スライダーを動かしてグラフとの関係を確認しましょう。", expected: [], options: [], type: "coefficient_signs" };
+          newProblem = generateCoefficientSignsProblem();
           break;
         case 'intersection_distance':
           newProblem = { id: Date.now(), title: "放物線と直線の交点間の距離", target: "距離 L", equation: "", formula: "", hint: "スライダーを動かして交点間の距離が変わる様子を確認しましょう。", expected: [], options: [], type: "intersection_distance" };
