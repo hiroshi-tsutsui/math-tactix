@@ -54,6 +54,15 @@ export default function Home() {
 
     // --- High School ---
     {
+      id: 'math_i_numbers',
+      title: '数と式 (数学I)',
+      subtitle: 'Numbers and Algebraic Expressions',
+      desc: '展開、因数分解から絶対値や二重根号まで。',
+      status: 'READY',
+      color: 'text-indigo-400',
+    },
+
+    {
       id: 'quadratics',
       title: t('dashboard.modules.quadratics.title'),
       subtitle: t('dashboard.modules.quadratics.subtitle'),

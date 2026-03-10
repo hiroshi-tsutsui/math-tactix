@@ -1,104 +1,109 @@
 {
-    "algebraic_logic": {
-      "title": "数と式の論理",
-      "subtitle": "Algebraic Logic",
-      "desc": "正負の数から方程式、因数分解まで。論理の「読み書き」を習得します。"
-    },
-    "functional_dynamics_jh": {
-      "title": "関数と変化の法則",
-      "subtitle": "Functional Dynamics",
-      "desc": "比例・反比例、一次関数。事象の変化を数式で記述する基礎を学びます。"
-    },
-    "geometric_space": {
-      "title": "図形と空間の構造",
-      "subtitle": "Geometric Space",
-      "desc": "相似、円周角、三平方の定理。空間を論理的に把握する力を養います。"
-    },
-    "data_chance_jh": {
-      "title": "確率とデータの分析",
-      "subtitle": "Data & Chance",
-      "desc": "データの分布と確率の基礎。不確実な世界を数値で捉える第一歩。"
-    },
-    "quadratics": {
-      "title": "二次関数",
-      "subtitle": "Mathematics I",
-      "desc": "放物線を設計し、パラメータの最適解を導く。"
-    },
-    "trig_ratios": {
-      "title": "三角比",
-      "subtitle": "Mathematics I",
-      "desc": "直角三角形と単位円を用いて、測量の基礎を習得する。"
-    },
-    "data": {
-      "title": "データの分析",
-      "subtitle": "Mathematics I",
-      "desc": "相関係数(r)を用いて、データの背後にある真実を特定する。"
-    },
-    "probability": {
-      "title": "確率",
-      "subtitle": "Mathematics A",
-      "desc": "不確実な事象を計算し、未来の期待値を算出する。"
-    },
-    "calculus": {
-      "title": "微分・積分",
-      "subtitle": "Mathematics II",
-      "desc": "瞬間の変化と蓄積の法則を使い、動く世界を掌握する。"
-    },
-    "sequences": {
-      "title": "数列",
-      "subtitle": "Mathematics B",
-      "desc": "パターンの連続性を見出し、未来の推移を予測する。"
-    },
-    "logs": {
-      "title": "対数関数",
-      "subtitle": "Mathematics II",
-      "desc": "指数関数的な増殖を、扱いやすいスケールに圧縮する。"
-    },
-    "trig": {
-      "title": "三角関数",
-      "subtitle": "Mathematics II",
-      "desc": "円運動と波の性質を同期させ、周期性を解析する。"
-    },
-    "vectors": {
-      "title": "ベクトル",
-      "subtitle": "Mathematics C",
-      "desc": "多次元空間を定義する「向き」と「大きさ」を操る。"
-    },
-    "complex": {
-      "title": "複素数平面",
-      "subtitle": "Mathematics C",
-      "desc": "虚数の回転を用いて、新たな次元を可視化する。"
-    },
-    "matrices": {
-      "title": "行列",
-      "subtitle": "Mathematics C",
-      "desc": "空間を自在に変形させる線形変換の仕組みを学ぶ。"
-    },
-    "functions": {
-      "title": "関数と極限",
-      "subtitle": "Mathematics III",
-      "desc": "入出力の論理を極め、ブラックボックスを完全に解明する。"
-    },
-    "quiz": {
-      "title": "実力判定テスト",
-      "subtitle": "Assessment",
-      "desc": "現在の理解度を測定し、学習プランを最適化します。"
-    },
-    "math_quadratic": {
-      "title": "二次関数の最適化",
-      "subtitle": "解析：放物線の設計",
-      "controls": "数値制御"
-    },
-    "balls_in_bins": {
-      "title": "球と箱のシミュレーション",
-      "subtitle": "{{bins}} 個の箱にランダムに球を投げ入れる実験 (大数の法則)",
-      "total_count": "総数",
-      "start": "開始",
-      "stop": "停止",
-      "reset": "リセット",
-      "bin_count": "箱の数",
-      "speed": "速度",
-      "average": "平均",
-      "bin_label": "箱 {{index}}: {{count}}個"
-    }
+  "algebraic_logic": {
+    "title": "数と式の論理",
+    "subtitle": "Algebraic Logic",
+    "desc": "正負の数から方程式、因数分解まで。論理の「読み書き」を習得します。"
+  },
+  "functional_dynamics_jh": {
+    "title": "関数と変化の法則",
+    "subtitle": "Functional Dynamics",
+    "desc": "比例・反比例、一次関数。事象の変化を数式で記述する基礎を学びます。"
+  },
+  "geometric_space": {
+    "title": "図形と空間の構造",
+    "subtitle": "Geometric Space",
+    "desc": "相似、円周角、三平方の定理。空間を論理的に把握する力を養います。"
+  },
+  "data_chance_jh": {
+    "title": "確率とデータの分析",
+    "subtitle": "Data & Chance",
+    "desc": "データの分布と確率の基礎。不確実な世界を数値で捉える第一歩。"
+  },
+  "quadratics": {
+    "title": "二次関数",
+    "subtitle": "Mathematics I",
+    "desc": "放物線を設計し、パラメータの最適解を導く。"
+  },
+  "trig_ratios": {
+    "title": "三角比",
+    "subtitle": "Mathematics I",
+    "desc": "直角三角形と単位円を用いて、測量の基礎を習得する。"
+  },
+  "data": {
+    "title": "データの分析",
+    "subtitle": "Mathematics I",
+    "desc": "相関係数(r)を用いて、データの背後にある真実を特定する。"
+  },
+  "probability": {
+    "title": "確率",
+    "subtitle": "Mathematics A",
+    "desc": "不確実な事象を計算し、未来の期待値を算出する。"
+  },
+  "calculus": {
+    "title": "微分・積分",
+    "subtitle": "Mathematics II",
+    "desc": "瞬間の変化と蓄積の法則を使い、動く世界を掌握する。"
+  },
+  "sequences": {
+    "title": "数列",
+    "subtitle": "Mathematics B",
+    "desc": "パターンの連続性を見出し、未来の推移を予測する。"
+  },
+  "logs": {
+    "title": "対数関数",
+    "subtitle": "Mathematics II",
+    "desc": "指数関数的な増殖を、扱いやすいスケールに圧縮する。"
+  },
+  "trig": {
+    "title": "三角関数",
+    "subtitle": "Mathematics II",
+    "desc": "円運動と波の性質を同期させ、周期性を解析する。"
+  },
+  "vectors": {
+    "title": "ベクトル",
+    "subtitle": "Mathematics C",
+    "desc": "多次元空間を定義する「向き」と「大きさ」を操る。"
+  },
+  "complex": {
+    "title": "複素数平面",
+    "subtitle": "Mathematics C",
+    "desc": "虚数の回転を用いて、新たな次元を可視化する。"
+  },
+  "matrices": {
+    "title": "行列",
+    "subtitle": "Mathematics C",
+    "desc": "空間を自在に変形させる線形変換の仕組みを学ぶ。"
+  },
+  "functions": {
+    "title": "関数と極限",
+    "subtitle": "Mathematics III",
+    "desc": "入出力の論理を極め、ブラックボックスを完全に解明する。"
+  },
+  "quiz": {
+    "title": "実力判定テスト",
+    "subtitle": "Assessment",
+    "desc": "現在の理解度を測定し、学習プランを最適化します。"
+  },
+  "math_quadratic": {
+    "title": "二次関数の最適化",
+    "subtitle": "解析：放物線の設計",
+    "controls": "数値制御"
+  },
+  "balls_in_bins": {
+    "title": "球と箱のシミュレーション",
+    "subtitle": "{{bins}} 個の箱にランダムに球を投げ入れる実験 (大数の法則)",
+    "total_count": "総数",
+    "start": "開始",
+    "stop": "停止",
+    "reset": "リセット",
+    "bin_count": "箱の数",
+    "speed": "速度",
+    "average": "平均",
+    "bin_label": "箱 {{index}}: {{count}}個"
+  },
+  "math_i_numbers": {
+    "title": "数と式",
+    "subtitle": "Mathematics I",
+    "desc": "展開、因数分解から絶対値や二重根号まで。"
+  }
 }

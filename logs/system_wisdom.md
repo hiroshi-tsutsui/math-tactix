@@ -7,6 +7,25 @@
 
 ## Evolution History
 
+### v1.3.62: Absolute Value Equations and Inequalities (絶対値を含む方程式・不等式) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 2 "絶対値を含む方程式・不等式" to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `AbsoluteValueViz` implementation.
+  - **Focus on Distance**: Students interactively adjust the center point $a$ and distance $c$.
+  - **Dynamic Highlights**: Toggle between $=, <, >$ visually highlights the valid range on a number line, mapping algebraically abstract inequalities directly to geometric distance.
+- **Learning Value**: Math I students frequently confuse $|x-a| < c$ (inside range) and $|x-a| > c$ (outside range). By showing the distance graphically, they intuitively understand why the solutions split into two inequalities or form a single continuous interval.
+- **Next Step**: Continue expanding Math I topics or refine test-generation logic.
+
+
+### v1.3.61: Double Radicals Visualization (二重根号の視覚化) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Created `math_i_numbers` module (数と式) and added Level 1 "二重根号を外す" (Removing Double Radicals).
+- **Visualization**: `DoubleRadicalViz` implementation.
+  - **Focus on Expansion**: Students visually expand $(\sqrt{a} + \sqrt{b})^2$ as areas of a square.
+  - **Connecting to Radicals**: By mapping the $(a+b)$ to the integer part and $2\sqrt{ab}$ to the radical part, taking the outer square root becomes an obvious geometric length calculation.
+- **Learning Value**: Math I students memorize $\sqrt{(a+b) + 2\sqrt{ab}}$ without seeing it as reversing a perfect square expansion. Visualizing the areas makes it concrete.
+- **Next Step**: Polish Math I Numbers and Algebraic Expressions (数と式).
+
 ### v1.3.60: Condition for Both Roots in a Specific Interval (2解が特定の区間にある条件) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 46 "2つの解が特定の区間にある条件" (Both roots inside a specific interval) to Quadratic Functions (二次関数). Also fixed missing UI binding for Level 45 "Domain Always Positive" (特定の区間で常に正・負となる条件).
