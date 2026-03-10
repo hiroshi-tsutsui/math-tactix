@@ -41,6 +41,9 @@ import IntersectionViz from './components/IntersectionViz';
 import QuadraticInequalityViz from './components/QuadraticInequalityViz';
 import AbsoluteValueGraphViz from './components/AbsoluteValueGraphViz';
 import MovingAxisViz from './components/MovingAxisViz';
+import MovingRightEdgeViz from './components/MovingRightEdgeViz';
+import { generateMovingRightEdgeProblem } from './utils/moving-right-edge-generator';
+
 import ShapeOptimizationViz from './components/ShapeOptimizationViz';
 import AbsoluteValueEquationViz from './components/AbsoluteValueEquationViz';
 import SolutionsInRangeViz from './components/SolutionsInRangeViz';
@@ -181,6 +184,7 @@ const LEVELS = [
   { id: 35, title: '放物線外の点から引いた接線', type: 'external_tangent' },
   { id: 36, title: '2つの2次関数の大小', type: 'two_parabolas_size' },
   { id: 37, title: '2つのグラフの差の関数', type: 'difference_function' },
+  { id: 38, title: '定義域の右端が動く最大・最小', type: 'moving_right_edge' },
 
 
 
@@ -314,6 +318,9 @@ export default function QuadraticPage() {
           break;
         case 'difference_function':
           newProblem = generateDifferenceFunctionProblem();
+          break;
+        case 'moving_right_edge':
+          newProblem = generateMovingRightEdgeProblem();
           break;
         case 'two_parabolas_size':
           newProblem = generateTwoParabolasSizeProblem();

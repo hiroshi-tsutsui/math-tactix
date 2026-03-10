@@ -7,6 +7,19 @@
 
 ## Evolution History
 
+### v1.3.49: Moving Right Edge Domain Visualization (定義域の右端が動く最大・最小) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 38 "定義域の右端が動く最大・最小" (Moving Right Edge Domain Max/Min) to Quadratic Functions (二次関数).
+- **Visualization**: `MovingRightEdgeViz` component.
+  - **Interactive Domain**: The domain is $[0, a]$, and students drag a slider to stretch the domain by moving the right edge $a$.
+  - **Min/Max Modes**: Toggles explicitly between finding the Minimum and finding the Maximum.
+  - **Dynamic Case Logic**:
+    - For Minimum: Visualizes the 2 cases (Is $a$ left or right of the axis $x=2$?).
+    - For Maximum: Visually introduces the critical "Center of Domain" concept ($x = a/2$). Draws the center line and dynamically explains the 3 cases depending on whether the center is left, equal, or right of the axis.
+- **Learning Value**: Math I students hit a massive wall with "moving domain" max/min problems because they struggle to visualize *why* the maximum flips when the domain stretches past a certain point. By dynamically displaying the "center of the domain" line and watching it cross the axis, the student builds a physical, geometric intuition for the 3-case split, transforming abstract algebra into obvious visual facts.
+- **Next Step**: Polish existing Quadratics levels and move fully into Math I Numbers and Algebraic Expressions (数と式) or Data Analysis refinement.
+
+
 ### v1.3.45: Independent Trials Probability Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 4 "反復試行の確率" (Independent Trials Probability) to Probability (場合の数と確率). Note: A previous uncommitted broken build for Heron's Formula was reverted to stabilize the main branch.
