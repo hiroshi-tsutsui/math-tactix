@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.42: Trigonometric Equations and Inequalities Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 9 "三角方程式・不等式" (Trigonometric Equations and Inequalities) to Math I Trigonometry (図形と計量), bumping the Quiz to Level 10.
+- **Visualization**: `TrigEqIneqViz` implementation (Canvas-based Unit Circle).
+  - **Interactive Toggles**: Students can toggle between $\sin\theta$ (y-axis) and $\cos\theta$ (x-axis), and choose between equation ($=$) or inequalities ($\ge, \le$).
+  - **Dynamic Thresholding**: A slider controls the constant $k$ (from -1 to 1). The target line ($y=k$ or $x=k$) moves dynamically across the unit circle.
+  - **Visual Arc Highlighting**: Vividly highlights the continuous valid angle range (purple arc) along the upper half of the unit circle ($0^\circ \le \theta \le 180^\circ$).
+- **Learning Value**: Solving trigonometric equations and inequalities is a massive hurdle in Math I exams because students get lost between substituting algebraic values and remembering the angular domain. By physically dragging the boundary line and watching the valid arc stretch, shrink, or split, the algebraic inequality $\sin\theta \ge \frac{1}{2}$ becomes an undeniable geometric fact ("the part of the circle above the line").
+- **Next Step**: Polish Trigonometry further (e.g., Space Geometry) or expand into advanced Sets and Logic (集合と命題).
+
 ### v1.3.41: Moving Axis Max/Min Visualization (軸が動く最大・最小) (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Created `MovingAxisViz` component in Quadratics (二次関数) for the classic "Fixed Domain, Moving Axis" problem.

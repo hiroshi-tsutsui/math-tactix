@@ -83,7 +83,155 @@ function trigReducer(state: State, action: Action): State {
   }
 }
 
+
+// --- Trigonometric Equations & Inequalities (Level 9) ---
+const TrigEqIneqViz = () => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [funcType, setFuncType] = useState<'sin' | 'cos'>('sin');
+    const [compType, setCompType] = useState<'eq' | 'gt' | 'lt'>('eq');
+    const [kValue, setKValue] = useState<number>(0.5);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const w = canvas.width, h = canvas.height;
+        const ox = w / 2, oy = h / 2 + 30; // shift down to center the semi-circle
+        const r = 140;
+
+        ctx.clearRect(0, 0, w, h);
+
+        // Grid
+        ctx.strokeStyle = '#f1f5f9'; ctx.lineWidth = 1;
+        for(let i=-200; i<=200; i+=20) {
+            ctx.beginPath(); ctx.moveTo(ox + i, 0); ctx.lineTo(ox + i, h); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, oy + i); ctx.lineTo(w, oy + i); ctx.stroke();
+        }
+
+        // Axes
+        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
+        ctx.fillStyle = '#64748b'; ctx.font = '12px sans-serif';
+        ctx.fillText('x', w - 15, oy - 10);
+        ctx.fillText('y', ox + 10, 15);
+
+        // Unit Semi-Circle
+        ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(ox, oy, r, Math.PI, 0); ctx.stroke();
+
+        // Target Line (k)
+        const kPos = funcType === 'sin' ? oy - kValue * r : ox + kValue * r;
+        ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2; ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        if (funcType === 'sin') {
+            ctx.moveTo(0, kPos); ctx.lineTo(w, kPos);
+            ctx.fillStyle = '#ef4444'; ctx.fillText('y = ' + kValue.toFixed(2), 10, kPos - 10);
+        } else {
+            ctx.moveTo(kPos, 0); ctx.lineTo(kPos, h);
+            ctx.fillStyle = '#ef4444'; ctx.fillText('x = ' + kValue.toFixed(2), kPos + 10, 20);
+        }
+        ctx.stroke(); ctx.setLineDash([]);
+
+        // Highlight valid arc (0 to 180 degrees)
+        ctx.strokeStyle = '#8b5cf6'; ctx.lineWidth = 6;
+        let validPoints = [];
+        let firstAngle = null;
+        let lastAngle = null;
+        
+        for (let angle = 0; angle <= 180; angle++) {
+            const rad = angle * Math.PI / 180;
+            const val = funcType === 'sin' ? Math.sin(rad) : Math.cos(rad);
+            let isValid = false;
+            if (compType === 'eq' && Math.abs(val - kValue) < 0.01) isValid = true;
+            if (compType === 'gt' && val >= kValue) isValid = true;
+            if (compType === 'lt' && val <= kValue) isValid = true;
+            
+            if (isValid) {
+                validPoints.push({angle, rad});
+                if (firstAngle === null) firstAngle = angle;
+                lastAngle = angle;
+            } else {
+                if (firstAngle !== null && lastAngle !== null) {
+                    ctx.beginPath();
+                    ctx.arc(ox, oy, r, -lastAngle * Math.PI / 180, -firstAngle * Math.PI / 180, false);
+                    ctx.stroke();
+                }
+                firstAngle = null;
+                lastAngle = null;
+            }
+        }
+        if (firstAngle !== null && lastAngle !== null) {
+            ctx.beginPath();
+            ctx.arc(ox, oy, r, -lastAngle * Math.PI / 180, -firstAngle * Math.PI / 180, false);
+            ctx.stroke();
+        }
+
+        // Draw Intersections and Labels
+        ctx.fillStyle = '#1e293b'; ctx.font = 'bold 16px monospace';
+        let tolerance = 0.02;
+        for (let angle = 0; angle <= 180; angle++) {
+            const rad = angle * Math.PI / 180;
+            const val = funcType === 'sin' ? Math.sin(rad) : Math.cos(rad);
+            if (Math.abs(val - kValue) <= tolerance) {
+                const px = ox + Math.cos(rad) * r;
+                const py = oy - Math.sin(rad) * r;
+                
+                ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1; ctx.setLineDash([]);
+                ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(px, py); ctx.stroke();
+
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.fill();
+                
+                ctx.fillStyle = '#1e293b';
+                ctx.fillText(`${angle}°`, px + 10, py - 10);
+            }
+        }
+    }, [funcType, compType, kValue]);
+
+    return (
+        <div className="flex-1 flex flex-col items-center justify-center p-6 w-full max-w-md mx-auto h-full overflow-y-auto">
+            <div className="w-full aspect-square bg-white dark:bg-slate-950 rounded-[48px] border border-slate-200 dark:border-slate-800 shadow-inner overflow-hidden relative mb-6 shrink-0">
+                <canvas ref={canvasRef} width={400} height={400} className="w-full h-full" />
+                <div className="absolute top-6 left-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm font-mono text-sm">
+                    {funcType === 'sin' ? '\\sin \\theta' : '\\cos \\theta'} 
+                    {compType === 'eq' ? ' = ' : compType === 'gt' ? ' \\ge ' : ' \\le '} 
+                    {kValue.toFixed(2)}
+                </div>
+            </div>
+
+            <div className="space-y-6 w-full pb-10">
+                <div className="flex gap-2">
+                    <button onClick={() => setFuncType('sin')} className={`flex-1 py-3 rounded-2xl font-bold text-sm transition-all ${funcType === 'sin' ? 'bg-black text-white dark:bg-white dark:text-black shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>sin θ</button>
+                    <button onClick={() => setFuncType('cos')} className={`flex-1 py-3 rounded-2xl font-bold text-sm transition-all ${funcType === 'cos' ? 'bg-black text-white dark:bg-white dark:text-black shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>cos θ</button>
+                </div>
+                <div className="flex gap-2">
+                    <button onClick={() => setCompType('eq')} className={`flex-1 py-3 rounded-2xl font-bold text-sm transition-all ${compType === 'eq' ? 'bg-blue-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>= k</button>
+                    <button onClick={() => setCompType('gt')} className={`flex-1 py-3 rounded-2xl font-bold text-sm transition-all ${compType === 'gt' ? 'bg-blue-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>≥ k</button>
+                    <button onClick={() => setCompType('lt')} className={`flex-1 py-3 rounded-2xl font-bold text-sm transition-all ${compType === 'lt' ? 'bg-blue-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>≤ k</button>
+                </div>
+                <div>
+                    <div className="flex justify-between text-xs font-bold text-slate-500 mb-2 font-mono">
+                        <span>k = {kValue.toFixed(2)}</span>
+                    </div>
+                    <input type="range" min="-1" max="1" step="0.05" value={kValue} onChange={e => setKValue(parseFloat(e.target.value))} className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full appearance-none accent-blue-600 cursor-pointer" />
+                </div>
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-3xl border border-purple-100 dark:border-purple-800/50">
+                    <p className="font-bold mb-2 flex items-center gap-2"><Target className="w-4 h-4"/> 三角方程式・不等式の解法</p>
+                    <p className="text-sm text-purple-900 dark:text-purple-300 leading-relaxed">
+                        <MathComponent tex="\sin" /> は <b>y座標</b>、<MathComponent tex="\cos" /> は <b>x座標</b>。<br/>
+                        直線を動かして、単位円上の該当する角度の範囲（紫色の弧）を視覚的に確認しましょう。範囲は <MathComponent tex="0^\circ \le \theta \le 180^\circ" /> です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export default function TrigPage() {
+
   const { t } = useLanguage();
   const { unlockBadge } = useGamification();
   const { resolvedTheme } = useTheme();
@@ -650,7 +798,8 @@ export default function TrigPage() {
              level === 5 ? "余弦定理 (Cosine Rule)" :
              level === 6 ? "三角形の面積 (Triangle Area)" :
              level === 7 ? "内接円の半径 (Inradius)" :
-             level === 8 ? "対称性と公式 (Symmetry)" :
+             level === 8 ? "対称性と公式 (Symmetry)" : 
+             level === 9 ? "方程式と不等式 (Eq & Ineq)" :
              "実践演習 (Quiz)"}
         </div>
         <div className="w-10" />
@@ -671,7 +820,8 @@ export default function TrigPage() {
                       { id: 6, title: "Level 6: 三角形の面積", desc: "高さ = b sinA の視覚化", icon: TrendingUp },
                       { id: 7, title: "Level 7: 内接円の半径", desc: "S = 1/2 r(a+b+c) の視覚化", icon: Circle },
                       { id: 8, title: "Level 8: 対称性と公式", desc: "180°-θ と 90°-θ の視覚化", icon: RefreshCw },
-                      { id: 9, title: "Level 9: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
+                      { id: 9, title: "Level 9: 方程式と不等式", desc: "sin/cosと単位円の交点", icon: Target },
+                      { id: 10, title: "Level 10: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -1008,8 +1158,13 @@ export default function TrigPage() {
                             </div>
                         )}
 
-      {/* Level 9: Tactics Mode (Quiz) */}
+      {/* Level 9: Equations & Inequalities */}
       {level === 9 && (
+          <TrigEqIneqViz />
+      )}
+
+      {/* Level 10: Tactics Mode (Quiz) */}
+      {level === 10 && (
           <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
               {state.quizIndex < QUIZ_DATA.length ? (
                   <div className="w-full max-w-md bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
