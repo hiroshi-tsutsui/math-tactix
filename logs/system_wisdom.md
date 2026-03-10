@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.38: Probability & Permutations Visualization (場合の数と確率) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Completely rewrote the `probability` module to focus on Math A standard topics, removing all previous "Sci-Fi/Monty Hall" concepts. Added Level 1 "順列" (Permutations), Level 2 "組合せ" (Combinations), and Level 3 "条件付き確率" (Conditional Probability).
+- **Visualization**: `ProbabilityViz` implementation.
+  - **Interactive Selection**: For Permutations and Combinations, students use a slider to choose $r$ from $n$ items.
+  - **Visual Distinction**: Permutations show distinct slotted boxes (order matters), while Combinations show a dashed grouping box (order doesn't matter).
+  - **Venn Diagram Overlay**: For Conditional Probability, a dynamic Venn Diagram visualizes $P(A|B)$ by explicitly focusing on the intersection relative to the restricted "B" universe.
+- **Learning Value**: Math A students often confuse $_nP_r$ and $_nC_r$. By visually distinguishing "Slots" vs "Groups", the intuition behind dividing by $r!$ becomes clear. The Conditional Probability visualizer enforces the idea that the denominator changes from "Universe" to "Event B".
+- **Next Step**: Continue focusing on core Math A/I topics or refine existing Trigonometry levels.
+
+
 ### v1.3.37: Quadratic Inequalities and Sets Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 6 "連立不等式と集合" (Quadratic Inequalities and Sets) to Sets and Logic (集合と命題).
