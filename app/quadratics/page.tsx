@@ -44,6 +44,8 @@ import MovingAxisViz from './components/MovingAxisViz';
 import MovingRightEdgeViz from './components/MovingRightEdgeViz';
 import { generateMovingRightEdgeProblem } from './utils/moving-right-edge-generator';
 
+import { generateIndependentVariablesProblem } from './utils/independent-variables-generator';
+import IndependentVariablesViz from './components/IndependentVariablesViz';
 import ShapeOptimizationViz from './components/ShapeOptimizationViz';
 import AbsoluteValueEquationViz from './components/AbsoluteValueEquationViz';
 import SolutionsInRangeViz from './components/SolutionsInRangeViz';
@@ -185,6 +187,7 @@ const LEVELS = [
   { id: 36, title: '2つの2次関数の大小', type: 'two_parabolas_size' },
   { id: 37, title: '2つのグラフの差の関数', type: 'difference_function' },
   { id: 38, title: '定義域の右端が動く最大・最小', type: 'moving_right_edge' },
+  { id: 39, title: '2変数関数の最大・最小 (独立変数)', type: 'independent_variables' },
 
 
 
@@ -318,6 +321,9 @@ export default function QuadraticPage() {
           break;
         case 'difference_function':
           newProblem = generateDifferenceFunctionProblem();
+          break;
+        case 'independent_variables':
+          newProblem = generateIndependentVariablesProblem();
           break;
         case 'moving_right_edge':
           newProblem = generateMovingRightEdgeProblem();
