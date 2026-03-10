@@ -341,3 +341,13 @@
   - **Clarifying Terminology**: Clearly links the geometric inclusion (P is inside Q) to the terminology (P is sufficient for Q, Q is necessary for P).
 - **Learning Value**: The terminology of "necessary" and "sufficient" is extremely confusing for high school students because it sounds abstract in natural language. By reducing the problem to "Which circle is inside which?", it turns a linguistic puzzle into a trivial geometric observation.
 - **Next Step**: Polish Data Analysis or move to Quadratic Function systems.
+
+### v1.3.30: Contrapositive Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 3 "逆・裏・対偶" (Converse, Inverse, Contrapositive) to Sets and Logic (集合と命題).
+- **Visualization**: \`ContrapositiveViz\` implementation.
+  - **Interactive Scenarios**: Students can cycle through "Original", "Converse", "Inverse", and "Contrapositive".
+  - **Visualizing Inclusion**: Shows that if $P \implies Q$ (P is inside Q), then $\overline{Q} \implies \overline{P}$ (the outside of Q is inside the outside of P).
+  - **Logical Equivalence**: Turns the abstract rule "Contrapositive is always true if the original is true" into a concrete visual proof about sets and their complements.
+- **Learning Value**: Math I logic often trips students up on why the contrapositive holds while the converse and inverse do not. By grounding the logic in Venn diagrams (where "not P" is just the outer region), the truth value becomes instantly obvious rather than a memorized rule.
+- **Next Step**: Polish existing logic levels or continue expanding Data Analysis.
