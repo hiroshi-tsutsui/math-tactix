@@ -212,6 +212,70 @@ export default function ProbabilityPage() {
           ctx.stroke();
           ctx.setLineDash([]);
       }
+    
+      // Level 4: Independent Trials
+      if (level === 4) {
+          const dy = 30;
+          const dx = 40;
+          const startY = oy - 120;
+          const p = probA;
+          
+          ctx.font = "12px Geist Sans";
+          ctx.textAlign = "center";
+          
+          for (let i = 0; i <= n; i++) {
+              for (let j = 0; j <= i; j++) {
+                  const nodeX = ox + (j * dx) - ((i - j) * dx);
+                  const nodeY = startY + i * dy;
+                  
+                  // Draw connections
+                  if (i < n) {
+                      const leftX = ox + (j * dx) - ((i + 1 - j) * dx);
+                      const rightX = ox + ((j + 1) * dx) - ((i - j) * dx);
+                      const nextY = startY + (i + 1) * dy;
+                      
+                      // Left (Failure)
+                      ctx.beginPath();
+                      ctx.moveTo(nodeX, nodeY);
+                      ctx.lineTo(leftX, nextY);
+                      ctx.strokeStyle = colors.itemBorder;
+                      ctx.lineWidth = 1;
+                      ctx.stroke();
+                      
+                      // Right (Success)
+                      ctx.beginPath();
+                      ctx.moveTo(nodeX, nodeY);
+                      ctx.lineTo(rightX, nextY);
+                      ctx.strokeStyle = colors.itemBorder;
+                      ctx.stroke();
+                  }
+                  
+                  // Draw Node
+                  ctx.beginPath();
+                  ctx.arc(nodeX, nodeY, 6, 0, Math.PI * 2);
+                  const isTarget = i === n && j === r;
+                  ctx.fillStyle = isTarget ? colors.primary : colors.itemBg;
+                  ctx.fill();
+                  ctx.strokeStyle = isTarget ? colors.primary : colors.secondary;
+                  ctx.lineWidth = 2;
+                  ctx.stroke();
+                  
+                  if (isTarget) {
+                     ctx.fillStyle = colors.text;
+                     ctx.fillText(`${n}C${r}`, nodeX, nodeY + 20);
+                  }
+              }
+          }
+          
+          // Explain
+          ctx.font = "16px Geist Sans";
+          ctx.fillStyle = colors.text;
+          ctx.fillText(`${n}回中 ${r}回 成功する確率`, ox, startY + n * dy + 60);
+          ctx.font = "14px Geist Sans";
+          ctx.fillStyle = colors.secondary;
+          ctx.fillText(`${n}C${r} × p^${r} × (1-p)^${n-r}`, ox, startY + n * dy + 85);
+      }
+
     };
     render();
   }, [level, n, r, probA, probB]);
@@ -251,7 +315,9 @@ export default function ProbabilityPage() {
                   {[
                       { id: 1, title: "Level 1: 順列 (Permutations)", desc: "n個からr個を選んで一列に並べる", icon: Dices },
                       { id: 2, title: "Level 2: 組合せ (Combinations)", desc: "n個からr個を順序を気にせず選ぶ", icon: Circle },
-                      { id: 3, title: "Level 3: 条件付き確率", desc: "事象Bが起こった時の事象Aの確率", icon: Target }
+                      { id: 3, title: "Level 3: 条件付き確率", desc: "事象Bが起こった時の事象Aの確率", icon: Target },
+                      { id: 4, title: "Level 4: 反復試行の確率", desc: "同じ試行をn回繰り返す確率", icon: Activity },
+                      { id: 4, title: "Level 4: 反復試行の確率", desc: "同じ試行をn回繰り返す確率", icon: Activity }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -293,6 +359,36 @@ export default function ProbabilityPage() {
                                         <MathComponent tex={`{}_{${n}}\\mathrm{C}_{${r}} = ${cValue}`} />
                                     )}
                                 </div>
+                            </div>
+                        </div>
+                    )}
+
+                    
+                    {level === 4 && (
+                        <div className="space-y-4">
+                            <div>
+                                <div className="flex justify-between text-xs font-bold text-slate-400 uppercase mb-2">
+                                    <span>試行回数 (n): {n}</span>
+                                </div>
+                                <input type="range" min="1" max="8" step="1" value={n} 
+                                    onChange={e => dispatch({type: 'SET_N', payload: Number(e.target.value)})} 
+                                    className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-black cursor-pointer" />
+                            </div>
+                            <div>
+                                <div className="flex justify-between text-xs font-bold text-slate-400 uppercase mb-2">
+                                    <span>成功回数 (r): {r}</span>
+                                </div>
+                                <input type="range" min="0" max={n} step="1" value={r} 
+                                    onChange={e => dispatch({type: 'SET_R', payload: Number(e.target.value)})} 
+                                    className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-black cursor-pointer" />
+                            </div>
+                            <div>
+                                <div className="flex justify-between text-xs font-bold text-slate-400 uppercase mb-2">
+                                    <span>1回の成功確率 (p): {probA.toFixed(2)}</span>
+                                </div>
+                                <input type="range" min="0.1" max="0.9" step="0.1" value={probA} 
+                                    onChange={e => dispatch({type: 'SET_PROBA', payload: Number(e.target.value)})} 
+                                    className="w-full h-2 bg-slate-100 rounded-full appearance-none accent-black cursor-pointer" />
                             </div>
                         </div>
                     )}
