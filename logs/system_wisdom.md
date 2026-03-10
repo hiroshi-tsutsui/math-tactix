@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.34: Size Comparison of Two Quadratic Functions (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 36 "2つの2次関数の大小" (Size Comparison of Two Parabolas) to Quadratics.
+- **Visualization**: `TwoParabolasSizeViz` implementation (Canvas-based).
+  - **Interactive Toggles**: Students can toggle between two classic mathematical conditions: "For any x, f(x) > g(x)" vs "For any x1, x2, f(x1) > g(x2)".
+  - **Dynamic Parabolas**: Two parabolas f(x) [opening up] and g(x) [opening down] can be shifted vertically using sliders.
+  - **Visual Proof**: In the "same x" mode, vertical distances are highlighted showing the gap between the functions. In the "any x1, x2" mode, horizontal boundary lines are drawn at the minimum of f(x) and maximum of g(x), shading the "safe zone" between them.
+- **Learning Value**: This is one of the most notoriously confusing concepts in Math I (数学I). The linguistic difference between "任意のx" (for any x) and "任意のx1, x2" (for any x1, x2) completely changes the algebraic approach (Discriminant D < 0 vs comparing Min/Max). The visualization makes the geometric distinction instantly obvious, turning a confusing word problem into a simple boundary check.
+- **Next Step**: Polish Math I Data Analysis or expand further into Math I Trigonometry.
+
+
 ### v1.3.33: Tangent from External Point Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 35 "放物線外の点から引いた接線" (Tangent from an External Point) to Quadratics.
