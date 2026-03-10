@@ -7,6 +7,28 @@
 
 ## Evolution History
 
+### v1.3.57: Domain-Specific Always Positive/Negative Condition (特定の区間で常に正・負となる条件) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 45 "特定の区間で常に正・負となる条件" (Conditions for Always Positive/Negative in a Specific Domain) to Quadratic Functions (二次関数). Also successfully bound Level 44 "一方だけが実数解をもつ条件" into the page.tsx UI.
+- **Visualization**: `DomainAlwaysPositiveViz` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $f(x) = x^2 - 2ax + a + 2$ defined strictly on the interval $[0, 2]$.
+  - **Dynamic Case Logic**: As students slide the parameter $a$, the vertex moves. The visualization automatically identifies whether the vertex is to the left of 0, inside the interval, or to the right of 2, and displays the literal value of the minimum on the interval.
+  - **Condition Validation**: Highlights the region above the x-axis in green and explicitly checks if the minimum value stays strictly above 0.
+- **Learning Value**: Math I students universally struggle with "Absolute Inequalities on a Restricted Domain". They memorize $D < 0$ for "always positive" but forget that on a restricted domain, the graph can dip below the x-axis *outside* the domain and still be perfectly valid. By sliding the parabola and explicitly tracking the lowest point *inside the blue box*, the case-splitting (場合分け) logic becomes an undeniable physical boundary check.
+- **Next Step**: The Quadratic Functions (二次関数) module is now essentially complete as a comprehensive visual encyclopedia of all exam patterns. Next cycle should aggressively shift focus to Math I "Numbers and Algebraic Expressions" (数と式) or "Data Analysis" (データの分析).
+
+
+### v1.3.56: One Real Root Condition Visualization (一方だけが実数解をもつ条件) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 44 "一方だけが実数解をもつ条件" (Condition for Exactly One Real Root) to Quadratic Functions (二次関数).
+- **Visualization**: `OneRealRootConditionViz` implementation (Canvas-based).
+  - **Focus on Discriminants**: Students adjust the parameter $p$ and visually see how the two equations $x^2 + px + 1 = 0$ and $x^2 + x + p = 0$ independently change.
+  - **Visualizing Roots**: The canvas clearly shows when one parabola crosses the x-axis while the other "floats" above it.
+  - **Dynamic Checks**: Calculates and displays the signs of both discriminants $D_1$ and $D_2$ in real-time.
+- **Learning Value**: "Exactly one equation has real roots" problems notoriously trip up Math I students because the logical condition $(D_1 \ge 0 \text{ AND } D_2 < 0) \text{ OR } (D_1 < 0 \text{ AND } D_2 \ge 0)$ is long and prone to careless interval calculation errors. Seeing the two parabolas simultaneously forces the student to connect the algebraic interval of $p$ to the physical reality of the graphs intersecting the axis.
+- **Next Step**: Polish existing Quadratics levels and move fully into Math I Numbers and Algebraic Expressions (数と式) or Data Analysis refinement.
+
+
 ### v1.3.55: Profit Maximization Word Problem (利益の最大化の応用) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 43 "利益の最大化 (文章題)" (Profit Maximization) to Quadratic Functions (二次関数).

@@ -4447,3 +4447,14 @@ Caused by:
 Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
 Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
 Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+
+thread 'tokio-runtime-worker' (5426081) panicked at /Users/geist/dev/actions-runner/_work/next.js/next.js/turbopack/crates/turbo-tasks-backend/src/backend/mod.rs:1354:30:
+Failed to lookup task id: Looking up task id for CachedTaskType { native_fn: NativeFunction { name: "<DiskFileSystem as FileSystem>::read", global_name: "turbo-tasks-fs@turbo_tasks_fs::DiskFileSystem::FileSystem::read", .. }, this: Some(RawVc::TaskCell(215001, "turbo_tasks_fs::DiskFileSystem#0")), arg: (FileSystemPath { fs: ResolvedVc(RawVc::TaskCell(215001, "turbo_tasks_fs::DiskFileSystem#0")), path: "app/quadratics/utils/conditional-max-min-generator.ts" },) } from database failed
+
+Caused by:
+    0: Unable to open static sorted file referenced from 00003218.meta
+    1: Unable to open static sorted file 00003213.sst
+    2: No such file or directory (os error 2)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)
+Persisting failed: Another write batch or compaction is already active (Only a single write operations is allowed at a time)

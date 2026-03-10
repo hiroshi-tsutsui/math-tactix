@@ -1,4 +1,5 @@
 'use client';
+import DomainAlwaysPositiveViz from './components/DomainAlwaysPositiveViz';
 
 import React, { useState, useEffect } from 'react';
 import { generateRootsLocationProblem } from './utils/roots-location-generator';
@@ -94,6 +95,8 @@ import { ExternalTangentViz } from "./components/ExternalTangentViz";
 import DifferentSignsViz from './components/DifferentSignsViz';
 import ProfitMaximizationViz from './components/ProfitMaximizationViz';
 import { generateDifferentSignsProblem } from './utils/different-signs-generator';
+import OneRealRootConditionViz from './components/OneRealRootConditionViz';
+import { generateOneRealRootCondition } from './utils/one-real-root-generator';
 
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -155,7 +158,7 @@ interface Problem {
 
 // Level Configuration
 const LEVELS = [
-  { id: 1, title: '平方完成', type: 'completing_square' },
+{ id: 1, title: '平方完成', type: 'completing_square' },
   { id: 2, title: '解の配置', type: 'roots_location' },
   { id: 3, title: '定義域が動く最大・最小', type: 'moving_domain' },
   { id: 4, title: '軸が動く最大・最小', type: 'moving_axis' },
@@ -202,6 +205,8 @@ const LEVELS = [
 
 
 
+  { id: 44, title: '一方だけが実数解をもつ条件', type: 'one_real_root' },
+  { id: 45, title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' },
 ];
 
 export default function QuadraticPage() {
@@ -344,6 +349,13 @@ export default function QuadraticPage() {
         case 'profit_maximization':
           newProblem = { id: Date.now(), title: '利益の最大化', questionText: 'ある商品を100円で売ると、1日に1000個売れる。10円値上げするごとに売上個数は50個減る。利益を最大にするには、価格をいくらにすればよいか。', explanationSteps: ['価格を100+10xとする', '個数を1000-50xとする', '利益 y = (100+10x)(1000-50x) を最大化する'] };
           break;
+        case 'one_real_root':
+          newProblem = { id: Date.now(), title: '一方だけが実数解をもつ条件', type: 'one_real_root' };
+          break;
+        case 'domain_always_positive':
+          newProblem = { id: Date.now(), title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' };
+          break;
+
         case 'independent_variables':
           newProblem = generateIndependentVariablesProblem();
           break;

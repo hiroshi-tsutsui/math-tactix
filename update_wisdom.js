@@ -1,19 +1,23 @@
 const fs = require('fs');
-const wisdomPath = 'logs/system_wisdom.md';
-let wisdom = fs.readFileSync(wisdomPath, 'utf8');
+const path = require('path');
+
+const logPath = path.join(__dirname, 'logs/system_wisdom.md');
+let content = fs.readFileSync(logPath, 'utf-8');
 
 const newEntry = `
-### v1.3.55: Profit Maximization Word Problem (利益の最大化の応用) (2026-03-11)
+### v1.3.57: Domain-Specific Always Positive/Negative Condition (特定の区間で常に正・負となる条件) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
-- **Action**: Added Level 43 "利益の最大化 (文章題)" (Profit Maximization) to Quadratic Functions (二次関数).
-- **Visualization**: \`ProfitMaximizationViz\` implementation.
-  - **Focus on Word Problem**: Students dynamically adjust the number of price increases (x) using a slider.
-  - **Real-time Equations**: Visually displays the dynamically calculated Price ($100 + 10x$), Sales ($1000 - 50x$), and Total Profit.
-  - **Parabolic Insight**: Displays the profit parabola on a canvas, matching the student's current position to the vertex (maximum profit).
-- **Learning Value**: Math I students often struggle with word problems because translating text into equations ($y = (100+10x)(1000-50x)$) is abstract. By interactively linking the price slider to the visual geometry of a parabola and seeing the profit literally peak, it grounds the algebraic model in a concrete real-world scenario.
-- **Next Step**: Continue expanding Math I topics or refine word problem variations.
+- **Action**: Added Level 45 "特定の区間で常に正・負となる条件" (Conditions for Always Positive/Negative in a Specific Domain) to Quadratic Functions (二次関数). Also successfully bound Level 44 "一方だけが実数解をもつ条件" into the page.tsx UI.
+- **Visualization**: \`DomainAlwaysPositiveViz\` implementation (Canvas-based).
+  - **Interactive Graphic**: Visualizes $f(x) = x^2 - 2ax + a + 2$ defined strictly on the interval $[0, 2]$.
+  - **Dynamic Case Logic**: As students slide the parameter $a$, the vertex moves. The visualization automatically identifies whether the vertex is to the left of 0, inside the interval, or to the right of 2, and displays the literal value of the minimum on the interval.
+  - **Condition Validation**: Highlights the region above the x-axis in green and explicitly checks if the minimum value stays strictly above 0.
+- **Learning Value**: Math I students universally struggle with "Absolute Inequalities on a Restricted Domain". They memorize $D < 0$ for "always positive" but forget that on a restricted domain, the graph can dip below the x-axis *outside* the domain and still be perfectly valid. By sliding the parabola and explicitly tracking the lowest point *inside the blue box*, the case-splitting (場合分け) logic becomes an undeniable physical boundary check.
+- **Next Step**: The Quadratic Functions (二次関数) module is now essentially complete as a comprehensive visual encyclopedia of all exam patterns. Next cycle should aggressively shift focus to Math I "Numbers and Algebraic Expressions" (数と式) or "Data Analysis" (データの分析).
 `;
 
-wisdom = wisdom.replace('## Evolution History\n', `## Evolution History\n${newEntry}`);
-fs.writeFileSync(wisdomPath, wisdom);
-console.log('Updated system_wisdom.md');
+const insertionPoint = content.indexOf('## Evolution History') + '## Evolution History'.length;
+content = content.substring(0, insertionPoint) + '\n' + newEntry + content.substring(insertionPoint);
+
+fs.writeFileSync(logPath, content);
+console.log("Wisdom updated.");
