@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.28: De Morgan's Laws Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 1 "ド・モルガンの法則" (De Morgan's Laws) to Sets and Logic (集合と命題).
+- **Visualization**: `DeMorgansViz` implementation (Canvas-based Venn Diagrams).
+  - **Interactive Regions**: Students can toggle between $A \cup B$, $A \cap B$, and their complements.
+  - **Visual Proof**: Dynamically colors the regions to visually prove that $\overline{A \cup B} = \overline{A} \cap \overline{B}$ and $\overline{A \cap B} = \overline{A} \cup \overline{B}$.
+- **Learning Value**: Often memorized as an abstract string manipulation ("flip the cup to a cap"). Visualizing the areas makes it obvious why the negation forces the intersection of the individual negations.
+- **Next Step**: Expand Sets and Logic to "Necessary and Sufficient Conditions" (必要条件と十分条件) or polish Data Analysis.
+
+
 ### v1.3.27: Positional Relationship of Two Parabolas (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 33 "2つの放物線の位置関係と接線" (Positional Relationship and Tangency of Two Parabolas) to Quadratics.

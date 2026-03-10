@@ -1,0 +1,184 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
+import { GeistSans } from 'geist/font/sans';
+import { ChevronLeft, Compass, Search, SplitSquareHorizontal } from 'lucide-react';
+import 'katex/dist/katex.min.css';
+import katex from 'katex';
+
+const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
+  const containerRef = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (containerRef.current) {
+      katex.render(tex, containerRef.current, { throwOnError: false, displayMode: false });
+    }
+  }, [tex]);
+  return <span ref={containerRef} className={className} />;
+};
+
+export default function SetsLogicPage() {
+  const [level, setLevel] = useState<number>(0);
+  const [activeSet, setActiveSet] = useState<string>("A_cup_B"); // A U B, A n B, not_A_cup_B, etc.
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (level !== 1) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    
+    // Universal set U
+    const uRect = { x: 20, y: 20, w: w - 40, h: h - 40 };
+    
+    // Set A and B
+    const r = 80;
+    const ax = w / 2 - 40, ay = h / 2;
+    const bx = w / 2 + 40, by = h / 2;
+    
+    const fillRegion = (condition: (x: number, y: number) => boolean, color: string) => {
+      ctx.fillStyle = color;
+      for(let y = uRect.y; y < uRect.y + uRect.h; y+=2) {
+        for(let x = uRect.x; x < uRect.x + uRect.w; x+=2) {
+          if(condition(x, y)) {
+            ctx.fillRect(x, y, 2, 2);
+          }
+        }
+      }
+    };
+    
+    const inA = (x: number, y: number) => (x - ax)**2 + (y - ay)**2 <= r**2;
+    const inB = (x: number, y: number) => (x - bx)**2 + (y - by)**2 <= r**2;
+    
+    const highlightColor = 'rgba(59, 130, 246, 0.4)'; // Blue-500 with opacity
+    
+    if (activeSet === "A_cup_B") {
+      fillRegion((x, y) => inA(x,y) || inB(x,y), highlightColor);
+    } else if (activeSet === "A_cap_B") {
+      fillRegion((x, y) => inA(x,y) && inB(x,y), highlightColor);
+    } else if (activeSet === "not_A_cup_B") {
+      fillRegion((x, y) => !(inA(x,y) || inB(x,y)), highlightColor);
+    } else if (activeSet === "not_A_cap_not_B") {
+      fillRegion((x, y) => !inA(x,y) && !inB(x,y), highlightColor);
+    } else if (activeSet === "not_A_cap_B") {
+      fillRegion((x, y) => !(inA(x,y) && inB(x,y)), highlightColor);
+    } else if (activeSet === "not_A_cup_not_B") {
+      fillRegion((x, y) => !inA(x,y) || !inB(x,y), highlightColor);
+    }
+    
+    // Draw U boundary
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(uRect.x, uRect.y, uRect.w, uRect.h);
+    
+    // Draw A and B circles
+    ctx.beginPath(); ctx.arc(ax, ay, r, 0, Math.PI*2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(bx, by, r, 0, Math.PI*2); ctx.stroke();
+    
+    // Labels
+    ctx.fillStyle = '#000';
+    ctx.font = 'bold 20px Geist Sans';
+    ctx.fillText('U', uRect.x + 10, uRect.y + 25);
+    ctx.fillText('A', ax - 50, ay - 50);
+    ctx.fillText('B', bx + 30, ay - 50);
+
+  }, [level, activeSet]);
+
+  return (
+    <div className={`h-screen bg-white text-slate-900 flex flex-col ${GeistSans.className} overflow-hidden`}>
+      <header className="h-14 flex items-center justify-between px-6 shrink-0 border-b border-slate-100 bg-white/90 backdrop-blur-md z-50">
+        <div className="flex items-center gap-2">
+            {level > 0 && (
+                <button onClick={() => setLevel(0)} className="p-2 -ml-2 text-slate-400 hover:text-black transition-colors">
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
+            )}
+            <div className="text-[10px] font-black tracking-[0.2em] text-slate-400 uppercase">
+                {level === 0 ? "MATHEMATICS I" : `LEVEL ${level}`}
+            </div>
+        </div>
+        <div className="font-bold text-sm">
+            {level === 0 ? "集合と命題 (Sets & Logic)" : "ド・モルガンの法則 (De Morgan's Laws)"}
+        </div>
+        <div className="w-10" />
+      </header>
+
+      {level === 0 && (
+          <main className="flex-1 overflow-y-auto p-6">
+              <div className="max-w-md mx-auto space-y-4">
+                  <h1 className="text-2xl font-black mb-8 text-center">Select Module</h1>
+                  
+                  {[
+                      { id: 1, title: "Level 1: ド・モルガンの法則", desc: "集合の演算とベン図の視覚的証明", icon: Compass }
+                  ].map((item) => (
+                      <button key={item.id} onClick={() => setLevel(item.id)}
+                        className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
+                          <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                              <item.icon className="w-6 h-6" />
+                          </div>
+                          <div>
+                              <div className="font-bold text-lg">{item.title}</div>
+                              <div className="text-xs text-slate-500">{item.desc}</div>
+                          </div>
+                      </button>
+                  ))}
+              </div>
+          </main>
+      )}
+
+      {level === 1 && (
+          <>
+            <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[400px]">
+                <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
+                    <canvas ref={canvasRef} width={400} height={400} className="w-full h-full" />
+                </div>
+            </section>
+
+            <main className="flex-1 overflow-y-auto bg-white p-6">
+                <div className="max-w-md mx-auto space-y-6">
+                    <div className="grid grid-cols-2 gap-4">
+                        <button onClick={() => setActiveSet("A_cup_B")} className={`p-4 rounded-xl border-2 font-bold ${activeSet === "A_cup_B" ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-white"}`}>
+                            <MathComponent tex="A \cup B" />
+                        </button>
+                        <button onClick={() => setActiveSet("A_cap_B")} className={`p-4 rounded-xl border-2 font-bold ${activeSet === "A_cap_B" ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-white"}`}>
+                            <MathComponent tex="A \cap B" />
+                        </button>
+                        <button onClick={() => setActiveSet("not_A_cup_B")} className={`p-4 rounded-xl border-2 font-bold ${activeSet === "not_A_cup_B" ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-white"}`}>
+                            <MathComponent tex="\overline{A \cup B}" />
+                        </button>
+                        <button onClick={() => setActiveSet("not_A_cap_not_B")} className={`p-4 rounded-xl border-2 font-bold ${activeSet === "not_A_cap_not_B" ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-white"}`}>
+                            <MathComponent tex="\overline{A} \cap \overline{B}" />
+                        </button>
+                        <button onClick={() => setActiveSet("not_A_cap_B")} className={`p-4 rounded-xl border-2 font-bold ${activeSet === "not_A_cap_B" ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-white"}`}>
+                            <MathComponent tex="\overline{A \cap B}" />
+                        </button>
+                        <button onClick={() => setActiveSet("not_A_cup_not_B")} className={`p-4 rounded-xl border-2 font-bold ${activeSet === "not_A_cup_not_B" ? "border-blue-500 bg-blue-50 text-blue-700" : "border-slate-200 bg-white"}`}>
+                            <MathComponent tex="\overline{A} \cup \overline{B}" />
+                        </button>
+                    </div>
+
+                    <div className="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                        <div className="space-y-4">
+                            <h3 className="font-bold flex items-center gap-2"><SplitSquareHorizontal className="w-4 h-4" /> ド・モルガンの法則</h3>
+                            <p className="text-sm text-slate-500 leading-relaxed">
+                                上のボタンを切り替えて、ベン図の塗られる領域が全く同じになるペアを見つけましょう。
+                            </p>
+                            <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                                <MathComponent tex="\overline{A \cup B} = \overline{A} \cap \overline{B}" className="text-lg font-bold text-blue-700 block mb-2" />
+                                <MathComponent tex="\overline{A \cap B} = \overline{A} \cup \overline{B}" className="text-lg font-bold text-blue-700 block" />
+                            </div>
+                            <p className="text-xs text-slate-400 text-center mt-2">
+                                「全体を否定すると、カップ(∪)とキャップ(∩)がひっくり返る」という法則が、ベン図を使えば視覚的に明らかになります。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+          </>
+      )}
+    </div>
+  );
+}
