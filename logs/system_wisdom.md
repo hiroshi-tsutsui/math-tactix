@@ -331,3 +331,13 @@
   - **Real-time Metrics**: Visualizes the mean as a central line, and draws the "deviation" (偏差) as squares whose areas represent the squared deviations. The average of these areas dynamically shows the Variance (分散), and the side length shows the Standard Deviation (標準偏差).
 - **Learning Value**: Variance is often just a memorized formula ($\frac{1}{n}\sum(x_i - \bar{x})^2$). By visualizing the squared deviations as literal squares on the screen, students geometrically *feel* why outliers exponentially increase the variance, connecting the algebra to visual spread.
 - **Next Step**: Expand to Level 3 "箱ひげ図とデータの散らばり" (Box Plots and Data Dispersion) or refine Trigonometry (図形と計量).
+
+### v1.3.29: Necessary and Sufficient Conditions Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 2 "必要条件と十分条件" (Necessary and Sufficient Conditions) to Sets and Logic (集合と命題).
+- **Visualization**: `NecessarySufficientViz` implementation.
+  - **Interactive Scenarios**: Students can cycle through multiple classic scenarios (e.g., $x=2$ vs $x^2=4$, $x>0$ vs $x>1$).
+  - **Visualizing Inclusion**: Dynamically visualizes the sets P and Q as nested circles, making it obvious which set is "inside" the other.
+  - **Clarifying Terminology**: Clearly links the geometric inclusion (P is inside Q) to the terminology (P is sufficient for Q, Q is necessary for P).
+- **Learning Value**: The terminology of "necessary" and "sufficient" is extremely confusing for high school students because it sounds abstract in natural language. By reducing the problem to "Which circle is inside which?", it turns a linguistic puzzle into a trivial geometric observation.
+- **Next Step**: Polish Data Analysis or move to Quadratic Function systems.
