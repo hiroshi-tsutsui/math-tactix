@@ -7,6 +7,16 @@
 
 ## Evolution History
 
+### v1.3.54: Cyclic Quadrilateral Visualization (円に内接する四角形) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 13 "円に内接する四角形" (Cyclic Quadrilateral) to Math I Trigonometry (図形と計量), pushing the Quiz to Level 14.
+- **Visualization**: `CyclicQuadrilateralViz` implementation.
+  - **Interactive Circle**: Students can drag 4 points (A, B, C, D) around a circle.
+  - **Real-time Geometric Check**: Dynamically calculates and displays the interior angles B and D, explicitly showing that their sum is exactly 180° regardless of point positions.
+  - **Visualizing Cosine Rule Application**: Derives the diagonal length AC by simultaneously applying the Cosine Rule from △ABC and △ADC. It explicitly shows how $\cos D = -\cos B$, linking the abstract formula substitution to the visual geometry of the shared diagonal.
+- **Learning Value**: Math I students universally struggle with "Cyclic Quadrilaterals" because it requires applying the Cosine Rule twice and solving a simultaneous equation using the $\cos(180^\circ - \theta) = -\cos\theta$ property. By dragging the points and watching the numbers balance out perfectly, it demystifies the algebraic trick and solidifies the geometric intuition.
+- **Next Step**: Continue to explore high-impact Math I exam topics, such as Number Theory or further Data Analysis.
+
 ### v1.3.52: At Least One Positive Root Visualization (少なくとも1つの正の解) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 40 "少なくとも1つの正の解をもつ条件" (At least one positive root condition) to Quadratic Functions (二次関数).
@@ -575,3 +585,13 @@
   - **Dynamic Case Logic**: Shows explicit real-time text explaining the 3-case split depending on whether the Axis is left/right of the Domain Center (for Max) or left/inside/right of the Domain (for Min).
 - **Learning Value**: Math I students universally struggle with "Case Splitting" (場合分け) when the domain moves. Minimum is relatively intuitive, but Maximum requires comparing the axis to the *center* of the domain. By dynamically drawing the center line and highlighting the "farther edge" as the maximum point, it turns an abstract algebraic distance comparison into an immediate visual rule.
 - **Next Step**: Continue aligning existing Quadratic Functions visualizations (like Coefficient Signs) with concrete problem generators for test-style exercises.
+
+### v1.3.53: Different Signs Roots Visualization (異符号の解) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 41 "異符号の解" (Roots with Different Signs) to Quadratic Functions (二次関数).
+- **Visualization**: `DifferentSignsViz` implementation.
+  - **Focus on y-intercept**: Students adjust parameter $m$ and see that as long as $f(0) < 0$, the parabola naturally opens upwards and crosses the x-axis on both positive and negative sides.
+  - **Redundant Conditions**: Visually demonstrates why checking the discriminant ($D>0$) or the axis is unnecessary when $f(0) < 0$ and $a > 0$.
+- **Learning Value**: Math I students often over-complicate "different signs" problems by calculating $D>0$, sum of roots, and product of roots. By visually proving that pulling the y-intercept below 0 forces the parabola to cross the x-axis twice with different signs, the required calculation simplifies to just one condition.
+- **Next Step**: Continue expanding Math I topics (Trigonometry or Numbers & Algebraic Expressions).
+- **Action**: Added Level 41 "異符号の解" (Roots with Different Signs) to Quadratic Functions (二次関数).
