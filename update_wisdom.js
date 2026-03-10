@@ -1,19 +1,19 @@
 const fs = require('fs');
-const logPath = 'logs/system_wisdom.md';
-let logContent = fs.readFileSync(logPath, 'utf8');
 
-const newEntry = `### v1.3.39: Difference Function Visualization (2つのグラフの差の関数) (2026-03-10)
+const date = new Date().toISOString().split('T')[0];
+const entry = `
+### v1.3.45: Independent Trials Probability Visualization (2026-03-10)
 - **Status**: **IMPLEMENTED**.
-- **Action**: Added Level 37 "2つのグラフの差の関数" (Difference Function of Two Graphs) to Quadratics.
-- **Visualization**: \`DifferenceFunctionViz\` implementation (Canvas-based dual graphs).
-  - **Interactive Dual Graphs**: Visualizes $f(x)$ (Parabola) and $g(x)$ (Line) on the top canvas, and their difference function $h(x) = f(x) - g(x)$ on the bottom canvas simultaneously.
-  - **Real-time Linkage**: As students slide the parameters $a$ (parabola width), $m$ (line slope), and $k$ (line intercept), the intersections of $f(x)$ and $g(x)$ dynamically track exactly to the x-intercepts of $h(x)$.
-  - **Visualizing the Intersection**: Draws vertical dashed tracking lines that explicitly connect the top intersections to the bottom roots, proving geometrically that $f(x) = g(x) \\iff f(x) - g(x) = 0$.
-- **Learning Value**: "Difference functions" are the conceptual backbone for solving quadratic inequalities, intersection problems, and ultimately Math II integration. Students often manipulate $f(x) - g(x)$ purely algebraically without realizing they are creating a new "flat" world where the intersection line becomes the new x-axis. By splitting the screen and showing both worlds reacting perfectly in sync, this abstract algebraic trick becomes an undeniable geometric reality.
-- **Next Step**: Polish existing data analysis levels or focus strictly on Math I Trigonometry.
-
+- **Action**: Added Level 4 "反復試行の確率" (Independent Trials Probability) to Probability (場合の数と確率). Note: A previous uncommitted broken build for Heron's Formula was reverted to stabilize the main branch.
+- **Visualization**: \`IndependentTrialsViz\` implementation (Canvas-based Grid).
+  - **Interactive Simulation**: Students can adjust the total number of trials $n$, the target number of successes $r$, and the probability of success $p$.
+  - **Grid Navigation**: Visualizes the $2^n$ possible paths as a geometric grid where the x-axis represents successes and the y-axis represents failures.
+  - **Path Highlighting**: Explicitly highlights the node $(r, n-r)$ and displays the combinatorial count $_nC_r$ alongside the probability formula $_nC_r \\times p^r \\times (1-p)^{n-r}$.
+- **Learning Value**: Math A students frequently memorize the formula blindly without understanding the combinatorial $_nC_r$ component. By physically mapping the sequence of successes and failures onto a grid, the formula's origin (number of paths $\\times$ probability of one path) becomes a self-evident geometric property.
+- **Next Step**: Polish Data Analysis or restore Trigonometry's Heron Formula with proper types.
 `;
 
-logContent = logContent.replace('## Evolution History\n', '## Evolution History\n\n' + newEntry);
-fs.writeFileSync(logPath, logContent);
-console.log('Wisdom updated');
+let file = fs.readFileSync('logs/system_wisdom.md', 'utf8');
+// Insert right after the header Evolution History
+file = file.replace('## Evolution History\n', '## Evolution History\n' + entry);
+fs.writeFileSync('logs/system_wisdom.md', file);

@@ -511,3 +511,13 @@
   - **Real-time Statistics Update**: Explicitly calculates and displays how the mean ($\bar{y} = a\bar{x} + b$), variance ($s_y^2 = a^2s_x^2$), and standard deviation ($s_y = |a|s_x$) react to scaling and shifting.
 - **Learning Value**: Often taught purely through abstract formulas, students struggle to remember why adding $b$ doesn't change the variance. By interactively shifting and scaling the points and watching the "spread" indicator widen or slide, the geometric meaning behind the data transformation formulas becomes obvious.
 - **Next Step**: Polish existing data analysis levels or focus strictly on Math I Trigonometry.
+
+### v1.3.46: Probability of Maximum Value (最大値の確率) (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 5 "最大値の確率" (Probability of Maximum/Minimum) to Probability (場合の数と確率). Also fixed missing explanations for Level 4 Independent Trials.
+- **Visualization**: `MaxMinProbabilityViz` implementation (2D Grid for $n=2$ dice).
+  - **Interactive Selection**: Students slide the target maximum value $k$ from 1 to 6.
+  - **Grid Area Mapping**: The $6 \\times 6$ outcome space is visualized. It clearly highlights the "L-shaped" boundary of outcomes where the maximum die roll is exactly $k$.
+  - **Visual Subtraction**: By showing the larger $k \\times k$ square (where max $\\le k$) and a grayed-out smaller $(k-1) \\times (k-1)$ square (where max $\\le k-1$), the L-shaped difference physically demonstrates the $k^2 - (k-1)^2$ formula.
+- **Learning Value**: Math A students classically struggle with the "max/min probability" questions, often getting lost trying to enumerate cases (e.g. "one is 4, the other is 1,2,3, or both are 4"). By transforming the probability calculation into a literal area calculation of an L-shaped boundary on a grid, it turns algebraic case-splitting into obvious geometry.
+- **Next Step**: Polish existing probability modules or begin work on Math I "Numbers and Algebraic Expressions" (数と式).
