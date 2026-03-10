@@ -7,6 +7,17 @@
 
 ## Evolution History
 
+### v1.3.37: Quadratic Inequalities and Sets Visualization (2026-03-10)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 6 "連立不等式と集合" (Quadratic Inequalities and Sets) to Sets and Logic (集合と命題).
+- **Visualization**: `QuadraticSetsViz` implementation.
+  - **Interactive 1D Number Line**: Students can adjust the bounds for Set A (closed interval, ≤, ≥) and Set B (open interval, <, >).
+  - **Toggle Inside/Outside**: Set B can easily be toggled between an "inside" range ($b_1 < x < b_2$) and an "outside" range ($x < b_1, b_2 < x$), which directly maps to the two forms of quadratic inequality solutions ($D>0, a>0$).
+  - **Real-time Intersection**: The common region ($A \cap B$) is vividly highlighted in purple.
+- **Learning Value**: Math I students often struggle with finding the integer solutions of simultaneous quadratic inequalities because they draw the number lines incorrectly. This visualizer forces them to physically drag the boundaries and visually see the overlapping region, reinforcing the difference between open (white dots) and closed (filled dots) intervals.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis or expand further into Trigonometry (図形と計量).
+
+
 ### v1.3.36: Proof by Contradiction Visualization (背理法の証明) (2026-03-10)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 5 "背理法の証明" (Proof by Contradiction) to Sets and Logic (集合と命題). Also permanently fixed the missing \`SetElementsViz\` from a prior cron failure.
