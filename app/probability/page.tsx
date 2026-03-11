@@ -404,7 +404,7 @@ export default function ProbabilityPage() {
       )}
 
       {/* Visualization Mode */}
-      {level > 0 && (
+      {level > 0 && level !== 6 && (
           <>
             <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
@@ -609,6 +609,12 @@ export default function ProbabilityPage() {
                 </div>
             </main>
           </>
+      )}
+
+      {level === 6 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <ShortestPathViz />
+          </main>
       )}
     </div>
   );
