@@ -1,18 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 
-const logPath = path.join(__dirname, 'logs/system_wisdom.md');
-let content = fs.readFileSync(logPath, 'utf8');
+const targetPath = path.join(__dirname, 'logs/system_wisdom.md');
+let content = fs.readFileSync(targetPath, 'utf8');
 
-const entry = `### v1.3.89: Quadratics Edge Cases UI Binding Fix (二次関数エッジケースのUIバインディング修正) (2026-03-11)
+const newEntry = `### v1.3.93: 次数下げによる高次式の値 (2026-03-12)
 - **Status**: **IMPLEMENTED**.
-- **Action**: Discovered and fixed a critical UI rendering drop in the Quadratic Functions (二次関数) module. Levels 38, 39, 41, 42, 43, and 44 were previously implemented but missing from the final \`page.tsx\` render pipeline, effectively rendering them invisible.
-- **Visualization**: Successfully injected the missing component bindings (\`MovingRightEdgeViz\`, \`IndependentVariablesViz\`, \`TranslationDeterminationViz\`, \`DifferentSignsViz\`, \`ProfitMaximizationViz\`, \`OneRealRootConditionViz\`) into the active component tree.
-- **Learning Value**: Math I students rely on these edge-case visualizations to build intuition for complex "場合分け" (case splitting) and parametric conditions. Ensuring these components are actually accessible restores the "encyclopedia of exam patterns" completeness of the Quadratics module.
-- **Next Step**: Continue to Data Analysis (データの分析) or Sets and Logic (集合と命題) expansion.
+- **Action**: Added Level 23 "次数下げによる高次式の値" (Higher Degree Value by Degree Reduction) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: \`HigherDegreeValueViz\` implementation.
+  - **Interactive Step-by-Step Guidance**: Breaks down the complex algebraic manipulation of substituting an irrational number like $x = (1 + \\sqrt{5})/2$ into a 3rd or 4th-degree polynomial.
+  - **Visualizing the Degree Reduction**: Shows how creating a quadratic equation ($x^2 - x - 1 = 0$) allows the student to use polynomial long division. The remainder becomes the simplified expression, dropping the degree massively.
+- **Learning Value**: Math I students universally struggle with "value of higher degree expressions" because they try to brute-force plug the irrational number into $x^3$ and $x^4$. By visually separating the "divisor = 0" part, they intuitively grasp that the quotient is annihilated, leaving only a simple linear remainder to evaluate.
+- **Next Step**: Polish existing levels or finalize Math I Sets and Logic (集合と命題).
 
 `;
 
-content = content.replace('## Evolution History\n\n', '## Evolution History\n\n' + entry);
-fs.writeFileSync(logPath, content);
-console.log('Wisdom updated');
+content = content.replace(
+    "## Evolution History\n",
+    "## Evolution History\n\n" + newEntry
+);
+
+fs.writeFileSync(targetPath, content, 'utf8');
+console.log('Wisdom updated.');

@@ -365,6 +365,19 @@ export default function MathINumbers() {
               </div>
             )}
 
+
+            {currentLevel === 23 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">次数下げによる高次式の値</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    x = (1 + √5)/2 のような無理数の値を高次式に代入する際、直接代入せず、2次方程式を作って次数を下げる（割り算を利用する）テクニックを視覚化します。
+                  </p>
+                  <HigherDegreeValueViz />
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
       </div>
