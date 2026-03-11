@@ -14,6 +14,7 @@ import RationalizationViz from '../components/math/RationalizationViz';
 import RootAbsoluteViz from '../components/math/RootAbsoluteViz';
 import RepeatingDecimalViz from '../components/math/RepeatingDecimalViz';
 import IntegerFractionalPartViz from '../components/math/IntegerFractionalPartViz';
+import ThreeTermsSquareViz from '../components/math/ThreeTermsSquareViz';
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -27,7 +28,8 @@ export default function MathINumbers() {
     { id: 6, title: '分母の有理化', type: 'rationalization' },
     { id: 7, title: '平方根と絶対値 (√a² = |a|)', type: 'root_absolute' },
     { id: 8, title: '循環小数と分数', type: 'repeating_decimal' },
-    { id: 9, title: '無理数の整数部分と小数部分', type: 'integer_fractional' }
+    { id: 9, title: '無理数の整数部分と小数部分', type: 'integer_fractional' },
+    { id: 10, title: '3項の平方の展開公式', type: 'three_terms_square' }
   ];
 
   return (
@@ -170,6 +172,11 @@ export default function MathINumbers() {
                         {currentLevel === 8 && (
               <div className="animate-fade-in">
                 <RepeatingDecimalViz />
+              </div>
+            )}
+            {currentLevel === 10 && (
+              <div className="space-y-6 animate-fade-in">
+                <ThreeTermsSquareViz />
               </div>
             )}
             {currentLevel === 9 && (
