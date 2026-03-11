@@ -1,4 +1,6 @@
-"use client";
+const fs = require('fs');
+
+const content = `"use client";
 
 import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
@@ -57,16 +59,16 @@ export default function MathINumbers() {
                   <button
                     key={lvl.id}
                     onClick={() => setCurrentLevel(lvl.id)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={\`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 \${
                       currentLevel === lvl.id
                         ? 'bg-indigo-50 text-indigo-700 shadow-sm border border-indigo-100/50'
                         : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
-                    }`}
+                    }\`}
                   >
                     <div className="flex items-center space-x-2">
-                      <span className={`flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-[10px] ${
+                      <span className={\`flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-[10px] \${
                         currentLevel === lvl.id ? 'bg-indigo-200 text-indigo-800' : 'bg-slate-200 text-slate-500'
-                      }`}>
+                      }\`}>
                         {lvl.id}
                       </span>
                       <span className="truncate">{lvl.title}</span>
@@ -84,7 +86,7 @@ export default function MathINumbers() {
                   <h2 className="text-lg font-bold text-slate-800 mb-2">二重根号を外す (Removing Double Radicals)</h2>
                   <p className="text-slate-600 text-sm mb-6 leading-relaxed">
                     ルートの中にあるルート（二重根号）を外すには、展開の公式 <InlineMath math="(a+b)^2 = a^2 + 2ab + b^2" /> を逆向きに使います。<br/>
-                    <InlineMath math="\sqrt{(a+b) + 2\sqrt{ab}} = \sqrt{a} + \sqrt{b}" /> （ただし <InlineMath math="a > 0, b > 0" />）
+                    <InlineMath math="\\sqrt{(a+b) + 2\\sqrt{ab}} = \\sqrt{a} + \\sqrt{b}" /> （ただし <InlineMath math="a > 0, b > 0" />）
                   </p>
                   <DoubleRadicalViz />
                 </div>
@@ -110,7 +112,7 @@ export default function MathINumbers() {
                   <h2 className="text-lg font-bold text-slate-800 mb-2">1次不等式の整数解の個数 (Number of Integer Solutions)</h2>
                   <p className="text-slate-600 text-sm mb-6 leading-relaxed">
                     不等式を満たす最大の整数が条件の個数と一致するように、境界となる文字 <InlineMath math="a" /> の範囲を絞り込みます。<br/>
-                    特に、不等号が「<InlineMath math="<" />（含まない）」か「<InlineMath math="\le" />（含む）」かによって、境界上での判定が変わる点に注意してください。
+                    特に、不等号が「<InlineMath math="<" />（含まない）」か「<InlineMath math="\\le" />（含む）」かによって、境界上での判定が変わる点に注意してください。
                   </p>
                   <IntegerSolutionsViz />
                 </div>
@@ -162,9 +164,9 @@ export default function MathINumbers() {
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
                   <h2 className="text-lg font-bold text-slate-800 mb-2">平方根と絶対値 (Square Roots and Absolute Values)</h2>
                   <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                    数学Iの頻出トラップ問題です。<InlineMath math="\sqrt{a^2}" /> を計算するとき、そのまま <InlineMath math="a" /> としてしまうミスが多発します。<br/>
-                    ルートの記号 <InlineMath math="\sqrt{\quad}" /> は常に「<strong>0以上</strong>」の数（正の平方根）を表します。そのため、中身が負の数の場合はマイナスをつけて正の数にする必要があります。<br/>
-                    これは絶対値の定義 <InlineMath math="|a|" /> と完全に一致するため、<InlineMath math="\sqrt{a^2} = |a|" /> が成り立ちます。
+                    数学Iの頻出トラップ問題です。<InlineMath math="\\sqrt{a^2}" /> を計算するとき、そのまま <InlineMath math="a" /> としてしまうミスが多発します。<br/>
+                    ルートの記号 <InlineMath math="\\sqrt{\\quad}" /> は常に「<strong>0以上</strong>」の数（正の平方根）を表します。そのため、中身が負の数の場合はマイナスをつけて正の数にする必要があります。<br/>
+                    これは絶対値の定義 <InlineMath math="|a|" /> と完全に一致するため、<InlineMath math="\\sqrt{a^2} = |a|" /> が成り立ちます。
                   </p>
                   <RootAbsoluteViz />
                 </div>
@@ -204,3 +206,6 @@ export default function MathINumbers() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('app/math_i_numbers/page.tsx', content);

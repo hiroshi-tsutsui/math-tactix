@@ -5,6 +5,8 @@ import { GeistSans } from 'geist/font/sans';
 import { ChevronLeft, Compass, Search, SplitSquareHorizontal, Calculator } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
+import SetMaxMinViz from '../components/math/SetMaxMinViz';
+import ConditionNumberLineViz from '../components/math/ConditionNumberLineViz';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -653,6 +655,14 @@ export default function SetsLogicPage() {
           <QuadraticSetsViz />
       )}
 
+      {level === 7 && (
+          <SetMaxMinViz />
+      )}
+
+      {level === 8 && (
+          <ConditionNumberLineViz />
+      )}
+
 
       {level === 0 && (
           <main className="flex-1 overflow-y-auto p-6">
@@ -665,7 +675,9 @@ export default function SetsLogicPage() {
                       { id: 3, title: "Level 3: 逆・裏・対偶", desc: "命題の真偽と集合の包含関係", icon: SplitSquareHorizontal },
                       { id: 4, title: "Level 4: 集合の要素の個数", desc: "n(A∪B) = n(A) + n(B) - n(A∩B)", icon: Calculator },
                       { id: 5, title: "Level 5: 背理法の証明", desc: "ルート2が無理数であることの証明", icon: SplitSquareHorizontal },
-                          { id: 6, title: "Level 6: 連立不等式と集合", desc: "共通範囲と整数解の個数を視覚化", icon: Search }
+                          { id: 6, title: "Level 6: 連立不等式と集合", desc: "共通範囲と整数解の個数を視覚化", icon: Search },
+                      { id: 7, title: "Level 7: 集合の要素の最大・最小", desc: "共通部分の範囲と限界", icon: Calculator },
+                      { id: 8, title: "Level 8: 必要条件・十分条件と数直線", desc: "範囲と包含関係", icon: Search }
                   ].map((item) => (
                       <button key={item.id} onClick={() => setLevel(item.id)}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
