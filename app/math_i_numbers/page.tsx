@@ -3,7 +3,10 @@
 import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import SaltWaterInequalityViz from './components/SaltWaterInequalityViz';
+
 import { BlockMath, InlineMath } from 'react-katex';
+import AbsoluteInequalityCaseSplitViz from '@/components/math_i/numbers/AbsoluteInequalityCaseSplitViz';
 import 'katex/dist/katex.min.css';
 import DoubleRadicalViz from '../components/math/DoubleRadicalViz';
 import AbsoluteValueViz from '../components/math/AbsoluteValueViz';
@@ -23,6 +26,7 @@ import BiQuadraticFactoringViz from './components/BiQuadraticFactoringViz';
 import ThreeTermsRationalizationViz from './components/ThreeTermsRationalizationViz';
 import SumOfAbsoluteValuesViz from './components/SumOfAbsoluteValuesViz';
 import ConditionForSimultaneousInequalitiesViz from './components/ConditionForSimultaneousInequalitiesViz';
+import FactoringSubstitutionViz from './components/FactoringSubstitutionViz';
 import IntegerSolutionsInequalityViz from './components/IntegerSolutionsInequalityViz';
 
 
@@ -50,6 +54,10 @@ export default function MathINumbers() {
         { id: 17, title: '絶対値の和と最小値 (メジアン)', type: 'sum_of_absolute_values' },
         { id: 18, title: '連立不等式が解をもつ条件', type: 'condition_simultaneous' },
         { id: 19, title: '不等式の整数解の個数', type: 'integer_solutions_range' }
+        , { id: 20, title: '絶対値を含む不等式 (場合分け)', type: 'absolute_inequality_case_split' }
+        , { id: 21, title: '置き換えによる因数分解', type: 'factoring_substitution' }
+        , { id: 22, title: '1次不等式の文章題 (食塩水・濃度)', type: 'salt_water_inequality' }
+
   ];
 
   return (
@@ -318,6 +326,43 @@ export default function MathINumbers() {
                 </div>
               </div>
             )}
+
+            {currentLevel === 20 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">絶対値を含む不等式 (場合分け)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    絶対値の場合分けと、最終的な解の適・不適を視覚的に理解します。
+                  </p>
+                  <AbsoluteInequalityCaseSplitViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 21 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">置き換えによる因数分解</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    共通部分をAと置いて因数分解し、元に戻すプロセスを視覚化します。
+                  </p>
+                  <FactoringSubstitutionViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 22 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">1次不等式の文章題 (食塩水・濃度)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    食塩水に水を追加したときの濃度変化と、それが不等式でどう表されるかを視覚的に理解します。
+                  </p>
+                  <SaltWaterInequalityViz />
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
       </div>

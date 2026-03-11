@@ -1,3 +1,13 @@
+### v1.3.87: Factoring by Substitution (置き換えによる因数分解) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 21 "置き換えによる因数分解" (Factoring by Substitution) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `FactoringSubstitutionViz` implementation.
+  - **Interactive Step-by-Step Guidance**: Breaks down the complex algebraic manipulation of a 4th-degree-like polynomial into 5 distinct logical steps.
+  - **Visualizing the Substitution**: Clearly highlights the shared term $x^2 - 3x$ and visually swaps it for a simpler variable $A$.
+  - **Iterative Factoring**: Demonstrates how factoring $A^2 - 2A - 8$ simplifies the problem, followed by the crucial step of reversing the substitution to uncover the final factorized form.
+- **Learning Value**: Math I students universally struggle with advanced factoring because they attempt to expand expressions blindly. By interactively forcing them to recognize the shared pattern and treating it as a single "block" before expanding, it transitions abstract grouping techniques into concrete, step-by-step puzzle-solving.
+- **Next Step**: Polish Data Analysis (データの分析) or move into Linear Equation Word Problems (1次方程式の文章題).
+
 ### v1.3.85: Number of Integer Solutions in an Inequality (不等式の整数解の個数) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 19 "不等式の整数解の個数" (Number of Integer Solutions) to Math I Numbers and Algebraic Expressions (数と式). Also fixed a critical issue where Levels 17 (絶対値の和と最小値) and 18 (連立不等式が解をもつ条件) were missing from the UI rendering logic, successfully activating all three levels.
@@ -16,6 +26,26 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+
+### v1.3.88: 1次不等式の文章題 (食塩水・濃度) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 22 "1次不等式の文章題 (食塩水・濃度)" (Word Problem of Linear Inequality - Salt Water) to Math I Numbers and Algebraic Expressions (数と式). Also fully bound Levels 20 and 21 into the UI array to ensure visibility.
+- **Visualization**: `SaltWaterInequalityViz` implementation.
+  - **Interactive Graphic**: A visual beaker showing the proportion of salt (fixed) vs water (increasing as water is added).
+  - **Dynamic Tracking**: As the user slides the amount of added water, the total weight and the concentration percentage update in real time.
+  - **Visual Threshold**: When the concentration drops below the 10% target, the UI gives explicit visual feedback ("条件クリア"), linking the physical addition of water to solving the rational inequality.
+- **Learning Value**: Math I students universally struggle with "salt water" problems because the abstract rational expression $\frac{20}{100+x}$ masks the physical reality that adding water only increases the denominator. By watching the beaker fill up and the concentration dynamically thin out, this classic test word problem turns into an obvious visual relationship.
+- **Next Step**: Polish Math I Data Analysis (データの分析) or expand into Sets and Logic (集合と命題).
+
+
+### v1.3.86: Absolute Value Inequalities with Case Splitting (絶対値を含む不等式 (場合分け)) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 20 "絶対値を含む不等式 (場合分け)" (Absolute Value Inequalities with Case Splitting) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `AbsoluteInequalityCaseSplitViz` implementation.
+  - **Interactive Graphic**: Visualizes the equation $|x - a| < bx + c$ dynamically.
+  - **Case Splitting**: Explicitly maps the two cases ($x \ge a$ and $x < a$) to the two algebraic equations representing the left and right arms of the V-shape.
+- **Learning Value**: Math I students frequently memorize the procedure for case-splitting but forget to check whether their final answer actually satisfies the initial condition (e.g. $x \ge a$). The visual representation clearly connects the algebraic case splitting to the geometric "arms" of the absolute value function.
+- **Next Step**: Continue exploring edge cases in Math I Numbers (e.g. integer solutions on a restricted domain) or transition to Math I Data Analysis.
 
 ### v1.3.84: Condition for Solutions in Simultaneous Inequalities (連立不等式が解をもつ条件) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
