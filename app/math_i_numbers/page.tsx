@@ -15,6 +15,8 @@ import RootAbsoluteViz from '../components/math/RootAbsoluteViz';
 import RepeatingDecimalViz from '../components/math/RepeatingDecimalViz';
 import IntegerFractionalPartViz from '../components/math/IntegerFractionalPartViz';
 import ThreeTermsSquareViz from '../components/math/ThreeTermsSquareViz';
+import BenchWordProblemViz from '../components/math/BenchWordProblemViz';
+
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
