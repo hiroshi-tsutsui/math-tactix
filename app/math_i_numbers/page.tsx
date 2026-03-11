@@ -18,6 +18,7 @@ import ThreeTermsSquareViz from '../components/math/ThreeTermsSquareViz';
 import BenchWordProblemViz from '../components/math/BenchWordProblemViz';
 import FactoringLowestDegreeViz from './components/FactoringLowestDegreeViz';
 import AbsoluteCaseSplitViz from './components/AbsoluteCaseSplitViz';
+import ParametricLinearInequalityViz from './components/ParametricLinearInequalityViz';
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -34,7 +35,9 @@ export default function MathINumbers() {
     { id: 9, title: '無理数の整数部分と小数部分', type: 'integer_fractional' },
     { id: 10, title: '3項の平方の展開公式', type: 'three_terms_square' },
     { id: 11, title: '1次不等式の文章題 (過不足)', type: 'bench_word_problem' },
-        { id: 12, title: '最低次数の文字で整理する因数分解', type: 'factoring_lowest_degree' }
+        { id: 12, title: '最低次数の文字で整理する因数分解', type: 'factoring_lowest_degree' },
+        { id: 13, title: '絶対値を含む方程式 (場合分け)', type: 'absolute_case_split' },
+        { id: 14, title: '文字係数の1次不等式', type: 'parametric_linear_inequality' }
   ];
 
   return (
@@ -201,6 +204,48 @@ export default function MathINumbers() {
                 </div>
               </div>
             )}
+
+            {currentLevel === 12 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">最低次数の文字で整理する因数分解 (Factoring by Lowest Degree)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    複数の文字を含む複雑な式を因数分解する際の鉄則は、「最も次数の低い文字に着目して整理する」ことです。<br/>
+                    これにより、式全体の見通しが良くなり、共通因数やたすき掛けの公式が見つけやすくなります。
+                  </p>
+                  <FactoringLowestDegreeViz />
+                </div>
+              </div>
+            )}
+
+
+            {currentLevel === 13 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">絶対値を含む方程式 (場合分け) (Absolute Value Case Splitting)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    絶対値記号を含む方程式を解く基本は、絶対値の中身の正負によって場合分け（Case Splitting）を行うことです。<br/>
+                    また、求めた解が最初の「場合分けの条件」を満たしているか（不適でないか）を必ず確認する必要があります。
+                  </p>
+                  <AbsoluteCaseSplitViz />
+                </div>
+              </div>
+            )}
+
+
+            {currentLevel === 14 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">文字係数の1次不等式 (Parametric Linear Inequality)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    不等式 <InlineMath math="ax > b" /> のように文字係数が含まれる場合、安易に <InlineMath math="a" /> で割ってはいけません。<br/>
+                    <InlineMath math="a" /> が正の数か、負の数か、それとも0かによって、不等号の向きが変わったり、解の形が根本的に変わるため、3つの場合分けが必須です。
+                  </p>
+                  <ParametricLinearInequalityViz />
+                </div>
+              </div>
+            )}
+
           </div>
         </div>
       </div>

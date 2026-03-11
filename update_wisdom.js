@@ -1,23 +1,23 @@
 const fs = require('fs');
-const path = './logs/system_wisdom.md';
-let content = fs.readFileSync(path, 'utf8');
 
-const newEntry = `
-### v1.3.74: Factoring by Lowest Degree Variable (最低次数の文字について整理する因数分解) (2026-03-11)
+const path = 'logs/system_wisdom.md';
+let data = fs.readFileSync(path, 'utf8');
+
+const newWisdom = `
+### v1.3.76: Parametric Linear Inequalities (文字係数の1次不等式) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
-- **Action**: Added Level 12 "最低次数の文字で整理する因数分解" (Factoring by Lowest Degree Variable) to Math I Numbers and Algebraic Expressions (数と式).
-- **Visualization**: \`FactoringLowestDegreeViz\` implementation.
-  - **Interactive Step-by-Step**: Breaks down the complex factorization of polynomials with multiple variables (e.g., $x^2 + xy - x + y - 2$) into 5 logical steps.
-  - **Visual Highlighting**: Explicitly highlights the lowest degree variable ($y$) and visually separates the terms containing $y$ from the rest.
-  - **Guided Flow**: Shows the process of factoring out $y$, then factoring the remaining quadratic $x^2 - x - 2$, and finally pulling out the common binomial factor $(x+1)$.
-- **Learning Value**: Math I students universally hit a wall with multi-variable factorization. They try to apply the quadratic formula or tasukigake blindly to the entire expression. By forcing the visual isolation of the lowest degree variable, the abstract algorithm becomes a concrete, color-coded matching game.
-- **Next Step**: Continue exploring edge cases in Math I Numbers (e.g., fractional expressions) or move fully to Data Analysis.
+- **Action**: Added Level 14 "文字係数の1次不等式" (Parametric Linear Inequalities) to Math I Numbers and Algebraic Expressions (数と式). Also fixed the rendering pipeline for Levels 12 and 13.
+- **Visualization**: \`ParametricLinearInequalityViz\` implementation.
+  - **Interactive Sliders**: Students adjust the parameters $a$ and $b$ for the inequality $ax > b$.
+  - **Visual Case Splitting**: Explicitly checks the sign of $a$. When $a < 0$, it explicitly shows the inequality sign flipping. When $a = 0$, it visually highlights the evaluation of $0 > b$ to decide between "All Real Numbers" (すべての実数) or "No Solution" (解なし).
+- **Learning Value**: Math I students universally fall for the trap of carelessly dividing by $a$ without splitting cases into $a>0$, $a=0$, and $a<0$. By sliding $a$ across the number line and watching the solution dynamically snap to different formats (and watching the inequality sign physically flip), the abstract requirement of "場合分け" (case splitting) becomes an undeniable physical boundary check.
+- **Next Step**: Continue exploring edge cases in Math I Numbers (e.g., Fractional Absolute Values) or move to Data Analysis.
 `;
 
-content = content.replace(
+data = data.replace(
   "## Evolution History\n",
-  "## Evolution History\n" + newEntry
+  "## Evolution History\n" + newWisdom
 );
 
-fs.writeFileSync(path, content);
-console.log("Updated system_wisdom.md");
+fs.writeFileSync(path, data);
+console.log("Wisdom updated.");
