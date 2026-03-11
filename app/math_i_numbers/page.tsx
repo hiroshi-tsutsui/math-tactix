@@ -7,13 +7,19 @@ import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import DoubleRadicalViz from '../components/math/DoubleRadicalViz';
 import AbsoluteValueViz from '../components/math/AbsoluteValueViz';
+import IntegerSolutionsViz from '../components/math/IntegerSolutionsViz';
+import TasukigakeViz from '../components/math/TasukigakeViz';
+import SymmetricPolynomialsViz from '../components/math/SymmetricPolynomialsViz';
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
 
   const levels = [
     { id: 1, title: '二重根号を外す', type: 'double_radical' },
-    { id: 2, title: '絶対値を含む方程式・不等式', type: 'absolute_value' }
+    { id: 2, title: '絶対値を含む方程式・不等式', type: 'absolute_value' },
+    { id: 3, title: '1次不等式の整数解の個数', type: 'integer_solutions' },
+    { id: 4, title: 'たすき掛け (因数分解)', type: 'tasukigake' },
+    { id: 5, title: '対称式の値 (基本定理)', type: 'symmetric_polynomials' }
   ];
 
   return (
@@ -82,6 +88,46 @@ export default function MathINumbers() {
                     たとえば、<InlineMath math="|x - 2| < 3" /> は、「点 <InlineMath math="2" /> からの距離が <InlineMath math="3" /> より小さい範囲」です。
                   </p>
                   <AbsoluteValueViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 3 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">1次不等式の整数解の個数 (Number of Integer Solutions)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    不等式を満たす最大の整数が条件の個数と一致するように、境界となる文字 <InlineMath math="a" /> の範囲を絞り込みます。<br/>
+                    特に、不等号が「<InlineMath math="<" />（含まない）」か「<InlineMath math="\le" />（含む）」かによって、境界上での判定が変わる点に注意してください。
+                  </p>
+                  <IntegerSolutionsViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 4 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">たすき掛け (Cross Multiplication Method)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    2次式 <InlineMath math="ax^2 + bx + c" /> を因数分解する際、<InlineMath math="a = pr, c = qs, b = ps + qr" /> となるような整数 <InlineMath math="p, q, r, s" /> を見つける手法です。<br/>
+                    斜め（たすき）に掛けて足し合わせることで、中央の係数 <InlineMath math="b" /> に一致するかを視覚的に確認します。
+                  </p>
+                  <TasukigakeViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 5 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">対称式の値 (Symmetric Polynomials)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="x" /> と <InlineMath math="y" /> を入れ替えても値が変わらない式を「対称式」と呼びます。<br/>
+                    すべての対称式は、基本対称式である和 <InlineMath math="x+y" /> と積 <InlineMath math="xy" /> だけで表すことができます。<br/>
+                    ここでは、最もよく使われる <InlineMath math="x^2 + y^2 = (x+y)^2 - 2xy" /> の公式を、面積モデルで直感的に理解しましょう。
+                  </p>
+                  <SymmetricPolynomialsViz />
                 </div>
               </div>
             )}
