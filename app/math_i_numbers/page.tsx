@@ -16,6 +16,8 @@ import RepeatingDecimalViz from '../components/math/RepeatingDecimalViz';
 import IntegerFractionalPartViz from '../components/math/IntegerFractionalPartViz';
 import ThreeTermsSquareViz from '../components/math/ThreeTermsSquareViz';
 import BenchWordProblemViz from '../components/math/BenchWordProblemViz';
+import FactoringLowestDegreeViz from './components/FactoringLowestDegreeViz';
+import AbsoluteCaseSplitViz from './components/AbsoluteCaseSplitViz';
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -31,7 +33,8 @@ export default function MathINumbers() {
     { id: 8, title: '循環小数と分数', type: 'repeating_decimal' },
     { id: 9, title: '無理数の整数部分と小数部分', type: 'integer_fractional' },
     { id: 10, title: '3項の平方の展開公式', type: 'three_terms_square' },
-    { id: 11, title: '1次不等式の文章題 (過不足)', type: 'bench_word_problem' }
+    { id: 11, title: '1次不等式の文章題 (過不足)', type: 'bench_word_problem' },
+        { id: 12, title: '最低次数の文字で整理する因数分解', type: 'factoring_lowest_degree' }
   ];
 
   return (
