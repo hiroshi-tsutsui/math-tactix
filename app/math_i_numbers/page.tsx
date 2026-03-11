@@ -11,6 +11,7 @@ import 'katex/dist/katex.min.css';
 import DoubleRadicalViz from '../components/math/DoubleRadicalViz';
 import AbsoluteValueViz from '../components/math/AbsoluteValueViz';
 import ExpansionGroupingViz from '../components/math/ExpansionGroupingViz';
+import RootComparisonViz from './components/RootComparisonViz';
 import IntegerSolutionsViz from '../components/math/IntegerSolutionsViz';
 import TasukigakeViz from '../components/math/TasukigakeViz';
 import SymmetricPolynomialsViz from '../components/math/SymmetricPolynomialsViz';
@@ -34,6 +35,7 @@ import LinearEquationCasesViz from './components/LinearEquationCasesViz';
 import AlternatingPolynomialViz from './components/AlternatingPolynomialViz';
 import RootAbsoluteSimplificationViz from './components/RootAbsoluteSimplificationViz';
 import InequalityRangeViz from './components/InequalityRangeViz';
+import FormulaValuesViz from './components/FormulaValuesViz';
 
 
 
@@ -72,6 +74,7 @@ export default function MathINumbers() {
   { id: 27, title: '不等式の性質と式の値の範囲', type: 'inequality_range' },
     { id: 28, title: '展開の工夫 (組み合わせ)', type: 'expansion_grouping' },
   { id: 29, title: '平方根の大小比較', type: 'root_comparison' },
+  { id: 30, title: '式の値 (代入)', type: 'formula_values' },
 
 
   ];
@@ -417,6 +420,51 @@ export default function MathINumbers() {
                 </div>
               </div>
             )}
+            {currentLevel === 27 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">不等式の性質と式の値の範囲</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    xとyの範囲から、足し算、引き算、掛け算、割り算の結果の範囲を求めます。
+                  </p>
+                  <InequalityRangeViz />
+                </div>
+              </div>
+            )}
+            {currentLevel === 28 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">展開の工夫 (組み合わせ)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    4つの因数を展開するときは、掛ける順番を工夫して共通部分を作ります。
+                  </p>
+                  <ExpansionGroupingViz />
+                </div>
+              </div>
+            )}
+            {currentLevel === 29 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">平方根の大小比較</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    ルートの和の大小を比較するときは、平方して比較します。
+                  </p>
+                  <RootComparisonViz />
+                </div>
+              </div>
+            )}
+            {currentLevel === 30 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">式の値 (代入)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    負の数を代入するときは必ずカッコをつけましょう。
+                  </p>
+                  <FormulaValuesViz />
+                </div>
+              </div>
+            )}
+
             {currentLevel === 26 && (
               <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">

@@ -1087,3 +1087,13 @@ eq 0$: The lines are strictly parallel, visually proving "No solution" (解な�
   - **Dynamic Highlights**: Shows the exact regions on the x-axis where the inequality holds true.
 - **Learning Value**: Math I students routinely memorize the table of solutions based on Discriminant $D>0, D=0, D<0$. By connecting the inequality direction ($>$ or $<$) directly to the visual regions "above" or "below" the x-axis, students replace rote memorization with geometric certainty.
 - **Next Step**: Polish Data Analysis or finalize remaining Math I chapters.
+
+### v1.4.3: 式の値 (代入) (Evaluating Formulas by Substitution) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 30 "式の値 (代入)" (Evaluating Formulas by Substitution) to Math I Numbers and Algebraic Expressions (数と式). Fixed UI rendering for Levels 27-29.
+- **Visualization**: `FormulaValuesViz` implementation.
+  - **Interactive Graphic**: Visualizes the process of substituting positive and negative integers into simple algebraic expressions like $a^2 - b$, $a + b^2$, and $a^2 + b^2$.
+  - **Parameter Tuning**: Students can adjust the values of $a$ and $b$ dynamically using sliders.
+  - **Visualizing the Bracket Rule**: Explicitly shows the application of parentheses `()` when substituting negative numbers. For instance, when $b = -3$, the expression visually morphs into $(-3)^2$ instead of $-3^2$, preventing the classic $-9$ vs $+9$ error.
+- **Learning Value**: "Substituting negative numbers" is the #1 source of arithmetic errors in early Math I. Students blindly plug numbers without brackets, turning $(-3)^2$ into $-9$. By explicitly rendering the brackets in the visual breakdown ONLY when the number is negative, it builds the mental habit of "negative numbers always carry their own brackets".
+- **Next Step**: Polish Math I Data Analysis or expand further into remaining Numbers and Algebraic Expressions test-patterns.
