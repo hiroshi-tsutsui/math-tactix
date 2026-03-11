@@ -10,6 +10,7 @@ import AbsoluteInequalityCaseSplitViz from '@/components/math_i/numbers/Absolute
 import 'katex/dist/katex.min.css';
 import DoubleRadicalViz from '../components/math/DoubleRadicalViz';
 import AbsoluteValueViz from '../components/math/AbsoluteValueViz';
+import ExpansionGroupingViz from '../components/math/ExpansionGroupingViz';
 import IntegerSolutionsViz from '../components/math/IntegerSolutionsViz';
 import TasukigakeViz from '../components/math/TasukigakeViz';
 import SymmetricPolynomialsViz from '../components/math/SymmetricPolynomialsViz';
@@ -31,6 +32,9 @@ import IntegerSolutionsInequalityViz from './components/IntegerSolutionsInequali
 import HigherDegreeValueViz from './components/HigherDegreeValueViz';
 import LinearEquationCasesViz from './components/LinearEquationCasesViz';
 import AlternatingPolynomialViz from './components/AlternatingPolynomialViz';
+import RootAbsoluteSimplificationViz from './components/RootAbsoluteSimplificationViz';
+import InequalityRangeViz from './components/InequalityRangeViz';
+
 
 
 
@@ -64,6 +68,11 @@ export default function MathINumbers() {
         , { id: 23, title: '次数下げによる高次式の値', type: 'higher_degree_value' }
         , { id: 24, title: '1次方程式 ax = b の解の分類', type: 'linear_equation_cases' }
         , { id: 25, title: '対称式と交代式 (因数分解)', type: 'alternating_polynomial' }
+        , { id: 26, title: '平方根と絶対値 (文字式の簡約化)', type: 'root_absolute_simplification' },
+  { id: 27, title: '不等式の性質と式の値の範囲', type: 'inequality_range' },
+    { id: 28, title: '展開の工夫 (組み合わせ)', type: 'expansion_grouping' },
+  { id: 29, title: '平方根の大小比較', type: 'root_comparison' },
+
 
   ];
 
@@ -404,6 +413,19 @@ export default function MathINumbers() {
                     数学Iの因数分解の最難関。文字の次数がすべて同じ場合は、1つの文字について整理することで道が開けます。
                   </p>
                   <AlternatingPolynomialViz />
+
+                </div>
+              </div>
+            )}
+            {currentLevel === 26 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">平方根と絶対値 (文字式の簡約化)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    ルートの中の平方を外すとき、中身が正か負かで絶対値の外れ方が変わります。<br/>
+                    数直線上で x の位置を動かし、それぞれの項が「そのまま外れる」か「マイナスをつけて外れる」かを視覚的に確認しましょう。
+                  </p>
+                  <RootAbsoluteSimplificationViz />
                 </div>
               </div>
             )}

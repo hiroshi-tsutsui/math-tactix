@@ -49,6 +49,7 @@ import { generateMovingRightEdgeProblem } from './utils/moving-right-edge-genera
 import { generateIndependentVariablesProblem } from './utils/independent-variables-generator';
 import IndependentVariablesViz from './components/IndependentVariablesViz';
 import QuadraticFormulaViz from './components/QuadraticFormulaViz';
+import InscribedPerimeterViz from './components/InscribedPerimeterViz';
 import TranslationDeterminationViz from './components/TranslationDeterminationViz';
 import { generateTranslationDeterminationProblem } from './utils/translation-determination-generator';
 import ShapeOptimizationViz from './components/ShapeOptimizationViz';
@@ -211,6 +212,7 @@ const LEVELS = [
   { id: 45, title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' },
   { id: 46, title: '2つの解が特定の区間にある条件', type: 'both_roots_between' },
   { id: 47, title: '解の公式の視覚化', type: 'quadratic_formula' },
+  { id: 48, title: '放物線に内接する長方形の周の長さ', type: 'inscribed_perimeter' },
 
 ];
 
@@ -751,6 +753,7 @@ export default function QuadraticPage() {
               {currentLevel === 45 && <DomainAlwaysPositiveViz />}
         {currentLevel === 46 && <BothRootsBetweenViz />}
         {currentLevel === 47 && <QuadraticFormulaViz />}
+        {currentLevel === 48 && <InscribedPerimeterViz />}
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">
