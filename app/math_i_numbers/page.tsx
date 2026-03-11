@@ -22,6 +22,7 @@ import ParametricLinearInequalityViz from './components/ParametricLinearInequali
 import BiQuadraticFactoringViz from './components/BiQuadraticFactoringViz';
 import ThreeTermsRationalizationViz from './components/ThreeTermsRationalizationViz';
 import SumOfAbsoluteValuesViz from './components/SumOfAbsoluteValuesViz';
+import ConditionForSimultaneousInequalitiesViz from './components/ConditionForSimultaneousInequalitiesViz';
 
 
 export default function MathINumbers() {
