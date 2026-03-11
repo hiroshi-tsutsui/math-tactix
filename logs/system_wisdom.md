@@ -7,6 +7,61 @@
 
 ## Evolution History
 
+### v1.3.69: Integer and Fractional Parts of Irrational Numbers (無理数の整数部分と小数部分) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 9 "無理数の整数部分と小数部分" (Integer and Fractional Parts of Irrational Numbers) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `IntegerFractionalPartViz` implementation.
+  - **Interactive Number Line**: Students adjust the value of $n$ for $\sqrt{n}$.
+  - **Visualizing the Gap**: The exact position of $\sqrt{n}$ is plotted between two perfect squares.
+  - **Defining the Fractional Part**: Explicitly visualizes the fractional part $b$ not as a raw decimal, but as the literal geometric "gap" between $\sqrt{n}$ and its floor integer $a$. It forces the understanding of the algebraic identity $b = \sqrt{n} - a$.
+- **Learning Value**: Math I students universally stumble when asked to compute expressions like $a^2 + ab + b^2$ given the fractional part of an irrational number. They fail to understand that $b$ is simply the remainder after subtracting the integer part. By visualizing this remainder geometrically as a line segment, the formula $b = \text{original} - \text{integer}$ becomes completely intuitive.
+- **Next Step**: Continue exploring edge cases in Math I Numbers (e.g., Absolute Value equations with external variables) or move to Math I Data Analysis.
+
+
+### v1.3.68: Repeating Decimals to Fractions (循環小数と分数) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 8 "循環小数と分数" (Repeating Decimals and Fractions) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `RepeatingDecimalViz` implementation.
+  - **Interactive Shifting**: Students adjust the repeating digits and the length of the cycle.
+  - **Visualizing the Alignment**: Dynamically multiplies by 10 or 100 to explicitly align the infinite decimal parts vertically.
+  - **Canceling Infinity**: Visually subtracts the two equations to show how the "infinite tail" perfectly cancels out, leaving a clean integer equation $99x = 12$.
+- **Learning Value**: Math I students often mechanically memorize "put 99 in the denominator for two repeating digits". By visually stacking the aligned decimals, they intuitively understand *why* the subtraction method works to eliminate the infinite repeating part.
+- **Next Step**: Continue focusing on remaining Math I Number topics or move to 1D inequalities.
+
+
+### v1.3.67: Absolute Value of Square Root Visualization (平方根と絶対値) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 7 "平方根と絶対値 (√a² = |a|)" to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `RootAbsoluteViz` implementation.
+  - **Interactive Check**: Students slide the value of $a$ between negative and positive values.
+  - **Dynamic Step-by-Step**: Explicitly shows the intermediate calculation $\sqrt{(-5)^2} = \sqrt{25} = 5$.
+  - **Feedback Matching**: When $a$ drops below 0, it dynamically explains why it is mathematically invalid to just pull it out as $-5$ and justifies placing the minus sign in front to make it positive.
+- **Learning Value**: Math I students universally fall for the trap of writing $\sqrt{a^2} = a$, completely ignoring that the $\sqrt{\quad}$ symbol strictly denotes the principal (non-negative) root. By manually dragging the value below zero and watching the computation explicitly enforce positivity via absolute value, the abstract rule $\sqrt{a^2} = |a|$ becomes a physically obvious necessity.
+- **Next Step**: Polish existing levels or expand further into test-style generation.
+
+
+### v1.3.66: Rationalization of Denominators (分母の有理化) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 6 "分母の有理化" (Rationalizing the Denominator) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `RationalizationViz` implementation.
+  - **Interactive Step-by-Step**: Students choose the numerator and two square roots for the denominator using sliders.
+  - **Visualizing Conjugate Multiplication**: Clearly animates multiplying both numerator and denominator by the conjugate $\sqrt{a} - \sqrt{b}$.
+  - **Applying the Formula**: Explicitly shows how $(x+y)(x-y) = x^2 - y^2$ translates to $(\sqrt{a})^2 - (\sqrt{b})^2 = a - b$, removing the root entirely.
+- **Learning Value**: Math I students often memorize "just flip the sign and multiply" without realizing they are explicitly using the difference of squares formula to cancel out the middle cross-terms. This breaks down the mechanical procedure into distinct, logical steps.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis or Trigonometry.
+
+### v1.3.65: Quadratic Formula Geometric Meaning (解の公式とグラフの関係) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 47 "解の公式の視覚化" (Visualizing the Quadratic Formula) to Quadratic Functions (二次関数).
+- **Visualization**: `QuadraticFormulaViz` implementation (Canvas-based).
+  - **Interactive Parabola**: Students can adjust coefficients $a, b, c$ and instantly see the parabola update.
+  - **Visual Formula Breakdown**: Dynamically displays the quadratic formula $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ and visually decomposes it.
+  - **Geometric Mapping**: Explicitly draws the axis of symmetry ($x = -b/2a$) and visually marks the distance from the axis to the two roots ($d = \sqrt{D}/|2a|$).
+  - **Discriminant Feedback**: When $D < 0$, the roots vanish visually, and the distance calculation explicitly notes "No real roots".
+- **Learning Value**: Math I students blindly memorize the quadratic formula and view it purely algebraically. They often fail to connect the $\pm$ sign to the geometric reality of "left and right distance from the center axis". By visually pulling the formula apart and anchoring it to the physical graph, students realize that the quadratic formula is just $x = \text{Axis} \pm \text{Distance}$.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis (データの分析) or expand into Trigonometry (図形と計量).
+
+
 ### v1.3.64: Symmetric Polynomials Value Visualization (対称式の値) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 5 "対称式の値 (基本定理)" (Symmetric Polynomials) to Math I Numbers and Algebraic Expressions (数と式).
@@ -714,3 +769,13 @@
   - **Connecting to Radicals**: By mapping the $(a+b)$ to the integer part and $2\sqrt{ab}$ to the radical part, taking the outer square root becomes an obvious geometric length calculation.
 - **Learning Value**: Math I students memorize $\sqrt{(a+b) + 2\sqrt{ab}}$ without seeing it as reversing a perfect square expansion. Visualizing the areas makes it concrete.
 - **Next Step**: Polish Math I Numbers and Algebraic Expressions (数と式).
+
+### v1.3.68: Repeating Decimals to Fractions (循環小数と分数) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 8 "循環小数と分数" (Repeating Decimals and Fractions) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `RepeatingDecimalViz` implementation.
+  - **Interactive Shifting**: Students adjust the repeating digits and the length of the cycle.
+  - **Visualizing the Alignment**: Dynamically multiplies by 10 or 100 to explicitly align the infinite decimal parts vertically.
+  - **Canceling Infinity**: Visually subtracts the two equations to show how the "infinite tail" perfectly cancels out, leaving a clean integer equation $99x = 12$.
+- **Learning Value**: Math I students often mechanically memorize "put 99 in the denominator for two repeating digits". By visually stacking the aligned decimals, they intuitively understand *why* the subtraction method works to eliminate the infinite repeating part.
+- **Next Step**: Continue focusing on remaining Math I Number topics or move to 1D inequalities.

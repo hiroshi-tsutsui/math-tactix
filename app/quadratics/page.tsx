@@ -48,6 +48,7 @@ import { generateMovingRightEdgeProblem } from './utils/moving-right-edge-genera
 
 import { generateIndependentVariablesProblem } from './utils/independent-variables-generator';
 import IndependentVariablesViz from './components/IndependentVariablesViz';
+import QuadraticFormulaViz from './components/QuadraticFormulaViz';
 import TranslationDeterminationViz from './components/TranslationDeterminationViz';
 import { generateTranslationDeterminationProblem } from './utils/translation-determination-generator';
 import ShapeOptimizationViz from './components/ShapeOptimizationViz';
@@ -209,6 +210,7 @@ const LEVELS = [
   { id: 44, title: '一方だけが実数解をもつ条件', type: 'one_real_root' },
   { id: 45, title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' },
   { id: 46, title: '2つの解が特定の区間にある条件', type: 'both_roots_between' },
+  { id: 47, title: '解の公式の視覚化', type: 'quadratic_formula' },
 
 ];
 
@@ -356,6 +358,9 @@ export default function QuadraticPage() {
           newProblem = { id: Date.now(), title: '一方だけが実数解をもつ条件', type: 'one_real_root' };
           break;
         
+        case 'quadratic_formula':
+          newProblem = { id: Date.now(), title: '解の公式の視覚化', type: 'quadratic_formula' };
+          break;
         case 'both_roots_between':
           newProblem = { 
             id: Date.now(), 
@@ -367,6 +372,9 @@ export default function QuadraticPage() {
           break;
 
         
+      case 'quadratic_formula':
+          newProblem = { id: Date.now(), title: '解の公式の視覚化', type: 'quadratic_formula' };
+          break;
       case 'both_roots_between':
           newProblem = { id: Date.now(), title: '2つの解が特定の区間にある条件', type: 'both_roots_between' };
           break;
@@ -736,6 +744,7 @@ export default function QuadraticPage() {
         {currentLevel === 40 && <AtLeastOnePositiveRootViz />}
               {currentLevel === 45 && <DomainAlwaysPositiveViz />}
         {currentLevel === 46 && <BothRootsBetweenViz />}
+        {currentLevel === 47 && <QuadraticFormulaViz />}
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">

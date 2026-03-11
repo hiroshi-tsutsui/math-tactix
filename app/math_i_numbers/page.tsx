@@ -10,6 +10,10 @@ import AbsoluteValueViz from '../components/math/AbsoluteValueViz';
 import IntegerSolutionsViz from '../components/math/IntegerSolutionsViz';
 import TasukigakeViz from '../components/math/TasukigakeViz';
 import SymmetricPolynomialsViz from '../components/math/SymmetricPolynomialsViz';
+import RationalizationViz from '../components/math/RationalizationViz';
+import RootAbsoluteViz from '../components/math/RootAbsoluteViz';
+import RepeatingDecimalViz from '../components/math/RepeatingDecimalViz';
+import IntegerFractionalPartViz from '../components/math/IntegerFractionalPartViz';
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -19,7 +23,11 @@ export default function MathINumbers() {
     { id: 2, title: '絶対値を含む方程式・不等式', type: 'absolute_value' },
     { id: 3, title: '1次不等式の整数解の個数', type: 'integer_solutions' },
     { id: 4, title: 'たすき掛け (因数分解)', type: 'tasukigake' },
-    { id: 5, title: '対称式の値 (基本定理)', type: 'symmetric_polynomials' }
+    { id: 5, title: '対称式の値 (基本定理)', type: 'symmetric_polynomials' },
+    { id: 6, title: '分母の有理化', type: 'rationalization' },
+    { id: 7, title: '平方根と絶対値 (√a² = |a|)', type: 'root_absolute' },
+    { id: 8, title: '循環小数と分数', type: 'repeating_decimal' },
+    { id: 9, title: '無理数の整数部分と小数部分', type: 'integer_fractional' }
   ];
 
   return (
@@ -129,6 +137,44 @@ export default function MathINumbers() {
                   </p>
                   <SymmetricPolynomialsViz />
                 </div>
+              </div>
+            )}
+
+            {currentLevel === 6 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">分母の有理化 (Rationalizing the Denominator)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    分母にルートが含まれる場合、計算を簡単にするために分母からルートをなくす操作を「分母の有理化」と呼びます。<br/>
+                    和と差の積の展開公式 <InlineMath math="(x+y)(x-y) = x^2 - y^2" /> を用いて、共役な無理数を分母と分子に掛けます。
+                  </p>
+                  <RationalizationViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 7 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">平方根と絶対値 (Square Roots and Absolute Values)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    数学Iの頻出トラップ問題です。<InlineMath math="\sqrt{a^2}" /> を計算するとき、そのまま <InlineMath math="a" /> としてしまうミスが多発します。<br/>
+                    ルートの記号 <InlineMath math="\sqrt{\quad}" /> は常に「<strong>0以上</strong>」の数（正の平方根）を表します。そのため、中身が負の数の場合はマイナスをつけて正の数にする必要があります。<br/>
+                    これは絶対値の定義 <InlineMath math="|a|" /> と完全に一致するため、<InlineMath math="\sqrt{a^2} = |a|" /> が成り立ちます。
+                  </p>
+                  <RootAbsoluteViz />
+                </div>
+              </div>
+            )}
+
+                        {currentLevel === 8 && (
+              <div className="animate-fade-in">
+                <RepeatingDecimalViz />
+              </div>
+            )}
+            {currentLevel === 9 && (
+              <div className="animate-fade-in">
+                <IntegerFractionalPartViz />
               </div>
             )}
           </div>
