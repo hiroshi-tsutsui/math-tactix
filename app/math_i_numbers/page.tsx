@@ -19,6 +19,10 @@ import BenchWordProblemViz from '../components/math/BenchWordProblemViz';
 import FactoringLowestDegreeViz from './components/FactoringLowestDegreeViz';
 import AbsoluteCaseSplitViz from './components/AbsoluteCaseSplitViz';
 import ParametricLinearInequalityViz from './components/ParametricLinearInequalityViz';
+import BiQuadraticFactoringViz from './components/BiQuadraticFactoringViz';
+import ThreeTermsRationalizationViz from './components/ThreeTermsRationalizationViz';
+import SumOfAbsoluteValuesViz from './components/SumOfAbsoluteValuesViz';
+
 
 export default function MathINumbers() {
   const [currentLevel, setCurrentLevel] = useState(1);
@@ -37,7 +41,10 @@ export default function MathINumbers() {
     { id: 11, title: '1次不等式の文章題 (過不足)', type: 'bench_word_problem' },
         { id: 12, title: '最低次数の文字で整理する因数分解', type: 'factoring_lowest_degree' },
         { id: 13, title: '絶対値を含む方程式 (場合分け)', type: 'absolute_case_split' },
-        { id: 14, title: '文字係数の1次不等式', type: 'parametric_linear_inequality' }
+        { id: 14, title: '文字係数の1次不等式', type: 'parametric_linear_inequality' },
+        { id: 15, title: '複二次式の因数分解 (平方の差)', type: 'biquadratic_factoring' },
+        { id: 16, title: '3項の分母の有理化', type: 'three_terms_rationalization' },
+        { id: 17, title: '絶対値の和と最小値 (メジアン)', type: 'sum_of_absolute_values' }
   ];
 
   return (
@@ -246,6 +253,30 @@ export default function MathINumbers() {
               </div>
             )}
 
+
+            {currentLevel === 15 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">複二次式の因数分解 (平方の差) (Bi-quadratic Factoring)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    x^4 + x^2 + 1 のように、単なる置き換えでは因数分解できない複二次式は、無理やり「平方の差（A^2 - B^2）」の形を作り出す必要があります。
+                  </p>
+                  <BiQuadraticFactoringViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 16 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">3項の分母の有理化 (Rationalizing 3-Term Denominator)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    分母に3つの項がある場合、一度に有理化することはできません。2つの項を1つのグループとしてくくり、2回に分けて有理化を行います。
+                  </p>
+                  <ThreeTermsRationalizationViz />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

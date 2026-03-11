@@ -7,6 +7,37 @@
 
 ## Evolution History
 
+### v1.3.82: Graph of Sum of Absolute Values (絶対値の和のグラフと最小値) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 17 "絶対値の和と最小値 (メジアン)" (Graph of Sum of Absolute Values and its Minimum) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `SumOfAbsoluteValuesViz` implementation.
+  - **Interactive Piecewise Graph**: Visualizes the bucket-like shape of $y = \sum |x - a_i|$ dynamically.
+  - **Movable Points**: Students can drag the individual absolute value centers $a_i$ along the x-axis and instantly watch the bucket graph morph and stretch.
+  - **Visual Proof of the Median**: Clearly demonstrates why an odd number of absolute values (e.g., 3 or 5) has a sharp minimum precisely at the median $x$ value, and why an even number creates a flat "plateau" at the bottom where the minimum spans the entire interval between the two middle values.
+- **Learning Value**: This is a classic, high-level Math I exam problem. Students usually solve it by performing tedious, error-prone case splitting (場合分け) across 4 or 6 intervals. By seeing the physical graph and understanding that the slope changes by $\pm 1$ at every $a_i$, they can instantly find the minimum just by looking for the median point, bypassing pages of algebra.
+- **Next Step**: Continue exploring edge cases in Math I Numbers or move to advanced Data Analysis concepts.
+
+
+### v1.3.80: 3項の分母の有理化 (Rationalizing 3-Term Denominators) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 16 "3項の分母の有理化" (Rationalizing 3-Term Denominators) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `ThreeTermsRationalizationViz` implementation.
+  - **Step-by-Step Focus**: Breaks down the extremely error-prone procedure of rationalizing $1 / (1 + \sqrt{2} + \sqrt{3})$ into 5 distinct logical steps.
+  - **Visual Grouping**: Explicitly shows the "grouping" of two terms $(1 + \sqrt{2})$ using brackets, guiding the student to treat it as a single block $A$.
+  - **Iterative Rationalization**: Clearly demonstrates why one application of the conjugate is not enough, and visualizes the second rationalization step.
+- **Learning Value**: Math I students universally stumble when presented with 3 terms in the denominator because they try to rationalize all at once or group the wrong terms. By breaking it into an interactive linear flow and highlighting the "block" substitution, this tedious algebraic nightmare becomes a predictable, 2-stage process.
+- **Next Step**: Continue exploring edge cases in Math I Numbers or move to advanced Sets and Logic (集合と命題).
+
+### v1.3.78: Bi-quadratic Factoring (Difference of Squares) (複二次式の因数分解) (2026-03-11)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 15 "複二次式の因数分解 (平方の差)" (Bi-quadratic Factoring: Difference of Squares) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `BiQuadraticFactoringViz` implementation.
+  - **Step-by-Step Logic**: Breaks down the infamous $x^4+x^2+1$ factoring into 7 interactive steps.
+  - **Visual Highlighting**: Explicitly highlights the substitution failure ($X^2+X+1$) and the pivot to "focusing on the ends" to force $(x^2+1)^2$.
+  - **Creating the Difference**: Visually proves why adding $+x^2$ and subtracting $-x^2$ perfectly transforms the expression into $A^2 - B^2$.
+- **Learning Value**: Math I students hit a massive wall with this specific problem type because they cannot see *why* someone would think to add and subtract $x^2$ out of thin air. By walking them through the "ideal shape vs reality" comparison, the addition of $x^2$ becomes a logical necessity rather than a memorized magic trick.
+- **Next Step**: Continue exploring complex factorization techniques or refine 1D linear inequalities.
+
 ### v1.3.76: Parametric Linear Inequalities (文字係数の1次不等式) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 14 "文字係数の1次不等式" (Parametric Linear Inequalities) to Math I Numbers and Algebraic Expressions (数と式). Also fixed the rendering pipeline for Levels 12 and 13.

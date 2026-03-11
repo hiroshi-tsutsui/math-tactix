@@ -7,6 +7,8 @@ import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import SetMaxMinViz from '../components/math/SetMaxMinViz';
 import ConditionNumberLineViz from '../components/math/ConditionNumberLineViz';
+import ThreeSetsViz from "@/app/components/math/ThreeSetsViz";
+
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -659,6 +661,10 @@ export default function SetsLogicPage() {
           <SetMaxMinViz />
       )}
 
+      {level === 9 && (
+          <ThreeSetsViz />
+      )}
+
       {level === 8 && (
           <ConditionNumberLineViz />
       )}
@@ -677,7 +683,7 @@ export default function SetsLogicPage() {
                       { id: 5, title: "Level 5: 背理法の証明", desc: "ルート2が無理数であることの証明", icon: SplitSquareHorizontal },
                           { id: 6, title: "Level 6: 連立不等式と集合", desc: "共通範囲と整数解の個数を視覚化", icon: Search },
                       { id: 7, title: "Level 7: 集合の要素の最大・最小", desc: "共通部分の範囲と限界", icon: Calculator },
-                      { id: 8, title: "Level 8: 必要条件・十分条件と数直線", desc: "範囲と包含関係", icon: Search }
+                      { id: 8, title: "Level 8: 必要条件・十分条件と数直線", desc: "範囲と包含関係", icon: Search }, { id: 9, title: "Level 9: 3つの集合の要素の個数", desc: "3つの集合の和集合と共通部分", icon: Calculator }
                   ].map((item) => (
                       <button key={item.id} onClick={() => setLevel(item.id)}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">

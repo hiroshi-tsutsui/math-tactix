@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import Link from 'next/link';
+import ShortestPathViz from './components/ShortestPathViz';
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -384,6 +385,7 @@ export default function ProbabilityPage() {
                       { id: 2, title: "Level 2: 組合せ (Combinations)", desc: "n個からr個を順序を気にせず選ぶ", icon: Circle },
                       { id: 3, title: "Level 3: 条件付き確率", desc: "事象Bが起こった時の事象Aの確率", icon: Target },
                       { id: 4, title: "Level 4: 反復試行の確率", desc: "同じ試行をn回繰り返す確率", icon: Activity },
+                      { id: 6, title: "Level 6: 最短経路の数 (Shortest Paths)", desc: "格子状の道を進む最短経路", icon: Activity },
                       { id: 5, title: "Level 5: 最大値の確率", desc: "さいころの最大値がkになる確率", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
