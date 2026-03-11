@@ -23,6 +23,8 @@ import BiQuadraticFactoringViz from './components/BiQuadraticFactoringViz';
 import ThreeTermsRationalizationViz from './components/ThreeTermsRationalizationViz';
 import SumOfAbsoluteValuesViz from './components/SumOfAbsoluteValuesViz';
 import ConditionForSimultaneousInequalitiesViz from './components/ConditionForSimultaneousInequalitiesViz';
+import IntegerSolutionsInequalityViz from './components/IntegerSolutionsInequalityViz';
+
 
 
 export default function MathINumbers() {
@@ -45,7 +47,9 @@ export default function MathINumbers() {
         { id: 14, title: '文字係数の1次不等式', type: 'parametric_linear_inequality' },
         { id: 15, title: '複二次式の因数分解 (平方の差)', type: 'biquadratic_factoring' },
         { id: 16, title: '3項の分母の有理化', type: 'three_terms_rationalization' },
-        { id: 17, title: '絶対値の和と最小値 (メジアン)', type: 'sum_of_absolute_values' }
+        { id: 17, title: '絶対値の和と最小値 (メジアン)', type: 'sum_of_absolute_values' },
+        { id: 18, title: '連立不等式が解をもつ条件', type: 'condition_simultaneous' },
+        { id: 19, title: '不等式の整数解の個数', type: 'integer_solutions_range' }
   ];
 
   return (
@@ -275,6 +279,42 @@ export default function MathINumbers() {
                     分母に3つの項がある場合、一度に有理化することはできません。2つの項を1つのグループとしてくくり、2回に分けて有理化を行います。
                   </p>
                   <ThreeTermsRationalizationViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 17 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">絶対値の和と最小値 (メジアン)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    絶対値の和が最小になるのは「中央値 (メジアン)」の部分です。グラフの形を見て確認しましょう。
+                  </p>
+                  <SumOfAbsoluteValuesViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 18 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">連立不等式が解をもつ条件</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    解をもつためには、不等式の範囲が重なる必要があります。境界が白丸か黒丸かに注意してください。
+                  </p>
+                  <ConditionForSimultaneousInequalitiesViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 19 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">不等式の整数解の個数</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    整数解が指定された個数になるように、範囲を調整します。「境界（白丸・黒丸）」の扱いがカギになります。
+                  </p>
+                  <IntegerSolutionsInequalityViz />
                 </div>
               </div>
             )}
