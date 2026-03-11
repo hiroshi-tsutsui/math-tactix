@@ -28,6 +28,7 @@ import SumOfAbsoluteValuesViz from './components/SumOfAbsoluteValuesViz';
 import ConditionForSimultaneousInequalitiesViz from './components/ConditionForSimultaneousInequalitiesViz';
 import FactoringSubstitutionViz from './components/FactoringSubstitutionViz';
 import IntegerSolutionsInequalityViz from './components/IntegerSolutionsInequalityViz';
+import HigherDegreeValueViz from './components/HigherDegreeValueViz';
 
 
 
@@ -57,6 +58,7 @@ export default function MathINumbers() {
         , { id: 20, title: '絶対値を含む不等式 (場合分け)', type: 'absolute_inequality_case_split' }
         , { id: 21, title: '置き換えによる因数分解', type: 'factoring_substitution' }
         , { id: 22, title: '1次不等式の文章題 (食塩水・濃度)', type: 'salt_water_inequality' }
+        , { id: 23, title: '次数下げによる高次式の値', type: 'higher_degree_value' }
 
   ];
 

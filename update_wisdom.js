@@ -1,23 +1,18 @@
 const fs = require('fs');
+const path = require('path');
 
-const path = 'logs/system_wisdom.md';
-let data = fs.readFileSync(path, 'utf8');
+const logPath = path.join(__dirname, 'logs/system_wisdom.md');
+let content = fs.readFileSync(logPath, 'utf8');
 
-const newWisdom = `
-### v1.3.76: Parametric Linear Inequalities (文字係数の1次不等式) (2026-03-11)
+const entry = `### v1.3.89: Quadratics Edge Cases UI Binding Fix (二次関数エッジケースのUIバインディング修正) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
-- **Action**: Added Level 14 "文字係数の1次不等式" (Parametric Linear Inequalities) to Math I Numbers and Algebraic Expressions (数と式). Also fixed the rendering pipeline for Levels 12 and 13.
-- **Visualization**: \`ParametricLinearInequalityViz\` implementation.
-  - **Interactive Sliders**: Students adjust the parameters $a$ and $b$ for the inequality $ax > b$.
-  - **Visual Case Splitting**: Explicitly checks the sign of $a$. When $a < 0$, it explicitly shows the inequality sign flipping. When $a = 0$, it visually highlights the evaluation of $0 > b$ to decide between "All Real Numbers" (すべての実数) or "No Solution" (解なし).
-- **Learning Value**: Math I students universally fall for the trap of carelessly dividing by $a$ without splitting cases into $a>0$, $a=0$, and $a<0$. By sliding $a$ across the number line and watching the solution dynamically snap to different formats (and watching the inequality sign physically flip), the abstract requirement of "場合分け" (case splitting) becomes an undeniable physical boundary check.
-- **Next Step**: Continue exploring edge cases in Math I Numbers (e.g., Fractional Absolute Values) or move to Data Analysis.
+- **Action**: Discovered and fixed a critical UI rendering drop in the Quadratic Functions (二次関数) module. Levels 38, 39, 41, 42, 43, and 44 were previously implemented but missing from the final \`page.tsx\` render pipeline, effectively rendering them invisible.
+- **Visualization**: Successfully injected the missing component bindings (\`MovingRightEdgeViz\`, \`IndependentVariablesViz\`, \`TranslationDeterminationViz\`, \`DifferentSignsViz\`, \`ProfitMaximizationViz\`, \`OneRealRootConditionViz\`) into the active component tree.
+- **Learning Value**: Math I students rely on these edge-case visualizations to build intuition for complex "場合分け" (case splitting) and parametric conditions. Ensuring these components are actually accessible restores the "encyclopedia of exam patterns" completeness of the Quadratics module.
+- **Next Step**: Continue to Data Analysis (データの分析) or Sets and Logic (集合と命題) expansion.
+
 `;
 
-data = data.replace(
-  "## Evolution History\n",
-  "## Evolution History\n" + newWisdom
-);
-
-fs.writeFileSync(path, data);
-console.log("Wisdom updated.");
+content = content.replace('## Evolution History\n\n', '## Evolution History\n\n' + entry);
+fs.writeFileSync(logPath, content);
+console.log('Wisdom updated');

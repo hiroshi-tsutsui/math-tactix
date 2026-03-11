@@ -742,6 +742,12 @@ export default function QuadraticPage() {
           </div>
         )}
         {currentLevel === 40 && <AtLeastOnePositiveRootViz />}
+        {currentLevel === 38 && <MovingRightEdgeViz />}
+        {currentLevel === 39 && <IndependentVariablesViz />}
+        {currentLevel === 41 && <TranslationDeterminationViz />}
+        {currentLevel === 42 && <DifferentSignsViz />}
+        {currentLevel === 43 && <ProfitMaximizationViz />}
+        {currentLevel === 44 && <OneRealRootConditionViz />}
               {currentLevel === 45 && <DomainAlwaysPositiveViz />}
         {currentLevel === 46 && <BothRootsBetweenViz />}
         {currentLevel === 47 && <QuadraticFormulaViz />}

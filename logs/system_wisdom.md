@@ -27,6 +27,16 @@
 
 ## Evolution History
 
+### v1.3.92: Combinations with Repetition (重複組合せ) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 7 "重複組合せ (nHr)" (Combinations with Repetition) to Probability (場合の数と確率).
+- **Visualization**: `CombinationRepetitionViz` implementation.
+  - **Interactive Bins and Balls**: Students adjust the number of items (balls) $n$ and categories (bins) $r$ using sliders.
+  - **Visualizing the Formula**: Explicitly maps the abstract formula $_{n+r-1}C_{n}$ to the physical arrangement of $n$ balls and $r-1$ dividers in a single row.
+  - **Real-time Equation Mapping**: Shows how the arrangement of balls and dividers directly maps to the integer solutions of the equation $x_1 + x_2 + \dots + x_r = n$, displaying the grouped sums visually below the arrangement.
+- **Learning Value**: Math A students frequently memorize the $nHr$ formula blindly and forget whether to add or subtract 1. By visually dropping $n$ balls and $r-1$ dividers into slots, the total number of slots $(n+r-1)$ becomes physically obvious, completely eliminating the need to memorize the abstract formula.
+- **Next Step**: Continue expanding Math A probability or transition into advanced Math I Data Analysis.
+
 ### v1.3.90: Shortest Paths Probability Visualization (最短経路の数) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Fully wired and implemented Level 6 "最短経路の数 (Shortest Paths)" in Probability (場合の数と確率). The component `ShortestPathViz` was imported but never rendered.
