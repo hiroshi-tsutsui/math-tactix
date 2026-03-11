@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import VarianceViz from './components/VarianceViz';
 import BoxPlotViz from './components/BoxPlotViz';
 import HypothesisTestingViz from './components/HypothesisTestingViz';
+import FrequencyTableViz from "./components/FrequencyTableViz";
 import DataTransformViz from './components/DataTransformViz';
 
 // --- Types ---
@@ -59,6 +60,14 @@ export default function DataPage() {
       logGuide: t('modules.data.levels.3.log_guide')
     },
     {
+      id: 4,
+      targetR: 0,
+      name: '仮説検定の考え方',
+      desc: '偶然か意味ある差かを有意水準5%で検定します。',
+      logStart: 'シミュレーション開始',
+      logGuide: 'コイントスを実行してください。'
+    },
+    {
       id: 5,
       targetR: 0,
       name: 'データの変換',
@@ -67,12 +76,12 @@ export default function DataPage() {
       logGuide: 'aとbを操作してください。'
     },
     {
-      id: 4,
+      id: 6,
       targetR: 0,
-      name: '仮説検定の考え方',
-      desc: '偶然か意味ある差かを有意水準5%で検定します。',
-      logStart: 'シミュレーション開始',
-      logGuide: 'コイントスを実行してください。'
+      name: '度数分布表と代表値',
+      desc: 'ヒストグラムから平均値・中央値の階級・最頻値を読み取る',
+      logStart: 'ヒストグラムシミュレータ起動',
+      logGuide: '度数をドラッグして代表値の変化を確認してください。'
     }
   ];
 
@@ -153,7 +162,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 5) {
+    if (currentLevel < 6) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -209,7 +218,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 5
+              {t('common.level')} {currentLevel} / 6
             </div>
           </div>
         </div>
@@ -235,7 +244,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}
@@ -249,7 +258,7 @@ export default function DataPage() {
                     <h3 className="text-xl font-bold mb-2">{t('modules.data.completion.synced')}</h3>
                     <p className="text-sm text-slate-500 mb-6">{t('modules.data.completion.msg')}</p>
                     <button onClick={handleNextLevel} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 flex items-center justify-center gap-2">
-                      {currentLevel < 5 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
+                      {currentLevel < 6 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </motion.div>

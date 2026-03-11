@@ -29,6 +29,9 @@ import ConditionForSimultaneousInequalitiesViz from './components/ConditionForSi
 import FactoringSubstitutionViz from './components/FactoringSubstitutionViz';
 import IntegerSolutionsInequalityViz from './components/IntegerSolutionsInequalityViz';
 import HigherDegreeValueViz from './components/HigherDegreeValueViz';
+import LinearEquationCasesViz from './components/LinearEquationCasesViz';
+import AlternatingPolynomialViz from './components/AlternatingPolynomialViz';
+
 
 
 
@@ -59,6 +62,8 @@ export default function MathINumbers() {
         , { id: 21, title: '置き換えによる因数分解', type: 'factoring_substitution' }
         , { id: 22, title: '1次不等式の文章題 (食塩水・濃度)', type: 'salt_water_inequality' }
         , { id: 23, title: '次数下げによる高次式の値', type: 'higher_degree_value' }
+        , { id: 24, title: '1次方程式 ax = b の解の分類', type: 'linear_equation_cases' }
+        , { id: 25, title: '対称式と交代式 (因数分解)', type: 'alternating_polynomial' }
 
   ];
 
@@ -378,6 +383,30 @@ export default function MathINumbers() {
               </div>
             )}
 
+
+            {currentLevel === 24 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">1次方程式 ax = b の解の分類</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    単純に見える方程式でも、文字係数 a が 0 になる可能性がある場合、場合分けが必要です。
+                  </p>
+                  <LinearEquationCasesViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 25 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">対称式と交代式 (因数分解)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    数学Iの因数分解の最難関。文字の次数がすべて同じ場合は、1つの文字について整理することで道が開けます。
+                  </p>
+                  <AlternatingPolynomialViz />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

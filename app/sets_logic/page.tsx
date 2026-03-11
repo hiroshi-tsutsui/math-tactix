@@ -8,6 +8,7 @@ import katex from 'katex';
 import SetMaxMinViz from '../components/math/SetMaxMinViz';
 import ConditionNumberLineViz from '../components/math/ConditionNumberLineViz';
 import ThreeSetsViz from "@/app/components/math/ThreeSetsViz";
+import CounterexampleViz from "../components/math/CounterexampleViz";
 
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -637,7 +638,7 @@ export default function SetsLogicPage() {
             </div>
         </div>
         <div className="font-bold text-sm">
-            {level === 0 ? "集合と命題 (Sets & Logic)" : level === 1 ? "ド・モルガンの法則" : level === 2 ? "必要条件と十分条件" : level === 3 ? "逆・裏・対偶" : level === 4 ? "集合の要素の個数" : level === 5 ? "背理法の証明" : "連立不等式と集合"}
+            {level === 0 ? "集合と命題 (Sets & Logic)" : level === 1 ? "ド・モルガンの法則" : level === 2 ? "必要条件と十分条件" : level === 3 ? "逆・裏・対偶" : level === 4 ? "集合の要素の個数" : level === 5 ? "背理法の証明" : level === 6 ? "連立不等式と集合" : level === 7 ? "集合の要素の最大・最小" : level === 8 ? "必要条件・十分条件と数直線" : level === 9 ? "3つの集合の要素の個数" : "命題の真偽と反例"}
         </div>
         <div className="w-10" />
       </header>
@@ -665,6 +666,10 @@ export default function SetsLogicPage() {
           <ThreeSetsViz />
       )}
 
+      {level === 10 && (
+          <CounterexampleViz />
+      )}
+
       {level === 8 && (
           <ConditionNumberLineViz />
       )}
@@ -683,7 +688,7 @@ export default function SetsLogicPage() {
                       { id: 5, title: "Level 5: 背理法の証明", desc: "ルート2が無理数であることの証明", icon: SplitSquareHorizontal },
                           { id: 6, title: "Level 6: 連立不等式と集合", desc: "共通範囲と整数解の個数を視覚化", icon: Search },
                       { id: 7, title: "Level 7: 集合の要素の最大・最小", desc: "共通部分の範囲と限界", icon: Calculator },
-                      { id: 8, title: "Level 8: 必要条件・十分条件と数直線", desc: "範囲と包含関係", icon: Search }, { id: 9, title: "Level 9: 3つの集合の要素の個数", desc: "3つの集合の和集合と共通部分", icon: Calculator }
+                      { id: 8, title: "Level 8: 必要条件・十分条件と数直線", desc: "範囲と包含関係", icon: Search }, { id: 9, title: "Level 9: 3つの集合の要素の個数", desc: "3つの集合の和集合と共通部分", icon: Calculator }, { id: 10, title: "Level 10: 命題の真偽と反例", desc: "P ならば Q の真偽と反例の視覚化", icon: Search }
                   ].map((item) => (
                       <button key={item.id} onClick={() => setLevel(item.id)}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">

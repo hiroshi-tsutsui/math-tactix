@@ -1,3 +1,13 @@
+### v1.3.94: 命題の真偽と反例 (Truth of Propositions and Counterexamples) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 10 "命題の真偽と反例" (Truth of Propositions and Counterexamples) to Sets and Logic (集合と命題).
+- **Visualization**: `CounterexampleViz` implementation.
+  - **Interactive Scenarios**: Students explore multiple core Math I scenarios (e.g., "$x>0 \implies x>2$", "Primes are odd", "$x^2=4 \implies x=2$").
+  - **Visualizing Inclusion/Exclusion**: Clearly shows how a proposition is true *only if* the hypothesis (P) is completely enclosed inside the conclusion (Q).
+  - **Highlighting the Counterexample**: Visually animates the specific element (the "Counterexample") that falls inside P but outside Q, flashing it on the screen.
+- **Learning Value**: Math I students universally confuse "Why is this false?" when most cases are true (e.g., primes being odd except for 2). By visualizing the Sets P and Q as Venn diagrams, they geometrically understand that a single "rogue" element hanging outside the Q circle breaks the entire "P implies Q" logical chain. It shifts the concept from an abstract logic rule to an obvious physical geometry check.
+- **Next Step**: Polish Math I Data Analysis (データの分析) or continue to expand Trigonometry limits.
+
 ### v1.3.87: Factoring by Substitution (置き換えによる因数分解) (2026-03-11)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 21 "置き換えによる因数分解" (Factoring by Substitution) to Math I Numbers and Algebraic Expressions (数と式).
@@ -26,6 +36,34 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+
+### v1.3.97: 度数分布表と代表値 (Frequency Distribution Table and Representative Values) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 6 "度数分布表と代表値" (Frequency Distribution Table and Representative Values) to Data Analysis (データの分析).
+- **Visualization**: `FrequencyTableViz` implementation.
+  - **Interactive Histogram**: Students can drag the height of each frequency bin up and down interactively.
+  - **Real-time Table Mapping**: The frequency distribution table updates its values simultaneously.
+  - **Visualizing Mean and Median**: A vertical red line dynamically moves to show the exact mean (calculated via class marks), and the median class is vividly highlighted in purple.
+- **Learning Value**: Math I students often memorize the formula for the mean from a frequency table without connecting the "class mark $\times$ frequency" to the physical center of mass of the histogram. By dragging the bars and watching the mean line shift and the median class jump, the abstract calculation is anchored to geometric intuition.
+- **Next Step**: Polish Data Analysis or continue to Math I Numbers and Algebraic Expressions (数と式).
+
+
+### v1.3.95: 1次方程式 ax = b の解の分類 (Solution of Linear Equation ax = b) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 24 "1次方程式 ax = b の解の分類" (Classification of Solutions for Linear Equation ax = b) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `LinearEquationCasesViz` implementation.
+  - **Interactive Graphic**: Visualizes $y = ax$ (a line passing through the origin) and $y = b$ (a horizontal line) on a 2D plane.
+  - **Parameter Tuning**: Students can adjust the slope $a$ and the height $b$ using sliders.
+  - **Dynamic Case Logic**:
+    - When $a 
+eq 0$: Visually confirms the two lines intersect at exactly one point ($x = b/a$).
+    - When $a = 0, b = 0$: The lines perfectly overlap on the x-axis, visually proving "Infinite solutions" (すべての実数).
+    - When $a = 0, b 
+eq 0$: The lines are strictly parallel, visually proving "No solution" (解なし/不能).
+- **Learning Value**: Math I students universally blindly divide by $a$ when solving $ax = b$, completely forgetting to check if $a = 0$. By splitting the equation into two linear graphs, the algebraic trap of dividing by zero is transformed into an obvious geometric observation about parallel vs overlapping lines.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis or Trigonometry.
+
+
 
 ### v1.3.93: 次数下げによる高次式の値 (2026-03-12)
 - **Status**: **IMPLEMENTED**.
@@ -962,3 +1000,18 @@
   - **Canceling Infinity**: Visually subtracts the two equations to show how the "infinite tail" perfectly cancels out, leaving a clean integer equation $99x = 12$.
 - **Learning Value**: Math I students often mechanically memorize "put 99 in the denominator for two repeating digits". By visually stacking the aligned decimals, they intuitively understand *why* the subtraction method works to eliminate the infinite repeating part.
 - **Next Step**: Continue focusing on remaining Math I Number topics or move to 1D inequalities.
+
+### 2026-03-12 Update
+- **Unit**: 数学I (二次関数)
+- **Implementation**: 平方完成 (Completing the Square) のインタラクティブな視覚化・ステップバイステップ解説コンポーネント (`CompletingSquareViz.tsx`) を追加。
+- **Value**: SF要素を排除し、テストに直結する数学的概念の直感的な理解を促進。生徒が係数(a,b,c)を操作しながら頂点座標の変化を確認可能に。
+
+### v1.3.96: 対称式と交代式 (因数分解) (Alternating Polynomial Factorization) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 25 "対称式と交代式 (因数分解)" (Symmetric and Alternating Polynomial Factorization) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `AlternatingPolynomialViz` implementation.
+  - **Interactive Step-by-Step Guidance**: Breaks down the extremely confusing expansion and refactoring of $a^2(b-c) + b^2(c-a) + c^2(a-b)$ into 5 distinct logical steps.
+  - **Focus on the Lowest Degree Principle**: Visually isolates the variable $a$ and forces the grouping to reveal the hidden common factor $(b-c)$.
+  - **Visualizing Cyclic Symmetry**: Explains the final step of pulling out a negative sign to achieve the aesthetic "cyclic order" (輪環の順: $a \\to b \\to c \\to a$), bridging the gap between a correct answer and the textbook's standard form.
+- **Learning Value**: Math I students universally hit a wall when presented with complex polynomials involving 3 variables. They blindly expand everything and get lost in 9 terms. By forcing them to organize by a single letter (a), the chaos reduces to a simple quadratic equation $Aa^2 + Ba + C$. This visualization proves that "organizing by one variable" is not just a trick, but a systematic un-tangling method.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis (データの分析) or expand into Linear Inequalities word problems.
