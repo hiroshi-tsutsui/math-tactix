@@ -76,6 +76,16 @@
 
 ## Evolution History
 
+### v1.4.28: 最大・最小から係数決定 (Determining Coefficients from Max/Min) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 58 "2次関数の決定 (最大・最小から係数決定)" (Determining Coefficients from Max/Min) to Quadratic Functions (二次関数).
+- **Visualization**: `MaxMinCoefficientDeterminationViz` implementation.
+  - **Interactive Parameter Tuning**: Students can independently adjust the parameter `a` (width/direction) and `b` (y-intercept) for the function $y = a(x^2 - 4x) + b$ over the domain $0 \le x \le 3$.
+  - **Visual Case Splitting**: Dynamically highlights how the sign of $a$ completely flips the locations of the maximum and minimum values (Vertex vs Boundary).
+  - **Target Matching**: Provides visual feedback (Red/Blue lines) for the target Max and Min, challenging the student to manually fit the parabola.
+- **Learning Value**: Math I students universally fall into the trap of blindly setting up simultaneous equations without realizing that the location of the Max/Min depends entirely on whether $a > 0$ or $a < 0$. By forcing them to physically move the slider for $a$ and watch the vertex jump from being the minimum to being the maximum, the necessity of case-splitting (場合分け) becomes a concrete physical reality rather than an abstract rule.
+- **Next Step**: Polish existing Quadratics levels and move fully into Math I Sets and Logic (集合と命題) or Data Analysis refinement.
+
 ### v1.4.10: じゅず順列 (Necklace Permutations) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 9 "じゅず順列" (Necklace Permutations) to Probability (場合の数と確率).

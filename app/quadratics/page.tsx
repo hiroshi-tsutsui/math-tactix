@@ -5,6 +5,7 @@ import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
 import IntegerSolutionsQuadraticViz from "./components/IntegerSolutionsQuadraticViz";
+import MaxMinCoefficientDeterminationViz from "./components/MaxMinCoefficientDeterminationViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import FenceEnclosureViz from './components/FenceEnclosureViz';
@@ -232,6 +233,7 @@ const LEVELS = [
   { id: 55, title: '2つの放物線の共通接線', type: 'common_tangent' },
   { id: 56, title: '2つの放物線の交点を通る図形', type: 'intersection_parabolas' },
   { id: 57, title: '2次不等式の整数解の個数', type: 'integer_solutions_quadratic' },
+  { id: 58, title: '2次関数の決定 (最大・最小から係数決定)', type: 'max_min_coefficient_determination' },
 
 
 ];
@@ -798,6 +800,7 @@ export default function QuadraticPage() {
         {currentLevel === 55 && <CommonTangentViz />}
         {currentLevel === 56 && <IntersectionParabolasViz />}
         {currentLevel === 57 && <IntegerSolutionsQuadraticViz />}
+        {currentLevel === 58 && <MaxMinCoefficientDeterminationViz />}
 
 
       </main>
