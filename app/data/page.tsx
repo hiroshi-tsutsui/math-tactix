@@ -18,6 +18,7 @@ import HistogramBoxPlotViz from './components/HistogramBoxPlotViz';
 import CovarianceViz from './components/CovarianceViz';
 import OutlierViz from './components/OutlierViz';
 import CombinedVarianceViz from './components/CombinedVarianceViz';
+import VarianceShortcutViz from './components/VarianceShortcutViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -94,8 +95,7 @@ export default function DataPage() {
       desc: 'ヒストグラムの形状と箱ひげ図の対応関係を視覚的に理解する',
       logStart: '分布シミュレータ起動',
       logGuide: '面積と四分位数の関係を確認してください。'
-    }
-    ,
+    },
     {
       id: 8,
       targetR: 0,
@@ -119,6 +119,14 @@ export default function DataPage() {
       desc: '2つの集団を合わせた全体の分散がどのように計算されるか視覚的に理解する',
       logStart: '結合分散シミュレータ起動',
       logGuide: '各集団の人数・平均・分散を調整し、全体分散への影響を確認してください。'
+    },
+    {
+      id: 11,
+      targetR: 0,
+      name: '分散の計算公式',
+      desc: '分散の計算公式 (2乗の平均 - 平均の2乗) を視覚的に理解する',
+      logStart: '分散公式シミュレータ起動',
+      logGuide: 'データを操作して公式の等式を確認してください。'
     }
   ];
 
@@ -135,6 +143,8 @@ export default function DataPage() {
     if (progress.includes(6)) nextLvl = 7;
     if (progress.includes(7)) nextLvl = 8;
     if (progress.includes(8)) nextLvl = 9;
+    if (progress.includes(9)) nextLvl = 10;
+    if (progress.includes(10)) nextLvl = 11;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -203,7 +213,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 8) {
+    if (currentLevel < 11) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -259,7 +269,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 8
+              {t('common.level')} {currentLevel} / 11
             </div>
           </div>
         </div>
@@ -285,7 +295,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}
@@ -299,7 +309,7 @@ export default function DataPage() {
                     <h3 className="text-xl font-bold mb-2">{t('modules.data.completion.synced')}</h3>
                     <p className="text-sm text-slate-500 mb-6">{t('modules.data.completion.msg')}</p>
                     <button onClick={handleNextLevel} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 flex items-center justify-center gap-2">
-                      {currentLevel < 8 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
+                      {currentLevel < 11 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </motion.div>

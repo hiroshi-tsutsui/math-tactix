@@ -67,6 +67,26 @@
 
 ## Evolution History
 
+### v1.4.22: 分散の計算公式 (Variance Shortcut Formula) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 11 "分散の計算公式 (2乗の平均 - 平均の2乗)" (Variance Shortcut Formula) to Data Analysis (データの分析). Fixed missing implementation and progression bug limiting advancement past level 8.
+- **Visualization**: `VarianceShortcutViz` implementation.
+  - **Interactive Graphic**: Visualizes 5 data points that can be adjusted via sliders.
+  - **Dynamic Calculation**: Instantly shows the Mean of Squares and the Square of the Mean, visually subtracting them to yield the Variance.
+- **Learning Value**: Math I students universally memorize the formula $s^2 = \overline{x^2} - (\overline{x})^2$ but often forget which part is squared. By visualizing the two competing terms and their difference as the variance, it solidifies the algebraic shortcut into a concrete subtraction.
+- **Next Step**: Polish Data Analysis or continue to Trigonometry.
+
+
+
+### v1.4.22: 分散の計算公式 (Variance Shortcut Formula) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 11 "分散の計算公式 (2乗の平均 - 平均の2乗)" (Variance Shortcut Formula) to Data Analysis (データの分析).
+- **Visualization**: `VarianceShortcutViz` implementation.
+  - **Interactive Graphic**: Visualizes 5 data points that can be adjusted via sliders.
+  - **Dynamic Calculation**: Instantly shows the Mean of Squares and the Square of the Mean, visually subtracting them to yield the Variance.
+- **Learning Value**: Math I students universally memorize the formula $s^2 = \overline{x^2} - (\overline{x})^2$ but often forget which part is squared. By visualizing the two competing terms and their difference as the variance, it solidifies the algebraic shortcut into a concrete subtraction.
+- **Next Step**: Polish Data Analysis or continue to Trigonometry.
+
 ### v1.4.21: たすき掛けの応用 (2変数の因数分解) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 33 "たすき掛けの応用 (2変数の因数分解)" (Factorization by Repeated Tasukigake) to Math I Numbers and Algebraic Expressions (数と式).
