@@ -1,6 +1,7 @@
 "use client";
 import RightTriangleRectangleViz from "../../components/RightTriangleRectangleViz";
 import MovingPointAreaViz from "../../components/MovingPointAreaViz";
+import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import DomainAlwaysPositiveViz from './components/DomainAlwaysPositiveViz';
@@ -216,6 +217,10 @@ const LEVELS = [
   { id: 46, title: '2つの解が特定の区間にある条件', type: 'both_roots_between' },
   { id: 47, title: '解の公式の視覚化', type: 'quadratic_formula' },
   { id: 48, title: '放物線に内接する長方形の周の長さ', type: 'inscribed_perimeter' },
+  { id: 49, title: '2次不等式の解とグラフの関係', type: 'quadratic_inequality_graph' },
+  { id: 50, title: '直角三角形に内接する長方形の面積の最大値', type: 'right_triangle_rectangle' },
+  { id: 51, title: '2次関数の最大・最小の応用 (動点と面積)', type: 'moving_point_area' },
+  { id: 52, title: '放物線と直線の間の線分の長さの最大値', type: 'vertical_segment_max' },
 
 ];
 
@@ -395,6 +400,18 @@ export default function QuadraticPage() {
           break;
         case 'two_parabolas_size':
           newProblem = generateTwoParabolasSizeProblem();
+          break;
+        case "quadratic_inequality_graph":
+          newProblem = { id: Date.now(), title: "2次不等式の解とグラフの関係", type: "quadratic_inequality_graph" };
+          break;
+        case "right_triangle_rectangle":
+          newProblem = { id: Date.now(), title: "直角三角形に内接する長方形の面積の最大値", type: "right_triangle_rectangle" };
+          break;
+        case "moving_point_area":
+          newProblem = { id: Date.now(), title: "2次関数の最大・最小の応用 (動点と面積)", type: "moving_point_area" };
+          break;
+        case "vertical_segment_max":
+          newProblem = { id: Date.now(), title: "放物線と直線の間の線分の長さの最大値", type: "vertical_segment_max" };
           break;
         case "external_tangent":
           newProblem = generateExternalTangentProblem();
@@ -760,6 +777,7 @@ export default function QuadraticPage() {
         {currentLevel === 49 && <QuadraticInequalityGraphViz />}
         {currentLevel === 50 && <RightTriangleRectangleViz />}
         {currentLevel === 51 && <MovingPointAreaViz />}
+        {currentLevel === 52 && <VerticalSegmentMaxViz />}
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">

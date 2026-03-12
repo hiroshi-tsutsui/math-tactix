@@ -1107,3 +1107,13 @@ eq 0$: The lines are strictly parallel, visually proving "No solution" (解な�
   - **Visualizing the Bracket Rule**: Explicitly shows the application of parentheses `()` when substituting negative numbers. For instance, when $b = -3$, the expression visually morphs into $(-3)^2$ instead of $-3^2$, preventing the classic $-9$ vs $+9$ error.
 - **Learning Value**: "Substituting negative numbers" is the #1 source of arithmetic errors in early Math I. Students blindly plug numbers without brackets, turning $(-3)^2$ into $-9$. By explicitly rendering the brackets in the visual breakdown ONLY when the number is negative, it builds the mental habit of "negative numbers always carry their own brackets".
 - **Next Step**: Polish Math I Data Analysis or expand further into remaining Numbers and Algebraic Expressions test-patterns.
+
+### v1.4.5: 放物線と直線の間の線分の長さの最大値 (Maximum Vertical Segment Length) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 52 "放物線と直線の間の線分の長さの最大値" (Maximum Vertical Segment Length Between Parabola and Line) to Quadratic Functions (二次関数). Fixed missing UI bindings for Levels 49, 50, and 51 in the sidebar menu.
+- **Visualization**: `VerticalSegmentMaxViz` implementation.
+  - **Interactive Graphic**: Visualizes a parabola $y = -x^2 + 4x$ and a line $y = x$ intersecting at $x=0$ and $x=3$.
+  - **Parameter Tuning**: Students slide the x-coordinate $t$ and watch the vertical segment PQ dynamically stretch and shrink between the two graphs.
+  - **Geometric Intuition**: The length of the segment $L$ is explicitly shown as $L = (-t^2+4t) - t = -t^2+3t$. The visualization mathematically proves that finding the maximum vertical segment is literally just finding the vertex of this new "difference parabola". 
+- **Learning Value**: Math I and II students universally struggle to visualize what $f(x) - g(x)$ actually represents geometrically. By dragging the line segment and watching the calculated length peak, the algebraic act of subtracting functions is directly anchored to physical distance.
+- **Next Step**: Polish existing chapters and refine remaining core Math I edge cases.
