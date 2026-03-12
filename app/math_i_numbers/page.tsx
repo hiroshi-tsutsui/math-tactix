@@ -35,6 +35,7 @@ import LinearEquationCasesViz from './components/LinearEquationCasesViz';
 import AlternatingPolynomialViz from './components/AlternatingPolynomialViz';
 import RootAbsoluteSimplificationViz from './components/RootAbsoluteSimplificationViz';
 import SymmetricThreeVariablesViz from './components/SymmetricThreeVariablesViz';
+import IrrationalEqualityViz from './components/IrrationalEqualityViz';
 import InequalityRangeViz from './components/InequalityRangeViz';
 import FormulaValuesViz from './components/FormulaValuesViz';
 import ExpansionSubstitutionViz from './components/ExpansionSubstitutionViz';
@@ -84,6 +85,7 @@ export default function MathINumbers() {
   { id: 32, title: '最大整数解から定数の範囲を決定', type: 'max_integer_solution' },
         { id: 33, title: 'たすき掛けの応用 (2変数の因数分解)', type: 'tasukigake_twice' },
         { id: 34, title: '対称式と式の値 (3変数)', type: 'symmetric_three_variables' },
+        { id: 35, title: '無理数の相等', type: 'irrational_equality' },
   ];
 
   return (
@@ -497,7 +499,7 @@ export default function MathINumbers() {
               </div>
             )}
 
-            {currentLevel === 34 && (
+            {currentLevel === 35 && (
               <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
                   <h2 className="text-lg font-bold text-slate-800 mb-2">対称式と式の値 (3変数)</h2>
