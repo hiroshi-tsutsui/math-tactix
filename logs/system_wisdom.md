@@ -46,6 +46,17 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+### v1.4.11: 針金を切って作る正方形の面積の和の最小化 (Wire Squares Area Minimization) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 54 "針金を切って作る正方形の面積の和の最小化" (Minimizing the Sum of Areas of Two Squares from a Cut Wire) to Quadratic Functions (二次関数).
+- **Visualization**: `WireSquaresViz` implementation.
+  - **Interactive Cut Point**: Students adjust a slider representing the physical cut point along a wire.
+  - **Dynamic Squares**: As the cut point moves, the two resulting squares dynamically scale up and down, displaying their side lengths and individual areas.
+  - **Connecting Geometry to Algebra**: Explains step-by-step how the sum of the areas translates into a quadratic function.
+  - **Visualizing the Minimum**: Visually highlights when the wire is cut exactly in half, producing two identical squares that together result in the lowest total area.
+- **Learning Value**: This is the quintessential first "応用問題" (Application Word Problem) of quadratics for Math I students. Converting lengths into separate variables often leads to calculation errors or misunderstanding the domain. By seeing the literal squares expand and shrink, the geometric necessity of cutting it in half to minimize the squared area loss becomes physically obvious.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis (データの分析) or explore edge cases.
+
 
 ### v1.4.10: 壁を利用した長方形の面積の最大化 (Maximizing Rectangular Enclosure Area) (2026-03-12)
 - **Status**: **IMPLEMENTED**.

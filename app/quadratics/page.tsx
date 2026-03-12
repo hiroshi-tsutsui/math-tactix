@@ -5,6 +5,8 @@ import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import FenceEnclosureViz from './components/FenceEnclosureViz';
+import WireSquaresViz from './components/WireSquaresViz';
+
 import DomainAlwaysPositiveViz from './components/DomainAlwaysPositiveViz';
 
 import React, { useState, useEffect } from 'react';
@@ -223,6 +225,8 @@ const LEVELS = [
   { id: 51, title: '2次関数の最大・最小の応用 (動点と面積)', type: 'moving_point_area' },
   { id: 52, title: '放物線と直線の間の線分の長さの最大値', type: 'vertical_segment_max' },
   { id: 53, title: '壁を利用した長方形の面積の最大化', type: 'fence_enclosure' },
+  { id: 54, title: '針金を切って作る正方形の面積の和の最小化', type: 'wire_squares' },
+
 
 ];
 
@@ -781,6 +785,8 @@ export default function QuadraticPage() {
         {currentLevel === 51 && <MovingPointAreaViz />}
         {currentLevel === 52 && <VerticalSegmentMaxViz />}
         {currentLevel === 53 && <FenceEnclosureViz />}
+        {currentLevel === 54 && <WireSquaresViz />}
+
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">
