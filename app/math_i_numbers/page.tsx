@@ -39,6 +39,7 @@ import IrrationalEqualityViz from './components/IrrationalEqualityViz';
 import InequalityRangeViz from './components/InequalityRangeViz';
 import FormulaValuesViz from './components/FormulaValuesViz';
 import ExpansionSubstitutionViz from './components/ExpansionSubstitutionViz';
+import SpeedTimeInequalityViz from './components/SpeedTimeInequalityViz';
 
 
 
@@ -86,6 +87,7 @@ export default function MathINumbers() {
         { id: 33, title: 'たすき掛けの応用 (2変数の因数分解)', type: 'tasukigake_twice' },
         { id: 34, title: '対称式と式の値 (3変数)', type: 'symmetric_three_variables' },
         { id: 35, title: '無理数の相等', type: 'irrational_equality' },
+        { id: 36, title: '1次不等式の文章題 (道のりと時間)', type: 'speed_time_inequality' },
   ];
 
   return (
