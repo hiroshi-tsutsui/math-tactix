@@ -1,4 +1,7 @@
-'use client';
+"use client";
+import RightTriangleRectangleViz from "../../components/RightTriangleRectangleViz";
+import MovingPointAreaViz from "../../components/MovingPointAreaViz";
+import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import DomainAlwaysPositiveViz from './components/DomainAlwaysPositiveViz';
 
@@ -754,6 +757,9 @@ export default function QuadraticPage() {
         {currentLevel === 46 && <BothRootsBetweenViz />}
         {currentLevel === 47 && <QuadraticFormulaViz />}
         {currentLevel === 48 && <InscribedPerimeterViz />}
+        {currentLevel === 49 && <QuadraticInequalityGraphViz />}
+        {currentLevel === 50 && <RightTriangleRectangleViz />}
+        {currentLevel === 51 && <MovingPointAreaViz />}
       </main>
 
       <footer className="mt-12 text-center text-gray-400 text-sm pb-8">
