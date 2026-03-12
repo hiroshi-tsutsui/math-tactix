@@ -33,8 +33,8 @@ import IntegerSolutionsInequalityViz from './components/IntegerSolutionsInequali
 import HigherDegreeValueViz from './components/HigherDegreeValueViz';
 import LinearEquationCasesViz from './components/LinearEquationCasesViz';
 import AlternatingPolynomialViz from './components/AlternatingPolynomialViz';
-import RootAbsoluteSimplificationViz from './components/RootAbsoluteSimplificationViz';
 import SymmetricThreeVariablesViz from './components/SymmetricThreeVariablesViz';
+import RootAbsoluteSimplificationViz from './components/RootAbsoluteSimplificationViz';
 import InequalityRangeViz from './components/InequalityRangeViz';
 import FormulaValuesViz from './components/FormulaValuesViz';
 import ExpansionSubstitutionViz from './components/ExpansionSubstitutionViz';
@@ -493,18 +493,6 @@ export default function MathINumbers() {
                     数直線上で x の位置を動かし、それぞれの項が「そのまま外れる」か「マイナスをつけて外れる」かを視覚的に確認しましょう。
                   </p>
                   <RootAbsoluteSimplificationViz />
-                </div>
-              </div>
-            )}
-
-            {currentLevel === 34 && (
-              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
-                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-                  <h2 className="text-lg font-bold text-slate-800 mb-2">対称式と式の値 (3変数)</h2>
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                    a³+b³+c³-3abc の因数分解は、数学Iの最重要公式の1つです。丸暗記ではなく、自分で式を変形して「作る」方法を身につけましょう。
-                  </p>
-                  <SymmetricThreeVariablesViz />
                 </div>
               </div>
             )}

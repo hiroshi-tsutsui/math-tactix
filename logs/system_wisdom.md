@@ -1,3 +1,12 @@
+### v1.4.24: 対称式と式の値 (3変数の因数分解) (3-Variable Symmetric Polynomials) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 34 "対称式と式の値 (3変数)" (Symmetric Polynomials with 3 Variables) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `SymmetricThreeVariablesViz` implementation.
+  - **Interactive Step-by-Step Guidance**: Breaks down the infamous factorization of $a^3+b^3+c^3-3abc$ into 6 logical steps.
+  - **Focus on Formula Creation**: Visualizes the process of replacing $a^3+b^3$ with $(a+b)^3 - 3ab(a+b)$, then grouping the remaining terms, and finally factoring out $(a+b+c)$.
+- **Learning Value**: Math I students universally blindly memorize the long formula for $a^3+b^3+c^3-3abc$ and forget it during exams. By breaking down the derivation into an interactive step-by-step puzzle, the student shifts from rote memorization to active formula construction, learning the powerful technique of "creating the $(a+b)$ block".
+- **Next Step**: Polish existing chapters and refine remaining core Math I edge cases or expand into 3D Trigonometry.
+
 ### v1.4.18: 2次不等式の整数解の個数 (Number of Integer Solutions of a Quadratic Inequality) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 57 "2次不等式の整数解の個数" (Number of Integer Solutions of a Quadratic Inequality) to Quadratic Functions (二次関数).
@@ -66,6 +75,15 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+
+### v1.4.10: じゅず順列 (Necklace Permutations) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 9 "じゅず順列" (Necklace Permutations) to Probability (場合の数と確率).
+- **Visualization**: `NecklacePermutationViz` implementation.
+  - **Interactive 3D Flip**: Students can physically rotate and visually flip a "necklace" of beads.
+  - **Connecting to the Formula**: It explicitly demonstrates how flipping the necklace proves that two distinct circular permutations collapse into a single physical object, directly explaining the $\div 2$ in the formula $(n-1)! / 2$.
+- **Learning Value**: Math A students memorizing the "necklace permutation" formula routinely forget *why* they divide by two, confusing it with circular permutations. By applying a CSS 3D transform that physically flips the object, the conceptual leap is grounded in a literal, interactable reality.
+- **Next Step**: Polish existing Probability modules or expand Data Analysis.
 
 ### v1.4.22: 分散の計算公式 (Variance Shortcut Formula) (2026-03-12)
 - **Status**: **IMPLEMENTED**.

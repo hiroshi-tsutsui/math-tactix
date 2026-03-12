@@ -1,0 +1,37 @@
+--- app/math_i_numbers/page.tsx
++++ app/math_i_numbers/page.tsx
+@@ -29,6 +29,7 @@
+ import LinearEquationCasesViz from './components/LinearEquationCasesViz';
+ import AlternatingPolynomialViz from './components/AlternatingPolynomialViz';
+ import RootAbsoluteSimplificationViz from './components/RootAbsoluteSimplificationViz';
++import SymmetricThreeVariablesViz from './components/SymmetricThreeVariablesViz';
+ 
+ 
+ const LEVELS = [
+@@ -82,6 +83,7 @@
+   { id: 31, title: '展開の工夫 (置き換え)', type: 'expansion_substitution' },
+   { id: 32, title: '最大整数解から定数の範囲を決定', type: 'max_integer_solution' },
+         { id: 33, title: 'たすき掛けの応用 (2変数の因数分解)', type: 'tasukigake_twice' },
++        { id: 34, title: '対称式と式の値 (3変数)', type: 'symmetric_three_variables' },
+ ];
+ 
+ export default function MathINumbersPage() {
+@@ -512,6 +514,16 @@
+                 </div>
+               </div>
+             )}
++
++            {currentLevel === 34 && (
++              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
++                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
++                  <h2 className="text-lg font-bold text-slate-800 mb-2">対称式と式の値 (3変数)</h2>
++                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
++                    a³+b³+c³-3abc の因数分解は、数学Iの最重要公式の1つです。丸暗記ではなく、自分で式を変形して「作る」方法を身につけましょう。
++                  </p>
++                  <SymmetricThreeVariablesViz />
++                </div>
++              </div>
++            )}
+           </div>
+         </div>
+       </div>

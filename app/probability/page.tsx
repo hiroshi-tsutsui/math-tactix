@@ -14,6 +14,7 @@ import katex from 'katex';
 import Link from 'next/link';
 import ShortestPathViz from './components/ShortestPathViz';
 import CircularPermutationViz from "./components/CircularPermutationViz";
+import NecklacePermutationViz from "./components/NecklacePermutationViz";
 import { CombinationRepetitionViz } from './components/CombinationRepetitionViz';
 
 // --- Components ---
@@ -390,6 +391,7 @@ export default function ProbabilityPage() {
                       { id: 6, title: "Level 6: 最短経路の数 (Shortest Paths)", desc: "格子状の道を進む最短経路", icon: Activity },
                       { id: 7, title: "Level 7: 重複組合せ (nHr)", desc: "〇と｜の順列と方程式の解", icon: Circle },
                       { id: 8, title: "Level 8: 円順列 (Circular Permutations)", desc: "回転して一致するものは同じとみなす順列", icon: RefreshCw },
+                      { id: 9, title: "Level 9: じゅず順列 (Necklace Permutations)", desc: "裏返して一致するものは同じとみなす円順列", icon: RefreshCw },
                       { id: 5, title: "Level 5: 最大値の確率", desc: "さいころの最大値がkになる確率", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
@@ -628,6 +630,11 @@ export default function ProbabilityPage() {
       {level === 8 && (
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <CircularPermutationViz />
+          </main>
+      )}
+      {level === 9 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <NecklacePermutationViz />
           </main>
       )}
     </div>
