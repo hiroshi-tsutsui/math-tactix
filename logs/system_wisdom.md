@@ -56,6 +56,16 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+### v1.4.13: 共分散と散布図の象限 (Covariance and Scatter Plot Quadrants) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 8 "共分散と散布図の象限" (Covariance and Scatter Plot Quadrants) to Math I Data Analysis (データの分析). Also fixed the progression bug in `data/page.tsx` that hardcapped level progression to 6.
+- **Visualization**: `CovarianceViz` implementation.
+  - **Interactive Graphic**: Visualizes a scatter plot with the mean lines for X and Y dividing the plane into 4 quadrants.
+  - **Dynamic Area Highlighting**: When a student drags a point, the "deviation rectangle" representing $(x_i - \bar{x})(y_i - \bar{y})$ dynamically changes size and color. Top-right and bottom-left quadrants turn blue (positive area), while top-left and bottom-right turn red (negative area).
+  - **Formula Connection**: The UI explains that the covariance is simply the average of these signed areas. By dragging points to the "negative" quadrants, students can actively force the covariance to become negative.
+- **Learning Value**: Math I students universally memorize the covariance formula without understanding why a negative correlation produces a negative covariance. By visualizing the algebraic product as a geometric area and assigning colors based on the quadrant relative to the mean, the sign of the covariance becomes an obvious physical fact.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis (データの分析) or expand into Sets and Logic.
+
 ### v1.4.11: 針金を切って作る正方形の面積の和の最小化 (Wire Squares Area Minimization) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 54 "針金を切って作る正方形の面積の和の最小化" (Minimizing the Sum of Areas of Two Squares from a Cut Wire) to Quadratic Functions (二次関数).

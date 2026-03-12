@@ -15,6 +15,7 @@ import HypothesisTestingViz from './components/HypothesisTestingViz';
 import FrequencyTableViz from "./components/FrequencyTableViz";
 import DataTransformViz from './components/DataTransformViz';
 import HistogramBoxPlotViz from './components/HistogramBoxPlotViz';
+import CovarianceViz from './components/CovarianceViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -92,6 +93,15 @@ export default function DataPage() {
       logStart: '分布シミュレータ起動',
       logGuide: '面積と四分位数の関係を確認してください。'
     }
+    ,
+    {
+      id: 8,
+      targetR: 0,
+      name: '共分散と散布図の象限',
+      desc: '平均からの偏差の積が作る「符号付き面積」の総和として共分散を視覚的に理解する',
+      logStart: '共分散シミュレータ起動',
+      logGuide: '点を動かして面積の色（符号）と共分散の値の変化を確認してください。'
+    }
   ];
 
   const levels = getLevels();
@@ -105,6 +115,7 @@ export default function DataPage() {
     if (progress.includes(4)) nextLvl = 5;
     if (progress.includes(5)) nextLvl = 6;
     if (progress.includes(6)) nextLvl = 7;
+    if (progress.includes(7)) nextLvl = 8;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -173,7 +184,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 6) {
+    if (currentLevel < 8) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -229,7 +240,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 6
+              {t('common.level')} {currentLevel} / 8
             </div>
           </div>
         </div>
@@ -255,7 +266,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}
@@ -269,7 +280,7 @@ export default function DataPage() {
                     <h3 className="text-xl font-bold mb-2">{t('modules.data.completion.synced')}</h3>
                     <p className="text-sm text-slate-500 mb-6">{t('modules.data.completion.msg')}</p>
                     <button onClick={handleNextLevel} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 flex items-center justify-center gap-2">
-                      {currentLevel < 6 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
+                      {currentLevel < 8 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </motion.div>
