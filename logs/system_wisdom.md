@@ -1,3 +1,13 @@
+### v1.4.18: 2次不等式の整数解の個数 (Number of Integer Solutions of a Quadratic Inequality) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 57 "2次不等式の整数解の個数" (Number of Integer Solutions of a Quadratic Inequality) to Quadratic Functions (二次関数).
+- **Visualization**: `IntegerSolutionsQuadraticViz` implementation.
+  - **Interactive Number Line & Parabola**: Visualizes the parabola $y = x^2 - ax - 6$ alongside an explicitly marked x-axis showing integers.
+  - **Dynamic Parameter Tuning**: Students can adjust the parameter $a$, moving the axis of the parabola and dynamically widening/shifting the negative interval (紫の帯).
+  - **Visual Integer Counting**: Integers that fall within the valid interval ($f(x) < 0$) are vividly highlighted in red, dynamically updating the solution count in real-time.
+- **Learning Value**: Math I students universally stumble when asked to "find the range of $a$ such that the inequality has exactly 3 integer solutions." It becomes a confusing algebraic case-splitting exercise. By moving the parameter and physically watching the parabola "swallow" or "release" integer points on the x-axis, the algebraic boundary conditions ($f(-1) \ge 0$, etc.) turn into obvious geometric walls.
+- **Next Step**: Polish existing chapters and refine remaining core Math I edge cases or move entirely to Data Analysis.
+
 ### v1.4.12: 2つの放物線の共通接線 (Common Tangent of Two Parabolas) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 55 "2つの放物線の共通接線" (Common Tangent of Two Parabolas) to Quadratic Functions (二次関数).
@@ -56,6 +66,26 @@
 **NO SCI-FI.** **NO FLUFF.** **JUST MATH.**
 
 ## Evolution History
+### v1.4.19: 外れ値と代表値 (Outliers and Mean/Median) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 9 "外れ値と代表値" (Outliers and Representative Values) to Data Analysis (データの分析).
+- **Visualization**: `OutlierViz` implementation.
+  - **Interactive Graphic**: Visualizes 5 base data points on a number line, plus one explicitly adjustable "Outlier" (6th point).
+  - **Dynamic Tracking**: As the outlier point is dragged from 0 to 200, the Mean line (blue) and Median line (green) dynamically shift.
+  - **Visual Proof of Robustness**: Explicitly shows how the Mean is strongly pulled by the extreme value, while the Median barely moves (or moves only to the next adjacent data point), visually proving the concept of "Robustness" (ロバスト性).
+- **Learning Value**: Math I students frequently face questions asking "If you mistakenly record 100 as 1000, does the mean or median change more?" By interacting with a single extreme slider, the geometric reality of "Mean = Center of Mass" vs "Median = Middle Rank" becomes unforgettable, solidifying a core concept of Data Analysis.
+- **Next Step**: Continue polishing Math I Data Analysis or refine Sets and Logic.
+
+### v1.4.17: 2つの放物線の交点を通る図形群 (Family of Curves through Intersections) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 56 "2つの放物線の交点を通る図形" (Family of Curves passing through the intersections of two parabolas) to Quadratic Functions (二次関数).
+- **Visualization**: `IntersectionParabolasViz` implementation.
+  - **Interactive Parameter Tuning**: Students can adjust the parameter $k$ for the equation $f(x) + k \cdot g(x) = 0$.
+  - **Dynamic Family of Curves**: The visualization plots both original parabolas and their intersections, along with the dynamically changing new curve.
+  - **Visualizing the Common Chord**: Explicitly proves that when $k=1$ (i.e., when the $x^2$ terms cancel out), the equation simplifies to a linear function, visually snapping into the "Common Chord" (共通弦) line passing through the two intersection points.
+- **Learning Value**: Math I and II students universally struggle with "Curve passing through the intersection of two curves" (束の考え方/Family of curves) because the algebraic trick $f(x) + kg(x) = 0$ is highly abstract. By sliding the $k$ parameter and watching the new parabola pivot perfectly around the two fixed intersection points, and seeing it suddenly snap into a straight line at $k=1$, the algebraic trick transforms into an undeniable geometric constraint.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis or expand into Sets and Logic.
+
 ### v1.4.15: 最大整数解から定数の範囲を決定 (Maximum Integer Solution Range) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 32 "最大整数解から定数の範囲を決定" (Determining Constant Range from Maximum Integer Solution) to Math I Numbers and Algebraic Expressions (数と式).
