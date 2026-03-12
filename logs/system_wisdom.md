@@ -76,6 +76,39 @@
 
 ## Evolution History
 
+### v1.4.46: 絶対値の不等式 (三角不等式) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 39 "絶対値の不等式 (三角不等式)" (Absolute Value Inequality / Triangle Inequality) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `TriangleInequalityViz` implementation.
+  - **Interactive Graphic**: Visualizes the lengths of |a|, |b|, and |a+b| as overlapping segments on a horizontal bar.
+  - **Parameter Tuning**: Students drag sliders for values of `a` and `b` across positive and negative integers.
+  - **Connecting to the Theorem**: Dynamically evaluates the inequality `|a| + |b| ≧ |a + b|` and explicitly shows that the strict equality holds only when the two values share the same sign (or are zero). When they have different signs, the "difference" clearly shows that the sum of absolute values is strictly greater.
+- **Learning Value**: Math I students universally memorize the triangle inequality formula without understanding *why* it is true or when the equality holds. By sliding values and physically watching the absolute lengths add up versus the combined sum's length, the algebraic rule transforms into an obvious geometric truth (adding lengths in the same direction vs opposite directions).
+- **Next Step**: Polish Data Analysis or finalize the remaining edge cases of Math I Numbers and Algebraic Expressions.
+
+### v1.4.45: 対称式の値 (分数型 $x + 1/x$) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 38 "対称式の値 (分数型)" (Value of Symmetric Polynomials: Fractional Type) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `ReciprocalSymmetricViz` implementation.
+  - **Interactive Area Model**: Visualizes $(x + 1/x)^2$ as a $2 \times 2$ grid of areas ($x^2$, $1$, $1$, $1/x^2$).
+  - **Parameter Tuning**: Students drag a slider to adjust the value of $x$.
+  - **Geometric Proof**: Dynamically demonstrates that regardless of how much the blue ($x^2$) and green ($1/x^2$) squares stretch or shrink, the two cross-term yellow rectangles *always* maintain a fixed area of exactly 1 each ($x \times 1/x = 1$).
+- **Learning Value**: Math I students universally memorize the formula $x^2 + 1/x^2 = (x+1/x)^2 - 2$ blindly, often forgetting the $-2$ or confusing it with $-2xy$. By visually explicitly proving that the two "cross-term" rectangles are constant area blocks that must be "peeled off" the main square, the algebraic formula is permanently anchored to a physical geometric reality.
+- **Next Step**: Polish existing core Math I topics or expand further into test-style generation.
+
+
+### v1.4.37: 1次不等式の文章題 (損益分岐点・料金プラン) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 37 "1次不等式の文章題 (損益分岐点・料金プラン)" (Word Problem of Linear Inequality - Discount Break-even Point) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `DiscountInequalityViz` implementation.
+  - **Interactive Graphic**: Visualizes the cost of purchasing items normally versus purchasing with a paid membership card.
+  - **Parameter Tuning**: Students drag a slider to dynamically adjust the number of items purchased.
+  - **Real-time Evaluation**: Automatically calculates and graphically compares the total costs.
+  - **Color-Coded Feedback**: Vividly highlights the break-even point where the membership card becomes cheaper, translating the abstract inequality ($100x > 500 + 80x$) into an obvious financial reality.
+- **Learning Value**: Math I students universally stumble with discount/plan comparison inequalities because the initial fixed cost (500 yen) makes the algebraic comparison unintuitive. By explicitly watching the two total price bars race against each other as the item count increases, the algebraic "greater than" is grounded in a literal race for the cheaper total.
+- **Next Step**: Continue focusing on core Math I topics or expand further into Sets and Logic.
+
+
 ### v1.4.36: 1次不等式の文章題 (道のりと時間) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 36 "1次不等式の文章題 (道のりと時間)" (Word Problem of Linear Inequality - Speed and Time) to Math I Numbers and Algebraic Expressions (数と式).

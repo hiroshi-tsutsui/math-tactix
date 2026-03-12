@@ -40,6 +40,9 @@ import InequalityRangeViz from './components/InequalityRangeViz';
 import FormulaValuesViz from './components/FormulaValuesViz';
 import ExpansionSubstitutionViz from './components/ExpansionSubstitutionViz';
 import SpeedTimeInequalityViz from './components/SpeedTimeInequalityViz';
+import DiscountInequalityViz from './components/DiscountInequalityViz';
+import ReciprocalSymmetricViz from './components/ReciprocalSymmetricViz';
+import TriangleInequalityViz from './components/TriangleInequalityViz';
 
 
 
@@ -88,7 +91,11 @@ export default function MathINumbers() {
         { id: 34, title: '対称式と式の値 (3変数)', type: 'symmetric_three_variables' },
         { id: 35, title: '無理数の相等', type: 'irrational_equality' },
         { id: 36, title: '1次不等式の文章題 (道のりと時間)', type: 'speed_time_inequality' },
-  ];
+  
+  { id: 37, title: '1次不等式の文章題 (損益分岐点・料金プラン)', type: 'discount_inequality' },
+    { id: 38, title: '対称式の値 (分数型)', type: 'reciprocal_symmetric' },
+        { id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' }
+];
 
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans p-4 sm:p-8">
@@ -509,6 +516,18 @@ export default function MathINumbers() {
                     a³+b³+c³-3abc の因数分解は、数学Iの最重要公式の1つです。丸暗記ではなく、自分で式を変形して「作る」方法を身につけましょう。
                   </p>
                   <SymmetricThreeVariablesViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 39 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">絶対値の不等式 (三角不等式)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    |a| + |b| ≧ |a + b| という絶対値の重要な性質（三角不等式）を視覚的に理解します。等号が成立する条件（同符号のとき）を確認しましょう。
+                  </p>
+                  <TriangleInequalityViz />
                 </div>
               </div>
             )}
