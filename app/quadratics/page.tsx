@@ -2,6 +2,7 @@
 import RightTriangleRectangleViz from "../../components/RightTriangleRectangleViz";
 import MovingPointAreaViz from "../../components/MovingPointAreaViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
+import CommonTangentViz from "./components/CommonTangentViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import FenceEnclosureViz from './components/FenceEnclosureViz';
@@ -226,6 +227,7 @@ const LEVELS = [
   { id: 52, title: '放物線と直線の間の線分の長さの最大値', type: 'vertical_segment_max' },
   { id: 53, title: '壁を利用した長方形の面積の最大化', type: 'fence_enclosure' },
   { id: 54, title: '針金を切って作る正方形の面積の和の最小化', type: 'wire_squares' },
+  { id: 55, title: '2つの放物線の共通接線', type: 'common_tangent' },
 
 
 ];
@@ -418,6 +420,9 @@ export default function QuadraticPage() {
           break;
         case "vertical_segment_max":
           newProblem = { id: Date.now(), title: "放物線と直線の間の線分の長さの最大値", type: "vertical_segment_max" };
+          break;
+        case "common_tangent":
+          newProblem = { id: Date.now(), title: "2つの放物線の共通接線", type: "common_tangent" };
           break;
         case "external_tangent":
           newProblem = generateExternalTangentProblem();
@@ -786,6 +791,8 @@ export default function QuadraticPage() {
         {currentLevel === 52 && <VerticalSegmentMaxViz />}
         {currentLevel === 53 && <FenceEnclosureViz />}
         {currentLevel === 54 && <WireSquaresViz />}
+        {currentLevel === 55 && <CommonTangentViz />}
+
 
       </main>
 

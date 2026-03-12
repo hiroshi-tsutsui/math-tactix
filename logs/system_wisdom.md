@@ -1,3 +1,13 @@
+### v1.4.12: 2つの放物線の共通接線 (Common Tangent of Two Parabolas) (2026-03-12)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 55 "2つの放物線の共通接線" (Common Tangent of Two Parabolas) to Quadratic Functions (二次関数).
+- **Visualization**: `CommonTangentViz` implementation.
+  - **Interactive Graphic**: Visualizes $f(x) = x^2$ (fixed) and $g(x) = -x^2 + 4x - 4 + k$ (vertically adjustable).
+  - **Parameter Tuning**: Students can manually slide the slope $m$ and intercept $n$ of a line to find the exact "sweet spot" where it touches both parabolas simultaneously.
+  - **Real-time Discriminants**: Dynamically calculates and displays $D_1$ (for $f(x)$) and $D_2$ (for $g(x)$). When both reach 0 simultaneously, the UI highlights the line in yellow, geometrically proving the algebraic condition of a common tangent.
+- **Learning Value**: Math I and II students universally struggle with "Common Tangent" problems because the algebra ($D_1=0$ and $D_2=0$, or derivatives later on) abstracts away the physical reality. By manually rotating and shifting the line to "graze" both curves, students intuitively grasp that setting two discriminants to zero simultaneously forces a unique shared slope and intercept.
+- **Next Step**: Continue focusing on core Math I topics such as Data Analysis (データの分析) or expand into Trigonometry (図形と計量).
+
 ### v1.3.99: 放物線に内接する長方形の周の長さの最大化 (Maximizing Perimeter of Inscribed Rectangle) (2026-03-12)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 48 "放物線に内接する長方形の周の長さ" (Perimeter of Rectangle Inscribed in a Parabola) to Math I Quadratic Functions (二次関数).
