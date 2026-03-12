@@ -80,6 +80,7 @@ export default function MathINumbers() {
 
 
   { id: 31, title: '展開の工夫 (置き換え)', type: 'expansion_substitution' },
+  { id: 32, title: '最大整数解から定数の範囲を決定', type: 'max_integer_solution' },
   ];
 
   return (
