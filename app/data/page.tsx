@@ -17,6 +17,7 @@ import DataTransformViz from './components/DataTransformViz';
 import HistogramBoxPlotViz from './components/HistogramBoxPlotViz';
 import CovarianceViz from './components/CovarianceViz';
 import OutlierViz from './components/OutlierViz';
+import CombinedVarianceViz from './components/CombinedVarianceViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -102,6 +103,22 @@ export default function DataPage() {
       desc: '平均からの偏差の積が作る「符号付き面積」の総和として共分散を視覚的に理解する',
       logStart: '共分散シミュレータ起動',
       logGuide: '点を動かして面積の色（符号）と共分散の値の変化を確認してください。'
+    },
+    {
+      id: 9,
+      targetR: 0,
+      name: '外れ値と代表値',
+      desc: '極端な値（外れ値）が平均値と中央値に与える影響のロバスト性を視覚化する',
+      logStart: '代表値シミュレータ起動',
+      logGuide: '外れ値を動かして、平均と中央値の変化量の違いを確認してください。'
+    },
+    {
+      id: 10,
+      targetR: 0,
+      name: '2つの集団の結合と分散',
+      desc: '2つの集団を合わせた全体の分散がどのように計算されるか視覚的に理解する',
+      logStart: '結合分散シミュレータ起動',
+      logGuide: '各集団の人数・平均・分散を調整し、全体分散への影響を確認してください。'
     }
   ];
 
@@ -268,7 +285,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}

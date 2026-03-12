@@ -3,6 +3,8 @@ import RightTriangleRectangleViz from "../../components/RightTriangleRectangleVi
 import MovingPointAreaViz from "../../components/MovingPointAreaViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
+import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
+import IntegerSolutionsQuadraticViz from "./components/IntegerSolutionsQuadraticViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
 import FenceEnclosureViz from './components/FenceEnclosureViz';
@@ -228,6 +230,8 @@ const LEVELS = [
   { id: 53, title: '壁を利用した長方形の面積の最大化', type: 'fence_enclosure' },
   { id: 54, title: '針金を切って作る正方形の面積の和の最小化', type: 'wire_squares' },
   { id: 55, title: '2つの放物線の共通接線', type: 'common_tangent' },
+  { id: 56, title: '2つの放物線の交点を通る図形', type: 'intersection_parabolas' },
+  { id: 57, title: '2次不等式の整数解の個数', type: 'integer_solutions_quadratic' },
 
 
 ];
@@ -792,6 +796,8 @@ export default function QuadraticPage() {
         {currentLevel === 53 && <FenceEnclosureViz />}
         {currentLevel === 54 && <WireSquaresViz />}
         {currentLevel === 55 && <CommonTangentViz />}
+        {currentLevel === 56 && <IntersectionParabolasViz />}
+        {currentLevel === 57 && <IntegerSolutionsQuadraticViz />}
 
 
       </main>
