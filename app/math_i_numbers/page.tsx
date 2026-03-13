@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import SimultaneousLinearInequalitiesViz from '../components/math/SimultaneousLinearInequalitiesViz';
 import ValueAbsoluteViz from '@/components/ValueAbsoluteViz';
 
 import { ArrowLeft } from 'lucide-react';
@@ -10,6 +11,7 @@ import SaltWaterInequalityViz from './components/SaltWaterInequalityViz';
 import { BlockMath, InlineMath } from 'react-katex';
 import AbsoluteInequalityCaseSplitViz from '@/components/math_i/numbers/AbsoluteInequalityCaseSplitViz';
 import 'katex/dist/katex.min.css';
+import GaussSymbolViz from './components/GaussSymbolViz';
 import DoubleRadicalViz from '../components/math/DoubleRadicalViz';
 import AbsoluteValueViz from '../components/math/AbsoluteValueViz';
 import ExpansionGroupingViz from '../components/math/ExpansionGroupingViz';
@@ -97,7 +99,8 @@ export default function MathINumbers() {
   
   { id: 37, title: '1次不等式の文章題 (損益分岐点・料金プラン)', type: 'discount_inequality' },
     { id: 38, title: '対称式の値 (分数型)', type: 'reciprocal_symmetric' },
-        { id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' }
+        { id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' },
+        { id: 40, title: 'ガウス記号 (Gauss Symbol)', type: 'gauss_symbol' }
 ];
 
   return (
@@ -544,6 +547,19 @@ export default function MathINumbers() {
                     |a| + |b| ≧ |a + b| という絶対値の重要な性質（三角不等式）を視覚的に理解します。等号が成立する条件（同符号のとき）を確認しましょう。
                   </p>
                   <TriangleInequalityViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 40 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">ガウス記号 (Gauss Symbol)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    実数 <InlineMath math="x" /> を超えない最大の整数を <InlineMath math="[x]" /> と表します。<br/>
+                    正の数では単に小数を切り捨てることになりますが、負の数では「数直線上で左側にある直近の整数」となることに注意が必要です。
+                  </p>
+                  <GaussSymbolViz />
                 </div>
               </div>
             )}

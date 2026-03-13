@@ -2,20 +2,6 @@ const fs = require('fs');
 const file = 'app/math_i_numbers/page.tsx';
 let content = fs.readFileSync(file, 'utf8');
 
-// Add import
-if (!content.includes('import GaussSymbolViz')) {
-  content = content.replace("import 'katex/dist/katex.min.css';", "import 'katex/dist/katex.min.css';\nimport GaussSymbolViz from './components/GaussSymbolViz';");
-}
-
-// Add to levels array
-if (!content.includes("id: 40, title: 'ガウス記号 (Gauss Symbol)'")) {
-  content = content.replace(
-    "{ id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' }",
-    "{ id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' },\n        { id: 40, title: 'ガウス記号 (Gauss Symbol)', type: 'gauss_symbol' }"
-  );
-}
-
-// Add rendering block
 if (!content.includes("currentLevel === 40")) {
   const block = `
             {currentLevel === 40 && (
@@ -31,12 +17,12 @@ if (!content.includes("currentLevel === 40")) {
               </div>
             )}
 `;
-  
   content = content.replace(
-    /\{\s*currentLevel === 39 && \([\s\S]*?\}\s*\)\s*\}/,
-    match => match + "\n" + block
+    "          </div>\n        </div>\n      </div>\n    </div>\n  );\n}",
+    block + "          </div>\n        </div>\n      </div>\n    </div>\n  );\n}"
   );
+  fs.writeFileSync(file, content);
+  console.log('Appended rendering block');
+} else {
+  console.log('Block already exists');
 }
-
-fs.writeFileSync(file, content);
-console.log('Updated app/math_i_numbers/page.tsx successfully');

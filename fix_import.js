@@ -1,7 +1,8 @@
 const fs = require('fs');
-let content = fs.readFileSync('app/trig_ratios/page.tsx', 'utf8');
-content = content.replace(
-    "import React, { useState",
-    "import ConeShortestPathViz from '../../components/ConeShortestPathViz';\nimport React, { useState"
-);
-fs.writeFileSync('app/trig_ratios/page.tsx', content);
+let content = fs.readFileSync('app/quadratics/page.tsx', 'utf8');
+
+if (!content.includes("import ThreePointsDeterminationViz")) {
+    content = content.replace("import ChordLengthViz from '../components/ChordLengthViz';", "import ChordLengthViz from '../components/ChordLengthViz';\nimport ThreePointsDeterminationViz from '../components/ThreePointsDeterminationViz';");
+}
+
+fs.writeFileSync('app/quadratics/page.tsx', content);
