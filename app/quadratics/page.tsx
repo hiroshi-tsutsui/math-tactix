@@ -4,6 +4,7 @@ import MovingPointAreaViz from "../../components/MovingPointAreaViz";
 import VertexOnLineViz from "../../components/VertexOnLineViz";
 import ChordLengthViz from "../../components/ChordLengthViz";
 import ThreePointsDeterminationViz from "../../components/ThreePointsDeterminationViz";
+import XInterceptsDeterminationViz from "../../components/XInterceptsDeterminationViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
@@ -239,6 +240,8 @@ const LEVELS = [
   { id: 58, title: '2次関数の決定 (最大・最小から係数決定)', type: 'max_min_coefficient_determination' },
   { id: 59, title: '2次関数の決定 (頂点が直線上にある)', type: 'vertex_on_line' },
   { id: 60, title: '放物線の弦の長さ', type: 'chord_length' },
+  { id: 61, title: '3点から2次関数を決定', type: 'three_points_determination' },
+  { id: 62, title: 'x軸との交点から2次関数を決定', type: 'x_intercepts_determination' },
 
 
 ];
@@ -435,6 +438,35 @@ export default function QuadraticPage() {
         case "common_tangent":
           newProblem = { id: Date.now(), title: "2つの放物線の共通接線", type: "common_tangent" };
           break;
+        case "fence_enclosure":
+          newProblem = { id: Date.now(), title: "壁を利用した長方形の面積の最大化", type: "fence_enclosure" };
+          break;
+        case "wire_squares":
+          newProblem = { id: Date.now(), title: "針金を切って作る正方形の面積の和の最小化", type: "wire_squares" };
+          break;
+        case "intersection_parabolas":
+          newProblem = { id: Date.now(), title: "2つの放物線の交点を通る図形", type: "intersection_parabolas" };
+          break;
+        case "integer_solutions_quadratic":
+          newProblem = { id: Date.now(), title: "2次不等式の整数解の個数", type: "integer_solutions_quadratic" };
+          break;
+        case "max_min_coefficient_determination":
+          newProblem = { id: Date.now(), title: "2次関数の決定 (最大・最小から係数決定)", type: "max_min_coefficient_determination" };
+          break;
+        case "vertex_on_line":
+          newProblem = { id: Date.now(), title: "2次関数の決定 (頂点が直線上にある)", type: "vertex_on_line" };
+          break;
+        case "chord_length":
+          newProblem = { id: Date.now(), title: "放物線の弦の長さ", type: "chord_length" };
+          break;
+        case "x_intercepts_determination":
+          newProblem = { id: Date.now(), title: "x軸との交点から2次関数を決定", type: "x_intercepts_determination" };
+          break;
+
+        case "three_points_determination":
+          newProblem = { id: Date.now(), title: "3点から2次関数を決定", type: "three_points_determination" };
+          break;
+
         case "external_tangent":
           newProblem = generateExternalTangentProblem();
           break;
@@ -809,6 +841,7 @@ export default function QuadraticPage() {
         {currentLevel === 59 && <VertexOnLineViz />}
         {currentLevel === 60 && <ChordLengthViz />}
         {currentLevel === 61 && <ThreePointsDeterminationViz />}
+        {currentLevel === 62 && <XInterceptsDeterminationViz />}
 
 
       </main>
