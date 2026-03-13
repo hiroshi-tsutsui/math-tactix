@@ -86,6 +86,27 @@
 
 ## Evolution History
 
+### v1.4.90: 2次関数の決定 (3点から決定) (Determining Quadratic Function from 3 Points) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 61 "2次関数の決定 (3点)" (Determining Quadratic Function from 3 Points) to Quadratic Functions (二次関数).
+- **Visualization**: `ThreePointsDeterminationViz` implementation.
+  - **Interactive Graphic**: Visualizes 3 fixed target points on a Cartesian plane alongside a dynamically adjustable parabola.
+  - **Parameter Tuning**: Students manually adjust the coefficients $a$, $b$, and $c$ of the standard form $y = ax^2 + bx + c$ using sliders.
+  - **Connecting Algebra to Geometry**: Instructs students to directly see the effect of each coefficient (width/direction, shift, y-intercept) on the parabola to make it pass through all 3 target points simultaneously. A success message appears when the perfect fit is achieved.
+- **Learning Value**: Math I students universally blindly memorize the procedure of setting up a 3-variable simultaneous equation without understanding how $a$, $b$, and $c$ interact to shape the curve. By visually trying to fit the curve to the points, they develop an intuitive understanding of the role of each term in the standard form polynomial.
+- **Next Step**: Continue exploring high-impact test patterns or refine core Math I Sets and Logic.
+
+### v1.4.80: 連立1次不等式の解法 (数直線) (Simultaneous Linear Inequalities) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 40 "連立1次不等式 (数直線)" (Simultaneous Linear Inequalities) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `SimultaneousLinearInequalitiesViz` implementation.
+  - **Interactive Graphic**: Visualizes the ranges for "x > a" and "x < b" on a 1D number line.
+  - **Parameter Tuning**: Students dynamically adjust the boundary points 'a' and 'b' using sliders.
+  - **Connecting to Algebra**: Explicitly highlights the overlapping region in purple. When 'a' moves past 'b', the purple band disappears and the system automatically outputs "解なし (No Solution)", turning abstract inequality intersection into a concrete physical overlap check.
+- **Learning Value**: Math I students universally stumble when simultaneous inequalities overlap in unexpected ways, or when they don't overlap at all. By sliding the boundaries and physically watching the solution range stretch or snap out of existence, the algebraic concept of 'intersection of sets' becomes an obvious geometric reality.
+- **Next Step**: Polish existing modules or continue aligning core Math I concepts.
+
+
 ### v1.4.75: 比例式の値 (比例定数kの利用) (Value of Proportional Expressions) (2026-03-13)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 42 "比例式の値 (比例定数kの利用)" (Value of Proportional Expressions) to Math I Numbers and Algebraic Expressions (数と式).

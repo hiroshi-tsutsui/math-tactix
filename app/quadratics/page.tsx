@@ -3,6 +3,7 @@ import RightTriangleRectangleViz from "../../components/RightTriangleRectangleVi
 import MovingPointAreaViz from "../../components/MovingPointAreaViz";
 import VertexOnLineViz from "../../components/VertexOnLineViz";
 import ChordLengthViz from "../../components/ChordLengthViz";
+import ThreePointsDeterminationViz from "../../components/ThreePointsDeterminationViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
@@ -807,6 +808,7 @@ export default function QuadraticPage() {
         {currentLevel === 58 && <MaxMinCoefficientDeterminationViz />}
         {currentLevel === 59 && <VertexOnLineViz />}
         {currentLevel === 60 && <ChordLengthViz />}
+        {currentLevel === 61 && <ThreePointsDeterminationViz />}
 
 
       </main>
