@@ -1,5 +1,6 @@
 "use client";
 
+import TetrahedronViz from "../../components/TetrahedronViz";
 import ConeShortestPathViz from '../../components/ConeShortestPathViz';
 import React, { useState, useEffect, useRef, useReducer } from 'react';
 import { GeistSans } from 'geist/font/sans';
@@ -1295,6 +1296,9 @@ export default function TrigPage() {
              level === 10 ? "角の二等分線 (Angle Bisector)" :
              level === 11 ? "空間図形・測量 (Surveying)" :
              level === 12 ? "ヘロンの公式 (Heron's Formula)" :
+             level === 13 ? "円に内接する四角形 (Cyclic Quadrilateral)" :
+             level === 14 ? "円錐の最短経路 (Cone Shortest Path)" :
+             level === 15 ? "正四面体の計量 (Regular Tetrahedron)" :
              "実践演習 (Quiz)"}
         </div>
         <div className="w-10" />
@@ -1321,7 +1325,8 @@ export default function TrigPage() {
                       { id: 12, title: "Level 12: ヘロンの公式", desc: "三辺から面積を直接求める", icon: Target },
                       { id: 13, title: "Level 13: 円に内接する四角形", desc: "向かい合う角と余弦定理", icon: Target },
                       { id: 14, title: "Level 14: 円錐の最短経路", desc: "展開図と余弦定理を用いた応用", icon: Target },
-                      { id: 15, title: "Level 15: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
+                      { id: 15, title: "Level 15: 正四面体の計量", desc: "高さ・内接球・外接球", icon: Target },
+                      { id: 16, title: "Level 16: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -1693,6 +1698,11 @@ export default function TrigPage() {
 
       {/* Level 15: Tactics Mode (Quiz) */}
       {level === 15 && (
+          <TetrahedronViz />
+      )}
+
+      {/* Level 16: Tactics Mode (Quiz) */}
+      {level === 16 && (
           <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
               {state.quizIndex < QUIZ_DATA.length ? (
                   <div className="w-full max-w-md bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
