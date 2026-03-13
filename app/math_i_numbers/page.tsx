@@ -48,6 +48,7 @@ import SpeedTimeInequalityViz from './components/SpeedTimeInequalityViz';
 import DiscountInequalityViz from './components/DiscountInequalityViz';
 import ReciprocalSymmetricViz from './components/ReciprocalSymmetricViz';
 import TriangleInequalityViz from './components/TriangleInequalityViz';
+import TwoAbsoluteValuesInequalityViz from './components/TwoAbsoluteValuesInequalityViz';
 
 
 
@@ -100,7 +101,8 @@ export default function MathINumbers() {
   { id: 37, title: '1次不等式の文章題 (損益分岐点・料金プラン)', type: 'discount_inequality' },
     { id: 38, title: '対称式の値 (分数型)', type: 'reciprocal_symmetric' },
         { id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' },
-        { id: 40, title: 'ガウス記号 (Gauss Symbol)', type: 'gauss_symbol' }
+        { id: 40, title: 'ガウス記号 (Gauss Symbol)', type: 'gauss_symbol' },
+        { id: 41, title: '2つの絶対値を含む方程式・不等式', type: 'two_absolute_values_inequality' }
 ];
 
   return (
