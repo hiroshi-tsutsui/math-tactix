@@ -9,6 +9,8 @@ import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
 import IntegerSolutionsQuadraticViz from "./components/IntegerSolutionsQuadraticViz";
+import TangentCoefficientDeterminationViz from "./components/TangentCoefficientDeterminationViz";
+import VertexAxisDeterminationViz from "../../components/VertexAxisDeterminationViz";
 import MaxMinCoefficientDeterminationViz from "./components/MaxMinCoefficientDeterminationViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
@@ -242,6 +244,8 @@ const LEVELS = [
   { id: 60, title: '放物線の弦の長さ', type: 'chord_length' },
   { id: 61, title: '3点から2次関数を決定', type: 'three_points_determination' },
   { id: 62, title: 'x軸との交点から2次関数を決定', type: 'x_intercepts_determination' },
+  { id: 63, title: '接する条件から係数を決定', type: 'tangent_coefficient_determination' },
+  { id: 64, title: '頂点と軸から2次関数を決定', type: 'vertex_axis_determination' },
 
 
 ];
@@ -461,6 +465,9 @@ export default function QuadraticPage() {
           break;
         case "x_intercepts_determination":
           newProblem = { id: Date.now(), title: "x軸との交点から2次関数を決定", type: "x_intercepts_determination" };
+          break;
+        case "tangent_coefficient_determination":
+          newProblem = { id: Date.now(), title: "接する条件から係数を決定", type: "tangent_coefficient_determination" };
           break;
 
         case "three_points_determination":
@@ -842,6 +849,8 @@ export default function QuadraticPage() {
         {currentLevel === 60 && <ChordLengthViz />}
         {currentLevel === 61 && <ThreePointsDeterminationViz />}
         {currentLevel === 62 && <XInterceptsDeterminationViz />}
+        {currentLevel === 63 && <TangentCoefficientDeterminationViz />}
+        {currentLevel === 64 && <VertexAxisDeterminationViz />}
 
 
       </main>
