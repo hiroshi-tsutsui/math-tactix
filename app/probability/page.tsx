@@ -18,6 +18,7 @@ import NecklacePermutationViz from "./components/NecklacePermutationViz";
 import IndistinguishablePermutationViz from "./components/IndistinguishablePermutationViz";
 
 import { CombinationRepetitionViz } from './components/CombinationRepetitionViz';
+import GroupingViz from "./components/GroupingViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -381,7 +382,8 @@ export default function ProbabilityPage() {
              level === 7 ? "重複組合せ" :
              level === 8 ? "円順列" :
              level === 9 ? "じゅず順列" :
-             level === 10 ? "同じものを含む順列" :
+             level === 10 ? "同じものを含む順列" : 
+             level === 11 ? "組分け" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -403,7 +405,8 @@ export default function ProbabilityPage() {
                       { id: 8, title: "Level 8: 円順列 (Circular Permutations)", desc: "回転して一致するものは同じとみなす順列", icon: RefreshCw },
                       { id: 9, title: "Level 9: じゅず順列 (Necklace Permutations)", desc: "裏返して一致するものは同じとみなす円順列", icon: RefreshCw },
                       { id: 5, title: "Level 5: 最大値の確率", desc: "さいころの最大値がkになる確率", icon: Trophy },
-                      { id: 10, title: "Level 10: 同じものを含む順列", desc: "同じ要素が含まれる場合の順列", icon: RefreshCw }
+                      { id: 10, title: "Level 10: 同じものを含む順列", desc: "同じ要素が含まれる場合の順列", icon: RefreshCw },
+                      { id: 11, title: "Level 11: 組分け", desc: "区別がある部屋と区別がない組の違い", icon: Circle },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -653,6 +656,11 @@ export default function ProbabilityPage() {
               <IndistinguishablePermutationViz />
           </main>
       )}
+      {level === 11 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900">
+             <GroupingViz />
+          </main>
+)}
     </div>
   );
 }

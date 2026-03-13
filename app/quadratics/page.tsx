@@ -120,6 +120,8 @@ import OneRealRootConditionViz from './components/OneRealRootConditionViz';
 import { generateOneRealRootCondition } from './utils/one-real-root-generator';
 
 import 'katex/dist/katex.min.css';
+import IntegerRootsQuadraticViz from "./components/IntegerRootsQuadraticViz";
+
 import { InlineMath, BlockMath } from 'react-katex';
 
 // Problem Type Definitions
@@ -247,6 +249,9 @@ const LEVELS = [
   { id: 62, title: 'x軸との交点から2次関数を決定', type: 'x_intercepts_determination' },
   { id: 63, title: '接する条件から係数を決定', type: 'tangent_coefficient_determination' },
   { id: 64, title: '頂点と軸から2次関数を決定', type: 'vertex_axis_determination' },
+  { id: 65, title: '平行移動した放物線の決定', type: 'translation_quadratic' },
+  { id: 66, title: '2次方程式の整数解と係数の決定', type: 'integer_roots_quadratic' },
+
 
 
 ];
@@ -469,6 +474,10 @@ export default function QuadraticPage() {
           break;
         case "tangent_coefficient_determination":
           newProblem = { id: Date.now(), title: "接する条件から係数を決定", type: "tangent_coefficient_determination" };
+          break;
+
+        case "integer_roots_quadratic":
+          newProblem = { id: Date.now(), title: "2次方程式の整数解と係数の決定", type: "integer_roots_quadratic" };
           break;
 
         case "three_points_determination":
@@ -853,6 +862,8 @@ export default function QuadraticPage() {
         {currentLevel === 63 && <TangentCoefficientDeterminationViz />}
         {currentLevel === 64 && <VertexAxisDeterminationViz />}
         {currentLevel === 65 && <TranslationQuadraticViz />}
+        {currentLevel === 66 && <IntegerRootsQuadraticViz />}
+
 
 
 
