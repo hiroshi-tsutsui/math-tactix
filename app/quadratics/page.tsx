@@ -11,6 +11,7 @@ import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz"
 import IntegerSolutionsQuadraticViz from "./components/IntegerSolutionsQuadraticViz";
 import TangentCoefficientDeterminationViz from "./components/TangentCoefficientDeterminationViz";
 import VertexAxisDeterminationViz from "../../components/VertexAxisDeterminationViz";
+import TranslationQuadraticViz from "../../components/TranslationQuadraticViz";
 import MaxMinCoefficientDeterminationViz from "./components/MaxMinCoefficientDeterminationViz";
 import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
 import BothRootsBetweenViz from './components/BothRootsBetweenViz';
@@ -851,6 +852,8 @@ export default function QuadraticPage() {
         {currentLevel === 62 && <XInterceptsDeterminationViz />}
         {currentLevel === 63 && <TangentCoefficientDeterminationViz />}
         {currentLevel === 64 && <VertexAxisDeterminationViz />}
+        {currentLevel === 65 && <TranslationQuadraticViz />}
+
 
 
       </main>
