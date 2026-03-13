@@ -1,6 +1,7 @@
 "use client";
 import RightTriangleRectangleViz from "../../components/RightTriangleRectangleViz";
 import MovingPointAreaViz from "../../components/MovingPointAreaViz";
+import VertexOnLineViz from "../../components/VertexOnLineViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
@@ -234,6 +235,7 @@ const LEVELS = [
   { id: 56, title: '2つの放物線の交点を通る図形', type: 'intersection_parabolas' },
   { id: 57, title: '2次不等式の整数解の個数', type: 'integer_solutions_quadratic' },
   { id: 58, title: '2次関数の決定 (最大・最小から係数決定)', type: 'max_min_coefficient_determination' },
+  { id: 59, title: '2次関数の決定 (頂点が直線上にある)', type: 'vertex_on_line' },
 
 
 ];
@@ -801,6 +803,7 @@ export default function QuadraticPage() {
         {currentLevel === 56 && <IntersectionParabolasViz />}
         {currentLevel === 57 && <IntegerSolutionsQuadraticViz />}
         {currentLevel === 58 && <MaxMinCoefficientDeterminationViz />}
+        {currentLevel === 59 && <VertexOnLineViz />}
 
 
       </main>

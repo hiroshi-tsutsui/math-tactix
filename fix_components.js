@@ -1,24 +1,24 @@
 const fs = require('fs');
-let content = fs.readFileSync('app/probability/components/CombinationRepetitionViz.tsx', 'utf8');
-
-content = content.replace("import { Button } from '@/components/ui/button';", "");
-content = content.replace("import { Card } from '@/components/ui/card';", "");
-content = content.replace("import { Slider } from '@/components/ui/slider';", "");
+let content = fs.readFileSync('components/ConeShortestPathViz.tsx', 'utf8');
 
 content = content.replace(
-  /<Button/g, 
-  '<button className="px-4 py-2 font-semibold rounded-lg"'
-).replace(/<\/Button>/g, '</button>');
-
-content = content.replace(
-  /<Slider\s+value={\[n\]}\s+min={1}\s+max={10}\s+step={1}\s+onValueChange={\(val\) => setN\(val\[0\]\)}\s+className="w-full"\s+\/>/g,
-  '<input type="range" min="1" max="10" step="1" value={n} onChange={(e) => setN(parseInt(e.target.value))} className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" />'
+  '$2\\pi r = 2\\pi l \\times \\frac{\\theta}{360^\\circ}$ より、',
+  '{"$2\\\\pi r = 2\\\\pi l \\\\times \\\\frac{\\\\theta}{360^\\\\circ}$ より、"}'
 );
-
 content = content.replace(
-  /<Slider\s+value={\[r\]}\s+min={2}\s+max={5}\s+step={1}\s+onValueChange={\(val\) => setR\(val\[0\]\)}\s+className="w-full"\s+\/>/g,
-  '<input type="range" min="2" max="5" step="1" value={r} onChange={(e) => setR(parseInt(e.target.value))} className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer" />'
+  '<strong>$\\theta = 360^\\circ \\times \\frac{r}{l} = {thetaDeg.toFixed(1)}^\\circ$</strong>',
+  '<strong>{"$\\\\theta = 360^\\\\circ \\\\times \\\\frac{r}{l} = " + thetaDeg.toFixed(1) + "^\\\\circ$"}</strong>'
 );
-
-fs.writeFileSync('app/probability/components/CombinationRepetitionViz.tsx', content);
-console.log("Fixed components.");
+content = content.replace(
+  '$AA\'^2 = {l}^2 + {l}^2 - 2 \\cdot {l} \\cdot {l} \\cos({thetaDeg.toFixed(1)}^\\circ)$',
+  '{"$AA\'^2 = " + l + "^2 + " + l + "^2 - 2 \\\\cdot " + l + " \\\\cdot " + l + " \\\\cos(" + thetaDeg.toFixed(1) + "^\\\\circ)$"}'
+);
+content = content.replace(
+  'Mは中心角を二等分する直線上にあるため、間の角は $\\frac{\\theta}{2} = {(thetaDeg / 2).toFixed(1)}^\\circ$ となります。<br/>',
+  '{"Mは中心角を二等分する直線上にあるため、間の角は $\\\\frac{\\\\theta}{2} = " + (thetaDeg / 2).toFixed(1) + "^\\\\circ$ となります。"}<br/>'
+);
+content = content.replace(
+  '$AM^2 = {l}^2 + {(l/2).toFixed(1)}^2 - 2 \\cdot {l} \\cdot {(l/2).toFixed(1)} \\cos({(thetaDeg / 2).toFixed(1)}^\\circ)$',
+  '{"$AM^2 = " + l + "^2 + " + (l/2).toFixed(1) + "^2 - 2 \\\\cdot " + l + " \\\\cdot " + (l/2).toFixed(1) + " \\\\cos(" + (thetaDeg / 2).toFixed(1) + "^\\\\circ)$"}'
+);
+fs.writeFileSync('components/ConeShortestPathViz.tsx', content);

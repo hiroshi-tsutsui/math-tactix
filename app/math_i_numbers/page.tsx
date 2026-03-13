@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import ValueAbsoluteViz from '@/components/ValueAbsoluteViz';
+
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import SaltWaterInequalityViz from './components/SaltWaterInequalityViz';
@@ -38,6 +40,7 @@ import SymmetricThreeVariablesViz from './components/SymmetricThreeVariablesViz'
 import IrrationalEqualityViz from './components/IrrationalEqualityViz';
 import InequalityRangeViz from './components/InequalityRangeViz';
 import FormulaValuesViz from './components/FormulaValuesViz';
+import MaxIntegerSolutionViz from './components/MaxIntegerSolutionViz';
 import ExpansionSubstitutionViz from './components/ExpansionSubstitutionViz';
 import SpeedTimeInequalityViz from './components/SpeedTimeInequalityViz';
 import DiscountInequalityViz from './components/DiscountInequalityViz';
@@ -483,7 +486,20 @@ export default function MathINumbers() {
               </div>
             )}
 
-            {currentLevel === 31 && (
+            
+            {currentLevel === 32 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">最大整数解から定数の範囲を決定</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    不等式を満たす最大の整数から、定数の範囲を視覚的に決定します。<br/>
+                    定数aの値を動かして、条件が満たされる範囲（3 &lt; a ≦ 4）を確認しましょう。
+                  </p>
+                  <MaxIntegerSolutionViz />
+                </div>
+              </div>
+            )}
+{currentLevel === 31 && (
               <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
                   <h2 className="text-lg font-bold text-slate-800 mb-2">展開の工夫 (置き換え)</h2>
