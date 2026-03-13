@@ -5,6 +5,7 @@ import VertexOnLineViz from "../../components/VertexOnLineViz";
 import ChordLengthViz from "../../components/ChordLengthViz";
 import ThreePointsDeterminationViz from "../../components/ThreePointsDeterminationViz";
 import XInterceptsDeterminationViz from "../../components/XInterceptsDeterminationViz";
+import AbsoluteInequalityAllRealsViz from "../../components/AbsoluteInequalityAllRealsViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
@@ -863,6 +864,7 @@ export default function QuadraticPage() {
         {currentLevel === 64 && <VertexAxisDeterminationViz />}
         {currentLevel === 65 && <TranslationQuadraticViz />}
         {currentLevel === 66 && <IntegerRootsQuadraticViz />}
+        {currentLevel === 67 && <AbsoluteInequalityAllRealsViz />}
 
 
 
