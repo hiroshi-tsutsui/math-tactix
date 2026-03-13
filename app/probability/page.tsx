@@ -15,6 +15,8 @@ import Link from 'next/link';
 import ShortestPathViz from './components/ShortestPathViz';
 import CircularPermutationViz from "./components/CircularPermutationViz";
 import NecklacePermutationViz from "./components/NecklacePermutationViz";
+import IndistinguishablePermutationViz from "./components/IndistinguishablePermutationViz";
+
 import { CombinationRepetitionViz } from './components/CombinationRepetitionViz';
 
 // --- Components ---
@@ -368,11 +370,19 @@ export default function ProbabilityPage() {
                 {level === 0 ? "MATHEMATICS A" : `LEVEL ${level}`}
             </div>
         </div>
-        <div className="font-bold text-sm">
+                <div className="font-bold text-sm">
             {level === 0 ? "場合の数と確率 (Probability)" : 
              level === 1 ? "順列 (Permutations)" : 
              level === 2 ? "組合せ (Combinations)" : 
-             "条件付き確率 (Conditional Probability)"}
+             level === 3 ? "条件付き確率 (Conditional Probability)" :
+             level === 4 ? "反復試行の確率" :
+             level === 5 ? "最大値の確率" :
+             level === 6 ? "最短経路の数" :
+             level === 7 ? "重複組合せ" :
+             level === 8 ? "円順列" :
+             level === 9 ? "じゅず順列" :
+             level === 10 ? "同じものを含む順列" :
+             "Probability"}
         </div>
         <div className="w-10" />
       </header>
@@ -392,7 +402,8 @@ export default function ProbabilityPage() {
                       { id: 7, title: "Level 7: 重複組合せ (nHr)", desc: "〇と｜の順列と方程式の解", icon: Circle },
                       { id: 8, title: "Level 8: 円順列 (Circular Permutations)", desc: "回転して一致するものは同じとみなす順列", icon: RefreshCw },
                       { id: 9, title: "Level 9: じゅず順列 (Necklace Permutations)", desc: "裏返して一致するものは同じとみなす円順列", icon: RefreshCw },
-                      { id: 5, title: "Level 5: 最大値の確率", desc: "さいころの最大値がkになる確率", icon: Trophy }
+                      { id: 5, title: "Level 5: 最大値の確率", desc: "さいころの最大値がkになる確率", icon: Trophy },
+                      { id: 10, title: "Level 10: 同じものを含む順列", desc: "同じ要素が含まれる場合の順列", icon: RefreshCw }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -635,6 +646,11 @@ export default function ProbabilityPage() {
       {level === 9 && (
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <NecklacePermutationViz />
+          </main>
+      )}
+      {level === 10 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <IndistinguishablePermutationViz />
           </main>
       )}
     </div>

@@ -86,6 +86,37 @@
 
 ## Evolution History
 
+### v1.4.75: 比例式の値 (比例定数kの利用) (Value of Proportional Expressions) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 42 "比例式の値 (比例定数kの利用)" (Value of Proportional Expressions) to Math I Numbers and Algebraic Expressions (数と式).
+- **Visualization**: `ProportionalExpressionViz` implementation.
+  - **Interactive Graphic**: Visualizes $x/2 = y/3 = z/4 = k$ using three separate bar graphs that grow and shrink in unison.
+  - **Parameter Tuning**: Students drag a slider to adjust the proportionality constant $k$ from 1 to 10.
+  - **Connecting to Algebra**: Dynamically substitutes $x=2k$, $y=3k$, $z=4k$ into the target expression $(x+y+z)/x$ and explicitly highlights that $k$ perfectly cancels out, proving the result is independent of $k$.
+- **Learning Value**: Math I students universally stumble when given $x/2 = y/3 = z/4$. They either cross-multiply wildly or freeze. By putting $k$ on a slider and watching the three bars scale proportionally without changing their relative sizes, the abstract "setting to $k$" trick transforms into a self-evident geometric property of similar scaling.
+- **Next Step**: Polish Data Analysis or finalize the remaining core Math I edge cases.
+
+### v1.4.70: 同じものを含む順列 (Indistinguishable Permutations) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 10 "同じものを含む順列" (Permutations with Indistinguishable Items) to Probability (場合の数と確率).
+- **Visualization**: `IndistinguishablePermutationViz` implementation.
+  - **Interactive Bins**: Students use sliders to dynamically adjust the count of 'A's and 'B's.
+  - **Visualizing the Formula**: Dynamically updates the total permutation calculation formula $\frac{n!}{p!q!}$ in real time.
+  - **Connecting to Combinations**: Explains the core intuition that placing identical items into a sequence is mathematically identical to choosing locations (Combinations: $_nC_r$).
+- **Learning Value**: Math A students frequently memorize the $\frac{n!}{p!q!}$ formula blindly and fail to connect it to combinations. By visually displaying the combinatorial selection of "slots" for the 'A's, the abstract formula transforms into a trivial application of Combinations.
+- **Next Step**: Continue exploring high-impact test patterns.
+
+
+### v1.4.65: 放物線の弦の長さ (Chord Length of Parabola) (2026-03-13)
+- **Status**: **IMPLEMENTED**.
+- **Action**: Added Level 60 "放物線の弦の長さ" (Chord Length of a Parabola) to Quadratic Functions (二次関数).
+- **Visualization**: `ChordLengthViz` implementation.
+  - **Interactive Graphic**: Visualizes the intersection of $y = x^2$ and $y = mx + n$.
+  - **Parameter Tuning**: Students dynamically adjust the slope and intercept of the line.
+  - **Connecting to the Formula**: Visually connects the distance formula with the quadratic solutions.
+- **Learning Value**: Math I students struggle with finding the distance between intersections purely algebraically. By sliding the line and visualizing the segment, the algebraic process is grounded geometrically.
+- **Next Step**: Polish Data Analysis or finalize the remaining edge cases of Math I.
+
 ### v1.4.63: 正四面体の計量 (Regular Tetrahedron) (2026-03-13)
 - **Status**: **IMPLEMENTED**.
 - **Action**: Added Level 15 "正四面体の計量" (Measurement of Regular Tetrahedron) to Math I Trigonometry (図形と計量).
