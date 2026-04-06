@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function VertexAxisDeterminationViz() {
   const [mode, setMode] = useState<'vertex' | 'axis'>('vertex');
@@ -156,9 +156,9 @@ export default function VertexAxisDeterminationViz() {
           <div className="bg-slate-50 p-4 rounded-lg">
             <h3 className="font-bold text-slate-800 mb-2">問題</h3>
             {mode === 'vertex' ? (
-              <p className="text-gray-700">頂点が <InlineMath math="(1, 2)" /> で、点 <InlineMath math="(3, -6)" /> を通る2次関数を求めよ。</p>
+              <p className="text-gray-700">頂点が <MathDisplay tex="(1, 2)" /> で、点 <MathDisplay tex="(3, -6)" /> を通る2次関数を求めよ。</p>
             ) : (
-              <p className="text-gray-700">軸が直線 <InlineMath math="x = 1" /> で、2点 <InlineMath math="(0, 3)" /> と <InlineMath math="(3, 6)" /> を通る2次関数を求めよ。</p>
+              <p className="text-gray-700">軸が直線 <MathDisplay tex="x = 1" /> で、2点 <MathDisplay tex="(0, 3)" /> と <MathDisplay tex="(3, 6)" /> を通る2次関数を求めよ。</p>
             )}
           </div>
 
@@ -167,15 +167,15 @@ export default function VertexAxisDeterminationViz() {
               <>
                 <div className="bg-blue-50 p-3 rounded">
                   <p className="text-sm text-blue-800 font-bold mb-1">Step 1: 頂点から式を立てる</p>
-                  <BlockMath math={`y = a(x - 1)^2 + 2`} />
+                  <MathDisplay tex={`y = a(x - 1)^2 + 2`} displayMode />
                 </div>
                 <div className="bg-amber-50 p-3 rounded space-y-2">
                   <p className="text-sm text-amber-800 font-bold">Step 2: 通る点を代入して a を決める</p>
                   <p className="text-xs text-gray-600">点(3, -6)を通るので代入:</p>
-                  <BlockMath math={`-6 = a(3 - 1)^2 + 2`} />
+                  <MathDisplay tex={`-6 = a(3 - 1)^2 + 2`} displayMode />
                   
                   <label className="block text-sm font-medium text-gray-700 mt-4">
-                    未知数 <InlineMath math="a" /> を動かす: <span className="font-bold text-blue-600">{a.toFixed(1)}</span>
+                    未知数 <MathDisplay tex="a" /> を動かす: <span className="font-bold text-blue-600">{a.toFixed(1)}</span>
                   </label>
                   <input 
                     type="range" min="-5" max="5" step="0.1" value={a} onChange={(e) => setA(parseFloat(e.target.value))}
@@ -188,13 +188,13 @@ export default function VertexAxisDeterminationViz() {
               <>
                 <div className="bg-purple-50 p-3 rounded">
                   <p className="text-sm text-purple-800 font-bold mb-1">Step 1: 軸から式を立てる</p>
-                  <BlockMath math={`y = a(x - 1)^2 + q`} />
+                  <MathDisplay tex={`y = a(x - 1)^2 + q`} displayMode />
                 </div>
                 <div className="bg-amber-50 p-3 rounded space-y-2">
                   <p className="text-sm text-amber-800 font-bold">Step 2: 2点を通る条件から a, q を決める</p>
                   
                   <label className="block text-sm font-medium text-gray-700 mt-2">
-                    <InlineMath math="a" /> (開き具合): <span className="font-bold text-purple-600">{ax_a.toFixed(1)}</span>
+                    <MathDisplay tex="a" /> (開き具合): <span className="font-bold text-purple-600">{ax_a.toFixed(1)}</span>
                   </label>
                   <input 
                     type="range" min="-3" max="5" step="0.1" value={ax_a} onChange={(e) => setAxA(parseFloat(e.target.value))}
@@ -202,7 +202,7 @@ export default function VertexAxisDeterminationViz() {
                   />
                   
                   <label className="block text-sm font-medium text-gray-700 mt-2">
-                    <InlineMath math="q" /> (頂点のy座標): <span className="font-bold text-purple-600">{ax_q.toFixed(1)}</span>
+                    <MathDisplay tex="q" /> (頂点のy座標): <span className="font-bold text-purple-600">{ax_q.toFixed(1)}</span>
                   </label>
                   <input 
                     type="range" min="-5" max="5" step="0.1" value={ax_q} onChange={(e) => setAxQ(parseFloat(e.target.value))}

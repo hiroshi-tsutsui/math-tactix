@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function ThreePointsDeterminationViz() {
   const [a, setA] = useState(1);
   const [b, setB] = useState(-2);
@@ -76,7 +75,7 @@ export default function ThreePointsDeterminationViz() {
     <div className="bg-white p-6 rounded-lg shadow mt-6">
       <h3 className="text-xl font-bold mb-4">2次関数の決定 (3点から決定)</h3>
       <p className="text-gray-600 mb-4">
-        3つの点 <InlineMath math="(1, -4), (-1, 0), (3, 0)" /> を通る2次関数 <InlineMath math="y = ax^2 + bx + c" /> を見つけよう。
+        3つの点 <MathDisplay tex="(1, -4), (-1, 0), (3, 0)" /> を通る2次関数 <MathDisplay tex="y = ax^2 + bx + c" /> を見つけよう。
       </p>
       
       <div className="flex flex-col md:flex-row gap-6">
@@ -90,19 +89,19 @@ export default function ThreePointsDeterminationViz() {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-1">
-                  <InlineMath math="a" /> (開き具合): {a}
+                  <MathDisplay tex="a" /> (開き具合): {a}
                 </label>
                 <input type="range" min="-3" max="3" step="0.5" value={a} onChange={(e) => setA(parseFloat(e.target.value))} className="w-full" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">
-                  <InlineMath math="b" /> (軸の移動): {b}
+                  <MathDisplay tex="b" /> (軸の移動): {b}
                 </label>
                 <input type="range" min="-5" max="5" step="0.5" value={b} onChange={(e) => setB(parseFloat(e.target.value))} className="w-full" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">
-                  <InlineMath math="c" /> (y切片): {c}
+                  <MathDisplay tex="c" /> (y切片): {c}
                 </label>
                 <input type="range" min="-5" max="5" step="0.5" value={c} onChange={(e) => setC(parseFloat(e.target.value))} className="w-full" />
               </div>
@@ -111,7 +110,7 @@ export default function ThreePointsDeterminationViz() {
           
           <div className="bg-gray-50 p-4 rounded-lg">
             <h4 className="font-bold mb-2">現在の方程式</h4>
-            <BlockMath math={`y = ${a}x^2 ${b >= 0 ? '+' : ''}${b}x ${c >= 0 ? '+' : ''}${c}`} />
+            <MathDisplay tex={`y = ${a}x^2 ${b >= 0 ? '+' : ''}${b}x ${c >= 0 ? '+' : ''}${c}`} displayMode />
             {match ? (
               <div className="mt-4 bg-green-100 text-green-800 p-3 rounded font-bold text-center">
                 ✨ 全ての点を通過しました！正解です！

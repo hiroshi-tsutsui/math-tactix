@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
 import { motion } from 'framer-motion';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function WireSquaresViz() {
   const [wireLength, setWireLength] = useState(40);
@@ -132,27 +132,27 @@ export default function WireSquaresViz() {
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
             <h4 className="font-bold text-blue-800 mb-2">問題の構造化 (Formulation)</h4>
             <p className="text-sm text-gray-700 leading-relaxed mb-2">
-              長さ <InlineMath math={`${wireLength}`} /> cm の針金を、端から <InlineMath math="x" /> cm の位置で切断します。<br/>
-              切断された2本の針金（長さ <InlineMath math="x" /> と <InlineMath math={`${wireLength} - x`} />）で、それぞれ正方形を作ります。
+              長さ <MathDisplay tex={`${wireLength}`} /> cm の針金を、端から <MathDisplay tex="x" /> cm の位置で切断します。<br/>
+              切断された2本の針金（長さ <MathDisplay tex="x" /> と <MathDisplay tex={`${wireLength} - x`} />）で、それぞれ正方形を作ります。
             </p>
             <div className="text-sm overflow-x-auto">
-              <BlockMath math={`S_1 = \\left(\\frac{x}{4}\\right)^2 = \\frac{x^2}{16}`} />
-              <BlockMath math={`S_2 = \\left(\\frac{${wireLength} - x}{4}\\right)^2 = \\frac{(x - ${wireLength})^2}{16}`} />
+              <MathDisplay tex={`S_1 = \\left(\\frac{x}{4}\\right)^2 = \\frac{x^2}{16}`} displayMode />
+              <MathDisplay tex={`S_2 = \\left(\\frac{${wireLength} - x}{4}\\right)^2 = \\frac{(x - ${wireLength})^2}{16}`} displayMode />
             </div>
           </div>
 
           <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
             <h4 className="font-bold text-purple-800 mb-2">2次関数の最小値 (Minimizing the Quadratic)</h4>
             <p className="text-sm text-gray-700 leading-relaxed">
-              面積の和 <InlineMath math="y = S_1 + S_2" /> を計算し、平方完成（Completing the Square）を行います。
+              面積の和 <MathDisplay tex="y = S_1 + S_2" /> を計算し、平方完成（Completing the Square）を行います。
             </p>
             <div className="text-sm overflow-x-auto">
-              <BlockMath math={`y = \\frac{1}{16} \\left( x^2 + (x - ${wireLength})^2 \\right)`} />
-              <BlockMath math={`y = \\frac{1}{16} \\left( 2x^2 - ${2 * wireLength}x + ${wireLength ** 2} \\right)`} />
-              <BlockMath math={`y = \\frac{1}{8} (x - ${optimalCut})^2 + ${minArea}`} />
+              <MathDisplay tex={`y = \\frac{1}{16} \\left( x^2 + (x - ${wireLength})^2 \\right)`} displayMode />
+              <MathDisplay tex={`y = \\frac{1}{16} \\left( 2x^2 - ${2 * wireLength}x + ${wireLength ** 2} \\right)`} displayMode />
+              <MathDisplay tex={`y = \\frac{1}{8} (x - ${optimalCut})^2 + ${minArea}`} displayMode />
             </div>
             <p className="text-sm text-gray-700 mt-2 border-t border-purple-200 pt-2">
-              よって、<InlineMath math={`x = ${optimalCut}`} /> cm のとき（つまり<strong>ちょうど半分に切ったとき</strong>）、面積の和は最小値 <InlineMath math={`${minArea}`} /> cm² をとります。
+              よって、<MathDisplay tex={`x = ${optimalCut}`} /> cm のとき（つまり<strong>ちょうど半分に切ったとき</strong>）、面積の和は最小値 <MathDisplay tex={`${minArea}`} /> cm² をとります。
             </p>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw, Info } from 'lucide-react';
-import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 interface Props {
   onComplete?: () => void;
@@ -80,20 +80,20 @@ export default function VarianceShortcutViz({ onComplete }: Props) {
           <div className="bg-blue-50 border border-blue-100 p-4 rounded-xl">
             <p className="text-xs font-bold text-blue-600 mb-1">平均の計算</p>
             <div className="text-lg text-slate-800">
-              <InlineMath math={`\\overline{x} = ${mean.toFixed(2)}`} />
+              <MathDisplay tex={`\\overline{x} = ${mean.toFixed(2)}`} />
             </div>
             <div className="text-sm text-slate-600 mt-2">
-              <InlineMath math={`(\\overline{x})^2 = ${squareOfMean.toFixed(2)}`} />
+              <MathDisplay tex={`(\\overline{x})^2 = ${squareOfMean.toFixed(2)}`} />
             </div>
           </div>
 
           <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-xl">
             <p className="text-xs font-bold text-emerald-600 mb-1">2乗の平均</p>
             <div className="text-lg text-slate-800">
-              <InlineMath math={`\\overline{x^2} = \\frac{${data.map(d => d + '^2').join('+')}}{${n}}`} />
+              <MathDisplay tex={`\\overline{x^2} = \\frac{${data.map(d => d + '^2').join('+')}}{${n}}`} />
             </div>
             <div className="text-sm text-slate-600 mt-2">
-              <InlineMath math={`\\overline{x^2} = ${meanOfSquares.toFixed(2)}`} />
+              <MathDisplay tex={`\\overline{x^2} = ${meanOfSquares.toFixed(2)}`} />
             </div>
           </div>
 
@@ -105,7 +105,7 @@ export default function VarianceShortcutViz({ onComplete }: Props) {
           >
             <p className="text-xs font-bold text-purple-600 mb-1">分散のショートカット公式</p>
             <div className="text-lg font-bold text-slate-800">
-              <BlockMath math={`s^2 = \\overline{x^2} - (\\overline{x})^2`} />
+              <MathDisplay tex={`s^2 = \\overline{x^2} - (\\overline{x})^2`} displayMode />
             </div>
             <div className="text-center font-mono text-xl text-purple-700 font-bold mt-2">
               {meanOfSquares.toFixed(2)} - {squareOfMean.toFixed(2)} = {varianceShortcut.toFixed(2)}
@@ -116,8 +116,8 @@ export default function VarianceShortcutViz({ onComplete }: Props) {
       
       <div className="mt-8 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm text-slate-600 leading-relaxed">
         <p className="font-bold mb-2">💡 なぜこの公式が便利なのか？</p>
-        <p>通常の分散の定義は <InlineMath math="s^2 = \frac{1}{n}\sum (x_i - \overline{x})^2" /> ですが、平均 <InlineMath math="\overline{x}" /> が小数になると、偏差 <InlineMath math="(x_i - \overline{x})" /> の2乗の計算が非常に複雑になります。</p>
-        <p className="mt-2">このショートカット公式 <InlineMath math="s^2 = \overline{x^2} - (\overline{x})^2" /> を使えば、元のデータ <InlineMath math="x_i" /> を2乗して平均を出し、最後に平均の2乗を引くだけで済むため、計算ミスを大幅に減らすことができます。</p>
+        <p>通常の分散の定義は <MathDisplay tex="s^2 = \frac{1}{n}\sum (x_i - \overline{x})^2" /> ですが、平均 <MathDisplay tex="\overline{x}" /> が小数になると、偏差 <MathDisplay tex="(x_i - \overline{x})" /> の2乗の計算が非常に複雑になります。</p>
+        <p className="mt-2">このショートカット公式 <MathDisplay tex="s^2 = \overline{x^2} - (\overline{x})^2" /> を使えば、元のデータ <MathDisplay tex="x_i" /> を2乗して平均を出し、最後に平均の2乗を引くだけで済むため、計算ミスを大幅に減らすことができます。</p>
       </div>
     </div>
   );

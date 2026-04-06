@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function OneRealRootConditionViz() {
   const [p, setP] = useState<number>(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -115,16 +114,16 @@ export default function OneRealRootConditionViz() {
           一方だけが実数解をもつ条件
         </h3>
         <p className="text-sm text-slate-600 mb-4">
-          2つの2次方程式が与えられたとき、パラメータ <InlineMath math="p" /> の値によってそれぞれの実数解の個数が変化します。
+          2つの2次方程式が与えられたとき、パラメータ <MathDisplay tex="p" /> の値によってそれぞれの実数解の個数が変化します。
           「一方だけが実数解をもつ」という条件を視覚的に確認しましょう。
         </p>
 
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
             <h4 className="font-bold text-blue-700 mb-2">方程式① (青)</h4>
-            <BlockMath math={`x^2 ${p >= 0 ? '+' : ''} ${p.toFixed(1)}x + 1 = 0`} />
+            <MathDisplay tex={`x^2 ${p >= 0 ? '+' : ''} ${p.toFixed(1)}x + 1 = 0`} displayMode />
             <div className="mt-2 text-sm flex flex-col justify-between items-start gap-1">
-              <span>判別式 <InlineMath math="D_1 = p^2 - 4" /></span>
+              <span>判別式 <MathDisplay tex="D_1 = p^2 - 4" /></span>
               <span className={`font-bold ${d1 >= 0 ? 'text-green-600' : 'text-red-500'}`}>
                 D₁ = {d1.toFixed(2)} {d1 >= 0 ? ' (実数解あり)' : ' (実数解なし)'}
               </span>
@@ -133,9 +132,9 @@ export default function OneRealRootConditionViz() {
           
           <div className="bg-red-50 p-4 rounded-lg border border-red-200">
             <h4 className="font-bold text-red-700 mb-2">方程式② (赤)</h4>
-            <BlockMath math={`x^2 + x ${p >= 0 ? '+' : ''} ${p.toFixed(1)} = 0`} />
+            <MathDisplay tex={`x^2 + x ${p >= 0 ? '+' : ''} ${p.toFixed(1)} = 0`} displayMode />
             <div className="mt-2 text-sm flex flex-col justify-between items-start gap-1">
-              <span>判別式 <InlineMath math="D_2 = 1 - 4p" /></span>
+              <span>判別式 <MathDisplay tex="D_2 = 1 - 4p" /></span>
               <span className={`font-bold ${d2 >= 0 ? 'text-green-600' : 'text-red-500'}`}>
                 D₂ = {d2.toFixed(2)} {d2 >= 0 ? ' (実数解あり)' : ' (実数解なし)'}
               </span>
@@ -145,7 +144,7 @@ export default function OneRealRootConditionViz() {
 
         <div className="mb-6 flex flex-col items-center">
           <label className="text-sm font-semibold text-slate-700 mb-2">
-            パラメータ <InlineMath math="p" /> : {p.toFixed(1)}
+            パラメータ <MathDisplay tex="p" /> : {p.toFixed(1)}
           </label>
           <input
             type="range"

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { BlockMath, InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function VerticalSegmentMaxViz() {
   const [t, setT] = useState(1.5); // x-coordinate
@@ -30,15 +30,15 @@ export default function VerticalSegmentMaxViz() {
           放物線と直線の間の線分の長さの最大値
         </h3>
         <p className="text-sm text-slate-600 mb-4 leading-relaxed">
-          放物線 <InlineMath math="y = -x^2 + 4x" /> と直線 <InlineMath math="y = x" /> の間にある、
-          y軸に平行な線分PQの長さを最大にする <InlineMath math="x" /> の値を視覚的に確認します。
-          区間は <InlineMath math="0 \le x \le 3" /> です。
+          放物線 <MathDisplay tex="y = -x^2 + 4x" /> と直線 <MathDisplay tex="y = x" /> の間にある、
+          y軸に平行な線分PQの長さを最大にする <MathDisplay tex="x" /> の値を視覚的に確認します。
+          区間は <MathDisplay tex="0 \le x \le 3" /> です。
         </p>
 
         <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-4">
           <div className="mb-4">
             <label className="text-sm font-medium text-slate-700 block mb-2">
-              x座標: <InlineMath math={`t = ${t.toFixed(2)}`} />
+              x座標: <MathDisplay tex={`t = ${t.toFixed(2)}`} />
             </label>
             <input
               type="range"
@@ -52,9 +52,9 @@ export default function VerticalSegmentMaxViz() {
           </div>
 
           <div className="text-sm text-slate-700 bg-white p-3 rounded shadow-sm">
-            <p className="mb-2">線分の長さ <InlineMath math="L" /> は、上の関数から下の関数を引くことで求まります。</p>
-            <BlockMath math={`L = (-t^2 + 4t) - (t) = -t^2 + 3t`} />
-            <BlockMath math={`L = -(t - 1.5)^2 + 2.25`} />
+            <p className="mb-2">線分の長さ <MathDisplay tex="L" /> は、上の関数から下の関数を引くことで求まります。</p>
+            <MathDisplay tex={`L = (-t^2 + 4t) - (t) = -t^2 + 3t`} displayMode />
+            <MathDisplay tex={`L = -(t - 1.5)^2 + 2.25`} displayMode />
             <p className="mt-2 text-center text-blue-600 font-bold">
               現在の長さ: {diff.toFixed(2)}
               {Math.abs(t - 1.5) < 0.01 && " (最大値！)"}

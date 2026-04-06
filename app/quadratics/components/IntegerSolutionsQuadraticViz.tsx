@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function IntegerSolutionsQuadraticViz() {
   const [a, setA] = useState(2);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -124,7 +123,7 @@ export default function IntegerSolutionsQuadraticViz() {
         <div className="bg-blue-50 p-4 rounded-lg">
           <p className="text-sm text-blue-800 mb-2">対象の2次不等式:</p>
           <div className="text-center overflow-x-auto">
-            <BlockMath math={fStrClean} />
+            <MathDisplay tex={fStrClean} displayMode />
           </div>
         </div>
         <div className="bg-purple-50 p-4 rounded-lg">

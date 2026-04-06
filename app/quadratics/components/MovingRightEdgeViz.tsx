@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 const MovingRightEdgeViz: React.FC = () => {
   const [a, setA] = useState(1.5);
@@ -155,9 +155,9 @@ const MovingRightEdgeViz: React.FC = () => {
       </h3>
       
       <div className="mb-4 p-4 bg-slate-50 rounded-lg text-slate-700">
-        <p>関数: <InlineMath math="y = x^2 - 4x \quad (0 \le x \le a)" /></p>
+        <p>関数: <MathDisplay tex="y = x^2 - 4x \quad (0 \le x \le a)" /></p>
         <p className="mt-2 text-sm text-slate-500">
-          この関数の軸は <InlineMath math="x = 2" /> です。右端 <InlineMath math="a" /> の値が大きくなるにつれて、定義域 <InlineMath math="[0, a]" /> が右に伸びていきます。
+          この関数の軸は <MathDisplay tex="x = 2" /> です。右端 <MathDisplay tex="a" /> の値が大きくなるにつれて、定義域 <MathDisplay tex="[0, a]" /> が右に伸びていきます。
         </p>
       </div>
 
@@ -185,7 +185,7 @@ const MovingRightEdgeViz: React.FC = () => {
 
             <div className="mb-6">
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    定義域の右端 <InlineMath math="a" /> : <span className="text-blue-600">{a.toFixed(1)}</span>
+                    定義域の右端 <MathDisplay tex="a" /> : <span className="text-blue-600">{a.toFixed(1)}</span>
                 </label>
                 <input
                     type="range"

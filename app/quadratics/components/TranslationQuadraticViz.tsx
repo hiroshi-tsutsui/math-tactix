@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function TranslationQuadraticViz() {
   const [p, setP] = useState(0); // x-translation
@@ -40,17 +40,17 @@ export default function TranslationQuadraticViz() {
             <div>
               <p className="font-semibold mb-2">基準の関数:</p>
               <div className="bg-white p-2 rounded border inline-block min-w-[120px] text-center">
-                <InlineMath math="y = x^2" />
+                <MathDisplay tex="y = x^2" />
               </div>
-              <p className="text-sm text-slate-500 mt-2">頂点: <InlineMath math="(0, 0)" /></p>
+              <p className="text-sm text-slate-500 mt-2">頂点: <MathDisplay tex="(0, 0)" /></p>
             </div>
             
             <div className="pt-4 border-t">
               <p className="font-semibold mb-2">移動後の関数:</p>
               <div className="bg-blue-50 p-2 rounded border border-blue-200 inline-block min-w-[200px] text-center text-blue-800">
-                <InlineMath math={`y = (x ${p > 0 ? `- ${p}` : p < 0 ? `+ ${Math.abs(p)}` : ""})^2 ${q !== 0 ? (q > 0 ? `+ ${q}` : `- ${Math.abs(q)}`) : ""}`} />
+                <MathDisplay tex={`y = (x ${p > 0 ? `- ${p}` : p < 0 ? `+ ${Math.abs(p)}` : ""})^2 ${q !== 0 ? (q > 0 ? `+ ${q}` : `- ${Math.abs(q)}`) : ""}`} />
               </div>
-              <p className="text-sm text-slate-500 mt-2">頂点: <InlineMath math={`(${p}, ${q})`} /></p>
+              <p className="text-sm text-slate-500 mt-2">頂点: <MathDisplay tex={`(${p}, ${q})`} /></p>
             </div>
 
             <div className="space-y-4 pt-4 border-t">
@@ -88,11 +88,11 @@ export default function TranslationQuadraticViz() {
             
             <div className="bg-blue-50 p-4 rounded-md text-sm text-blue-800 mt-4 border border-blue-100">
               <p className="font-semibold mb-2">【ポイント】</p>
-              <p>関数 <InlineMath math="y = f(x)" /> のグラフを x軸方向に <InlineMath math="p" />、y軸方向に <InlineMath math="q" /> だけ平行移動したグラフの方程式は、</p>
+              <p>関数 <MathDisplay tex="y = f(x)" /> のグラフを x軸方向に <MathDisplay tex="p" />、y軸方向に <MathDisplay tex="q" /> だけ平行移動したグラフの方程式は、</p>
               <div className="text-center my-2">
-                 <InlineMath math="y - q = f(x - p)" />
+                 <MathDisplay tex="y - q = f(x - p)" />
               </div>
-              <p>すなわち、<InlineMath math="y = f(x - p) + q" /> となる。</p>
+              <p>すなわち、<MathDisplay tex="y = f(x - p) + q" /> となる。</p>
             </div>
           </div>
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'katex/dist/katex.min.css';
-import { BlockMath, InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function ChordLengthViz() {
   const [m, setM] = useState(1);
   const [n, setN] = useState(2);
@@ -31,7 +30,7 @@ export default function ChordLengthViz() {
       </h2>
       
       <div className="w-full bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
-        <p className="text-slate-700 text-sm mb-2 text-center">放物線 <InlineMath math="y = x^2" /> と直線 <InlineMath math={`y = ${m}x + ${n >= 0 ? n : `(${n})`}`} /> の交点を結ぶ線分（弦）の長さを求めます。</p>
+        <p className="text-slate-700 text-sm mb-2 text-center">放物線 <MathDisplay tex="y = x^2" /> と直線 <MathDisplay tex={`y = ${m}x + ${n >= 0 ? n : `(${n})`}`} /> の交点を結ぶ線分（弦）の長さを求めます。</p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
@@ -121,23 +120,23 @@ export default function ChordLengthViz() {
         
         {hasIntersections ? (
           <div className="space-y-4 text-slate-600">
-            <p>1. 交点のx座標 <InlineMath math="\alpha, \beta" /> を求めます（<InlineMath math="x^2 = mx + n \implies x^2 - mx - n = 0" /> の解）。</p>
-            <BlockMath math={`D = (-${m})^2 - 4(1)(-${n}) = ${D}`} />
+            <p>1. 交点のx座標 <MathDisplay tex="\alpha, \beta" /> を求めます（<MathDisplay tex="x^2 = mx + n \implies x^2 - mx - n = 0" /> の解）。</p>
+            <MathDisplay tex={`D = (-${m})^2 - 4(1)(-${n}) = ${D}`} displayMode />
             
-            <p>2. 解と係数の関係、または解の公式から差 <InlineMath math="\beta - \alpha" /> を求めます。</p>
-            <BlockMath math={`|\\beta - \\alpha| = \\frac{\\sqrt{D}}{|a|} = \\sqrt{${D}}`} />
+            <p>2. 解と係数の関係、または解の公式から差 <MathDisplay tex="\beta - \alpha" /> を求めます。</p>
+            <MathDisplay tex={`|\\beta - \\alpha| = \\frac{\\sqrt{D}}{|a|} = \\sqrt{${D}}`} displayMode />
             
-            <p>3. 直線の傾きが <InlineMath math="m" /> なので、交点間の距離 <InlineMath math="L" /> は三平方の定理より：</p>
+            <p>3. 直線の傾きが <MathDisplay tex="m" /> なので、交点間の距離 <MathDisplay tex="L" /> は三平方の定理より：</p>
             <div className="bg-white p-3 rounded border border-rose-100 shadow-inner">
-              <BlockMath math={`L = |\\beta - \\alpha| \\sqrt{1 + m^2}`} />
-              <BlockMath math={`L = \\sqrt{${D}} \\times \\sqrt{1 + (${m})^2} = \\sqrt{${D}} \\times \\sqrt{${1 + m * m}} = ${lengthL.toFixed(2)}`} />
+              <MathDisplay tex={`L = |\\beta - \\alpha| \\sqrt{1 + m^2}`} displayMode />
+              <MathDisplay tex={`L = \\sqrt{${D}} \\times \\sqrt{1 + (${m})^2} = \\sqrt{${D}} \\times \\sqrt{${1 + m * m}} = ${lengthL.toFixed(2)}`} displayMode />
             </div>
             <p className="text-center font-bold text-rose-600">弦の長さ: {lengthL.toFixed(2)}</p>
           </div>
         ) : (
           <div className="text-center text-slate-500 py-4 bg-slate-100 rounded-lg">
             <p className="font-bold">交点がありません（弦が存在しません）</p>
-            <BlockMath math={`D = ${D} < 0`} />
+            <MathDisplay tex={`D = ${D} < 0`} displayMode />
           </div>
         )}
       </div>

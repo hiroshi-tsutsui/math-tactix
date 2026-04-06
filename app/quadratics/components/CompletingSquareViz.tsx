@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
 import { fraction, format } from 'mathjs';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 interface CompletingSquareVizProps {
   equation?: string; // Expecting "y = ax^2 + bx + c"
@@ -61,14 +61,14 @@ const CompletingSquareViz: React.FC<CompletingSquareVizProps> = ({ equation = ""
       case 1:
         return {
           formula: `y = ${a === 1 ? "" : a === -1 ? "-" : a}(x^2 ${toTex(b_a, true)}x) ${toTex(c, true)}`,
-          description: <>$x^2$ の係数 <InlineMath math={String(a)} /> で $x$ の項までをくくります。</>
+          description: <>$x^2$ の係数 <MathDisplay tex={String(a)} /> で $x$ の項までをくくります。</>
         };
       case 2:
         const half_b_a = b / (2 * a);
         const square = Math.pow(half_b_a, 2); // Ensure positive
         return {
           formula: `y = ${a === 1 ? "" : a === -1 ? "-" : a}(x^2 ${toTex(b_a, true)}x + ${toTex(square)} - ${toTex(square)}) ${toTex(c, true)}`,
-          description: <>$x$ の係数の半分の2乗 <InlineMath math={toTex(square)} /> を足して引きます。</>
+          description: <>$x$ の係数の半分の2乗 <MathDisplay tex={toTex(square)} /> を足して引きます。</>
         };
       case 3:
         return {
@@ -95,7 +95,7 @@ const CompletingSquareViz: React.FC<CompletingSquareVizProps> = ({ equation = ""
        </div>
        
        <div className="flex flex-col items-center justify-center min-h-[140px] bg-gray-50 rounded-lg p-6 mb-6">
-          <BlockMath math={current.formula} />
+          <MathDisplay tex={current.formula} displayMode />
        </div>
 
        <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400 mb-6">

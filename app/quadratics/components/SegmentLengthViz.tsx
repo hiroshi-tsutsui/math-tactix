@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function SegmentLengthViz() {
   const [c, setC] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -84,8 +83,8 @@ export default function SegmentLengthViz() {
       
       <div className="w-full max-w-md bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
         <div className="flex justify-between items-center text-sm font-bold text-slate-700">
-          <span>切片 <InlineMath math="c" />: {c.toFixed(1)}</span>
-          <span className="text-red-500">線分の長さ <InlineMath math="L" />: {length.toFixed(1)}</span>
+          <span>切片 <MathDisplay tex="c" />: {c.toFixed(1)}</span>
+          <span className="text-red-500">線分の長さ <MathDisplay tex="L" />: {length.toFixed(1)}</span>
         </div>
         <input 
           type="range" 
@@ -95,8 +94,8 @@ export default function SegmentLengthViz() {
           className="w-full accent-blue-600"
         />
         <div className="text-xs text-slate-500 text-center">
-          <InlineMath math="y = x^2 - 4x + c" /><br/>
-          <InlineMath math="c" /> を動かして、<InlineMath math="L = 6" /> になる点を探してみよう
+          <MathDisplay tex="y = x^2 - 4x + c" /><br/>
+          <MathDisplay tex="c" /> を動かして、<MathDisplay tex="L = 6" /> になる点を探してみよう
         </div>
       </div>
     </div>

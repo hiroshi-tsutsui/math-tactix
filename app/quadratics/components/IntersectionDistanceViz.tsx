@@ -2,8 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import 'katex/dist/katex.min.css';
-import { BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 interface VizProps {
   onSuccess?: () => void;
 }
@@ -119,8 +118,8 @@ export const IntersectionDistanceViz: React.FC<VizProps> = ({ onSuccess }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
           <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-            <BlockMath math={`y = x^2`} />
-            <BlockMath math={`y = ${m}x ${n >= 0 ? '+' : ''} ${n}`} />
+            <MathDisplay tex={`y = x^2`} displayMode />
+            <MathDisplay tex={`y = ${m}x ${n >= 0 ? '+' : ''} ${n}`} displayMode />
           </div>
 
           <div className="space-y-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -160,8 +159,8 @@ export const IntersectionDistanceViz: React.FC<VizProps> = ({ onSuccess }) => {
             <p className="text-sm text-blue-800">
               交点の x 座標を α, β とすると、交点間の距離 $L$ は:
             </p>
-            <BlockMath math={`L = (\\beta - \\alpha)\\sqrt{1 + m^2}`} />
-            <BlockMath math={`= \\frac{\\sqrt{D}}{|a|} \\sqrt{1 + m^2}`} />
+            <MathDisplay tex={`L = (\\beta - \\alpha)\\sqrt{1 + m^2}`} displayMode />
+            <MathDisplay tex={`= \\frac{\\sqrt{D}}{|a|} \\sqrt{1 + m^2}`} displayMode />
             {distance > 0 ? (
               <div className="mt-4 p-3 bg-red-50 border border-red-100 rounded-lg text-center">
                 <span className="font-bold text-red-600">現在の距離 L: {distance.toFixed(2)}</span>

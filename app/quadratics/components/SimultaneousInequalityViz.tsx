@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 type RangeType = 'inside' | 'outside';
 
 interface Range {

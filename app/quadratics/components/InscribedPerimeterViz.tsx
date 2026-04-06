@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 const InscribedPerimeterViz: React.FC = () => {
   const [t, setT] = useState(1);
   const [data, setData] = useState<any[]>([]);
@@ -51,7 +50,7 @@ const InscribedPerimeterViz: React.FC = () => {
       <div className="text-center">
         <h3 className="text-xl font-bold text-gray-800 mb-2">放物線に内接する長方形の周の長さ</h3>
         <p className="text-sm text-gray-600">
-          放物線 <InlineMath math="y = 4 - x^2" /> と x軸で囲まれた部分に内接する長方形の周の長さの最大値を求めます。
+          放物線 <MathDisplay tex="y = 4 - x^2" /> と x軸で囲まれた部分に内接する長方形の周の長さの最大値を求めます。
         </p>
       </div>
 
@@ -120,11 +119,11 @@ const InscribedPerimeterViz: React.FC = () => {
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 space-y-3">
             <h4 className="font-bold text-blue-900 border-b border-blue-200 pb-2">周の長さ L の計算</h4>
             <div className="text-sm text-blue-800 space-y-2">
-              <p>長方形の横の長さ: <InlineMath math="2t" /> ({rectWidth.toFixed(2)})</p>
-              <p>長方形の縦の長さ: <InlineMath math="4 - t^2" /> ({rectHeight.toFixed(2)})</p>
+              <p>長方形の横の長さ: <MathDisplay tex="2t" /> ({rectWidth.toFixed(2)})</p>
+              <p>長方形の縦の長さ: <MathDisplay tex="4 - t^2" /> ({rectHeight.toFixed(2)})</p>
               <div className="bg-white p-2 rounded border border-blue-100 overflow-x-auto text-center">
-                <BlockMath math={`L = 2(2t + 4 - t^2)`} />
-                <BlockMath math={`L = -2t^2 + 4t + 8`} />
+                <MathDisplay tex={`L = 2(2t + 4 - t^2)`} displayMode />
+                <MathDisplay tex={`L = -2t^2 + 4t + 8`} displayMode />
               </div>
             </div>
           </div>
@@ -132,11 +131,11 @@ const InscribedPerimeterViz: React.FC = () => {
           <div className={`p-4 rounded-lg border space-y-2 transition-colors duration-300 ${Math.abs(t - 1) < 0.05 ? 'bg-yellow-50 border-yellow-400' : 'bg-white border-slate-200'}`}>
             <h4 className="font-bold text-gray-800">平方完成による最大値</h4>
             <div className="text-sm text-gray-700 overflow-x-auto text-center">
-              <BlockMath math={`L = -2(t^2 - 2t) + 8`} />
-              <BlockMath math={`L = -2(t - 1)^2 + 10`} />
+              <MathDisplay tex={`L = -2(t^2 - 2t) + 8`} displayMode />
+              <MathDisplay tex={`L = -2(t - 1)^2 + 10`} displayMode />
             </div>
             <p className="text-sm text-gray-600 mt-2">
-              定義域 <InlineMath math="0 < t < 2" /> において、
+              定義域 <MathDisplay tex="0 < t < 2" /> において、
               t = <span className="font-bold text-red-500">1</span> のとき、
               最大値 <span className="font-bold text-red-500">10</span> となる。
             </p>

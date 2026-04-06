@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { InlineMath } from 'react-katex';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ReferenceDot } from 'recharts';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 interface ShapeOptimizationVizProps {
   totalLength: number; // L
@@ -144,8 +144,8 @@ const ShapeOptimizationViz: React.FC<ShapeOptimizationVizProps> = ({ totalLength
             </ResponsiveContainer>
           </div>
           <div className="mt-4 bg-gray-50 p-3 rounded text-sm text-gray-600 border border-gray-200">
-             <p>関数: <InlineMath math={`S = -2x^2 + ${totalLength}x`} /></p>
-             <p>頂点: <InlineMath math={`(${optimalX}, ${optimalArea})`} /></p>
+             <p>関数: <MathDisplay tex={`S = -2x^2 + ${totalLength}x`} /></p>
+             <p>頂点: <MathDisplay tex={`(${optimalX}, ${optimalArea})`} /></p>
           </div>
         </div>
       </div>

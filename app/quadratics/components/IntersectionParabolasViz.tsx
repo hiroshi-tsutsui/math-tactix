@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Line, XAxis, YAxis, CartesianGrid, ReferenceLine, Scatter } from 'recharts';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export const IntersectionParabolasViz: React.FC = () => {
   const [k, setK] = useState<number>(1);
 
@@ -36,13 +35,13 @@ export const IntersectionParabolasViz: React.FC = () => {
       <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
         <h3 className="text-lg font-bold text-slate-800 mb-2">2つの放物線の交点を通る図形</h3>
         <p className="text-slate-600 text-sm mb-4">
-          2つの放物線 <InlineMath math="f(x) = x^2 - 4" /> と <InlineMath math="g(x) = -x^2 + 2x" /> の交点を通る図形群を <InlineMath math="f(x) + k \cdot g(x) = 0" /> で表現します。<br/>
-          <span className="font-semibold text-blue-600">k = 1</span> のとき、<InlineMath math="x^2" />の項が消えて「2交点を通る直線（共通弦）」になることを確認しましょう。
+          2つの放物線 <MathDisplay tex="f(x) = x^2 - 4" /> と <MathDisplay tex="g(x) = -x^2 + 2x" /> の交点を通る図形群を <MathDisplay tex="f(x) + k \cdot g(x) = 0" /> で表現します。<br/>
+          <span className="font-semibold text-blue-600">k = 1</span> のとき、<MathDisplay tex="x^2" />の項が消えて「2交点を通る直線（共通弦）」になることを確認しましょう。
         </p>
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-slate-700 mb-2">
-            パラメータ <InlineMath math="k" /> : <span className="font-bold text-blue-600">{k.toFixed(1)}</span>
+            パラメータ <MathDisplay tex="k" /> : <span className="font-bold text-blue-600">{k.toFixed(1)}</span>
           </label>
           <input
             type="range"
@@ -73,9 +72,9 @@ export const IntersectionParabolasViz: React.FC = () => {
 
         <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
           <h4 className="font-bold text-slate-800 mb-2">図形の方程式</h4>
-          <BlockMath math={`y = f(x) + k \\cdot g(x)`} />
-          <BlockMath math={`y = (x^2 - 4) + (${k.toFixed(1)})(-x^2 + 2x)`} />
-          <BlockMath math={`y = ${(1-k).toFixed(1)}x^2 + ${(2*k).toFixed(1)}x - 4`} />
+          <MathDisplay tex={`y = f(x) + k \\cdot g(x)`} displayMode />
+          <MathDisplay tex={`y = (x^2 - 4) + (${k.toFixed(1)})(-x^2 + 2x)`} displayMode />
+          <MathDisplay tex={`y = ${(1-k).toFixed(1)}x^2 + ${(2*k).toFixed(1)}x - 4`} displayMode />
           {k === 1 ? (
             <p className="text-red-600 font-bold mt-2 text-center">★ 2次項が消え、2交点を通る直線（共通弦）になります！</p>
           ) : (

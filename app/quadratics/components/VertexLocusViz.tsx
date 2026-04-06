@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { BlockMath, InlineMath } from 'react-katex';
 import { RefreshCw } from 'lucide-react';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export const VertexLocusViz = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -102,9 +102,9 @@ export const VertexLocusViz = () => {
         <canvas ref={canvasRef} width={width} height={height} className="block" />
         <div className="absolute top-4 left-4 bg-white/90 p-3 rounded shadow-sm border border-gray-100 backdrop-blur-sm">
           <div className="text-sm font-semibold text-gray-700 mb-1">現在の放物線:</div>
-          <BlockMath math={`y = x^2 - 2(${p.toFixed(1)})x + ${p.toFixed(1)}`} />
+          <MathDisplay tex={`y = x^2 - 2(${p.toFixed(1)})x + ${p.toFixed(1)}`} displayMode />
           <div className="text-sm font-semibold text-gray-700 mt-2 mb-1">軌跡の方程式:</div>
-          <BlockMath math={`y = -x^2 + x`} />
+          <MathDisplay tex={`y = -x^2 + x`} displayMode />
         </div>
       </div>
 
@@ -134,11 +134,11 @@ export const VertexLocusViz = () => {
       <div className="mt-6 w-full max-w-2xl bg-blue-50/50 p-6 rounded-xl border border-blue-100">
         <h4 className="font-bold text-gray-800 mb-2 border-b border-blue-200 pb-2">💡 なぜこうなるのか？</h4>
         <div className="text-gray-700 space-y-2 text-sm">
-          <p>1. 青い放物線を平方完成すると <InlineMath math="y = (x - p)^2 - p^2 + p" /> になります。</p>
-          <p>2. この式の <strong>頂点</strong> の座標は、<InlineMath math="(p, -p^2 + p)" /> です。</p>
-          <p>3. 頂点の座標を <InlineMath math="(X, Y)" /> とおくと、<strong>X = p</strong>, <strong>Y = -p^2 + p</strong> となります。</p>
-          <p>4. <strong>Y</strong> の式にある <strong>p</strong> を <strong>X</strong> に置き換えると、<InlineMath math="Y = -X^2 + X" /> になります。</p>
-          <p>5. したがって、頂点は常に <strong>赤い点線</strong>（<InlineMath math="y = -x^2 + x" />）の上を動くことになります。</p>
+          <p>1. 青い放物線を平方完成すると <MathDisplay tex="y = (x - p)^2 - p^2 + p" /> になります。</p>
+          <p>2. この式の <strong>頂点</strong> の座標は、<MathDisplay tex="(p, -p^2 + p)" /> です。</p>
+          <p>3. 頂点の座標を <MathDisplay tex="(X, Y)" /> とおくと、<strong>X = p</strong>, <strong>Y = -p^2 + p</strong> となります。</p>
+          <p>4. <strong>Y</strong> の式にある <strong>p</strong> を <strong>X</strong> に置き換えると、<MathDisplay tex="Y = -X^2 + X" /> になります。</p>
+          <p>5. したがって、頂点は常に <strong>赤い点線</strong>（<MathDisplay tex="y = -x^2 + x" />）の上を動くことになります。</p>
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BlockMath } from "react-katex";
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function VertexOnLineViz() {
   const [p, setP] = useState(0);
 
@@ -115,7 +114,7 @@ export default function VertexOnLineViz() {
           <div className="bg-gray-50 p-4 rounded-lg border">
             <h4 className="font-bold text-gray-800 mb-2">現在の式</h4>
             <div className="text-sm">
-              <BlockMath math={`y = (x - ${p >= 0 ? p.toFixed(1) : `(${p.toFixed(1)})`})^2 ${q >= 0 ? '+' : ''} ${q.toFixed(1)}`} />
+              <MathDisplay tex={`y = (x - ${p >= 0 ? p.toFixed(1) : `(${p.toFixed(1)})`})^2 ${q >= 0 ? '+' : ''} ${q.toFixed(1)}`} displayMode />
             </div>
             
             <div className="mt-4 pt-4 border-t border-gray-200 text-sm">
