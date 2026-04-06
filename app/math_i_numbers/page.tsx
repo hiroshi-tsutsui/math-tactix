@@ -59,6 +59,7 @@ import FractionAdditionViz from './components/FractionAdditionViz';
 import RationalizationAdvancedViz from './components/RationalizationAdvancedViz';
 import NestedRadical2Viz from './components/NestedRadical2Viz';
 import RemainderFactorViz from './components/RemainderFactorViz';
+import IdentityCoefficientsViz from './components/IdentityCoefficientsViz';
 
 
 
@@ -122,7 +123,8 @@ export default function MathINumbers() {
         { id: 48, title: '分数式の通分・加減算', type: 'fraction_addition' },
         { id: 49, title: '有理化（1次・2次）', type: 'rationalization_advanced' },
         { id: 50, title: '二重根号の変換（応用）', type: 'nested_radical_2' },
-        { id: 51, title: '余りの定理・因数定理', type: 'remainder_factor' }
+        { id: 51, title: '余りの定理・因数定理', type: 'remainder_factor' },
+        { id: 52, title: '恒等式の係数決定', type: 'identity_coefficients' }
 ];
 
   return (
@@ -721,6 +723,20 @@ export default function MathINumbers() {
                     スライダーで <InlineMath math="a" /> の値を変えて、余りがどう変化するか観察しましょう。
                   </p>
                   <RemainderFactorViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 52 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">恒等式の係数決定 (Identity Coefficients)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    恒等式（すべての <InlineMath math="x" /> について成り立つ等式）の両辺の係数を比較して、
+                    未知定数 <InlineMath math="a, b, c" /> を決定します。
+                    ステップごとに展開・比較の過程を確認しましょう。
+                  </p>
+                  <IdentityCoefficientsViz />
                 </div>
               </div>
             )}

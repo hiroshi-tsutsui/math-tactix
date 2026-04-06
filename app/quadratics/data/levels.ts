@@ -77,4 +77,6 @@ export const LEVELS: LevelDefinition[] = [
   { id: 70, title: '二次関数と直線の位置関係', type: 'parabola_line' },
   { id: 71, title: '定義域が動く最大・最小（総合演習）', type: 'moving_domain_max_min' },
   { id: 72, title: '解と係数の関係（応用）', type: 'root_coefficient' },
+  { id: 73, title: '絶対値を含む二次関数のグラフ', type: 'absolute_quadratic' },
+  { id: 74, title: '二次不等式の文章題（最大化問題）', type: 'quadratic_word_problem' },
 ];
