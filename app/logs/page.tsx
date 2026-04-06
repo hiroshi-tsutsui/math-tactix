@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -47,6 +46,7 @@ export default function LogsPage() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     const w = canvas.width, h = canvas.height, padding = 60;
     const gw = w - padding*2, gh = h - padding*2;
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useLanguage } from '../contexts/LanguageContext';
