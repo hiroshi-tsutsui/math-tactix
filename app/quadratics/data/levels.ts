@@ -76,4 +76,5 @@ export const LEVELS: LevelDefinition[] = [
   { id: 69, title: '文字係数の二次方程式の解の配置', type: 'parametric_roots' },
   { id: 70, title: '二次関数と直線の位置関係', type: 'parabola_line' },
   { id: 71, title: '定義域が動く最大・最小（総合演習）', type: 'moving_domain_max_min' },
+  { id: 72, title: '解と係数の関係（応用）', type: 'root_coefficient' },
 ];
