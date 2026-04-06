@@ -16,6 +16,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
 import { useTheme } from '../contexts/ThemeContext';
 import SineLawViz from './components/SineLawViz';
+import CosineLawViz from './components/CosineLawViz';
+import TriangleAreaViz from './components/TriangleAreaViz';
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -742,6 +744,8 @@ export default function TrigPage() {
              level === 6 ? "三角形の面積 (Triangle Area)" :
              level === 7 ? "実践演習 (Quiz)" :
              level === 9 ? "正弦定理 詳細 (Sine Rule Detail)" :
+             level === 10 ? "余弦定理 詳細 (Cosine Rule Detail)" :
+             level === 11 ? "三角形の面積公式 (Triangle Area)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -762,7 +766,9 @@ export default function TrigPage() {
                       { id: 6, title: "Level 6: 三角形の面積", desc: "高さ = b sinA の視覚化", icon: TrendingUp },
                       { id: 7, title: "Level 7: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy },
                       { id: 8, title: "Level 8: 相互関係の計算", desc: "sinθからcosθ, tanθを求める応用", icon: Star },
-                      { id: 9, title: "Level 9: 正弦定理（詳細）", desc: "a/sinA = 2R をインタラクティブに確認", icon: Activity }
+                      { id: 9, title: "Level 9: 正弦定理（詳細）", desc: "a/sinA = 2R をインタラクティブに確認", icon: Activity },
+                      { id: 10, title: "Level 10: 余弦定理（詳細）", desc: "a² = b² + c² - 2bc cosA の視覚化", icon: Target },
+                      { id: 11, title: "Level 11: 三角形の面積公式", desc: "S = (1/2)ab sinC の導出と計算", icon: TrendingUp }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -1015,6 +1021,24 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-md mx-auto">
                   <SineLawViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 10: Cosine Law Detail */}
+      {level === 10 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <CosineLawViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 11: Triangle Area */}
+      {level === 11 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <TriangleAreaViz />
               </div>
           </main>
       )}

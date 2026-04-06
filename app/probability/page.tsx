@@ -20,6 +20,7 @@ import IndistinguishablePermutationViz from "./components/IndistinguishablePermu
 import { CombinationRepetitionViz } from './components/CombinationRepetitionViz';
 import GroupingViz from "./components/GroupingViz";
 import ComplementaryEventViz from "./components/ComplementaryEventViz";
+import IndependentEventViz from "./components/IndependentEventViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -386,6 +387,7 @@ export default function ProbabilityPage() {
              level === 10 ? "同じものを含む順列" : 
              level === 11 ? "組分け" :
              level === 12 ? "余事象の確率" :
+             level === 13 ? "独立試行の定理" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -410,6 +412,7 @@ export default function ProbabilityPage() {
                       { id: 10, title: "Level 10: 同じものを含む順列", desc: "同じ要素が含まれる場合の順列", icon: RefreshCw },
                       { id: 11, title: "Level 11: 組分け", desc: "区別がある部屋と区別がない組の違い", icon: Circle },
                       { id: 12, title: "Level 12: 余事象の確率", desc: "「少なくとも1つ」を余事象で求める", icon: Compass },
+                      { id: 13, title: "Level 13: 独立試行の定理", desc: "P(A∩B) = P(A)×P(B) のシミュレーション", icon: Activity },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -667,6 +670,13 @@ export default function ProbabilityPage() {
       {level === 12 && (
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <ComplementaryEventViz />
+          </main>
+      )}
+      {level === 13 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <div className="max-w-md mx-auto">
+                  <IndependentEventViz />
+              </div>
           </main>
       )}
     </div>
