@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 const SignOfRootsViz = ({ problem }: { problem: any }) => {
   const [m, setM] = useState(-2.5);
 
@@ -23,7 +22,7 @@ const SignOfRootsViz = ({ problem }: { problem: any }) => {
     <div className="w-full max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-sm border border-slate-200 mt-6">
       <h3 className="text-lg font-bold text-slate-800 mb-4 border-b pb-2">2次方程式の実数解の符号（視覚化）</h3>
       <div className="text-slate-600 mb-6 space-y-2">
-        <BlockMath math={problem.equation} />
+        <MathDisplay tex={problem.equation} displayMode />
         <p className="text-sm">{problem.description}</p>
       </div>
 

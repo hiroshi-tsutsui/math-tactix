@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ReferenceArea, ResponsiveContainer } from 'recharts';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 interface SolutionsInRangeVizProps {
   problem: any;
@@ -85,7 +85,7 @@ const SolutionsInRangeViz: React.FC<SolutionsInRangeVizProps> = ({ problem }) =>
       {/* Control Panel */}
       <div className="mb-6 p-4 bg-gray-50 rounded border">
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          パラメータ <InlineMath math={`k = ${k.toFixed(2)}`} />
+          パラメータ <MathDisplay tex={`k = ${k.toFixed(2)}`} />
         </label>
         <input
           type="range"
@@ -105,9 +105,9 @@ const SolutionsInRangeViz: React.FC<SolutionsInRangeVizProps> = ({ problem }) =>
       {/* Condition Checklist */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div className={`p-3 rounded border ${isDiscriminantOk ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
-          <div className="font-bold text-sm mb-1">1. 判別式 <InlineMath math="D > 0" /></div>
+          <div className="font-bold text-sm mb-1">1. 判別式 <MathDisplay tex="D > 0" /></div>
           <div className="text-xs">
-            <InlineMath math="D/4 = (k-2)(k+1)" /> <br/>
+            <MathDisplay tex="D/4 = (k-2)(k+1)" /> <br/>
             値: {D_val.toFixed(2)} <br/>
             {isDiscriminantOk ? 'OK (異なる2つの実数解)' : 'NG (実数解なし/重解)'}
           </div>
@@ -116,8 +116,8 @@ const SolutionsInRangeViz: React.FC<SolutionsInRangeVizProps> = ({ problem }) =>
         <div className={`p-3 rounded border ${isAxisOk ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
           <div className="font-bold text-sm mb-1">2. 軸の位置</div>
           <div className="text-xs">
-            <InlineMath math="0 < \text{軸} < 3" /> <br/>
-            軸: <InlineMath math={`x = ${axis.toFixed(2)}`} /> <br/>
+            <MathDisplay tex="0 < \text{軸} < 3" /> <br/>
+            軸: <MathDisplay tex={`x = ${axis.toFixed(2)}`} /> <br/>
             {isAxisOk ? 'OK (範囲内)' : 'NG (範囲外)'}
           </div>
         </div>
@@ -125,9 +125,9 @@ const SolutionsInRangeViz: React.FC<SolutionsInRangeVizProps> = ({ problem }) =>
         <div className={`p-3 rounded border ${isEndpointsOk ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
           <div className="font-bold text-sm mb-1">3. 端点の符号</div>
           <div className="text-xs">
-            <InlineMath math="f(0) > 0, f(3) > 0" /> <br/>
-            <InlineMath math={`f(0) = ${f0.toFixed(2)}`} /> <br/>
-            <InlineMath math={`f(3) = ${f3.toFixed(2)}`} /> <br/>
+            <MathDisplay tex="f(0) > 0, f(3) > 0" /> <br/>
+            <MathDisplay tex={`f(0) = ${f0.toFixed(2)}`} /> <br/>
+            <MathDisplay tex={`f(3) = ${f3.toFixed(2)}`} /> <br/>
             {isEndpointsOk ? 'OK (両方正)' : 'NG (片方または両方が負)'}
           </div>
         </div>

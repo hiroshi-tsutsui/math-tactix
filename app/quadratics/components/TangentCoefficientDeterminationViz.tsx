@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function TangentCoefficientDeterminationViz() {
   const [a, setA] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -99,14 +98,14 @@ export default function TangentCoefficientDeterminationViz() {
         <div className="bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-2">
           <div className="flex justify-between items-center">
             <span className="text-sm font-medium text-slate-600">放物線:</span>
-            <span className="font-mono text-blue-600"><InlineMath math={`y = x^2 + ${a.toFixed(1)}x + ${a.toFixed(1)}`} /></span>
+            <span className="font-mono text-blue-600"><MathDisplay tex={`y = x^2 + ${a.toFixed(1)}x + ${a.toFixed(1)}`} /></span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm font-medium text-slate-600">直線:</span>
-            <span className="font-mono text-green-600"><InlineMath math={`y = -x - 1`} /></span>
+            <span className="font-mono text-green-600"><MathDisplay tex={`y = -x - 1`} /></span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm font-medium text-slate-600">判別式 <InlineMath math="D" />:</span>
+            <span className="text-sm font-medium text-slate-600">判別式 <MathDisplay tex="D" />:</span>
             <span className={`font-mono font-bold ${D > 0 ? 'text-red-500' : D === 0 ? 'text-yellow-600' : 'text-slate-400'}`}>
               {D.toFixed(2)}
             </span>
@@ -115,7 +114,7 @@ export default function TangentCoefficientDeterminationViz() {
 
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-slate-600 font-medium">係数 <InlineMath math="a" /></span>
+            <span className="text-slate-600 font-medium">係数 <MathDisplay tex="a" /></span>
             <span className="font-bold text-slate-700">{a.toFixed(1)}</span>
           </div>
           <input 
@@ -128,9 +127,9 @@ export default function TangentCoefficientDeterminationViz() {
         </div>
 
         <div className="text-xs text-slate-500 mt-4 leading-relaxed bg-slate-50 p-3 rounded text-center">
-          <p>放物線と直線の方程式を連立して <InlineMath math="D = 0" /> となる <InlineMath math="a" /> を探します。</p>
+          <p>放物線と直線の方程式を連立して <MathDisplay tex="D = 0" /> となる <MathDisplay tex="a" /> を探します。</p>
           <div className="mt-2 text-slate-600">
-            <InlineMath math="x^2 + (a+1)x + (a+1) = 0" />
+            <MathDisplay tex="x^2 + (a+1)x + (a+1) = 0" />
           </div>
         </div>
       </div>

@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
-import { BlockMath, InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function IntegerRootsQuadraticViz() {
   const [k, setK] = useState<number>(12); // constant term
   
@@ -153,9 +152,9 @@ export default function IntegerRootsQuadraticViz() {
       <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
         <h3 className="text-lg font-bold text-blue-900 mb-2">2次方程式の整数解と係数の決定</h3>
         <p className="text-sm text-blue-800 leading-relaxed">
-          <InlineMath math="x^2 + ax + k = 0" /> の2つの解 <InlineMath math="\alpha, \beta" /> がともに整数であるとき、
-          解と係数の関係より <InlineMath math="\alpha \beta = k" />, <InlineMath math="\alpha + \beta = -a" /> が成り立ちます。<br/>
-          定数 <InlineMath math="k" /> を調整し、条件を満たす放物線群を確認しましょう。
+          <MathDisplay tex="x^2 + ax + k = 0" /> の2つの解 <MathDisplay tex="\alpha, \beta" /> がともに整数であるとき、
+          解と係数の関係より <MathDisplay tex="\alpha \beta = k" />, <MathDisplay tex="\alpha + \beta = -a" /> が成り立ちます。<br/>
+          定数 <MathDisplay tex="k" /> を調整し、条件を満たす放物線群を確認しましょう。
         </p>
       </div>
 
@@ -164,7 +163,7 @@ export default function IntegerRootsQuadraticViz() {
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
               <label className="text-sm font-medium text-slate-700">
-                定数項 <InlineMath math="k" /> (積 <InlineMath math="\alpha\beta" />): <span className="font-mono bg-slate-100 px-2 py-1 rounded">{k}</span>
+                定数項 <MathDisplay tex="k" /> (積 <MathDisplay tex="\alpha\beta" />): <span className="font-mono bg-slate-100 px-2 py-1 rounded">{k}</span>
               </label>
             </div>
             <input type="range" min="-24" max="24" step="1" value={k} onChange={(e) => { const val = parseInt(e.target.value); if(val !== 0) setK(val); }} className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-500 my-4" />
@@ -174,7 +173,7 @@ export default function IntegerRootsQuadraticViz() {
 
           <div className="space-y-4">
             <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-              <p className="text-sm text-slate-600 mb-2 font-medium">条件を満たす整数解の組 <InlineMath math="(\alpha, \beta)" /></p>
+              <p className="text-sm text-slate-600 mb-2 font-medium">条件を満たす整数解の組 <MathDisplay tex="(\alpha, \beta)" /></p>
               <div className="grid grid-cols-2 gap-2">
                 {factorPairs.map((pair, idx) => (
                   <button
@@ -201,10 +200,10 @@ export default function IntegerRootsQuadraticViz() {
               >
                 <div className="flex flex-col space-y-2">
                   <div className="text-center">
-                    <BlockMath math={`x^2 ${aValue >= 0 ? '+' : ''}${aValue}x ${k >= 0 ? '+' : ''}${k} = 0`} />
+                    <MathDisplay tex={`x^2 ${aValue >= 0 ? '+' : ''}${aValue}x ${k >= 0 ? '+' : ''}${k} = 0`} displayMode />
                   </div>
                   <div className="text-sm text-green-800 text-center">
-                    <InlineMath math={`(x - ${selectedPair.alpha})(x - ${selectedPair.beta}) = 0`} />
+                    <MathDisplay tex={`(x - ${selectedPair.alpha})(x - ${selectedPair.beta}) = 0`} />
                   </div>
                 </div>
               </motion.div>

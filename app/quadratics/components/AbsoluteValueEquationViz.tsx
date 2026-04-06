@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 interface AbsoluteValueEquationVizProps {
   a: number; // Parameter for |x^2 - a^2|
   initialK?: number; // Initial value for y=k line
@@ -161,11 +160,11 @@ const AbsoluteValueEquationViz: React.FC<AbsoluteValueEquationVizProps> = ({
       <div className="mb-6">
         <h3 className="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2">
           <span className="p-1 bg-blue-100 text-blue-600 rounded">視覚化</span>
-          方程式 <InlineMath>{`|x^2 - ${a*a}| = k`}</InlineMath> の解の個数
+          方程式 <MathDisplay tex={`|x^2 - ${a*a}| = k`} /> の解の個数
         </h3>
         <p className="text-gray-600 text-sm mb-4">
-          スライダーを動かして、定数 <InlineMath>k</InlineMath> の値を変えてみよう。
-          赤い直線 <InlineMath>y=k</InlineMath> と青いグラフの交点の数がどう変化するか確認しよう。
+          スライダーを動かして、定数 <MathDisplay tex="k" /> の値を変えてみよう。
+          赤い直線 <MathDisplay tex="y=k" /> と青いグラフの交点の数がどう変化するか確認しよう。
         </p>
         
         <div className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-200">

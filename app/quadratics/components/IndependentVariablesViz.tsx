@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 ;
-import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function IndependentVariablesViz() {
   const [xVal, setXVal] = useState(0);
@@ -21,13 +21,13 @@ export default function IndependentVariablesViz() {
       <div className="p-4 bg-slate-900 border-slate-700">
         <h3 className="text-lg font-bold text-white mb-2">2変数関数の最大・最小（独立変数）</h3>
         <p className="text-sm text-slate-300 mb-4">
-          <InlineMath math="z = x^2 - 4x + y^2 + 6y" /> の最小値を考えます。<br/>
-          互いに独立な変数 <InlineMath math="x" /> と <InlineMath math="y" /> について、それぞれ平方完成を行うことで、2つの放物線の最小値の和として考えることができます。
+          <MathDisplay tex="z = x^2 - 4x + y^2 + 6y" /> の最小値を考えます。<br/>
+          互いに独立な変数 <MathDisplay tex="x" /> と <MathDisplay tex="y" /> について、それぞれ平方完成を行うことで、2つの放物線の最小値の和として考えることができます。
         </p>
         <div className="bg-slate-800 p-4 rounded-md mb-4 text-center text-white">
-          <BlockMath math="z = (x^2 - 4x) + (y^2 + 6y)" />
-          <BlockMath math="z = \{(x - 2)^2 - 4\} + \{(y + 3)^2 - 9\}" />
-          <BlockMath math="z = (x - 2)^2 + (y + 3)^2 - 13" />
+          <MathDisplay tex="z = (x^2 - 4x) + (y^2 + 6y)" displayMode />
+          <MathDisplay tex="z = \{(x - 2)^2 - 4\} + \{(y + 3)^2 - 9\}" displayMode />
+          <MathDisplay tex="z = (x - 2)^2 + (y + 3)^2 - 13" displayMode />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

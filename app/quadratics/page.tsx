@@ -127,9 +127,8 @@ import IntegerRootsQuadraticViz from "./components/IntegerRootsQuadraticViz";
 import ParametricRootsViz from "./components/ParametricRootsViz";
 import ParabolaLineViz from "./components/ParabolaLineViz";
 
-import { InlineMath, BlockMath } from 'react-katex';
-
 import { LEVELS } from './data/levels';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 // Problem Type Definitions
 interface Problem {
@@ -490,13 +489,13 @@ export default function QuadraticPage() {
               
               <div className="bg-white p-6 rounded shadow-inner border border-blue-100 flex justify-center items-center my-4">
                 {problem.equation ? (
-                  <BlockMath math={problem.equation} />
+                  <MathDisplay tex={problem.equation} displayMode />
                 ) : (problem.equations ? (
                   <div className="flex flex-col gap-2">
-                     <BlockMath math={`\\begin{cases} ${problem.equations[0]} \\\\ ${problem.equations[1]} \\end{cases}`} />
+                     <MathDisplay tex={`\\begin{cases} ${problem.equations[0]} \\\\ ${problem.equations[1]} \\end{cases}`} displayMode />
                   </div>
                 ) : (
-                  <BlockMath math={problem.inequality || problem.questionText || ""} />
+                  <MathDisplay tex={problem.inequality || problem.questionText || ""} displayMode />
                 ))}
               </div>
             </div>
@@ -742,33 +741,33 @@ export default function QuadraticPage() {
                     ? problem.explanation.map((line, i) => (
                         <p key={i} className="mb-2 last:mb-0 leading-relaxed">
                            {line.split('$').map((part, index) => 
-                             index % 2 === 1 ? <InlineMath key={index} math={part} /> : part
+                             index % 2 === 1 ? <MathDisplay key={index} tex={part} /> : part
                            )}
                         </p>
                       ))
                     : (problem.explanation ? (
                         <p className="leading-relaxed">
                           {(problem.explanation as string).split('$').map((part, index) => 
-                            index % 2 === 1 ? <InlineMath key={index} math={part} /> : part
+                            index % 2 === 1 ? <MathDisplay key={index} tex={part} /> : part
                           )}
                         </p>
                       ) : (
                         // Fallback logic
                         currentLevel === 7 ? (
                           <div>
-                            <p>この問題はグラフを描いて定数 <InlineMath math="a" /> の位置による場合分けが必要です。</p>
+                            <p>この問題はグラフを描いて定数 <MathDisplay tex="a" /> の位置による場合分けが必要です。</p>
                             <ul className="list-disc pl-5 mt-2 space-y-1">
                               {problem.cases?.map((c, i) => (
                                 <li key={i}>
-                                  <strong><InlineMath math={c.condition} /></strong> のとき: <InlineMath math={c.solution} />
+                                  <strong><MathDisplay tex={c.condition} /></strong> のとき: <MathDisplay tex={c.solution} />
                                 </li>
                               ))}
                             </ul>
                           </div>
                         ) : currentLevel === 5 ? (
                           <div>
-                             <p>条件: <InlineMath math={problem.condition || ""} /></p>
-                             <p className="mt-2 font-bold">答え: <InlineMath math={problem.answer || ""} /></p>
+                             <p>条件: <MathDisplay tex={problem.condition || ""} /></p>
+                             <p className="mt-2 font-bold">答え: <MathDisplay tex={problem.answer || ""} /></p>
                           </div>
                         ) : (
                           <div className="text-gray-500 italic">解説は準備中です。視覚化ツールを使って確認してみましょう。</div>

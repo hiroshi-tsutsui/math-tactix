@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "katex/dist/katex.min.css";
-import { BlockMath, InlineMath } from "react-katex";
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function MaxMinCoefficientDeterminationViz() {
   const [a, setA] = useState(1);
   const [b, setB] = useState(1);
@@ -35,7 +34,7 @@ export default function MaxMinCoefficientDeterminationViz() {
           最大・最小から係数決定 (Determining Coefficients from Max/Min)
         </h2>
         <p className="text-gray-300">
-          関数 <InlineMath math="f(x) = ax^2 - 4ax + b \ (0 \le x \le 3)" /> の最大値が5、最小値が1となるように、定数 <InlineMath math="a, b" /> の値を定めよ。
+          関数 <MathDisplay tex="f(x) = ax^2 - 4ax + b \ (0 \le x \le 3)" /> の最大値が5、最小値が1となるように、定数 <MathDisplay tex="a, b" /> の値を定めよ。
         </p>
       </div>
 
@@ -107,7 +106,7 @@ export default function MaxMinCoefficientDeterminationViz() {
             <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">パラメータ操作</h3>
             <div className="space-y-2">
               <label className="flex items-center justify-between text-sm">
-                <span>係数 <InlineMath math="a" /> (開き具合・向き): {a.toFixed(1)}</span>
+                <span>係数 <MathDisplay tex="a" /> (開き具合・向き): {a.toFixed(1)}</span>
               </label>
               <input
                 type="range"
@@ -122,7 +121,7 @@ export default function MaxMinCoefficientDeterminationViz() {
             </div>
             <div className="space-y-2">
               <label className="flex items-center justify-between text-sm">
-                <span>係数 <InlineMath math="b" /> (y切片): {b.toFixed(1)}</span>
+                <span>係数 <MathDisplay tex="b" /> (y切片): {b.toFixed(1)}</span>
               </label>
               <input
                 type="range"
@@ -139,21 +138,21 @@ export default function MaxMinCoefficientDeterminationViz() {
           <div className="bg-gray-800 p-4 rounded-lg space-y-2">
             <h3 className="text-lg font-semibold border-b border-gray-700 pb-2">現在の状態</h3>
             <div className="text-sm space-y-1">
-              <p>軸は常に <InlineMath math="x=2" /> (定義域内)</p>
+              <p>軸は常に <MathDisplay tex="x=2" /> (定義域内)</p>
               {a > 0 && (
                 <div className="text-green-300">
-                  <p>【<InlineMath math="a > 0" /> の場合】</p>
-                  <p>下に凸なので、頂点 <InlineMath math="x=2" /> で最小、軸から遠い <InlineMath math="x=0" /> で最大。</p>
-                  <p>最大値: <InlineMath math="f(0) = b" /> = {f_0.toFixed(1)}</p>
-                  <p>最小値: <InlineMath math="f(2) = b - 4a" /> = {f_2.toFixed(1)}</p>
+                  <p>【<MathDisplay tex="a > 0" /> の場合】</p>
+                  <p>下に凸なので、頂点 <MathDisplay tex="x=2" /> で最小、軸から遠い <MathDisplay tex="x=0" /> で最大。</p>
+                  <p>最大値: <MathDisplay tex="f(0) = b" /> = {f_0.toFixed(1)}</p>
+                  <p>最小値: <MathDisplay tex="f(2) = b - 4a" /> = {f_2.toFixed(1)}</p>
                 </div>
               )}
               {a < 0 && (
                 <div className="text-yellow-300">
-                  <p>【<InlineMath math="a < 0" /> の場合】</p>
-                  <p>上に凸なので、頂点 <InlineMath math="x=2" /> で最大、軸から遠い <InlineMath math="x=0" /> で最小。</p>
-                  <p>最大値: <InlineMath math="f(2) = b - 4a" /> = {f_2.toFixed(1)}</p>
-                  <p>最小値: <InlineMath math="f(0) = b" /> = {f_0.toFixed(1)}</p>
+                  <p>【<MathDisplay tex="a < 0" /> の場合】</p>
+                  <p>上に凸なので、頂点 <MathDisplay tex="x=2" /> で最大、軸から遠い <MathDisplay tex="x=0" /> で最小。</p>
+                  <p>最大値: <MathDisplay tex="f(2) = b - 4a" /> = {f_2.toFixed(1)}</p>
+                  <p>最小値: <MathDisplay tex="f(0) = b" /> = {f_0.toFixed(1)}</p>
                 </div>
               )}
             </div>

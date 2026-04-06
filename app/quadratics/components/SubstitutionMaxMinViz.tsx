@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Problem } from '../types';
-import { BlockMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 interface SubstitutionMaxMinVizProps {
   problem: Problem;
 }
@@ -179,7 +178,7 @@ export default function SubstitutionMaxMinViz({ problem }: SubstitutionMaxMinViz
   return (
     <div className="flex flex-col items-center space-y-6">
       <div className="text-xl">
-        <BlockMath>{problem.question}</BlockMath>
+        <MathDisplay tex={problem.question} displayMode />
       </div>
       
       <div className="text-sm text-gray-500 bg-gray-50 p-4 rounded-md w-full">
@@ -191,7 +190,7 @@ export default function SubstitutionMaxMinViz({ problem }: SubstitutionMaxMinViz
         {/* Graph 1: t vs x */}
         <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
           <h3 className="text-center font-bold text-slate-700 mb-2">Step 1: t の範囲を特定</h3>
-          <BlockMath>{`t = (x - ${a})^2 - ${a*a}`}</BlockMath>
+          <MathDisplay tex={`t = (x - ${a})^2 - ${a*a}`} displayMode />
           <canvas ref={canvasTRef} width={300} height={200} className="w-full h-auto bg-slate-50 mt-2" />
           <div className="text-center mt-2 text-blue-600 font-semibold">
             {t_min} ≤ t ≤ {t_max}
@@ -201,7 +200,7 @@ export default function SubstitutionMaxMinViz({ problem }: SubstitutionMaxMinViz
         {/* Graph 2: y vs t */}
         <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
           <h3 className="text-center font-bold text-slate-700 mb-2">Step 2: y の最大・最小</h3>
-          <BlockMath>{`y = (t - ${b})^2 ${c - b*b < 0 ? '-' : '+'} ${Math.abs(c - b*b)}`}</BlockMath>
+          <MathDisplay tex={`y = (t - ${b})^2 ${c - b*b < 0 ? '-' : '+'} ${Math.abs(c - b*b)}`} displayMode />
           <canvas ref={canvasYRef} width={300} height={200} className="w-full h-auto bg-slate-50 mt-2" />
           <div className="text-center mt-2 text-purple-600 font-semibold">
             t = {currentT.toFixed(2)} のとき y = {calcY(currentT).toFixed(2)}

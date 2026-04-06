@@ -1,8 +1,13 @@
 # Math Tactix TODO
-現在のサイクル: 016
+現在のサイクル: 017
 最終更新: 2026-04-06
 
 ---
+
+## サイクル017 実施済み
+
+- [x] [優先度:中] 共通 MathDisplay を data・quadratics モジュールに適用（react-katex 直接呼び出しを MathDisplay に統一）
+- [x] [優先度:高] trig: 余弦定理の逆算（三辺→角度）Level 16 追加 — CosineInverseViz.tsx
 
 ## サイクル016 実施済み
 
@@ -67,7 +72,7 @@
 
 - [x] [優先度:中] quadratics page.tsx（Level 70まで追加で巨大化）のリファクタリング — レベル定義を外部ファイルに分離 → サイクル014
 - [x] [優先度:中] probability page.tsx の components/ 分離 — inline canvas の条件修正 → サイクル015
-- [ ] [優先度:中] 共通 MathDisplay を data・quadratics モジュールにも適用（現在は個別の KaTeX 呼び出し）
+- [x] [優先度:中] 共通 MathDisplay を data・quadratics モジュールにも適用（現在は個別の KaTeX 呼び出し）→ サイクル017
 - [x] [優先度:中] locales 全横断キー差分の最終チェック（en.json / ja.json の全モジュール網羅）→ サイクル016
 - [x] [優先度:中] 各モジュールのレベル進行の一貫性確認（難易度が単調増加しているか）→ サイクル015
 - [ ] [優先度:中] 受験頻出問題に対応する Viz コンポーネントが不足しているモジュールを特定し追加計画を立てる

@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 const CommonRootsViz: React.FC = () => {
   const [m, setM] = useState(-2);
   const canvasRef = useRef<HTMLCanvasElement>(null);

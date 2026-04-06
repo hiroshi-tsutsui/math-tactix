@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
 import { ResponsiveContainer, AreaChart, Area, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ReferenceDot, Scatter } from 'recharts';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 const InscribedRectangleViz: React.FC = () => {
   const [t, setT] = useState(1); // The x-coordinate of the right vertex of the rectangle

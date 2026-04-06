@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import { motion } from 'framer-motion';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function AbsoluteInequalityViz() {
   const [k, setK] = useState<number>(2);
@@ -108,7 +108,7 @@ export default function AbsoluteInequalityViz() {
             <h3 className="font-bold text-blue-800 mb-2">問題</h3>
             <p className="text-gray-700">すべての実数 <span className="font-mono">x</span> について、次の不等式が成り立つような定数 <span className="font-mono">k</span> の値の範囲を求めよ。</p>
             <div className="mt-2 text-center text-lg font-bold">
-              <BlockMath math={`x^2 + kx + (k+3) > 0`} />
+              <MathDisplay tex={`x^2 + kx + (k+3) > 0`} displayMode />
             </div>
           </div>
 

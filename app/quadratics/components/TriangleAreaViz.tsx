@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 interface TriangleAreaVizProps {
   problem: any;
@@ -123,8 +123,8 @@ export default function TriangleAreaViz({ problem }: TriangleAreaVizProps) {
       <div className="w-full bg-white p-4 rounded-xl shadow-sm border border-slate-200">
         <h3 className="text-lg font-bold text-slate-800 mb-2 border-b pb-2">放物線上の三角形の面積最大化</h3>
         <p className="text-sm text-slate-600 mb-4">
-          放物線 <InlineMath math="y = x^2" /> 上の2点 <InlineMath math="A(-1, 1)" /> と <InlineMath math="B(2, 4)" /> の間を動く点 <InlineMath math="P(t, t^2)" /> があります。
-          <InlineMath math="\triangle PAB" /> の面積が最大になるのは、点 <InlineMath math="P" /> での接線が直線 <InlineMath math="AB" /> と平行になるときです。
+          放物線 <MathDisplay tex="y = x^2" /> 上の2点 <MathDisplay tex="A(-1, 1)" /> と <MathDisplay tex="B(2, 4)" /> の間を動く点 <MathDisplay tex="P(t, t^2)" /> があります。
+          <MathDisplay tex="\triangle PAB" /> の面積が最大になるのは、点 <MathDisplay tex="P" /> での接線が直線 <MathDisplay tex="AB" /> と平行になるときです。
         </p>
 
         <div className="relative border border-slate-200 rounded-lg overflow-hidden bg-slate-50 flex justify-center">
@@ -134,7 +134,7 @@ export default function TriangleAreaViz({ problem }: TriangleAreaVizProps) {
         <div className="mt-6 space-y-4">
           <div>
             <div className="flex justify-between mb-1">
-              <span className="text-sm font-medium text-slate-700">点 P の x座標 (<InlineMath math="t" />)</span>
+              <span className="text-sm font-medium text-slate-700">点 P の x座標 (<MathDisplay tex="t" />)</span>
               <span className="text-sm font-bold text-blue-600">{t.toFixed(2)}</span>
             </div>
             <input 

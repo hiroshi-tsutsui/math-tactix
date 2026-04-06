@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
-import { BlockMath, InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 interface VizProps {
   levelParams: any;
   onSuccess: () => void;
@@ -113,9 +112,9 @@ export default function InequalityCoefficientViz({ levelParams, onSuccess }: Viz
         </h3>
         
         <div className="mb-4">
-          <p className="text-lg mb-2">次の条件を満たす定数 <InlineMath math="a, b" /> の値を求めよ。</p>
+          <p className="text-lg mb-2">次の条件を満たす定数 <MathDisplay tex="a, b" /> の値を求めよ。</p>
           <div className="bg-gray-900 p-4 rounded-lg flex flex-col gap-2">
-            <BlockMath math={`\\text{不等式 } ${eqTex} \\text{ の解が } ${p.solutionText} \\text{ である。}`} />
+            <MathDisplay tex={`\\text{不等式 } ${eqTex} \\text{ の解が } ${p.solutionText} \\text{ である。}`} displayMode />
           </div>
         </div>
 
@@ -126,12 +125,12 @@ export default function InequalityCoefficientViz({ levelParams, onSuccess }: Viz
           
           <div className="flex-1 flex flex-col justify-center gap-4">
             <p className="text-sm text-gray-400 mb-2">
-              <span className="text-green-400 font-bold">緑の領域</span> が不等式 <InlineMath math="> 0" /> の解です。<br/>
-              グラフがこの条件を満たすように <InlineMath math="a" /> と <InlineMath math="b" /> を決定してください。
+              <span className="text-green-400 font-bold">緑の領域</span> が不等式 <MathDisplay tex="> 0" /> の解です。<br/>
+              グラフがこの条件を満たすように <MathDisplay tex="a" /> と <MathDisplay tex="b" /> を決定してください。
             </p>
 
             <div className="flex items-center gap-4 bg-gray-900 p-4 rounded-lg border border-gray-700">
-              <span className="text-xl font-bold w-12 text-right"><InlineMath math="a =" /></span>
+              <span className="text-xl font-bold w-12 text-right"><MathDisplay tex="a =" /></span>
               <input
                 type="number"
                 className="bg-gray-800 text-white p-2 rounded w-24 text-center border border-gray-600 focus:border-blue-500 focus:outline-none"
@@ -141,7 +140,7 @@ export default function InequalityCoefficientViz({ levelParams, onSuccess }: Viz
             </div>
             
             <div className="flex items-center gap-4 bg-gray-900 p-4 rounded-lg border border-gray-700">
-              <span className="text-xl font-bold w-12 text-right"><InlineMath math="b =" /></span>
+              <span className="text-xl font-bold w-12 text-right"><MathDisplay tex="b =" /></span>
               <input
                 type="number"
                 className="bg-gray-800 text-white p-2 rounded w-24 text-center border border-gray-600 focus:border-blue-500 focus:outline-none"

@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function BothRootsBetweenViz({ problem }: { problem?: any }) {
   const [a, setA] = useState<number>(1.5);
@@ -128,7 +128,7 @@ export default function BothRootsBetweenViz({ problem }: { problem?: any }) {
       <div className="flex flex-wrap gap-4 justify-center mb-6 w-full max-w-4xl">
         <div className={`flex-1 min-w-[200px] p-4 rounded-xl border-2 transition-colors \${dCondition ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-200'}`}>
           <div className="text-sm font-bold text-slate-500 mb-2 text-center">① 判別式 (交点の数)</div>
-          <div className="text-center"><BlockMath math="D/4 = a^2 - a - 2 \ge 0" /></div>
+          <div className="text-center"><MathDisplay tex="D/4 = a^2 - a - 2 \ge 0" displayMode /></div>
           <div className={`text-center font-bold mt-2 \${dCondition ? 'text-green-600' : 'text-red-500'}`}>
             {dCondition ? 'OK (2解を持つ)' : 'NG (解を持たない)'}
           </div>
@@ -136,7 +136,7 @@ export default function BothRootsBetweenViz({ problem }: { problem?: any }) {
 
         <div className={`flex-1 min-w-[200px] p-4 rounded-xl border-2 transition-colors \${axisCondition ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-200'}`}>
           <div className="text-sm font-bold text-slate-500 mb-2 text-center">② 軸の位置</div>
-          <div className="text-center"><BlockMath math="0 < a < 3" /></div>
+          <div className="text-center"><MathDisplay tex="0 < a < 3" displayMode /></div>
           <div className={`text-center font-bold mt-2 \${axisCondition ? 'text-green-600' : 'text-red-500'}`}>
             {axisCondition ? 'OK (軸が範囲内)' : 'NG (軸が範囲外)'}
           </div>
@@ -144,7 +144,7 @@ export default function BothRootsBetweenViz({ problem }: { problem?: any }) {
 
         <div className={`flex-1 min-w-[200px] p-4 rounded-xl border-2 transition-colors \${borderCondition ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-200'}`}>
           <div className="text-sm font-bold text-slate-500 mb-2 text-center">③ 端点の符号</div>
-          <div className="text-center"><BlockMath math="f(0) > 0, \ f(3) > 0" /></div>
+          <div className="text-center"><MathDisplay tex="f(0) > 0, \ f(3) > 0" displayMode /></div>
           <div className={`text-center font-bold mt-2 \${borderCondition ? 'text-green-600' : 'text-red-500'}`}>
             {borderCondition ? 'OK (端点で正)' : 'NG (端点で負)'}
           </div>

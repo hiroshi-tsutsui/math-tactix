@@ -1,19 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, CheckCircle2, RotateCcw, HelpCircle } from 'lucide-react';
-import katex from 'katex';
 import 'katex/dist/katex.min.css';
-
-// --- Math Rendering ---
-const BlockMath = ({ tex }: { tex: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (ref.current) {
-      katex.render(tex, ref.current, { displayMode: true, throwOnError: false });
-    }
-  }, [tex]);
-  return <div ref={ref} className="my-2" />;
-};
+import MathDisplay from '@/app/lib/components/MathDisplay';
 
 export default function HypothesisTestingViz({ onComplete }: { onComplete?: () => void }) {
   const [tosses, setTosses] = useState<number[]>([]);
@@ -171,7 +160,7 @@ export default function HypothesisTestingViz({ onComplete }: { onComplete?: () =
                   <div className="text-sm text-red-700">
                     9回以上表が出る確率（p値）は：<br/>
                     $P(X \ge 9) = P(X=9) + P(X=10)$<br/>
-                    <BlockMath tex="P(X \ge 9) \approx 0.0107" />
+                    <MathDisplay tex="P(X \ge 9) \approx 0.0107" displayMode />
                   </div>
                   <div className="mt-2 text-sm text-red-800 font-bold border-t border-red-200 pt-2">
                     0.0107 &lt; 0.05 (5%)<br/>

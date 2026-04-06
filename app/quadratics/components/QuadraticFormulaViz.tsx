@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BlockMath, InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 export default function QuadraticFormulaViz() {
   const [a, setA] = useState<number>(1);
   const [b, setB] = useState<number>(-4);
@@ -133,16 +132,16 @@ export default function QuadraticFormulaViz() {
 
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
           <h3 className="font-bold text-slate-800 mb-2 text-center border-b pb-2">解の公式の幾何学的意味</h3>
-          <BlockMath math={`x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}`} />
+          <MathDisplay tex={`x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}`} displayMode />
           <div className="text-center mt-4 space-y-3">
             <div className="bg-amber-50 p-2 rounded text-sm text-amber-800 border border-amber-100">
-              <span className="font-bold">軸 (中心):</span> <InlineMath math={`x = \\frac{-(${b})}{2(${a})} = ${axis}`} />
+              <span className="font-bold">軸 (中心):</span> <MathDisplay tex={`x = \\frac{-(${b})}{2(${a})} = ${axis}`} />
             </div>
             <div className="bg-green-50 p-2 rounded text-sm text-green-800 border border-green-100">
               <span className="font-bold">距離 (±の幅):</span> 
               {D >= 0 ? (
                 <>
-                  <InlineMath math={`d = \\frac{\\sqrt{${D}}}{${Math.abs(2*a)}} \\approx ${distance.toFixed(2)}`} />
+                  <MathDisplay tex={`d = \\frac{\\sqrt{${D}}}{${Math.abs(2*a)}} \\approx ${distance.toFixed(2)}`} />
                 </>
               ) : (
                 <span className="text-red-500 font-medium ml-1">判別式 D &lt; 0 のため実数解なし</span>

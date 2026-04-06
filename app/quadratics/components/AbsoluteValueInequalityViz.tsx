@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { InlineMath } from 'react-katex';
-
+import MathDisplay from '@/app/lib/components/MathDisplay';
 interface AbsoluteValueInequalityVizProps {
   a: number;
   initialM: number;
@@ -112,7 +111,7 @@ export default function AbsoluteValueInequalityViz({ a, initialM, initialN }: Ab
 
       <div className="w-full max-w-md mt-6 space-y-4">
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-slate-700">直線の傾き <InlineMath math="m" /> : {m}</label>
+          <label className="text-sm font-medium text-slate-700">直線の傾き <MathDisplay tex="m" /> : {m}</label>
           <input 
             type="range" min="-5" max="5" step="0.5" 
             value={m} onChange={(e) => setM(parseFloat(e.target.value))}
@@ -120,7 +119,7 @@ export default function AbsoluteValueInequalityViz({ a, initialM, initialN }: Ab
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium text-slate-700">y切片 <InlineMath math="n" /> : {n}</label>
+          <label className="text-sm font-medium text-slate-700">y切片 <MathDisplay tex="n" /> : {n}</label>
           <input 
             type="range" min="-10" max="15" step="1" 
             value={n} onChange={(e) => setN(parseFloat(e.target.value))}
@@ -131,8 +130,8 @@ export default function AbsoluteValueInequalityViz({ a, initialM, initialN }: Ab
       
       <div className="mt-4 p-4 bg-purple-50 rounded-lg text-purple-800 text-sm w-full leading-relaxed">
         <strong>視覚的意味:</strong><br/>
-        青いグラフ <InlineMath math={`y = |x^2 - ${a2}|`} /> が、オレンジの直線 <InlineMath math={`y = ${m}x + ${n}`} /> より「下」にある <InlineMath math="x" /> の範囲（紫の帯）が解です。<br/>
-        交点は、2つの2次方程式 <InlineMath math={`x^2 - ${a2} = ${m}x + ${n}`} /> または <InlineMath math={`-(x^2 - ${a2}) = ${m}x + ${n}`} /> を解いて求めます。
+        青いグラフ <MathDisplay tex={`y = |x^2 - ${a2}|`} /> が、オレンジの直線 <MathDisplay tex={`y = ${m}x + ${n}`} /> より「下」にある <MathDisplay tex="x" /> の範囲（紫の帯）が解です。<br/>
+        交点は、2つの2次方程式 <MathDisplay tex={`x^2 - ${a2} = ${m}x + ${n}`} /> または <MathDisplay tex={`-(x^2 - ${a2}) = ${m}x + ${n}`} /> を解いて求めます。
       </div>
     </div>
   );
