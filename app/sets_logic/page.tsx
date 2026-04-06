@@ -21,6 +21,7 @@ import ContradictionViz from "./components/ContradictionViz";
 import QuadraticSetsViz from "./components/QuadraticSetsViz";
 import QuantifierNegationViz from "./components/QuantifierNegationViz";
 import CompoundConditionViz from "./components/CompoundConditionViz";
+import InclusionExclusionViz from "./components/InclusionExclusionViz";
 
 
 export default function SetsLogicPage() {
@@ -114,7 +115,7 @@ export default function SetsLogicPage() {
             </div>
         </div>
         <div className="font-bold text-sm">
-            {level === 0 ? "集合と命題 (Sets & Logic)" : level === 1 ? "ド・モルガンの法則" : level === 2 ? "必要条件と十分条件" : level === 3 ? "逆・裏・対偶" : level === 4 ? "集合の要素の個数" : level === 5 ? "背理法の証明" : level === 6 ? "連立不等式と集合" : level === 7 ? "集合の要素の最大・最小" : level === 8 ? "必要条件・十分条件と数直線" : level === 9 ? "3つの集合の要素の個数" : level === 10 ? "命題の真偽と反例" : level === 11 ? "全称命題と存在命題" : level === 12 ? "条件命題・対偶・裏・逆" : level === 13 ? "必要条件・十分条件（発展）" : level === 14 ? "ド・モルガンの法則（発展）" : level === 15 ? "背理法・対偶証明の練習" : level === 16 ? "複合条件の否定と対偶" : "Sets & Logic"}
+            {level === 0 ? "集合と命題 (Sets & Logic)" : level === 1 ? "ド・モルガンの法則" : level === 2 ? "必要条件と十分条件" : level === 3 ? "逆・裏・対偶" : level === 4 ? "集合の要素の個数" : level === 5 ? "背理法の証明" : level === 6 ? "連立不等式と集合" : level === 7 ? "集合の要素の最大・最小" : level === 8 ? "必要条件・十分条件と数直線" : level === 9 ? "3つの集合の要素の個数" : level === 10 ? "命題の真偽と反例" : level === 11 ? "全称命題と存在命題" : level === 12 ? "条件命題・対偶・裏・逆" : level === 13 ? "必要条件・十分条件（発展）" : level === 14 ? "ド・モルガンの法則（発展）" : level === 15 ? "背理法・対偶証明の練習" : level === 16 ? "複合条件の否定と対偶" : level === 17 ? "集合の要素の個数（包除原理）" : "Sets & Logic"}
         </div>
         <div className="w-10" />
       </header>
@@ -194,6 +195,14 @@ export default function SetsLogicPage() {
           </main>
       )}
 
+      {level === 17 && (
+          <main className="flex-1 overflow-y-auto bg-white p-6">
+              <div className="max-w-md mx-auto">
+                  <InclusionExclusionViz />
+              </div>
+          </main>
+      )}
+
       {level === 0 && (
           <main className="flex-1 overflow-y-auto p-6">
               <div className="max-w-md mx-auto space-y-4">
@@ -213,7 +222,8 @@ export default function SetsLogicPage() {
                       { id: 13, title: "Level 13: 必要条件・十分条件（発展）", desc: "4パターンの包含関係をベン図で理解", icon: Search },
                       { id: 14, title: "Level 14: ド・モルガンの法則（発展）", desc: "ベン図と真偽表でNOTの分配を理解", icon: Compass },
                       { id: 15, title: "Level 15: 背理法・対偶証明の練習", desc: "間接証明法の2つの柱を視覚的に理解", icon: SplitSquareHorizontal },
-                      { id: 16, title: "Level 16: 複合条件の否定と対偶", desc: "ド・モルガン則で複合条件を否定する", icon: Compass }
+                      { id: 16, title: "Level 16: 複合条件の否定と対偶", desc: "ド・モルガン則で複合条件を否定する", icon: Compass },
+                      { id: 17, title: "Level 17: 集合の要素の個数（包除原理）", desc: "|A∪B| = |A|+|B|-|A∩B| のベン図視覚化", icon: Calculator }
                   ].map((item) => (
                       <button key={item.id} onClick={() => setLevel(item.id)}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
