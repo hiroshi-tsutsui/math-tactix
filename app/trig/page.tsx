@@ -26,6 +26,8 @@ import TrigEquationViz from './components/TrigEquationViz';
 import CosineInverseViz from './components/CosineInverseViz';
 import TrigInequalityViz from './components/TrigInequalityViz';
 import TrigRelationshipViz from './components/TrigRelationshipViz';
+import HeronComparisonViz from './components/HeronComparisonViz';
+import TrigApplicationViz from './components/TrigApplicationViz';
 
 // --- Types ---
 type State = {
@@ -144,6 +146,8 @@ export default function TrigPage() {
              level === 16 ? "余弦定理の逆算 (Cosine Inverse)" :
              level === 17 ? "三角不等式 (Trig Inequalities)" :
              level === 18 ? "三角比の相互関係と式の値 (Trig Relationships)" :
+             level === 19 ? "三角形の面積比較 (Heron vs Trig)" :
+             level === 20 ? "三角比の応用 (Application)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -173,7 +177,9 @@ export default function TrigPage() {
                       { id: 15, title: "Level 15: 三角比の方程式", desc: "sinθ=k, cosθ=k, tanθ=k の解", icon: Target },
                       { id: 16, title: "Level 16: 余弦定理の逆算", desc: "三辺から角度を求める（cosA の逆算）", icon: Compass },
                       { id: 17, title: "Level 17: 三角不等式", desc: "sinθ≥k, cosθ≤k の解を単位円で視覚化", icon: Target },
-                      { id: 18, title: "Level 18: 三角比の相互関係と式の値", desc: "sin²θ+cos²θ=1 を使って式の値を求める", icon: Zap }
+                      { id: 18, title: "Level 18: 三角比の相互関係と式の値", desc: "sin²θ+cos²θ=1 を使って式の値を求める", icon: Zap },
+                      { id: 19, title: "Level 19: 三角形の面積（ヘロン比較）", desc: "三角比の公式とヘロンの公式を比較", icon: TrendingUp },
+                      { id: 20, title: "Level 20: 三角比の応用（測量）", desc: "仰角・俯角から高さ・距離を求める", icon: Target }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -367,6 +373,24 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-md mx-auto">
                   <TrigRelationshipViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 19: Heron Comparison */}
+      {level === 19 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <HeronComparisonViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 20: Trig Application */}
+      {level === 20 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <TrigApplicationViz />
               </div>
           </main>
       )}
