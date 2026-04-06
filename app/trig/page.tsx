@@ -186,9 +186,11 @@ export default function TrigPage() {
                           <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
                               <item.icon className="w-6 h-6" />
                           </div>
-                          <div>
+                          <div className="flex-1">
                               <div className="font-bold text-lg">{item.title}</div>
                               <div className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</div>
+                              {/* TODO: 将来的に解説動画URLを差し込む */}
+                              <span className="text-[10px] text-slate-300 mt-1 inline-block">📺 解説動画 準備中</span>
                           </div>
                       </button>
                   ))}

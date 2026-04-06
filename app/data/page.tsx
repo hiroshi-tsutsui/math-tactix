@@ -26,6 +26,7 @@ import ResidualViz from './components/ResidualViz';
 import RSquaredViz from './components/RSquaredViz';
 import CorrelationCoefficientCalcViz from './components/CorrelationCoefficientCalcViz';
 import VarianceTransformViz from './components/VarianceTransformViz';
+import BoxPlotComparisonViz from './components/BoxPlotComparisonViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -190,6 +191,14 @@ export default function DataPage() {
       desc: 'データ変換 y=kx+a における平均・分散・標準偏差の変化の性質を視覚化する',
       logStart: '変換性質シミュレータ起動',
       logGuide: 'aとkを操作して、統計量の変化を確認してください。'
+    },
+    {
+      id: 19,
+      targetR: 0,
+      name: '箱ひげ図の読み取りと比較',
+      desc: '2つのデータセットの箱ひげ図を比較し、四分位範囲(IQR)でデータの安定性を判定する',
+      logStart: '箱ひげ図比較シミュレータ起動',
+      logGuide: 'データセットを切り替えて箱ひげ図を比較してください。'
     }
   ];
 
@@ -215,6 +224,7 @@ export default function DataPage() {
     if (progress.includes(15)) nextLvl = 16;
     if (progress.includes(16)) nextLvl = 17;
     if (progress.includes(17)) nextLvl = 18;
+    if (progress.includes(18)) nextLvl = 19;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -283,7 +293,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 18) {
+    if (currentLevel < 19) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -337,7 +347,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 18
+              {t('common.level')} {currentLevel} / 19
             </div>
           </div>
         </div>
@@ -363,7 +373,8 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 18 ? (<VarianceTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変換の性質を確認しました。'); } }} />)
+            {currentLevel === 19 ? (<BoxPlotComparisonViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('箱ひげ図の比較を完了しました。'); } }} />)
+            : currentLevel === 18 ? (<VarianceTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変換の性質を確認しました。'); } }} />)
             : currentLevel === 17 ? (<CorrelationCoefficientCalcViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の計算を完了しました。'); } }} />) : currentLevel === 16 ? (<RSquaredViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('R²の分析を完了しました。'); } }} />) : currentLevel === 15 ? (<ResidualViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('残差の分析を完了しました。'); } }} />) : currentLevel === 14 ? (<StandardDeviationViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標準偏差の計算を完了しました。'); } }} />) : currentLevel === 13 ? (<QuartileAnalysisViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('四分位数の分析を完了しました。'); } }} />) : currentLevel === 12 ? (<CorrelationInterpretViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の解釈を完了しました。'); } }} />) : currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
@@ -401,6 +412,8 @@ export default function DataPage() {
             <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('modules.data.viz.target')}</h3>
             <h4 className="text-2xl font-bold mb-4">{levels[currentLevel-1].name}</h4>
             <p className="text-sm text-slate-300 leading-relaxed">{levels[currentLevel-1].desc}</p>
+            {/* TODO: 将来的に解説動画URLを差し込む */}
+            <span className="text-xs text-slate-500 mt-3 inline-block">📺 解説動画 準備中</span>
           </div>
           
           <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
