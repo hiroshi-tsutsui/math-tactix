@@ -110,6 +110,22 @@ export default function Home() {
       color: 'text-rose-400',
     },
     {
+      id: 'sets_logic',
+      title: t('dashboard.modules.sets_logic.title'),
+      subtitle: t('dashboard.modules.sets_logic.subtitle'),
+      desc: t('dashboard.modules.sets_logic.desc'),
+      status: 'READY',
+      color: 'text-violet-400',
+    },
+    {
+      id: 'trig_ratios',
+      title: t('dashboard.modules.trig_ratios.title'),
+      subtitle: t('dashboard.modules.trig_ratios.subtitle'),
+      desc: t('dashboard.modules.trig_ratios.desc'),
+      status: 'READY',
+      color: 'text-sky-400',
+    },
+    {
       id: 'trig',
       title: t('dashboard.modules.trig.title'),
       subtitle: t('dashboard.modules.trig.subtitle'),
@@ -173,12 +189,12 @@ export default function Home() {
     {
       name: t('dashboard.sections.hs_1a.name'),
       desc: t('dashboard.sections.hs_1a.desc'),
-      ids: ['quadratics', 'data', 'probability']
+      ids: ['math_i_numbers', 'quadratics', 'sets_logic', 'trig_ratios', 'data', 'probability']
     },
     {
       name: t('dashboard.sections.hs_2b.name'),
       desc: t('dashboard.sections.hs_2b.desc'),
-      ids: ['calculus', 'sequences', 'logs', 'trig']
+      ids: ['trig', 'calculus', 'sequences', 'logs']
     },
     {
       name: t('dashboard.sections.hs_3c.name'),
