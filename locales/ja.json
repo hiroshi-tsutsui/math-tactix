@@ -581,7 +581,9 @@
       "completion": {
         "title": "ミッションクリア",
         "next": "次へ進む"
-      }
+      },
+      "subtitle": "Mathematics A",
+      "desc": "不確実な事象を計算し、未来の期待値を算出する。"
     },
     "calculus": {
       "title": "微分・積分（変化の解析）",
@@ -654,7 +656,9 @@
       },
       "actions": {
         "sync": "解析を実行"
-      }
+      },
+      "subtitle": "Mathematics II",
+      "desc": "瞬間の変化と蓄積の法則を使い、動く世界を掌握する。"
     },
     "sequences": {
       "title": "数列（パターンの予測）",
@@ -687,7 +691,9 @@
       "log": {
         "title": "活動ログ",
         "start": "ステージ {{level}} を開始しました"
-      }
+      },
+      "subtitle": "Mathematics B",
+      "desc": "パターンの連続性を見出し、未来の推移を予測する。"
     },
     "logs": {
       "title": "対数によるデータ圧縮"
@@ -786,7 +792,9 @@
       "completion": {
         "synced": "空間把握完了",
         "msg": "ベクトルの操作を習得しました。あなたは3次元空間を自由に操れます。"
-      }
+      },
+      "subtitle": "Mathematics C",
+      "desc": "多次元空間を定義する「向き」と「大きさ」を操る。"
     },
     "complex": {
       "title": "複素数平面の可視化",
@@ -817,7 +825,9 @@
       "controls": {
         "next_btn": "次へ進む",
         "finish_btn": "完了して戻る"
-      }
+      },
+      "subtitle": "Mathematics C",
+      "desc": "虚数の回転を用いて、新たな次元を可視化する。"
     },
     "matrices": {
       "title": "行列（空間の歪曲）",
@@ -882,7 +892,9 @@
         "define_logic": "因果関係を推測せよ",
         "execute_patch": "プログラム実行",
         "system_stabilized": "システム安定 (STABILIZED)"
-      }
+      },
+      "subtitle": "Mathematics III",
+      "desc": "入出力の論理を極め、ブラックボックスを完全に解明する。"
     },
     "quiz": {
       "title": "実力判定テスト",
@@ -926,7 +938,9 @@
         "title": "中断されました",
         "desc": "安定性が低下したため判定を停止しました。",
         "retry_btn": "最初からやり直す"
-      }
+      },
+      "subtitle": "Assessment",
+      "desc": "現在の理解度を測定し、学習プランを最適化します。"
     },
     "math_quadratic": {
       "title": "二次関数の最適化",

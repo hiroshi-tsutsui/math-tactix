@@ -618,47 +618,47 @@
       "concepts": {
         "title": "01. Basic Concepts",
         "diff_title": "Differentiation: Seeing Momentary Movement",
-        "diff_body": "The world is always moving. How it changes <span class='text-cyan-400'>'right now'</span>. That is differentiation. Speedometers differentiate position changes in real-time."
+        "diff_body": "The world is always moving. How it changes <span class='text-cyan-400'>'right now'</span>. That is differentiation. Speedometers differentiate position changes in real-time.",
+        "int_title": "Integration: Seeing Accumulated Results",
+        "int_body": "<span class='text-cyan-400'>'Accumulation'</span> from the past. Summing up scattered pieces to calculate total distance, area, or energy. CT scans integrate body cross-sections to create 3D models."
       },
-      "int_title": "Integration: Seeing Accumulated Results",
-      "int_body": "<span class='text-cyan-400'>'Accumulation'</span> from the past. Summing up scattered pieces to calculate total distance, area, or energy. CT scans integrate body cross-sections to create 3D models."
-    },
-    "theory": {
-      "title": "02. Theoretical System",
-      "def_title": "Definition //",
-      "def_term": "Flow Equation",
-      "derivative_desc": "<strong>Derivative f'(x):</strong> 'Momentum' or 'Slope' at a point. Captures momentary movement in infinitesimally small time.<br/><br/><strong>Definite Integral ∫ f(x)dx:</strong> 'Area' between graph and horizontal axis. Sum of all small changes. Enables 'future prediction' and 'past analysis'."
-    },
-    "viz": {
-      "title": "03. Change Analysis Engine",
-      "controls": {
-        "function_label": "Input Function f(x)",
-        "time_label": "Parameter (x)",
-        "telemetry": "Real-time Telemetry",
-        "value": "Current Value f(x)",
-        "slope": "Momentary Slope f'(x)",
-        "area": "Total Area ∫f(x)dx",
-        "enable_3d": "Switch to 3D",
-        "disable_3d": "Back to 2D",
-        "rotation_active": "Lock Rotation"
+      "theory": {
+        "title": "02. Theoretical System",
+        "def_title": "Definition //",
+        "def_term": "Flow Equation",
+        "derivative_desc": "<strong>Derivative f'(x):</strong> 'Momentum' or 'Slope' at a point. Captures momentary movement in infinitesimally small time.<br/><br/><strong>Definite Integral ∫ f(x)dx:</strong> 'Area' between graph and horizontal axis. Sum of all small changes. Enables 'future prediction' and 'past analysis'."
       },
-      "viewport_label": "Viewport: "
-    },
-    "apps": {
-      "title": "04. Applications",
-      "physics_title": "Physics",
-      "physics_body": "Motion prediction. From falling apples to rocket trajectories, all movement is written in differential equations. Language to decode cosmic laws.",
-      "ml_title": "AI & Machine Learning",
-      "ml_body": "'Learning' mechanism. AI finds the correct answer by descending the slope of its own errors (differentiation).",
-      "econ_title": "Economics",
-      "econ_body": "Profit maximization. Calculating 'how profit changes if we sell one more' to pinpoint the most profitable point."
-    },
-    "completion": {
-      "synced": "Analysis Complete",
-      "msg": "Numeric optimization complete. Change laws mastered."
-    },
-    "actions": {
-      "sync": "Execute Analysis"
+      "viz": {
+        "title": "03. Change Analysis Engine",
+        "controls": {
+          "function_label": "Input Function f(x)",
+          "time_label": "Parameter (x)",
+          "telemetry": "Real-time Telemetry",
+          "value": "Current Value f(x)",
+          "slope": "Momentary Slope f'(x)",
+          "area": "Total Area ∫f(x)dx",
+          "enable_3d": "Switch to 3D",
+          "disable_3d": "Back to 2D",
+          "rotation_active": "Lock Rotation"
+        },
+        "viewport_label": "Viewport: "
+      },
+      "apps": {
+        "title": "04. Applications",
+        "physics_title": "Physics",
+        "physics_body": "Motion prediction. From falling apples to rocket trajectories, all movement is written in differential equations. Language to decode cosmic laws.",
+        "ml_title": "AI & Machine Learning",
+        "ml_body": "'Learning' mechanism. AI finds the correct answer by descending the slope of its own errors (differentiation).",
+        "econ_title": "Economics",
+        "econ_body": "Profit maximization. Calculating 'how profit changes if we sell one more' to pinpoint the most profitable point."
+      },
+      "completion": {
+        "synced": "Analysis Complete",
+        "msg": "Numeric optimization complete. Change laws mastered."
+      },
+      "actions": {
+        "sync": "Execute Analysis"
+      }
     },
     "trig": {
       "title": "Trigonometry (Famous Angle Mastery)",
@@ -720,84 +720,285 @@
           "desc": "Visually understand the relationship S = ½r(a+b+c) between the area S and inscribed circle radius r. Learn to calculate the radius from the area."
         }
       }
-    }
-  },
-  "vectors": {
-    "mission_title": "Void Scout",
-    "title": "Vectors",
-    "subtitle": "Mathematics C",
-    "desc": "Manipulate 'direction' and 'magnitude' to define multi-dimensional space.",
-    "levels": {
-      "1": {
-        "name": "Basics",
-        "desc": "Quantity with 'direction' and 'magnitude'.",
-        "log_start": "Starting spatial control...",
-        "log_guide": "Adjust vector length to 5.0+."
+    },
+    "complex": {
+      "title": "Complex Plane",
+      "subtitle": "Mathematics C",
+      "desc": "Visualize new dimensions using imaginary rotation.",
+      "rotation_vis": "Rotation Visualization",
+      "stage_start": "Started Stage {{level}}",
+      "stage_clear": "Condition Cleared! Complex rotation mastered.",
+      "real_part": "Original (Re)",
+      "imaginary_part": "Original (Im)",
+      "original_num": "Original (z1)",
+      "multiplier": "Multiplier (z2)",
+      "result": "Result (z1 * z2)",
+      "mission_title": "Mission",
+      "log_title": "Activity Log",
+      "levels": {
+        "1": {
+          "name": "Imaginary Rotation",
+          "desc": "Multiply real number 1 by i, move result to 'Imaginary Axis (Vertical)'."
+        },
+        "2": {
+          "name": "Scale & Rotate",
+          "desc": "Multiply by (1+i) to rotate 45 degrees and expand length."
+        },
+        "3": {
+          "name": "Realize via Conjugate",
+          "desc": "Manipulate current complex number to return result to 'Real Axis (Horizontal)'."
+        }
       },
-      "2": {
-        "name": "Theory",
-        "desc": "Dot and Cross Product mechanics.",
-        "log_start": "Checking calculation engine...",
-        "log_guide": "Make two vectors perpendicular (Dot Product = 0)."
-      },
-      "3": {
-        "name": "Visualization",
-        "desc": "Drone attitude control protocol.",
-        "log_start": "Adjusting alignment...",
-        "log_guide": "Align two vectors in same direction."
-      },
-      "4": {
-        "name": "Applied",
-        "desc": "3D Space Control."
+      "controls": {
+        "next_btn": "Next",
+        "finish_btn": "Finish"
       }
     },
-    "concepts": {
-      "title": "01. Concept: Arrow Pointing to World",
-      "def_title": "What is Vector",
-      "def_body": "Not just a number, but a command: <strong>'Go that way, this strongly'</strong>. Force, velocity, wind flow - all world-moving elements are vectors.",
-      "comp_title": "Component Decomposition",
-      "comp_body": "Complex diagonal movement can be decomposed into simple 'horizontal' and 'vertical' movements. These are called 'components'."
-    },
-    "theory": {
-      "title": "02. Theory: Spatial Laws",
-      "dot_term": "Dot Product",
-      "dot_desc": "How much two arrows point in the 'same direction'. 0 if perpendicular. Used in game lighting calculations.",
-      "cross_term": "Cross Product",
-      "cross_desc": "Creates a new arrow perpendicular to both. Essential for finding rotational force (torque) or surface direction (normal)."
-    },
-    "viz": {
-      "title": "03. Practice: Spatial Grasp",
-      "log_start": "Initializing system...",
-      "log_guide": "Adjust thrusters to maintain spatial balance.",
-      "controls": {
-        "vec_a": "Vector A",
-        "vec_b": "Vector B",
-        "telemetry": "Data Telemetry",
-        "dot": "Dot Product (Orthogonality)",
-        "cross": "Cross Product (Axis)",
-        "angle": "Angle (deg)",
-        "show_plane": "Show Plane",
-        "show_comp": "Show Components",
-        "main_thruster": "Main Engine",
-        "stabilizer": "Stabilizer",
-        "sensor_active": "Sensor Active",
-        "system_log_label": "Log",
-        "viewport_hint": "Viewport // Drag to rotate"
+    "functions": {
+      "title": "Functions & Limits",
+      "subtitle": "Mathematics III",
+      "desc": "Master input/output logic and completely decode the black box.",
+      "levels": {
+        "1": {
+          "name": "Sector 1: Translation",
+          "hint": "Signal shifted horizontally by fixed distance."
+        },
+        "2": {
+          "name": "Sector 2: Scaling",
+          "hint": "Wave height changing, slight offset occurring."
+        },
+        "3": {
+          "name": "Sector 3: Rapid Growth",
+          "hint": "Value increasing with acceleration."
+        },
+        "4": {
+          "name": "Sector 4: Inversion",
+          "hint": "Positive and negative swapped."
+        },
+        "5": {
+          "name": "Sector 5: Exponential Explosion",
+          "hint": "Growing at uncontrollable speed. Containment required."
+        }
       },
-      "viewport": "Simulation Screen"
+      "status": {
+        "idle": "Idle",
+        "computing": "Computing",
+        "synced": "Synced",
+        "error": "Error"
+      },
+      "ui": {
+        "input_signal": "Input Data (x)",
+        "output_signal": "Output Result (y)",
+        "inject_signal": "Inject Data",
+        "black_box": "Unknown Function",
+        "system_advisory": "System Advisory",
+        "kernel_log": "Kernel Log",
+        "define_logic": "Infer Causality",
+        "execute_patch": "Execute Program",
+        "system_stabilized": "System Stabilized"
+      }
     },
-    "apps": {
-      "title": "04. Applications: 3D World",
-      "cg_title": "CG & Game Dev",
-      "cg_body": "3D game visuals are collections of vectors. Polygon direction and light direction determine brightness.",
-      "phys_title": "Physics Engine",
-      "phys_body": "Gravity, wind, engine power. Summing all these forces as vectors determines object movement.",
-      "nav_title": "Navigation",
-      "nav_body": "GPS and flight. Velocity vector combining 'direction' and 'speed' is used."
+    "logs": {
+      "title": "Logarithms"
     },
-    "completion": {
-      "synced": "Spatial Grasp Complete",
-      "msg": "Vector operation mastered. You can freely manipulate 3D space."
+    "matrices": {
+      "title": "Matrices",
+      "subtitle": "Mathematics C",
+      "desc": "Learn the mechanism of linear transformations that freely distort space.",
+      "level_1_name": "90° Rotation",
+      "level_1_desc": "Manipulate matrix to rotate space 90 degrees counter-clockwise.",
+      "level_2_name": "2x Scale",
+      "level_2_desc": "Uniformly expand entire space to double size.",
+      "level_3_name": "Shear",
+      "level_3_desc": "Distort horizontally (x-axis).",
+      "log_match": "Matrix transformation successful!",
+      "ui": {
+        "analysis_title": "Spatial Deformation Analysis",
+        "matrix_label": "Transformation Matrix T",
+        "red_arrow": "Red Arrow: i-hat (1,0) destination",
+        "green_arrow": "Green Arrow: j-hat (0,1) destination",
+        "mission_title": "Mission",
+        "activity_log": "Activity Log",
+        "log_start": "Started Stage {{level}}",
+        "next_btn": "Next",
+        "back": "Back"
+      }
+    },
+    "quiz": {
+      "title": "Proficiency Test",
+      "subtitle": "Assessment",
+      "desc": "Measure current understanding and optimize your learning plan.",
+      "abort": "Abort",
+      "nav": {
+        "precision": "Precision",
+        "score": "{{score}}%",
+        "progress": "Progress",
+        "estimated_score": "Est. Score"
+      },
+      "status": {
+        "title": "Status"
+      },
+      "log": {
+        "title": "Log",
+        "start": "Assessment started.",
+        "correct": "Q{{id}}: Correct.",
+        "wrong": "Q{{id}}: Incorrect."
+      },
+      "question": {
+        "label": "Question {{id}}",
+        "correct_badge": "CORRECT",
+        "incorrect_badge": "INCORRECT",
+        "explanation_title": "Explanation"
+      },
+      "result": {
+        "completed_title": "Assessment Complete",
+        "completed_desc": "Current mathematical proficiency measured.",
+        "score_label": "Score",
+        "rank_label": "Rank",
+        "ranks": {
+          "omega": "OMEGA",
+          "architect": "ARCHITECT",
+          "operator": "OPERATOR",
+          "learner": "LEARNER"
+        },
+        "start_btn": "Start Learning",
+        "retry_btn": "Retry Assessment"
+      },
+      "failed": {
+        "title": "Aborted",
+        "desc": "Assessment stopped due to instability.",
+        "retry_btn": "Restart"
+      }
+    },
+    "sequences": {
+      "title": "Sequences",
+      "subtitle": "Mathematics B",
+      "desc": "Find continuity in patterns and predict future trends.",
+      "stage_label": "Stage {{current}} / {{total}}",
+      "simulation_title": "Trend Simulation",
+      "legend": {
+        "arithmetic": "Arithmetic Seq",
+        "geometric": "Geometric Seq"
+      },
+      "controls": {
+        "first_term": "First Term (a)",
+        "diff": "Diff (d) - Add",
+        "ratio": "Ratio (r) - Mult",
+        "count": "Count (n)",
+        "confirm_btn": "Confirm Settings"
+      },
+      "modal": {
+        "success_title": "Stage Complete",
+        "success_desc": "Sequence trend pattern confirmed. Proceeding to next step.",
+        "next_btn": "Next Level",
+        "finish_btn": "Complete & Return"
+      },
+      "explanation": {
+        "title": "Explanation: Sequence Properties",
+        "arithmetic_title": "Arithmetic Sequence",
+        "arithmetic_desc": "Change by adding fixed number. Draws straight line graph, steady growth.",
+        "geometric_title": "Geometric Sequence",
+        "geometric_desc": "Change by multiplying fixed number. Slow at first, then jumps up rapidly (exponential growth)."
+      },
+      "log": {
+        "title": "Activity Log",
+        "start": "Started Stage {{level}}"
+      }
+    },
+    "vectors": {
+      "mission_title": "Void Scout",
+      "title": "Vectors",
+      "subtitle": "Mathematics C",
+      "desc": "Manipulate 'direction' and 'magnitude' to define multi-dimensional space.",
+      "levels": {
+        "1": {
+          "name": "Basics",
+          "desc": "Quantity with 'direction' and 'magnitude'.",
+          "log_start": "Starting spatial control...",
+          "log_guide": "Adjust vector length to 5.0+."
+        },
+        "2": {
+          "name": "Theory",
+          "desc": "Dot and Cross Product mechanics.",
+          "log_start": "Checking calculation engine...",
+          "log_guide": "Make two vectors perpendicular (Dot Product = 0)."
+        },
+        "3": {
+          "name": "Visualization",
+          "desc": "Drone attitude control protocol.",
+          "log_start": "Adjusting alignment...",
+          "log_guide": "Align two vectors in same direction."
+        },
+        "4": {
+          "name": "Applied",
+          "desc": "3D Space Control."
+        }
+      },
+      "concepts": {
+        "title": "01. Concept: Arrow Pointing to World",
+        "def_title": "What is Vector",
+        "def_body": "Not just a number, but a command: <strong>'Go that way, this strongly'</strong>. Force, velocity, wind flow - all world-moving elements are vectors.",
+        "comp_title": "Component Decomposition",
+        "comp_body": "Complex diagonal movement can be decomposed into simple 'horizontal' and 'vertical' movements. These are called 'components'."
+      },
+      "theory": {
+        "title": "02. Theory: Spatial Laws",
+        "dot_term": "Dot Product",
+        "dot_desc": "How much two arrows point in the 'same direction'. 0 if perpendicular. Used in game lighting calculations.",
+        "cross_term": "Cross Product",
+        "cross_desc": "Creates a new arrow perpendicular to both. Essential for finding rotational force (torque) or surface direction (normal)."
+      },
+      "viz": {
+        "title": "03. Practice: Spatial Grasp",
+        "log_start": "Initializing system...",
+        "log_guide": "Adjust thrusters to maintain spatial balance.",
+        "controls": {
+          "vec_a": "Vector A",
+          "vec_b": "Vector B",
+          "telemetry": "Data Telemetry",
+          "dot": "Dot Product (Orthogonality)",
+          "cross": "Cross Product (Axis)",
+          "angle": "Angle (deg)",
+          "show_plane": "Show Plane",
+          "show_comp": "Show Components",
+          "main_thruster": "Main Engine",
+          "stabilizer": "Stabilizer",
+          "sensor_active": "Sensor Active",
+          "system_log_label": "Log",
+          "viewport_hint": "Viewport // Drag to rotate"
+        },
+        "viewport": "Simulation Screen"
+      },
+      "apps": {
+        "title": "04. Applications: 3D World",
+        "cg_title": "CG & Game Dev",
+        "cg_body": "3D game visuals are collections of vectors. Polygon direction and light direction determine brightness.",
+        "phys_title": "Physics Engine",
+        "phys_body": "Gravity, wind, engine power. Summing all these forces as vectors determines object movement.",
+        "nav_title": "Navigation",
+        "nav_body": "GPS and flight. Velocity vector combining 'direction' and 'speed' is used."
+      },
+      "completion": {
+        "synced": "Spatial Grasp Complete",
+        "msg": "Vector operation mastered. You can freely manipulate 3D space."
+      }
+    },
+    "balls_in_bins": {
+      "title": "Balls in Bins Simulation",
+      "subtitle": "Randomly toss balls into {{bins}} bins (Law of Large Numbers)",
+      "total_count": "Total Count",
+      "start": "Start",
+      "stop": "Stop",
+      "reset": "Reset",
+      "bin_count": "Number of Bins",
+      "speed": "Speed",
+      "average": "Average",
+      "bin_label": "Bin {{index}}: {{count}} balls"
+    },
+    "math_quadratic": {
+      "title": "Quadratic Optimization",
+      "subtitle": "Analysis: Parabola Design",
+      "controls": "Numeric Controls"
     }
   },
   "trig": {
@@ -820,190 +1021,6 @@
       "success_desc": "Burn this position into your brain.",
       "next": "Next Question",
       "wrong": "Wrong angle."
-    }
-  },
-  "functions": {
-    "title": "Functions & Limits",
-    "subtitle": "Mathematics III",
-    "desc": "Master input/output logic and completely decode the black box.",
-    "levels": {
-      "1": {
-        "name": "Sector 1: Translation",
-        "hint": "Signal shifted horizontally by fixed distance."
-      },
-      "2": {
-        "name": "Sector 2: Scaling",
-        "hint": "Wave height changing, slight offset occurring."
-      },
-      "3": {
-        "name": "Sector 3: Rapid Growth",
-        "hint": "Value increasing with acceleration."
-      },
-      "4": {
-        "name": "Sector 4: Inversion",
-        "hint": "Positive and negative swapped."
-      },
-      "5": {
-        "name": "Sector 5: Exponential Explosion",
-        "hint": "Growing at uncontrollable speed. Containment required."
-      }
-    },
-    "status": {
-      "idle": "Idle",
-      "computing": "Computing",
-      "synced": "Synced",
-      "error": "Error"
-    },
-    "ui": {
-      "input_signal": "Input Data (x)",
-      "output_signal": "Output Result (y)",
-      "inject_signal": "Inject Data",
-      "black_box": "Unknown Function",
-      "system_advisory": "System Advisory",
-      "kernel_log": "Kernel Log",
-      "define_logic": "Infer Causality",
-      "execute_patch": "Execute Program",
-      "system_stabilized": "System Stabilized"
-    }
-  },
-  "sequences": {
-    "title": "Sequences",
-    "subtitle": "Mathematics B",
-    "desc": "Find continuity in patterns and predict future trends.",
-    "stage_label": "Stage {{current}} / {{total}}",
-    "simulation_title": "Trend Simulation",
-    "legend": {
-      "arithmetic": "Arithmetic Seq",
-      "geometric": "Geometric Seq"
-    },
-    "controls": {
-      "first_term": "First Term (a)",
-      "diff": "Diff (d) - Add",
-      "ratio": "Ratio (r) - Mult",
-      "count": "Count (n)",
-      "confirm_btn": "Confirm Settings"
-    },
-    "modal": {
-      "success_title": "Stage Complete",
-      "success_desc": "Sequence trend pattern confirmed. Proceeding to next step.",
-      "next_btn": "Next Level",
-      "finish_btn": "Complete & Return"
-    },
-    "explanation": {
-      "title": "Explanation: Sequence Properties",
-      "arithmetic_title": "Arithmetic Sequence",
-      "arithmetic_desc": "Change by adding fixed number. Draws straight line graph, steady growth.",
-      "geometric_title": "Geometric Sequence",
-      "geometric_desc": "Change by multiplying fixed number. Slow at first, then jumps up rapidly (exponential growth)."
-    },
-    "log": {
-      "title": "Activity Log",
-      "start": "Started Stage {{level}}"
-    }
-  },
-  "logs": {
-    "title": "Logarithms"
-  },
-  "matrices": {
-    "title": "Matrices",
-    "subtitle": "Mathematics C",
-    "desc": "Learn the mechanism of linear transformations that freely distort space.",
-    "level_1_name": "90° Rotation",
-    "level_1_desc": "Manipulate matrix to rotate space 90 degrees counter-clockwise.",
-    "level_2_name": "2x Scale",
-    "level_2_desc": "Uniformly expand entire space to double size.",
-    "level_3_name": "Shear",
-    "level_3_desc": "Distort horizontally (x-axis).",
-    "log_match": "Matrix transformation successful!",
-    "ui": {
-      "analysis_title": "Spatial Deformation Analysis",
-      "matrix_label": "Transformation Matrix T",
-      "red_arrow": "Red Arrow: i-hat (1,0) destination",
-      "green_arrow": "Green Arrow: j-hat (0,1) destination",
-      "mission_title": "Mission",
-      "activity_log": "Activity Log",
-      "log_start": "Started Stage {{level}}",
-      "next_btn": "Next",
-      "back": "Back"
-    }
-  },
-  "complex": {
-    "title": "Complex Plane",
-    "subtitle": "Mathematics C",
-    "desc": "Visualize new dimensions using imaginary rotation.",
-    "rotation_vis": "Rotation Visualization",
-    "stage_start": "Started Stage {{level}}",
-    "stage_clear": "Condition Cleared! Complex rotation mastered.",
-    "real_part": "Original (Re)",
-    "imaginary_part": "Original (Im)",
-    "original_num": "Original (z1)",
-    "multiplier": "Multiplier (z2)",
-    "result": "Result (z1 * z2)",
-    "mission_title": "Mission",
-    "log_title": "Activity Log",
-    "levels": {
-      "1": {
-        "name": "Imaginary Rotation",
-        "desc": "Multiply real number 1 by i, move result to 'Imaginary Axis (Vertical)'."
-      },
-      "2": {
-        "name": "Scale & Rotate",
-        "desc": "Multiply by (1+i) to rotate 45 degrees and expand length."
-      },
-      "3": {
-        "name": "Realize via Conjugate",
-        "desc": "Manipulate current complex number to return result to 'Real Axis (Horizontal)'."
-      }
-    },
-    "controls": {
-      "next_btn": "Next",
-      "finish_btn": "Finish"
-    }
-  },
-  "quiz": {
-    "title": "Proficiency Test",
-    "subtitle": "Assessment",
-    "desc": "Measure current understanding and optimize your learning plan.",
-    "abort": "Abort",
-    "nav": {
-      "precision": "Precision",
-      "score": "{{score}}%",
-      "progress": "Progress",
-      "estimated_score": "Est. Score"
-    },
-    "status": {
-      "title": "Status"
-    },
-    "log": {
-      "title": "Log",
-      "start": "Assessment started.",
-      "correct": "Q{{id}}: Correct.",
-      "wrong": "Q{{id}}: Incorrect."
-    },
-    "question": {
-      "label": "Question {{id}}",
-      "correct_badge": "CORRECT",
-      "incorrect_badge": "INCORRECT",
-      "explanation_title": "Explanation"
-    },
-    "result": {
-      "completed_title": "Assessment Complete",
-      "completed_desc": "Current mathematical proficiency measured.",
-      "score_label": "Score",
-      "rank_label": "Rank",
-      "ranks": {
-        "omega": "OMEGA",
-        "architect": "ARCHITECT",
-        "operator": "OPERATOR",
-        "learner": "LEARNER"
-      },
-      "start_btn": "Start Learning",
-      "retry_btn": "Retry Assessment"
-    },
-    "failed": {
-      "title": "Aborted",
-      "desc": "Assessment stopped due to instability.",
-      "retry_btn": "Restart"
     }
   },
   "codex": {
