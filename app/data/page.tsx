@@ -24,6 +24,7 @@ import QuartileAnalysisViz from './components/QuartileAnalysisViz';
 import StandardDeviationViz from './components/StandardDeviationViz';
 import ResidualViz from './components/ResidualViz';
 import RSquaredViz from './components/RSquaredViz';
+import CorrelationCoefficientCalcViz from './components/CorrelationCoefficientCalcViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -172,6 +173,14 @@ export default function DataPage() {
       desc: '回帰直線がデータの変動をどれだけ説明できるかをR²で評価する。R²が1に近いほど当てはまりが良い',
       logStart: 'R²シミュレータ起動',
       logGuide: 'データセットを切り替えて、R²の変化を確認してください。'
+    },
+    {
+      id: 17,
+      targetR: 0,
+      name: '相関係数の正確な計算手順',
+      desc: 'データから偏差・偏差積を求め、相関係数 r を段階的に計算する',
+      logStart: '相関係数計算シミュレータ起動',
+      logGuide: 'ステップを進めて計算過程を確認してください。'
     }
   ];
 
@@ -195,6 +204,7 @@ export default function DataPage() {
     if (progress.includes(13)) nextLvl = 14;
     if (progress.includes(14)) nextLvl = 15;
     if (progress.includes(15)) nextLvl = 16;
+    if (progress.includes(16)) nextLvl = 17;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -343,7 +353,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 16 ? (<RSquaredViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('R²の分析を完了しました。'); } }} />) : currentLevel === 15 ? (<ResidualViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('残差の分析を完了しました。'); } }} />) : currentLevel === 14 ? (<StandardDeviationViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標準偏差の計算を完了しました。'); } }} />) : currentLevel === 13 ? (<QuartileAnalysisViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('四分位数の分析を完了しました。'); } }} />) : currentLevel === 12 ? (<CorrelationInterpretViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の解釈を完了しました。'); } }} />) : currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 17 ? (<CorrelationCoefficientCalcViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の計算を完了しました。'); } }} />) : currentLevel === 16 ? (<RSquaredViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('R²の分析を完了しました。'); } }} />) : currentLevel === 15 ? (<ResidualViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('残差の分析を完了しました。'); } }} />) : currentLevel === 14 ? (<StandardDeviationViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標準偏差の計算を完了しました。'); } }} />) : currentLevel === 13 ? (<QuartileAnalysisViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('四分位数の分析を完了しました。'); } }} />) : currentLevel === 12 ? (<CorrelationInterpretViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の解釈を完了しました。'); } }} />) : currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}
@@ -357,7 +367,7 @@ export default function DataPage() {
                     <h3 className="text-xl font-bold mb-2">{t('modules.data.completion.synced')}</h3>
                     <p className="text-sm text-slate-500 mb-6">{t('modules.data.completion.msg')}</p>
                     <button onClick={handleNextLevel} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 flex items-center justify-center gap-2">
-                      {currentLevel < 16 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
+                      {currentLevel < 17 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </motion.div>

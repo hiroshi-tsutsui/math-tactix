@@ -57,6 +57,7 @@ import PrimeFactorizationViz from './components/PrimeFactorizationViz';
 import FractionSimplifyViz from './components/FractionSimplifyViz';
 import FractionAdditionViz from './components/FractionAdditionViz';
 import RationalizationAdvancedViz from './components/RationalizationAdvancedViz';
+import NestedRadical2Viz from './components/NestedRadical2Viz';
 
 
 
@@ -118,7 +119,8 @@ export default function MathINumbers() {
         { id: 46, title: '整数の性質（素因数分解・GCD・LCM）', type: 'prime_factorization' },
         { id: 47, title: '分数式の約分', type: 'fraction_simplify' },
         { id: 48, title: '分数式の通分・加減算', type: 'fraction_addition' },
-        { id: 49, title: '有理化（1次・2次）', type: 'rationalization_advanced' }
+        { id: 49, title: '有理化（1次・2次）', type: 'rationalization_advanced' },
+        { id: 50, title: '二重根号の変換（応用）', type: 'nested_radical_2' }
 ];
 
   return (
@@ -689,6 +691,20 @@ export default function MathINumbers() {
                     1次有理化では <InlineMath math="\frac{1}{\sqrt{a}}" /> の形、2次有理化では共役式 <InlineMath math="(\sqrt{a} - \sqrt{b})" /> を使います。
                   </p>
                   <RationalizationAdvancedViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 50 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">二重根号の変換（応用）(Nested Radical Conversion)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="\sqrt{a + 2\sqrt{b}}" /> や <InlineMath math="\sqrt{a - 2\sqrt{b}}" /> の形の二重根号を、
+                    <InlineMath math="(\sqrt{p} + \sqrt{q})^2 = p + q + 2\sqrt{pq}" /> の関係を使って外します。<br/>
+                    加法形と減法形の両方のパターンを段階的に学びます。
+                  </p>
+                  <NestedRadical2Viz />
                 </div>
               </div>
             )}
