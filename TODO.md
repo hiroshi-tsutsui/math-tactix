@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 009
+現在のサイクル: 010
 最終更新: 2026-04-06
 
 ---
+
+## サイクル010 実施済み
+
+- [x] [優先度:高] data: 標準偏差・分散の視覚化 Level 14 追加 — StandardDeviationViz.tsx
+- [x] [優先度:高] sets_logic: ド・モルガンの法則の発展 Level 14 追加 — DeMorganViz.tsx
+- [x] [優先度:高] math_i_numbers: 絶対値の場合分け計算 Level 45 追加 — AbsoluteValueCasesViz.tsx
+- [x] [優先度:高] probability: 反復試行の定理 Level 16 追加 — BinomialTrialViz.tsx
 
 ## サイクル009 実施済み
 
@@ -23,11 +30,11 @@
 - [x] [優先度:高] [担当:エンジニアA] trig: 三角比の応用（測量問題・木の高さを三角比で求める）Level 12 追加
 - [x] [優先度:高] [担当:エンジニアA] trig: 三角形の外接円・内接円の半径 Level 13 追加
 - [x] [優先度:高] [担当:エンジニアA] probability: 条件付き確率 Level 15 追加
-- [ ] [優先度:高] [担当:エンジニアA] probability: 反復試行・二項定理の基礎 Level 16 追加
+- [x] [優先度:高] [担当:エンジニアA] probability: 反復試行・二項定理の基礎 Level 16 追加
 - [x] [優先度:高] [担当:エンジニアA] math_i_numbers: 二重根号・根号の整理 Level 44 追加
-- [ ] [優先度:高] [担当:エンジニアA] math_i_numbers: 絶対値記号の計算（場合分け）Level 45 追加
-- [ ] [優先度:高] [担当:エンジニアA] sets_logic: ド・モルガンの法則の発展 Level 14 追加
-- [ ] [優先度:高] [担当:エンジニアA] data: 標準偏差・分散の視覚化 Level 14 追加
+- [x] [優先度:高] [担当:エンジニアA] math_i_numbers: 絶対値記号の計算（場合分け）Level 45 追加
+- [x] [優先度:高] [担当:エンジニアA] sets_logic: ド・モルガンの法則の発展 Level 14 追加
+- [x] [優先度:高] [担当:エンジニアA] data: 標準偏差・分散の視覚化 Level 14 追加
 - [ ] [優先度:高] [担当:エンジニアA] data: 回帰直線のあてはまり具合（残差）Level 15 追加
 - [ ] [優先度:高] [担当:エンジニアA] quadratics: 解の配置（両解が正・負・区間内）の受験頻出パターン追加
 

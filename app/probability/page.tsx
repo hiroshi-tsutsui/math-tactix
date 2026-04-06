@@ -23,6 +23,7 @@ import ComplementaryEventViz from "./components/ComplementaryEventViz";
 import IndependentEventViz from "./components/IndependentEventViz";
 import AdditionRuleViz from "./components/AdditionRuleViz";
 import ConditionalProbabilityViz from "./components/ConditionalProbabilityViz";
+import BinomialTrialViz from "./components/BinomialTrialViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -392,6 +393,7 @@ export default function ProbabilityPage() {
              level === 13 ? "独立試行の定理" :
              level === 14 ? "確率の加法定理" :
              level === 15 ? "条件付き確率（詳細）" :
+             level === 16 ? "反復試行の定理" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -419,6 +421,7 @@ export default function ProbabilityPage() {
                       { id: 13, title: "Level 13: 独立試行の定理", desc: "P(A∩B) = P(A)×P(B) のシミュレーション", icon: Activity },
                       { id: 14, title: "Level 14: 確率の加法定理", desc: "P(A∪B) = P(A)+P(B)-P(A∩B) のベン図視覚化", icon: Target },
                       { id: 15, title: "Level 15: 条件付き確率（詳細）", desc: "P(B|A) = P(A∩B)/P(A) のベン図・樹形図", icon: HelpCircle },
+                      { id: 16, title: "Level 16: 反復試行の定理", desc: "二項分布と反復試行の確率計算", icon: Activity },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -696,6 +699,13 @@ export default function ProbabilityPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <div className="max-w-md mx-auto">
                   <ConditionalProbabilityViz />
+              </div>
+          </main>
+      )}
+      {level === 16 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <div className="max-w-md mx-auto">
+                  <BinomialTrialViz />
               </div>
           </main>
       )}

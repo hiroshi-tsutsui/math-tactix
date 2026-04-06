@@ -52,6 +52,7 @@ import TwoAbsoluteValuesInequalityViz from './components/TwoAbsoluteValuesInequa
 import PolynomialDivisionViz from './components/PolynomialDivisionViz';
 import RationalExpressionViz from './components/RationalExpressionViz';
 import NestedRadicalViz from './components/NestedRadicalViz';
+import AbsoluteValueCasesViz from './components/AbsoluteValueCasesViz';
 
 
 
@@ -108,7 +109,8 @@ export default function MathINumbers() {
         { id: 41, title: '2つの絶対値を含む方程式・不等式', type: 'two_absolute_values_inequality' },
         { id: 42, title: '整式の除法 (A = BQ + R)', type: 'polynomial_division' },
         { id: 43, title: '分数式・有理化', type: 'rational_expression' },
-        { id: 44, title: '二重根号の変形', type: 'nested_radical' }
+        { id: 44, title: '二重根号の変形', type: 'nested_radical' },
+        { id: 45, title: '絶対値の場合分け計算', type: 'absolute_value_cases' }
 ];
 
   return (
@@ -618,6 +620,18 @@ export default function MathINumbers() {
                     <InlineMath math="p + q = a,\; pq = b" /> を満たす p, q を見つけることがポイントです。
                   </p>
                   <NestedRadicalViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 45 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">絶対値の場合分け計算</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="|x - a|" /> の場合分けの境界を数直線で確認し、方程式・不等式を解きます。
+                  </p>
+                  <AbsoluteValueCasesViz />
                 </div>
               </div>
             )}
