@@ -38,22 +38,22 @@
       "algebraic_logic": {
         "title": "Algebraic Logic",
         "subtitle": "Algebraic Logic",
-        "desc": "From positive/negative numbers to equations and factorization. Master the 'literacy' of logic."
+        "desc": "Expressions, equations & inequalities (Junior High). From positive/negative numbers to factorization — master the 'literacy' of algebra."
       },
       "functional_dynamics_jh": {
         "title": "Functional Dynamics",
         "subtitle": "Functional Dynamics",
-        "desc": "Proportionality, inverse proportionality, linear functions. Learn the basics of describing change with formulas."
+        "desc": "Proportionality, inverse proportionality & linear functions (Junior High). Learn the basics of describing change with formulas and graphs."
       },
       "geometric_space": {
         "title": "Geometric Space",
         "subtitle": "Geometric Space",
-        "desc": "Similarity, inscribed angles, Pythagorean theorem. Cultivate the ability to grasp space logically."
+        "desc": "Properties of shapes, plane & spatial figures (Junior High). Similarity, inscribed angles, and the Pythagorean theorem."
       },
       "data_chance_jh": {
         "title": "Data & Chance",
         "subtitle": "Data & Chance",
-        "desc": "Basics of data distribution and probability. The first step to capturing an uncertain world numerically."
+        "desc": "Probability & statistics basics (Junior High). The first step to capturing an uncertain world with data distributions and probability."
       },
       "quadratics": {
         "title": "Quadratics",
@@ -167,6 +167,7 @@
     "back": "Back",
     "nav": {
       "basic": "Basics",
+      "guide": "How to Use",
       "modules": "Learning Modes",
       "glossary": "Glossary",
       "ranks": "Ranks"
@@ -181,6 +182,34 @@
         "score": {
           "title": "Proficiency Score",
           "desc": "Your mathematical baseline based on initial assessment. Improve this precision by learning each unit."
+        }
+      },
+      "guide": {
+        "title": "How to Use This App",
+        "what": {
+          "title": "What is Math-Tactix?",
+          "desc": "A platform to understand high school math concepts visually. Move sliders and graphs to experience the meaning of equations hands-on."
+        },
+        "modules_overview": {
+          "title": "Module Roles",
+          "quadratics": "Quadratics — Visualize vertices, axes, and discriminants (exam essentials)",
+          "data": "Data Analysis — Understand mean, variance, correlation, and regression with graphs",
+          "probability": "Probability — Experience permutations, combinations, and conditional probability with animation",
+          "sets_logic": "Sets & Logic — Learn Venn diagrams, necessary/sufficient conditions, and proof by contradiction visually",
+          "math_i_numbers": "Numbers & Expressions — Step-by-step mastery of expansion, factoring, absolute values, and radicals",
+          "trig": "Trigonometry — Interactive sine/cosine rules and surveying problems",
+          "calculus": "Calculus — Manipulate tangent slopes and area calculations in real time",
+          "others": "Others — Sequences, logarithms, vectors, complex numbers, matrices, and functions"
+        },
+        "gamification": {
+          "title": "Gamification Terms",
+          "rank": "Rank — Progress from LEARNER to OPERATOR to ARCHITECT to OMEGA based on mastery",
+          "xp": "XP — Experience points earned by clearing each level",
+          "omega": "Omega Protocol — World-building flavor. The mathematical content is real high school math"
+        },
+        "recommended": {
+          "title": "Recommended Learning Path",
+          "desc": "Start with 'Quadratics' or 'Numbers & Expressions'. Once you have the basics, move to 'Sets & Logic' or 'Data Analysis', then advance to 'Trigonometry' and 'Calculus'."
         }
       },
       "modules": {
@@ -272,22 +301,22 @@
     "algebraic_logic": {
       "title": "Algebraic Logic",
       "subtitle": "Algebraic Logic",
-      "desc": "From positive/negative numbers to equations and factorization. Master the 'literacy' of logic."
+      "desc": "Expressions, equations & inequalities (Junior High). From positive/negative numbers to factorization — master the 'literacy' of algebra."
     },
     "functional_dynamics_jh": {
       "title": "Functional Dynamics",
       "subtitle": "Functional Dynamics",
-      "desc": "Proportionality, inverse proportionality, linear functions. Learn the basics of describing change with formulas."
+      "desc": "Proportionality, inverse proportionality & linear functions (Junior High). Learn the basics of describing change with formulas and graphs."
     },
     "geometric_space": {
       "title": "Geometric Space",
       "subtitle": "Geometric Space",
-      "desc": "Similarity, inscribed angles, Pythagorean theorem. Cultivate the ability to grasp space logically."
+      "desc": "Properties of shapes, plane & spatial figures (Junior High). Similarity, inscribed angles, and the Pythagorean theorem."
     },
     "data_chance_jh": {
       "title": "Data & Chance",
       "subtitle": "Data & Chance",
-      "desc": "Basics of data distribution and probability. The first step to capturing an uncertain world numerically."
+      "desc": "Probability & statistics basics (Junior High). The first step to capturing an uncertain world with data distributions and probability."
     },
     "quadratics": {
       "title": "Quadratics",

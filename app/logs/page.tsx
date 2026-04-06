@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, CheckCircle2, ChevronRight, Activity, Zap, Maximize2, Info } from 'lucide-react';
+import { CheckCircle2, ChevronRight, Activity, Zap, Maximize2, Info } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { useProgress } from '../contexts/ProgressContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -79,9 +80,7 @@ export default function LogsPage() {
     <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans ${GeistSans.className}`}>
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 font-bold text-sm">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 戻る
-          </Link>
+          <BackButton href="/" />
           <span className="text-sm font-bold">対数（ログ）</span>
         </div>
       </nav>

@@ -11,6 +11,7 @@ import {
   Trophy, Star, Play
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import BackButton from '../components/BackButton';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import Link from 'next/link';
@@ -1273,7 +1274,9 @@ export default function TrigPage() {
       {/* Header */}
       <header className="h-14 flex items-center justify-between px-6 shrink-0 border-b border-slate-100 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md z-50">
         <div className="flex items-center gap-2">
-            {level > 0 && (
+            {level === 0 ? (
+                <BackButton href="/" />
+            ) : (
                 <button onClick={() => dispatch({type: 'RESET_ALL'})} className="p-2 -ml-2 text-slate-400 hover:text-black dark:hover:text-white transition-colors">
                     <ChevronLeft className="w-6 h-6" />
                 </button>

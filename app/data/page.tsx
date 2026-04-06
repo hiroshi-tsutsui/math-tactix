@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, Plus, Trash2, CheckCircle2, ChevronRight, BarChart2 } from 'lucide-react';
+import { Plus, Trash2, CheckCircle2, ChevronRight, BarChart2 } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
@@ -298,9 +299,7 @@ export default function DataPage() {
     <div className={`min-h-screen bg-white text-slate-900 font-sans ${GeistSans.className}`}>
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 transition-colors font-bold text-sm">
-            <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back_root')}
-          </Link>
+          <BackButton href="/" label={t('common.back_root')} />
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('common.protocol')}</span>

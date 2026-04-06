@@ -5,6 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ChevronLeft, Compass, Search, SplitSquareHorizontal, Calculator } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
+import BackButton from '../components/BackButton';
 import SetMaxMinViz from '../components/math/SetMaxMinViz';
 import ConditionNumberLineViz from '../components/math/ConditionNumberLineViz';
 import ThreeSetsViz from "@/app/components/math/ThreeSetsViz";
@@ -795,7 +796,9 @@ export default function SetsLogicPage() {
     <div className={`h-screen bg-white text-slate-900 flex flex-col ${GeistSans.className} overflow-hidden`}>
       <header className="h-14 flex items-center justify-between px-6 shrink-0 border-b border-slate-100 bg-white/90 backdrop-blur-md z-50">
         <div className="flex items-center gap-2">
-            {level > 0 && (
+            {level === 0 ? (
+                <BackButton href="/" />
+            ) : (
                 <button onClick={() => setLevel(0)} className="p-2 -ml-2 text-slate-400 hover:text-black transition-colors">
                     <ChevronLeft className="w-6 h-6" />
                 </button>

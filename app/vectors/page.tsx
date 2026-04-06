@@ -3,7 +3,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, MoveUpRight, CheckCircle2, ChevronRight, Info, Layers } from 'lucide-react';
+import { MoveUpRight, CheckCircle2, ChevronRight, Info, Layers } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
@@ -81,9 +82,7 @@ export default function VectorsPage() {
     <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans ${GeistSans.className} transition-colors duration-200`}>
       <nav className="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 h-16 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/" className="flex items-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 font-bold text-sm transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back_root')}
-          </Link>
+          <BackButton href="/" label={t('common.back_root')} />
           <div className="flex items-center gap-2">
             <span className="text-sm font-bold dark:text-white">{t('modules.vectors.title')}</span>
             <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>

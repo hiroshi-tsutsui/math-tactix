@@ -1,4 +1,5 @@
 "use client";
+import BackButton from "../components/BackButton";
 import RightTriangleRectangleViz from "./components/RightTriangleRectangleViz";
 import MovingPointAreaViz from "./components/MovingPointAreaViz";
 import VertexOnLineViz from "./components/VertexOnLineViz";
@@ -513,6 +514,9 @@ export default function QuadraticPage() {
   return (
     <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen font-sans text-gray-900">
       <header className="mb-8 border-b pb-4">
+        <div className="mb-4">
+          <BackButton href="/" />
+        </div>
         <h1 className="text-3xl font-bold text-blue-800 mb-2">Math Tactix: 数学I - 二次関数</h1>
         <div className="flex gap-2 flex-wrap">
           {LEVELS.map((level) => (

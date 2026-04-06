@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, CheckCircle2, ChevronRight, Grid, Maximize, RotateCw, Activity, Info, Trophy, Star } from 'lucide-react';
+import { CheckCircle2, ChevronRight, Grid, Maximize, RotateCw, Activity, Info, Trophy, Star } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
@@ -96,9 +97,7 @@ export default function MatricesPage() {
     <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white font-sans ${GeistSans.className}`}>
       <nav className="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <Link href="/" className="flex items-center text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold text-sm">
-            <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back_root')}
-          </Link>
+          <BackButton href="/" label={t('common.back_root')} />
           <span className="text-sm font-bold">{t('modules.matrices.title')}</span>
         </div>
       </nav>

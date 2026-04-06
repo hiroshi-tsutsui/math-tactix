@@ -4,7 +4,7 @@ import { useState } from 'react';
 import SimultaneousLinearInequalitiesViz from '../components/math/SimultaneousLinearInequalitiesViz';
 import ValueAbsoluteViz from './components/ValueAbsoluteViz';
 
-import { ArrowLeft } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import Link from 'next/link';
 import SaltWaterInequalityViz from './components/SaltWaterInequalityViz';
 
@@ -117,10 +117,7 @@ export default function MathINumbers() {
     <div className="min-h-screen bg-white text-slate-800 font-sans p-4 sm:p-8">
       <div className="max-w-4xl mx-auto space-y-6">
         <header className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 text-indigo-500 hover:text-indigo-600 transition-colors">
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium tracking-wide">ダッシュボードへ戻る</span>
-          </Link>
+          <BackButton href="/" label="ダッシュボードへ戻る" />
           <div className="text-right">
             <h1 className="text-2xl font-bold tracking-tight text-slate-900">数と式 (数学I)</h1>
             <p className="text-sm text-slate-500 tracking-wider">Numbers and Algebraic Expressions</p>

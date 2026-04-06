@@ -3,13 +3,13 @@
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
 import { useState } from 'react';
-import { ArrowLeft, BookOpen, Compass, Award, Terminal } from 'lucide-react';
+import { ArrowLeft, BookOpen, Compass, Award, Terminal, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ManualPage() {
   const { t } = useLanguage();
-  const [section, setSection] = useState<'BASIC' | 'MODULES' | 'GLOSSARY' | 'RANKS'>('BASIC');
+  const [section, setSection] = useState<'BASIC' | 'GUIDE' | 'MODULES' | 'GLOSSARY' | 'RANKS'>('BASIC');
 
   const CONTENT = {
     BASIC: (
@@ -34,6 +34,60 @@ export default function ManualPage() {
                 </h3>
                 <p className="text-sm text-slate-500 leading-relaxed">
                     {t('manual.sections.basic.score.desc')}
+                </p>
+            </div>
+        </div>
+      </div>
+    ),
+    GUIDE: (
+      <div className="space-y-8">
+        <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 border-b border-slate-100 pb-4">
+            {t('manual.sections.guide.title')}
+        </h2>
+
+        <div className="grid gap-6">
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <h3 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">
+                    {t('manual.sections.guide.what.title')}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed">
+                    {t('manual.sections.guide.what.desc')}
+                </p>
+            </div>
+
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <h3 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">
+                    {t('manual.sections.guide.modules_overview.title')}
+                </h3>
+                <ul className="space-y-2 text-sm text-slate-500 leading-relaxed">
+                    <li>{t('manual.sections.guide.modules_overview.quadratics')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.data')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.probability')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.sets_logic')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.math_i_numbers')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.trig')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.calculus')}</li>
+                    <li>{t('manual.sections.guide.modules_overview.others')}</li>
+                </ul>
+            </div>
+
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <h3 className="text-sm font-bold text-slate-900 mb-3 uppercase tracking-wider">
+                    {t('manual.sections.guide.gamification.title')}
+                </h3>
+                <ul className="space-y-2 text-sm text-slate-500 leading-relaxed">
+                    <li>{t('manual.sections.guide.gamification.rank')}</li>
+                    <li>{t('manual.sections.guide.gamification.xp')}</li>
+                    <li>{t('manual.sections.guide.gamification.omega')}</li>
+                </ul>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                <h3 className="text-sm font-bold text-blue-900 mb-3 uppercase tracking-wider">
+                    {t('manual.sections.guide.recommended.title')}
+                </h3>
+                <p className="text-sm text-blue-700 leading-relaxed">
+                    {t('manual.sections.guide.recommended.desc')}
                 </p>
             </div>
         </div>
@@ -132,6 +186,7 @@ export default function ManualPage() {
 
   const navItems = [
     { id: 'BASIC', label: t('manual.nav.basic'), icon: BookOpen },
+    { id: 'GUIDE', label: t('manual.nav.guide'), icon: HelpCircle },
     { id: 'MODULES', label: t('manual.nav.modules'), icon: Compass },
     { id: 'GLOSSARY', label: t('manual.nav.glossary'), icon: Terminal },
     { id: 'RANKS', label: t('manual.nav.ranks'), icon: Award },
