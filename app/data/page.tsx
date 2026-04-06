@@ -21,6 +21,7 @@ import VarianceShortcutViz from './components/VarianceShortcutViz';
 import CorrelationInterpretViz from './components/CorrelationInterpretViz';
 import QuartileAnalysisViz from './components/QuartileAnalysisViz';
 import StandardDeviationViz from './components/StandardDeviationViz';
+import ResidualViz from './components/ResidualViz';
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -153,6 +154,14 @@ export default function DataPage() {
       desc: 'データの散らばりを数値化する標準偏差・分散をステップごとに視覚化する',
       logStart: '標準偏差シミュレータ起動',
       logGuide: 'ステップを進めて計算過程を確認してください。'
+    },
+    {
+      id: 15,
+      targetR: 0,
+      name: '回帰直線の残差',
+      desc: '回帰直線のあてはまり具合を残差（実測値と予測値の差）で視覚的に評価し、最小二乗法の原理を理解する',
+      logStart: '残差シミュレータ起動',
+      logGuide: '傾きと切片を調整して、残差の二乗和(RSS)を最小にしてみてください。'
     }
   ];
 
@@ -174,6 +183,7 @@ export default function DataPage() {
     if (progress.includes(11)) nextLvl = 12;
     if (progress.includes(12)) nextLvl = 13;
     if (progress.includes(13)) nextLvl = 14;
+    if (progress.includes(14)) nextLvl = 15;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -242,7 +252,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 14) {
+    if (currentLevel < 15) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -298,7 +308,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 14
+              {t('common.level')} {currentLevel} / 15
             </div>
           </div>
         </div>
@@ -324,7 +334,7 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 14 ? (<StandardDeviationViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標準偏差の計算を完了しました。'); } }} />) : currentLevel === 13 ? (<QuartileAnalysisViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('四分位数の分析を完了しました。'); } }} />) : currentLevel === 12 ? (<CorrelationInterpretViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の解釈を完了しました。'); } }} />) : currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
+            {currentLevel === 15 ? (<ResidualViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('残差の分析を完了しました。'); } }} />) : currentLevel === 14 ? (<StandardDeviationViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標準偏差の計算を完了しました。'); } }} />) : currentLevel === 13 ? (<QuartileAnalysisViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('四分位数の分析を完了しました。'); } }} />) : currentLevel === 12 ? (<CorrelationInterpretViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の解釈を完了しました。'); } }} />) : currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
               <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-2">
                 <Plus className="w-3 h-3" /> {t('modules.data.viz.viewport')}

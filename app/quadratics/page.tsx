@@ -6,6 +6,7 @@ import ChordLengthViz from "./components/ChordLengthViz";
 import ThreePointsDeterminationViz from "./components/ThreePointsDeterminationViz";
 import XInterceptsDeterminationViz from "./components/XInterceptsDeterminationViz";
 import AbsoluteInequalityAllRealsViz from "./components/AbsoluteInequalityAllRealsViz";
+import RootsPlacementViz from "./components/RootsPlacementViz";
 import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
 import CommonTangentViz from "./components/CommonTangentViz";
 import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
@@ -253,6 +254,7 @@ const LEVELS = [
   { id: 65, title: '平行移動した放物線の決定', type: 'translation_quadratic' },
   { id: 66, title: '2次方程式の整数解と係数の決定', type: 'integer_roots_quadratic' },
   { id: 67, title: '絶対値付き2次不等式（全実数解）', type: 'absolute_inequality_all_reals' },
+  { id: 68, title: '解の配置（受験頻出パターン）', type: 'roots_placement' },
 ];
 
 export default function QuadraticPage() {
@@ -485,6 +487,9 @@ export default function QuadraticPage() {
 
         case "external_tangent":
           newProblem = generateExternalTangentProblem();
+          break;
+        case "roots_placement":
+          newProblem = { id: Date.now(), title: '解の配置（受験頻出パターン）', type: 'roots_placement' };
           break;
       }
       setProblem(newProblem as any);
@@ -863,6 +868,7 @@ export default function QuadraticPage() {
         {currentLevel === 65 && <TranslationQuadraticViz />}
         {currentLevel === 66 && <IntegerRootsQuadraticViz />}
         {currentLevel === 67 && <AbsoluteInequalityAllRealsViz />}
+        {currentLevel === 68 && <RootsPlacementViz />}
 
 
 

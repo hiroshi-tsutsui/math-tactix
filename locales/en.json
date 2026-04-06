@@ -630,6 +630,67 @@
     },
     "actions": {
       "sync": "Execute Analysis"
+    },
+    "trig": {
+      "title": "Trigonometry (Famous Angle Mastery)",
+      "header_title": "TRIG EVOLUTION V1.3",
+      "exact_value": "Exact Value",
+      "angle_label": "θ =",
+      "intro": {
+        "title": "Master Famous Angles",
+        "desc": "Experience the sensation of snapping <strong>'like a magnet'</strong> to 30° and 45°.",
+        "action": "Combat: Famous Angle Mission"
+      },
+      "quiz": {
+        "mission_label": "Mission",
+        "mission_title": "Reproduce {{type}} {{angle}}^\\circ",
+        "action": "Confirm Tactics",
+        "success_title": "Mission Success",
+        "success_desc": "Burn this position into your brain.",
+        "next": "Next Question",
+        "wrong": "Wrong angle."
+      }
+    },
+    "trig_ratios": {
+      "title": "Trigonometric Ratios",
+      "subtitle": "Mathematics I",
+      "desc": "Master the fundamentals of surveying using right triangles and the unit circle.",
+      "levels": {
+        "1": {
+          "title": "Right Triangle and Definitions",
+          "desc": "Verify that the ratios of sides in a right triangle (sine, cosine, tangent) are determined solely by the angle θ.",
+          "hyp": "Hypotenuse (r)",
+          "opp": "Opposite (y)",
+          "adj": "Adjacent (x)",
+          "angle": "Angle (θ)",
+          "ratio_label": "Trigonometric Ratio Values",
+          "next_lesson": "Proceed to Step 2"
+        },
+        "2": {
+          "title": "Unit Circle and Obtuse Angles",
+          "desc": "Using a circle of radius 1 (unit circle), trigonometric ratios can be defined as coordinates (x, y). This allows us to consider trigonometric ratios for angles beyond 90° (obtuse angles)."
+        },
+        "3": {
+          "title": "Mutual Relations",
+          "desc": "Visually understand the identity sin²θ + cos²θ = 1 as a right triangle on the unit circle."
+        },
+        "4": {
+          "title": "Law of Sines",
+          "desc": "In a general triangle, the ratio of each side to the sine of its opposite angle (a/sinA) is constant and equals the diameter of the circumscribed circle (2R)."
+        },
+        "5": {
+          "title": "Law of Cosines",
+          "desc": "If two sides and the included angle are known, the remaining side can be found. Understand it as an extension of the Pythagorean theorem."
+        },
+        "6": {
+          "title": "Area of a Triangle",
+          "desc": "Express the base×height÷2 formula using trigonometric ratios. By understanding that h = b sinA, you can find the area of any triangle."
+        },
+        "7": {
+          "title": "Inscribed Circle Radius",
+          "desc": "Visually understand the relationship S = ½r(a+b+c) between the area S and inscribed circle radius r. Learn to calculate the radius from the area."
+        }
+      }
     }
   },
   "vectors": {

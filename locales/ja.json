@@ -1079,5 +1079,27 @@
       "name": "Quiz Ace",
       "desc": "実力テストで満点（100%）を達成した。"
     }
+  },
+  "trig": {
+    "title": "三角関数（有名角の支配）",
+    "header_title": "TRIG EVOLUTION V1.3",
+    "exact_value": "厳密値",
+    "angle_label": "θ =",
+    "subtitle": "Mathematics II",
+    "desc": "円運動と波の性質を同期させ、周期性を解析する。",
+    "intro": {
+      "title": "有名角を支配する",
+      "desc": "試験に出る30°や45°の地点で<strong>「磁石のように」</strong>吸い付く感覚を体験してください。",
+      "action": "実戦：有名角ミッションへ"
+    },
+    "quiz": {
+      "mission_label": "Mission",
+      "mission_title": "{{type}} {{angle}}^\\circ を再現せよ",
+      "action": "戦術を確定する",
+      "success_title": "ミッション成功",
+      "success_desc": "この位置を脳に焼き付けてください。",
+      "next": "次の問題へ",
+      "wrong": "角度が違います。"
+    }
   }
 }
