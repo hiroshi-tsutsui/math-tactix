@@ -129,6 +129,8 @@ import ParabolaLineViz from "./components/ParabolaLineViz";
 
 import { InlineMath, BlockMath } from 'react-katex';
 
+import { LEVELS } from './data/levels';
+
 // Problem Type Definitions
 interface Problem {
   id: string;
@@ -136,19 +138,19 @@ interface Problem {
   question: string;
   equation?: string;
   equations?: string[]; // For simultaneous inequalities
-  params?: any;
+  params?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   explanation?: string | string[];
-  
+
   // Roots Location specific
-  conditions?: any;
-  parameters?: any;
-  
+  conditions?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  parameters?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+
   // Parametric Inequality specific
   fixedRoot?: number;
   variableRootExpr?: string;
   inequalitySign?: '<' | '>' | '<=' | '>=';
-  cases?: any[];
-  
+  cases?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+
   // Definite Inequality specific
   inequality?: string;
   condition?: string;
@@ -158,7 +160,7 @@ interface Problem {
   expansion?: string;
 
   // Simultaneous Inequality specific
-  ranges?: any[];
+  ranges?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   // Moving Domain specific
   p?: number;
@@ -166,7 +168,7 @@ interface Problem {
   width?: number;
 
   // Moving Axis specific
-  domain?: any;
+  domain?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   // Shape Optimization specific
   totalLength?: number;
@@ -183,84 +185,6 @@ interface Problem {
     target?: 'max' | 'min';
   generalForm?: string;
 }
-
-// Level Configuration
-const LEVELS = [
-{ id: 1, title: '平方完成', type: 'completing_square' },
-  { id: 2, title: '解の配置', type: 'roots_location' },
-  { id: 3, title: '定義域が動く最大・最小', type: 'moving_domain' },
-  { id: 4, title: '軸が動く最大・最小', type: 'moving_axis' },
-  { id: 5, title: '絶対不等式', type: 'definite_inequality' },
-  { id: 6, title: '係数決定', type: 'coefficient_determination' },
-  { id: 7, title: '文字係数の2次不等式', type: 'parametric_inequality' },
-  { id: 8, title: 'グラフの移動', type: 'graph_transformation' },
-  { id: 9, title: '二次不等式の解き方', type: 'quadratic_inequality' },
-  { id: 10, title: '放物線と直線の共有点', type: 'intersection' },
-  { id: 11, title: '連立二次不等式', type: 'simultaneous_inequality' },
-  { id: 12, title: '絶対値グラフ', type: 'absolute_value_graph' },
-  { id: 13, title: '文章題（最大・最小）', type: 'shape_optimization' },
-  { id: 14, title: '絶対値方程式の解の個数', type: 'absolute_value_equation' },
-  { id: 15, title: '解の存在範囲', type: 'solutions_in_range' },
-  { id: 16, title: '二次関数の決定', type: 'determination' },
-  { id: 17, title: '共通解問題', type: 'common_roots' },
-  { id: 18, title: '絶対値関数の最大・最小', type: 'absolute_value_max_min' },
-  { id: 19, title: '判別式とグラフの共有点', type: 'discriminant' },
-  { id: 20, title: '二次関数の最大・最小 (基礎)', type: 'max_min' },
-  { id: 21, title: '条件付き最大・最小', type: 'conditional_max_min' },
-  { id: 22, title: '置き換えによる最大・最小', type: 'substitution_max_min' },
-  { id: 23, title: 'x軸から切り取る線分の長さ', type: 'segment_length' },
-  { id: 24, title: '2次不等式の決定', type: 'inequality_coefficient' },
-  { id: 25, title: '常に成り立つ2次不等式', type: 'absolute_inequality' },
-  { id: 26, title: '絶対値を含む不等式', type: 'absolute_value_inequality' },
-  { id: 27, title: '2次方程式の実数解の符号', type: 'sign_of_roots' },
-  { id: 28, title: '絶対値グラフと直線の共有点', type: 'absolute_graph_line' },
-  { id: 29, title: '複数の絶対値を含む関数', type: 'multiple_absolute' },
-  { id: 30, title: '係数の符号とグラフ', type: 'coefficient_signs' },
-  { id: 31, title: '放物線と直線の交点間の距離', type: 'intersection_distance' },
-  { id: 32, title: '放物線の頂点の軌跡', type: 'vertex_locus' },
-  { id: 33, title: '2つの放物線の位置関係と接線', type: 'two_parabolas' },
-  { id: 34, title: '放物線上の三角形の面積最大化', type: 'triangle_area_optimization' },
-  { id: 35, title: '放物線外の点から引いた接線', type: 'external_tangent' },
-  { id: 36, title: '2つの2次関数の大小', type: 'two_parabolas_size' },
-  { id: 37, title: '2つのグラフの差の関数', type: 'difference_function' },
-  { id: 38, title: '定義域の右端が動く最大・最小', type: 'moving_right_edge' },
-  { id: 39, title: '2変数関数の最大・最小 (独立変数)', type: 'independent_variables' },
-  { id: 40, title: '少なくとも1つの正の解をもつ条件', type: 'at_least_one_positive_root' },
-  { id: 41, title: '放物線の平行移動の決定', type: 'translation_determination' },
-  { id: 42, title: '異符号の解', type: 'different_signs' },
-  { id: 43, title: '利益の最大化 (文章題)', type: 'profit_maximization' },
-
-
-
-
-  { id: 44, title: '一方だけが実数解をもつ条件', type: 'one_real_root' },
-  { id: 45, title: '特定の区間で常に正・負となる条件', type: 'domain_always_positive' },
-  { id: 46, title: '2つの解が特定の区間にある条件', type: 'both_roots_between' },
-  { id: 47, title: '解の公式の視覚化', type: 'quadratic_formula' },
-  { id: 48, title: '放物線に内接する長方形の周の長さ', type: 'inscribed_perimeter' },
-  { id: 49, title: '2次不等式の解とグラフの関係', type: 'quadratic_inequality_graph' },
-  { id: 50, title: '直角三角形に内接する長方形の面積の最大値', type: 'right_triangle_rectangle' },
-  { id: 51, title: '2次関数の最大・最小の応用 (動点と面積)', type: 'moving_point_area' },
-  { id: 52, title: '放物線と直線の間の線分の長さの最大値', type: 'vertical_segment_max' },
-  { id: 53, title: '壁を利用した長方形の面積の最大化', type: 'fence_enclosure' },
-  { id: 54, title: '針金を切って作る正方形の面積の和の最小化', type: 'wire_squares' },
-  { id: 55, title: '2つの放物線の共通接線', type: 'common_tangent' },
-  { id: 56, title: '2つの放物線の交点を通る図形', type: 'intersection_parabolas' },
-  { id: 57, title: '2次不等式の整数解の個数', type: 'integer_solutions_quadratic' },
-  { id: 58, title: '2次関数の決定 (最大・最小から係数決定)', type: 'max_min_coefficient_determination' },
-  { id: 59, title: '2次関数の決定 (頂点が直線上にある)', type: 'vertex_on_line' },
-  { id: 60, title: '放物線の弦の長さ', type: 'chord_length' },
-  { id: 61, title: '3点から2次関数を決定', type: 'three_points_determination' },
-  { id: 62, title: 'x軸との交点から2次関数を決定', type: 'x_intercepts_determination' },
-  { id: 63, title: '接する条件から係数を決定', type: 'tangent_coefficient_determination' },
-  { id: 64, title: '頂点と軸から2次関数を決定', type: 'vertex_axis_determination' },
-  { id: 65, title: '平行移動した放物線の決定', type: 'translation_quadratic' },
-  { id: 66, title: '2次方程式の整数解と係数の決定', type: 'integer_roots_quadratic' },
-  { id: 67, title: '絶対値付き2次不等式（全実数解）', type: 'absolute_inequality_all_reals' },
-  { id: 68, title: '解の配置（受験頻出パターン）', type: 'roots_placement' },
-  { id: 69, title: '文字係数の二次方程式の解の配置', type: 'parametric_roots' },
-  { id: 70, title: '二次関数と直線の位置関係', type: 'parabola_line' },
-];
 
 export default function QuadraticPage() {
   const [currentLevel, setCurrentLevel] = useState(1);

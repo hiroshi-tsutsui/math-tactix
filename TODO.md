@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 013
+現在のサイクル: 014
 最終更新: 2026-04-06
 
 ---
+
+## サイクル014 実施済み
+
+- [x] [優先度:高] math_i_numbers: 整数の性質（素因数分解・GCD・LCM）Level 46 追加 — PrimeFactorizationViz.tsx
+- [x] [優先度:高] sets_logic: 背理法・対偶証明の練習 Level 15 追加 — ProofMethodViz.tsx
+- [x] [優先度:高] data: 決定係数 R² の視覚化 Level 16 追加 — RSquaredViz.tsx
+- [x] [優先度:中] quadratics page.tsx リファクタリング — レベル定義を data/levels.ts に外部化
 
 ## サイクル013 実施済み
 
@@ -39,14 +46,14 @@
 - [x] [優先度:高] trig: 三角比を含む方程式（sinθ=1/2 の解 etc.）Level 15 追加 → サイクル013
 - [x] [優先度:高] quadratics: 文字係数の二次方程式の解の配置 Level 69 追加 → サイクル013
 - [x] [優先度:高] quadratics: 二次関数のグラフと直線の位置関係 Level 70 追加 → サイクル013
-- [ ] [優先度:高] math_i_numbers: 整数の性質（素因数分解・最大公約数）Level 46 追加
-- [ ] [優先度:高] sets_logic: 背理法・対偶証明の練習 Level 15 追加
-- [ ] [優先度:高] data: 決定係数 R² の視覚化（回帰の精度）Level 16 追加
+- [x] [優先度:高] math_i_numbers: 整数の性質（素因数分解・最大公約数）Level 46 追加 → サイクル014
+- [x] [優先度:高] sets_logic: 背理法・対偶証明の練習 Level 15 追加 → サイクル014
+- [x] [優先度:高] data: 決定係数 R² の視覚化（回帰の精度）Level 16 追加 → サイクル014
 - [ ] [優先度:高] probability: ベイズの定理の基礎 Level 17 追加
 
 ## 優先度: 中（品質改善・リファクタリング）
 
-- [ ] [優先度:中] quadratics page.tsx（Level 68まで追加で巨大化）のリファクタリング — レベル定義を外部ファイルに分離
+- [x] [優先度:中] quadratics page.tsx（Level 70まで追加で巨大化）のリファクタリング — レベル定義を外部ファイルに分離 → サイクル014
 - [ ] [優先度:中] probability page.tsx の components/ 分離 — Viz コンポーネントを個別ファイルに
 - [ ] [優先度:中] 共通 MathDisplay を data・quadratics モジュールにも適用（現在は個別の KaTeX 呼び出し）
 - [ ] [優先度:中] locales 全横断キー差分の最終チェック（en.json / ja.json の全モジュール網羅）
