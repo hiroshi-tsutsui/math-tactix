@@ -126,6 +126,7 @@ import 'katex/dist/katex.min.css';
 import IntegerRootsQuadraticViz from "./components/IntegerRootsQuadraticViz";
 import ParametricRootsViz from "./components/ParametricRootsViz";
 import ParabolaLineViz from "./components/ParabolaLineViz";
+import MovingDomainMaxMinViz from "./components/MovingDomainMaxMinViz";
 
 import { LEVELS } from './data/levels';
 import MathDisplay from '@/app/lib/components/MathDisplay';
@@ -434,6 +435,9 @@ export default function QuadraticPage() {
           break;
         case "roots_placement":
           newProblem = { id: Date.now(), title: '解の配置（受験頻出パターン）', type: 'roots_placement' };
+          break;
+        case "moving_domain_max_min":
+          newProblem = { id: Date.now(), title: '定義域が動く最大・最小（総合演習）', type: 'moving_domain_max_min' };
           break;
       }
       setProblem(newProblem as Problem);
@@ -817,6 +821,7 @@ export default function QuadraticPage() {
         {currentLevel === 68 && <RootsPlacementViz />}
         {currentLevel === 69 && <ParametricRootsViz />}
         {currentLevel === 70 && <ParabolaLineViz />}
+        {currentLevel === 71 && <MovingDomainMaxMinViz />}
 
 
 
