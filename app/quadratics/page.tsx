@@ -128,6 +128,8 @@ import ParametricRootsViz from "./components/ParametricRootsViz";
 import ParabolaLineViz from "./components/ParabolaLineViz";
 import MovingDomainMaxMinViz from "./components/MovingDomainMaxMinViz";
 import RootCoefficientViz from "./components/RootCoefficientViz";
+import AbsoluteQuadraticViz from "./components/AbsoluteQuadraticViz";
+import QuadraticWordProblemViz from "./components/QuadraticWordProblemViz";
 
 import { LEVELS } from './data/levels';
 import MathDisplay from '@/app/lib/components/MathDisplay';
@@ -827,6 +829,8 @@ export default function QuadraticPage() {
         {currentLevel === 70 && <ParabolaLineViz />}
         {currentLevel === 71 && <MovingDomainMaxMinViz />}
         {currentLevel === 72 && <RootCoefficientViz />}
+        {currentLevel === 73 && <AbsoluteQuadraticViz />}
+        {currentLevel === 74 && <QuadraticWordProblemViz />}
 
 
 
