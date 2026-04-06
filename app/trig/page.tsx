@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
 import { useTheme } from '../contexts/ThemeContext';
+import SineLawViz from './components/SineLawViz';
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -740,6 +741,7 @@ export default function TrigPage() {
              level === 5 ? "余弦定理 (Cosine Rule)" :
              level === 6 ? "三角形の面積 (Triangle Area)" :
              level === 7 ? "実践演習 (Quiz)" :
+             level === 9 ? "正弦定理 詳細 (Sine Rule Detail)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -759,7 +761,8 @@ export default function TrigPage() {
                       { id: 5, title: "Level 5: 余弦定理", desc: "三辺から角度を知る力", icon: Target },
                       { id: 6, title: "Level 6: 三角形の面積", desc: "高さ = b sinA の視覚化", icon: TrendingUp },
                       { id: 7, title: "Level 7: 実践演習", desc: "三角比の基礎マスター試験", icon: Trophy },
-                      { id: 8, title: "Level 8: 相互関係の計算", desc: "sinθからcosθ, tanθを求める応用", icon: Star }
+                      { id: 8, title: "Level 8: 相互関係の計算", desc: "sinθからcosθ, tanθを求める応用", icon: Star },
+                      { id: 9, title: "Level 9: 正弦定理（詳細）", desc: "a/sinA = 2R をインタラクティブに確認", icon: Activity }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -1005,6 +1008,15 @@ export default function TrigPage() {
       {/* Level 8: Identity Practice */}
       {level === 8 && (
           <TrigIdentityPractice onBack={() => dispatch({type: 'RESET_ALL'})} />
+      )}
+
+      {/* Level 9: Sine Law Detail */}
+      {level === 9 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <SineLawViz />
+              </div>
+          </main>
       )}
 
       {/* Level 7: Tactics Mode (Quiz) */}

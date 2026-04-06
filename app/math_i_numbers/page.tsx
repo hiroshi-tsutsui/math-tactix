@@ -49,6 +49,7 @@ import DiscountInequalityViz from './components/DiscountInequalityViz';
 import ReciprocalSymmetricViz from './components/ReciprocalSymmetricViz';
 import TriangleInequalityViz from './components/TriangleInequalityViz';
 import TwoAbsoluteValuesInequalityViz from './components/TwoAbsoluteValuesInequalityViz';
+import PolynomialDivisionViz from './components/PolynomialDivisionViz';
 
 
 
@@ -102,7 +103,8 @@ export default function MathINumbers() {
     { id: 38, title: '対称式の値 (分数型)', type: 'reciprocal_symmetric' },
         { id: 39, title: '絶対値の不等式 (三角不等式)', type: 'triangle_inequality' },
         { id: 40, title: 'ガウス記号 (Gauss Symbol)', type: 'gauss_symbol' },
-        { id: 41, title: '2つの絶対値を含む方程式・不等式', type: 'two_absolute_values_inequality' }
+        { id: 41, title: '2つの絶対値を含む方程式・不等式', type: 'two_absolute_values_inequality' },
+        { id: 42, title: '整式の除法 (A = BQ + R)', type: 'polynomial_division' }
 ];
 
   return (
@@ -562,6 +564,31 @@ export default function MathINumbers() {
                     正の数では単に小数を切り捨てることになりますが、負の数では「数直線上で左側にある直近の整数」となることに注意が必要です。
                   </p>
                   <GaussSymbolViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 41 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">2つの絶対値を含む方程式・不等式</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    絶対値が2つある場合、それぞれの中身が0になる点で場合分けし、各区間で絶対値を外して解きます。
+                  </p>
+                  <TwoAbsoluteValuesInequalityViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 42 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">整式の除法 (Polynomial Division)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    整式A を整式B で割ると、商Q と余りR を用いて <InlineMath math="A = BQ + R" /> と表せます。<br/>
+                    余りの次数は除式の次数より低くなります。筆算の手順をステップごとに確認しましょう。
+                  </p>
+                  <PolynomialDivisionViz />
                 </div>
               </div>
             )}

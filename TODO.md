@@ -1,49 +1,44 @@
 # Math Tactix TODO
-現在のサイクル: 004
+現在のサイクル: 005
 最終更新: 2026-04-06
 
 ---
 
-## 優先度: 高（ファイル構造・型安全）
+## 優先度: 高（数学コンテンツ追加）
 
-- [x] [優先度:高] [担当:エンジニアA] ルートに散乱している add_*.js, fix_*.js, update_*.js, append_*.js, patch_*.js, inject_*.js 等のスクリプト（100本以上）を `scripts/` ディレクトリに移動整理する
-- [x] [優先度:高] [担当:エンジニアB] `app/settings/page.tsx` の `// @ts-nocheck` を除去し、TypeScript型を正確に付与する
-- [x] [優先度:高] [担当:エンジニアB] `app/overview/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:高] [担当:エンジニアB] `app/logs/page.tsx` の `// @ts-nocheck` を除去する（ctx null チェック追加）
-- [x] [優先度:高] [担当:エンジニアB] `app/profile/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:高] [担当:エンジニアB] `app/manual/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:高] [担当:エンジニアA] バックアップファイル（*.bak, *.orig）を削除: `app/trig_ratios/page.tsx.bak`, `app/vectors/page.tsx.bak`, `app/quadratics/page.tsx.bak`, `app/math_i_numbers/page.tsx.orig`
-- [x] [優先度:高] [担当:エンジニアA] ルートの一時ファイル（snippet.txt, src_update.txt, tmp_tail.txt, ui_snippet.txt, TRIGGER.txt, fix.patch, get_render.js 等）を削除または整理する
-- [x] [優先度:高] [担当:エンジニアB] `app/page.tsx` の `// @ts-nocheck` を除去する（メインダッシュボード）
-- [x] [優先度:高] [担当:エンジニアB] `app/data/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:高] [担当:エンジニアA] sets_logic: 条件命題・対偶・裏・逆 (Level 12) を追加
+- [x] [優先度:高] [担当:エンジニアA] trig: 正弦定理 詳細Viz (Level 9) を追加
+- [x] [優先度:高] [担当:エンジニアA] math_i_numbers: 整式の除法 (Level 42) を追加
+- [ ] [優先度:高] [担当:エンジニアA] sets_logic: 必要条件・十分条件の発展問題 (Level 13) を追加
+- [ ] [優先度:高] [担当:エンジニアA] trig: 余弦定理 詳細Viz (Level 10) を追加
+- [ ] [優先度:高] [担当:エンジニアA] trig: 三角形の面積公式 (Level 11) を追加
+- [ ] [優先度:高] [担当:エンジニアA] math_i_numbers: 分数式・有理化 (新Level 43) を追加
+- [ ] [優先度:高] [担当:エンジニアA] probability: 独立試行の定理 (Level 13) を追加
+- [ ] [優先度:高] [担当:エンジニアA] probability: 確率の加法定理 (Level 14) を追加
+- [ ] [優先度:高] [担当:エンジニアA] data: 箱ひげ図・四分位数 (新Level) を追加
 
-## 優先度: 中（コード品質・アーキテクチャ）
+## 優先度: 中（品質改善・整合性）
 
-- [x] [優先度:中] [担当:エンジニアB] `app/complex/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/codex/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/quiz/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/vectors/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/sequences/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/functions/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/calculus/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/matrices/page.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアB] `app/components/BallsInBins.tsx` の `// @ts-nocheck` を除去する
-- [x] [優先度:中] [担当:エンジニアA] `components/` ルートに置かれている Viz コンポーネント（AbsoluteInequalityAllRealsViz.tsx 等）を対応モジュールの `app/*/components/` に移動し、インポートパスを修正する
-
-## 優先度: 中（数学コンテンツ充実）
-
-- [x] [優先度:中] [担当:教師A] `app/trig/page.tsx` の三角関数レベルを確認し、Level 8（相互関係の計算）を追加
-- [x] [優先度:中] [担当:教師B] `app/sets_logic/page.tsx` の集合・論理レベルを確認し、Level 11（全称命題と存在命題）を追加
-- [x] [優先度:中] [担当:エンジニアA] `scripts/` 内の不要スクリプト147本を削除（使い捨てパッチスクリプト全削除）
-- [x] [優先度:中] [担当:教師A] `app/probability/page.tsx` の確率レベルに場合の数との連携が適切か確認する（Level 12: 余事象の確率を追加）
-- [ ] [優先度:中] [担当:生徒A] 各モジュールの NARRATIVE.md を確認し、世界観の説明が高1生にとって理解しやすいか評価する
-- [ ] [優先度:中] [担当:生徒B] `app/quadratics/page.tsx` のレベル進行（Level 60台）で難易度ジャンプが急すぎる箇所がないか確認する
+- [ ] [優先度:中] [担当:生徒B] quadratics: Level 60台の難易度確認・調整（急激な難易度ジャンプがないか）
+- [ ] [優先度:中] [担当:エンジニアB] locales: quadratics モジュールのキー差分解消 (en.json/ja.json)
+- [ ] [優先度:中] [担当:エンジニアB] locales: math_i_numbers モジュールのキー差分解消 (en.json/ja.json)
+- [ ] [優先度:中] [担当:エンジニアB] locales: sets_logic モジュールのキー差分解消
+- [ ] [優先度:中] [担当:エンジニアB] locales: trig モジュールのキー差分解消
+- [ ] [優先度:中] [担当:生徒A] NARRATIVE.md: 高1生向けにわかりやすい説明に改善
+- [ ] [優先度:中] [担当:教師A] 各モジュールのレベル進行の一貫性確認（難易度が単調増加しているか）
+- [ ] [優先度:中] [担当:教師B] 受験頻出問題に対応する Viz コンポーネントが不足しているモジュールを特定し追加計画を立てる
+- [ ] [優先度:中] [担当:エンジニアA] math_i_numbers Level 41 (TwoAbsoluteValuesInequalityViz) の描画ブロックが欠落していたのを005で修正済み → 動作確認
+- [ ] [優先度:中] [担当:教師A] sets_logic の Level 1-11 の説明文が数学的に正確か再チェック
 
 ## 優先度: 低（改善・拡張）
 
-- [ ] [優先度:低] [担当:エンジニアA] `logs/` ディレクトリの JSON ログファイルの整理・アーカイブ方針を策定する
-- [x] [優先度:低] [担当:エンジニアA] `CLAUDE.md` の技術スタック記載を「Next.js 15」から実際の `package.json` に合わせた「Next.js 16」に修正する
-- [ ] [優先度:低] [担当:教師A] `app/math_i_numbers/` に数と式の残りレベル（整式の除法・分数式・有理化）を追加する計画を立てる
-- [ ] [優先度:低] [担当:エンジニアB] `locales/en.json` と `locales/ja.json` のキーに差分がないか確認し、欠けているキーを補完する（EN only 224件、JA only 323件 - data モジュール分は004で修正済み）
-- [ ] [優先度:低] [担当:生徒A] `app/overview/page.tsx` のモジュール一覧表示で、LOCKED モジュールの説明文が中学生でもわかるか確認する
-- [ ] [優先度:低] [担当:教師B] 受験頻出問題に対応する Viz コンポーネントが不足しているモジュールを特定し、追加計画を立てる
+- [ ] [優先度:低] [担当:エンジニアA] logs/ ディレクトリの JSON ログファイルの整理・アーカイブ方針を策定する
+- [ ] [優先度:低] [担当:教師A] math_i_numbers に残りレベル（分数式・有理化以降）を追加する計画を立てる
+- [ ] [優先度:低] [担当:エンジニアB] locales/en.json と locales/ja.json の全モジュール横断キー差分チェック
+- [ ] [優先度:低] [担当:生徒A] overview ページのモジュール一覧で LOCKED モジュールの説明文がわかりやすいか確認
+- [ ] [優先度:低] [担当:エンジニアA] quadratics モジュールの Viz コンポーネントのリファクタリング（巨大ファイル分割）
+- [ ] [優先度:低] [担当:エンジニアA] trig モジュールの page.tsx が1100行超 → Viz を components/ に分離するリファクタリング
+- [ ] [優先度:低] [担当:エンジニアA] sets_logic モジュールの page.tsx 内 inline Viz を components/ に分離
+- [ ] [優先度:低] [担当:エンジニアB] 共通の KaTeX MathComponent を lib/components に抽出して重複排除
+- [ ] [優先度:低] [担当:エンジニアA] 全モジュールの page.tsx で「戻る」ボタンの挙動を統一化
+- [ ] [優先度:低] [担当:教師B] 三角比 (trig) と三角関数 (functions) の内容重複を整理する
