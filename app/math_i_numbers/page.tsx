@@ -54,6 +54,7 @@ import RationalExpressionViz from './components/RationalExpressionViz';
 import NestedRadicalViz from './components/NestedRadicalViz';
 import AbsoluteValueCasesViz from './components/AbsoluteValueCasesViz';
 import PrimeFactorizationViz from './components/PrimeFactorizationViz';
+import FractionSimplifyViz from './components/FractionSimplifyViz';
 
 
 
@@ -112,7 +113,8 @@ export default function MathINumbers() {
         { id: 43, title: '分数式・有理化', type: 'rational_expression' },
         { id: 44, title: '二重根号の変形', type: 'nested_radical' },
         { id: 45, title: '絶対値の場合分け計算', type: 'absolute_value_cases' },
-        { id: 46, title: '整数の性質（素因数分解・GCD・LCM）', type: 'prime_factorization' }
+        { id: 46, title: '整数の性質（素因数分解・GCD・LCM）', type: 'prime_factorization' },
+        { id: 47, title: '分数式の約分', type: 'fraction_simplify' }
 ];
 
   return (
@@ -644,6 +646,19 @@ export default function MathINumbers() {
                     共通の素因数の「最小指数」がGCD、「最大指数」がLCMになることを確認しましょう。
                   </p>
                   <PrimeFactorizationViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 47 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">分数式の約分 (Simplifying Rational Expressions)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    分数式 <InlineMath math="\frac{P(x)}{Q(x)}" /> の分子・分母を因数分解し、共通因数で約分します。<br/>
+                    約分で消した因数が 0 になる <InlineMath math="x" /> の値は定義域から除外する必要があります。
+                  </p>
+                  <FractionSimplifyViz />
                 </div>
               </div>
             )}
