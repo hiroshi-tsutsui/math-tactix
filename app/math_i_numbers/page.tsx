@@ -55,6 +55,7 @@ import NestedRadicalViz from './components/NestedRadicalViz';
 import AbsoluteValueCasesViz from './components/AbsoluteValueCasesViz';
 import PrimeFactorizationViz from './components/PrimeFactorizationViz';
 import FractionSimplifyViz from './components/FractionSimplifyViz';
+import FractionAdditionViz from './components/FractionAdditionViz';
 
 
 
@@ -114,7 +115,8 @@ export default function MathINumbers() {
         { id: 44, title: '二重根号の変形', type: 'nested_radical' },
         { id: 45, title: '絶対値の場合分け計算', type: 'absolute_value_cases' },
         { id: 46, title: '整数の性質（素因数分解・GCD・LCM）', type: 'prime_factorization' },
-        { id: 47, title: '分数式の約分', type: 'fraction_simplify' }
+        { id: 47, title: '分数式の約分', type: 'fraction_simplify' },
+        { id: 48, title: '分数式の通分・加減算', type: 'fraction_addition' }
 ];
 
   return (
@@ -659,6 +661,19 @@ export default function MathINumbers() {
                     約分で消した因数が 0 になる <InlineMath math="x" /> の値は定義域から除外する必要があります。
                   </p>
                   <FractionSimplifyViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 48 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">分数式の通分・加減算 (Adding/Subtracting Rational Expressions)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    分母が異なる分数式を足したり引いたりするには、<strong>通分</strong>（LCD: 最小公倍式を求める）が必要です。<br/>
+                    各分母を因数分解し、LCD を見つけてから分子を調整します。
+                  </p>
+                  <FractionAdditionViz />
                 </div>
               </div>
             )}
