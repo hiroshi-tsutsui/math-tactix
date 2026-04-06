@@ -1,53 +1,35 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useReducer } from 'react';
+import React, { useState, useReducer } from 'react';
 import { GeistSans } from 'geist/font/sans';
-import { 
-  ChevronLeft, ChevronRight, Zap, Target, 
-  RefreshCw, CheckCircle2, HelpCircle, 
-  TrendingUp, Circle, Compass, Activity,
-  Trophy, Star, Play
+import {
+  ChevronLeft, Zap, Target,
+  Compass, Activity,
+  Trophy, Star, Circle, TrendingUp
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import 'katex/dist/katex.min.css';
-import katex from 'katex';
-import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
-import { useTheme } from '../contexts/ThemeContext';
 import SineLawViz from './components/SineLawViz';
 import CosineLawViz from './components/CosineLawViz';
 import TriangleAreaViz from './components/TriangleAreaViz';
-
-// --- Components ---
-const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
-  const containerRef = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    if (containerRef.current) {
-      katex.render(tex, containerRef.current, { throwOnError: false, displayMode: false });
-    }
-  }, [tex]);
-  return <span ref={containerRef} className={className} />;
-};
+import TrigCanvas from './components/TrigCanvas';
+import TrigOverlay from './components/TrigOverlay';
+import TrigExplanation from './components/TrigExplanation';
+import TrigQuiz, { QUIZ_DATA } from './components/TrigQuiz';
+import TrigIdentityPractice from './components/TrigIdentityPractice';
 
 // --- Types ---
-type QuizItem = { 
-  type: 'sin' | 'cos' | 'tan' | 'identity', 
-  question: string, 
-  options: string[], 
-  answer: string 
-};
-
 type State = {
-  level: number; // 0: Select, 1: Triangle, 2: Unit Circle, 3: Identities, 4: Tactics
-  angle: number; 
-  step: number; 
+  level: number;
+  angle: number;
+  step: number;
   quizIndex: number;
   score: number;
   feedback: 'idle' | 'correct' | 'wrong';
 };
 
-type Action = 
+type Action =
   | { type: 'SET_LEVEL'; payload: number }
   | { type: 'SET_ANGLE'; payload: number }
   | { type: 'NEXT_STEP' }
@@ -57,14 +39,6 @@ type Action =
   | { type: 'RESET_ALL' };
 
 const FAMOUS_ANGLES = [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360];
-
-const QUIZ_DATA: QuizItem[] = [
-  { type: 'sin', question: "\\sin 30^\\circ の値は？", options: ["1/2", "\\sqrt{3}/2", "1", "0"], answer: "1/2" },
-  { type: 'cos', question: "\\cos 120^\\circ の値は？", options: ["1/2", "-1/2", "-\\sqrt{3}/2", "0"], answer: "-1/2" },
-  { type: 'tan', question: "\\tan 45^\\circ の値は？", options: ["1", "\\sqrt{3}", "1/\\sqrt{3}", "0"], answer: "1" },
-  { type: 'identity', question: "\\sin^2 \\theta + \\cos^2 \\theta = ?", options: ["0", "1", "2", "\\tan \\theta"], answer: "1" },
-  { type: 'identity', question: "\\tan \\theta = ?", options: ["\\sin/\\cos", "\\cos/\\sin", "1/\\sin", "1/\\cos"], answer: "\\sin/\\cos" },
-];
 
 function trigReducer(state: State, action: Action): State {
   switch (action.type) {
@@ -77,643 +51,50 @@ function trigReducer(state: State, action: Action): State {
     }
     case 'NEXT_STEP': return { ...state, step: state.step + 1 };
     case 'NEXT_QUIZ': return { ...state, quizIndex: state.quizIndex + 1, feedback: 'idle' };
-    case 'SUBMIT_ANSWER': 
+    case 'SUBMIT_ANSWER': {
       const isCorrect = action.payload === QUIZ_DATA[state.quizIndex].answer;
       return { ...state, score: isCorrect ? state.score + 1 : state.score, feedback: isCorrect ? 'correct' : 'wrong' };
+    }
     case 'RESET_LEVEL': return { ...state, step: 0, angle: 30, quizIndex: 0, score: 0, feedback: 'idle' };
     case 'RESET_ALL': return { level: 0, angle: 30, step: 0, quizIndex: 0, score: 0, feedback: 'idle' };
     default: return state;
   }
 }
 
-type IdentityProblem = {
-  givenTex: string;
-  givenValue: string;
-  range: string;
-  rangeTex: string;
-  askTex: string;
-  answer: string;
-  options: string[];
-  solutionSteps: string[];
-};
-
-function generateIdentityProblems(): IdentityProblem[] {
-  return [
-    {
-      givenTex: "\\sin \\theta = \\frac{3}{5}",
-      givenValue: "3/5",
-      range: "acute",
-      rangeTex: "0^\\circ < \\theta < 90^\\circ",
-      askTex: "\\cos \\theta",
-      answer: "4/5",
-      options: ["4/5", "3/4", "-4/5", "5/3"],
-      solutionSteps: [
-        "\\sin^2 \\theta + \\cos^2 \\theta = 1",
-        "\\left(\\frac{3}{5}\\right)^2 + \\cos^2 \\theta = 1",
-        "\\cos^2 \\theta = 1 - \\frac{9}{25} = \\frac{16}{25}",
-        "0^\\circ < \\theta < 90^\\circ \\text{ より } \\cos \\theta > 0",
-        "\\cos \\theta = \\frac{4}{5}"
-      ]
-    },
-    {
-      givenTex: "\\sin \\theta = \\frac{3}{5}",
-      givenValue: "3/5",
-      range: "obtuse",
-      rangeTex: "90^\\circ < \\theta < 180^\\circ",
-      askTex: "\\cos \\theta",
-      answer: "-4/5",
-      options: ["4/5", "-4/5", "-3/4", "3/5"],
-      solutionSteps: [
-        "\\sin^2 \\theta + \\cos^2 \\theta = 1",
-        "\\left(\\frac{3}{5}\\right)^2 + \\cos^2 \\theta = 1",
-        "\\cos^2 \\theta = \\frac{16}{25}",
-        "90^\\circ < \\theta < 180^\\circ \\text{ より } \\cos \\theta < 0",
-        "\\cos \\theta = -\\frac{4}{5}"
-      ]
-    },
-    {
-      givenTex: "\\cos \\theta = -\\frac{5}{13}",
-      givenValue: "-5/13",
-      range: "obtuse",
-      rangeTex: "90^\\circ < \\theta < 180^\\circ",
-      askTex: "\\sin \\theta",
-      answer: "12/13",
-      options: ["12/13", "-12/13", "5/12", "-5/12"],
-      solutionSteps: [
-        "\\sin^2 \\theta + \\cos^2 \\theta = 1",
-        "\\sin^2 \\theta + \\left(-\\frac{5}{13}\\right)^2 = 1",
-        "\\sin^2 \\theta = 1 - \\frac{25}{169} = \\frac{144}{169}",
-        "90^\\circ < \\theta < 180^\\circ \\text{ より } \\sin \\theta > 0",
-        "\\sin \\theta = \\frac{12}{13}"
-      ]
-    },
-    {
-      givenTex: "\\sin \\theta = \\frac{3}{5}",
-      givenValue: "3/5",
-      range: "acute",
-      rangeTex: "0^\\circ < \\theta < 90^\\circ",
-      askTex: "\\tan \\theta",
-      answer: "3/4",
-      options: ["3/4", "4/3", "5/3", "3/5"],
-      solutionSteps: [
-        "\\cos \\theta = \\frac{4}{5} \\text{（前問より）}",
-        "\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}",
-        "\\tan \\theta = \\frac{3/5}{4/5} = \\frac{3}{4}"
-      ]
-    },
-    {
-      givenTex: "\\tan \\theta = 2",
-      givenValue: "2",
-      range: "acute",
-      rangeTex: "0^\\circ < \\theta < 90^\\circ",
-      askTex: "\\cos \\theta",
-      answer: "1/\\sqrt{5}",
-      options: ["1/\\sqrt{5}", "2/\\sqrt{5}", "\\sqrt{5}", "1/2"],
-      solutionSteps: [
-        "1 + \\tan^2 \\theta = \\frac{1}{\\cos^2 \\theta}",
-        "1 + 4 = \\frac{1}{\\cos^2 \\theta}",
-        "\\cos^2 \\theta = \\frac{1}{5}",
-        "0^\\circ < \\theta < 90^\\circ \\text{ より } \\cos \\theta > 0",
-        "\\cos \\theta = \\frac{1}{\\sqrt{5}}"
-      ]
-    }
-  ];
-}
-
-function TrigIdentityPractice({ onBack }: { onBack: () => void }) {
-  const [problems] = useState<IdentityProblem[]>(() => generateIdentityProblems());
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [selected, setSelected] = useState<string | null>(null);
-  const [showSolution, setShowSolution] = useState(false);
-  const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
-
-  const current = problems[currentIndex];
-
-  const handleSelect = (opt: string) => {
-    if (selected !== null) return;
-    setSelected(opt);
-    if (opt === current.answer) {
-      setScore(s => s + 1);
-    }
-    setShowSolution(true);
-  };
-
-  const handleNext = () => {
-    if (currentIndex + 1 >= problems.length) {
-      setFinished(true);
-    } else {
-      setCurrentIndex(i => i + 1);
-      setSelected(null);
-      setShowSolution(false);
-    }
-  };
-
-  if (finished) {
-    return (
-      <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
-        <div className="text-center space-y-6">
-          <div className="w-32 h-32 bg-yellow-400 text-white rounded-full flex items-center justify-center mx-auto text-4xl shadow-lg border-4 border-white dark:border-slate-900">
-            <Trophy className="w-16 h-16" />
-          </div>
-          <div className="space-y-2">
-            <h2 className="text-3xl font-black">Score: {score} / {problems.length}</h2>
-            <p className="text-slate-500 dark:text-slate-400">
-              {score === problems.length ? "Perfect! 三角比の相互関係マスター!" : score >= 3 ? "Good! もう少し練習しよう!" : "基礎を復習してから再挑戦!"}
-            </p>
-          </div>
-          <div className="flex gap-4 justify-center">
-            <button onClick={() => { setCurrentIndex(0); setSelected(null); setShowSolution(false); setScore(0); setFinished(false); }}
-              className="px-6 py-3 rounded-full bg-slate-200 dark:bg-slate-800 font-bold hover:bg-slate-300 transition-colors">
-              Retry
-            </button>
-            <button onClick={onBack}
-              className="px-6 py-3 rounded-full bg-black dark:bg-white text-white dark:text-black font-bold hover:opacity-80 transition-opacity">
-              Back to Menu
-            </button>
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  return (
-    <main className="flex-1 overflow-y-auto p-6 bg-slate-50 dark:bg-slate-900">
-      <div className="max-w-md mx-auto space-y-6">
-        {/* Progress */}
-        <div className="flex justify-between items-center">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-            Question {currentIndex + 1} / {problems.length}
-          </span>
-          <div className="flex gap-1">
-            {problems.map((_, i) => (
-              <div key={i} className={`h-1.5 w-6 rounded-full ${i < currentIndex ? 'bg-green-500' : i === currentIndex ? 'bg-blue-500' : 'bg-slate-200 dark:bg-slate-800'}`} />
-            ))}
-          </div>
-        </div>
-
-        {/* Problem Card */}
-        <div className="bg-white dark:bg-slate-950 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
-          <div className="space-y-4">
-            <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
-              <div className="text-xs text-slate-400 font-bold mb-2">条件</div>
-              <div className="text-center text-lg font-bold">
-                <MathComponent tex={current.givenTex} />
-              </div>
-              <div className="text-center text-sm text-slate-500 mt-2">
-                （<MathComponent tex={current.rangeTex} />）
-              </div>
-            </div>
-
-            <div className="text-center font-bold text-lg">
-              <MathComponent tex={current.askTex} /> の値は？
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              {current.options.map((opt, i) => {
-                let btnClass = "p-4 rounded-2xl border-2 text-lg font-bold transition-all text-center ";
-                if (selected === null) {
-                  btnClass += "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 cursor-pointer";
-                } else if (opt === current.answer) {
-                  btnClass += "bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-400";
-                } else if (opt === selected) {
-                  btnClass += "bg-red-50 dark:bg-red-900/20 border-red-500 text-red-700 dark:text-red-400";
-                } else {
-                  btnClass += "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 opacity-50";
-                }
-                return (
-                  <button key={i} onClick={() => handleSelect(opt)} className={btnClass}>
-                    <MathComponent tex={opt} />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Solution Steps */}
-        {showSolution && (
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-3xl border border-blue-100 dark:border-blue-800">
-            <h3 className="font-bold text-blue-700 dark:text-blue-400 text-sm mb-4">解法のステップ</h3>
-            <div className="space-y-3">
-              {current.solutionSteps.map((step, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="text-blue-400 font-bold text-xs mt-1">{i + 1}.</span>
-                  <div className="text-sm">
-                    <MathComponent tex={step} />
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 text-center">
-              <button onClick={handleNext}
-                className="bg-black dark:bg-white text-white dark:text-black px-8 py-3 rounded-full font-bold hover:opacity-80 transition-opacity inline-flex items-center gap-2">
-                {currentIndex + 1 < problems.length ? "Next" : "Result"} <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </main>
-  );
-}
-
 export default function TrigPage() {
   const { t } = useLanguage();
   const { unlockBadge } = useGamification();
-  const { resolvedTheme } = useTheme();
-  
-  const [state, dispatch] = useReducer(trigReducer, { 
+
+  const [state, dispatch] = useReducer(trigReducer, {
     level: 0,
-    angle: 30, 
+    angle: 30,
     step: 0,
     quizIndex: 0,
     score: 0,
     feedback: 'idle'
   });
-  const { level, angle, step } = state;
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { level, angle } = state;
 
-  // --- Visual Engine (Shared Logic) ---
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    const w = canvas.width, h = canvas.height;
-    const ox = w / 2, oy = h / 2;
-    // Level 1 uses larger triangle, Level 2/3 uses unit circle, Level 4 uses circumcircle
-    const radius = level === 1 ? 160 : level === 4 ? 140 : 120; 
-
-    const isDark = resolvedTheme === 'dark';
-    const colors = {
-      grid: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
-      circle: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)',
-      axis: isDark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)',
-      snapFill: isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(0, 122, 255, 0.05)',
-      primary: isDark ? '#60a5fa' : '#007AFF', // Blue-400 vs Blue-500
-      secondary: isDark ? '#f87171' : '#FF3B30', // Red-400 vs Red-500
-      text: isDark ? '#ffffff' : '#1D1D1F',
-      line: isDark ? '#ffffff' : '#1D1D1F',
-      hypotenuse: '#10B981', // Green
-      sineRule: '#F59E0B' // Amber
-    };
-
-    const render = () => {
-      ctx.clearRect(0, 0, w, h);
-      
-      // Grid
-      ctx.strokeStyle = colors.grid; ctx.lineWidth = 1;
-      for(let i=-200; i<=200; i+=50) {
-        ctx.beginPath(); ctx.moveTo(ox + i, 0); ctx.lineTo(ox + i, h); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(0, oy + i); ctx.lineTo(w, oy + i); ctx.stroke();
-      }
-
-      // Axes
-      if (level !== 4) {
-        ctx.strokeStyle = colors.axis; ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.moveTo(0, oy); ctx.lineTo(w, oy); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(ox, 0); ctx.lineTo(ox, h); ctx.stroke();
-      }
-
-      const rad = (angle * Math.PI) / 180;
-      
-      // Determine coordinates
-      // Level 1: Triangle in 1st quadrant only (fixed hypotenuse visual)
-      // Level 2/3: Unit Circle (full rotation)
-      const targetX = ox + Math.cos(rad) * radius;
-      const targetY = oy - Math.sin(rad) * radius; // Y is inverted in canvas
-
-      if (level === 2 || level === 3) {
-          // Unit Circle
-          ctx.strokeStyle = colors.circle; ctx.lineWidth = 2;
-          ctx.beginPath(); ctx.arc(ox, oy, radius, 0, Math.PI * 2); ctx.stroke();
-      }
-
-      // Draw Triangle Components
-      if (level === 1 || level === 2 || level === 3) {
-        // Hypotenuse (Green)
-        ctx.strokeStyle = colors.hypotenuse; ctx.lineWidth = 4;
-        ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetX, targetY); ctx.stroke();
-
-        // Adjacent / Cos (Blue)
-        ctx.strokeStyle = colors.primary; ctx.lineWidth = 4;
-        ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(targetX, oy); ctx.stroke();
-
-        // Opposite / Sin (Red)
-        ctx.strokeStyle = colors.secondary; ctx.lineWidth = 4;
-        ctx.beginPath(); ctx.moveTo(targetX, oy); ctx.lineTo(targetX, targetY); ctx.stroke();
-        
-        // Point
-        ctx.fillStyle = colors.line;
-        ctx.beginPath(); ctx.arc(targetX, targetY, 6, 0, Math.PI * 2); ctx.fill();
-
-        // Angle Arc
-        ctx.strokeStyle = colors.text; ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.arc(ox, oy, 30, 0, -rad, true); ctx.stroke();
-      }
-
-      // Level 3 Specific: Identity Visualization (Pythagoras)
-      if (level === 3) {
-          // Highlight the right angle
-          const size = 15;
-          const signX = Math.cos(rad) >= 0 ? 1 : -1;
-          const signY = Math.sin(rad) >= 0 ? 1 : -1;
-          
-          ctx.strokeStyle = colors.text; ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(targetX - (size * signX), oy);
-          ctx.lineTo(targetX - (size * signX), oy - (size * signY));
-          ctx.lineTo(targetX, oy - (size * signY));
-          ctx.stroke();
-      }
-      
-      // Level 4: Sine Rule Visualization
-      if (level === 4) {
-          // Circumcircle
-          ctx.strokeStyle = colors.circle; ctx.lineWidth = 2;
-          ctx.beginPath(); ctx.arc(ox, oy, radius, 0, Math.PI * 2); ctx.stroke();
-          
-          // Fixed points B and C
-          const bAngle = 210 * Math.PI / 180;
-          const cAngle = 330 * Math.PI / 180;
-          const bx = ox + Math.cos(bAngle) * radius;
-          const by = oy - Math.sin(bAngle) * radius;
-          const cx = ox + Math.cos(cAngle) * radius;
-          const cy = oy - Math.sin(cAngle) * radius;
-          
-          // Moving point A (controlled by angle slider, mapped to top arc)
-          // Map slider 0-180 to top arc angles (approx 30 to 150 visual)
-          const aAngleVisual = (90 + (angle - 90)) * Math.PI / 180; 
-          // Actually, let's just use angle as the vertex angle A directly?
-          // No, Sine rule says a/sinA = 2R. Side a (BC) is fixed. So angle A should be constant on the arc?
-          // Wait, if BC is fixed, angle A is constant on the major arc.
-          // Let's make the visual interactive: User changes angle A by moving vertex A?
-          // Or user changes side 'a' by moving B and C?
-          
-          // Let's stick to the log: "Visual proves that the ratio... is constant"
-          // Let's fix side a (BC) and move A on the circle -> Angle A stays same?
-          // No, let's fix the CIRCLE (R) and change Angle A. Then side 'a' must change length.
-          
-          // Mode: Fix R (radius). User changes Angle A. Calculate side a length.
-          // Visual: A is top (90 deg position relative to center? No, let's put A at top).
-          // B and C move symmetrically at bottom to subtend Angle A at circumference.
-          // Center angle BOC = 2A.
-          
-          const angleRad = angle * Math.PI / 180;
-          const centerAngle = 2 * angleRad; // Angle at center subtended by BC
-          
-          // Place A at top (90 deg visual, -90 in canvas coords?)
-          // Let's place A at (0, -R) in canvas coords relative to center
-          const ax = ox;
-          const ay = oy - radius;
-          
-          // Place B and C symmetrically around bottom
-          // Arc length from A to B? No.
-          // Angle BOC = 2A.
-          // So B is at angle (270 - A) and C is at (270 + A) in standard polar coords?
-          // Let's verify: Triangle ABC. Angle at A is A.
-          // If B and C are at 270-A and 270+A, the arc BC is 2A.
-          // The angle subtended by arc BC at the circumference (point A) is half the center angle (2A/2 = A). Correct!
-          
-          // Standard polar: 0 is right, 90 is bottom (canvas), 270 is top.
-          // Let's use: A at 270 (top).
-          // B at 90 - A. C at 90 + A. (Bottom area).
-          
-          // Wait, if A=60, 2A=120. B at 90-60=30? C at 90+60=150?
-          // Arc BC is 120. Angle at A (270) is... 
-          // Angle subtended by arc BC at A?
-          // This geometry is tricky to get right instantly.
-          
-          // Alternative: Fix A at top. Fix B at bottom left. Move C?
-          // Let's use the "Fix R, change A" approach.
-          
-          // A at top (270 deg / -PI/2)
-          const Ax = ox;
-          const Ay = oy - radius;
-          
-          // We want angle BAC = angle.
-          // Let's place B and C symmetrically across the vertical axis.
-          // The angle subtended by chord BC at center is 2 * angle.
-          // So angle(COB) = 2 * angle.
-          // Since symmetric, angle(vertical, OC) = angle.
-          // So C is at (90 - angle) from standard? No.
-          // C is at angle 'angle' from the vertical bottom?
-          // Vertical bottom is 90 deg (PI/2).
-          // C at 90 - angle. B at 90 + angle.
-          // Arc BC = 2*angle. Angle at circumference A = angle.
-          // BUT: If angle > 90, 2*angle > 180.
-          
-          // Let's check coordinates.
-          // C: angle from vertical down is 'angle'.
-          // Cx = ox + R * sin(angle)
-          // Cy = oy + R * cos(angle)
-          // Bx = ox - R * sin(angle)
-          // By = oy + R * cos(angle)
-          
-          // Draw Triangle ABC
-          ctx.strokeStyle = colors.text; ctx.lineWidth = 2;
-          ctx.beginPath();
-          ctx.moveTo(Ax, Ay); // A
-          ctx.lineTo(ox - radius * Math.sin(angleRad), oy + radius * Math.cos(angleRad)); // B
-          ctx.lineTo(ox + radius * Math.sin(angleRad), oy + radius * Math.cos(angleRad)); // C
-          ctx.closePath();
-          ctx.stroke();
-          
-          // Draw Diameter (Vertical) for reference?
-          ctx.setLineDash([5, 5]);
-          ctx.strokeStyle = colors.grid;
-          ctx.beginPath(); ctx.moveTo(ox, oy-radius); ctx.lineTo(ox, oy+radius); ctx.stroke();
-          ctx.setLineDash([]);
-          
-          // Highlight Side 'a' (BC)
-          ctx.strokeStyle = colors.sineRule; ctx.lineWidth = 4;
-          ctx.beginPath();
-          ctx.moveTo(ox - radius * Math.sin(angleRad), oy + radius * Math.cos(angleRad));
-          ctx.lineTo(ox + radius * Math.sin(angleRad), oy + radius * Math.cos(angleRad));
-          ctx.stroke();
-          
-          // Label A, B, C
-          ctx.fillStyle = colors.text; ctx.font = "bold 16px Geist Sans";
-          ctx.fillText("A", Ax, Ay - 15);
-          ctx.fillText("B", ox - radius * Math.sin(angleRad) - 20, oy + radius * Math.cos(angleRad) + 20);
-          ctx.fillText("C", ox + radius * Math.sin(angleRad) + 10, oy + radius * Math.cos(angleRad) + 20);
-          
-          // Label R
-          ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(Ax, Ay); ctx.strokeStyle = colors.grid; ctx.stroke();
-          ctx.fillStyle = colors.grid; ctx.font = "12px Geist Sans";
-          ctx.fillText("R", ox + 5, oy - radius/2);
-      }
-
-      // Level 5: Cosine Rule Visualization
-      if (level === 5) {
-          const sideB = 100; // Visual length (scaled)
-          const sideC = 140; // Visual length (scaled)
-          
-          // Position A slightly left-bottom
-          const Ax = ox - 20;
-          const Ay = oy + 50;
-          
-          // B is fixed horizontal to the right
-          const Bx = Ax + sideC;
-          const By = Ay;
-          
-          // C rotates around A based on angle
-          // Canvas Y is inverted, so subtraction for Y
-          const Cx = Ax + sideB * Math.cos(angle * Math.PI / 180);
-          const Cy = Ay - sideB * Math.sin(angle * Math.PI / 180);
-          
-          // Draw Triangle
-          ctx.lineWidth = 3;
-          
-          // Side c (AB) - Blue
-          ctx.strokeStyle = colors.primary;
-          ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By); ctx.stroke();
-          
-          // Side b (AC) - Green
-          ctx.strokeStyle = colors.hypotenuse;
-          ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Cx, Cy); ctx.stroke();
-          
-          // Side a (BC) - Red
-          ctx.strokeStyle = colors.secondary;
-          ctx.beginPath(); ctx.moveTo(Bx, By); ctx.lineTo(Cx, Cy); ctx.stroke();
-          
-          // Points
-          ctx.fillStyle = colors.text;
-          ctx.beginPath(); ctx.arc(Ax, Ay, 4, 0, Math.PI*2); ctx.fill();
-          ctx.beginPath(); ctx.arc(Bx, By, 4, 0, Math.PI*2); ctx.fill();
-          ctx.beginPath(); ctx.arc(Cx, Cy, 4, 0, Math.PI*2); ctx.fill();
-          
-          // Labels
-          ctx.font = "bold 16px Geist Sans";
-          ctx.fillText("A", Ax - 20, Ay + 10);
-          ctx.fillText("B", Bx + 10, By + 10);
-          ctx.fillText("C", Cx, Cy - 15);
-          
-          // Side Labels
-          ctx.font = "14px Geist Sans";
-          ctx.fillStyle = colors.primary;
-          ctx.fillText("c=14", Ax + sideC/2, Ay + 20); // c = 14 (scaled 10)
-          
-          ctx.fillStyle = colors.hypotenuse;
-          // Midpoint of AC
-          ctx.fillText("b=10", (Ax+Cx)/2 - 20, (Ay+Cy)/2 - 10);
-          
-          ctx.fillStyle = colors.secondary;
-          // Midpoint of BC
-          ctx.fillText("a=?", (Bx+Cx)/2 + 10, (By+Cy)/2);
-
-          // Angle Arc
-          ctx.strokeStyle = colors.text; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.arc(Ax, Ay, 30, 0, -(angle * Math.PI / 180), true); ctx.stroke();
-      }
-
-      // Level 6: Triangle Area Visualization
-      if (level === 6) {
-          const sideB = 100; // Side AC (visual)
-          const sideC = 140; // Side AB (visual)
-          
-          // Position A
-          const Ax = ox - 50;
-          const Ay = oy + 50;
-          
-          // Position B (Horizontal from A)
-          const Bx = Ax + sideC;
-          const By = Ay;
-          
-          // Position C (Rotated by angle A)
-          const Cx = Ax + sideB * Math.cos(angle * Math.PI / 180);
-          const Cy = Ay - sideB * Math.sin(angle * Math.PI / 180);
-          
-          // Height h (Perpendicular from C to AB extended)
-          // Since AB is horizontal, h is just vertical distance
-          const h = Ay - Cy; // Canvas Y is inverted
-          const Hx = Cx;
-          const Hy = Ay;
-          
-          // Fill Area
-          ctx.fillStyle = isDark ? 'rgba(16, 185, 129, 0.2)' : 'rgba(16, 185, 129, 0.1)';
-          ctx.beginPath();
-          ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By); ctx.lineTo(Cx, Cy); ctx.closePath();
-          ctx.fill();
-
-          // Draw Height Line (Dashed)
-          ctx.setLineDash([5, 5]);
-          ctx.strokeStyle = colors.secondary; ctx.lineWidth = 2;
-          ctx.beginPath(); ctx.moveTo(Cx, Cy); ctx.lineTo(Hx, Hy); ctx.stroke();
-          ctx.setLineDash([]);
-          
-          // Draw Triangle Sides
-          ctx.lineWidth = 3;
-          
-          // Side c (AB) - Blue (Base)
-          ctx.strokeStyle = colors.primary;
-          ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By); ctx.stroke();
-          
-          // Side b (AC) - Green
-          ctx.strokeStyle = colors.hypotenuse;
-          ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Cx, Cy); ctx.stroke();
-          
-          // Side a (BC) - Grey (Just connection)
-          ctx.strokeStyle = colors.line; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(Bx, By); ctx.lineTo(Cx, Cy); ctx.stroke();
-          
-          // Points
-          ctx.fillStyle = colors.text;
-          ctx.beginPath(); ctx.arc(Ax, Ay, 4, 0, Math.PI*2); ctx.fill();
-          ctx.beginPath(); ctx.arc(Bx, By, 4, 0, Math.PI*2); ctx.fill();
-          ctx.beginPath(); ctx.arc(Cx, Cy, 4, 0, Math.PI*2); ctx.fill();
-          
-          // Labels
-          ctx.font = "bold 16px Geist Sans";
-          ctx.fillText("A", Ax - 20, Ay + 10);
-          ctx.fillText("B", Bx + 10, By + 10);
-          ctx.fillText("C", Cx, Cy - 10);
-          
-          // Height Label
-          ctx.fillStyle = colors.secondary;
-          ctx.fillText("h", Hx + 5, (Cy + Hy) / 2);
-
-          // Side Labels
-          ctx.fillStyle = colors.primary;
-          ctx.fillText("c", (Ax+Bx)/2, Ay + 20);
-          
-          ctx.fillStyle = colors.hypotenuse;
-          ctx.fillText("b", (Ax+Cx)/2 - 15, (Ay+Cy)/2 - 5);
-          
-          // Angle Arc
-          ctx.strokeStyle = colors.text; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.arc(Ax, Ay, 30, 0, -(angle * Math.PI / 180), true); ctx.stroke();
-      }
-
-    };
-    render();
-  }, [angle, level, resolvedTheme]);
-
-  // --- Identity Logic (Level 3) ---
+  // --- Computed values ---
   const sinVal = Math.sin((angle * Math.PI) / 180).toFixed(3);
   const cosVal = Math.cos((angle * Math.PI) / 180).toFixed(3);
   const sinSq = (Math.sin((angle * Math.PI) / 180) ** 2).toFixed(3);
   const cosSq = (Math.cos((angle * Math.PI) / 180) ** 2).toFixed(3);
-  
-  // --- Sine Rule Logic (Level 4) ---
-  // R = 1 (visually scaled). a = 2R sin A.
-  // We display values assuming R=10.
+
+  // Sine Rule (Level 4)
   const radiusVal = 10;
   const sideA = (2 * radiusVal * Math.sin(angle * Math.PI / 180)).toFixed(1);
   const diameter = (2 * radiusVal).toFixed(0);
   const ratioCalc = (Number(sideA) / Math.sin(angle * Math.PI / 180)).toFixed(1);
 
-  // --- Cosine Rule Logic (Level 5) ---
+  // Cosine Rule (Level 5)
   const sideB_val = 10;
   const sideC_val = 14;
-  const radA = angle * Math.PI / 180;
-  const cosA = Math.cos(radA);
+  const cosA = Math.cos(angle * Math.PI / 180);
   const aSquared = (sideB_val**2 + sideC_val**2 - 2 * sideB_val * sideC_val * cosA).toFixed(1);
   const sideA_val = Math.sqrt(Number(aSquared)).toFixed(2);
 
-  // --- Area Logic (Level 6) ---
+  // Area (Level 6)
   const area_b = 10;
   const area_c = 14;
   const area_sinA = Math.sin(angle * Math.PI / 180);
@@ -735,9 +116,9 @@ export default function TrigPage() {
             </div>
         </div>
         <div className="font-bold text-sm">
-            {level === 0 ? "三角比 (Trigonometry)" : 
-             level === 1 ? "直角三角形 (Right Triangle)" : 
-             level === 2 ? "単位円 (Unit Circle)" : 
+            {level === 0 ? "三角比 (Trigonometry)" :
+             level === 1 ? "直角三角形 (Right Triangle)" :
+             level === 2 ? "単位円 (Unit Circle)" :
              level === 3 ? "相互関係 (Identities)" :
              level === 4 ? "正弦定理 (Sine Rule)" :
              level === 5 ? "余弦定理 (Cosine Rule)" :
@@ -756,7 +137,7 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto p-6">
               <div className="max-w-md mx-auto space-y-4">
                   <h1 className="text-2xl font-black mb-8 text-center">Select Module</h1>
-                  
+
                   {[
                       { id: 1, title: "Level 1: 直角三角形", desc: "sin, cos, tanの定義 (0° < θ < 90°)", icon: Compass },
                       { id: 2, title: "Level 2: 単位円", desc: "鈍角への拡張 (90° <= θ <= 180°)", icon: Circle },
@@ -790,99 +171,27 @@ export default function TrigPage() {
           <>
             <section className="shrink-0 bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white dark:bg-slate-950 rounded-[48px] border border-slate-200/60 dark:border-slate-800 shadow-inner overflow-hidden relative">
-                    <canvas ref={canvasRef} width={400} height={400} className="w-full h-full" />
-                    
-                    {/* Level 3 Overlay: Pythagorean Identity */}
-                    {level === 3 && (
-                        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
-                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Pythagorean Identity</div>
-                            <div className="flex flex-col gap-1 text-sm font-mono">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-blue-500 font-bold">cos²{angle}°</span>
-                                    <span>+</span>
-                                    <span className="text-red-500 font-bold">sin²{angle}°</span>
-                                    <span>=</span>
-                                    <span className="font-bold">1</span>
-                                </div>
-                                <div className="text-xs text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
-                                    {cosSq} + {sinSq} ≈ 1.000
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                    
-                    {/* Level 4 Overlay: Sine Rule */}
-                    {level === 4 && (
-                        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
-                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Sine Rule</div>
-                            <div className="flex flex-col gap-1 text-sm font-mono">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <span className="text-amber-500 font-bold">a / sin A</span>
-                                    <span>=</span>
-                                    <span className="font-bold">2R</span>
-                                </div>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-500">
-                                    <div>a = {sideA}</div>
-                                    <div>R = {radiusVal}</div>
-                                    <div>sin A = {sinVal}</div>
-                                    <div>2R = {diameter}</div>
-                                </div>
-                                <div className="text-xs font-bold text-slate-900 dark:text-white border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
-                                    {sideA} / {sinVal} ≈ {ratioCalc}
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    <TrigCanvas angle={angle} level={level} />
 
-                    {/* Level 5 Overlay: Cosine Rule */}
-                    {level === 5 && (
-                        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
-                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Cosine Rule</div>
-                            <div className="flex flex-col gap-1 text-sm font-mono">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <span className="text-secondary font-bold">a²</span>
-                                    <span>=</span>
-                                    <span className="font-bold">b² + c² - 2bc cosA</span>
-                                </div>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-500">
-                                    <div>b = {sideB_val}</div>
-                                    <div>c = {sideC_val}</div>
-                                    <div>cos {angle}° = {cosVal}</div>
-                                </div>
-                                <div className="text-xs font-bold text-slate-900 dark:text-white border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
-                                    a² = {sideB_val}² + {sideC_val}² - {2*sideB_val*sideC_val}({cosVal})
-                                </div>
-                                <div className="text-sm font-bold text-red-500 mt-1">
-                                    a = {sideA_val}
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Level 6 Overlay: Area */}
-                    {level === 6 && (
-                        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800 shadow-lg">
-                            <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Triangle Area</div>
-                            <div className="flex flex-col gap-1 text-sm font-mono">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <span className="text-secondary font-bold">S</span>
-                                    <span>=</span>
-                                    <span className="font-bold">1/2 bc sin A</span>
-                                </div>
-                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-slate-500">
-                                    <div>b = {area_b}</div>
-                                    <div>c = {area_c}</div>
-                                    <div>sin A = {area_sinA.toFixed(2)}</div>
-                                </div>
-                                <div className="text-xs font-bold text-slate-900 dark:text-white border-t border-slate-100 dark:border-slate-800 pt-1 mt-1">
-                                    S = 1/2 × {area_b} × {area_c} × {area_sinA.toFixed(2)}
-                                </div>
-                                <div className="text-sm font-bold text-green-500 mt-1">
-                                    Area = {area_S}
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    <TrigOverlay
+                      level={level}
+                      angle={angle}
+                      sinVal={sinVal}
+                      cosVal={cosVal}
+                      sinSq={sinSq}
+                      cosSq={cosSq}
+                      sideA={sideA}
+                      radiusVal={radiusVal}
+                      diameter={diameter}
+                      ratioCalc={ratioCalc}
+                      sideB_val={sideB_val}
+                      sideC_val={sideC_val}
+                      sideA_val={sideA_val}
+                      area_b={area_b}
+                      area_c={area_c}
+                      area_sinA={area_sinA}
+                      area_S={area_S}
+                    />
 
                     <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3">
                         <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 font-mono font-bold text-slate-900 dark:text-white text-sm">
@@ -896,8 +205,8 @@ export default function TrigPage() {
                 <div className="max-w-md mx-auto space-y-6">
                     {/* Controls */}
                     <div>
-                        <input type="range" min={level === 4 ? 10 : 0} max={level === 1 ? 89 : 170} step="1" value={angle} 
-                            onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})} 
+                        <input type="range" min={level === 4 ? 10 : 0} max={level === 1 ? 89 : 170} step="1" value={angle}
+                            onChange={e => dispatch({type: 'SET_ANGLE', payload: Number(e.target.value)})}
                             className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full appearance-none accent-black dark:accent-white cursor-pointer" />
                         <div className="flex justify-between text-[10px] text-slate-400 mt-2 font-mono">
                             <span>{level === 4 ? "10°" : "0°"}</span>
@@ -906,109 +215,41 @@ export default function TrigPage() {
                     </div>
 
                     {/* Explanations */}
-                    <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800">
-                        {level === 1 && (
-                            <div className="space-y-4">
-                                <h3 className="font-bold flex items-center gap-2"><Compass className="w-4 h-4" /> 直角三角形による定義</h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
-                                    直角三角形において、角度 <MathComponent tex="\theta" /> が決まれば、辺の比は一定になります。
-                                </p>
-                                <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
-                                    <div className="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
-                                        <div className="text-red-500 font-bold mb-1">sin θ</div>
-                                        <div>対辺/斜辺</div>
-                                    </div>
-                                    <div className="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
-                                        <div className="text-blue-500 font-bold mb-1">cos θ</div>
-                                        <div>底辺/斜辺</div>
-                                    </div>
-                                    <div className="bg-white dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
-                                        <div className="text-slate-500 font-bold mb-1">tan θ</div>
-                                        <div>対辺/底辺</div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        {level === 2 && (
-                            <div className="space-y-4">
-                                <h3 className="font-bold flex items-center gap-2"><Circle className="w-4 h-4" /> 単位円による拡張</h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
-                                    半径1の円周上の点 P(x, y) として定義を拡張します。<br/>
-                                    これにより、90°以上の鈍角でも三角比を定義できます。
-                                </p>
-                                <div className="bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-mono text-center">
-                                    P(x, y) = (\cos \theta, \sin \theta)
-                                </div>
-                            </div>
-                        )}
-
-                        {level === 3 && (
-                            <div className="space-y-4">
-                                <h3 className="font-bold flex items-center gap-2"><Zap className="w-4 h-4" /> 三角比の相互関係</h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
-                                    単位円上の点は <MathComponent tex="x^2 + y^2 = 1" /> を満たします。<br/>
-                                    <MathComponent tex="x=\cos\theta, y=\sin\theta" /> を代入すると、最も重要な公式が導かれます。
-                                </p>
-                                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800 text-center">
-                                    <MathComponent tex="\sin^2\theta + \cos^2\theta = 1" className="text-xl font-bold text-blue-700 dark:text-blue-400" />
-                                </div>
-                                <p className="text-xs text-slate-400 text-center">
-                                    スライダーを動かして、常に和が1になることを確認しましょう。
-                                </p>
-                            </div>
-                        )}
-                        
-                        {level === 4 && (
-                            <div className="space-y-4">
-                                <h3 className="font-bold flex items-center gap-2"><Activity className="w-4 h-4" /> 正弦定理 (Sine Rule)</h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
-                                    三角形の外接円の半径を <MathComponent tex="R" /> とすると、以下の関係が成り立ちます。
-                                </p>
-                                <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800 text-center">
-                                    <MathComponent tex="\frac{a}{\sin A} = 2R" className="text-xl font-bold text-amber-700 dark:text-amber-400" />
-                                </div>
-                                <p className="text-xs text-slate-400 text-center">
-                                    角度 <MathComponent tex="A" /> を変えると、対辺 <MathComponent tex="a" /> の長さも変わり、その比率は常に直径 <MathComponent tex="2R" /> に等しくなります。
-                                </p>
-                            </div>
-                        )}
-
-                        {level === 5 && (
-                            <div className="space-y-4">
-                                <h3 className="font-bold flex items-center gap-2"><Target className="w-4 h-4" /> 余弦定理 (Cosine Rule)</h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
-                                    三角形の2辺とその間の角が分かれば、残りの1辺の長さが求まります。<br/>
-                                    三平方の定理 <MathComponent tex="a^2 = b^2 + c^2" /> の一般化です。
-                                </p>
-                                <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-xl border border-red-100 dark:border-red-800 text-center">
-                                    <MathComponent tex="a^2 = b^2 + c^2 - 2bc \cos A" className="text-xl font-bold text-red-700 dark:text-red-400" />
-                                </div>
-                                <p className="text-xs text-slate-400 text-center">
-                                    スライダーで角度を変えて、辺 <MathComponent tex="a" /> の長さの変化を確認しましょう。
-                                </p>
-                            </div>
-                        )}
-
-                        {level === 6 && (
-                            <div className="space-y-4">
-                                <h3 className="font-bold flex items-center gap-2"><TrendingUp className="w-4 h-4" /> 三角形の面積 (Area)</h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
-                                    底辺を <MathComponent tex="c" /> とすると、高さは <MathComponent tex="h = b \sin A" /> となります。<br/>
-                                    したがって、面積 <MathComponent tex="S" /> は以下の公式で求まります。
-                                </p>
-                                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border border-green-100 dark:border-green-800 text-center">
-                                    <MathComponent tex="S = \frac{1}{2}bc \sin A" className="text-xl font-bold text-green-700 dark:text-green-400" />
-                                </div>
-                                <p className="text-xs text-slate-400 text-center">
-                                    角度 <MathComponent tex="A" /> が90°に近づくと <MathComponent tex="\sin A" /> が最大(1)になり、面積も最大になります。
-                                </p>
-                            </div>
-                        )}
-                    </div>
+                    <TrigExplanation
+                      level={level}
+                      angle={angle}
+                      sinVal={sinVal}
+                      cosVal={cosVal}
+                      sideA={sideA}
+                      radiusVal={radiusVal}
+                      diameter={diameter}
+                      ratioCalc={ratioCalc}
+                      sideB_val={sideB_val}
+                      sideC_val={sideC_val}
+                      aSquared={aSquared}
+                      sideA_val={sideA_val}
+                      area_b={area_b}
+                      area_c={area_c}
+                      area_sinA={area_sinA}
+                      area_h={area_h}
+                      area_S={area_S}
+                    />
                 </div>
             </main>
           </>
+      )}
+
+      {/* Level 7: Quiz */}
+      {level === 7 && (
+        <TrigQuiz
+          quizIndex={state.quizIndex}
+          score={state.score}
+          feedback={state.feedback}
+          onSubmitAnswer={(answer) => dispatch({type: 'SUBMIT_ANSWER', payload: answer})}
+          onNextQuiz={() => dispatch({type: 'NEXT_QUIZ'})}
+          onResetLevel={() => dispatch({type: 'RESET_LEVEL'})}
+          onResetAll={() => dispatch({type: 'RESET_ALL'})}
+        />
       )}
 
       {/* Level 8: Identity Practice */}
@@ -1040,87 +281,6 @@ export default function TrigPage() {
               <div className="max-w-md mx-auto">
                   <TriangleAreaViz />
               </div>
-          </main>
-      )}
-
-      {/* Level 7: Tactics Mode (Quiz) */}
-      {level === 7 && (
-          <main className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-900">
-              {state.quizIndex < QUIZ_DATA.length ? (
-                  <div className="w-full max-w-md bg-white dark:bg-slate-950 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
-                      <div className="flex justify-between items-center mb-6">
-                          <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Question {state.quizIndex + 1} / {QUIZ_DATA.length}</span>
-                          <div className="flex gap-1">
-                              {[...Array(QUIZ_DATA.length)].map((_, i) => (
-                                  <div key={i} className={`h-1.5 w-6 rounded-full ${i < state.quizIndex ? 'bg-green-500' : i === state.quizIndex ? 'bg-blue-500' : 'bg-slate-200 dark:bg-slate-800'}`} />
-                              ))}
-                          </div>
-                      </div>
-
-                      <h2 className="text-2xl font-bold mb-8 text-center min-h-[60px] flex items-center justify-center">
-                          <MathComponent tex={QUIZ_DATA[state.quizIndex].question} />
-                      </h2>
-
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                          {QUIZ_DATA[state.quizIndex].options.map((opt, i) => {
-                              const isSelected = state.feedback !== 'idle';
-                              const isCorrect = opt === QUIZ_DATA[state.quizIndex].answer;
-                              const isWrongSelection = state.feedback === 'wrong'; // Simplified for this demo
-                              
-                              let btnClass = "p-6 rounded-2xl border-2 text-lg font-bold transition-all relative overflow-hidden ";
-                              if (state.feedback === 'idle') {
-                                  btnClass += "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20";
-                              } else if (isCorrect) {
-                                  btnClass += "bg-green-50 dark:bg-green-900/20 border-green-500 text-green-700 dark:text-green-400";
-                              } else {
-                                  btnClass += "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 opacity-50";
-                              }
-
-                              return (
-                                  <button key={i} 
-                                      onClick={() => state.feedback === 'idle' && dispatch({type: 'SUBMIT_ANSWER', payload: opt})}
-                                      className={btnClass}
-                                  >
-                                      <MathComponent tex={opt} />
-                                      {state.feedback !== 'idle' && isCorrect && (
-                                          <CheckCircle2 className="absolute top-2 right-2 w-5 h-5 text-green-500" />
-                                      )}
-                                  </button>
-                              );
-                          })}
-                      </div>
-
-                      {state.feedback !== 'idle' && (
-                          <motion.div initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}} className="text-center">
-                              <button onClick={() => dispatch({type: 'NEXT_QUIZ'})} 
-                                  className="bg-black dark:bg-white text-white dark:text-black px-8 py-3 rounded-full font-bold hover:opacity-80 transition-opacity flex items-center gap-2 mx-auto">
-                                  Next Question <ChevronRight className="w-4 h-4" />
-                              </button>
-                          </motion.div>
-                      )}
-                  </div>
-              ) : (
-                  <div className="text-center space-y-6">
-                      <motion.div initial={{scale: 0.8, opacity: 0}} animate={{scale: 1, opacity: 1}} 
-                          className="w-32 h-32 bg-yellow-400 text-white rounded-full flex items-center justify-center mx-auto text-4xl shadow-lg border-4 border-white dark:border-slate-900">
-                          <Trophy className="w-16 h-16" />
-                      </motion.div>
-                      <div className="space-y-2">
-                          <h2 className="text-3xl font-black">Score: {state.score} / {QUIZ_DATA.length}</h2>
-                          <p className="text-slate-500">
-                              {state.score === QUIZ_DATA.length ? "Perfect! Trigonometry Master!" : "Keep practicing!"}
-                          </p>
-                      </div>
-                      <div className="flex gap-4 justify-center">
-                          <button onClick={() => dispatch({type: 'RESET_LEVEL'})} className="px-6 py-3 rounded-full bg-slate-200 dark:bg-slate-800 font-bold hover:bg-slate-300 transition-colors">
-                              Retry
-                          </button>
-                          <button onClick={() => dispatch({type: 'RESET_ALL'})} className="px-6 py-3 rounded-full bg-black dark:bg-white text-white dark:text-black font-bold hover:opacity-80 transition-opacity">
-                              Back to Menu
-                          </button>
-                      </div>
-                  </div>
-              )}
           </main>
       )}
     </div>

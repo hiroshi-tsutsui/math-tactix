@@ -316,7 +316,103 @@
         "4": {
           "title": "Tactical Objective",
           "desc": "There is always a <strong>limit (range)</strong> in the world. Mathematical tactics is about aiming for the best result (vertex) within that limited range.",
-          "start_mission": "Start Combat Mission"
+          "start": "Start Simulation",
+          "start_mission": "Start Combat Mission",
+          "formula": "D = b² - 4ac",
+          "d_pos": "D > 0 : Two distinct real roots",
+          "d_zero": "D = 0 : One repeated root",
+          "d_neg": "D < 0 : No real roots",
+          "next_lesson": "To Step 5"
+        },
+        "5": {
+          "title": "Domain and Max/Min",
+          "desc": "Consider the maximum and minimum values when the domain is restricted. Pay attention to the relationship between the endpoints and the vertex.",
+          "start": "Start Simulation",
+          "domain_label": "Domain",
+          "max_val": "Maximum (Max)",
+          "min_val": "Minimum (Min)",
+          "vertex_pos": "Axis Position",
+          "next_lesson": "To Step 6"
+        },
+        "6": {
+          "title": "Quadratic Inequalities",
+          "desc": "The solution to an inequality is determined by whether the graph is above or below the x-axis.",
+          "next_lesson": "To Step 7"
+        },
+        "7": {
+          "title": "Parabola and Line Intersections",
+          "desc": "Move the line y = mx + k and observe how the number of intersection points changes.<br>This is equivalent to the number of real solutions of the system (discriminant).",
+          "slope": "Slope (m)",
+          "intercept": "Intercept (k)",
+          "status_2": "Two distinct intersection points (D > 0)",
+          "status_1": "Tangent (D = 0)",
+          "status_0": "No intersection (D < 0)",
+          "next_lesson": "To Step 8"
+        },
+        "8": {
+          "title": "Determining a Quadratic Function",
+          "desc": "When the vertex position and a point the graph passes through are known, the coefficient a can be determined.<br>Adjust the opening (a) so that the graph passes through point A.",
+          "target_point": "Point A to pass through",
+          "match": "Matched!",
+          "next_lesson": "To Step 9"
+        },
+        "9": {
+          "title": "Graph Translation",
+          "desc": "Translating y = f(x) by p in the x-direction and q in the y-direction gives y - q = f(x - p).<br>Move the original graph (blue) to overlap the target graph (red: y = 2(x-1)^2 + 1).",
+          "move_p": "x-direction shift (p)",
+          "move_q": "y-direction shift (q)",
+          "match": "Matched!",
+          "next_lesson": "To Step 10"
+        },
+        "10": {
+          "title": "Coefficients and Graph Shape",
+          "desc": "Check how the signs of coefficients a, b, c and discriminant D affect the shape and position of the graph.<br>Determine all signs correctly.",
+          "pos": "Positive (+)",
+          "neg": "Negative (-)",
+          "zero": "Zero (0)",
+          "correct": "Correct!",
+          "wrong": "Incorrect.",
+          "next_lesson": "To Step 11"
+        },
+        "11": {
+          "title": "Quadratic Inequality Solutions (Special Cases)",
+          "desc": "When discriminant D < 0, the parabola has no intersection with the x-axis.<br>Check whether the entire graph is above (all positive) or below (all negative).",
+          "float_a": "Opening (a)",
+          "float_c": "y-intercept (c)",
+          "ineq_label": "Inequality Solution",
+          "status_all": "All real numbers (always holds)",
+          "status_none": "No solution (never holds)",
+          "next_lesson": "To Step 12"
+        },
+        "12": {
+          "title": "Root Placement Problem",
+          "desc": "Visually understand the conditions for two distinct real roots to be greater than a value k.<br>Conditions: (1) D > 0, (2) axis > k, (3) f(k) > 0",
+          "param_k": "Boundary value (k)",
+          "cond_d": "Discriminant D > 0",
+          "cond_axis": "Axis position > k/2",
+          "cond_f0": "Height at boundary f(0) > 0",
+          "success": "Found the range satisfying the conditions!",
+          "next_lesson": "To Step 13"
+        },
+        "13": {
+          "title": "Moving Domain and Max/Min",
+          "desc": "When the domain a <= x <= a+2 moves, observe how the x-values giving maximum/minimum change.<br>Move a so that the specified condition (minimum at vertex/left end/right end) is met.",
+          "mission_label": "Current Mission",
+          "mission_vertex": "Range where minimum is at the vertex",
+          "mission_left": "Range where minimum is at the left end",
+          "mission_right": "Range where minimum is at the right end",
+          "domain_pos": "Domain start position (a)",
+          "feedback_correct": "Correct! The condition is satisfied.",
+          "feedback_wrong": "The condition is not satisfied.",
+          "check": "Check",
+          "finish": "Complete",
+          "hint": "Focus on whether the vertex is inside or outside (left/right) the domain.",
+          "next_lesson": "To Final Exercise"
+        },
+        "14": {
+          "title": "Final Exam",
+          "desc": "Use the knowledge you have learned (completing the square, discriminant, max/min, root placement) to tackle practical exam problems.",
+          "start_mission": "Start Practice Mode"
         },
         "2_3": {
           "target_eq": "Target Equation",
@@ -338,7 +434,13 @@
         "next_q": "Next Question",
         "q1_inst": "Factor out coefficient 2 and identify the vertex.",
         "q2_inst": "Beware of sign errors when factoring out negative.",
-        "q3_inst": "Fraction involved. Subtract the square of half correctly."
+        "q3_inst": "Fraction involved. Subtract the square of half correctly.",
+        "q4_inst": "Find the number of intersection points between the quadratic function's graph and the x-axis.",
+        "q5_inst": "Solve the following quadratic inequality.",
+        "q6_inst": "Find the maximum value of the following quadratic function. (Domain: 0 <= x <= 3)",
+        "q_trans_inst": "Choose the expression after translation.",
+        "hint_discriminant": "Hint: Check the sign of the discriminant D = b^2 - 4ac.",
+        "hint_graph": "Hint: Sketch the graph and check the position of the axis."
       },
       "ui": {
         "mission_prefix": "Mission 0",

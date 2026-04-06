@@ -252,9 +252,7 @@ const LEVELS = [
   { id: 64, title: '頂点と軸から2次関数を決定', type: 'vertex_axis_determination' },
   { id: 65, title: '平行移動した放物線の決定', type: 'translation_quadratic' },
   { id: 66, title: '2次方程式の整数解と係数の決定', type: 'integer_roots_quadratic' },
-
-
-
+  { id: 67, title: '絶対値付き2次不等式（全実数解）', type: 'absolute_inequality_all_reals' },
 ];
 
 export default function QuadraticPage() {
