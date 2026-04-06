@@ -58,6 +58,7 @@ import FractionSimplifyViz from './components/FractionSimplifyViz';
 import FractionAdditionViz from './components/FractionAdditionViz';
 import RationalizationAdvancedViz from './components/RationalizationAdvancedViz';
 import NestedRadical2Viz from './components/NestedRadical2Viz';
+import RemainderFactorViz from './components/RemainderFactorViz';
 
 
 
@@ -120,7 +121,8 @@ export default function MathINumbers() {
         { id: 47, title: '分数式の約分', type: 'fraction_simplify' },
         { id: 48, title: '分数式の通分・加減算', type: 'fraction_addition' },
         { id: 49, title: '有理化（1次・2次）', type: 'rationalization_advanced' },
-        { id: 50, title: '二重根号の変換（応用）', type: 'nested_radical_2' }
+        { id: 50, title: '二重根号の変換（応用）', type: 'nested_radical_2' },
+        { id: 51, title: '余りの定理・因数定理', type: 'remainder_factor' }
 ];
 
   return (
@@ -705,6 +707,20 @@ export default function MathINumbers() {
                     加法形と減法形の両方のパターンを段階的に学びます。
                   </p>
                   <NestedRadical2Viz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 51 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">余りの定理・因数定理 (Remainder & Factor Theorem)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="P(x)" /> を <InlineMath math="(x - a)" /> で割ったときの余りは <InlineMath math="P(a)" /> です（余りの定理）。<br/>
+                    特に <InlineMath math="P(a) = 0" /> のとき、<InlineMath math="(x - a)" /> は <InlineMath math="P(x)" /> の因数です（因数定理）。
+                    スライダーで <InlineMath math="a" /> の値を変えて、余りがどう変化するか観察しましょう。
+                  </p>
+                  <RemainderFactorViz />
                 </div>
               </div>
             )}
