@@ -85,10 +85,20 @@
         "subtitle": "Mathematics II",
         "desc": "指数関数的な増殖を、扱いやすいスケールに圧縮する。"
       },
+      "sets_logic": {
+        "title": "集合と命題",
+        "subtitle": "Mathematics I",
+        "desc": "ベン図と論理で、必要条件・十分条件・背理法を視覚的に理解する。"
+      },
+      "trig_ratios": {
+        "title": "三角比（基礎）",
+        "subtitle": "Mathematics I",
+        "desc": "直角三角形のsin/cos/tanから正弦定理・余弦定理まで。三角関数の土台を築く。"
+      },
       "trig": {
-        "title": "三角関数",
+        "title": "三角関数（応用）",
         "subtitle": "Mathematics II",
-        "desc": "円運動と波の性質を同期させ、周期性を解析する。"
+        "desc": "正弦定理・余弦定理の活用、三角方程式・不等式、測量問題の応用。"
       },
       "vectors": {
         "title": "ベクトル",

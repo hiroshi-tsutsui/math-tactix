@@ -85,10 +85,20 @@
         "subtitle": "Mathematics II",
         "desc": "Compress exponential growth into a manageable scale."
       },
+      "sets_logic": {
+        "title": "Sets & Logic",
+        "subtitle": "Mathematics I",
+        "desc": "Visualize Venn diagrams, necessary/sufficient conditions, and proof by contradiction."
+      },
+      "trig_ratios": {
+        "title": "Trigonometric Ratios (Basics)",
+        "subtitle": "Mathematics I",
+        "desc": "From right triangle sin/cos/tan to law of sines and cosines. Build the foundation."
+      },
       "trig": {
-        "title": "Trigonometry",
+        "title": "Trigonometry (Advanced)",
         "subtitle": "Mathematics II",
-        "desc": "Synchronize circular motion with wave properties and analyze periodicity."
+        "desc": "Applied sine/cosine laws, trig equations/inequalities, and surveying problems."
       },
       "vectors": {
         "title": "Vectors",
