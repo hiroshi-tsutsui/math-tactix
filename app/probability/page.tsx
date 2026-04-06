@@ -21,6 +21,7 @@ import { CombinationRepetitionViz } from './components/CombinationRepetitionViz'
 import GroupingViz from "./components/GroupingViz";
 import ComplementaryEventViz from "./components/ComplementaryEventViz";
 import IndependentEventViz from "./components/IndependentEventViz";
+import AdditionRuleViz from "./components/AdditionRuleViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -388,6 +389,7 @@ export default function ProbabilityPage() {
              level === 11 ? "組分け" :
              level === 12 ? "余事象の確率" :
              level === 13 ? "独立試行の定理" :
+             level === 14 ? "確率の加法定理" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -413,6 +415,7 @@ export default function ProbabilityPage() {
                       { id: 11, title: "Level 11: 組分け", desc: "区別がある部屋と区別がない組の違い", icon: Circle },
                       { id: 12, title: "Level 12: 余事象の確率", desc: "「少なくとも1つ」を余事象で求める", icon: Compass },
                       { id: 13, title: "Level 13: 独立試行の定理", desc: "P(A∩B) = P(A)×P(B) のシミュレーション", icon: Activity },
+                      { id: 14, title: "Level 14: 確率の加法定理", desc: "P(A∪B) = P(A)+P(B)-P(A∩B) のベン図視覚化", icon: Target },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -430,7 +433,7 @@ export default function ProbabilityPage() {
       )}
 
       {/* Visualization Mode */}
-      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 12 && (
+      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 12 && level !== 14 && (
           <>
             <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
@@ -676,6 +679,13 @@ export default function ProbabilityPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <div className="max-w-md mx-auto">
                   <IndependentEventViz />
+              </div>
+          </main>
+      )}
+      {level === 14 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <div className="max-w-md mx-auto">
+                  <AdditionRuleViz />
               </div>
           </main>
       )}
