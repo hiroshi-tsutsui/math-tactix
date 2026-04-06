@@ -24,6 +24,7 @@ import CircleRadiusViz from './components/CircleRadiusViz';
 import SineLawApplicationViz from './components/SineLawApplicationViz';
 import TrigEquationViz from './components/TrigEquationViz';
 import CosineInverseViz from './components/CosineInverseViz';
+import TrigInequalityViz from './components/TrigInequalityViz';
 
 // --- Types ---
 type State = {
@@ -140,6 +141,7 @@ export default function TrigPage() {
              level === 14 ? "正弦定理の活用 (Sine Rule Application)" :
              level === 15 ? "三角比の方程式 (Trig Equations)" :
              level === 16 ? "余弦定理の逆算 (Cosine Inverse)" :
+             level === 17 ? "三角不等式 (Trig Inequalities)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -167,7 +169,8 @@ export default function TrigPage() {
                       { id: 13, title: "Level 13: 外接円・内接円", desc: "R = a/(2sinA), r = S/s の視覚化", icon: Circle },
                       { id: 14, title: "Level 14: 正弦定理の活用", desc: "正弦定理を使った計算問題演習", icon: Activity },
                       { id: 15, title: "Level 15: 三角比の方程式", desc: "sinθ=k, cosθ=k, tanθ=k の解", icon: Target },
-                      { id: 16, title: "Level 16: 余弦定理の逆算", desc: "三辺から角度を求める（cosA の逆算）", icon: Compass }
+                      { id: 16, title: "Level 16: 余弦定理の逆算", desc: "三辺から角度を求める（cosA の逆算）", icon: Compass },
+                      { id: 17, title: "Level 17: 三角不等式", desc: "sinθ≥k, cosθ≤k の解を単位円で視覚化", icon: Target }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -343,6 +346,15 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-md mx-auto">
                   <CosineInverseViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 17: Trig Inequalities */}
+      {level === 17 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <TrigInequalityViz />
               </div>
           </main>
       )}
