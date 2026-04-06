@@ -56,6 +56,7 @@ import AbsoluteValueCasesViz from './components/AbsoluteValueCasesViz';
 import PrimeFactorizationViz from './components/PrimeFactorizationViz';
 import FractionSimplifyViz from './components/FractionSimplifyViz';
 import FractionAdditionViz from './components/FractionAdditionViz';
+import RationalizationAdvancedViz from './components/RationalizationAdvancedViz';
 
 
 
@@ -116,7 +117,8 @@ export default function MathINumbers() {
         { id: 45, title: '絶対値の場合分け計算', type: 'absolute_value_cases' },
         { id: 46, title: '整数の性質（素因数分解・GCD・LCM）', type: 'prime_factorization' },
         { id: 47, title: '分数式の約分', type: 'fraction_simplify' },
-        { id: 48, title: '分数式の通分・加減算', type: 'fraction_addition' }
+        { id: 48, title: '分数式の通分・加減算', type: 'fraction_addition' },
+        { id: 49, title: '有理化（1次・2次）', type: 'rationalization_advanced' }
 ];
 
   return (
@@ -674,6 +676,19 @@ export default function MathINumbers() {
                     各分母を因数分解し、LCD を見つけてから分子を調整します。
                   </p>
                   <FractionAdditionViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 49 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">有理化（1次・2次）(Rationalization)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    分母に無理数（平方根）を含む場合、分母を有理数にする操作を「有理化」と呼びます。<br/>
+                    1次有理化では <InlineMath math="\frac{1}{\sqrt{a}}" /> の形、2次有理化では共役式 <InlineMath math="(\sqrt{a} - \sqrt{b})" /> を使います。
+                  </p>
+                  <RationalizationAdvancedViz />
                 </div>
               </div>
             )}
