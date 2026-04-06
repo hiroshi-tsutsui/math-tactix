@@ -28,6 +28,7 @@ import BinomialTrialViz from "./components/BinomialTrialViz";
 import BayesTheoremViz from "./components/BayesTheoremViz";
 import ConditionalProbabilityTableViz from "./components/ConditionalProbabilityTableViz";
 import ExpectedValueViz from "./components/ExpectedValueViz";
+import RecurrenceViz from "./components/RecurrenceViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -403,6 +404,7 @@ export default function ProbabilityPage() {
              level === 17 ? "ベイズの定理" :
              level === 18 ? "条件付き確率の応用（分割表）" :
              level === 19 ? "期待値の計算" :
+             level === 20 ? "確率の漸化式" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -434,15 +436,18 @@ export default function ProbabilityPage() {
                       { id: 17, title: "Level 17: ベイズの定理", desc: "P(A|B) = P(B|A)P(A)/P(B) の視覚化", icon: HelpCircle },
                       { id: 18, title: "Level 18: 条件付き確率の応用（分割表）", desc: "2×2クロス集計表を使った条件付き確率の計算", icon: Target },
                       { id: 19, title: "Level 19: 期待値の計算", desc: "E(X) = Σ xi × P(X=xi) の定義と計算", icon: TrendingUp },
+                      { id: 20, title: "Level 20: 確率の漸化式", desc: "反復試行の確率を漸化式で求める", icon: Activity },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
                           <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
                               <item.icon className="w-6 h-6" />
                           </div>
-                          <div>
+                          <div className="flex-1">
                               <div className="font-bold text-lg">{item.title}</div>
                               <div className="text-xs text-slate-500">{item.desc}</div>
+                              {/* TODO: 将来的に解説動画URLを差し込む */}
+                              <span className="text-[10px] text-slate-300 mt-1 inline-block">📺 解説動画 準備中</span>
                           </div>
                       </button>
                   ))}
@@ -451,7 +456,7 @@ export default function ProbabilityPage() {
       )}
 
       {/* Visualization Mode */}
-      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 9 && level !== 10 && level !== 11 && level !== 12 && level !== 13 && level !== 14 && level !== 15 && level !== 16 && level !== 17 && level !== 18 && level !== 19 && (
+      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 9 && level !== 10 && level !== 11 && level !== 12 && level !== 13 && level !== 14 && level !== 15 && level !== 16 && level !== 17 && level !== 18 && level !== 19 && level !== 20 && (
           <>
             <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
@@ -739,6 +744,13 @@ export default function ProbabilityPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <div className="max-w-md mx-auto">
                   <ExpectedValueViz />
+              </div>
+          </main>
+      )}
+      {level === 20 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <div className="max-w-md mx-auto">
+                  <RecurrenceViz />
               </div>
           </main>
       )}
