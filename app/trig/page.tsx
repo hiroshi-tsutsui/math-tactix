@@ -18,6 +18,8 @@ import TrigOverlay from './components/TrigOverlay';
 import TrigExplanation from './components/TrigExplanation';
 import TrigQuiz, { QUIZ_DATA } from './components/TrigQuiz';
 import TrigIdentityPractice from './components/TrigIdentityPractice';
+import SurveyingViz from './components/SurveyingViz';
+import CircleRadiusViz from './components/CircleRadiusViz';
 
 // --- Types ---
 type State = {
@@ -127,6 +129,8 @@ export default function TrigPage() {
              level === 9 ? "正弦定理 詳細 (Sine Rule Detail)" :
              level === 10 ? "余弦定理 詳細 (Cosine Rule Detail)" :
              level === 11 ? "三角形の面積公式 (Triangle Area)" :
+             level === 12 ? "測量問題 (Surveying)" :
+             level === 13 ? "外接円・内接円 (Circumscribed/Inscribed)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -149,7 +153,9 @@ export default function TrigPage() {
                       { id: 8, title: "Level 8: 相互関係の計算", desc: "sinθからcosθ, tanθを求める応用", icon: Star },
                       { id: 9, title: "Level 9: 正弦定理（詳細）", desc: "a/sinA = 2R をインタラクティブに確認", icon: Activity },
                       { id: 10, title: "Level 10: 余弦定理（詳細）", desc: "a² = b² + c² - 2bc cosA の視覚化", icon: Target },
-                      { id: 11, title: "Level 11: 三角形の面積公式", desc: "S = (1/2)ab sinC の導出と計算", icon: TrendingUp }
+                      { id: 11, title: "Level 11: 三角形の面積公式", desc: "S = (1/2)ab sinC の導出と計算", icon: TrendingUp },
+                      { id: 12, title: "Level 12: 測量問題", desc: "仰角・俯角から高さを求める", icon: Target },
+                      { id: 13, title: "Level 13: 外接円・内接円", desc: "R = a/(2sinA), r = S/s の視覚化", icon: Circle }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -280,6 +286,24 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-md mx-auto">
                   <TriangleAreaViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 12: Surveying */}
+      {level === 12 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <SurveyingViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 13: Circumscribed/Inscribed Circle */}
+      {level === 13 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <CircleRadiusViz />
               </div>
           </main>
       )}

@@ -51,6 +51,7 @@ import TriangleInequalityViz from './components/TriangleInequalityViz';
 import TwoAbsoluteValuesInequalityViz from './components/TwoAbsoluteValuesInequalityViz';
 import PolynomialDivisionViz from './components/PolynomialDivisionViz';
 import RationalExpressionViz from './components/RationalExpressionViz';
+import NestedRadicalViz from './components/NestedRadicalViz';
 
 
 
@@ -106,7 +107,8 @@ export default function MathINumbers() {
         { id: 40, title: 'ガウス記号 (Gauss Symbol)', type: 'gauss_symbol' },
         { id: 41, title: '2つの絶対値を含む方程式・不等式', type: 'two_absolute_values_inequality' },
         { id: 42, title: '整式の除法 (A = BQ + R)', type: 'polynomial_division' },
-        { id: 43, title: '分数式・有理化', type: 'rational_expression' }
+        { id: 43, title: '分数式・有理化', type: 'rational_expression' },
+        { id: 44, title: '二重根号の変形', type: 'nested_radical' }
 ];
 
   return (
@@ -603,6 +605,19 @@ export default function MathINumbers() {
                     分数式の約分（共通因数で割る）、通分（分母を揃える）、有理化（分母の√を除く）をステップごとに学びます。
                   </p>
                   <RationalExpressionViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 44 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">二重根号の変形 (Nested Radicals)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="\sqrt{a + 2\sqrt{b}} = \sqrt{p} + \sqrt{q}" /> の変形手順をステップごとに学びます。<br/>
+                    <InlineMath math="p + q = a,\; pq = b" /> を満たす p, q を見つけることがポイントです。
+                  </p>
+                  <NestedRadicalViz />
                 </div>
               </div>
             )}

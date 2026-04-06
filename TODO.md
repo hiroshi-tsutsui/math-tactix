@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 008
+現在のサイクル: 009
 最終更新: 2026-04-06
 
 ---
+
+## サイクル009 実施済み
+
+- [x] [優先度:高] trig: 測量問題（仰角・俯角）Level 12 追加 — SurveyingViz.tsx
+- [x] [優先度:高] trig: 外接円・内接円の半径 Level 13 追加 — CircleRadiusViz.tsx
+- [x] [優先度:高] probability: 条件付き確率（詳細）Level 15 追加 — ConditionalProbabilityViz.tsx
+- [x] [優先度:高] math_i_numbers: 二重根号の変形 Level 44 追加 — NestedRadicalViz.tsx
 
 ## サイクル008 実施済み
 
@@ -13,11 +20,11 @@
 
 ## 優先度: 高（数学コンテンツ追加）
 
-- [ ] [優先度:高] [担当:エンジニアA] trig: 三角比の応用（測量問題・木の高さを三角比で求める）Level 12 追加
-- [ ] [優先度:高] [担当:エンジニアA] trig: 三角形の外接円・内接円の半径 Level 13 追加
-- [ ] [優先度:高] [担当:エンジニアA] probability: 条件付き確率 Level 15 追加
+- [x] [優先度:高] [担当:エンジニアA] trig: 三角比の応用（測量問題・木の高さを三角比で求める）Level 12 追加
+- [x] [優先度:高] [担当:エンジニアA] trig: 三角形の外接円・内接円の半径 Level 13 追加
+- [x] [優先度:高] [担当:エンジニアA] probability: 条件付き確率 Level 15 追加
 - [ ] [優先度:高] [担当:エンジニアA] probability: 反復試行・二項定理の基礎 Level 16 追加
-- [ ] [優先度:高] [担当:エンジニアA] math_i_numbers: 二重根号・根号の整理 Level 44 追加
+- [x] [優先度:高] [担当:エンジニアA] math_i_numbers: 二重根号・根号の整理 Level 44 追加
 - [ ] [優先度:高] [担当:エンジニアA] math_i_numbers: 絶対値記号の計算（場合分け）Level 45 追加
 - [ ] [優先度:高] [担当:エンジニアA] sets_logic: ド・モルガンの法則の発展 Level 14 追加
 - [ ] [優先度:高] [担当:エンジニアA] data: 標準偏差・分散の視覚化 Level 14 追加
