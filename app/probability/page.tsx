@@ -19,6 +19,7 @@ import IndistinguishablePermutationViz from "./components/IndistinguishablePermu
 
 import { CombinationRepetitionViz } from './components/CombinationRepetitionViz';
 import GroupingViz from "./components/GroupingViz";
+import ComplementaryEventViz from "./components/ComplementaryEventViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -384,6 +385,7 @@ export default function ProbabilityPage() {
              level === 9 ? "じゅず順列" :
              level === 10 ? "同じものを含む順列" : 
              level === 11 ? "組分け" :
+             level === 12 ? "余事象の確率" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -407,6 +409,7 @@ export default function ProbabilityPage() {
                       { id: 5, title: "Level 5: 最大値の確率", desc: "さいころの最大値がkになる確率", icon: Trophy },
                       { id: 10, title: "Level 10: 同じものを含む順列", desc: "同じ要素が含まれる場合の順列", icon: RefreshCw },
                       { id: 11, title: "Level 11: 組分け", desc: "区別がある部屋と区別がない組の違い", icon: Circle },
+                      { id: 12, title: "Level 12: 余事象の確率", desc: "「少なくとも1つ」を余事象で求める", icon: Compass },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -424,7 +427,7 @@ export default function ProbabilityPage() {
       )}
 
       {/* Visualization Mode */}
-      {level > 0 && level !== 6 && level !== 7 && level !== 8 && (
+      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 12 && (
           <>
             <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
@@ -661,6 +664,11 @@ export default function ProbabilityPage() {
              <GroupingViz />
           </main>
 )}
+      {level === 12 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <ComplementaryEventViz />
+          </main>
+      )}
     </div>
   );
 }
