@@ -124,6 +124,8 @@ import { generateOneRealRootCondition } from './utils/one-real-root-generator';
 
 import 'katex/dist/katex.min.css';
 import IntegerRootsQuadraticViz from "./components/IntegerRootsQuadraticViz";
+import ParametricRootsViz from "./components/ParametricRootsViz";
+import ParabolaLineViz from "./components/ParabolaLineViz";
 
 import { InlineMath, BlockMath } from 'react-katex';
 
@@ -256,6 +258,8 @@ const LEVELS = [
   { id: 66, title: '2次方程式の整数解と係数の決定', type: 'integer_roots_quadratic' },
   { id: 67, title: '絶対値付き2次不等式（全実数解）', type: 'absolute_inequality_all_reals' },
   { id: 68, title: '解の配置（受験頻出パターン）', type: 'roots_placement' },
+  { id: 69, title: '文字係数の二次方程式の解の配置', type: 'parametric_roots' },
+  { id: 70, title: '二次関数と直線の位置関係', type: 'parabola_line' },
 ];
 
 export default function QuadraticPage() {
@@ -873,6 +877,8 @@ export default function QuadraticPage() {
         {currentLevel === 66 && <IntegerRootsQuadraticViz />}
         {currentLevel === 67 && <AbsoluteInequalityAllRealsViz />}
         {currentLevel === 68 && <RootsPlacementViz />}
+        {currentLevel === 69 && <ParametricRootsViz />}
+        {currentLevel === 70 && <ParabolaLineViz />}
 
 
 

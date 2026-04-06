@@ -21,6 +21,8 @@ import TrigQuiz, { QUIZ_DATA } from './components/TrigQuiz';
 import TrigIdentityPractice from './components/TrigIdentityPractice';
 import SurveyingViz from './components/SurveyingViz';
 import CircleRadiusViz from './components/CircleRadiusViz';
+import SineLawApplicationViz from './components/SineLawApplicationViz';
+import TrigEquationViz from './components/TrigEquationViz';
 
 // --- Types ---
 type State = {
@@ -134,6 +136,8 @@ export default function TrigPage() {
              level === 11 ? "三角形の面積公式 (Triangle Area)" :
              level === 12 ? "測量問題 (Surveying)" :
              level === 13 ? "外接円・内接円 (Circumscribed/Inscribed)" :
+             level === 14 ? "正弦定理の活用 (Sine Rule Application)" :
+             level === 15 ? "三角比の方程式 (Trig Equations)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -158,7 +162,9 @@ export default function TrigPage() {
                       { id: 10, title: "Level 10: 余弦定理（詳細）", desc: "a² = b² + c² - 2bc cosA の視覚化", icon: Target },
                       { id: 11, title: "Level 11: 三角形の面積公式", desc: "S = (1/2)ab sinC の導出と計算", icon: TrendingUp },
                       { id: 12, title: "Level 12: 測量問題", desc: "仰角・俯角から高さを求める", icon: Target },
-                      { id: 13, title: "Level 13: 外接円・内接円", desc: "R = a/(2sinA), r = S/s の視覚化", icon: Circle }
+                      { id: 13, title: "Level 13: 外接円・内接円", desc: "R = a/(2sinA), r = S/s の視覚化", icon: Circle },
+                      { id: 14, title: "Level 14: 正弦定理の活用", desc: "正弦定理を使った計算問題演習", icon: Activity },
+                      { id: 15, title: "Level 15: 三角比の方程式", desc: "sinθ=k, cosθ=k, tanθ=k の解", icon: Target }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -307,6 +313,24 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-md mx-auto">
                   <CircleRadiusViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 14: Sine Law Application */}
+      {level === 14 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <SineLawApplicationViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 15: Trig Equations */}
+      {level === 15 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-md mx-auto">
+                  <TrigEquationViz />
               </div>
           </main>
       )}

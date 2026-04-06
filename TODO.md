@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 012
+現在のサイクル: 013
 最終更新: 2026-04-06
 
 ---
+
+## サイクル013 実施済み
+
+- [x] [優先度:高] trig: 正弦定理の活用（三角形の辺・角計算問題）Level 14 追加 — SineLawApplicationViz.tsx
+- [x] [優先度:高] trig: 三角比を含む方程式（sinθ=k の解 etc.）Level 15 追加 — TrigEquationViz.tsx
+- [x] [優先度:高] quadratics: 文字係数の二次方程式の解の配置 Level 69 追加 — ParametricRootsViz.tsx
+- [x] [優先度:高] quadratics: 二次関数と直線の位置関係 Level 70 追加 — ParabolaLineViz.tsx
 
 ## サイクル012 実施済み
 
@@ -28,10 +35,10 @@
 
 ## 優先度: 高（数学コンテンツ追加）
 
-- [ ] [優先度:高] trig: 正弦定理の活用（三角形の辺・角計算問題）Level 14 追加
-- [ ] [優先度:高] trig: 三角比を含む方程式（sinθ=1/2 の解 etc.）Level 15 追加
-- [ ] [優先度:高] quadratics: 文字係数の二次方程式の解の配置 Level 69 追加
-- [ ] [優先度:高] quadratics: 二次関数のグラフと直線の位置関係 Level 70 追加
+- [x] [優先度:高] trig: 正弦定理の活用（三角形の辺・角計算問題）Level 14 追加 → サイクル013
+- [x] [優先度:高] trig: 三角比を含む方程式（sinθ=1/2 の解 etc.）Level 15 追加 → サイクル013
+- [x] [優先度:高] quadratics: 文字係数の二次方程式の解の配置 Level 69 追加 → サイクル013
+- [x] [優先度:高] quadratics: 二次関数のグラフと直線の位置関係 Level 70 追加 → サイクル013
 - [ ] [優先度:高] math_i_numbers: 整数の性質（素因数分解・最大公約数）Level 46 追加
 - [ ] [優先度:高] sets_logic: 背理法・対偶証明の練習 Level 15 追加
 - [ ] [優先度:高] data: 決定係数 R² の視覚化（回帰の精度）Level 16 追加
