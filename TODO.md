@@ -1,8 +1,13 @@
 # Math Tactix TODO
-現在のサイクル: 015
+現在のサイクル: 016
 最終更新: 2026-04-06
 
 ---
+
+## サイクル016 実施済み
+
+- [x] [優先度:中] sets_logic page.tsx 内 inline Viz を components/ に分離（NecessarySufficientBasicViz, ContrapositiveViz, SetElementsViz, ContradictionViz, QuadraticSetsViz, QuantifierNegationViz + 共通 MathComponent）
+- [x] [優先度:中] locales 全横断キー差分の最終チェック — en.json / ja.json の構造不一致を解消（top-level → modules.* 移動、全キー同期完了）
 
 ## サイクル015 実施済み
 
@@ -63,12 +68,12 @@
 - [x] [優先度:中] quadratics page.tsx（Level 70まで追加で巨大化）のリファクタリング — レベル定義を外部ファイルに分離 → サイクル014
 - [x] [優先度:中] probability page.tsx の components/ 分離 — inline canvas の条件修正 → サイクル015
 - [ ] [優先度:中] 共通 MathDisplay を data・quadratics モジュールにも適用（現在は個別の KaTeX 呼び出し）
-- [ ] [優先度:中] locales 全横断キー差分の最終チェック（en.json / ja.json の全モジュール網羅）
+- [x] [優先度:中] locales 全横断キー差分の最終チェック（en.json / ja.json の全モジュール網羅）→ サイクル016
 - [x] [優先度:中] 各モジュールのレベル進行の一貫性確認（難易度が単調増加しているか）→ サイクル015
 - [ ] [優先度:中] 受験頻出問題に対応する Viz コンポーネントが不足しているモジュールを特定し追加計画を立てる
 - [ ] [優先度:中] trig/functions モジュールの内容重複を整理（三角関数の扱いが複数箇所に分散）
 - [ ] [優先度:中] 全モジュールに「解説動画リンク」プレースホルダーの追加検討
-- [ ] [優先度:中] sets_logic page.tsx 内 inline Viz を components/ に分離（NecessarySufficientViz, ContrapositiveViz 等）
+- [x] [優先度:中] sets_logic page.tsx 内 inline Viz を components/ に分離（NecessarySufficientViz, ContrapositiveViz 等）→ サイクル016
 
 ## 優先度: 低（改善・拡張）
 
