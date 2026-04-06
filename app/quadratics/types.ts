@@ -4,7 +4,7 @@ export interface Problem {
   question: string;
   equation?: string;
   equations?: string[];
-  params?: any;
+  params?: Record<string, unknown>;
   explanation?: string | string[];
   answer?: string;
   title?: string;

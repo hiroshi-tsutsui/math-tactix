@@ -138,18 +138,18 @@ interface Problem {
   question: string;
   equation?: string;
   equations?: string[]; // For simultaneous inequalities
-  params?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  params?: Record<string, unknown>;
   explanation?: string | string[];
 
   // Roots Location specific
-  conditions?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
-  parameters?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  conditions?: { discriminant: string; axis: string; boundary?: string; endpoints?: string };
+  parameters?: { m_coeff: number; constant_m: number; constant_val: number };
 
   // Parametric Inequality specific
   fixedRoot?: number;
   variableRootExpr?: string;
   inequalitySign?: '<' | '>' | '<=' | '>=';
-  cases?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  cases?: { condition: string; solution: string }[];
 
   // Definite Inequality specific
   inequality?: string;
@@ -160,7 +160,7 @@ interface Problem {
   expansion?: string;
 
   // Simultaneous Inequality specific
-  ranges?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
+  ranges?: { min: number; max: number; type: 'inside' | 'outside' }[];
 
   // Moving Domain specific
   p?: number;
@@ -168,7 +168,7 @@ interface Problem {
   width?: number;
 
   // Moving Axis specific
-  domain?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  domain?: { start: number; end: number } | [number, number];
 
   // Shape Optimization specific
   totalLength?: number;
@@ -182,8 +182,24 @@ interface Problem {
   rangeStart?: number;
   rangeEnd?: number;
   vertex?: [number, number];
-    target?: 'max' | 'min';
+  target?: 'max' | 'min';
   generalForm?: string;
+
+  // Graph Transformation specific
+  original?: { a: number; p: number; q: number };
+  transformation?: { type: 'translation' | 'symmetry_x' | 'symmetry_y' | 'symmetry_origin'; dx?: number; dy?: number };
+  answer?: string;
+
+  // Moving Axis specific
+  problemType?: 'min' | 'max';
+
+  // Parametric Inequality / Multiple Absolute specific
+  questionText?: string;
+
+  // Translation specific
+  shift?: { dx: number; dy: number };
+  answerString?: string;
+
 }
 
 export default function QuadraticPage() {
@@ -421,7 +437,7 @@ export default function QuadraticPage() {
           newProblem = { id: Date.now(), title: '解の配置（受験頻出パターン）', type: 'roots_placement' };
           break;
       }
-      setProblem(newProblem as any);
+      setProblem(newProblem as Problem);
     } catch (e) {
       console.error("Error generating problem:", e);
     }
@@ -469,7 +485,7 @@ export default function QuadraticPage() {
             <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
               <h2 className="text-lg font-bold text-blue-900 mb-2">問題</h2>
               <p className="text-xl mb-4 text-gray-800 font-medium">
-                {problem.question || (problem as any).questionText}
+                {problem.question || problem.questionText}
               </p>
               
               <div className="bg-white p-6 rounded shadow-inner border border-blue-100 flex justify-center items-center my-4">
@@ -480,7 +496,7 @@ export default function QuadraticPage() {
                      <BlockMath math={`\\begin{cases} ${problem.equations[0]} \\\\ ${problem.equations[1]} \\end{cases}`} />
                   </div>
                 ) : (
-                  <BlockMath math={(problem as any).inequality || (problem as any).questionText || ""} />
+                  <BlockMath math={problem.inequality || problem.questionText || ""} />
                 ))}
               </div>
             </div>
@@ -530,7 +546,7 @@ export default function QuadraticPage() {
 
                 {currentLevel === 2 && (
                   <div className="space-y-4 w-full">
-                     <RootsLocationViz type={problem.type as any} m={mValue} />
+                     <RootsLocationViz type={problem.type as 'positive' | 'negative' | 'different'} m={mValue} />
                      <div className="flex flex-col gap-2 bg-white p-3 rounded border">
                         <label className="font-bold text-gray-700 flex justify-between">
                           <span>パラメータ m</span>
@@ -555,11 +571,11 @@ export default function QuadraticPage() {
                   />
                 )}
 
-                {currentLevel === 4 && (problem as any).domain && (
-                  <MovingAxisViz 
-                    domain={(problem as any).domain} 
-                    q={3} 
-                    initialMode={(problem as any).problemType || 'min'}
+                {currentLevel === 4 && problem.domain && (
+                  <MovingAxisViz
+                    domain={problem.domain as { start: number; end: number }}
+                    q={3}
+                    initialMode={problem.problemType || 'min'}
                   />
                 )}
 
@@ -583,7 +599,7 @@ export default function QuadraticPage() {
                 )}
 
                 {currentLevel === 6 && problem.params && (
-                  <CoefficientViz params={problem.params} />
+                  <CoefficientViz params={problem.params as { points: { x: number; y: number; label?: string }[]; vertex?: { x: number; y: number }; a: number; b: number; c: number }} />
                 )}
 
                 {currentLevel === 7 && problem.fixedRoot !== undefined && (
@@ -594,19 +610,18 @@ export default function QuadraticPage() {
                 )}
 
                 {currentLevel === 8 && problem && (
-                  <GraphTransformationViz 
-                     initialParams={(problem as any).original}
-                     targetParams={showExplanation ? (problem as any).answer : undefined}
-                     transformationType={(problem as any).transformation?.type}
+                  <GraphTransformationViz
+                     initialParams={problem.original}
+                     transformationType={problem.transformation?.type}
                   />
                 )}
                 
                 {currentLevel === 9 && (
-                  <QuadraticInequalityViz 
-                    a={(problem as any).params.a} 
-                    b={(problem as any).params.b} 
-                    c={(problem as any).params.c} 
-                    inequalitySign={(problem as any).params.inequalitySign}
+                  <QuadraticInequalityViz
+                    a={problem.params?.a as number}
+                    b={problem.params?.b as number}
+                    c={problem.params?.c as number}
+                    inequalitySign={problem.params?.inequalitySign as string}
                   />
                 )}
                 
@@ -622,23 +637,23 @@ export default function QuadraticPage() {
                   <AbsoluteValueGraphViz />
                 )}
 
-                {currentLevel === 13 && (problem as any).params?.totalLength && (
-                  <ShapeOptimizationViz 
-                    totalLength={(problem as any).params.totalLength}
+                {currentLevel === 13 && (problem.params?.totalLength != null) && (
+                  <ShapeOptimizationViz
+                    totalLength={problem.params.totalLength as number}
                   />
                 )}
 
-                {currentLevel === 14 && (problem as any).params?.a && (
-                  <AbsoluteValueEquationViz 
-                    a={(problem as any).params.a}
-                    initialK={(problem as any).params.k || 2}
-                    mode={(problem as any).params.mode}
+                {currentLevel === 14 && (problem.params?.a != null) && (
+                  <AbsoluteValueEquationViz
+                    a={problem.params.a as number}
+                    initialK={(problem.params.k as number) || 2}
+                    mode={problem.params.mode as 'count' | 'range'}
                   />
                 )}
 
-                {currentLevel === 14 && (problem as any).a_val && (
-                  <AbsoluteValueEquationViz 
-                    a={(problem as any).a_val}
+                {currentLevel === 14 && problem.a_val && (
+                  <AbsoluteValueEquationViz
+                    a={problem.a_val}
                   />
                 )}
 
@@ -646,7 +661,7 @@ export default function QuadraticPage() {
                   <SolutionsInRangeViz problem={problem} />
                 )}
 
-                {currentLevel === 16 && (
+                {currentLevel === 16 && problem.params && (
                   <DeterminationViz params={problem.params} />
                 )}
 
@@ -672,14 +687,14 @@ export default function QuadraticPage() {
                   <AbsoluteInequalityViz />
                 )}
                 {currentLevel === 26 && (
-                  <AbsoluteValueInequalityViz a={(problem as any).params?.a || 2} initialM={(problem as any).params?.m || 1} initialN={(problem as any).params?.n || 1} />
+                  <AbsoluteValueInequalityViz a={(problem.params?.a as number) || 2} initialM={(problem.params?.m as number) || 1} initialN={(problem.params?.n as number) || 1} />
                 )}
                 {currentLevel === 27 && problem && (
                 
                   <SignOfRootsViz problem={problem} />
                 )}
                 {currentLevel === 28 && problem && (
-                  <AbsoluteGraphLineViz problem={problem as any} />
+                  <AbsoluteGraphLineViz problem={problem as unknown as { description: string; explanation: string; a: number; b: number; c: number }} />
                 )}
                 {currentLevel === 29 && problem && (
                   <MultipleAbsoluteViz />
@@ -690,13 +705,13 @@ export default function QuadraticPage() {
                 {currentLevel === 22 && problem && (
                   <SubstitutionMaxMinViz problem={problem} />
                 )}
-                {currentLevel === 20 && (problem as any).domain && (problem as any).vertex && (
-                  <MaxMinViz 
-                    a={(problem as any).generalForm.includes('-') && !(problem as any).generalForm.startsWith('y = x') && !(problem as any).generalForm.startsWith('y = (x') ? -1 : 1} 
-                    p={(problem as any).vertex[0]} 
-                    q={(problem as any).vertex[1]} 
-                    domain={(problem as any).domain as [number, number]} 
-                    target={(problem as any).target as 'max' | 'min'} 
+                {currentLevel === 20 && problem.domain && problem.vertex && (
+                  <MaxMinViz
+                    a={problem.generalForm?.includes('-') && !problem.generalForm?.startsWith('y = x') && !problem.generalForm?.startsWith('y = (x') ? -1 : 1}
+                    p={problem.vertex[0]}
+                    q={problem.vertex[1]}
+                    domain={problem.domain as [number, number]}
+                    target={problem.target || 'min'}
                   />
                 )}
               </div>
@@ -743,7 +758,7 @@ export default function QuadraticPage() {
                           <div>
                             <p>この問題はグラフを描いて定数 <InlineMath math="a" /> の位置による場合分けが必要です。</p>
                             <ul className="list-disc pl-5 mt-2 space-y-1">
-                              {(problem as any).cases?.map((c: any, i: number) => (
+                              {problem.cases?.map((c, i) => (
                                 <li key={i}>
                                   <strong><InlineMath math={c.condition} /></strong> のとき: <InlineMath math={c.solution} />
                                 </li>
@@ -752,8 +767,8 @@ export default function QuadraticPage() {
                           </div>
                         ) : currentLevel === 5 ? (
                           <div>
-                             <p>条件: <InlineMath math={(problem as any).condition} /></p>
-                             <p className="mt-2 font-bold">答え: <InlineMath math={(problem as any).answer} /></p>
+                             <p>条件: <InlineMath math={problem.condition || ""} /></p>
+                             <p className="mt-2 font-bold">答え: <InlineMath math={problem.answer || ""} /></p>
                           </div>
                         ) : (
                           <div className="text-gray-500 italic">解説は準備中です。視覚化ツールを使って確認してみましょう。</div>

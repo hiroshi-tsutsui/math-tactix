@@ -12,11 +12,11 @@ export const AbsoluteValueMaxMinViz: React.FC<Props> = ({ problem, isCorrect }) 
   const { resolvedTheme } = useTheme();
   
   // Extract parameters from params safely
-  const meta = problem.params as any;
-  const b = meta?.b || -4;
-  const c = meta?.c || 3;
+  const meta = problem.params;
+  const b = (meta?.b as number) || -4;
+  const c = (meta?.c as number) || 3;
   // Make domain interactive
-  const defaultDomain = meta?.domain || [0, 4];
+  const defaultDomain = (meta?.domain as number[]) || [0, 4];
   const [domainA, setDomainA] = useState<number>(defaultDomain[0]);
   const [domainB, setDomainB] = useState<number>(defaultDomain[1]);
 

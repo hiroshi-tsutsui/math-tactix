@@ -25,6 +25,7 @@ import IndependentEventViz from "./components/IndependentEventViz";
 import AdditionRuleViz from "./components/AdditionRuleViz";
 import ConditionalProbabilityViz from "./components/ConditionalProbabilityViz";
 import BinomialTrialViz from "./components/BinomialTrialViz";
+import BayesTheoremViz from "./components/BayesTheoremViz";
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -397,6 +398,7 @@ export default function ProbabilityPage() {
              level === 14 ? "確率の加法定理" :
              level === 15 ? "条件付き確率（詳細）" :
              level === 16 ? "反復試行の定理" :
+             level === 17 ? "ベイズの定理" :
              "Probability"}
         </div>
         <div className="w-10" />
@@ -425,6 +427,7 @@ export default function ProbabilityPage() {
                       { id: 14, title: "Level 14: 確率の加法定理", desc: "P(A∪B) = P(A)+P(B)-P(A∩B) のベン図視覚化", icon: Target },
                       { id: 15, title: "Level 15: 条件付き確率（詳細）", desc: "P(B|A) = P(A∩B)/P(A) のベン図・樹形図", icon: HelpCircle },
                       { id: 16, title: "Level 16: 反復試行の定理", desc: "二項分布と反復試行の確率計算", icon: Activity },
+                      { id: 17, title: "Level 17: ベイズの定理", desc: "P(A|B) = P(B|A)P(A)/P(B) の視覚化", icon: HelpCircle },
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white border border-slate-200 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition-all group text-left shadow-sm hover:shadow-md">
@@ -442,7 +445,7 @@ export default function ProbabilityPage() {
       )}
 
       {/* Visualization Mode */}
-      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 12 && level !== 14 && (
+      {level > 0 && level !== 6 && level !== 7 && level !== 8 && level !== 9 && level !== 10 && level !== 11 && level !== 12 && level !== 13 && level !== 14 && level !== 15 && level !== 16 && level !== 17 && (
           <>
             <section className="shrink-0 bg-slate-50 border-b border-slate-100 flex items-center justify-center p-4 relative h-[400px]">
                 <div className="w-full max-w-md aspect-square bg-white rounded-[48px] border border-slate-200/60 shadow-inner overflow-hidden relative">
@@ -709,6 +712,13 @@ export default function ProbabilityPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
               <div className="max-w-md mx-auto">
                   <BinomialTrialViz />
+              </div>
+          </main>
+      )}
+      {level === 17 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6">
+              <div className="max-w-md mx-auto">
+                  <BayesTheoremViz />
               </div>
           </main>
       )}

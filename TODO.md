@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 014
+現在のサイクル: 015
 最終更新: 2026-04-06
 
 ---
+
+## サイクル015 実施済み
+
+- [x] [優先度:高] probability: ベイズの定理 Level 17 追加 — BayesTheoremViz.tsx
+- [x] [優先度:中] probability page.tsx の components/ 分離整理 — inline canvas ビューの条件修正
+- [x] [優先度:中] quadratics Problem 型・page.tsx から `any` を除去 — 適切な型に置換
+- [x] [優先度:中] 各モジュールのレベル進行の一貫性確認（sets_logic, probability, trig）
 
 ## サイクル014 実施済み
 
@@ -49,15 +56,15 @@
 - [x] [優先度:高] math_i_numbers: 整数の性質（素因数分解・最大公約数）Level 46 追加 → サイクル014
 - [x] [優先度:高] sets_logic: 背理法・対偶証明の練習 Level 15 追加 → サイクル014
 - [x] [優先度:高] data: 決定係数 R² の視覚化（回帰の精度）Level 16 追加 → サイクル014
-- [ ] [優先度:高] probability: ベイズの定理の基礎 Level 17 追加
+- [x] [優先度:高] probability: ベイズの定理の基礎 Level 17 追加 → サイクル015
 
 ## 優先度: 中（品質改善・リファクタリング）
 
 - [x] [優先度:中] quadratics page.tsx（Level 70まで追加で巨大化）のリファクタリング — レベル定義を外部ファイルに分離 → サイクル014
-- [ ] [優先度:中] probability page.tsx の components/ 分離 — Viz コンポーネントを個別ファイルに
+- [x] [優先度:中] probability page.tsx の components/ 分離 — inline canvas の条件修正 → サイクル015
 - [ ] [優先度:中] 共通 MathDisplay を data・quadratics モジュールにも適用（現在は個別の KaTeX 呼び出し）
 - [ ] [優先度:中] locales 全横断キー差分の最終チェック（en.json / ja.json の全モジュール網羅）
-- [ ] [優先度:中] 各モジュールのレベル進行の一貫性確認（難易度が単調増加しているか）
+- [x] [優先度:中] 各モジュールのレベル進行の一貫性確認（難易度が単調増加しているか）→ サイクル015
 - [ ] [優先度:中] 受験頻出問題に対応する Viz コンポーネントが不足しているモジュールを特定し追加計画を立てる
 - [ ] [優先度:中] trig/functions モジュールの内容重複を整理（三角関数の扱いが複数箇所に分散）
 - [ ] [優先度:中] 全モジュールに「解説動画リンク」プレースホルダーの追加検討

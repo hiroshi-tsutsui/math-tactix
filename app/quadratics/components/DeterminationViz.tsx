@@ -1,10 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-interface DeterminationVizProps {
-  params: any;
+interface PointXY {
+  x: number;
+  y: number;
+  label?: string;
 }
 
-const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
+interface DeterminationParams {
+  type: string;
+  a: number;
+  b?: number;
+  c?: number;
+  p?: number;
+  q?: number;
+  x1?: number;
+  y1?: number;
+  axis?: number;
+  alpha?: number;
+  beta?: number;
+  p1?: PointXY;
+  p2?: PointXY;
+  p3?: PointXY;
+  points?: PointXY[];
+  vertex?: PointXY;
+}
+
+interface DeterminationVizProps {
+  params: DeterminationParams | Record<string, unknown>;
+}
+
+const DeterminationViz: React.FC<DeterminationVizProps> = ({ params: rawParams }) => {
+  const params = rawParams as DeterminationParams;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [userA, setUserA] = useState(1);
   const [userB, setUserB] = useState(0); // Also used as 'p' or 'alpha'
@@ -115,7 +141,7 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
 
     // Draw Target Points based on type
     if (params.type === 'vertex_point') {
-      const { p, q, x1, y1, a } = params;
+      const { p = 0, q = 0, x1 = 0, y1 = 0 } = params;
       plotPoint(p, q, '#dc2626', "頂点");
       plotPoint(x1, y1, '#059669', "点");
       
@@ -126,8 +152,8 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
       drawParabola(userA, -2*userA*userB, userA*userB*userB + userC, '#2563eb');
 
     } else if (params.type === 'axis_points') {
-      const { axis, p1, p2, a, q } = params;
-      
+      const { axis = 0, p1, p2 } = params;
+
       // Draw Target Axis
       const pAxis = centerX + axis * scale;
       ctx.strokeStyle = '#fca5a5';
@@ -137,8 +163,8 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
       ctx.stroke();
       ctx.setLineDash([]);
       
-      plotPoint(p1.x, p1.y, '#059669', "点1");
-      plotPoint(p2.x, p2.y, '#059669', "点2");
+      if (p1) plotPoint(p1.x, p1.y, '#059669', "点1");
+      if (p2) plotPoint(p2.x, p2.y, '#059669', "点2");
 
       // User equation: y = userA(x-userB)^2 + userC  (userB is axis)
       // Draw User Axis
@@ -153,10 +179,10 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
       drawParabola(userA, -2*userA*userB, userA*userB*userB + userC, '#2563eb');
 
     } else if (params.type === 'intercepts_point') {
-      const { alpha, beta, p1, a } = params;
+      const { alpha = 0, beta = 0, p1 } = params;
       plotPoint(alpha, 0, '#dc2626', "α");
       plotPoint(beta, 0, '#dc2626', "β");
-      plotPoint(p1.x, p1.y, '#059669', "点");
+      if (p1) plotPoint(p1.x, p1.y, '#059669', "点");
 
       // User equation: y = userA(x-userB)(x-userC) = userA(x^2 - (B+C)x + BC)
       const b = -userA * (userB + userC);
@@ -164,10 +190,10 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params }) => {
       drawParabola(userA, b, c, '#2563eb');
 
     } else if (params.type === 'three_points') {
-      const { p1, p2, p3, a, b, c } = params;
-      plotPoint(p1.x, p1.y, '#059669', "A");
-      plotPoint(p2.x, p2.y, '#059669', "B");
-      plotPoint(p3.x, p3.y, '#059669', "C");
+      const { p1, p2, p3 } = params;
+      if (p1) plotPoint(p1.x, p1.y, '#059669', "A");
+      if (p2) plotPoint(p2.x, p2.y, '#059669', "B");
+      if (p3) plotPoint(p3.x, p3.y, '#059669', "C");
       
       // User equation: y = userA x^2 + userB x + userC
       drawParabola(userA, userB, userC, '#2563eb');

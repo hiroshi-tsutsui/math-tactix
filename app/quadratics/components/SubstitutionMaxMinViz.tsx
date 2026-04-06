@@ -9,7 +9,10 @@ interface SubstitutionMaxMinVizProps {
 }
 
 export default function SubstitutionMaxMinViz({ problem }: SubstitutionMaxMinVizProps) {
-  const { a, b, c, x_max } = problem.params;
+  const a = (problem.params?.a as number) || 0;
+  const b = (problem.params?.b as number) || 0;
+  const c = (problem.params?.c as number) || 0;
+  const x_max = (problem.params?.x_max as number) || 0;
   const canvasTRef = useRef<HTMLCanvasElement>(null);
   const canvasYRef = useRef<HTMLCanvasElement>(null);
   const [currentX, setCurrentX] = useState<number>(0);
