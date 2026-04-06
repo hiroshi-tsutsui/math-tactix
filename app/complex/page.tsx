@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -14,9 +13,8 @@ const MODULE_ID = 'complex';
 
 export default function ComplexPage() {
   const { moduleProgress, completeLevel } = useProgress();
-  const { t, locale } = useLanguage();
+  const { t, language } = useLanguage();
   const { unlockBadge } = useGamification();
-  const language = locale; // Alias for compatibility with effect hook
   const [currentLevel, setCurrentLevel] = useState(1);
   const [re1, setRe1] = useState(1);
   const [im1, setIm1] = useState(0);
@@ -28,9 +26,9 @@ export default function ComplexPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const LEVELS = [
-    { id: 1, name: t('modules.complex.levels.1.name'), desc: t('modules.complex.levels.1.desc'), condition: (r, i) => Math.abs(r) < 0.1 && Math.abs(i - 1) < 0.1 },
-    { id: 2, name: t('modules.complex.levels.2.name'), desc: t('modules.complex.levels.2.desc'), condition: (r, i) => Math.abs(r - i) < 0.2 && Math.sqrt(r*r + i*i) > 1.2 },
-    { id: 3, name: t('modules.complex.levels.3.name'), desc: t('modules.complex.levels.3.desc'), condition: (r, i) => Math.abs(i) < 0.1 && Math.abs(r) > 0.5 }
+    { id: 1, name: t('modules.complex.levels.1.name'), desc: t('modules.complex.levels.1.desc'), condition: (r: number, i: number) => Math.abs(r) < 0.1 && Math.abs(i - 1) < 0.1 },
+    { id: 2, name: t('modules.complex.levels.2.name'), desc: t('modules.complex.levels.2.desc'), condition: (r: number, i: number) => Math.abs(r - i) < 0.2 && Math.sqrt(r*r + i*i) > 1.2 },
+    { id: 3, name: t('modules.complex.levels.3.name'), desc: t('modules.complex.levels.3.desc'), condition: (r: number, i: number) => Math.abs(i) < 0.1 && Math.abs(r) > 0.5 }
   ];
 
   useEffect(() => {
@@ -69,6 +67,7 @@ export default function ComplexPage() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     const w = canvas.width, h = canvas.height, cx = w/2, cy = h/2, unit = 50;
 
     ctx.clearRect(0, 0, w, h);
@@ -80,7 +79,7 @@ export default function ComplexPage() {
     ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
 
-    const drawVec = (r, i, color, label, bold = false) => {
+    const drawVec = (r: number, i: number, color: string, label: string, bold = false) => {
         const tx = cx + r * unit, ty = cy - i * unit;
         ctx.strokeStyle = color; ctx.lineWidth = bold ? 4 : 2;
         ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty); ctx.stroke();

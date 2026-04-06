@@ -1,5 +1,5 @@
 # Math Tactix TODO
-現在のサイクル: 001
+現在のサイクル: 002
 最終更新: 2026-04-06
 
 ---
@@ -19,16 +19,16 @@
 
 ## 優先度: 中（コード品質・アーキテクチャ）
 
-- [ ] [優先度:中] [担当:エンジニアB] `app/complex/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/codex/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/quiz/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/vectors/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/sequences/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/functions/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/calculus/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/matrices/page.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアB] `app/components/BallsInBins.tsx` の `// @ts-nocheck` を除去する
-- [ ] [優先度:中] [担当:エンジニアA] `components/` ルートに置かれている Viz コンポーネント（AbsoluteInequalityAllRealsViz.tsx 等）を対応モジュールの `app/*/components/` に移動し、インポートパスを修正する
+- [x] [優先度:中] [担当:エンジニアB] `app/complex/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/codex/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/quiz/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/vectors/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/sequences/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/functions/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/calculus/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/matrices/page.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアB] `app/components/BallsInBins.tsx` の `// @ts-nocheck` を除去する
+- [x] [優先度:中] [担当:エンジニアA] `components/` ルートに置かれている Viz コンポーネント（AbsoluteInequalityAllRealsViz.tsx 等）を対応モジュールの `app/*/components/` に移動し、インポートパスを修正する
 
 ## 優先度: 中（数学コンテンツ充実）
 

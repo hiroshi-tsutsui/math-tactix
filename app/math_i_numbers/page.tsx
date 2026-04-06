@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import SimultaneousLinearInequalitiesViz from '../components/math/SimultaneousLinearInequalitiesViz';
-import ValueAbsoluteViz from '@/components/ValueAbsoluteViz';
+import ValueAbsoluteViz from './components/ValueAbsoluteViz';
 
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';

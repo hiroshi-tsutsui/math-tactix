@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -79,7 +78,7 @@ export default function SequencesPage() {
     const maxVal = Math.max(...arithmeticData, ...geometricData, 10);
     const range = maxVal || 1;
 
-    const draw = (data, color) => {
+    const draw = (data: number[], color: string) => {
         ctx.strokeStyle = color; ctx.lineWidth = 3; ctx.beginPath();
         data.forEach((val, i) => {
             const x = (i / (n-1)) * w;

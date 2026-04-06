@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -10,7 +9,22 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const questionsData = [
+interface QuestionLocale {
+  category: string;
+  query: string;
+  options: string[];
+  explanation: string;
+}
+
+interface QuestionData {
+  id: string;
+  answer: string;
+  correctIndex?: number;
+  ja: QuestionLocale;
+  en: QuestionLocale;
+}
+
+const questionsData: QuestionData[] = [
   {
     id: "Q-001",
     answer: "2x",
@@ -134,7 +148,7 @@ export default function QuizPage() {
         });
       }, 500);
     }
-    return () => clearInterval(timerRef.current);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [status]);
 
   const handleOptionClick = (index: number) => {

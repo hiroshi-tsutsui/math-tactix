@@ -1,7 +1,7 @@
 "use client";
 
-import TetrahedronViz from "../../components/TetrahedronViz";
-import ConeShortestPathViz from '../../components/ConeShortestPathViz';
+import TetrahedronViz from "./components/TetrahedronViz";
+import ConeShortestPathViz from './components/ConeShortestPathViz';
 import React, { useState, useEffect, useRef, useReducer } from 'react';
 import { GeistSans } from 'geist/font/sans';
 import { 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -33,11 +32,11 @@ export default function MatricesPage() {
 
   useEffect(() => {
     // Check Victory
-    const isClose = (a, b) => Math.abs(a - b) < 0.1;
-    const t = levelData.target;
+    const isClose = (a: number, b: number) => Math.abs(a - b) < 0.1;
+    const target = levelData.target;
     if (
-        isClose(matrix[0][0], t[0][0]) && isClose(matrix[0][1], t[0][1]) &&
-        isClose(matrix[1][0], t[1][0]) && isClose(matrix[1][1], t[1][1])
+        isClose(matrix[0][0], target[0][0]) && isClose(matrix[0][1], target[0][1]) &&
+        isClose(matrix[1][0], target[1][0]) && isClose(matrix[1][1], target[1][1])
     ) {
         if (!showUnlock) {
             setShowUnlock(true);
@@ -86,10 +85,9 @@ export default function MatricesPage() {
     );
   }
 
-  const handleInputChange = (r, c, val) => {
+  const handleInputChange = (r: 0 | 1, c: 0 | 1, val: string) => {
       const num = parseFloat(val) || 0;
-      const newM = [...matrix];
-      newM[r] = [...newM[r]];
+      const newM: [[number, number], [number, number]] = [[...matrix[0]], [...matrix[1]]];
       newM[r][c] = num;
       setMatrix(newM);
   };

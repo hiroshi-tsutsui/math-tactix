@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState, useEffect, useMemo } from 'react';
@@ -22,7 +21,7 @@ export default function CalculusPage() {
   const [log, setLog] = useState<string[]>([]);
 
   // Define levels dynamically based on current language
-  const levels = useMemo(() => [
+  const levels = useMemo<{ id: number; name: string; desc: string; targetSlope?: number; targetArea?: number; type: string; logStart: string }[]>(() => [
     { 
       id: 1, 
       name: t('modules.calculus.levels.1.name'), 
@@ -70,9 +69,9 @@ export default function CalculusPage() {
 
   let isComplete = false;
   if (currentLevel) {
-    if (currentLevel.type === 'diff') isComplete = Math.abs(currentSlope) >= currentLevel.targetSlope;
-    if (currentLevel.type === 'zero') isComplete = Math.abs(currentSlope) <= currentLevel.targetSlope;
-    if (currentLevel.type === 'int') isComplete = currentArea >= currentLevel.targetArea;
+    if (currentLevel.type === 'diff' && currentLevel.targetSlope !== undefined) isComplete = Math.abs(currentSlope) >= currentLevel.targetSlope;
+    if (currentLevel.type === 'zero' && currentLevel.targetSlope !== undefined) isComplete = Math.abs(currentSlope) <= currentLevel.targetSlope;
+    if (currentLevel.type === 'int' && currentLevel.targetArea !== undefined) isComplete = currentArea >= currentLevel.targetArea;
   }
 
   useEffect(() => {
