@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const ConditionForSimultaneousInequalitiesViz = () => {
   const [a, setA] = useState(1);
@@ -185,6 +186,12 @@ const ConditionForSimultaneousInequalitiesViz = () => {
           </p>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "連立不等式は、各不等式の解の範囲の共通部分（交わり）を求めます。" },
+        { step: 2, text: "数直線上で各不等式の解の範囲を図示し、重なる部分を見つけましょう。" },
+        { step: 3, text: "共通部分が存在するための条件（パラメータの範囲）を考えます。" },
+        { step: 4, text: "共通部分が空集合にならないよう、境界条件を不等式で表しましょう。" }
+      ]} />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const FormulaValuesViz = () => {
   const [a, setA] = useState(2);
@@ -95,6 +96,12 @@ const FormulaValuesViz = () => {
           スライダーを動かして、<InlineMath math="b" /> が負の数のときにカッコがどのように機能するか視覚的に確認しましょう。
         </p>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "対称式の基本は s = a + b（和）と p = ab（積）です。" },
+        { step: 2, text: "a² + b² = s² - 2p、a³ + b³ = s³ - 3sp などの公式を使います。" },
+        { step: 3, text: "与えられた条件から s と p の値を求め、目的の式に代入しましょう。" },
+        { step: 4, text: "分数式 1/a + 1/b = s/p のように、すべて s, p で表現できます。" }
+      ]} />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function MaxIntegerSolutionViz() {
   const [aValue, setAValue] = useState(3.5);
@@ -85,6 +86,12 @@ export default function MaxIntegerSolutionViz() {
           </li>
         </ul>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "まず不等式を解いて、解の範囲を求めましょう。" },
+        { step: 2, text: "解の範囲の上限に最も近い整数が最大整数解です。" },
+        { step: 3, text: "上限が整数で、等号を含む（≤）なら、その整数自体が最大整数解です。" },
+        { step: 4, text: "上限が整数で、等号を含まない（<）なら、その整数の1つ下が最大整数解です。" }
+      ]} />
     </div>
   );
 }

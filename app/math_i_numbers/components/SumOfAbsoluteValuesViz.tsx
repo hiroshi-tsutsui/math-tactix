@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export default function SumOfAbsoluteValuesViz() {
   const [numTerms, setNumTerms] = useState(3);
@@ -245,6 +246,12 @@ export default function SumOfAbsoluteValuesViz() {
           </li>
         </ul>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "|x - a| は数直線上で x と a の距離を表します。" },
+        { step: 2, text: "|x - a| + |x - b| は、x から a, b までの距離の和です。" },
+        { step: 3, text: "距離の和が最小になるのは、x が a と b の間にあるときです。" },
+        { step: 4, text: "最小値は |a - b|（2点間の距離）となり、a ≤ x ≤ b のとき達成されます。" }
+      ]} />
     </div>
   );
 }

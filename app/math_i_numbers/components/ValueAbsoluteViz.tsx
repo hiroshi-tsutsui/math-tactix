@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const ValueAbsoluteViz: React.FC = () => {
   const [a, setA] = useState<number>(3);
@@ -74,6 +75,12 @@ const ValueAbsoluteViz: React.FC = () => {
           </motion.div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "絶対値 |a| は、a ≥ 0 なら a、a < 0 なら -a です。" },
+        { step: 2, text: "数直線上で |a| は原点からの距離を表します。" },
+        { step: 3, text: "絶対値を含む式の値を求めるには、中身の符号を確認して場合分けしましょう。" },
+        { step: 4, text: "複数の絶対値がある場合は、すべての境界点を求めてから場合分けします。" }
+      ]} />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 /* ── KaTeX helpers ── */
 const K = ({ tex }: { tex: string }) => {
@@ -474,6 +475,12 @@ export default function PrimeFactorizationViz() {
           })}
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "素因数分解とは、自然数を素数の積で表すことです。" },
+        { step: 2, text: "最小の素数 2 から順に割り切れるか試していきます。" },
+        { step: 3, text: "割り切れたら商に対して同じ操作を繰り返します。商が 1 になるまで続けます。" },
+        { step: 4, text: "素因数分解の結果は一意（素因数分解の一意性）で、約数の個数や最大公約数の計算に活用できます。" }
+      ]} />
     </div>
   );
 }

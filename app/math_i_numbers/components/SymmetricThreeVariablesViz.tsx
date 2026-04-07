@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const SymmetricThreeVariablesViz = () => {
   const [step, setStep] = useState(0);
@@ -85,6 +86,12 @@ const SymmetricThreeVariablesViz = () => {
           {step === steps.length - 1 ? '完了' : '次のステップ'}
         </button>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "3変数の対称式は、基本対称式 s₁ = a+b+c、s₂ = ab+bc+ca、s₃ = abc で表せます。" },
+        { step: 2, text: "a² + b² + c² = s₁² - 2s₂ のように、基本対称式の組合せに変換しましょう。" },
+        { step: 3, text: "a³ + b³ + c³ = s₁³ - 3s₁s₂ + 3s₃（ニュートンの恒等式）です。" },
+        { step: 4, text: "与えられた条件から s₁, s₂, s₃ を求め、目的の式に代入しましょう。" }
+      ]} />
     </div>
   );
 };

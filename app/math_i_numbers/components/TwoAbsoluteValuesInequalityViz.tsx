@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function TwoAbsoluteValuesInequalityViz() {
   const [x, setX] = useState<number>(0);
@@ -124,6 +125,12 @@ export default function TwoAbsoluteValuesInequalityViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "2つの絶対値を含む不等式は、絶対値の中身が 0 になる境界点で場合分けします。" },
+        { step: 2, text: "境界点で数直線を区間に分け、各区間で絶対値を外して不等式を解きます。" },
+        { step: 3, text: "各区間の解が、その区間の範囲内にあるか必ず確認しましょう。" },
+        { step: 4, text: "最後に全区間の解を合わせて（和集合をとって）最終的な解を求めます。" }
+      ]} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 export default function FactoringSubstitutionViz() {
   const [step, setStep] = useState(0);
@@ -132,6 +133,12 @@ export default function FactoringSubstitutionViz() {
           次の手順
         </button>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "複雑な式に共通する部分式を見つけ、それを新しい文字（t など）で置換しましょう。" },
+        { step: 2, text: "置換後の式が二次式などのシンプルな形になるか確認します。" },
+        { step: 3, text: "置換した文字で因数分解し、元の式に戻して展開・整理します。" },
+        { step: 4, text: "置換した文字の範囲（例: t > 0）に注意して、解の妥当性を検証しましょう。" }
+      ]} />
     </div>
   );
 }

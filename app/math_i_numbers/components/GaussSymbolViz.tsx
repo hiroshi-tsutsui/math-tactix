@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 export default function GaussSymbolViz() {
   const [x, setX] = useState(2.3);
@@ -101,6 +102,12 @@ export default function GaussSymbolViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "ガウス記号 [x]（または ⌊x⌋）は、x を超えない最大の整数を表します。" },
+        { step: 2, text: "例: [3.7] = 3、[-2.3] = -3（負の方向に切り捨て）です。" },
+        { step: 3, text: "n ≤ x < n+1 のとき [x] = n が成り立ちます。" },
+        { step: 4, text: "方程式に [x] が含まれる場合、[x] = n と置いて n ≤ x < n+1 の範囲で解きましょう。" }
+      ]} />
     </div>
   );
 }

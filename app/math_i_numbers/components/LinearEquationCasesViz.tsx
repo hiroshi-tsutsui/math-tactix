@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { BlockMath, InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
+import HintButton from '../../components/HintButton';
 
 const LinearEquationCasesViz = () => {
   const [a, setA] = useState(2);
@@ -161,6 +162,12 @@ const LinearEquationCasesViz = () => {
           </svg>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "ax = b の形の方程式は、a の値によって解の個数が変わります。" },
+        { step: 2, text: "a ≠ 0 なら x = b/a で一意の解があります。" },
+        { step: 3, text: "a = 0 かつ b = 0 なら 0 = 0 となり、任意の x が解（不定）です。" },
+        { step: 4, text: "a = 0 かつ b ≠ 0 なら 0 = b（矛盾）となり、解なし（不能）です。" }
+      ]} />
     </div>
   );
 };

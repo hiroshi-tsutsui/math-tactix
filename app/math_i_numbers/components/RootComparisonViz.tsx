@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 export default function RootComparisonViz() {
   const [a, setA] = useState(5);
@@ -83,6 +84,12 @@ export default function RootComparisonViz() {
           )}
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "無理数の大小比較では、直接比較が難しいので工夫が必要です。" },
+        { step: 2, text: "両辺を二乗して比較する方法が基本です（ただし両辺が正のとき限定）。" },
+        { step: 3, text: "√a - √b の符号を調べるには、有理化して (a - b)/(√a + √b) とする方法もあります。" },
+        { step: 4, text: "二乗してもまだ根号が残る場合は、もう一度二乗するか、差を計算して符号を判定しましょう。" }
+      ]} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export default function RootAbsoluteSimplificationViz() {
   const [xValue, setXValue] = useState(3.5);
@@ -117,6 +118,12 @@ export default function RootAbsoluteSimplificationViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "√(a²) = |a| であることを覚えましょう。√ の中の二乗は絶対値になります。" },
+        { step: 2, text: "a の符号が分かっている場合、|a| を a または -a に簡略化できます。" },
+        { step: 3, text: "a ≥ 0 なら |a| = a、a < 0 なら |a| = -a です。" },
+        { step: 4, text: "複雑な式でも、√ の中を (何か)² の形に変形してから絶対値を適用しましょう。" }
+      ]} />
     </div>
   );
 }

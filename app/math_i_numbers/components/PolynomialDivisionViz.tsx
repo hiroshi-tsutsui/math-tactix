@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -258,6 +259,12 @@ export default function PolynomialDivisionViz() {
           <li>割り切れる場合は R = 0 となり、A = BQ と因数分解できる</li>
         </ul>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "多項式の割り算は、筆算のように最高次の項から順に割っていきます。" },
+        { step: 2, text: "被除数 ÷ 除数 = 商 … 余り の関係が成り立ちます（余りの次数 < 除数の次数）。" },
+        { step: 3, text: "f(x) = g(x)・Q(x) + R(x) の形に整理しましょう（割り算の等式）。" },
+        { step: 4, text: "組立除法を使うと、(x - a) で割る計算が効率的にできます。" }
+      ]} />
     </div>
   );
 }

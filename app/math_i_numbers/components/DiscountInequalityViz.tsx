@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function DiscountInequalityViz() {
   const [items, setItems] = useState<number>(10);
@@ -95,6 +96,12 @@ export default function DiscountInequalityViz() {
           </p>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "割引の問題では、定価 × (1 - 割引率) で売値を求めます。" },
+        { step: 2, text: "「どちらの店が安いか」は、各店の支払い総額を不等式で比較します。" },
+        { step: 3, text: "個数を変数として不等式を立て、一方が安くなる条件を求めましょう。" },
+        { step: 4, text: "境界の個数（等しくなる点）を求め、それより多いか少ないかで判断します。" }
+      ]} />
     </div>
   );
 }

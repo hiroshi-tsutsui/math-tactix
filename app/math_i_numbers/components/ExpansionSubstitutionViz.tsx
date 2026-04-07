@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 const ExpansionSubstitutionViz = () => {
   const [step, setStep] = useState(0);
@@ -96,6 +97,12 @@ const ExpansionSubstitutionViz = () => {
         </button>
       </div>
 
+      <HintButton hints={[
+        { step: 1, text: "展開公式を使って式を展開し、その後に条件の値を代入しましょう。" },
+        { step: 2, text: "(a + b)² = a² + 2ab + b²、(a - b)² = a² - 2ab + b² が基本公式です。" },
+        { step: 3, text: "展開した結果に a + b や ab の値を代入して数値を求めます。" },
+        { step: 4, text: "代入の順番を工夫すると計算がシンプルになることがあります。" }
+      ]} />
     </div>
   );
 };

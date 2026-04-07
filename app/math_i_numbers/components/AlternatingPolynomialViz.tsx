@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const AlternatingPolynomialViz = () => {
   const [step, setStep] = useState(0);
@@ -80,6 +81,12 @@ const AlternatingPolynomialViz = () => {
           {step === steps.length - 1 ? '完了' : '次のステップ'}
         </button>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "交代式とは、2つの変数を入れ替えると符号が変わる式です（f(a,b) = -f(b,a)）。" },
+        { step: 2, text: "最も基本的な交代式は a - b です。すべての交代式は (a - b) を因数に持ちます。" },
+        { step: 3, text: "交代式は (a - b) × (対称式) の形に因数分解できます。" },
+        { step: 4, text: "まず a - b でくくれないか試し、残りが対称式になるか確認しましょう。" }
+      ]} />
     </div>
   );
 };

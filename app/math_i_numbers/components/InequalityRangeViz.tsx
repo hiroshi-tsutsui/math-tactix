@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function InequalityRangeViz() {
   const [op, setOp] = useState<'add'|'sub'|'mul'|'div'>('add');
@@ -73,6 +74,12 @@ export default function InequalityRangeViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "不等式の解を求めるには、まず不等式を整理して標準形にしましょう。" },
+        { step: 2, text: "一次不等式は、変数の係数の符号に注意して両辺を割ります。" },
+        { step: 3, text: "解の範囲を数直線上に図示し、端点を含むか含まないかを確認します。" },
+        { step: 4, text: "連立不等式の場合は、各解の共通部分を求めましょう。" }
+      ]} />
     </div>
   );
 }

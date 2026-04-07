@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "katex/dist/katex.min.css";
 import { InlineMath, BlockMath } from "react-katex";
+import HintButton from '../../components/HintButton';
 
 export default function ProportionalExpressionViz() {
   const [k, setK] = useState(2);
@@ -89,6 +90,12 @@ export default function ProportionalExpressionViz() {
           <BlockMath math={'\frac{x+y+z}{x} = \frac{2k + 3k + 4k}{2k} = \frac{9k}{2k} = \frac{9}{2}'} />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "a : b = c : d は a/b = c/d と同じ意味です。比の値 k を導入しましょう。" },
+        { step: 2, text: "a/b = c/d = k とおくと、a = bk, c = dk と表せます。" },
+        { step: 3, text: "求める式に a = bk, c = dk を代入して k で整理すると、値が求められます。" },
+        { step: 4, text: "比例式では「内項の積 = 外項の積」（ad = bc）も便利な性質です。" }
+      ]} />
     </div>
   );
 }

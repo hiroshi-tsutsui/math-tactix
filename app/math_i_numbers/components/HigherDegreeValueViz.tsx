@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export default function HigherDegreeValueViz() {
   const [step, setStep] = useState(1);
@@ -141,6 +142,12 @@ export default function HigherDegreeValueViz() {
           </button>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "高次の多項式の値を求めるとき、与えられた条件式を活用して次数を下げましょう。" },
+        { step: 2, text: "例えば x² + x - 1 = 0 なら x² = 1 - x として、x³ 以上の項を x² で割って置き換えます。" },
+        { step: 3, text: "多項式の割り算（余り）を使うと、高次式を低次式で表現できます。" },
+        { step: 4, text: "条件式で得られた関係を繰り返し代入して、最終的に数値を求めましょう。" }
+      ]} />
     </div>
   );
 }
