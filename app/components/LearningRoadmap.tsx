@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useProgress, ModuleId } from '../contexts/ProgressContext';
+import { useLanguage } from '../contexts/LanguageContext';
 import { ChevronRight } from 'lucide-react';
 
 interface RoadmapNode {
@@ -13,20 +14,20 @@ interface RoadmapNode {
 }
 
 const ROADMAP_PATH: RoadmapNode[] = [
-  { id: 'math_i_numbers', moduleId: null, label: '数と式', category: '数学I' },
-  { id: 'quadratics', moduleId: 'quadratics', label: '二次関数', category: '数学I' },
-  { id: 'sets_logic', moduleId: null, label: '集合と論理', category: '数学I' },
-  { id: 'trig_ratios', moduleId: null, label: '三角比', category: '数学I' },
-  { id: 'data', moduleId: 'data', label: 'データの分析', category: '数学I' },
-  { id: 'probability', moduleId: 'probability', label: '確率', category: '数学A' },
-  { id: 'trig', moduleId: 'trig', label: '三角関数', category: '数学II' },
-  { id: 'logs', moduleId: 'logs', label: '指数・対数', category: '数学II' },
-  { id: 'sequences', moduleId: 'sequences', label: '数列', category: '数学B' },
-  { id: 'calculus', moduleId: 'calculus', label: '微分積分', category: '数学II' },
-  { id: 'vectors', moduleId: 'vectors', label: 'ベクトル', category: '数学C' },
-  { id: 'complex', moduleId: 'complex', label: '複素数平面', category: '数学C' },
-  { id: 'matrices', moduleId: 'matrices', label: '行列', category: '数学C' },
-  { id: 'functions', moduleId: 'functions', label: '関数', category: '数学III' },
+  { id: 'math_i_numbers', moduleId: 'math_i_numbers', label: 'node_math_i_numbers', category: '数学I' },
+  { id: 'quadratics', moduleId: 'quadratics', label: 'node_quadratics', category: '数学I' },
+  { id: 'sets_logic', moduleId: 'sets_logic', label: 'node_sets_logic', category: '数学I' },
+  { id: 'trig_ratios', moduleId: 'trig_ratios', label: 'node_trig_ratios', category: '数学I' },
+  { id: 'data', moduleId: 'data', label: 'node_data', category: '数学I' },
+  { id: 'probability', moduleId: 'probability', label: 'node_probability', category: '数学A' },
+  { id: 'trig', moduleId: 'trig', label: 'node_trig', category: '数学II' },
+  { id: 'logs', moduleId: 'logs', label: 'node_logs', category: '数学II' },
+  { id: 'sequences', moduleId: 'sequences', label: 'node_sequences', category: '数学B' },
+  { id: 'calculus', moduleId: 'calculus', label: 'node_calculus', category: '数学II' },
+  { id: 'vectors', moduleId: 'vectors', label: 'node_vectors', category: '数学C' },
+  { id: 'complex', moduleId: 'complex', label: 'node_complex', category: '数学C' },
+  { id: 'matrices', moduleId: 'matrices', label: 'node_matrices', category: '数学C' },
+  { id: 'functions', moduleId: 'functions', label: 'node_functions', category: '数学III' },
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -62,12 +63,14 @@ function StatusIcon({ status }: { status: 'completed' | 'in-progress' | 'locked'
 
 export default function LearningRoadmap() {
   const { moduleProgress } = useProgress();
+  const { t } = useLanguage();
 
   return (
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[32px] p-8 shadow-sm transition-colors duration-200">
-      <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight mb-6">
-        推奨学習パス
+      <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight mb-1">
+        {t('roadmap.title')}
       </h3>
+      <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">{t('roadmap.subtitle')}</p>
 
       {/* Desktop: horizontal scrollable */}
       <div className="hidden md:block overflow-x-auto pb-4">
@@ -90,7 +93,7 @@ export default function LearningRoadmap() {
                 >
                   <StatusIcon status={status} />
                   <span className="text-xs font-bold text-slate-700 dark:text-slate-300 mt-1 text-center leading-tight">
-                    {node.label}
+                    {t(`roadmap.${node.label}`)}
                   </span>
                   <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full mt-1 ${CATEGORY_COLORS[node.category] || ''}`}>
                     {node.category}
@@ -125,7 +128,7 @@ export default function LearningRoadmap() {
             >
               <StatusIcon status={status} />
               <span className="text-sm font-bold text-slate-700 dark:text-slate-300 flex-1">
-                {node.label}
+                {t(`roadmap.${node.label}`)}
               </span>
               <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${CATEGORY_COLORS[node.category] || ''}`}>
                 {node.category}

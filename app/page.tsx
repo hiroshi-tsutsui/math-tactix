@@ -232,43 +232,47 @@ export default function Home() {
   if (syncRate === 100) rank = "OMEGA";
 
   return (
-    <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 ${GeistSans.className}`}>
-      <div className="fixed inset-0 pointer-events-none opacity-40" 
-           style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+    <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-100 dark:selection:bg-blue-900 ${GeistSans.className}`}>
+      <div className="fixed inset-0 pointer-events-none opacity-40 dark:opacity-20"
+           style={{ backgroundImage: 'radial-gradient(var(--dot-color, #e2e8f0) 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
+        <style>{`
+          :root { --dot-color: #e2e8f0; }
+          .dark { --dot-color: #334155; }
+        `}</style>
       </div>
 
       <div className="relative pt-20 px-6 max-w-7xl mx-auto space-y-16 pb-32">
           
-          <div className="flex flex-col md:flex-row justify-between items-start border-b border-slate-200 pb-12 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-start border-b border-slate-200 dark:border-slate-700 pb-12 gap-8">
             <div className="space-y-3">
-               <h1 className="text-6xl md:text-7xl font-black tracking-tighter text-slate-900 italic">
+               <h1 className="text-6xl md:text-7xl font-black tracking-tighter text-slate-900 dark:text-white italic">
                   {t('dashboard.title_main')}
                </h1>
-               <p className="text-lg text-slate-500 font-bold">{t('dashboard.title_sub')}</p>
+               <p className="text-lg text-slate-500 dark:text-slate-400 font-bold">{t('dashboard.title_sub')}</p>
             </div>
 
-            <div className="w-full md:w-80 bg-white border border-slate-200 p-8 shadow-2xl rounded-[32px]">
+            <div className="w-full md:w-80 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 shadow-2xl rounded-[32px]">
                 <div className="flex justify-between items-end mb-4">
                     <div>
-                        <div className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">{t('dashboard.rank_label')}</div>
-                        <div className="text-2xl font-black text-slate-900 tracking-tighter">{rank}</div>
+                        <div className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-black mb-1">{t('dashboard.rank_label')}</div>
+                        <div className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">{rank}</div>
                     </div>
                     <div className="text-right">
-                        <div className="text-3xl font-black text-blue-600">{syncRate}%</div>
+                        <div className="text-3xl font-black text-blue-600 dark:text-blue-400">{syncRate}%</div>
                     </div>
                 </div>
-                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-6">
+                <div className="w-full h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden mb-6">
                     <div className="h-full bg-blue-600 transition-all duration-1000" style={{ width: `${syncRate}%` }}></div>
                 </div>
                 <div className="grid grid-cols-2 gap-3 mb-3">
-                    <Link href="/profile" className="text-[11px] font-black py-3 px-4 bg-slate-900 text-white rounded-2xl text-center hover:bg-blue-600 transition-all">
+                    <Link href="/profile" className="text-[11px] font-black py-3 px-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-2xl text-center hover:bg-blue-600 dark:hover:bg-blue-400 transition-all">
                         {t('dashboard.profile_btn')}
                     </Link>
-                    <Link href="/settings" className="text-[11px] font-black py-3 px-4 bg-slate-100 text-slate-600 rounded-2xl text-center hover:bg-slate-200 transition-all">
+                    <Link href="/settings" className="text-[11px] font-black py-3 px-4 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-2xl text-center hover:bg-slate-200 dark:hover:bg-slate-600 transition-all">
                         {t('dashboard.settings_btn')}
                     </Link>
                 </div>
-                <Link href="/manual" className="block text-[11px] font-black py-3 px-4 border-2 border-slate-100 text-slate-400 rounded-2xl text-center hover:border-slate-300 hover:text-slate-600 transition-all">
+                <Link href="/manual" className="block text-[11px] font-black py-3 px-4 border-2 border-slate-100 dark:border-slate-700 text-slate-400 dark:text-slate-500 rounded-2xl text-center hover:border-slate-300 dark:hover:border-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-all">
                     {t('dashboard.manual_btn')}
                 </Link>
             </div>
@@ -280,10 +284,10 @@ export default function Home() {
             {sections.map((section) => (
               <section key={section.name}>
                  <div className="mb-10 max-w-2xl">
-                    <h3 className="text-3xl font-black text-slate-900 tracking-tight mb-3">
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-3">
                         {section.name}
                     </h3>
-                    <p className="text-slate-500 font-medium leading-relaxed">{section.desc}</p>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">{section.desc}</p>
                  </div>
                  
                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -301,35 +305,35 @@ export default function Home() {
                           <div key={m.id} className="relative">
                             <Link
                                 href={isLocked ? '#' : `/${m.id}`}
-                                className={`group block relative p-10 bg-white border border-slate-200 rounded-[40px] transition-all duration-300 shadow-sm
-                                    ${isLocked ? 'opacity-60 cursor-not-allowed' : 'hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1'}
+                                className={`group block relative p-10 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-[40px] transition-all duration-300 shadow-sm
+                                    ${isLocked ? 'opacity-60 cursor-not-allowed' : 'hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1'}
                                 `}
                             >
                                 {isMastered && (
-                                    <div className="absolute top-6 right-6 bg-green-50 text-green-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">
+                                    <div className="absolute top-6 right-6 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">
                                     {t('dashboard.status_completed')}
                                     </div>
                                 )}
                                 {isLocked && (
-                                    <div className="absolute top-6 right-6 bg-slate-50 text-slate-400 text-[10px] font-black px-3 py-1 rounded-full uppercase flex items-center gap-1">
+                                    <div className="absolute top-6 right-6 bg-slate-50 dark:bg-slate-700 text-slate-400 dark:text-slate-500 text-[10px] font-black px-3 py-1 rounded-full uppercase flex items-center gap-1">
                                     <Lock className="w-3 h-3" /> {t('dashboard.status_dev')}
                                     </div>
                                 )}
                                 {!isLocked && !isMastered && completedLevels.length > 0 && (
-                                    <div className="absolute top-6 right-6 bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">
+                                    <div className="absolute top-6 right-6 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-black px-3 py-1 rounded-full uppercase">
                                     {t('dashboard.status_in_progress')}
                                     </div>
                                 )}
 
-                                <div className={`text-[11px] font-black tracking-widest mb-4 uppercase ${isLocked ? 'text-slate-300' : 'text-blue-600'}`}>
+                                <div className={`text-[11px] font-black tracking-widest mb-4 uppercase ${isLocked ? 'text-slate-300 dark:text-slate-600' : 'text-blue-600 dark:text-blue-400'}`}>
                                     {m.subtitle}
                                 </div>
 
-                                <h2 className={`text-2xl font-black mb-4 tracking-tight ${isLocked ? 'text-slate-400' : 'text-slate-900'}`}>
+                                <h2 className={`text-2xl font-black mb-4 tracking-tight ${isLocked ? 'text-slate-400 dark:text-slate-600' : 'text-slate-900 dark:text-white'}`}>
                                     {m.title}
                                 </h2>
 
-                                <p className={`text-sm leading-relaxed mb-6 font-medium ${isLocked ? 'text-slate-300' : 'text-slate-500'}`}>
+                                <p className={`text-sm leading-relaxed mb-6 font-medium ${isLocked ? 'text-slate-300 dark:text-slate-600' : 'text-slate-500 dark:text-slate-400'}`}>
                                     {m.desc}
                                 </p>
 
@@ -337,12 +341,12 @@ export default function Home() {
                                 {!isLocked && totalLevels > 0 && (
                                     <div className="mb-6 space-y-2">
                                         <div className="flex justify-between items-center text-xs">
-                                            <span className="font-bold text-slate-500">
+                                            <span className="font-bold text-slate-500 dark:text-slate-400">
                                                 Lv {completedLevels.length} / {totalLevels}
                                             </span>
-                                            <span className="font-black text-slate-400">{progressPct}%</span>
+                                            <span className="font-black text-slate-400 dark:text-slate-500">{progressPct}%</span>
                                         </div>
-                                        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                        <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                             <div
                                                 className="h-full rounded-full transition-all duration-700"
                                                 style={{
@@ -355,7 +359,7 @@ export default function Home() {
                                 )}
 
                                 {!isLocked && (
-                                    <div className="flex items-center text-xs font-black text-slate-400 group-hover:text-blue-600 transition-colors">
+                                    <div className="flex items-center text-xs font-black text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                         <span>{t('dashboard.launch_btn')}</span>
                                         <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                                     </div>
@@ -369,7 +373,7 @@ export default function Home() {
             ))}
           </div>
 
-          <footer className="pt-20 border-t border-slate-200 text-center text-[10px] text-slate-300 font-black uppercase tracking-[0.4em]">
+          <footer className="pt-20 border-t border-slate-200 dark:border-slate-700 text-center text-[10px] text-slate-300 dark:text-slate-600 font-black uppercase tracking-[0.4em]">
               {t('dashboard.footer', { year: new Date().getFullYear() })}
           </footer>
 
