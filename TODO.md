@@ -1,10 +1,10 @@
 # Math Tactix TODO
-現在のサイクル: 045
-最終更新: 2026-04-07
+現在のサイクル: 047
+最終更新: 2026-04-08
 
 ---
 
-## サイクル045 タスクリスト
+## サイクル047 タスクリスト
 
 - [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawViz
 - [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineLawViz
@@ -21,25 +21,51 @@
 - [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineGraphViz
 - [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TangentGraphViz
 - [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: UnitCircleAnimationViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: BoxPlotViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: DataTransformViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: FrequencyTableViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: HistogramBoxPlotViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: CovarianceViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: OutlierViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: CombinedVarianceViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: CorrelationInterpretViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: QuartileAnalysisViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: StandardDeviationViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: ResidualViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: RSquaredViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: HypothesisTestingViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: VarianceShortcutViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: VarianceTransformViz
-- [ ] [優先度:中] [担当:エンジニア] data HintButton統合: BoxPlotComparisonViz
-- [ ] [優先度:中] [担当:教師] math_i_numbers HintButton統合バッチ開始（36ファイル残り）
-- [ ] [優先度:中] [担当:教師] math_i_numbers Level 55: 対称式の利用（SymmetricThreeVariables活用）
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: BoxPlotViz 他15本
 - [ ] [優先度:低] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）の設計
+
+## サイクル046 実施済み
+
+- [x] [優先度:高] [担当:エンジニア] math_i_numbers HintButton統合 全36ファイル一括統合（統合率 6/42→42/42、100%達成）
+- [x] [優先度:高] [担当:エンジニア] math_i_numbers Level 55: SymmetricExpressionViz（対称式の利用）新規作成
+- [x] [優先度:中] app/math_i_numbers/page.tsx に Level 55 登録
+
+## サイクル045 実施済み
+
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineLawViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TriangleAreaViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigIdentityPractice
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigQuiz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CircleRadiusViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: SurveyingViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawApplicationViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineInverseViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigRelationshipViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: HeronComparisonViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigApplicationViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineGraphViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TangentGraphViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: UnitCircleAnimationViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: BoxPlotViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: DataTransformViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: FrequencyTableViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: HistogramBoxPlotViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: CovarianceViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: OutlierViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: CombinedVarianceViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: CorrelationInterpretViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: QuartileAnalysisViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: StandardDeviationViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: ResidualViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: RSquaredViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: HypothesisTestingViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: VarianceShortcutViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: VarianceTransformViz
+- [x] [優先度:中] [担当:エンジニア] data HintButton統合: BoxPlotComparisonViz
+- [x] [優先度:中] [担当:教師] math_i_numbers HintButton統合バッチ開始（36ファイル残り）
+- [x] [優先度:中] [担当:教師] math_i_numbers Level 55: 対称式の利用（SymmetricThreeVariables活用）
+- [x] [優先度:低] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）の設計
 
 ## サイクル044 実施済み
 

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 export default function ParametricLinearInequalityViz() {
   const [a, setA] = useState(2);
@@ -60,6 +61,12 @@ export default function ParametricLinearInequalityViz() {
           </ul>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "不等式 ax > b を解くとき、a の符号によって場合分けが必要です。" },
+        { step: 2, text: "a > 0 なら不等号の向きはそのまま、a < 0 なら不等号の向きが逆転します。" },
+        { step: 3, text: "a = 0 のとき、左辺は 0 になるので、0 > b が成り立つかで解が決まります。" },
+        { step: 4, text: "3つの場合（a > 0, a < 0, a = 0）それぞれの解を確認しましょう。" }
+      ]} />
     </div>
   );
 }

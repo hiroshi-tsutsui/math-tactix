@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from '../../components/HintButton';
 
 /* ── Types ── */
 interface StepItem {
@@ -271,6 +272,12 @@ export default function FractionSimplifyViz() {
           </li>
         </ul>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "分数式の約分は、分子と分母の共通因数を見つけることから始めます。" },
+        { step: 2, text: "分子と分母をそれぞれ因数分解しましょう。" },
+        { step: 3, text: "共通因数で分子・分母を割れば約分完了です。" },
+        { step: 4, text: "約分した後、分母が 0 にならない条件（定義域）を忘れずに確認しましょう。" }
+      ]} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "katex/dist/katex.min.css";
 import { InlineMath } from "react-katex";
+import HintButton from '../../components/HintButton';
 
 export default function ReciprocalSymmetricViz() {
   const [xValue, setXValue] = useState(2);
@@ -117,6 +118,12 @@ export default function ReciprocalSymmetricViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "x + 1/x = s のとき、x² + 1/x² = s² - 2 で求められます。" },
+        { step: 2, text: "x³ + 1/x³ = s³ - 3s となります（x + 1/x の三乗を展開して確認）。" },
+        { step: 3, text: "t = x + 1/x と置換すると、高次の対称式も t の多項式で表せます。" },
+        { step: 4, text: "x - 1/x の値は (x + 1/x)² - 4 = s² - 4 の平方根で求められます。" }
+      ]} />
     </div>
   );
 }

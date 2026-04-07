@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -290,6 +291,12 @@ export default function NestedRadicalViz() {
           </li>
         </ul>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "二重根号 √(a ± 2√b) は、√c ± √d の形に変換できることがあります。" },
+        { step: 2, text: "√(a + 2√b) = √c + √d とおくと、c + d = a、cd = b が成り立ちます。" },
+        { step: 3, text: "c と d は、和が a で積が b の2数なので、二次方程式 t² - at + b = 0 の解です。" },
+        { step: 4, text: "二次方程式の判別式 a² - 4b ≥ 0 のとき、二重根号を外すことができます。" }
+      ]} />
     </div>
   );
 }

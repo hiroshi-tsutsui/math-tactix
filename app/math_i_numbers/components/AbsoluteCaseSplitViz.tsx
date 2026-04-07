@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 const AbsoluteCaseSplitViz = () => {
   // y = |x - a|
@@ -190,6 +191,12 @@ const AbsoluteCaseSplitViz = () => {
         <p>方程式を解く際、絶対値を外すために場合分け（<code className="font-bold">x ≥ a</code> と <code className="font-bold">x &lt; a</code>）を行います。しかし、外した後の式（例：<code className="bg-blue-100 px-1 rounded">x - a = bx + c</code>）は、境界 <code className="font-bold">x = a</code> を超えてどこまでも伸びる直線（点線）を表してしまいます。</p>
         <p className="mt-2">代数的な計算は、この「架空の延長線（点線）」と右辺の直線の交点も「解」として出してしまいます。この交点が本来の場合分けの範囲外（V字の反対側）にある場合、それは元の絶対値グラフとは交わっていないため「不適（Extraneous Solution）」となります。</p>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "絶対値 |A| は、A ≥ 0 のとき A、A < 0 のとき -A と場合分けできます。" },
+        { step: 2, text: "絶対値の中身が 0 になる点（境界点）を求め、場合分けの基準にしましょう。" },
+        { step: 3, text: "各場合で絶対値を外して方程式を解き、得られた解が場合分けの範囲内にあるか確認します。" },
+        { step: 4, text: "範囲外の解は「不適（Extraneous Solution）」として除外しましょう。" }
+      ]} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BlockMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 const FactoringLowestDegreeViz = () => {
   const [step, setStep] = useState(0);
@@ -80,6 +81,12 @@ const FactoringLowestDegreeViz = () => {
           />
         ))}
       </div>
+      <HintButton hints={[
+        { step: 1, text: "最も次数が低い文字に着目しましょう。どの文字が一番少なく登場していますか？" },
+        { step: 2, text: "最低次の文字について整理し、他の文字を係数とみなして降べきの順に並べます。" },
+        { step: 3, text: "共通因数をくくり出し、残りの部分を因数分解できないか確認しましょう。" },
+        { step: 4, text: "展開して元の式に戻るか検算すると、因数分解の正しさを確認できます。" }
+      ]} />
     </div>
   );
 };

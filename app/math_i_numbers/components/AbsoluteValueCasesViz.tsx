@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -347,6 +348,12 @@ export default function AbsoluteValueCasesViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "絶対値の場合分けでは、絶対値の中身が 0 になる点を境界とします。" },
+        { step: 2, text: "境界点の前後で絶対値の中身の符号が変わるため、場合分けが必要です。" },
+        { step: 3, text: "各場合で絶対値を外し（正なら そのまま、負なら 符号反転）、計算を進めます。" },
+        { step: 4, text: "最終的な答えは、すべての場合の結果を統合して求めましょう。" }
+      ]} />
     </div>
   );
 }

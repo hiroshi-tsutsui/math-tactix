@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, RotateCcw } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 export default function IrrationalEqualityViz({ onComplete }: { onComplete: () => void }) {
   const [a, setA] = useState(2);
@@ -207,6 +208,12 @@ export default function IrrationalEqualityViz({ onComplete }: { onComplete: () =
           )}
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "無理数の等式 a + b√c = 0（a, b は有理数、√c は無理数）から、a = 0 かつ b = 0 です。" },
+        { step: 2, text: "両辺の有理部分と無理部分をそれぞれ等しいとおく（係数比較）方法を使います。" },
+        { step: 3, text: "方程式を整理して「有理数 = 無理数 × (式)」の形にし、矛盾なく成り立つ条件を求めます。" },
+        { step: 4, text: "未知数が2つなら、有理部分と無理部分から連立方程式を立てて解きましょう。" }
+      ]} />
     </div>
   );
 }

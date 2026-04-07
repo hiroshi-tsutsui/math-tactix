@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 export default function BiQuadraticFactoringViz() {
   const [step, setStep] = useState<number>(0);
@@ -111,6 +112,12 @@ export default function BiQuadraticFactoringViz() {
           両端の項（$x^4$ と $1$）を見て、「$(x^2+1)^2$ が隠れているはずだ！」とアタリをつけるのがコツです。足りないパーツは自分で足して、後から帳尻合わせで引けば良いのです。
         </p>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "x⁴ + ax² + b の形は、t = x² と置換すると二次式 t² + at + b になります。" },
+        { step: 2, text: "置換した二次式を因数分解して (t + p)(t + q) の形にしましょう。" },
+        { step: 3, text: "t = x² を戻して (x² + p)(x² + q) とし、さらに因数分解できるか確認します。" },
+        { step: 4, text: "x² + p が差の平方の形なら (x + √p)(x - √p) に分解でき、複二次式の完全な因数分解が得られます。" }
+      ]} />
     </div>
   );
 }

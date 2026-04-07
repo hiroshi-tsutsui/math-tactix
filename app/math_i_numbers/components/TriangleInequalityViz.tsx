@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -88,6 +89,12 @@ export default function TriangleInequalityViz() {
             : "不等号: |a| + |b| > |a + b| (異符号)"}
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "三角形の成立条件は、任意の2辺の和が残りの1辺より大きいことです。" },
+        { step: 2, text: "a, b, c が三角形の3辺なら、a + b > c、b + c > a、c + a > b すべてが必要です。" },
+        { step: 3, text: "最も長い辺を c とすると、a + b > c だけ確認すれば十分です。" },
+        { step: 4, text: "等号（a + b = c）のときは退化三角形（一直線上）となり、三角形にはなりません。" }
+      ]} />
     </div>
   );
 }

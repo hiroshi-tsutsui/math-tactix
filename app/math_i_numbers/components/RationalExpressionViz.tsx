@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -291,6 +292,12 @@ export default function RationalExpressionViz() {
           </ul>
         </div>
       )}
+      <HintButton hints={[
+        { step: 1, text: "有理式は、多項式の分数の形で表される式です。" },
+        { step: 2, text: "有理式の計算は、まず分母を因数分解して共通因数を見つけましょう。" },
+        { step: 3, text: "通分するには、各分母の最小公倍式（LCM）を求めます。" },
+        { step: 4, text: "約分は分子と分母の共通因数を割ることで行います。定義域にも注意しましょう。" }
+      ]} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from '../../components/HintButton';
 
 /* ── Types ── */
 interface StepItem {
@@ -215,6 +216,12 @@ export default function RationalizationAdvancedViz() {
           </div>
         )}
       </div>
+      <HintButton hints={[
+        { step: 1, text: "有理化とは、分母の根号を取り除く操作です。" },
+        { step: 2, text: "分母が √a + √b の形なら、共役式 √a - √b を分母・分子に掛けます。" },
+        { step: 3, text: "(√a + √b)(√a - √b) = a - b となり、分母が有理数になります。" },
+        { step: 4, text: "分母に3項以上の根号がある場合は、段階的に有理化を繰り返しましょう。" }
+      ]} />
     </div>
   );
 }

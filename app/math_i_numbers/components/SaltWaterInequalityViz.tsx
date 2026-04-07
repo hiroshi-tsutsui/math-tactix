@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BlockMath, InlineMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export default function SaltWaterInequalityViz() {
   const [x, setX] = useState(100);
@@ -159,6 +160,12 @@ export default function SaltWaterInequalityViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "食塩水の濃度 = 食塩の量 ÷ 食塩水の量 × 100（%）です。" },
+        { step: 2, text: "混ぜた後の濃度の条件を不等式で表しましょう。" },
+        { step: 3, text: "食塩の量と食塩水の量をそれぞれ文字で表し、不等式を立てます。" },
+        { step: 4, text: "不等式を解いて、条件を満たす範囲を求めましょう。" }
+      ]} />
     </div>
   );
 }

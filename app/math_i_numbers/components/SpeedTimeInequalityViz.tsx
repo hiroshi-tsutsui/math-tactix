@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function SpeedTimeInequalityViz() {
   // Constants
@@ -118,6 +119,12 @@ export default function SpeedTimeInequalityViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "距離 = 速さ × 時間 の関係式を使って不等式を立てましょう。" },
+        { step: 2, text: "「○○分以内に着く」は 時間 ≤ ○○ の不等式に翻訳できます。" },
+        { step: 3, text: "速さの単位（km/h, m/min など）を統一してから計算しましょう。" },
+        { step: 4, text: "不等式を解いて、条件を満たす速さや時間の範囲を求めましょう。" }
+      ]} />
     </div>
   );
 }

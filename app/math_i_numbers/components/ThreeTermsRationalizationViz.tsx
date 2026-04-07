@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
 import { ChevronRight, ArrowRight } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 export default function ThreeTermsRationalizationViz() {
   const [step, setStep] = useState(0);
@@ -100,6 +101,12 @@ export default function ThreeTermsRationalizationViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "3項の無理式 a + b + c を有理化するには、まず2項ずつグループ化します。" },
+        { step: 2, text: "(a + b) + c の形にして、和と差の積の公式 (A + C)(A - C) = A² - C² を利用しましょう。" },
+        { step: 3, text: "1回目の有理化で2項の無理式が残ったら、もう一度有理化を行います。" },
+        { step: 4, text: "各ステップで分母と分子の両方に同じ式を掛けることを忘れずに。" }
+      ]} />
     </div>
   );
 }

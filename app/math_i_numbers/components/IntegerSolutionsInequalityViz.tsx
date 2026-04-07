@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 export default function IntegerSolutionsInequalityViz() {
   const [a, setA] = useState<number>(4.5);
@@ -123,6 +124,12 @@ export default function IntegerSolutionsInequalityViz() {
           したがって、正解は <InlineMath math="5 \le a < 6" /> です。白丸（含まない）と黒丸（含む）の違いを視覚的に確かめましょう。
         </p>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "不等式を解いて、解の範囲を数直線上に表しましょう。" },
+        { step: 2, text: "解の範囲に含まれる整数を数え上げます。境界の等号（≤ か <）に注意してください。" },
+        { step: 3, text: "整数解がちょうど指定の個数になるための条件を、端の整数から考えます。" },
+        { step: 4, text: "境界値が整数のときは、含む（≤）か含まない（<）かで答えが変わります。" }
+      ]} />
     </div>
   );
 }

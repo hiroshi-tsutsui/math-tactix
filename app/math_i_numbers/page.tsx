@@ -62,6 +62,7 @@ import RemainderFactorViz from './components/RemainderFactorViz';
 import IdentityCoefficientsViz from './components/IdentityCoefficientsViz';
 import BinomialTheoremViz from './components/BinomialTheoremViz';
 import MultinomialTheoremViz from './components/MultinomialTheoremViz';
+import SymmetricExpressionViz from './components/SymmetricExpressionViz';
 
 
 
@@ -128,7 +129,8 @@ export default function MathINumbers() {
         { id: 51, title: '余りの定理・因数定理', type: 'remainder_factor' },
         { id: 52, title: '恒等式の係数決定', type: 'identity_coefficients' },
         { id: 53, title: '二項定理 (Binomial Theorem)', type: 'binomial_theorem' },
-        { id: 54, title: '多項定理 (Multinomial Theorem)', type: 'multinomial_theorem' }
+        { id: 54, title: '多項定理 (Multinomial Theorem)', type: 'multinomial_theorem' },
+        { id: 55, title: '対称式の利用', type: 'symmetric_expression' }
 ];
 
   return (
@@ -767,6 +769,20 @@ export default function MathINumbers() {
                     二項定理の拡張として、<InlineMath math="\frac{n!}{p!\,q!\,r!}" /> の意味を理解しましょう。
                   </p>
                   <MultinomialTheoremViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 55 && (
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">対称式の利用 (Symmetric Expressions)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="a + b" /> と <InlineMath math="ab" /> の値から、
+                    <InlineMath math="a^2 + b^2" />、<InlineMath math="a^3 + b^3" />、<InlineMath math="(a-b)^2" /> などの対称式の値を求めます。
+                    スライダーで値を変えながら、公式の仕組みを直感的に理解しましょう。
+                  </p>
+                  <SymmetricExpressionViz />
                 </div>
               </div>
             )}
