@@ -61,6 +61,7 @@ import NestedRadical2Viz from './components/NestedRadical2Viz';
 import RemainderFactorViz from './components/RemainderFactorViz';
 import IdentityCoefficientsViz from './components/IdentityCoefficientsViz';
 import BinomialTheoremViz from './components/BinomialTheoremViz';
+import MultinomialTheoremViz from './components/MultinomialTheoremViz';
 
 
 
@@ -126,7 +127,8 @@ export default function MathINumbers() {
         { id: 50, title: '二重根号の変換（応用）', type: 'nested_radical_2' },
         { id: 51, title: '余りの定理・因数定理', type: 'remainder_factor' },
         { id: 52, title: '恒等式の係数決定', type: 'identity_coefficients' },
-        { id: 53, title: '二項定理 (Binomial Theorem)', type: 'binomial_theorem' }
+        { id: 53, title: '二項定理 (Binomial Theorem)', type: 'binomial_theorem' },
+        { id: 54, title: '多項定理 (Multinomial Theorem)', type: 'multinomial_theorem' }
 ];
 
   return (
@@ -752,6 +754,19 @@ export default function MathINumbers() {
                     二項係数 <InlineMath math="\binom{n}{k}" /> の意味と数値検証を通じて理解を深めましょう。
                   </p>
                   <BinomialTheoremViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 54 && (
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">多項定理 (Multinomial Theorem)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="(a + b + c)^n" /> の展開公式と多項係数を学びます。
+                    二項定理の拡張として、<InlineMath math="\frac{n!}{p!\,q!\,r!}" /> の意味を理解しましょう。
+                  </p>
+                  <MultinomialTheoremViz />
                 </div>
               </div>
             )}

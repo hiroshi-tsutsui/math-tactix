@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 55;
@@ -96,6 +97,12 @@ export default function ConjugateViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '共役複素数 z̄ は虚部の符号を反転したもの。z = a+bi なら z̄ = a-bi です。' },
+        { step: 2, text: 'z × z̄ = a² + b² = |z|² は常に非負の実数になります。' },
+        { step: 3, text: '|z| = |z̄| で、複素平面上では実軸に関して対称な点です。' },
+      ]} />
     </div>
   );
 }

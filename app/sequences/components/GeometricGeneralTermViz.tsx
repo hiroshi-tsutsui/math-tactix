@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface GeometricGeneralTermVizProps {
   a1?: number;
@@ -202,6 +203,12 @@ const GeometricGeneralTermViz: React.FC<GeometricGeneralTermVizProps> = ({
           <MathDisplay tex={`r < 0`} /> のときは符号が交互に変わります。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '等比数列の一般項は aₙ = a₁ × rⁿ⁻¹ です。初項 a₁ と公比 r が分かれば任意の項が求まります。' },
+        { step: 2, text: 'r > 1 なら指数的に増加、0 < r < 1 なら 0 に収束、r < 0 なら符号が交互に変わります。' },
+        { step: 3, text: '公比 r = aₙ₊₁ / aₙ（隣り合う項の比）で求められます。r ≠ 0 であることに注意しましょう。' },
+      ]} />
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -421,6 +422,12 @@ export default function InclusionExclusionViz() {
           ))}
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '包除原理: n(A∪B) = n(A) + n(B) - n(A∩B) です。重複分を引きます。' },
+        { step: 2, text: '3集合の場合: n(A∪B∪C) = n(A)+n(B)+n(C)-n(A∩B)-n(B∩C)-n(A∩C)+n(A∩B∩C)。' },
+        { step: 3, text: 'ベン図を描いて各領域の要素数を確認すると、計算ミスを防げます。' },
+      ]} />
     </div>
   );
 }

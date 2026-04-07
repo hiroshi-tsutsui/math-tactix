@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -321,6 +322,12 @@ export default function NecessarySufficientViz() {
           <p>両方真 ⇒ <strong>必要十分条件</strong>（同値）</p>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '「十分」= 条件を満たせば結論が保証される。「必要」= 結論が成り立つには条件が不可欠。' },
+        { step: 2, text: '集合で判定: 条件 p の真理集合 P と条件 q の真理集合 Q の包含関係を調べます。' },
+        { step: 3, text: 'P ⊂ Q ⇒ 十分条件、P ⊃ Q ⇒ 必要条件、P = Q ⇒ 必要十分条件です。' },
+      ]} />
     </div>
   );
 }

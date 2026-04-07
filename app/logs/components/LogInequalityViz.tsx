@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface LogInequalityVizProps {
   mode?: 'explore';
@@ -217,6 +218,12 @@ const LogInequalityViz: React.FC<LogInequalityVizProps> = () => {
           真数条件（x &gt; 0）も忘れずに！
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '底 a > 1 のとき: log_a x > k ならば x > aᵏ（不等号の向きは同じ）。' },
+        { step: 2, text: '底 0 < a < 1 のとき: log_a x > k ならば x < aᵏ（不等号の向きが逆転）。' },
+        { step: 3, text: '真数条件 x > 0 を忘れずに確認しましょう。解との共通部分を取ります。' },
+      ]} />
     </div>
   );
 };

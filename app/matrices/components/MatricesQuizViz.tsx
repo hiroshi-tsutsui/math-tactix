@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 import {
   generateAdditionProblem,
   generateMultiplicationProblem,
@@ -170,6 +171,12 @@ const MatricesQuizViz: React.FC = () => {
           )}
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '行列の積は「行 × 列の内積」。(AB)ᵢⱼ は A の第i行と B の第j列を対応する成分同士掛けて足します。' },
+        { step: 2, text: '行列式 det[[a,b],[c,d]] = ad - bc。逆行列の存在判定に使います。' },
+        { step: 3, text: '逆行列 A⁻¹ = (1/det A)[[d,-b],[-c,a]]。det A = 0 なら逆行列は存在しません。' },
+      ]} />
     </div>
   );
 };

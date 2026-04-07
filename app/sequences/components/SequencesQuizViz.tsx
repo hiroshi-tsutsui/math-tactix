@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 import {
   generateArithmeticProblem,
   generateArithmeticSumProblem,
@@ -184,6 +185,12 @@ const SequencesQuizViz: React.FC = () => {
           )}
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '等差数列: aₙ = a₁ + (n-1)d、Sₙ = n(a₁ + aₙ)/2 を確認しましょう。' },
+        { step: 2, text: '等比数列: aₙ = a₁rⁿ⁻¹、Sₙ = a₁(1-rⁿ)/(1-r) を確認しましょう。' },
+        { step: 3, text: 'Σk = n(n+1)/2、Σk² = n(n+1)(2n+1)/6、Σk³ = {n(n+1)/2}² です。' },
+      ]} />
 
       {/* Stats */}
       <div className="text-xs text-slate-400 text-right">

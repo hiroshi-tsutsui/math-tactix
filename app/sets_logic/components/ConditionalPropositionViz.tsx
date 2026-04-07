@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -287,6 +288,12 @@ export default function ConditionalPropositionViz() {
           <li>4つすべてが真のとき、P と Q は必要十分条件（同値）</li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '条件付き命題「P → Q」は、P が真で Q が偽のときのみ偽になります。' },
+        { step: 2, text: '対偶「¬Q → ¬P」は元の命題と常に同値です。直接証明が難しいとき対偶で証明します。' },
+        { step: 3, text: '逆「Q → P」と裏「¬P → ¬Q」は互いに同値ですが、元の命題とは独立です。' },
+      ]} />
     </div>
   );
 }

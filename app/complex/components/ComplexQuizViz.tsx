@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 import {
   generateAdditionProblem,
   generateSubtractionProblem,
@@ -201,6 +202,12 @@ export default function ComplexQuizViz() {
             </div>
           </div>
         )}
+
+        <HintButton hints={[
+          { step: 1, text: '複素数の四則演算: 加減は成分ごと、乗除は分配法則と i² = -1 を使います。' },
+          { step: 2, text: '極形式では乗法は「絶対値の積、偏角の和」、除法は「絶対値の商、偏角の差」です。' },
+          { step: 3, text: '共役複素数を使った除法や、ド・モアブルの定理も確認しましょう。' },
+        ]} />
       </div>
     </div>
   );

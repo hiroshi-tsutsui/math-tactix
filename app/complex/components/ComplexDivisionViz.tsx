@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 50;
@@ -148,6 +149,12 @@ export default function ComplexDivisionViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '除法は分母の共役複素数を掛けて実数化します: (a+bi)/(c+di) = (a+bi)(c-di)/(c²+d²)。' },
+        { step: 2, text: '極形式では |z₁/z₂| = |z₁|/|z₂|（絶対値は商）、arg(z₁/z₂) = arg(z₁)-arg(z₂)（偏角は差）。' },
+        { step: 3, text: '分母を実数にするために z̄₂/z̄₂ = z̄₂/|z₂|² を利用するのがポイントです。' },
+      ]} />
     </div>
   );
 }

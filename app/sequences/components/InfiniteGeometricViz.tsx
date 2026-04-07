@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface InfiniteGeometricVizProps {
   a1?: number;
@@ -205,6 +206,12 @@ const InfiniteGeometricViz: React.FC<InfiniteGeometricVizProps> = ({
           }
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '無限等比級数 Σa₁rⁿ⁻¹ が収束する条件は |r| < 1 です。' },
+        { step: 2, text: '|r| < 1 のとき、n→∞ で rⁿ→0 なので Sₙ = a₁(1-rⁿ)/(1-r) → a₁/(1-r) に収束します。' },
+        { step: 3, text: '|r| ≥ 1 のとき rⁿ が 0 に収束しないため、部分和は発散します。' },
+      ]} />
     </div>
   );
 };

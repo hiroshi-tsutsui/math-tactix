@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -435,6 +436,12 @@ export default function NecessarySufficientConditionViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'p → q が真 ⇒ p は q の十分条件、q は p の必要条件です。' },
+        { step: 2, text: 'q → p が真 ⇒ p は q の必要条件、q は p の十分条件です。' },
+        { step: 3, text: '両方が真（p ⟺ q）のとき、p は q の必要十分条件です。集合では P = Q に対応します。' },
+      ]} />
     </div>
   );
 }

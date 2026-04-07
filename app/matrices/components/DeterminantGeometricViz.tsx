@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 400;
 const H = 400;
@@ -172,6 +173,12 @@ const DeterminantGeometricViz: React.FC = () => {
           </span>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '行列式の絶対値 |det A| は、変換後の面積が元の面積の何倍になるかを表します。' },
+        { step: 2, text: 'det A > 0 なら向き（回転の方向）が保存され、det A < 0 なら反転します。' },
+        { step: 3, text: 'det A = 0 のとき、2次元の領域が1次元（直線）に潰れます（退化）。' },
+      ]} />
     </div>
   );
 };

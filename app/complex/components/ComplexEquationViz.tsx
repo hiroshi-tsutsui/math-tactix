@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 400, H = 400;
 const OX = W / 2, OY = H / 2, S = 50;
@@ -140,6 +141,12 @@ export default function ComplexEquationViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '複素数の方程式は実部と虚部を別々に比較して解きます。a+bi = c+di ⇔ a=c かつ b=d。' },
+        { step: 2, text: 'n次方程式は複素数の範囲で必ず n 個の解を持ちます（代数学の基本定理）。' },
+        { step: 3, text: '実数係数の方程式の複素数解は必ず共役のペアで現れます。' },
+      ]} />
     </div>
   );
 }

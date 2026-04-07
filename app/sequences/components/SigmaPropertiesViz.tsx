@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface SigmaPropertiesVizProps {
   mode?: 'explore';
@@ -173,6 +174,12 @@ const SigmaPropertiesViz: React.FC<SigmaPropertiesVizProps> = () => {
       <div className="bg-slate-100 border border-slate-200 rounded-xl p-4 text-sm text-slate-700">
         <p>{prop.desc}</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'Σ の線形性: Σ(caₖ) = c × Σaₖ（定数倍は外に出せます）。' },
+        { step: 2, text: 'Σ(aₖ + bₖ) = Σaₖ + Σbₖ（和は項ごとに分離できます）。' },
+        { step: 3, text: 'Σ(k=1→n) c = nc（定数の和は定数 × 項数）。これらの性質を組み合わせて計算します。' },
+      ]} />
     </div>
   );
 };

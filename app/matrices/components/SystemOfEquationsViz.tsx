@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 380;
 const H = 380;
@@ -167,6 +168,12 @@ const SystemOfEquationsViz: React.FC = () => {
           <span>det A = 0 のため、一意な解は存在しません。</span>
         )}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '連立方程式 Ax = b は逆行列を使って x = A⁻¹b で解けます（det A ≠ 0 のとき）。' },
+        { step: 2, text: 'det A = 0 のとき、解は存在しないか無数に存在します（直線が平行または一致）。' },
+        { step: 3, text: 'クラメルの公式: x = det(Ab₁)/det(A)、y = det(Ab₂)/det(A) でも求められます。' },
+      ]} />
     </div>
   );
 };

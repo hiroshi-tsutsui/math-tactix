@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 50;
@@ -144,6 +145,12 @@ export default function ComplexArithmeticViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '加法: (a+bi) + (c+di) = (a+c) + (b+d)i。実部同士、虚部同士を足します。' },
+        { step: 2, text: '減法: (a+bi) - (c+di) = (a-c) + (b-d)i。複素平面ではベクトルの差に対応します。' },
+        { step: 3, text: '加法は平行四辺形の法則に従います。z₁ と z₂ を2辺とする平行四辺形の対角線が z₁+z₂ です。' },
+      ]} />
     </div>
   );
 }

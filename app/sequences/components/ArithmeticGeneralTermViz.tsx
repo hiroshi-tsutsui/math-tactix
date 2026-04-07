@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface ArithmeticGeneralTermVizProps {
   a1?: number;
@@ -221,6 +222,12 @@ const ArithmeticGeneralTermViz: React.FC<ArithmeticGeneralTermVizProps> = ({
           数列の形がどう変化するか観察できます。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '等差数列の一般項は aₙ = a₁ + (n-1)d です。初項 a₁ と公差 d が分かれば任意の項が求まります。' },
+        { step: 2, text: '第n項 = 初項 + (n-1) × 公差。公差 d > 0 なら増加、d < 0 なら減少、d = 0 なら定数列です。' },
+        { step: 3, text: 'aₙ = dn + (a₁ - d) と変形すると、n の一次関数（傾き d、切片 a₁ - d）であることが分かります。' },
+      ]} />
     </div>
   );
 };

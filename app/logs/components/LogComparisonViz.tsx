@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface LogComparisonVizProps {
   mode?: 'explore';
@@ -169,6 +170,12 @@ const LogComparisonViz: React.FC<LogComparisonVizProps> = () => {
           真数の大小がそのまま対数の大小になります。底が異なる場合は底の変換公式で統一します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '同じ底の場合: a > 1 なら log_a は単調増加、0 < a < 1 なら単調減少です。' },
+        { step: 2, text: '底が異なる場合は底の変換公式で統一してから比較します。' },
+        { step: 3, text: 'log_a 1 = 0 を基準に、真数が 1 より大きいか小さいかで正負が分かります。' },
+      ]} />
     </div>
   );
 };

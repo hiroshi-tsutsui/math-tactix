@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 type Op = 'add' | 'sub';
 
@@ -137,6 +138,12 @@ const MatrixArithmeticViz: React.FC = () => {
           />
         </p>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '行列の加法・減法は同じ位置の成分同士を足す（引く）だけです。同じサイズの行列でのみ定義されます。' },
+        { step: 2, text: '(A + B)ᵢⱼ = Aᵢⱼ + Bᵢⱼ。各成分ごとに独立に計算します。' },
+        { step: 3, text: '交換法則 A + B = B + A と結合法則 (A + B) + C = A + (B + C) が成り立ちます。' },
+      ]} />
     </div>
   );
 };

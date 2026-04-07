@@ -1,8 +1,18 @@
 # Math Tactix TODO
-現在のサイクル: 042
+現在のサイクル: 043
 最終更新: 2026-04-07
 
 ---
+
+## サイクル042 実施済み
+
+- [x] [優先度:高] sequences モジュール全12本のVizにHintButton統合（ArithGeometricJudgeViz, ArithmeticGeneralTermViz, ArithmeticSumViz, DifferenceSequenceViz, GeometricGeneralTermViz, GeometricSumViz, InfiniteGeometricViz, PartialFractionSumViz, RecurrenceRelationViz, SequencesQuizViz, SigmaNotationViz, SigmaPropertiesViz）
+- [x] [優先度:高] logs モジュール全10本のVizにHintButton統合（ChangeOfBaseViz, CommonLogDigitsViz, ExpLogSymmetryViz, LogComparisonViz, LogDefinitionViz, LogEquationViz, LogGraphShiftViz, LogInequalityViz, LogPropertiesViz, LogsQuizViz）
+- [x] [優先度:高] sets_logic モジュール全14本のVizにHintButton統合（CompoundConditionViz, ConditionalPatternViz, ConditionalPropositionViz, ContradictionViz, ContrapositiveViz, DeMorganViz, InclusionExclusionViz, NecessarySufficientBasicViz, NecessarySufficientConditionViz, NecessarySufficientViz, ProofMethodViz, QuadraticSetsViz, QuantifierNegationViz, SetElementsViz）
+- [x] [優先度:高] matrices モジュール全12本のVizにHintButton統合（DeterminantGeometricViz, DeterminantViz, IdentityMatrixViz, InverseMatrixViz, LinearTransformViz, MatricesQuizViz, MatrixArithmeticViz, MatrixBasicsViz, MatrixMultiplicationViz, RotationMatrixViz, ScalarMultiplicationMatrixViz, SystemOfEquationsViz）
+- [x] [優先度:高] complex モジュール全12本のVizにHintButton統合（ComplexArithmeticViz, ComplexDivisionViz, ComplexEquationViz, ComplexLociViz, ComplexMultiplicationViz, ComplexPlaneViz, ComplexQuizViz, ConjugateViz, DeMoivreViz, ModulusArgumentViz, PolarFormViz, QuadraticComplexRootsViz）
+- [x] [優先度:高] math_i_numbers Level 54: MultinomialTheoremViz（多項定理・三項式展開）新規作成
+- [x] [優先度:中] app/math_i_numbers/page.tsx に Level 54 登録
 
 ## サイクル041 実施済み
 

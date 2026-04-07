@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const IdentityMatrixViz: React.FC = () => {
   const [matA, setMatA] = useState<number[][]>([[3, 1], [2, 5]]);
@@ -121,6 +122,12 @@ const IdentityMatrixViz: React.FC = () => {
           </div>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '単位行列 E は対角成分がすべて 1、それ以外が 0 の正方行列です。' },
+        { step: 2, text: 'AE = EA = A が成り立ちます（数の掛け算で 1 を掛けるのと同じ）。' },
+        { step: 3, text: '零行列 O はすべての成分が 0 の行列で、A + O = A が成り立ちます。' },
+      ]} />
     </div>
   );
 };

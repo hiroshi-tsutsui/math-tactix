@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 export default function ContrapositiveViz() {
   const [mode, setMode] = useState<"original" | "converse" | "inverse" | "contra">("original");
@@ -84,6 +85,12 @@ export default function ContrapositiveViz() {
                       )}
                   </div>
               </div>
+
+              <HintButton hints={[
+                { step: 1, text: '対偶とは「¬Q → ¬P」のことで、元の命題「P → Q」と常に同値です。' },
+                { step: 2, text: 'ベン図で考えると: P ⊂ Q のとき、Q の外側は完全に P の外側に含まれます。' },
+                { step: 3, text: '逆「Q → P」と裏「¬P → ¬Q」は互いに対偶の関係にあり、元の命題とは独立です。' },
+              ]} />
           </div>
       </main>
     </div>

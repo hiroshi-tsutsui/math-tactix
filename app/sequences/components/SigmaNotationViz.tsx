@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 type FormulaType = 'k' | 'k2' | 'k3';
 
@@ -158,6 +159,12 @@ const SigmaNotationViz: React.FC<SigmaNotationVizProps> = ({
           <MathDisplay tex={`\\sum_{k=1}^{n} k^3 = \\left\\{\\frac{n(n+1)}{2}\\right\\}^2`} displayMode />
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'Σk = n(n+1)/2 は 1 から n までの自然数の和です。' },
+        { step: 2, text: 'Σk² = n(n+1)(2n+1)/6 は各自然数の2乗の和です。' },
+        { step: 3, text: 'Σk³ = {n(n+1)/2}² は各自然数の3乗の和で、(Σk)² と等しくなります。' },
+      ]} />
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 340;
 const OX = W / 2, OY = H / 2, S = 50;
@@ -146,6 +147,12 @@ export default function QuadraticComplexRootsViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '判別式 D = b² - 4ac で解の種類が分かります。D > 0: 異なる2実数解、D = 0: 重解、D < 0: 複素数解。' },
+        { step: 2, text: 'D < 0 のとき、解は x = (-b ± √D)/(2a) = (-b ± i√|D|)/(2a) の共役複素数ペアです。' },
+        { step: 3, text: '複素平面上で複素数解は実軸に関して対称な位置に現れます。' },
+      ]} />
     </div>
   );
 }

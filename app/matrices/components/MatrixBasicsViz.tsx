@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface MatrixBasicsVizProps {
   rows?: number;
@@ -94,6 +95,12 @@ const MatrixBasicsViz: React.FC<MatrixBasicsVizProps> = ({ rows = 2, cols = 2 })
           </p>
         )}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '行列は数を長方形に並べたもので、m×n 行列は m 行 n 列の成分を持ちます。' },
+        { step: 2, text: '成分 aᵢⱼ は第 i 行・第 j 列の要素を表します。行→列の順で読みます。' },
+        { step: 3, text: '行数と列数が等しい行列を正方行列といい、行列式や逆行列が定義できます。' },
+      ]} />
     </div>
   );
 };

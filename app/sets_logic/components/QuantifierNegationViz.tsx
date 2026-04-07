@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 export default function QuantifierNegationViz() {
   const [scenario, setScenario] = useState(0);
@@ -164,6 +165,12 @@ export default function QuantifierNegationViz() {
               </button>
             ))}
           </div>
+
+          <HintButton hints={[
+            { step: 1, text: '全称命題の否定: ¬(∀x, P(x)) ⟺ ∃x, ¬P(x)（全てに成り立つ → ある反例が存在する）。' },
+            { step: 2, text: '存在命題の否定: ¬(∃x, P(x)) ⟺ ∀x, ¬P(x)（ある例が存在する → 全てに成り立たない）。' },
+            { step: 3, text: '否定すると ∀ と ∃ が入れ替わり、条件 P(x) が ¬P(x) に変わります。' },
+          ]} />
         </div>
       </main>
     </div>
