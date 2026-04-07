@@ -34,90 +34,23 @@ interface Level {
   component: React.ComponentType<Record<string, unknown>>;
 }
 
-const levels: Level[] = [
-  // --- 微分シリーズ ---
-  {
-    id: 1,
-    title: '微分の定義',
-    description: '極限による導関数の定義を h→0 のスライダーで体感しよう',
-    component: DerivativeDefinitionViz,
-  },
-  {
-    id: 2,
-    title: 'べき乗の微分',
-    description: 'x^n の微分法則をスライダーで n を変えながら確認しよう',
-    component: PowerRuleViz,
-  },
-  {
-    id: 3,
-    title: '接線の方程式',
-    description: 'グラフ上の点を動かして接線の変化を観察しよう',
-    component: TangentLineViz,
-  },
-  {
-    id: 4,
-    title: '導関数のグラフ',
-    description: 'f(x) と f\'(x) のグラフを並べて対応関係を確認しよう',
-    component: DerivativeGraphViz,
-  },
-  {
-    id: 5,
-    title: '増減表',
-    description: 'f\'(x) の符号から関数の増加・減少を判定しよう',
-    component: IncreaseDecreaseViz,
-  },
-  // --- 極値シリーズ ---
-  {
-    id: 6,
-    title: '極大・極小',
-    description: 'f\'(x)=0 の点と極値を視覚的に理解しよう',
-    component: MaxMinViz,
-  },
-  {
-    id: 7,
-    title: 'グラフの概形',
-    description: '増減表からグラフのスケッチを描く練習をしよう',
-    component: GraphSketchViz,
-  },
-  // --- 積分シリーズ ---
-  {
-    id: 8,
-    title: '積分の定義（リーマン和）',
-    description: '区間分割数を変えてリーマン和が面積に近づく様子を観察しよう',
-    component: IntegralDefinitionViz,
-  },
-  {
-    id: 9,
-    title: '不定積分（原始関数）',
-    description: '被積分関数と原始関数の関係を確認しよう',
-    component: AntiderivativeViz,
-  },
-  {
-    id: 10,
-    title: '定積分',
-    description: '定積分の値を面積として視覚化しよう',
-    component: DefiniteIntegralViz,
-  },
-  {
-    id: 11,
-    title: '2曲線間の面積',
-    description: '2つの曲線で囲まれた領域の面積を計算しよう',
-    component: AreaBetweenCurvesViz,
-  },
-  // --- 応用（既存レベルの発展） ---
-  {
-    id: 12,
-    title: '接線の応用',
-    description: '二次関数の接線を使った応用問題に挑戦しよう',
-    component: TangentLineViz,
-  },
-  {
-    id: 13,
-    title: '増減と極値の総合演習',
-    description: '三次関数の増減表・極値・グラフの概形を総合的に練習しよう',
-    component: GraphSketchViz,
-  },
-];
+const LEVEL_COUNT = 13;
+
+const levelComponents: Record<number, React.ComponentType<Record<string, unknown>>> = {
+  1: DerivativeDefinitionViz,
+  2: PowerRuleViz,
+  3: TangentLineViz,
+  4: DerivativeGraphViz,
+  5: IncreaseDecreaseViz,
+  6: MaxMinViz,
+  7: GraphSketchViz,
+  8: IntegralDefinitionViz,
+  9: AntiderivativeViz,
+  10: DefiniteIntegralViz,
+  11: AreaBetweenCurvesViz,
+  12: TangentLineViz,
+  13: GraphSketchViz,
+};
 
 export default function CalculusPage() {
   const { moduleProgress, completeLevel } = useProgress();
@@ -127,6 +60,16 @@ export default function CalculusPage() {
   const [showUnlock, setShowUnlock] = useState(false);
 
   const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
+
+  const levels: Level[] = Array.from({ length: LEVEL_COUNT }, (_, i) => {
+    const id = i + 1;
+    return {
+      id,
+      title: t(`modules.calculus.page_levels.${id}.title`),
+      description: t(`modules.calculus.page_levels.${id}.desc`),
+      component: levelComponents[id],
+    };
+  });
 
   const handleComplete = () => {
     completeLevel(MODULE_ID, currentLevel);
@@ -182,7 +125,7 @@ export default function CalculusPage() {
                 disabled={progress.includes(currentLevel)}
                 className="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-900/10 disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {progress.includes(currentLevel) ? '完了済み' : 'このレベルを完了'}
+                {progress.includes(currentLevel) ? t('modules.calculus.page_ui.completed_btn') : t('modules.calculus.page_ui.complete_btn')}
               </button>
             </div>
 
@@ -195,13 +138,13 @@ export default function CalculusPage() {
                 >
                   <div className="bg-white border border-slate-200 p-10 rounded-[40px] shadow-2xl text-center max-w-sm">
                     <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-2">レベルクリア！</h3>
-                    <p className="text-sm text-slate-500 mb-8">次のレベルに進みましょう。</p>
+                    <h3 className="text-2xl font-bold mb-2">{t('modules.calculus.page_ui.level_clear')}</h3>
+                    <p className="text-sm text-slate-500 mb-8">{t('modules.calculus.page_ui.level_clear_desc')}</p>
                     <button
                       onClick={handleNext}
                       className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
                     >
-                      {currentLevel < levels.length ? '次のレベルへ' : 'モジュール完了'}
+                      {currentLevel < levels.length ? t('modules.calculus.page_ui.next_level') : t('modules.calculus.page_ui.module_complete')}
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -215,7 +158,7 @@ export default function CalculusPage() {
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-white border border-slate-200 rounded-[32px] p-6 shadow-sm">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-              レベル一覧
+              {t('modules.calculus.page_ui.level_list')}
             </h3>
             <div className="space-y-2 max-h-[60vh] overflow-y-auto">
               {levels.map((level) => {
@@ -247,7 +190,7 @@ export default function CalculusPage() {
 
           <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
             <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">
-              進捗
+              {t('modules.calculus.page_ui.progress')}
             </h3>
             <div className="text-3xl font-bold mb-2">
               {progress.length} / {levels.length}

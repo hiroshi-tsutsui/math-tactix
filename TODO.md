@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 036
+現在のサイクル: 037
 最終更新: 2026-04-07
 
 ---
+
+## サイクル036 実施済み
+
+- [x] [優先度:高] trig モジュールに三角関数グラフ Viz を4レベル追加（Level 21-24）: TrigFunctionGraphViz（y=asin(bx+c)）、CosineGraphViz（y=acos(bx+c)）、TangentGraphViz（y=tanx + 漸近線）、UnitCircleAnimationViz（単位円 + sinグラフ同期アニメーション）
+- [x] [優先度:高] locales 対応（技術負債解消）: sequences/logs/calculus の3モジュールのハードコード日本語を t() に置換
+- [x] [優先度:高] locales/ja.json と en.json に modules.sequences/logs/calculus.page_levels.* および page_ui.* キーを追加
+- [ ] [引き継ぎ:037] locales 対応の残り: vectors/complex/matrices/functions の4モジュール
 
 ## サイクル035 実施済み
 

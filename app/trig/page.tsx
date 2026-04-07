@@ -33,6 +33,10 @@ const TrigInequalityViz = dynamic(() => import('./components/TrigInequalityViz')
 const TrigRelationshipViz = dynamic(() => import('./components/TrigRelationshipViz'), { ssr: false, loading: loadingFallback });
 const HeronComparisonViz = dynamic(() => import('./components/HeronComparisonViz'), { ssr: false, loading: loadingFallback });
 const TrigApplicationViz = dynamic(() => import('./components/TrigApplicationViz'), { ssr: false, loading: loadingFallback });
+const TrigFunctionGraphViz = dynamic(() => import('./components/TrigFunctionGraphViz'), { ssr: false, loading: loadingFallback });
+const CosineGraphViz = dynamic(() => import('./components/CosineGraphViz'), { ssr: false, loading: loadingFallback });
+const TangentGraphViz = dynamic(() => import('./components/TangentGraphViz'), { ssr: false, loading: loadingFallback });
+const UnitCircleAnimationViz = dynamic(() => import('./components/UnitCircleAnimationViz'), { ssr: false, loading: loadingFallback });
 
 // --- Types ---
 type State = {
@@ -153,6 +157,10 @@ export default function TrigPage() {
              level === 18 ? "三角比の相互関係と式の値 (Trig Relationships)" :
              level === 19 ? "三角形の面積比較 (Heron vs Trig)" :
              level === 20 ? "三角比の応用 (Application)" :
+             level === 21 ? "y=asin(bx+c) グラフ (Sine Graph)" :
+             level === 22 ? "y=acos(bx+c) グラフ (Cosine Graph)" :
+             level === 23 ? "y=tanx グラフ (Tangent Graph)" :
+             level === 24 ? "単位円アニメーション (Unit Circle)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -184,7 +192,11 @@ export default function TrigPage() {
                       { id: 17, title: "Level 17: 三角不等式", desc: "sinθ≥k, cosθ≤k の解を単位円で視覚化", icon: Target },
                       { id: 18, title: "Level 18: 三角比の相互関係と式の値", desc: "sin²θ+cos²θ=1 を使って式の値を求める", icon: Zap },
                       { id: 19, title: "Level 19: 三角形の面積（ヘロン比較）", desc: "三角比の公式とヘロンの公式を比較", icon: TrendingUp },
-                      { id: 20, title: "Level 20: 三角比の応用（測量）", desc: "仰角・俯角から高さ・距離を求める", icon: Target }
+                      { id: 20, title: "Level 20: 三角比の応用（測量）", desc: "仰角・俯角から高さ・距離を求める", icon: Target },
+                      { id: 21, title: "Level 21: y=asin(bx+c) グラフ", desc: "振幅・周波数・位相をスライダーで変えてsinグラフを観察", icon: Activity },
+                      { id: 22, title: "Level 22: y=acos(bx+c) グラフ", desc: "cosグラフの振幅・周波数・位相を操作", icon: Activity },
+                      { id: 23, title: "Level 23: y=tanx グラフ", desc: "tanグラフの周期と漸近線を確認", icon: TrendingUp },
+                      { id: 24, title: "Level 24: 単位円アニメーション", desc: "単位円上の点の動きとsinグラフの関係", icon: Circle }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -398,6 +410,42 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-md mx-auto">
                   <TrigApplicationViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 21: Sine Function Graph */}
+      {level === 21 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <TrigFunctionGraphViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 22: Cosine Graph */}
+      {level === 22 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <CosineGraphViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 23: Tangent Graph */}
+      {level === 23 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <TangentGraphViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 24: Unit Circle Animation */}
+      {level === 24 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <UnitCircleAnimationViz />
               </div>
           </main>
       )}
