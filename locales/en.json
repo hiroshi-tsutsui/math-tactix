@@ -684,7 +684,8 @@
         "11": { "title": "Area Between Curves", "desc": "Calculate the area of regions bounded by two curves" },
         "12": { "title": "Tangent Line Applications", "desc": "Tackle applied problems using tangent lines of quadratics" },
         "13": { "title": "Comprehensive Extrema Practice", "desc": "Practice sign charts, extrema, and graph sketching for cubics" },
-        "14": { "title": "Volume of Revolution", "desc": "Use the disk method to find the volume of solids of revolution" }
+        "14": { "title": "Volume of Revolution", "desc": "Use the disk method to find the volume of solids of revolution" },
+        "15": { "title": "Velocity, Acceleration & Integration", "desc": "Visually understand displacement vs. distance traveled through velocity integration" }
       },
       "page_ui": {
         "level_list": "Level List",

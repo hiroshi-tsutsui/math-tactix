@@ -64,6 +64,7 @@ import BinomialTheoremViz from './components/BinomialTheoremViz';
 import MultinomialTheoremViz from './components/MultinomialTheoremViz';
 import SymmetricExpressionViz from './components/SymmetricExpressionViz';
 import PermutationViz from './components/PermutationViz';
+import RepetitionPermutationViz from './components/RepetitionPermutationViz';
 
 
 
@@ -132,7 +133,8 @@ export default function MathINumbers() {
         { id: 53, title: '二項定理 (Binomial Theorem)', type: 'binomial_theorem' },
         { id: 54, title: '多項定理 (Multinomial Theorem)', type: 'multinomial_theorem' },
         { id: 55, title: '対称式の利用', type: 'symmetric_expression' },
-        { id: 56, title: '場合の数・順列・組み合わせ', type: 'permutation' }
+        { id: 56, title: '場合の数・順列・組み合わせ', type: 'permutation' },
+        { id: 57, title: '重複順列・重複組み合わせ', type: 'repetition_permutation' }
 ];
 
   return (
@@ -800,6 +802,20 @@ export default function MathINumbers() {
                     スライダーで n, r を変えて、違いを体感しましょう。
                   </p>
                   <PermutationViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 57 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">重複順列・重複組み合わせ (Repetition Permutation & Combination)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="n" /> 種類から重複を許して <InlineMath math="r" /> 個選ぶ場合の数を学びます。
+                    重複順列 <InlineMath math="n^r" /> と重複組み合わせ <InlineMath math="\mathrm{H}(n,r) = {}_{n+r-1}\mathrm{C}_r" /> の違いを、
+                    ツリー構造や仕切り棒モデルで視覚的に理解しましょう。
+                  </p>
+                  <RepetitionPermutationViz />
                 </div>
               </div>
             )}
