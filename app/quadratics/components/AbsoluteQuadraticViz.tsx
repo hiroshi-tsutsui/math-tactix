@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from '../../components/HintButton';
 
 export default function AbsoluteQuadraticViz() {
   const [a, setA] = useState(1);
@@ -306,6 +307,11 @@ export default function AbsoluteQuadraticViz() {
             </li>
           </ul>
         </div>
+        <HintButton hints={[
+          { step: 1, text: 'y = |ax\u00B2 + bx + c| のグラフは、元の二次関数で y < 0 となる部分を x 軸に関して折り返したものです。' },
+          { step: 2, text: '判別式 D > 0 のとき、放物線が x 軸と交わる2点で「折れ」が生じます。D \u2264 0 なら折り返しは起こりません。' },
+          { step: 3, text: '絶対値を取ると、グラフは常に y \u2265 0 の領域に収まります。交点付近では微分不可能（角ができる）になります。' },
+        ]} />
       </div>
     </div>
   );

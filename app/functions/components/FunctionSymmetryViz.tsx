@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 type SymFunc = 'even' | 'odd' | 'neither';
 
@@ -167,6 +168,11 @@ export default function FunctionSymmetryViz() {
           className="accent-blue-600" />
         対称性チェック表示
       </label>
+      <HintButton hints={[
+        { step: 1, text: '偶関数: f(-x) = f(x) が全ての x で成り立つ関数。グラフは y 軸に関して対称です。例: x², cos(x)' },
+        { step: 2, text: '奇関数: f(-x) = -f(x) が全ての x で成り立つ関数。グラフは原点に関して対称です。例: x³, sin(x)' },
+        { step: 3, text: '偶関数でも奇関数でもない関数は、y 軸対称でも原点対称でもありません。対称性チェックで緑が重なれば対称です。' },
+      ]} />
     </div>
   );
 }

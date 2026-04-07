@@ -1,8 +1,14 @@
 # Math Tactix TODO
-現在のサイクル: 043
+現在のサイクル: 044
 最終更新: 2026-04-07
 
 ---
+
+## サイクル043 実施済み
+
+- [x] [優先度:高] functions モジュール全10本のVizにHintButton統合（LinearFunctionViz, RationalFunctionViz, RadicalFunctionViz, AbsoluteValueFunctionViz, FunctionTransformViz, FunctionSymmetryViz, CompositeFunctionViz, InverseFunctionViz, DomainRangeViz, FunctionQuizViz）
+- [x] [優先度:高] trig_ratios モジュール全2本のVizにHintButton統合（ConeShortestPathViz, TetrahedronViz）
+- [x] [優先度:高] quadratics モジュール Level 60-74 の主要5本のVizにHintButton追加（AbsoluteInequalityAllRealsViz, AbsoluteQuadraticViz, IntegerRootsQuadraticViz, TranslationQuadraticViz, VertexAxisDeterminationViz）
 
 ## サイクル042 実施済み
 

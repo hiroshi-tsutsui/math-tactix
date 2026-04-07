@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function TranslationQuadraticViz() {
   const [p, setP] = useState(0); // x-translation
@@ -156,6 +157,11 @@ export default function TranslationQuadraticViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: 'y = ax\u00B2 を x 方向に p、y 方向に q 平行移動すると y = a(x - p)\u00B2 + q になります。' },
+        { step: 2, text: '頂点は (0, 0) から (p, q) に移動します。グラフの形（開き具合）は変わりません。' },
+        { step: 3, text: 'x 方向の移動は符号に注意: y = a(x - p)\u00B2 の p > 0 は右方向への移動です。' },
+      ]} />
     </div>
   );
 }

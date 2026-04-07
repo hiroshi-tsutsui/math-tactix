@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface FuncDef {
   label: string;
@@ -187,6 +188,11 @@ export default function DomainRangeViz() {
           <p className="text-xs text-slate-500 mt-1">y軸上の緑の線</p>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '定義域（domain）は関数に代入できる x の範囲です。分母が 0 になる点や根号の中が負になる点は除きます。' },
+        { step: 2, text: '値域（range）は関数が実際にとりうる y の値の範囲です。グラフの上下の広がりを見ると分かります。' },
+        { step: 3, text: '赤い領域は定義域外（関数が定義されない部分）を示しています。x 軸上の青い線が定義域、y 軸上の緑の線が値域です。' },
+      ]} />
     </div>
   );
 }

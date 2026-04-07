@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function AbsoluteInequalityAllRealsViz() {
   const [a, setA] = useState(1);
@@ -175,6 +176,11 @@ export default function AbsoluteInequalityAllRealsViz() {
             D = b² - 4ac = ({b.toFixed(1)})² - 4({a.toFixed(1)})({c.toFixed(1)}) = <span className={discriminant < 0 ? 'text-green-600 font-bold' : 'text-red-600'}>{discriminant.toFixed(2)}</span>
           </div>
         </div>
+        <HintButton hints={[
+          { step: 1, text: 'ax\u00B2 + bx + c > 0 が全ての実数 x で成り立つ条件は、a > 0 かつ判別式 D < 0 です。' },
+          { step: 2, text: 'a > 0（下に凸）でないと、x \u2192 \u00B1\u221E で必ず負になります。D \u2265 0 だと x 軸と交わるか接するため不等式が崩れます。' },
+          { step: 3, text: '判別式 D = b\u00B2 - 4ac < 0 のとき、放物線は x 軸と交わらず、常に正（a > 0 の場合）になります。' },
+        ]} />
       </div>
     </div>
   );

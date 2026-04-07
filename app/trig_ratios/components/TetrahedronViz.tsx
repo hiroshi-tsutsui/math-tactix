@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function TetrahedronViz() {
   const [a, setA] = useState(6); // Side length
@@ -259,6 +260,11 @@ export default function TetrahedronViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '正四面体の高さは、頂点から底面の重心に下ろした垂線です。重心は正三角形の各中線の交点で、中線を 2:1 に内分します。' },
+        { step: 2, text: '高さ h = \u221A6/3 \u00D7 a、体積 V = \u221A2/12 \u00D7 a\u00B3 です。直角三角形で三平方の定理を使って導出します。' },
+        { step: 3, text: '内接球の半径 r = h/4 = \u221A6/12 \u00D7 a、外接球の半径 R = 3h/4 = \u221A6/4 \u00D7 a です。R = 3r の関係が成り立ちます。' },
+      ]} />
     </div>
   );
 }

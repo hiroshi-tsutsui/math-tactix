@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { CheckCircle2, AlertCircle, RefreshCw } from 'lucide-react';
 import { generateRandomProblem, type FunctionProblem } from '../utils/functions-generator';
+import HintButton from '../../components/HintButton';
 
 export default function FunctionQuizViz() {
   const [problem, setProblem] = useState<FunctionProblem>(() => generateRandomProblem());
@@ -105,6 +106,11 @@ export default function FunctionQuizViz() {
           次の問題
         </button>
       )}
+      <HintButton hints={[
+        { step: 1, text: '関数の基本: f(a) は x = a を代入した結果です。合成関数 f(g(x)) は g を先に計算します。' },
+        { step: 2, text: '定義域・値域の問題では、分母 \u2260 0 や根号の中 \u2265 0 の条件を確認しましょう。' },
+        { step: 3, text: '逆関数の問題では y = f(x) の x と y を入れ替えて解きます。偶関数・奇関数の判定は f(-x) を計算して比較します。' },
+      ]} />
     </div>
   );
 }
