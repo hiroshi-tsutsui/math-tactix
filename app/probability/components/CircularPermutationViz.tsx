@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RefreshCw, RotateCw, AlignJustify, Circle as CircleIcon } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = React.useRef<HTMLSpanElement>(null);
@@ -162,6 +163,15 @@ export function CircularPermutationViz() {
           </div>
         </div>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "n 個のものを一列に並べる方法は n! 通りです" },
+          { step: 2, text: "円形に並べると、回転して同じになるものが n パターンずつ存在します" },
+          { step: 3, text: "よって円順列の総数は n!/n = (n-1)! 通りです" },
+          { step: 4, text: "1つの要素を固定して考えると、残り (n-1) 個の並べ方と同じです" },
+        ]}
+      />
     </div>
   );
 }

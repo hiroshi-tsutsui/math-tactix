@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo } from 'react';
 import { InlineMath, BlockMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export default function ShortestPathViz() {
   const [w, setW] = useState(4);
@@ -138,6 +139,15 @@ export default function ShortestPathViz() {
           )}
         </div>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "右に w 回、上に h 回の計 (w+h) 回の移動から、右に進む w 回を選ぶ組み合わせです" },
+          { step: 2, text: "各交差点の経路数は「左からの経路数 + 下からの経路数」で求まります（動的計画法）" },
+          { step: 3, text: "障害物がある点は経路数を 0 とし、そこを通る経路は全て除外されます" },
+          { step: 4, text: "障害物なしの場合: C(w+h, w) = (w+h)! / (w! × h!) で計算できます" },
+        ]}
+      />
     </div>
   );
 }

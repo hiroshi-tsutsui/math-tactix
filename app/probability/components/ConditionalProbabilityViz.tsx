@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -415,6 +416,15 @@ export default function ConditionalProbabilityViz() {
           </div>
         )}
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "条件付き確率 P(B|A) は「A が起こった条件のもとで B が起こる確率」です" },
+          { step: 2, text: "公式: P(B|A) = P(A∩B) / P(A) で計算します" },
+          { step: 3, text: "P(A∩B) ≤ min(P(A), P(B)) の制約があります" },
+          { step: 4, text: "ベン図では、A の円の内部だけに注目し、その中で A∩B が占める割合が P(B|A) です" },
+        ]}
+      />
     </div>
   );
 }

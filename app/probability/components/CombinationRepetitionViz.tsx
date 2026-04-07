@@ -3,10 +3,9 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-
-
 import 'katex/dist/katex.min.css';
 import { BlockMath, InlineMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export const CombinationRepetitionViz = () => {
   const [n, setN] = useState(5); // Number of items (balls)
@@ -172,6 +171,15 @@ export const CombinationRepetitionViz = () => {
           </div>
           
         </div>
+
+        <HintButton
+          hints={[
+            { step: 1, text: "重複組合せは「〇と｜（仕切り）」の並べ方と同じ問題に帰着できます" },
+            { step: 2, text: "n 個の〇と (r-1) 個の仕切りを一列に並べます" },
+            { step: 3, text: "合計 (n+r-1) 個のスロットから n 個の〇の位置を選ぶので C(n+r-1, n) 通りです" },
+            { step: 4, text: "これは nHr = C(n+r-1, r-1) とも書け、非負整数解の個数と一致します" },
+          ]}
+        />
       </div>
     </div>
   );

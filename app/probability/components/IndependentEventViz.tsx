@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -374,6 +375,15 @@ export default function IndependentEventViz() {
           <li>独立かどうかは「一方の結果が他方に影響するか」で判断</li>
         </ul>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "2つの事象が独立とは、一方の結果が他方の確率に影響しないことです" },
+          { step: 2, text: "独立のとき P(A∩B) = P(A)×P(B) が成り立ちます" },
+          { step: 3, text: "復元抽出（元に戻す）は独立、非復元抽出（戻さない）は非独立です" },
+          { step: 4, text: "シミュレーション回数を増やすと、実験結果は理論値に近づきます（大数の法則）" },
+        ]}
+      />
     </div>
   );
 }
