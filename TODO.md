@@ -1,8 +1,14 @@
 # Math Tactix TODO
-現在のサイクル: 041
+現在のサイクル: 042
 最終更新: 2026-04-07
 
 ---
+
+## サイクル041 実施済み
+
+- [x] [優先度:高] vectors モジュール全11本のVizにHintButton統合（VectorBasicsViz, VectorComponentsViz, VectorAdditionViz, ScalarMultiplicationViz, VectorMagnitudeViz, DotProductViz, DotProductAngleViz, VectorPerpendicularViz, UnitVectorViz, VectorPositionViz, VectorsQuizViz）
+- [x] [優先度:高] calculus モジュール全11本のVizにHintButton統合（DerivativeDefinitionViz, PowerRuleViz, TangentLineViz, DerivativeGraphViz, IncreaseDecreaseViz, MaxMinViz, GraphSketchViz, IntegralDefinitionViz, AntiderivativeViz, DefiniteIntegralViz, AreaBetweenCurvesViz）
+- [x] [優先度:高] probability 残り4本のVizにHintButton統合（BayesTheoremViz, ConditionalProbabilityTableViz, ExpectedValueViz, RecurrenceViz）
 
 ## サイクル040 実施済み
 

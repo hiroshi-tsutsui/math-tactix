@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from '../../components/HintButton';
 
 /* ── Types ── */
 interface TableProblem {
@@ -317,6 +318,12 @@ export default function ConditionalProbabilityTableViz() {
           </div>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '条件付き確率 P(A|B) は「B が起きた条件のもとで A が起きる確率」です。' },
+        { step: 2, text: '公式: P(A|B) = n(A∩B) / n(B) です。分割表では該当セル / 条件列の合計で求めます。' },
+        { step: 3, text: '分割表の「列の合計」が分母、「該当するセル」が分子になります。ハイライトで確認しましょう。' },
+      ]} />
 
       {/* Formula reference */}
       <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">

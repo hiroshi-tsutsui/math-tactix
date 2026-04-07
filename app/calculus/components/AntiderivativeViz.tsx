@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const AntiderivativeViz: React.FC = () => {
   const [n, setN] = useState(2);
@@ -139,6 +140,12 @@ const AntiderivativeViz: React.FC = () => {
           薄い緑の曲線は異なる C の値に対応する原始関数の族です。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '不定積分は微分の逆操作です。F\'(x) = f(x) となる F(x) を求めます。' },
+        { step: 2, text: 'べき乗の積分公式: ∫x^n dx = x^(n+1)/(n+1) + C です。指数を1つ上げて、新しい指数で割ります。' },
+        { step: 3, text: '積分定数 C を忘れないようにしましょう。C が異なると原始関数のグラフが上下にシフトします。' },
+      ]} />
     </div>
   );
 };

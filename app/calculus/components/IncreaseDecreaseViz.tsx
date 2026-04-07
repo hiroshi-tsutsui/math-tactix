@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const IncreaseDecreaseViz: React.FC = () => {
   const [aCoef, setACoef] = useState(1);
@@ -192,6 +193,12 @@ const IncreaseDecreaseViz: React.FC = () => {
           <span className="text-red-600 font-bold">赤の区間</span>は <MathDisplay tex="f'(x) < 0" />（減少）を表します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '増減表を作るにはまず f\'(x) = 0 を解いて、f\'(x) の符号が変わる x の値を求めます。' },
+        { step: 2, text: '各区間で f\'(x) の符号（+/-）を調べ、増加/減少を判定します。' },
+        { step: 3, text: 'f\'(x) の符号が + から - に変わる点が極大、- から + に変わる点が極小です。' },
+      ]} />
     </div>
   );
 };

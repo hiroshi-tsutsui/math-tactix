@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 import {
   generateComponentsProblem,
   generateAdditionProblem,
@@ -199,6 +200,12 @@ const VectorsQuizViz: React.FC = () => {
           )}
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '成分計算: ベクトルの和・差は各成分ごとに足し引きします。' },
+        { step: 2, text: '内積: a . b = a₁b₁ + a₂b₂ です。大きさ: |a| = √(a₁² + a₂²) です。' },
+        { step: 3, text: 'なす角: cosθ = (a . b) / (|a||b|) で求めます。垂直なら内積 = 0 です。' },
+      ]} />
 
       <div className="text-xs text-slate-400 text-right">
         正答率: {stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0}%（{stats.correct}/{stats.total}）

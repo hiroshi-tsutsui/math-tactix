@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const GraphSketchViz: React.FC = () => {
   const [aCoef, setACoef] = useState(1);
@@ -211,6 +212,12 @@ const GraphSketchViz: React.FC = () => {
           <li>各区間の増減に合わせて曲線を描く</li>
         </ol>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'まず f\'(x) = 0 を解いて極値の x 座標を求め、増減表を作ります。' },
+        { step: 2, text: '極値の y 座標、y 切片 f(0)、変曲点 f\'\'(x) = 0 の座標を計算してプロットします。' },
+        { step: 3, text: '増減表に従って各区間の曲線を描きます。3次関数は最高次の係数の符号で x→±∞ の振る舞いが決まります。' },
+      ]} />
     </div>
   );
 };

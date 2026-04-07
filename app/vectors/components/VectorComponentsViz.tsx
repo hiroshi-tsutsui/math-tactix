@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const VectorComponentsViz: React.FC = () => {
   const [ax, setAx] = useState(3);
@@ -78,6 +79,12 @@ const VectorComponentsViz: React.FC = () => {
         <p>ベクトルを <MathDisplay tex="x" /> 成分（赤）と <MathDisplay tex="y" /> 成分（緑）に分解して表すことを<strong>成分表示</strong>といいます。</p>
         <MathDisplay tex={`\\vec{a} = (a_1,\\; a_2) = (${ax},\\; ${ay})`} displayMode />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ベクトルは x 成分と y 成分の2つの数の組 (a₁, a₂) で表せます。' },
+        { step: 2, text: 'x 成分は水平方向（赤い線）、y 成分は垂直方向（緑の線）の移動量です。' },
+        { step: 3, text: 'ベクトルの大きさは |a| = √(a₁² + a₂²) で計算できます。成分が分かれば大きさも分かります。' },
+      ]} />
     </div>
   );
 };

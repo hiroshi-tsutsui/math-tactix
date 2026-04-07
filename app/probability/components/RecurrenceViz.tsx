@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -366,6 +367,12 @@ export default function RecurrenceViz() {
           </table>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '確率の漸化式とは、n 回目の確率 p_n を p_(n-1) などの前の項を使って表す式です。' },
+        { step: 2, text: '初期条件（p_1 や p_0 の値）を設定し、漸化式を繰り返し適用して各項を求めます。' },
+        { step: 3, text: '確率の総和は必ず 1 になります（Σ p_n = 1）。累積和が 1 に近づくことを確認しましょう。' },
+      ]} />
 
       {/* Sum property */}
       <div className="bg-green-50 border border-green-200 rounded-xl p-4 space-y-1">

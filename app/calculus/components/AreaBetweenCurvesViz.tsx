@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const AreaBetweenCurvesViz: React.FC = () => {
   const [aCoef, setACoef] = useState(-1);
@@ -187,6 +188,13 @@ const AreaBetweenCurvesViz: React.FC = () => {
           2つの曲線の交点 <MathDisplay tex="\\alpha, \\beta" /> を求めてから面積を計算します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'まず f(x) = g(x) を解いて2曲線の交点（積分区間の端）を求めます。' },
+        { step: 2, text: '面積は S = ∫[α,β] |f(x) - g(x)| dx です。上側の関数から下側の関数を引きます。' },
+        { step: 3, text: '区間内で上下が入れ替わる場合は、区間を分けて計算する必要があります。' },
+        { step: 4, text: '放物線と直線の場合、公式 S = |a|/6 * (β - α)^3 が使えることがあります（1/6公式）。' },
+      ]} />
     </div>
   );
 };

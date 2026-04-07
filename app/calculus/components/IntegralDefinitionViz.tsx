@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const IntegralDefinitionViz: React.FC = () => {
   const [numRects, setNumRects] = useState(10);
@@ -149,6 +150,12 @@ const IntegralDefinitionViz: React.FC = () => {
           分割数 n を増やすと、長方形の合計面積が曲線の下の面積に近づきます。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '定積分は「面積の極限」として定義されます。区間を n 等分して長方形の面積の和を求めます。' },
+        { step: 2, text: '各長方形の面積は f(x_i) * Δx です。Δx = (b-a)/n が幅、f(x_i) が高さです。' },
+        { step: 3, text: 'n → ∞ とすると長方形の合計面積が正確な面積（定積分の値）に収束します。' },
+      ]} />
     </div>
   );
 };

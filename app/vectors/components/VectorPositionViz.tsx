@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const VectorPositionViz: React.FC = () => {
   const [ax, setAx] = useState(1);
@@ -103,6 +104,12 @@ const VectorPositionViz: React.FC = () => {
           <MathDisplay tex="t = 0" /> で点 A、<MathDisplay tex="t = 1" /> で点 B、<MathDisplay tex={`t = \\frac{1}{2}`} /> で中点 M になります。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '位置ベクトルとは、原点 O から各点への矢印（ベクトル）のことです。' },
+        { step: 2, text: '内分点 P は OP = (1-t)OA + tOB で表されます。t は A から B への比率パラメータです。' },
+        { step: 3, text: 't = 0 で点 A、t = 1 で点 B、t = 1/2 で中点 M になります。m:n の内分点では t = m/(m+n) です。' },
+      ]} />
     </div>
   );
 };

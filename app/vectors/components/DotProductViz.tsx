@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const DotProductViz: React.FC = () => {
   const [ax, setAx] = useState(3);
@@ -115,6 +116,12 @@ const DotProductViz: React.FC = () => {
         <p className="font-bold mb-1">内積の定義</p>
         <MathDisplay tex={`\\vec{a} \\cdot \\vec{b} = a_1 b_1 + a_2 b_2 = |\\vec{a}||\\vec{b}|\\cos\\theta`} displayMode />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '内積は a . b = a₁b₁ + a₂b₂ と成分で計算できます。結果はスカラー（数値）です。' },
+        { step: 2, text: '内積は a . b = |a||b|cosθ とも表せます。ここで θ は2つのベクトルのなす角です。' },
+        { step: 3, text: '内積 > 0 なら鋭角、内積 < 0 なら鈍角、内積 = 0 なら直角（垂直）です。' },
+      ]} />
     </div>
   );
 };

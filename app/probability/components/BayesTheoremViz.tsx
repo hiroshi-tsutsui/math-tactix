@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -357,6 +358,13 @@ export default function BayesTheoremViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ベイズの定理: P(A|B) = P(B|A)P(A) / P(B) です。「結果Bが分かったとき、原因Aの確率」を求めます。' },
+        { step: 2, text: '分母の P(B) は全確率の公式で求めます: P(B) = P(B|A)P(A) + P(B|A\')P(A\') です。' },
+        { step: 3, text: '医学検査の例: 有病率（事前確率）が低いと、陽性でも実際に病気である確率は低くなります。' },
+        { step: 4, text: '分母の P(B) を正確に計算することがポイントです。偽陽性の影響を見落とさないようにしましょう。' },
+      ]} />
 
       {/* Formula box */}
       <div className="bg-indigo-50 rounded-2xl p-5 border border-indigo-100">

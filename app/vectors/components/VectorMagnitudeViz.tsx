@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const VectorMagnitudeViz: React.FC = () => {
   const [ax, setAx] = useState(3);
@@ -82,6 +83,12 @@ const VectorMagnitudeViz: React.FC = () => {
         <MathDisplay tex={`|\\vec{a}| = \\sqrt{a_1^2 + a_2^2}`} displayMode />
         <p className="mt-2">三平方の定理（ピタゴラスの定理）から、x 成分と y 成分の二乗和の平方根が大きさになります。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ベクトルの大きさは三平方の定理から求めます。x 成分と y 成分を直角三角形の2辺と考えましょう。' },
+        { step: 2, text: '|a| = √(a₁² + a₂²) です。例えば a = (3, 4) なら |a| = √(9 + 16) = √25 = 5 です。' },
+        { step: 3, text: '大きさが 0 のベクトル（零ベクトル）は a = (0, 0) のときだけです。' },
+      ]} />
     </div>
   );
 };

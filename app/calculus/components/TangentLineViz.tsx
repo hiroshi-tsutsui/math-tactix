@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const TangentLineViz: React.FC = () => {
   const [aCoef, setACoef] = useState(1);
@@ -161,6 +162,12 @@ const TangentLineViz: React.FC = () => {
           接点を動かすと、接線の傾きと位置がリアルタイムに変化します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '接線の方程式は y - f(a) = f\'(a)(x - a) です。接点 (a, f(a)) と傾き f\'(a) が必要です。' },
+        { step: 2, text: 'まず f\'(x) を求め、接点の x 座標を代入して傾き f\'(a) を計算します。' },
+        { step: 3, text: '整理すると y = f\'(a)x - af\'(a) + f(a) となります。y = mx + b の形に直しましょう。' },
+      ]} />
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const ScalarMultiplicationViz: React.FC = () => {
   const [ax, setAx] = useState(2);
@@ -86,6 +87,12 @@ const ScalarMultiplicationViz: React.FC = () => {
           <MathDisplay tex="|k\\vec{a}| = |k| \\cdot |\\vec{a}|" /> です。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'スカラー倍は各成分に同じ数 k を掛けます。ka = (ka₁, ka₂) です。' },
+        { step: 2, text: 'k > 0 なら元のベクトルと同じ向き、k < 0 なら逆向きになります。' },
+        { step: 3, text: '大きさは |ka| = |k| * |a| です。k = 0 のとき零ベクトルになります。' },
+      ]} />
     </div>
   );
 };

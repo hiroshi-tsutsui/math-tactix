@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const DefiniteIntegralViz: React.FC = () => {
   const [aCoef, setACoef] = useState(-1);
@@ -141,6 +142,12 @@ const DefiniteIntegralViz: React.FC = () => {
           青い領域の面積（符号付き）が定積分の値に対応します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '定積分 ∫[a,b] f(x)dx は微積分の基本定理により F(b) - F(a) で計算できます。' },
+        { step: 2, text: 'まず不定積分 F(x) = ∫f(x)dx を求め、上端と下端の値を代入して引きます。' },
+        { step: 3, text: '定積分は「符号付き面積」です。x 軸より下の部分は負の面積として計算されます。' },
+      ]} />
     </div>
   );
 };

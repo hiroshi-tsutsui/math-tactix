@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const VectorPerpendicularViz: React.FC = () => {
   const [ax, setAx] = useState(3);
@@ -114,6 +115,12 @@ const VectorPerpendicularViz: React.FC = () => {
           <MathDisplay tex={`\\vec{a} = (p, q)`} /> に垂直なベクトルは <MathDisplay tex={`(-q, p)`} /> や <MathDisplay tex={`(q, -p)`} /> です。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '2つのベクトルが垂直 ⟺ 内積が 0 です。a . b = 0 が垂直条件です。' },
+        { step: 2, text: 'a = (p, q) に垂直なベクトルは (-q, p) または (q, -p) です。成分を入れ替えて一方の符号を変えます。' },
+        { step: 3, text: '垂直条件 a₁b₁ + a₂b₂ = 0 は、未知の成分を求める方程式として使えます。' },
+      ]} />
     </div>
   );
 };

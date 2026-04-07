@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -318,6 +319,12 @@ export default function ExpectedValueViz() {
           <text x={W - 85} y={34} fontSize={9} fill="#64748b">寄与 x*P</text>
         </svg>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '期待値は E(X) = Σ x_i * P(X = x_i) です。各値にその確率を掛けて合計します。' },
+        { step: 2, text: '期待値は「長期的に見たときの平均値」を表します。1回ごとの結果とは異なります。' },
+        { step: 3, text: '期待値がゲームの参加費と等しいとき「公正なゲーム」、参加費より大きいとき「得」です。' },
+      ]} />
 
       {/* Formula */}
       <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">

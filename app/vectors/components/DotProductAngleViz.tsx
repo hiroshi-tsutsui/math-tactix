@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const DotProductAngleViz: React.FC = () => {
   const [angleDeg, setAngleDeg] = useState(60);
@@ -112,6 +113,12 @@ const DotProductAngleViz: React.FC = () => {
         <MathDisplay tex={`\\cos\\theta = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}||\\vec{b}|}`} displayMode />
         <p className="mt-2">内積の値が正なら鋭角、負なら鈍角、0なら直角です。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'なす角 θ は cosθ = (a . b) / (|a||b|) から求めます。' },
+        { step: 2, text: 'まず内積 a . b を成分で計算し、次に各ベクトルの大きさ |a|, |b| を求めます。' },
+        { step: 3, text: 'cosθ の値から θ = arccos(cosθ) で角度を求めます。0° ≦ θ ≦ 180° の範囲です。' },
+      ]} />
     </div>
   );
 };
