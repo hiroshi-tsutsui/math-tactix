@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const DerivativeGraphViz: React.FC = () => {
   const [aCoef, setACoef] = useState(1);
@@ -141,6 +142,12 @@ const DerivativeGraphViz: React.FC = () => {
           <MathDisplay tex="f'(x) < 0" /> の区間で減少します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'f\'(x) > 0 の区間で f(x) は増加（右上がり）、f\'(x) < 0 の区間で減少（右下がり）です。' },
+        { step: 2, text: 'f\'(x) = 0 となる点は極値の候補です。f\'(x) の符号が変わるかどうかを確認します。' },
+        { step: 3, text: '導関数 f\'(x) のグラフが x 軸を横切る点が、元の関数 f(x) の極値点に対応します。' },
+      ]} />
     </div>
   );
 };

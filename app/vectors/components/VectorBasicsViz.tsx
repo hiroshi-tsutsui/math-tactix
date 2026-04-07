@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const VectorBasicsViz: React.FC = () => {
   const [startX, setStartX] = useState(1);
@@ -98,6 +99,12 @@ const VectorBasicsViz: React.FC = () => {
         <p>大きさと向きを持つ量を<strong>ベクトル</strong>と呼びます。始点 A から終点 B への有向線分で表し、成分は終点の座標から始点の座標を引いて求めます。</p>
         <MathDisplay tex={`\\vec{AB} = (B_x - A_x,\\; B_y - A_y) = (${endX} - ${startX},\\; ${endY} - ${startY}) = (${dx},\\; ${dy})`} displayMode />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ベクトルは「大きさ」と「向き」を持つ量です。矢印の長さが大きさ、矢印の方向が向きを表します。' },
+        { step: 2, text: '2点 A(x₁, y₁), B(x₂, y₂) を結ぶベクトル AB の成分は (x₂ - x₁, y₂ - y₁) で求めます。' },
+        { step: 3, text: 'ベクトルの大きさ |AB| は √((x₂-x₁)² + (y₂-y₁)²) で計算できます（三平方の定理）。' },
+      ]} />
     </div>
   );
 };

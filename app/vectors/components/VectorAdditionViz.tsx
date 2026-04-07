@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const VectorAdditionViz: React.FC = () => {
   const [ax, setAx] = useState(3);
@@ -109,6 +110,12 @@ const VectorAdditionViz: React.FC = () => {
         <MathDisplay tex={`\\vec{a} + \\vec{b} = (a_1 + b_1,\\; a_2 + b_2)`} displayMode />
         <p className="mt-2">2つのベクトルを2辺とする平行四辺形の対角線が和のベクトルになります。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ベクトルの和は各成分ごとに足します。a + b = (a₁ + b₁, a₂ + b₂) です。' },
+        { step: 2, text: '幾何学的には「平行四辺形の法則」で表されます。2つのベクトルを隣辺とする平行四辺形の対角線が和です。' },
+        { step: 3, text: '差 a - b は a + (-b) と考えます。-b は b と逆向きのベクトルです。' },
+      ]} />
     </div>
   );
 };

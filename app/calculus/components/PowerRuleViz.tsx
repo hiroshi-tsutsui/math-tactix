@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const PowerRuleViz: React.FC = () => {
   const [n, setN] = useState(2);
@@ -129,6 +130,12 @@ const PowerRuleViz: React.FC = () => {
           指数 n を変えると、導関数のグラフ（赤い破線）がどう変わるか観察しましょう。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'べき乗の微分公式: (x^n)\' = nx^(n-1) です。指数を前に出し、指数を1つ下げます。' },
+        { step: 2, text: '例: (x^3)\' = 3x^2, (x^2)\' = 2x, (x^1)\' = 1, (定数)\' = 0 です。' },
+        { step: 3, text: '係数 a がある場合: (ax^n)\' = anx^(n-1) です。係数はそのまま残ります。' },
+      ]} />
     </div>
   );
 };

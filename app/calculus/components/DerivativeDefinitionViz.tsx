@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const DerivativeDefinitionViz: React.FC = () => {
   const [h, setH] = useState(1.0);
@@ -156,6 +157,12 @@ const DerivativeDefinitionViz: React.FC = () => {
           <span className="text-green-600 font-bold">接線（緑の線）</span>に近づきます。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '微分係数は f\'(a) = lim[h→0] (f(a+h) - f(a)) / h で定義されます。これは接線の傾きを表します。' },
+        { step: 2, text: '(f(a+h) - f(a)) / h は2点を結ぶ割線の傾きです。h を小さくするほど接線の傾きに近づきます。' },
+        { step: 3, text: 'スライダーで h を 0 に近づけて、赤い割線が緑の接線に重なっていく様子を観察しましょう。' },
+      ]} />
     </div>
   );
 };

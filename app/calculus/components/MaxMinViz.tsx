@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const MaxMinViz: React.FC = () => {
   const [aCoef, setACoef] = useState(1);
@@ -143,6 +144,13 @@ const MaxMinViz: React.FC = () => {
         <MathDisplay tex={`f'(x) = 0 \\text{ かつ } f''(x) < 0 \\Rightarrow \\text{極大}`} displayMode />
         <MathDisplay tex={`f'(x) = 0 \\text{ かつ } f''(x) > 0 \\Rightarrow \\text{極小}`} displayMode />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '極値を求めるにはまず f\'(x) = 0 を解きます。これが極値の候補です。' },
+        { step: 2, text: '第二次導関数 f\'\'(x) を使って判定します。f\'\'(a) < 0 なら極大、f\'\'(a) > 0 なら極小です。' },
+        { step: 3, text: 'f\'\'(a) = 0 のときは第二次判定法では判定不能です。増減表で確認しましょう。' },
+        { step: 4, text: '極値は「局所的な」最大・最小です。関数全体の最大・最小とは限りません。' },
+      ]} />
     </div>
   );
 };

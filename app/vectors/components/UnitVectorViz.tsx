@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const UnitVectorViz: React.FC = () => {
   const [ax, setAx] = useState(3);
@@ -82,6 +83,12 @@ const UnitVectorViz: React.FC = () => {
         <MathDisplay tex={`\\hat{a} = \\frac{\\vec{a}}{|\\vec{a}|}\\quad (|\\vec{a}| \\neq 0)`} displayMode />
         <p className="mt-2">大きさ1のベクトルを<strong>単位ベクトル</strong>といいます。元のベクトルの向きを保ったまま大きさを1にする操作を<strong>正規化</strong>（ノルマライズ）と呼びます。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '単位ベクトルは大きさ（ノルム）が 1 のベクトルです。方向だけを表したいときに使います。' },
+        { step: 2, text: '元のベクトル a を大きさ |a| で割ると単位ベクトルになります。e = a / |a| です。' },
+        { step: 3, text: '単位ベクトルは単位円上の点に対応します。任意のベクトルは「大きさ x 単位ベクトル」と分解できます。' },
+      ]} />
     </div>
   );
 };
