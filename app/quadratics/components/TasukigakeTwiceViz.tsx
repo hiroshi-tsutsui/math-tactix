@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, RefreshCw, Layers } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 export default function TasukigakeTwiceViz() {
   const [step, setStep] = useState(0);
@@ -90,7 +91,13 @@ export default function TasukigakeTwiceViz() {
             </button>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2文字の2次式の因数分解は、一方の文字で整理して「たすき掛け」を2回使います。" },
+        { step: 2, text: "まず x について整理し、定数項（y の式）を先に因数分解します。" },
+        { step: 3, text: "因数分解した結果を使って、全体をたすき掛けで因数分解します。" },
+      ]} />
+    </div>
     </div>
   );
 }

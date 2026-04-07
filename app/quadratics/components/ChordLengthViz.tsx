@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function ChordLengthViz() {
   const [m, setM] = useState(1);
   const [n, setN] = useState(2);
@@ -139,7 +140,13 @@ export default function ChordLengthViz() {
             <MathDisplay tex={`D = ${D} < 0`} displayMode />
           </div>
         )}
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "放物線と直線の交点間の弦の長さは L = |β - α|√(1 + m²) で求められます。" },
+        { step: 2, text: "α, β は連立方程式の2つの解で、|β - α| = √D / |a| です（a は2次の係数）。" },
+        { step: 3, text: "傾き m の直線上の2点間距離には √(1 + m²) の因子がかかります。" },
+      ]} />
+    </div>
     </div>
   );
 }

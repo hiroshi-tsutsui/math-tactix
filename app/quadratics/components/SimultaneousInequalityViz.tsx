@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 type RangeType = 'inside' | 'outside';
 
 interface Range {
@@ -211,7 +212,13 @@ const SimultaneousInequalityViz: React.FC<SimultaneousInequalityVizProps> = ({ i
           {step === 2 && "不等式②の解の範囲（赤）を数直線の下に描きます。高さ（レベル）を変えると見やすいです。"}
           {step === 3 && "上下の範囲が重なっている部分（紫）が、この連立不等式の解です！"}
         </p>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "連立不等式の解は、各不等式の解の共通部分（積集合）です。" },
+        { step: 2, text: "数直線上で各不等式の解の範囲を描き、重なっている部分を見つけます。" },
+        { step: 3, text: "上の範囲（青）と下の範囲（赤）が重なる部分（紫）が連立不等式の解です。" },
+      ]} />
+    </div>
     </div>
   );
 };

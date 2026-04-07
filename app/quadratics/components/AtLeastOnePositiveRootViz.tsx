@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function AtLeastOnePositiveRootViz() {
   const [m, setM] = useState(0); // parameter for equation x^2 - 2mx + m + 2 = 0
@@ -104,7 +105,13 @@ export default function AtLeastOnePositiveRootViz() {
             <li className={hasZeroAndPos ? "font-bold text-green-600" : ""}>0と正: f(0)=0 かつ 軸{'>'}0 <span className="text-xs">[{hasZeroAndPos ? 'OK' : 'NG'}]</span></li>
           </ul>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "少なくとも1つの正の解を持つ条件は、場合分けが必要です。" },
+        { step: 2, text: "場合1: 2つとも正の解 → D ≧ 0、軸 > 0、f(0) > 0 の3条件。" },
+        { step: 3, text: "場合2: 正と負（または0）の解 → f(0) < 0（またはf(0)=0かつ軸>0）。" },
+      ]} />
+    </div>
     </div>
   );
 }

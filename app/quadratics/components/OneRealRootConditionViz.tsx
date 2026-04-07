@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function OneRealRootConditionViz() {
   const [p, setP] = useState<number>(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -175,7 +176,13 @@ export default function OneRealRootConditionViz() {
             style={{ maxWidth: '100%', height: 'auto' }}
           />
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2次方程式がちょうど1つの実数解を持つ条件は D = 0（重解）です。" },
+        { step: 2, text: "パラメータを含む方程式では、D = 0 を p について解くとパラメータの値が求まります。" },
+        { step: 3, text: "グラフで確認: 放物線が x 軸にちょうど接する瞬間を見つけましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

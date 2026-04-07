@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 const InscribedPerimeterViz: React.FC = () => {
   const [t, setT] = useState(1);
   const [data, setData] = useState<any[]>([]);
@@ -146,7 +147,13 @@ const InscribedPerimeterViz: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "放物線に内接する長方形の周の長さを関数として表すと、2次関数になります。" },
+        { step: 2, text: "対称性から長方形の頂点を (t, 0) と (t, f(t)) に取り、周の長さを t で表します。" },
+        { step: 3, text: "2次関数の最大値問題に帰着させて、頂点での値を求めます。" },
+      ]} />
+    </div>
     </div>
   );
 };

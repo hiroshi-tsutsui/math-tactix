@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function BothRootsBetweenViz({ problem }: { problem?: any }) {
   const [a, setA] = useState<number>(1.5);
@@ -188,7 +189,13 @@ export default function BothRootsBetweenViz({ problem }: { problem?: any }) {
           height={400}
           className="block w-full h-auto"
         />
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの解がともに区間 [p, q] にある条件は3つあります。" },
+        { step: 2, text: "条件: (1) D ≧ 0、(2) p < 軸 < q、(3) f(p) > 0 かつ f(q) > 0（a > 0の場合）。" },
+        { step: 3, text: "3条件の共通部分がパラメータの範囲になります。1つでも欠けると条件を満たしません。" },
+      ]} />
+    </div>
     </div>
   );
 }

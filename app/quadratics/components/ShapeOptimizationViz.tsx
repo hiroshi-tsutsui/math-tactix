@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ReferenceDot } from 'recharts';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface ShapeOptimizationVizProps {
   totalLength: number; // L
@@ -148,7 +149,13 @@ const ShapeOptimizationViz: React.FC<ShapeOptimizationVizProps> = ({ totalLength
              <p>頂点: <MathDisplay tex={`(${optimalX}, ${optimalArea})`} /></p>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "周の長さが一定のとき、面積最大の長方形を求める問題は2次関数の最大値問題です。" },
+        { step: 2, text: "一辺を x とすると、他辺は (L-2x)/2 で、面積 S(x) = x(L/2 - x) は下に凸の2次関数です。" },
+        { step: 3, text: "S(x) の頂点で面積が最大になり、そのとき長方形は正方形になります。" },
+      ]} />
+    </div>
     </div>
   );
 };

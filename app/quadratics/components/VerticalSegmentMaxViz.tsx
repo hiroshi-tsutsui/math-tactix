@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "katex/dist/katex.min.css";
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function VerticalSegmentMaxViz() {
   const [t, setT] = useState(1.5); // x-coordinate
@@ -98,7 +99,13 @@ export default function VerticalSegmentMaxViz() {
           <text x={mapX(t) + 10} y={mapY(yP) - 10} fontSize="14" fill="#3b82f6">P</text>
           <text x={mapX(t) + 10} y={mapY(yL) + 20} fontSize="14" fill="#ef4444">Q</text>
         </svg>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "縦の線分の長さは、2つのグラフの y 座標の差 |f(x) - g(x)| です。" },
+        { step: 2, text: "差関数 h(x) = f(x) - g(x) を作り、その最大値を求めます。" },
+        { step: 3, text: "h(x) が2次関数なら平方完成で最大値を求めます。頂点の x 座標が答えです。" },
+      ]} />
+    </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function TwoParabolasViz({ onComplete }: { onComplete?: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -140,7 +141,13 @@ export default function TwoParabolasViz({ onComplete }: { onComplete?: () => voi
             </div>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの放物線が接する条件は、連立方程式の判別式 D = 0 です。" },
+        { step: 2, text: "f(x) = g(x) を整理すると2次方程式になり、D = 0 で接します。" },
+        { step: 3, text: "k を動かして D = 0 になる瞬間を見つけましょう。それが接する条件です。" },
+      ]} />
+    </div>
     </div>
   );
 }

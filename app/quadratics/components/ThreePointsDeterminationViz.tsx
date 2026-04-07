@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function ThreePointsDeterminationViz() {
   const [a, setA] = useState(1);
   const [b, setB] = useState(-2);
@@ -122,7 +123,13 @@ export default function ThreePointsDeterminationViz() {
             )}
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "3点を通る2次関数は y = ax² + bx + c の形で、3点の座標を代入して連立方程式を作ります。" },
+        { step: 2, text: "3つの方程式から a, b, c を求めます（クラメルの公式や消去法を使います）。" },
+        { step: 3, text: "スライダーで a, b, c を調整し、3点すべてを通るようにしてみましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 interface AbsoluteValueInequalityVizProps {
   a: number;
   initialM: number;
@@ -132,7 +133,13 @@ export default function AbsoluteValueInequalityViz({ a, initialM, initialN }: Ab
         <strong>視覚的意味:</strong><br/>
         青いグラフ <MathDisplay tex={`y = |x^2 - ${a2}|`} /> が、オレンジの直線 <MathDisplay tex={`y = ${m}x + ${n}`} /> より「下」にある <MathDisplay tex="x" /> の範囲（紫の帯）が解です。<br/>
         交点は、2つの2次方程式 <MathDisplay tex={`x^2 - ${a2} = ${m}x + ${n}`} /> または <MathDisplay tex={`-(x^2 - ${a2}) = ${m}x + ${n}`} /> を解いて求めます。
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "|x² - a²| < mx + n を解くには、グラフ的に絶対値グラフが直線より下にある範囲を見つけます。" },
+        { step: 2, text: "場合分け: x² - a² = mx + n と -(x² - a²) = mx + n の2つの2次方程式を解きます。" },
+        { step: 3, text: "紫の帯で示された範囲が不等式の解です。交点を正確に求めて解の範囲を決定します。" },
+      ]} />
+    </div>
     </div>
   );
 }

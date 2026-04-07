@@ -1,6 +1,7 @@
 
 "use client";
 import React, { useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function RightTriangleRectangleViz() {
   const [x, setX] = useState(2);
@@ -51,7 +52,13 @@ export default function RightTriangleRectangleViz() {
             S = -x² + 4x = -(x-2)² + 4 より、x=2 のとき最大値 4 です。
           </p>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "直角三角形に内接する長方形の面積を、底辺 x の関数として表します。" },
+        { step: 2, text: "相似を使って長方形の高さを x で表すと、面積は2次関数 S(x) = -x² + (底辺)x になります。" },
+        { step: 3, text: "S(x) を平方完成して、頂点で最大値を求めます。" },
+      ]} />
+    </div>
     </div>
   );
 }

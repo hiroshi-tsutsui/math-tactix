@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface ParametricInequalityVizProps {
   fixedRoot: number; // e.g., 2
@@ -187,7 +188,13 @@ export default function ParametricInequalityViz({ fixedRoot, inequalitySign }: P
         <p className="text-sm text-gray-600 mt-1">
             <span className="font-bold">Check Point:</span> $a$ を動かして、$a = {fixedRoot}$ の瞬間に不等式の解がどうなるか確認せよ。
         </p>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2次不等式にパラメータが含まれる場合、解の形がパラメータの値で変わります。" },
+        { step: 2, text: "パラメータの値によって解の範囲の端点が移動し、不等号が等号を含むかどうかも変わります。" },
+        { step: 3, text: "a をスライダーで動かして、解の範囲がどう変化するか視覚的に確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

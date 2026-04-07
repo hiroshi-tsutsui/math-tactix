@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 const DomainAlwaysPositiveViz: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -209,7 +210,13 @@ const DomainAlwaysPositiveViz: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "定義域内で常に f(x) > 0 であるには、定義域内の最小値が正であればよいです。" },
+        { step: 2, text: "軸が定義域内にある場合は頂点の y 座標が正、定義域外なら端点の値が正であることを確認します。" },
+        { step: 3, text: "場合分けして、全ての場合でパラメータの条件を求め、その共通部分（和集合）を取ります。" },
+      ]} />
+    </div>
     </div>
   );
 };

@@ -31,6 +31,8 @@ const RSquaredViz = dynamic(() => import('./components/RSquaredViz'), { ssr: fal
 const CorrelationCoefficientCalcViz = dynamic(() => import('./components/CorrelationCoefficientCalcViz'), { ssr: false, loading: loadingFallback });
 const VarianceTransformViz = dynamic(() => import('./components/VarianceTransformViz'), { ssr: false, loading: loadingFallback });
 const BoxPlotComparisonViz = dynamic(() => import('./components/BoxPlotComparisonViz'), { ssr: false, loading: loadingFallback });
+const SamplingDistributionViz = dynamic(() => import('./components/SamplingDistributionViz'), { ssr: false, loading: loadingFallback });
+const ConfidenceIntervalViz = dynamic(() => import('./components/ConfidenceIntervalViz'), { ssr: false, loading: loadingFallback });
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };
@@ -203,6 +205,22 @@ export default function DataPage() {
       desc: '2つのデータセットの箱ひげ図を比較し、四分位範囲(IQR)でデータの安定性を判定する',
       logStart: '箱ひげ図比較シミュレータ起動',
       logGuide: 'データセットを切り替えて箱ひげ図を比較してください。'
+    },
+    {
+      id: 20,
+      targetR: 0,
+      name: '標本分布の基礎',
+      desc: '母集団から標本を繰り返し抽出し、標本平均の分布（標本分布）と標準誤差を視覚的に理解する',
+      logStart: '標本分布シミュレータ起動',
+      logGuide: 'μ・σ・nを調整してシミュレーションを実行してください。'
+    },
+    {
+      id: 21,
+      targetR: 0,
+      name: '信頼区間の構成',
+      desc: '母標準偏差σが既知のとき、標本平均から母平均の信頼区間を構成し、信頼水準と区間幅の関係を理解する',
+      logStart: '信頼区間シミュレータ起動',
+      logGuide: 'σ・n・X̄を調整して信頼区間の変化を確認してください。'
     }
   ];
 
@@ -229,6 +247,8 @@ export default function DataPage() {
     if (progress.includes(16)) nextLvl = 17;
     if (progress.includes(17)) nextLvl = 18;
     if (progress.includes(18)) nextLvl = 19;
+    if (progress.includes(19)) nextLvl = 20;
+    if (progress.includes(20)) nextLvl = 21;
     setCurrentLevel(nextLvl);
     initLevel(nextLvl);
   }, [moduleProgress, language]); // Re-run on language change
@@ -297,7 +317,7 @@ export default function DataPage() {
 
   const handleNextLevel = () => {
     completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 19) {
+    if (currentLevel < 21) {
       setCurrentLevel(currentLevel + 1);
       initLevel(currentLevel + 1);
     } else {
@@ -351,7 +371,7 @@ export default function DataPage() {
             </div>
             <div className="h-4 w-px bg-slate-200"></div>
             <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-              {t('common.level')} {currentLevel} / 19
+              {t('common.level')} {currentLevel} / 21
             </div>
           </div>
         </div>
@@ -377,7 +397,9 @@ export default function DataPage() {
               </div>
             </div>
             
-            {currentLevel === 19 ? (<BoxPlotComparisonViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('箱ひげ図の比較を完了しました。'); } }} />)
+            {currentLevel === 21 ? (<ConfidenceIntervalViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('信頼区間の構成を完了しました。'); } }} />)
+            : currentLevel === 20 ? (<SamplingDistributionViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標本分布のシミュレーションを完了しました。'); } }} />)
+            : currentLevel === 19 ? (<BoxPlotComparisonViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('箱ひげ図の比較を完了しました。'); } }} />)
             : currentLevel === 18 ? (<VarianceTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変換の性質を確認しました。'); } }} />)
             : currentLevel === 17 ? (<CorrelationCoefficientCalcViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の計算を完了しました。'); } }} />) : currentLevel === 16 ? (<RSquaredViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('R²の分析を完了しました。'); } }} />) : currentLevel === 15 ? (<ResidualViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('残差の分析を完了しました。'); } }} />) : currentLevel === 14 ? (<StandardDeviationViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('標準偏差の計算を完了しました。'); } }} />) : currentLevel === 13 ? (<QuartileAnalysisViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('四分位数の分析を完了しました。'); } }} />) : currentLevel === 12 ? (<CorrelationInterpretViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('相関係数の解釈を完了しました。'); } }} />) : currentLevel === 11 ? (<VarianceShortcutViz />) : currentLevel === 10 ? (<CombinedVarianceViz />) : currentLevel === 9 ? (<OutlierViz />) : currentLevel === 8 ? (<CovarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('共分散の性質を確認しました。'); } }} />) : currentLevel === 7 ? (<HistogramBoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('ヒストグラムとの対応を確認しました。'); } }} />) : currentLevel === 6 ? (<FrequencyTableViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('代表値の確認を完了しました。'); } }} />) : currentLevel === 5 ? (<DataTransformViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('変量変換完了'); } }} />) : currentLevel === 4 ? (<HypothesisTestingViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog('検定完了'); } }} />) : currentLevel === 2 ? (<VarianceViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : currentLevel === 3 ? (<BoxPlotViz onComplete={() => { if (!showUnlock) { setShowUnlock(true); addLog(t('modules.data.completion.synced')); } }} />) : (<div className="relative aspect-video bg-white m-6 border border-slate-100 rounded-lg shadow-inner cursor-crosshair group">
               <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" width={800} height={450} onClick={handleCanvasClick} />
@@ -393,7 +415,7 @@ export default function DataPage() {
                     <h3 className="text-xl font-bold mb-2">{t('modules.data.completion.synced')}</h3>
                     <p className="text-sm text-slate-500 mb-6">{t('modules.data.completion.msg')}</p>
                     <button onClick={handleNextLevel} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 flex items-center justify-center gap-2">
-                      {currentLevel < 18 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
+                      {currentLevel < 21 ? t('common.next') : t('common.root')} <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </motion.div>

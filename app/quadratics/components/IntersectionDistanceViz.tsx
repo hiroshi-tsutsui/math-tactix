@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 interface VizProps {
   onSuccess?: () => void;
 }
@@ -181,7 +182,13 @@ export const IntersectionDistanceViz: React.FC<VizProps> = ({ onSuccess }) => {
             className="w-full h-auto bg-slate-50"
           />
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "放物線と直線の2交点間の距離は、交点の座標から距離の公式で求められます。" },
+        { step: 2, text: "交点の x 座標を α, β とすると、距離 = √((β-α)² + (m(β-α))²) = |β-α|√(1+m²) です。" },
+        { step: 3, text: "|β - α| = √D / |a| を使って計算します（D は判別式、a は2次の係数）。" },
+      ]} />
+    </div>
     </div>
   );
 };

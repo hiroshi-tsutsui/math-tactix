@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function DifferentSignsViz() {
   const [m, setM] = useState<number>(0);
@@ -167,7 +168,13 @@ export default function DifferentSignsViz() {
             </p>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "異符号の2つの解を持つ条件は、f(0) < 0（解と係数の関係で αβ < 0）です。" },
+        { step: 2, text: "f(0) = c/a < 0 が成り立てば、グラフは原点で x 軸の下にあり、必ず正と負の解を持ちます。" },
+        { step: 3, text: "この場合、D > 0 は自動的に満たされるので、別途確認する必要はありません。" },
+      ]} />
+    </div>
     </div>
   );
 }

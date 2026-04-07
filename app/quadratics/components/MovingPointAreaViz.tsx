@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function MovingPointAreaViz() {
   const [t, setT] = useState(2);
@@ -92,7 +93,13 @@ export default function MovingPointAreaViz() {
             定義域 $0 \le t \le 4$ において、頂点 $t=3$ で最大値9をとります。
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "動点の問題では、時刻 t を変数として面積を t の関数で表します。" },
+        { step: 2, text: "面積 S(t) が2次関数になるので、頂点で最大値（または最小値）を取ります。" },
+        { step: 3, text: "t の定義域（0 ≦ t ≦ 端に到達する時刻）に注意して最大値を求めましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

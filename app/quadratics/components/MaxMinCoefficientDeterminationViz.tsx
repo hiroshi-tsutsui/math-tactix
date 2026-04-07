@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "katex/dist/katex.min.css";
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function MaxMinCoefficientDeterminationViz() {
   const [a, setA] = useState(1);
   const [b, setB] = useState(1);
@@ -167,7 +168,13 @@ export default function MaxMinCoefficientDeterminationViz() {
             {isMatched ? "条件クリア！定数が決定しました" : "ターゲットの最大値・最小値に合わせてください"}
           </motion.div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "定義域内の最大値・最小値が与えられたとき、係数 a, b を連立方程式で求めます。" },
+        { step: 2, text: "a > 0 なら頂点で最小値、端点で最大値。a < 0 なら逆です。" },
+        { step: 3, text: "最大値と最小値の条件から a, b の連立方程式を立てて解きます。" },
+      ]} />
+    </div>
     </div>
   );
 }

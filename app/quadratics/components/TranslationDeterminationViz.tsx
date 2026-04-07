@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function TranslationDeterminationViz() {
   const [p, setP] = useState(0); // x-translation
@@ -92,7 +93,13 @@ export default function TranslationDeterminationViz() {
             正解！ 頂点を比較すると、x軸方向に -3、y軸方向に -3 移動すれば一致することが視覚的に分かります。
           </motion.div>
         )}
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの放物線の頂点を比較して、平行移動の量を求めます。" },
+        { step: 2, text: "頂点が (p₁, q₁) から (p₂, q₂) に移動するので、移動量は (p₂-p₁, q₂-q₁) です。" },
+        { step: 3, text: "x 軸方向に p₂-p₁、y 軸方向に q₂-q₁ だけ平行移動すれば一致します。" },
+      ]} />
+    </div>
     </div>
   );
 }

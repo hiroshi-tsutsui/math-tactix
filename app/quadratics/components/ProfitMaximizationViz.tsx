@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 const ProfitMaximizationViz = () => {
   const [priceChange, setPriceChange] = useState(0); 
@@ -143,7 +144,13 @@ const ProfitMaximizationViz = () => {
             </p>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "利益 = 価格 × 販売数。値上げすると販売数が減るので、利益は2次関数になります。" },
+        { step: 2, text: "値上げ幅を x とすると、利益 = (基本価格 + x)(基本販売数 - αx) の形になります。" },
+        { step: 3, text: "展開すると下に凸の2次関数で、頂点の x 座標が最適な値上げ幅です。" },
+      ]} />
+    </div>
     </div>
   );
 };

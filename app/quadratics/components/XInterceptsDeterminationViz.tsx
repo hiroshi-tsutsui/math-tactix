@@ -11,6 +11,7 @@ import {
   ReferenceLine,
   ReferenceDot,
 } from "recharts";
+import HintButton from '../../components/HintButton';
 
 export default function XInterceptsDeterminationViz() {
   const [alpha, setAlpha] = useState(-2);
@@ -142,7 +143,13 @@ export default function XInterceptsDeterminationViz() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "x 切片 α, β ともう1点 (px, py) が与えられたとき、y = a(x-α)(x-β) の形を使います。" },
+        { step: 2, text: "点 (px, py) を代入すると a = py / ((px-α)(px-β)) で a が決まります。" },
+        { step: 3, text: "スライダーで α, β, 通る点を調整して、放物線がどう変化するか確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

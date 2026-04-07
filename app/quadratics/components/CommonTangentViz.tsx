@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import HintButton from '../../components/HintButton';
 
 export default function CommonTangentViz() {
   const [m, setM] = useState<number>(2);
@@ -171,7 +172,13 @@ export default function CommonTangentViz() {
             </div>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの放物線の共通接線は、両方の放物線に接する直線です。" },
+        { step: 2, text: "直線 y = mx + n が放物線に接する条件は、連立方程式の判別式 D = 0 です。" },
+        { step: 3, text: "D₁ = 0 かつ D₂ = 0 を同時に満たす m, n が共通接線の傾きと切片です。" },
+      ]} />
+    </div>
     </div>
   );
 }

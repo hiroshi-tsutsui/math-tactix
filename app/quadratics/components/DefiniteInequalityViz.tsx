@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 interface DefiniteInequalityVizProps {
   k: number;
@@ -125,7 +126,13 @@ export default function DefiniteInequalityViz({ k }: DefiniteInequalityVizProps)
       
       <div className="absolute bottom-3 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-xs text-slate-500 border border-slate-100">
         y = x² + 2x + {k.toFixed(1)}
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2次式が常に正（f(x) > 0 for all x）であるための条件は a > 0 かつ D < 0 です。" },
+        { step: 2, text: "グラフが全体で x 軸より上にある ⟺ 頂点の y 座標が正 ⟺ D < 0。" },
+        { step: 3, text: "k の値をスライダーで動かして、放物線が x 軸と交わるか交わらないかの境界を確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Problem } from '../types';
 import { useTheme } from '../../contexts/ThemeContext';
+import HintButton from '../../components/HintButton';
 
 interface Props {
   problem: Problem;
@@ -210,7 +211,13 @@ export const AbsoluteValueMaxMinViz: React.FC<Props> = ({ problem, isCorrect }) 
               className="flex-1"
             />
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "y = |f(x)| の最小値は必ず 0 以上です。f(x) = 0 の解が定義域内にあれば最小値は 0 です。" },
+        { step: 2, text: "最大値は定義域の端点での値と、折り返しの山の頂点での値を比較して求めます。" },
+        { step: 3, text: "定義域を動かして、最大値・最小値がどう変化するか確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 };

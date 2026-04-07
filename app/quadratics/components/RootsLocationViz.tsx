@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface RootsLocationVizProps {
   type: 'positive' | 'negative' | 'different';
@@ -159,7 +160,16 @@ const RootsLocationViz: React.FC<RootsLocationVizProps> = ({ type, m, width = 32
 
   }, [m, type, width, height]);
 
-  return <canvas ref={canvasRef} width={width} height={height} className="rounded-lg border border-slate-200 bg-white" />;
+  return (
+    <div>
+      <canvas ref={canvasRef} width={width} height={height} className="rounded-lg border border-slate-200 bg-white" />
+      <HintButton hints={[
+        { step: 1, text: "解の配置問題では、D ≧ 0、軸の位置、境界値 f(p) の3条件を調べます。" },
+        { step: 2, text: "2解とも正: D ≧ 0、軸 > 0、f(0) > 0。2解とも負: D ≧ 0、軸 < 0、f(0) > 0。" },
+        { step: 3, text: "異符号の解: f(0) < 0 だけで十分です（D > 0 は自動的に成立）。" },
+      ]} />
+    </div>
+  );
 };
 
 export default RootsLocationViz;

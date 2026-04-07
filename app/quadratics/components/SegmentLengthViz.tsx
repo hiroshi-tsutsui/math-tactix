@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function SegmentLengthViz() {
   const [c, setC] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -97,7 +98,13 @@ export default function SegmentLengthViz() {
           <MathDisplay tex="y = x^2 - 4x + c" /><br/>
           <MathDisplay tex="c" /> を動かして、<MathDisplay tex="L = 6" /> になる点を探してみよう
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "放物線上の2点間の線分の長さは、x 座標の差と y 座標の差から求めます。" },
+        { step: 2, text: "垂直方向の線分なら L = |f(x₁) - f(x₂)|、斜めなら距離の公式を使います。" },
+        { step: 3, text: "c を動かして指定された長さになる条件を見つけましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

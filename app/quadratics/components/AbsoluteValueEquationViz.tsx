@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 interface AbsoluteValueEquationVizProps {
   a: number; // Parameter for |x^2 - a^2|
   initialK?: number; // Initial value for y=k line
@@ -193,6 +194,12 @@ const AbsoluteValueEquationViz: React.FC<AbsoluteValueEquationVizProps> = ({
           <strong>ヒント:</strong> 解が4個になるのは、直線が「山」の頂点より下、かつ $x$軸より上にあるときです。
         </div>
       )}
+      <HintButton hints={[
+        { step: 1, text: "|f(x)| = k を解くには、f(x) = k と f(x) = -k の2つの場合に分けます。" },
+        { step: 2, text: "y = |x² - a²| のグラフで、W字の山の高さ a² より k が小さいか大きいかで解の個数が変わります。" },
+        { step: 3, text: "k = 0 で2個、0 < k < a² で4個、k = a² で3個、k > a² で2個の解を持ちます。" },
+      ]} />
+    
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'katex/dist/katex.min.css';
 import { motion } from 'framer-motion';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function AbsoluteInequalityViz() {
   const [k, setK] = useState<number>(2);
@@ -160,7 +161,13 @@ export default function AbsoluteInequalityViz() {
             className="w-full max-w-[400px] h-auto border border-gray-100 rounded"
           />
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "すべての x で f(x) > 0 が成り立つ条件は、グラフ全体が x 軸より上にあることです。" },
+        { step: 2, text: "a > 0 のとき、頂点の y 座標が正（つまり D < 0）なら常に正です。" },
+        { step: 3, text: "判別式 D = k² - 4(k+3) < 0 を解くと k の範囲が求まります。" },
+      ]} />
+    </div>
     </div>
   );
 }

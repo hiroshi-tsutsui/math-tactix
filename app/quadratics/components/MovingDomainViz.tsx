@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface MovingDomainVizProps {
   p?: number; // Axis
@@ -226,7 +227,13 @@ export default function MovingDomainViz({ p = 2, q = 1, width: domainWidth = 2 }
          <div className="text-xs text-gray-500 mt-1">
             <span className="font-bold">Point:</span> {mode === 'min' ? '定義域を動かし、頂点(軸)が含まれるかどうかの3パターンを確認しましょう。' : '定義域を動かし、「定義域の中央」と「軸」の距離の2パターン(一致で3)を確認しましょう。'}
          </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "定義域が動く場合、頂点が定義域内にあるかどうかで場合分けが必要です。" },
+        { step: 2, text: "最小値: 頂点が定義域内なら頂点の値、定義域外なら軸に近い端点の値です。" },
+        { step: 3, text: "最大値: 定義域の中央と軸の距離で、遠い方の端点の値が最大値になります。" },
+      ]} />
+    </div>
     </div>
   );
 }

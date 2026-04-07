@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function WireSquaresViz() {
   const [wireLength, setWireLength] = useState(40);
@@ -156,7 +157,13 @@ export default function WireSquaresViz() {
             </p>
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "針金を2つに分けて正方形を作る問題は、面積の和を2次関数で表します。" },
+        { step: 2, text: "切断点を x とすると、2つの正方形の面積の和は S(x) = (x/4)² + ((L-x)/4)² です。" },
+        { step: 3, text: "S(x) を展開すると2次関数で、頂点 x = L/2（ちょうど半分）で面積の和が最小になります。" },
+      ]} />
+    </div>
     </div>
   );
 }

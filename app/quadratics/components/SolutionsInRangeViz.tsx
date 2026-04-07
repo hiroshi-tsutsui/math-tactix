@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ReferenceArea, ResponsiveContainer } from 'recharts';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface SolutionsInRangeVizProps {
   problem: any;
@@ -136,7 +137,13 @@ const SolutionsInRangeViz: React.FC<SolutionsInRangeVizProps> = ({ problem }) =>
       {/* Final Verdict */}
       <div className={`p-4 rounded-lg text-center font-bold text-white ${isAllGood ? 'bg-green-500' : 'bg-gray-400'}`}>
         {isAllGood ? '条件クリア！ (解が範囲内に2つ存在)' : '条件未達成'}
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "指定された範囲に解が2つあるための条件は、解の配置の3条件です。" },
+        { step: 2, text: "D ≧ 0、p < 軸 < q、f(p) > 0 かつ f(q) > 0 (a > 0 の場合) を全て満たす必要があります。" },
+        { step: 3, text: "k をスライダーで動かして、3条件が同時に満たされる範囲を確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 };

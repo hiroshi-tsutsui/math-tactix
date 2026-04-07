@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function TangentCoefficientDeterminationViz() {
   const [a, setA] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -132,7 +133,13 @@ export default function TangentCoefficientDeterminationViz() {
             <MathDisplay tex="x^2 + (a+1)x + (a+1) = 0" />
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "放物線と直線が接する条件は、連立方程式の判別式 D = 0 です。" },
+        { step: 2, text: "y = x² + ax + a と y = -x - 1 を連立すると x² + (a+1)x + (a+1) = 0 になります。" },
+        { step: 3, text: "D = (a+1)² - 4(a+1) = (a+1)(a-3) = 0 より a = -1 または a = 3 です。" },
+      ]} />
+    </div>
     </div>
   );
 }

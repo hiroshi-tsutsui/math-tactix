@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface TriangleAreaVizProps {
   problem: any;
@@ -175,7 +176,13 @@ export default function TriangleAreaViz({ problem }: TriangleAreaVizProps) {
           )}
         </div>
 
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "放物線上の点 P と2定点を結ぶ三角形の面積を、P の x 座標 t で表します。" },
+        { step: 2, text: "面積は t の関数となり、微分して最大値を求めます（等積変換も有効です）。" },
+        { step: 3, text: "面積が最大になるのは、P での接線が直線 AB に平行になるときです。" },
+      ]} />
+    </div>
     </div>
   );
 }
