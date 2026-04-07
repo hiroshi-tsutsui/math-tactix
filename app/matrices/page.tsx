@@ -72,7 +72,7 @@ export default function MatricesPage() {
           <BackButton href="/" label={t('common.back_root')} />
           <span className="text-sm font-bold">{t('modules.matrices.title')}</span>
           <span className="text-xs text-slate-400">
-            {completedSet.size}/{MATRIX_LEVELS.length} 完了
+            {completedSet.size}/{MATRIX_LEVELS.length} {t('modules.matrices.page_ui.completed_label')}
           </span>
         </div>
       </nav>
@@ -89,18 +89,18 @@ export default function MatricesPage() {
               className="space-y-8"
             >
               <div className="text-center space-y-2">
-                <h1 className="text-3xl font-black tracking-tight">行列</h1>
+                <h1 className="text-3xl font-black tracking-tight">{t('modules.matrices.page_ui.page_title')}</h1>
                 <p className="text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
-                  空間を自在に変形させる線形変換の仕組みを学ぶ。
+                  {t('modules.matrices.page_ui.page_desc')}
                 </p>
               </div>
 
               {/* Sections */}
               {[
-                { title: '基礎', range: [1, 4], color: 'blue' },
-                { title: '行列式・逆行列', range: [5, 8], color: 'purple' },
-                { title: '線形変換', range: [9, 10], color: 'indigo' },
-                { title: '応用', range: [11, 12], color: 'green' },
+                { title: t('modules.matrices.page_ui.section_basics'), range: [1, 4], color: 'blue' },
+                { title: t('modules.matrices.page_ui.section_det_inv'), range: [5, 8], color: 'purple' },
+                { title: t('modules.matrices.page_ui.section_transform'), range: [9, 10], color: 'indigo' },
+                { title: t('modules.matrices.page_ui.section_applied'), range: [11, 12], color: 'green' },
               ].map(section => (
                 <div key={section.title} className="space-y-3">
                   <h2 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
@@ -130,10 +130,10 @@ export default function MatricesPage() {
                               {completed && <CheckCircle2 className="w-4 h-4 text-green-500" />}
                             </div>
                             <h3 className="font-bold text-sm text-slate-800 dark:text-white mb-1">
-                              {level.title}
+                              {t(`modules.matrices.page_levels.${level.id}.title`)}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                              {level.description}
+                              {t(`modules.matrices.page_levels.${level.id}.desc`)}
                             </p>
                             <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-blue-500 transition-colors" />
                           </button>
@@ -158,7 +158,7 @@ export default function MatricesPage() {
                 className="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
               >
                 <ChevronRight className="w-4 h-4 rotate-180" />
-                レベル一覧に戻る
+                {t('modules.matrices.page_ui.level_list')}
               </button>
 
               {/* Level header */}
@@ -168,8 +168,8 @@ export default function MatricesPage() {
                     <Grid className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-black">{currentLevelData.title}</h2>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{currentLevelData.description}</p>
+                    <h2 className="text-xl font-black">{t(`modules.matrices.page_levels.${currentLevelData.id}.title`)}</h2>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{t(`modules.matrices.page_levels.${currentLevelData.id}.desc`)}</p>
                   </div>
                 </div>
               )}
@@ -186,7 +186,7 @@ export default function MatricesPage() {
                     onClick={handleComplete}
                     className="px-6 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl font-bold transition-colors shadow-md"
                   >
-                    このレベルを完了にする
+                    {t('modules.matrices.page_ui.complete_btn')}
                   </button>
                 )}
                 {selectedLevel < MATRIX_LEVELS.length && (
@@ -194,7 +194,7 @@ export default function MatricesPage() {
                     onClick={() => setSelectedLevel(selectedLevel + 1)}
                     className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-colors shadow-md"
                   >
-                    次のレベルへ
+                    {t('modules.matrices.page_ui.next_level')}
                   </button>
                 )}
               </div>

@@ -35,20 +35,22 @@ interface LevelDef {
   component: React.ComponentType;
 }
 
-const levels: LevelDef[] = [
-  { id: 1, title: '複素平面', subtitle: 'アルガン図の基本、a+bi を平面上の点として表示', component: ComplexPlaneViz },
-  { id: 2, title: '加法・減法', subtitle: 'ベクトルの和と差、平行四辺形の法則', component: ComplexArithmeticViz },
-  { id: 3, title: '乗法', subtitle: '回転とスケーリング、|z₁z₂| = |z₁||z₂|', component: ComplexMultiplicationViz },
-  { id: 4, title: '共役複素数', subtitle: '実軸対称、z·z̄ = |z|²', component: ConjugateViz },
-  { id: 5, title: '除法', subtitle: '共役を使った実数化のステップ', component: ComplexDivisionViz },
-  { id: 6, title: '絶対値と偏角', subtitle: '|z| と arg(z) の定義、極座標との対応', component: ModulusArgumentViz },
-  { id: 7, title: '極形式', subtitle: 'r(cosθ + i sinθ)、スライダーで r と θ を変化', component: PolarFormViz },
-  { id: 8, title: 'ド・モアブルの定理', subtitle: '(cosθ + i sinθ)^n = cos(nθ) + i sin(nθ)', component: DeMoivreViz },
-  { id: 9, title: '複素数の方程式', subtitle: 'z² = -1, z³ = 1 など', component: ComplexEquationViz },
-  { id: 10, title: '二次方程式の複素数解', subtitle: '判別式 D < 0 の場合の複素根', component: QuadraticComplexRootsViz },
-  { id: 11, title: '点の軌跡', subtitle: '|z - a| = r, |z - a| = |z - b| などの図形', component: ComplexLociViz },
-  { id: 12, title: '総合クイズ', subtitle: 'ランダム問題で理解度チェック', component: ComplexQuizViz },
-];
+const LEVEL_COUNT = 12;
+
+const levelComponents: Record<number, React.ComponentType> = {
+  1: ComplexPlaneViz,
+  2: ComplexArithmeticViz,
+  3: ComplexMultiplicationViz,
+  4: ConjugateViz,
+  5: ComplexDivisionViz,
+  6: ModulusArgumentViz,
+  7: PolarFormViz,
+  8: DeMoivreViz,
+  9: ComplexEquationViz,
+  10: QuadraticComplexRootsViz,
+  11: ComplexLociViz,
+  12: ComplexQuizViz,
+};
 
 export default function ComplexPage() {
   const { moduleProgress, completeLevel } = useProgress();
@@ -57,6 +59,16 @@ export default function ComplexPage() {
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
 
   const completedLevels = moduleProgress[MODULE_ID]?.completedLevels || [];
+
+  const levels: LevelDef[] = Array.from({ length: LEVEL_COUNT }, (_, i) => {
+    const id = i + 1;
+    return {
+      id,
+      title: t(`modules.complex.page_levels.${id}.title`),
+      subtitle: t(`modules.complex.page_levels.${id}.desc`),
+      component: levelComponents[id],
+    };
+  });
 
   const handleComplete = (levelId: number) => {
     completeLevel(MODULE_ID, levelId);
@@ -135,7 +147,7 @@ export default function ComplexPage() {
             <div className="flex items-center justify-between">
               <button onClick={() => setSelectedLevel(null)} className="text-sm text-blue-600 font-bold hover:underline flex items-center gap-1">
                 <ChevronRight className="w-4 h-4 rotate-180" />
-                レベル一覧に戻る
+                {t('modules.complex.page_ui.level_list')}
               </button>
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold bg-blue-100 text-blue-700 px-3 py-1 rounded-lg">
@@ -150,12 +162,12 @@ export default function ComplexPage() {
                   onClick={() => handleComplete(selectedLevel)}
                   className="px-4 py-2 bg-green-600 text-white rounded-xl text-sm font-bold hover:bg-green-700 transition"
                 >
-                  完了にする
+                  {t('modules.complex.page_ui.complete_btn')}
                 </button>
               )}
               {completedLevels.includes(selectedLevel) && (
                 <span className="flex items-center gap-1 text-green-600 text-sm font-bold">
-                  <CheckCircle2 className="w-4 h-4" /> 完了済み
+                  <CheckCircle2 className="w-4 h-4" /> {t('modules.complex.page_ui.completed_btn')}
                 </span>
               )}
             </div>

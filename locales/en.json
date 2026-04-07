@@ -787,6 +787,25 @@
       "controls": {
         "next_btn": "Next",
         "finish_btn": "Finish"
+      },
+      "page_levels": {
+        "1": { "title": "Complex Plane", "desc": "Basics of the Argand diagram, displaying a+bi as a point" },
+        "2": { "title": "Addition & Subtraction", "desc": "Vector sum and difference, parallelogram rule" },
+        "3": { "title": "Multiplication", "desc": "Rotation and scaling, |z₁z₂| = |z₁||z₂|" },
+        "4": { "title": "Complex Conjugate", "desc": "Real axis symmetry, z·z̄ = |z|²" },
+        "5": { "title": "Division", "desc": "Steps to rationalize using the conjugate" },
+        "6": { "title": "Modulus & Argument", "desc": "Definition of |z| and arg(z), correspondence with polar coordinates" },
+        "7": { "title": "Polar Form", "desc": "r(cosθ + i sinθ), vary r and θ with sliders" },
+        "8": { "title": "De Moivre's Theorem", "desc": "(cosθ + i sinθ)^n = cos(nθ) + i sin(nθ)" },
+        "9": { "title": "Complex Equations", "desc": "z² = -1, z³ = 1, etc." },
+        "10": { "title": "Quadratic Complex Roots", "desc": "Complex roots when discriminant D < 0" },
+        "11": { "title": "Loci of Points", "desc": "Figures like |z - a| = r, |z - a| = |z - b|" },
+        "12": { "title": "Comprehensive Quiz", "desc": "Random quiz to check understanding" }
+      },
+      "page_ui": {
+        "level_list": "Back to Level List",
+        "complete_btn": "Mark Complete",
+        "completed_btn": "Completed"
       }
     },
     "functions": {
@@ -830,7 +849,32 @@
         "kernel_log": "Kernel Log",
         "define_logic": "Infer Causality",
         "execute_patch": "Execute Program",
-        "system_stabilized": "System Stabilized"
+        "system_stabilized": "System Stabilized",
+        "computing": "Computing..."
+      },
+      "page_levels": {
+        "6": { "title": "Linear Function", "desc": "Manipulate slope and intercept of y = ax + b" },
+        "7": { "title": "Rational Function", "desc": "Explore asymptotes and shape of y = k/(x-h) + v" },
+        "8": { "title": "Radical Function", "desc": "Visualize the domain of y = a√(x-h) + v" },
+        "9": { "title": "Absolute Value Function", "desc": "Explore the piecewise graph of y = a|x-h| + v" },
+        "10": { "title": "Graph Transformations", "desc": "Function graph transformations via translation and reflection" },
+        "11": { "title": "Even & Odd Functions", "desc": "Investigate y-axis and origin symmetry" },
+        "12": { "title": "Composite Functions", "desc": "Visualize the steps of f(g(x))" },
+        "13": { "title": "Inverse Functions", "desc": "f⁻¹(x) and symmetry about y = x" },
+        "14": { "title": "Domain & Range", "desc": "Verify domains and ranges of various functions" },
+        "15": { "title": "Function Quiz", "desc": "Random quiz to test function understanding" }
+      },
+      "page_ui": {
+        "blackbox_levels": {
+          "1": { "name": "Basic Addition", "hint": "A constant is always added to the input." },
+          "2": { "name": "Linear Change", "hint": "Input is doubled, then 1 is subtracted." },
+          "3": { "name": "Quadratic Spread", "hint": "Input is multiplied by itself (squared)." },
+          "4": { "name": "Absolute Logic", "hint": "Negative values are converted to positive." },
+          "5": { "name": "Exponential Growth", "hint": "2 is multiplied by itself 'input' times." }
+        },
+        "previous": "Previous",
+        "next_or_complete": "Next",
+        "complete": "Complete"
       }
     },
     "logs": {
@@ -882,6 +926,32 @@
         "log_start": "Started Stage {{level}}",
         "next_btn": "Next",
         "back": "Back"
+      },
+      "page_levels": {
+        "1": { "title": "Matrix Basics", "desc": "Understand matrix definition, elements, rows, columns, and size" },
+        "2": { "title": "Matrix Addition & Subtraction", "desc": "Learn element-wise addition and subtraction of same-size matrices" },
+        "3": { "title": "Scalar Multiplication", "desc": "Multiply all elements of a matrix by a scalar" },
+        "4": { "title": "Matrix Product", "desc": "Visualize matrix multiplication via row-column dot products" },
+        "5": { "title": "2×2 Determinant", "desc": "Computing determinants using ad - bc" },
+        "6": { "title": "Geometric Meaning of Determinant", "desc": "Visually understand that the determinant represents area scaling" },
+        "7": { "title": "Inverse Matrix", "desc": "Formula and steps for 2×2 inverse matrices" },
+        "8": { "title": "Identity & Zero Matrix", "desc": "Learn identity elements for multiplication and addition" },
+        "9": { "title": "Linear Transformation", "desc": "Observe real-time grid deformation by matrices" },
+        "10": { "title": "Rotation Matrix", "desc": "Learn the structure of rotation matrices and their angle relation" },
+        "11": { "title": "Systems of Equations", "desc": "Solve systems of equations in Ax = b form" },
+        "12": { "title": "Matrix Quiz", "desc": "Practice matrix calculations with random problems" }
+      },
+      "page_ui": {
+        "level_list": "Back to Level List",
+        "complete_btn": "Complete This Level",
+        "next_level": "Next Level",
+        "completed_label": "Completed",
+        "section_basics": "Basics",
+        "section_det_inv": "Determinant & Inverse",
+        "section_transform": "Linear Transforms",
+        "section_applied": "Applied",
+        "page_title": "Matrices",
+        "page_desc": "Learn the mechanism of linear transformations that freely distort space."
       }
     },
     "quiz": {
@@ -1067,6 +1137,29 @@
       "completion": {
         "synced": "Spatial Grasp Complete",
         "msg": "Vector operation mastered. You can freely manipulate 3D space."
+      },
+      "page_levels": {
+        "1": { "title": "Vector Basics", "desc": "Learn the definition of vectors as directed line segments" },
+        "2": { "title": "Component Form", "desc": "Express vectors using x and y components" },
+        "3": { "title": "Vector Addition & Subtraction", "desc": "Experience vector addition via the parallelogram rule" },
+        "4": { "title": "Scalar Multiplication", "desc": "Scale, shrink, and reverse vectors" },
+        "5": { "title": "Vector Magnitude", "desc": "Visually verify |a| = sqrt(x^2 + y^2)" },
+        "6": { "title": "Dot Product", "desc": "Compute a·b = a1*b1 + a2*b2 and see the angle relation" },
+        "7": { "title": "Dot Product & Angle", "desc": "Find the angle using cos θ = a·b / (|a||b|)" },
+        "8": { "title": "Perpendicularity", "desc": "Verify orthogonality when a·b = 0" },
+        "9": { "title": "Unit Vector", "desc": "Learn vector normalization (making magnitude 1)" },
+        "10": { "title": "Position Vector & Internal Division", "desc": "Learn internal division points using position vectors" },
+        "11": { "title": "Vectors Comprehensive Quiz", "desc": "Random quiz to test all your vector knowledge!" }
+      },
+      "page_ui": {
+        "level_list": "Level List",
+        "progress": "Progress",
+        "complete_btn": "Complete This Level",
+        "completed_btn": "Completed",
+        "level_clear": "Level Clear!",
+        "level_clear_desc": "Let's move to the next level.",
+        "next_level": "Next Level",
+        "module_complete": "Module Complete"
       }
     },
     "balls_in_bins": {

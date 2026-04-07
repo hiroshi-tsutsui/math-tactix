@@ -32,25 +32,27 @@ interface VizLevel {
   component: React.ComponentType;
 }
 
-const VIZ_LEVELS: VizLevel[] = [
-  { id: 6, title: "1次関数", description: "y = ax + b の傾きと切片をスライダーで操作", component: LinearFunctionViz },
-  { id: 7, title: "分数関数", description: "y = k/(x-h) + v の漸近線と形状を探る", component: RationalFunctionViz },
-  { id: 8, title: "無理関数", description: "y = a\u221A(x-h) + v の定義域の可視化", component: RadicalFunctionViz },
-  { id: 9, title: "絶対値関数", description: "y = a|x-h| + v の折れ線グラフを探る", component: AbsoluteValueFunctionViz },
-  { id: 10, title: "グラフ変換", description: "平行移動・反転による関数のグラフ変換", component: FunctionTransformViz },
-  { id: 11, title: "偶関数と奇関数", description: "y軸対称・原点対称の対称性を調べる", component: FunctionSymmetryViz },
-  { id: 12, title: "合成関数", description: "f(g(x)) のステップを可視化する", component: CompositeFunctionViz },
-  { id: 13, title: "逆関数", description: "f\u207B\u00B9(x) と y = x に関する対称性", component: InverseFunctionViz },
-  { id: 14, title: "定義域と値域", description: "さまざまな関数の定義域・値域を確認", component: DomainRangeViz },
-  { id: 15, title: "関数クイズ", description: "ランダム問題で関数の理解をテスト", component: FunctionQuizViz },
-];
+const VIZ_LEVEL_COMPONENTS: Record<number, { id: number; component: React.ComponentType }> = {
+  0: { id: 6, component: LinearFunctionViz },
+  1: { id: 7, component: RationalFunctionViz },
+  2: { id: 8, component: RadicalFunctionViz },
+  3: { id: 9, component: AbsoluteValueFunctionViz },
+  4: { id: 10, component: FunctionTransformViz },
+  5: { id: 11, component: FunctionSymmetryViz },
+  6: { id: 12, component: CompositeFunctionViz },
+  7: { id: 13, component: InverseFunctionViz },
+  8: { id: 14, component: DomainRangeViz },
+  9: { id: 15, component: FunctionQuizViz },
+};
+
+const VIZ_LEVEL_COUNT = 10;
 
 const LEVELS = [
-  { id: 1, func: "x + 2", name: "基本的な加法", hint: "入力された値に、常に一定の数が足されています。" },
-  { id: 2, func: "2*x - 1", name: "線形変化", hint: "入力が2倍になり、そこから1引かれています。" },
-  { id: 3, func: "x^2", name: "二次の広がり", hint: "入力が自分自身と掛け合わされています（2乗）。" },
-  { id: 4, func: "abs(x)", name: "絶対値の論理", hint: "マイナスの値がプラスに変換されています。" },
-  { id: 5, func: "2^x", name: "指数関数的な増殖", hint: "2を「入力された数」の分だけ掛け合わせています。" },
+  { id: 1, func: "x + 2" },
+  { id: 2, func: "2*x - 1" },
+  { id: 3, func: "x^2" },
+  { id: 4, func: "abs(x)" },
+  { id: 5, func: "2^x" },
 ];
 
 const MODULE_ID = 'functions';
@@ -155,6 +157,16 @@ export default function FunctionsPage() {
       window.location.href = "/";
     }
   };
+
+  const VIZ_LEVELS: VizLevel[] = Array.from({ length: VIZ_LEVEL_COUNT }, (_, i) => {
+    const entry = VIZ_LEVEL_COMPONENTS[i];
+    return {
+      id: entry.id,
+      title: t(`modules.functions.page_levels.${entry.id}.title`),
+      description: t(`modules.functions.page_levels.${entry.id}.desc`),
+      component: entry.component,
+    };
+  });
 
   const currentVizLevel = VIZ_LEVELS[vizLevelIdx];
   const VizComponent = currentVizLevel?.component;
@@ -454,7 +466,7 @@ export default function FunctionsPage() {
               disabled={vizLevelIdx === 0}
               className="px-4 py-2 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-100 disabled:opacity-30 transition-colors"
             >
-              Previous
+              {t('modules.functions.page_ui.previous')}
             </button>
             <button
               onClick={() => {
@@ -463,7 +475,7 @@ export default function FunctionsPage() {
               }}
               className="px-6 py-2 rounded-lg text-sm font-bold bg-blue-600 text-white hover:bg-blue-500 transition-colors flex items-center gap-2"
             >
-              {vizLevelIdx < VIZ_LEVELS.length - 1 ? 'Next' : 'Complete'} <ChevronRight className="w-4 h-4" />
+              {vizLevelIdx < VIZ_LEVELS.length - 1 ? t('modules.functions.page_ui.next_or_complete') : t('modules.functions.page_ui.complete')} <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         </div>
