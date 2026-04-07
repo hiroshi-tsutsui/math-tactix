@@ -11,23 +11,28 @@ import BackButton from '../components/BackButton';
 import 'katex/dist/katex.min.css';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
-import SineLawViz from './components/SineLawViz';
-import CosineLawViz from './components/CosineLawViz';
-import TriangleAreaViz from './components/TriangleAreaViz';
-import TrigCanvas from './components/TrigCanvas';
-import TrigOverlay from './components/TrigOverlay';
-import TrigExplanation from './components/TrigExplanation';
-import TrigQuiz, { QUIZ_DATA } from './components/TrigQuiz';
-import TrigIdentityPractice from './components/TrigIdentityPractice';
-import SurveyingViz from './components/SurveyingViz';
-import CircleRadiusViz from './components/CircleRadiusViz';
-import SineLawApplicationViz from './components/SineLawApplicationViz';
-import TrigEquationViz from './components/TrigEquationViz';
-import CosineInverseViz from './components/CosineInverseViz';
-import TrigInequalityViz from './components/TrigInequalityViz';
-import TrigRelationshipViz from './components/TrigRelationshipViz';
-import HeronComparisonViz from './components/HeronComparisonViz';
-import TrigApplicationViz from './components/TrigApplicationViz';
+import dynamic from 'next/dynamic';
+import { QUIZ_DATA } from './components/TrigQuiz';
+
+const loadingFallback = () => <div className="animate-pulse bg-slate-100 dark:bg-slate-800 rounded-2xl h-64" />;
+
+const SineLawViz = dynamic(() => import('./components/SineLawViz'), { ssr: false, loading: loadingFallback });
+const CosineLawViz = dynamic(() => import('./components/CosineLawViz'), { ssr: false, loading: loadingFallback });
+const TriangleAreaViz = dynamic(() => import('./components/TriangleAreaViz'), { ssr: false, loading: loadingFallback });
+const TrigCanvas = dynamic(() => import('./components/TrigCanvas'), { ssr: false, loading: loadingFallback });
+const TrigOverlay = dynamic(() => import('./components/TrigOverlay'), { ssr: false, loading: loadingFallback });
+const TrigExplanation = dynamic(() => import('./components/TrigExplanation'), { ssr: false, loading: loadingFallback });
+const TrigQuiz = dynamic(() => import('./components/TrigQuiz'), { ssr: false, loading: loadingFallback });
+const TrigIdentityPractice = dynamic(() => import('./components/TrigIdentityPractice'), { ssr: false, loading: loadingFallback });
+const SurveyingViz = dynamic(() => import('./components/SurveyingViz'), { ssr: false, loading: loadingFallback });
+const CircleRadiusViz = dynamic(() => import('./components/CircleRadiusViz'), { ssr: false, loading: loadingFallback });
+const SineLawApplicationViz = dynamic(() => import('./components/SineLawApplicationViz'), { ssr: false, loading: loadingFallback });
+const TrigEquationViz = dynamic(() => import('./components/TrigEquationViz'), { ssr: false, loading: loadingFallback });
+const CosineInverseViz = dynamic(() => import('./components/CosineInverseViz'), { ssr: false, loading: loadingFallback });
+const TrigInequalityViz = dynamic(() => import('./components/TrigInequalityViz'), { ssr: false, loading: loadingFallback });
+const TrigRelationshipViz = dynamic(() => import('./components/TrigRelationshipViz'), { ssr: false, loading: loadingFallback });
+const HeronComparisonViz = dynamic(() => import('./components/HeronComparisonViz'), { ssr: false, loading: loadingFallback });
+const TrigApplicationViz = dynamic(() => import('./components/TrigApplicationViz'), { ssr: false, loading: loadingFallback });
 
 // --- Types ---
 type State = {
