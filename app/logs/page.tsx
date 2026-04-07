@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
 import { CheckCircle2, ChevronRight, Activity, Zap, Maximize2, Info } from 'lucide-react';
@@ -10,31 +11,117 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const MODULE_ID = 'logs';
 
+const VizSkeleton = () => <div className="animate-pulse bg-slate-700 rounded h-48" />;
+
+// Dynamic Viz imports
+const LogDefinitionViz = dynamic(() => import('./components/LogDefinitionViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LogPropertiesViz = dynamic(() => import('./components/LogPropertiesViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ChangeOfBaseViz = dynamic(() => import('./components/ChangeOfBaseViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const CommonLogDigitsViz = dynamic(() => import('./components/CommonLogDigitsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LogEquationViz = dynamic(() => import('./components/LogEquationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LogInequalityViz = dynamic(() => import('./components/LogInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LogGraphShiftViz = dynamic(() => import('./components/LogGraphShiftViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ExpLogSymmetryViz = dynamic(() => import('./components/ExpLogSymmetryViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LogComparisonViz = dynamic(() => import('./components/LogComparisonViz'), { ssr: false, loading: () => <VizSkeleton /> });
+
+interface Level {
+  id: number;
+  title: string;
+  description: string;
+  component: React.ComponentType<Record<string, unknown>>;
+}
+
+const levels: Level[] = [
+  // Original 3 levels reimplemented with dedicated Viz
+  {
+    id: 1,
+    title: '指数成長の観察',
+    description: '指数関数の急激な成長を体感しよう',
+    component: ExpLogSymmetryViz,
+  },
+  {
+    id: 2,
+    title: '対数の定義',
+    description: 'log_a M = p と a^p = M の対応関係を理解しよう',
+    component: LogDefinitionViz,
+  },
+  {
+    id: 3,
+    title: '対数スケールの圧縮',
+    description: '対数を使って巨大な数を扱いやすくする体験',
+    component: CommonLogDigitsViz,
+  },
+  // New levels
+  {
+    id: 4,
+    title: '対数の基本性質',
+    description: '積・商・累乗の対数法則を視覚的に学ぼう',
+    component: LogPropertiesViz,
+  },
+  {
+    id: 5,
+    title: '底の変換公式',
+    description: 'log_a b = log_c b / log_c a を理解しよう',
+    component: ChangeOfBaseViz,
+  },
+  {
+    id: 6,
+    title: '常用対数と桁数',
+    description: 'log₁₀を使った桁数計算をマスターしよう',
+    component: CommonLogDigitsViz,
+  },
+  {
+    id: 7,
+    title: '対数方程式',
+    description: 'log_a f(x) = k の解法をグラフで確認しよう',
+    component: LogEquationViz,
+  },
+  {
+    id: 8,
+    title: '対数不等式',
+    description: '対数不等式の解と領域を視覚化しよう',
+    component: LogInequalityViz,
+  },
+  {
+    id: 9,
+    title: '対数関数のグラフ移動',
+    description: 'y = log_a(x-h) + k のシフトを操作しよう',
+    component: LogGraphShiftViz,
+  },
+  {
+    id: 10,
+    title: '指数と対数の対称性',
+    description: 'y = a^x と y = log_a x が y=x で対称であることを確認しよう',
+    component: ExpLogSymmetryViz,
+  },
+  {
+    id: 11,
+    title: '対数の大小比較',
+    description: '対数を使った大小比較のテクニックを学ぼう',
+    component: LogComparisonViz,
+  },
+  {
+    id: 12,
+    title: '対数の総合演習',
+    description: '全ての対数法則を使って問題を解こう',
+    component: LogPropertiesViz,
+  },
+];
+
 export default function LogsPage() {
-  const { completeLevel } = useProgress();
+  const { moduleProgress, completeLevel } = useProgress();
   const [currentLevel, setCurrentLevel] = useState(1);
-  const [val, setVal] = useState(5);
-  const [isLogMode, setIsLogMode] = useState(false);
   const [showUnlock, setShowUnlock] = useState(false);
-  const [log, setLog] = useState<string[]>([]);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
-    addLog(`ステージ ${currentLevel} を開始`);
-  }, [currentLevel]);
+  const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
 
-  const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
-
-  // Game Logic
-  useEffect(() => {
-    if (currentLevel === 1 && val >= 12 && !isLogMode) setShowUnlock(true);
-    if (currentLevel === 2 && val >= 16 && !isLogMode) setShowUnlock(true);
-    if (currentLevel === 3 && val >= 50 && isLogMode) setShowUnlock(true);
-  }, [val, isLogMode, currentLevel]);
+  const handleComplete = () => {
+    completeLevel(MODULE_ID, currentLevel);
+    setShowUnlock(true);
+  };
 
   const handleNext = () => {
-    completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 3) {
+    if (currentLevel < levels.length) {
       setCurrentLevel(currentLevel + 1);
       setShowUnlock(false);
     } else {
@@ -42,107 +129,122 @@ export default function LogsPage() {
     }
   };
 
-  // Draw
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const w = canvas.width, h = canvas.height, padding = 60;
-    const gw = w - padding*2, gh = h - padding*2;
-
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = '#f1f5f9'; ctx.lineWidth = 1;
-    for(let i=0; i<=10; i++) {
-        ctx.beginPath(); ctx.moveTo(padding + (i/10)*gw, padding); ctx.lineTo(padding + (i/10)*gw, h-padding); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(padding, padding + (i/10)*gh); ctx.lineTo(w-padding, padding + (i/10)*gh); ctx.stroke();
-    }
-
-    const maxValY = isLogMode ? 16 : 32768; 
-    ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 3; ctx.beginPath();
-    
-    for (let i = 0; i <= 100; i++) {
-        const x = (i / 100) * val;
-        let y = Math.pow(2, x);
-        if (isLogMode) y = Math.log10(y);
-
-        const px = padding + (i/100) * gw;
-        const py = (h - padding) - (y / maxValY) * gh;
-
-        if (py < padding) break;
-        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-    }
-    ctx.stroke();
-
-  }, [val, isLogMode]);
+  const currentLevelData = levels.find((l) => l.id === currentLevel);
+  const VizComponent = currentLevelData?.component;
 
   return (
     <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans ${GeistSans.className}`}>
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <BackButton href="/" />
-          <span className="text-sm font-bold">対数（ログ）</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold">対数（ログ）</span>
+            <div className="h-4 w-px bg-slate-200 mx-2"></div>
+            <div className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              Level {currentLevel} / {levels.length}
+            </div>
+          </div>
         </div>
       </nav>
 
       <main className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 space-y-8">
-           <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
-              <div className="p-8 border-b border-slate-100 flex justify-between items-center">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><Maximize2 className="w-5 h-5 text-blue-600" /> 指数成長の圧縮解析</h2>
-                 <div className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${isLogMode ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
-                    {isLogMode ? '対数スケール (LOG)' : '線形スケール (LIN)'}
-                 </div>
-              </div>
-              <div className="p-10 space-y-10">
-                 <div className="relative aspect-video bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden shadow-inner">
-                    <canvas ref={canvasRef} width={800} height={450} className="w-full h-full" />
-                 </div>
+          <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm relative">
+            <div className="p-8 border-b border-slate-100 flex justify-between items-center">
+              <h2 className="font-bold flex items-center gap-2 text-slate-800">
+                <Maximize2 className="w-5 h-5 text-blue-600" />
+                {currentLevelData?.title}
+              </h2>
+              <div className="text-xs text-slate-400">{currentLevelData?.description}</div>
+            </div>
 
-                 <div className="space-y-8">
-                    <div className="space-y-4">
-                       <div className="flex justify-between"><span className="text-[10px] font-bold text-slate-400 uppercase">入力値 (x)</span><span className="font-bold">{val}</span></div>
-                       <input type="range" min="1" max={isLogMode ? 60 : 20} step="1" value={val} onChange={e=>setVal(Number(e.target.value))} className="w-full accent-blue-600" />
-                    </div>
+            <div className="p-8">
+              {VizComponent && <VizComponent />}
+            </div>
 
-                    <div className={`p-6 rounded-2xl border transition-all flex items-center justify-between ${currentLevel < 3 ? 'opacity-30' : 'bg-slate-50 border-slate-200'}`}>
-                       <div>
-                          <h4 className="font-bold text-sm">対数モードを起動</h4>
-                          <p className="text-xs text-slate-400">膨大な数値を扱いやすいスケールに圧縮します。</p>
-                       </div>
-                       <button 
-                        onClick={() => currentLevel >= 3 && setIsLogMode(!isLogMode)}
-                        className={`w-12 h-6 rounded-full relative transition-colors ${isLogMode ? 'bg-blue-600' : 'bg-slate-200'}`}
-                       >
-                          <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${isLogMode ? 'left-7' : 'left-1'}`} />
-                       </button>
-                    </div>
-                 </div>
-              </div>
-           </div>
+            <div className="p-8 pt-0">
+              <button
+                onClick={handleComplete}
+                disabled={progress.includes(currentLevel)}
+                className="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-900/10 disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {progress.includes(currentLevel) ? '完了済み' : 'このレベルを完了'}
+              </button>
+            </div>
+
+            <AnimatePresence>
+              {showUnlock && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="absolute inset-0 z-30 flex items-center justify-center p-6 bg-white/90 backdrop-blur-md"
+                >
+                  <div className="bg-white border border-slate-200 p-10 rounded-[40px] shadow-2xl text-center max-w-sm">
+                    <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-2xl font-bold mb-2">レベルクリア！</h3>
+                    <p className="text-sm text-slate-500 mb-8">次のレベルに進みましょう。</p>
+                    <button
+                      onClick={handleNext}
+                      className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
+                    >
+                      {currentLevel < levels.length ? '次のレベルへ' : 'モジュール完了'}
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
+        {/* Sidebar: level list */}
         <div className="lg:col-span-4 space-y-6">
-           <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">ミッション</h3>
-              {currentLevel === 1 && <p className="text-sm">数値を 12 まで上げて、グラフの急激な立ち上がりを確認してください。</p>}
-              {currentLevel === 2 && <p className="text-sm">数値をさらに上げてください。通常のスケールでは表示限界を超えてしまいます。</p>}
-              {currentLevel === 3 && <p className="text-sm">対数モードをONにし、数値を 50 まで上げてください。巨大な数値が「圧縮」される様子を体験しましょう。</p>}
-           </div>
-           <AnimatePresence>
-            {showUnlock && (
-                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white border border-slate-200 p-8 rounded-[32px] text-center shadow-xl">
-                    <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto mb-4" />
-                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">次へ進む</button>
-                </motion.div>
-            )}
-           </AnimatePresence>
-           <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">活動ログ</h4>
-              <div className="space-y-2 font-mono text-[11px]">
-                {log.map((msg, i) => <div key={i} className={i===0 ? 'text-blue-600' : 'text-slate-400'}>{msg}</div>)}
-              </div>
-           </div>
+          <div className="bg-white border border-slate-200 rounded-[32px] p-6 shadow-sm">
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
+              レベル一覧
+            </h3>
+            <div className="space-y-2 max-h-[60vh] overflow-y-auto">
+              {levels.map((level) => {
+                const completed = progress.includes(level.id);
+                const isCurrent = level.id === currentLevel;
+                return (
+                  <button
+                    key={level.id}
+                    onClick={() => {
+                      setCurrentLevel(level.id);
+                      setShowUnlock(false);
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all flex items-center gap-3 ${
+                      isCurrent
+                        ? 'bg-blue-50 border border-blue-200 text-blue-800 font-bold'
+                        : completed
+                          ? 'bg-green-50 text-green-700'
+                          : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
+                    }`}
+                  >
+                    <span className="text-xs font-bold w-6 text-center">{level.id}</span>
+                    {completed && <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />}
+                    <span className="flex-1 truncate">{level.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
+            <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">
+              進捗
+            </h3>
+            <div className="text-3xl font-bold mb-2">
+              {progress.length} / {levels.length}
+            </div>
+            <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                style={{ width: `${(progress.length / levels.length) * 100}%` }}
+              />
+            </div>
+          </div>
         </div>
       </main>
     </div>
