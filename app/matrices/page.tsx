@@ -1,160 +1,206 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { GeistSans } from 'geist/font/sans';
-import { CheckCircle2, ChevronRight, Grid, Maximize, RotateCw, Activity, Info, Trophy, Star } from 'lucide-react';
+import { CheckCircle2, Grid, Lock, ChevronRight } from 'lucide-react';
 import BackButton from '../components/BackButton';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MATRIX_LEVELS } from './data/levels';
 
 const MODULE_ID = 'matrices';
+
+// --- Dynamic Viz component imports (code-split for bundle size) ---
+const VizSkeleton = () => <div className="animate-pulse bg-slate-100 dark:bg-slate-800 rounded-2xl h-48" />;
+
+const MatrixBasicsViz = dynamic(() => import('./components/MatrixBasicsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MatrixArithmeticViz = dynamic(() => import('./components/MatrixArithmeticViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ScalarMultiplicationMatrixViz = dynamic(() => import('./components/ScalarMultiplicationMatrixViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MatrixMultiplicationViz = dynamic(() => import('./components/MatrixMultiplicationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DeterminantViz = dynamic(() => import('./components/DeterminantViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DeterminantGeometricViz = dynamic(() => import('./components/DeterminantGeometricViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const InverseMatrixViz = dynamic(() => import('./components/InverseMatrixViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const IdentityMatrixViz = dynamic(() => import('./components/IdentityMatrixViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LinearTransformViz = dynamic(() => import('./components/LinearTransformViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const RotationMatrixViz = dynamic(() => import('./components/RotationMatrixViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SystemOfEquationsViz = dynamic(() => import('./components/SystemOfEquationsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MatricesQuizViz = dynamic(() => import('./components/MatricesQuizViz'), { ssr: false, loading: () => <VizSkeleton /> });
+
+function renderViz(type: string) {
+  switch (type) {
+    case 'matrix_basics': return <MatrixBasicsViz />;
+    case 'matrix_arithmetic': return <MatrixArithmeticViz />;
+    case 'scalar_multiplication': return <ScalarMultiplicationMatrixViz />;
+    case 'matrix_multiplication': return <MatrixMultiplicationViz />;
+    case 'determinant': return <DeterminantViz />;
+    case 'determinant_geometric': return <DeterminantGeometricViz />;
+    case 'inverse_matrix': return <InverseMatrixViz />;
+    case 'identity_matrix': return <IdentityMatrixViz />;
+    case 'linear_transform': return <LinearTransformViz />;
+    case 'rotation_matrix': return <RotationMatrixViz />;
+    case 'system_of_equations': return <SystemOfEquationsViz />;
+    case 'matrices_quiz': return <MatricesQuizViz />;
+    default: return <div className="text-slate-400 text-center py-8">Coming soon...</div>;
+  }
+}
 
 export default function MatricesPage() {
   const { moduleProgress, completeLevel } = useProgress();
   const { t } = useLanguage();
-  const { unlockBadge } = useGamification();
-  const [currentLevel, setCurrentLevel] = useState(1);
-  const [matrix, setMatrix] = useState<[[number, number], [number, number]]>([[1, 0], [0, 1]]);
-  const [showUnlock, setShowUnlock] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [log, setLog] = useState<string[]>([]);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
 
-  const LEVEL_TARGETS = {
-      1: { name: t('modules.matrices.level_1_name'), desc: t('modules.matrices.level_1_desc'), target: [[2, 0], [0, 1]] }, // Scale X
-      2: { name: t('modules.matrices.level_2_name'), desc: t('modules.matrices.level_2_desc'), target: [[0, -1], [1, 0]] }, // Rotation 90
-      3: { name: t('modules.matrices.level_3_name'), desc: t('modules.matrices.level_3_desc'), target: [[1, 1], [0, 1]] }  // Shear X
-  };
+  const progress = moduleProgress[MODULE_ID] || { completedLevels: [] };
+  const completedSet = new Set(progress.completedLevels);
 
-  const levelData = LEVEL_TARGETS[currentLevel as keyof typeof LEVEL_TARGETS];
-
-  useEffect(() => {
-    // Check Victory
-    const isClose = (a: number, b: number) => Math.abs(a - b) < 0.1;
-    const target = levelData.target;
-    if (
-        isClose(matrix[0][0], target[0][0]) && isClose(matrix[0][1], target[0][1]) &&
-        isClose(matrix[1][0], target[1][0]) && isClose(matrix[1][1], target[1][1])
-    ) {
-        if (!showUnlock) {
-            setShowUnlock(true);
-            setLog(prev => [t('modules.matrices.log_match'), ...prev.slice(0, 4)]);
-        }
-    }
-  }, [matrix, currentLevel, showUnlock, levelData, t]);
-
-  const handleNext = () => {
-    completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 3) {
-      setCurrentLevel(currentLevel + 1);
-      setMatrix([[1, 0], [0, 1]]);
-      setShowUnlock(false);
-    } else {
-      unlockBadge('matrix_architect');
-      setIsCompleted(true);
+  const handleComplete = () => {
+    if (selectedLevel !== null) {
+      completeLevel(MODULE_ID, selectedLevel);
     }
   };
 
-  if (isCompleted) {
-    return (
-        <div className={`min-h-screen bg-white dark:bg-slate-950 text-black dark:text-white flex flex-col items-center justify-center p-8 ${GeistSans.className}`}>
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center text-center space-y-8 max-w-md">
-                <div className="w-32 h-32 bg-indigo-500 rounded-full flex items-center justify-center shadow-2xl shadow-indigo-200 dark:shadow-none">
-                    <Grid className="w-16 h-16 text-white" />
-                </div>
-                <div className="space-y-4">
-                    <h2 className="text-3xl font-black text-slate-900 dark:text-white">ARCHITECT STATUS CONFIRMED</h2>
-                    <p className="text-slate-500 dark:text-slate-400">You have demonstrated the ability to reshape space itself.</p>
-                </div>
-                <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 p-6 rounded-3xl flex items-center gap-4 w-full">
-                    <div className="p-3 bg-yellow-100 dark:bg-yellow-900/50 rounded-full">
-                        <Star className="w-6 h-6 text-yellow-600 dark:text-yellow-400 fill-yellow-600 dark:fill-yellow-400" />
-                    </div>
-                    <div className="text-left">
-                        <div className="text-[10px] font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wider">Badge Unlocked</div>
-                        <div className="text-lg font-bold text-slate-900 dark:text-white">Matrix Architect</div>
-                    </div>
-                </div>
-                <Link href="/" className="w-full bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-200 text-white dark:text-slate-900 py-4 rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl">
-                    Return to Dashboard
-                </Link>
-            </motion.div>
-        </div>
-    );
-  }
-
-  const handleInputChange = (r: 0 | 1, c: 0 | 1, val: string) => {
-      const num = parseFloat(val) || 0;
-      const newM: [[number, number], [number, number]] = [[...matrix[0]], [...matrix[1]]];
-      newM[r][c] = num;
-      setMatrix(newM);
-  };
+  const currentLevelData = selectedLevel !== null
+    ? MATRIX_LEVELS.find(l => l.id === selectedLevel)
+    : null;
 
   return (
     <div className={`min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white font-sans ${GeistSans.className}`}>
+      {/* Nav */}
       <nav className="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <BackButton href="/" label={t('common.back_root')} />
           <span className="text-sm font-bold">{t('modules.matrices.title')}</span>
+          <span className="text-xs text-slate-400">
+            {completedSet.size}/{MATRIX_LEVELS.length} 完了
+          </span>
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 space-y-8">
-           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[32px] overflow-hidden shadow-sm">
-              <div className="p-8 border-b border-slate-100 dark:border-slate-800">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800 dark:text-white"><Grid className="w-5 h-5 text-blue-600 dark:text-blue-400" /> {t('modules.matrices.ui.analysis_title')}</h2>
+      <main className="max-w-7xl mx-auto px-6 py-10">
+        <AnimatePresence mode="wait">
+          {selectedLevel === null ? (
+            /* ─── Level selection grid ─── */
+            <motion.div
+              key="grid"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="space-y-8"
+            >
+              <div className="text-center space-y-2">
+                <h1 className="text-3xl font-black tracking-tight">行列</h1>
+                <p className="text-sm text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
+                  空間を自在に変形させる線形変換の仕組みを学ぶ。
+                </p>
               </div>
-              <div className="p-10 space-y-10">
-                 <div className="relative aspect-video bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-inner flex items-center justify-center">
-                    <canvas ref={canvasRef} width={600} height={400} className="max-w-full h-auto" />
-                 </div>
 
-                 <div className="flex flex-col items-center gap-8">
-                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('modules.matrices.ui.matrix_label')}</div>
-                    <div className="flex items-center gap-4 text-4xl text-slate-200 dark:text-slate-700">
-                        [
-                        <div className="grid grid-cols-2 gap-4">
-                           <input type="number" step="0.5" value={matrix[0][0]} onChange={e=>handleInputChange(0,0,e.target.value)} className="w-16 h-16 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center text-lg font-bold text-red-500 dark:text-red-400 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all" />
-                           <input type="number" step="0.5" value={matrix[0][1]} onChange={e=>handleInputChange(0,1,e.target.value)} className="w-16 h-16 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center text-lg font-bold text-green-500 dark:text-green-400 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all" />
-                           <input type="number" step="0.5" value={matrix[1][0]} onChange={e=>handleInputChange(1,0,e.target.value)} className="w-16 h-16 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center text-lg font-bold text-red-500 dark:text-red-400 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all" />
-                           <input type="number" step="0.5" value={matrix[1][1]} onChange={e=>handleInputChange(1,1,e.target.value)} className="w-16 h-16 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-center text-lg font-bold text-green-500 dark:text-green-400 focus:border-blue-500 focus:bg-white dark:focus:bg-slate-900 outline-none transition-all" />
-                        </div>
-                        ]
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </div>
+              {/* Sections */}
+              {[
+                { title: '基礎', range: [1, 4], color: 'blue' },
+                { title: '行列式・逆行列', range: [5, 8], color: 'purple' },
+                { title: '線形変換', range: [9, 10], color: 'indigo' },
+                { title: '応用', range: [11, 12], color: 'green' },
+              ].map(section => (
+                <div key={section.title} className="space-y-3">
+                  <h2 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+                    {section.title}
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {MATRIX_LEVELS
+                      .filter(l => l.id >= section.range[0] && l.id <= section.range[1])
+                      .map(level => {
+                        const completed = completedSet.has(level.id);
+                        return (
+                          <button
+                            key={level.id}
+                            onClick={() => setSelectedLevel(level.id)}
+                            className={`group relative text-left p-5 rounded-2xl border transition-all hover:shadow-lg ${
+                              completed
+                                ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
+                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-700'
+                            }`}
+                          >
+                            <div className="flex items-start justify-between mb-2">
+                              <span className={`text-xs font-bold uppercase tracking-wider ${
+                                completed ? 'text-green-500' : 'text-slate-400 dark:text-slate-500'
+                              }`}>
+                                Level {level.id}
+                              </span>
+                              {completed && <CheckCircle2 className="w-4 h-4 text-green-500" />}
+                            </div>
+                            <h3 className="font-bold text-sm text-slate-800 dark:text-white mb-1">
+                              {level.title}
+                            </h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                              {level.description}
+                            </p>
+                            <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-blue-500 transition-colors" />
+                          </button>
+                        );
+                      })}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          ) : (
+            /* ─── Level detail view ─── */
+            <motion.div
+              key={`level-${selectedLevel}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="space-y-6"
+            >
+              {/* Back to list */}
+              <button
+                onClick={() => setSelectedLevel(null)}
+                className="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              >
+                <ChevronRight className="w-4 h-4 rotate-180" />
+                レベル一覧に戻る
+              </button>
 
-        <div className="lg:col-span-4 space-y-6">
-           <div className="bg-slate-900 dark:bg-black border border-slate-800 dark:border-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('modules.matrices.ui.mission_title')}</h3>
-              <h4 className="text-xl font-bold mb-4">{levelData?.name}</h4>
-              <p className="text-sm text-slate-300 leading-relaxed font-medium">{levelData?.desc}</p>
-              <div className="mt-6 pt-6 border-t border-white/10 space-y-2">
-                 <div className="flex items-center gap-2 text-xs text-red-400"><div className="w-2 h-2 rounded-full bg-red-500"></div> {t('modules.matrices.ui.red_arrow')}</div>
-                 <div className="flex items-center gap-2 text-xs text-green-400"><div className="w-2 h-2 rounded-full bg-green-500"></div> {t('modules.matrices.ui.green_arrow')}</div>
+              {/* Level header */}
+              {currentLevelData && (
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center">
+                    <Grid className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-black">{currentLevelData.title}</h2>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{currentLevelData.description}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Viz content */}
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[32px] overflow-hidden shadow-sm p-8">
+                {currentLevelData && renderViz(currentLevelData.type)}
               </div>
-           </div>
-           <AnimatePresence>
-            {showUnlock && (
-                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-[32px] text-center shadow-xl">
-                    <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto mb-4" />
-                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-colors">{t('modules.matrices.ui.next_btn')}</button>
-                </motion.div>
-            )}
-           </AnimatePresence>
-           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">{t('modules.matrices.ui.activity_log')}</h4>
-              <div className="space-y-2 font-mono text-[11px]">
-                {log.map((msg, i) => <div key={i} className={i===0 ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-600'}>{msg}</div>)}
+
+              {/* Complete button */}
+              <div className="flex justify-center gap-4">
+                {!completedSet.has(selectedLevel) && (
+                  <button
+                    onClick={handleComplete}
+                    className="px-6 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl font-bold transition-colors shadow-md"
+                  >
+                    このレベルを完了にする
+                  </button>
+                )}
+                {selectedLevel < MATRIX_LEVELS.length && (
+                  <button
+                    onClick={() => setSelectedLevel(selectedLevel + 1)}
+                    className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold transition-colors shadow-md"
+                  >
+                    次のレベルへ
+                  </button>
+                )}
               </div>
-           </div>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
     </div>
   );
