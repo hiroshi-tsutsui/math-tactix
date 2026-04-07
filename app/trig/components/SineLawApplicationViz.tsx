@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -328,6 +329,12 @@ export default function SineLawApplicationViz() {
           </div>
         )}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "正弦定理 a/sinA = b/sinB = c/sinC を使って比例式を立てましょう" },
+        { step: 2, text: "未知の角度は 180° - (既知の角の和) で求められます" },
+        { step: 3, text: "辺を求めるには a = (b × sinA) / sinB の形に変形します" },
+      ]} />
     </div>
   );
 }

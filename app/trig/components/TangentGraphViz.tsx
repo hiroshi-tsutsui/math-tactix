@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useMemo } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const KBlock = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -202,6 +203,12 @@ export default function TangentGraphViz() {
           </li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "tanx = sinx/cosx なので、cosx = 0 の点で漸近線が現れます" },
+        { step: 2, text: "tanのグラフの周期はπ（sin/cosの半分）です" },
+        { step: 3, text: "tanは奇関数なので原点対称：tan(-x) = -tan(x) です" },
+      ]} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -366,6 +367,12 @@ export default function CosineLawViz() {
           </li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "余弦定理は a² = b² + c² - 2bc cosA の形をしています" },
+        { step: 2, text: "2辺とその挟角が分かれば残りの辺を求められます" },
+        { step: 3, text: "3辺が分かれば cosA = (b²+c²-a²)/(2bc) で角度を逆算できます" },
+      ]} />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -261,6 +262,12 @@ export default function CorrelationInterpretViz({ onComplete }: { onComplete?: (
           </button>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: "相関係数 r は -1 から 1 の範囲で、直線的な関係の強さを示します" },
+        { step: 2, text: "|r| が 1 に近いほど強い相関、0 に近いほど相関が弱いです" },
+        { step: 3, text: "非線形の関係がある場合でも r は小さくなることに注意しましょう" },
+      ]} />
     </div>
   );
 }

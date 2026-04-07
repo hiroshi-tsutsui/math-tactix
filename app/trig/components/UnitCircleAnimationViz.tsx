@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -282,6 +283,12 @@ export default function UnitCircleAnimationViz() {
           </span>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "単位円上の点の座標は (cosθ, sinθ) です" },
+        { step: 2, text: "角度θが変化するとき、x座標がcosθ、y座標がsinθを表します" },
+        { step: 3, text: "sin²θ + cos²θ = 1 は単位円の方程式 x² + y² = 1 そのものです" },
+      ]} />
     </div>
   );
 }

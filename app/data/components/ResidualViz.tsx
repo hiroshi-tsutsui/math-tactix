@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 /* ── tiny KaTeX helpers ── */
 const K = ({ tex }: { tex: string }) => {
@@ -269,6 +270,12 @@ export default function ResidualViz({ onComplete }: { onComplete?: () => void })
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
         <KBlock tex={`\\hat{y} = ${slope.toFixed(3)}x + ${intercept.toFixed(3)}`} />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "残差 = 実測値 - 予測値（回帰直線上の値）です" },
+        { step: 2, text: "最小二乗法は残差の2乗和を最小にする直線を求める方法です" },
+        { step: 3, text: "残差が正なら実測値が予測より大きく、負なら予測より小さいことを示します" },
+      ]} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -342,6 +343,12 @@ export default function TriangleAreaViz() {
           <li>角が 0° や 180° に近づくと面積は 0 に近づく</li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "底辺 a に対する高さ h は h = b sinC で表せます" },
+        { step: 2, text: "面積 = (1/2) × 底辺 × 高さ に代入すると S = (1/2)ab sinC です" },
+        { step: 3, text: "どの2辺の組み合わせでも同じ面積になります（S = (1/2)bc sinA = (1/2)ca sinB）" },
+      ]} />
     </div>
   );
 }

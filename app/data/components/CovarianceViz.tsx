@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -198,6 +199,12 @@ export default function CovarianceViz({ onComplete }: { onComplete?: () => void 
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "共分散 Sxy = (1/n)Σ(xi - x̄)(yi - ȳ) で計算します" },
+        { step: 2, text: "共分散が正なら正の相関、負なら負の相関を示します" },
+        { step: 3, text: "散布図の四象限で面積をイメージすると符号を判断しやすくなります" },
+      ]} />
     </div>
   );
 }

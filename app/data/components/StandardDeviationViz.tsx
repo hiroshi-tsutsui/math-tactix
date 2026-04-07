@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -412,6 +413,12 @@ export default function StandardDeviationViz({
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "まず平均値 x̄ を求め、各データとの差（偏差）を計算します" },
+        { step: 2, text: "偏差の2乗の平均が分散 s² です" },
+        { step: 3, text: "標準偏差 s は分散の正の平方根 s = √(s²) です" },
+      ]} />
     </div>
   );
 }

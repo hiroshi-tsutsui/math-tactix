@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -495,6 +496,12 @@ export default function BoxPlotComparisonViz({
           </span>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: "2つの箱ひげ図を比較するとき、まず中央値の位置を見比べましょう" },
+        { step: 2, text: "箱の幅（IQR）が大きいほどデータの散らばりが大きいです" },
+        { step: 3, text: "外れ値の有無や最大値・最小値の範囲も比較のポイントです" },
+      ]} />
     </div>
   );
 }

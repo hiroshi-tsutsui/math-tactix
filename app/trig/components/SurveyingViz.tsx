@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -344,6 +345,12 @@ export default function SurveyingViz() {
           </div>
         ))}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "測量問題では、まず既知の辺と角を整理して三角形を特定しましょう" },
+        { step: 2, text: "正弦定理や余弦定理を使って未知の辺や角を求めます" },
+        { step: 3, text: "面積は S = (1/2)ab sinC で計算できます" },
+      ]} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -365,6 +366,12 @@ export default function VarianceTransformViz({ onComplete }: { onComplete: () =>
           ))}
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "y = ax + b の変換で分散は a² 倍になります（b は影響なし）" },
+        { step: 2, text: "標準偏差は |a| 倍になります" },
+        { step: 3, text: "平均値は ȳ = ax̄ + b と変換されます（a も b も影響）" },
+      ]} />
     </div>
   );
 }

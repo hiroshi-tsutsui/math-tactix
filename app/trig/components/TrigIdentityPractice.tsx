@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { ChevronRight, Trophy } from 'lucide-react';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 type IdentityProblem = {
   givenTex: string;
@@ -232,6 +233,12 @@ export default function TrigIdentityPractice({ onBack }: { onBack: () => void })
           </div>
         )}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "sin²θ + cos²θ = 1 の基本恒等式を確認しましょう" },
+        { step: 2, text: "tanθ = sinθ/cosθ の関係を使って式を変形してみましょう" },
+        { step: 3, text: "1 + tan²θ = 1/cos²θ も便利な恒等式です" },
+      ]} />
     </main>
   );
 }

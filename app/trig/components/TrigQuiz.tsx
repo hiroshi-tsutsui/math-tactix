@@ -4,6 +4,7 @@ import React from 'react';
 import { ChevronRight, CheckCircle2, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 type QuizItem = {
   type: 'sin' | 'cos' | 'tan' | 'identity';
@@ -116,6 +117,12 @@ export default function TrigQuiz({
           </div>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: "特殊角（30°, 45°, 60°）の三角比の値を思い出しましょう" },
+        { step: 2, text: "sin30° = 1/2, cos60° = 1/2, tan45° = 1 などが基本です" },
+        { step: 3, text: "単位円上の座標 (cosθ, sinθ) をイメージすると覚えやすくなります" },
+      ]} />
     </main>
   );
 }

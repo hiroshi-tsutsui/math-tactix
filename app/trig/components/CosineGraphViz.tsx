@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -217,6 +218,12 @@ export default function CosineGraphViz() {
         <KBlock tex={`\\cos(x) = \\sin\\!\\left(x + \\frac{\\pi}{2}\\right)`} />
         <p className="mt-2">cos のグラフは sin のグラフを左に <K tex="\frac{\pi}{2}" /> だけ平行移動したものです。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "y = a cos(bx + c) + d の各パラメータの役割を確認しましょう" },
+        { step: 2, text: "a は振幅、b は周期（周期 = 2π/|b|）、c は位相、d は上下移動です" },
+        { step: 3, text: "cos(x) = sin(x + π/2) なので、cosはsinを左にπ/2移動したものです" },
+      ]} />
     </div>
   );
 }

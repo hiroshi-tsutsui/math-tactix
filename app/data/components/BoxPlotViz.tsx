@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 type Point1D = { id: number; value: number };
 
@@ -157,6 +158,12 @@ export default function BoxPlotViz({ onComplete }: { onComplete?: (v: number) =>
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "箱ひげ図は最小値・Q1・中央値・Q3・最大値の5数要約を表します" },
+        { step: 2, text: "四分位範囲 IQR = Q3 - Q1 は箱の横幅に対応します" },
+        { step: 3, text: "データを追加・削除して分布の変化を観察しましょう" },
+      ]} />
     </div>
   );
 }

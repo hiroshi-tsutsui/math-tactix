@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 /* ── KaTeX helpers ── */
 const K = ({ tex }: { tex: string }) => {
@@ -297,6 +298,12 @@ export default function RSquaredViz({ onComplete }: { onComplete?: () => void })
       <div className="text-xs text-slate-400 text-center">
         データセット: <span className="font-bold text-slate-600">{DATA_SETS[dataIdx].label}</span> - {DATA_SETS[dataIdx].desc}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "R² = 1 - (残差平方和/全変動) で、0〜1の値を取ります" },
+        { step: 2, text: "R² が 1 に近いほど回帰直線がデータをよく説明しています" },
+        { step: 3, text: "R² = r²（相関係数の2乗）という関係が成り立ちます" },
+      ]} />
     </div>
   );
 }

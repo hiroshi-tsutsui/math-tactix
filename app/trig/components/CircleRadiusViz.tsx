@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -337,6 +338,12 @@ export default function CircleRadiusViz() {
           </li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "外接円半径は正弦定理から R = a/(2sinA) で求められます" },
+        { step: 2, text: "内接円半径は r = S/s（面積÷半周長）で求められます" },
+        { step: 3, text: "面積 S はヘロンの公式 S = √(s(s-a)(s-b)(s-c)) で計算できます" },
+      ]} />
     </div>
   );
 }

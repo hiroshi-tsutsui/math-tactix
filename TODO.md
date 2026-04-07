@@ -4,6 +4,43 @@
 
 ---
 
+## サイクル045 タスクリスト
+
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineLawViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TriangleAreaViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigIdentityPractice
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigQuiz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CircleRadiusViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SurveyingViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawApplicationViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineInverseViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigRelationshipViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: HeronComparisonViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigApplicationViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineGraphViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TangentGraphViz
+- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: UnitCircleAnimationViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: BoxPlotViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: DataTransformViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: FrequencyTableViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: HistogramBoxPlotViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: CovarianceViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: OutlierViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: CombinedVarianceViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: CorrelationInterpretViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: QuartileAnalysisViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: StandardDeviationViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: ResidualViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: RSquaredViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: HypothesisTestingViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: VarianceShortcutViz
+- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: VarianceTransformViz
+- [ ] [優先度:中] [担当:エンジニア] data HintButton統合: BoxPlotComparisonViz
+- [ ] [優先度:中] [担当:教師] math_i_numbers HintButton統合バッチ開始（36ファイル残り）
+- [ ] [優先度:中] [担当:教師] math_i_numbers Level 55: 対称式の利用（SymmetricThreeVariables活用）
+- [ ] [優先度:低] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）の設計
+
 ## サイクル044 実施済み
 
 - [x] [優先度:高] quadratics モジュール全66本のVizにHintButton統合（Level 1-50+の基礎〜上級レベル全体）
