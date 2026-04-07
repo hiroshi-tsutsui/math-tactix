@@ -34,74 +34,21 @@ interface Level {
   component: React.ComponentType<Record<string, unknown>>;
 }
 
-const levels: Level[] = [
-  {
-    id: 1,
-    title: 'ベクトルの基本',
-    description: '有向線分としてのベクトルの定義を学ぼう',
-    component: VectorBasicsViz,
-  },
-  {
-    id: 2,
-    title: 'ベクトルの成分表示',
-    description: 'x成分・y成分でベクトルを表現しよう',
-    component: VectorComponentsViz,
-  },
-  {
-    id: 3,
-    title: 'ベクトルの和と差',
-    description: '平行四辺形の法則でベクトルの加法を体感しよう',
-    component: VectorAdditionViz,
-  },
-  {
-    id: 4,
-    title: 'スカラー倍',
-    description: 'ベクトルの拡大・縮小・反転を操作しよう',
-    component: ScalarMultiplicationViz,
-  },
-  {
-    id: 5,
-    title: 'ベクトルの大きさ',
-    description: '|a| = sqrt(x^2 + y^2) を視覚的に確認しよう',
-    component: VectorMagnitudeViz,
-  },
-  {
-    id: 6,
-    title: '内積の定義',
-    description: 'a・b = a1*b1 + a2*b2 を計算し角度との関係を見よう',
-    component: DotProductViz,
-  },
-  {
-    id: 7,
-    title: '内積と角度',
-    description: 'cos θ = a・b / (|a||b|) で角度を求めよう',
-    component: DotProductAngleViz,
-  },
-  {
-    id: 8,
-    title: '垂直条件',
-    description: 'a・b = 0 のとき直交することを確認しよう',
-    component: VectorPerpendicularViz,
-  },
-  {
-    id: 9,
-    title: '単位ベクトル',
-    description: 'ベクトルの正規化（大きさ1にする操作）を学ぼう',
-    component: UnitVectorViz,
-  },
-  {
-    id: 10,
-    title: '位置ベクトルと内分点',
-    description: '位置ベクトルによる内分点の表し方を学ぼう',
-    component: VectorPositionViz,
-  },
-  {
-    id: 11,
-    title: 'ベクトル総合クイズ',
-    description: 'ランダム問題でベクトルの知識を総チェック！',
-    component: VectorsQuizViz,
-  },
-];
+const LEVEL_COUNT = 11;
+
+const levelComponents: Record<number, React.ComponentType<Record<string, unknown>>> = {
+  1: VectorBasicsViz,
+  2: VectorComponentsViz,
+  3: VectorAdditionViz,
+  4: ScalarMultiplicationViz,
+  5: VectorMagnitudeViz,
+  6: DotProductViz,
+  7: DotProductAngleViz,
+  8: VectorPerpendicularViz,
+  9: UnitVectorViz,
+  10: VectorPositionViz,
+  11: VectorsQuizViz,
+};
 
 export default function VectorsPage() {
   const { t } = useLanguage();
@@ -111,6 +58,16 @@ export default function VectorsPage() {
   const [showUnlock, setShowUnlock] = useState(false);
 
   const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
+
+  const levels: Level[] = Array.from({ length: LEVEL_COUNT }, (_, i) => {
+    const id = i + 1;
+    return {
+      id,
+      title: t(`modules.vectors.page_levels.${id}.title`),
+      description: t(`modules.vectors.page_levels.${id}.desc`),
+      component: levelComponents[id],
+    };
+  });
 
   const handleComplete = () => {
     completeLevel(MODULE_ID, currentLevel);
@@ -166,7 +123,7 @@ export default function VectorsPage() {
                 disabled={progress.includes(currentLevel)}
                 className="w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-2xl hover:bg-blue-600 dark:hover:bg-blue-400 transition-all shadow-xl shadow-slate-900/10 disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {progress.includes(currentLevel) ? '完了済み' : 'このレベルを完了'}
+                {progress.includes(currentLevel) ? t('modules.vectors.page_ui.completed_btn') : t('modules.vectors.page_ui.complete_btn')}
               </button>
             </div>
 
@@ -179,13 +136,13 @@ export default function VectorsPage() {
                 >
                   <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-10 rounded-[40px] shadow-2xl text-center max-w-sm">
                     <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-2 dark:text-white">レベルクリア！</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-8">次のレベルに進みましょう。</p>
+                    <h3 className="text-2xl font-bold mb-2 dark:text-white">{t('modules.vectors.page_ui.level_clear')}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-8">{t('modules.vectors.page_ui.level_clear_desc')}</p>
                     <button
                       onClick={handleNext}
                       className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
                     >
-                      {currentLevel < levels.length ? '次のレベルへ' : 'モジュール完了'}
+                      {currentLevel < levels.length ? t('modules.vectors.page_ui.next_level') : t('modules.vectors.page_ui.module_complete')}
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -199,7 +156,7 @@ export default function VectorsPage() {
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[32px] p-6 shadow-sm transition-colors duration-200">
             <h3 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
-              レベル一覧
+              {t('modules.vectors.page_ui.level_list')}
             </h3>
             <div className="space-y-2 max-h-[60vh] overflow-y-auto">
               {levels.map((level) => {
@@ -231,7 +188,7 @@ export default function VectorsPage() {
 
           <div className="bg-slate-900 dark:bg-slate-800 rounded-[32px] p-8 text-white shadow-xl transition-colors duration-200">
             <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">
-              進捗
+              {t('modules.vectors.page_ui.progress')}
             </h3>
             <div className="text-3xl font-bold mb-2">
               {progress.length} / {levels.length}
