@@ -63,6 +63,7 @@ import IdentityCoefficientsViz from './components/IdentityCoefficientsViz';
 import BinomialTheoremViz from './components/BinomialTheoremViz';
 import MultinomialTheoremViz from './components/MultinomialTheoremViz';
 import SymmetricExpressionViz from './components/SymmetricExpressionViz';
+import PermutationViz from './components/PermutationViz';
 
 
 
@@ -130,7 +131,8 @@ export default function MathINumbers() {
         { id: 52, title: '恒等式の係数決定', type: 'identity_coefficients' },
         { id: 53, title: '二項定理 (Binomial Theorem)', type: 'binomial_theorem' },
         { id: 54, title: '多項定理 (Multinomial Theorem)', type: 'multinomial_theorem' },
-        { id: 55, title: '対称式の利用', type: 'symmetric_expression' }
+        { id: 55, title: '対称式の利用', type: 'symmetric_expression' },
+        { id: 56, title: '場合の数・順列・組み合わせ', type: 'permutation' }
 ];
 
   return (
@@ -783,6 +785,21 @@ export default function MathINumbers() {
                     スライダーで値を変えながら、公式の仕組みを直感的に理解しましょう。
                   </p>
                   <SymmetricExpressionViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 56 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">場合の数・順列・組み合わせ (Permutations & Combinations)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="n" /> 個から <InlineMath math="r" /> 個を取り出す場合の数を学びます。
+                    順列 <InlineMath math="{}_n\mathrm{P}_r" /> は順序を区別し、
+                    組み合わせ <InlineMath math="{}_n\mathrm{C}_r" /> は順序を区別しません。
+                    スライダーで n, r を変えて、違いを体感しましょう。
+                  </p>
+                  <PermutationViz />
                 </div>
               </div>
             )}
