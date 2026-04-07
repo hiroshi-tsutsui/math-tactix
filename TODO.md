@@ -1,28 +1,44 @@
 # Math Tactix TODO
-現在のサイクル: 047
+現在のサイクル: 048
 最終更新: 2026-04-08
 
 ---
 
 ## サイクル047 タスクリスト
 
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineLawViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TriangleAreaViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigIdentityPractice
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigQuiz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CircleRadiusViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SurveyingViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawApplicationViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineInverseViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigRelationshipViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: HeronComparisonViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigApplicationViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineGraphViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: TangentGraphViz
-- [ ] [優先度:高] [担当:エンジニア] trig HintButton統合: UnitCircleAnimationViz
-- [ ] [優先度:高] [担当:エンジニア] data HintButton統合: BoxPlotViz 他15本
-- [ ] [優先度:低] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）の設計
+- [x] [優先度:高] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）Level 12 新規作成
+- [x] [優先度:中] [担当:エンジニア] 学習ロードマップUI（軽量版）ダッシュボード統合
+
+## サイクル048 タスクリスト
+
+- [ ] [優先度:高] [担当:エンジニア] vectors Level 13: 空間ベクトルの外積Viz 新規作成
+- [ ] [優先度:中] [担当:エンジニア] LearningRoadmap i18n対応（日英ラベル切り替え）
+- [ ] [優先度:中] [担当:エンジニア] ダッシュボード モジュール進捗サマリーカード改善
+
+## サイクル047 実施済み
+
+- [x] [優先度:高] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）Level 12 新規作成
+- [x] [優先度:中] [担当:エンジニア] 学習ロードマップUI（軽量版）ダッシュボード統合
+
+## サイクル047 以前の未実施タスク（繰り越し）
+
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineLawViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TriangleAreaViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigIdentityPractice
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigQuiz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CircleRadiusViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: SurveyingViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: SineLawApplicationViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineInverseViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigRelationshipViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: HeronComparisonViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TrigApplicationViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: CosineGraphViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: TangentGraphViz
+- [x] [優先度:高] [担当:エンジニア] trig HintButton統合: UnitCircleAnimationViz
+- [x] [優先度:高] [担当:エンジニア] data HintButton統合: BoxPlotViz 他15本
+- [x] [優先度:低] [担当:エンジニア] vectors 3D空間ベクトルViz（R3F）の設計
 
 ## サイクル046 実施済み
 

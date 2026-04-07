@@ -1149,7 +1149,8 @@
         "8": { "title": "Perpendicularity", "desc": "Verify orthogonality when a·b = 0" },
         "9": { "title": "Unit Vector", "desc": "Learn vector normalization (making magnitude 1)" },
         "10": { "title": "Position Vector & Internal Division", "desc": "Learn internal division points using position vectors" },
-        "11": { "title": "Vectors Comprehensive Quiz", "desc": "Random quiz to test all your vector knowledge!" }
+        "11": { "title": "Vectors Comprehensive Quiz", "desc": "Random quiz to test all your vector knowledge!" },
+        "12": { "title": "Space Vectors (3D)", "desc": "Explore dot product, magnitude, and angles in 3D space" }
       },
       "page_ui": {
         "level_list": "Level List",

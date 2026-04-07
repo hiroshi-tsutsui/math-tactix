@@ -26,6 +26,7 @@ const VectorPerpendicularViz = dynamic(() => import('./components/VectorPerpendi
 const UnitVectorViz = dynamic(() => import('./components/UnitVectorViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const VectorPositionViz = dynamic(() => import('./components/VectorPositionViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const VectorsQuizViz = dynamic(() => import('./components/VectorsQuizViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SpaceVectorViz = dynamic(() => import('./components/SpaceVectorViz'), { ssr: false, loading: () => <VizSkeleton /> });
 
 interface Level {
   id: number;
@@ -34,7 +35,7 @@ interface Level {
   component: React.ComponentType<Record<string, unknown>>;
 }
 
-const LEVEL_COUNT = 11;
+const LEVEL_COUNT = 12;
 
 const levelComponents: Record<number, React.ComponentType<Record<string, unknown>>> = {
   1: VectorBasicsViz,
@@ -48,6 +49,7 @@ const levelComponents: Record<number, React.ComponentType<Record<string, unknown
   9: UnitVectorViz,
   10: VectorPositionViz,
   11: VectorsQuizViz,
+  12: SpaceVectorViz,
 };
 
 export default function VectorsPage() {

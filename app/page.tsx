@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import { ArrowRight, Lock } from 'lucide-react';
 import SystemMessages from './components/SystemMessages';
 import DashboardSkeleton from './components/DashboardSkeleton';
+import LearningRoadmap from './components/LearningRoadmap';
 
 export default function Home() {
   const { moduleProgress, calibration, isLoaded } = useProgress();
@@ -254,6 +255,8 @@ export default function Home() {
                 </Link>
             </div>
           </div>
+
+          <LearningRoadmap />
 
           <div className="space-y-24">
             {sections.map((section) => (
