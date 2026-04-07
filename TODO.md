@@ -1,8 +1,16 @@
 # Math Tactix TODO
-現在のサイクル: 034
+現在のサイクル: 035
 最終更新: 2026-04-07
 
 ---
+
+## サイクル034 実施済み
+
+- [x] [優先度:高] matrices モジュール大幅拡充: 既存3レベル → 12レベル（行列基本・加減算・スカラー倍・積・行列式・行列式幾何・逆行列・単位行列/零行列・線形変換・回転行列・連立方程式・総合クイズ）
+- [x] [優先度:高] matrices/utils/matrices-generator.ts 新規作成（加法・減法・スカラー倍・積・行列式・逆行列・連立方程式の各 generator）
+- [x] [優先度:高] matrices/page.tsx を next/dynamic + レベル選択UI に全面リファクタリング
+- [x] [優先度:高] matrices/components/ に12個の Viz コンポーネント新規作成
+- [x] [優先度:高] matrices/data/levels.ts 新規作成
 
 ## サイクル033 実施済み
 
