@@ -27,6 +27,7 @@ const AntiderivativeViz = dynamic(() => import('./components/AntiderivativeViz')
 const DefiniteIntegralViz = dynamic(() => import('./components/DefiniteIntegralViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const AreaBetweenCurvesViz = dynamic(() => import('./components/AreaBetweenCurvesViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const RevolutionVolumeViz = dynamic(() => import('./components/RevolutionVolumeViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const VelocityIntegralViz = dynamic(() => import('./components/VelocityIntegralViz'), { ssr: false, loading: () => <VizSkeleton /> });
 
 interface Level {
   id: number;
@@ -35,7 +36,7 @@ interface Level {
   component: React.ComponentType<Record<string, unknown>>;
 }
 
-const LEVEL_COUNT = 14;
+const LEVEL_COUNT = 15;
 
 const levelComponents: Record<number, React.ComponentType<Record<string, unknown>>> = {
   1: DerivativeDefinitionViz,
@@ -52,6 +53,7 @@ const levelComponents: Record<number, React.ComponentType<Record<string, unknown
   12: TangentLineViz,
   13: GraphSketchViz,
   14: RevolutionVolumeViz,
+  15: VelocityIntegralViz,
 };
 
 export default function CalculusPage() {
