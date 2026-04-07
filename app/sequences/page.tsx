@@ -36,94 +36,24 @@ interface Level {
   component: React.ComponentType<Record<string, unknown>>;
 }
 
-const levels: Level[] = [
-  // Original 3 levels now have dedicated Viz components
-  {
-    id: 1,
-    title: '等差数列の基本',
-    description: '初項と公差を操作して等差数列のグラフを観察しよう',
-    component: ArithmeticGeneralTermViz,
-  },
-  {
-    id: 2,
-    title: '等比数列の基本',
-    description: '初項と公比を操作して等比数列の振る舞いを確認しよう',
-    component: GeometricGeneralTermViz,
-  },
-  {
-    id: 3,
-    title: '等差・等比の判別',
-    description: '数列が等差か等比かを判定するクイズに挑戦しよう',
-    component: ArithGeometricJudgeViz,
-  },
-  // New levels
-  {
-    id: 4,
-    title: '等差数列の一般項',
-    description: 'a_n = a_1 + (n-1)d の公式をスライダーで体感しよう',
-    component: ArithmeticGeneralTermViz,
-  },
-  {
-    id: 5,
-    title: '等差数列の和',
-    description: 'S_n = n(a_1 + a_n)/2 の公式を視覚的に理解しよう',
-    component: ArithmeticSumViz,
-  },
-  {
-    id: 6,
-    title: '等比数列の一般項',
-    description: 'a_n = a_1 * r^(n-1) の指数的成長を観察しよう',
-    component: GeometricGeneralTermViz,
-  },
-  {
-    id: 7,
-    title: '等比数列の和',
-    description: '等比数列の部分和の公式を棒グラフで確認しよう',
-    component: GeometricSumViz,
-  },
-  {
-    id: 8,
-    title: 'シグマ記号と公式',
-    description: 'Σk, Σk², Σk³ の公式を視覚的に学ぼう',
-    component: SigmaNotationViz,
-  },
-  {
-    id: 9,
-    title: 'シグマの性質',
-    description: '定数倍・分配・定数の和の性質を確認しよう',
-    component: SigmaPropertiesViz,
-  },
-  {
-    id: 10,
-    title: '漸化式',
-    description: 'a_{n+1} = pa_n + q 型の漸化式を解析しよう',
-    component: RecurrenceRelationViz,
-  },
-  {
-    id: 11,
-    title: '無限等比級数',
-    description: '収束条件 |r| < 1 と極限値を視覚的に理解しよう',
-    component: InfiniteGeometricViz,
-  },
-  {
-    id: 12,
-    title: '階差数列',
-    description: '階差数列から元の数列の一般項を求めよう',
-    component: DifferenceSequenceViz,
-  },
-  {
-    id: 13,
-    title: '部分分数分解と級数',
-    description: 'テレスコーピング和の仕組みを学ぼう',
-    component: PartialFractionSumViz,
-  },
-  {
-    id: 14,
-    title: '数列総合クイズ',
-    description: 'ランダム問題で数列の知識を総チェック！',
-    component: SequencesQuizViz,
-  },
-];
+const LEVEL_COUNT = 14;
+
+const levelComponents: Record<number, React.ComponentType<Record<string, unknown>>> = {
+  1: ArithmeticGeneralTermViz,
+  2: GeometricGeneralTermViz,
+  3: ArithGeometricJudgeViz,
+  4: ArithmeticGeneralTermViz,
+  5: ArithmeticSumViz,
+  6: GeometricGeneralTermViz,
+  7: GeometricSumViz,
+  8: SigmaNotationViz,
+  9: SigmaPropertiesViz,
+  10: RecurrenceRelationViz,
+  11: InfiniteGeometricViz,
+  12: DifferenceSequenceViz,
+  13: PartialFractionSumViz,
+  14: SequencesQuizViz,
+};
 
 export default function SequencesPage() {
   const { moduleProgress, completeLevel } = useProgress();
@@ -133,6 +63,16 @@ export default function SequencesPage() {
   const [showUnlock, setShowUnlock] = useState(false);
 
   const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
+
+  const levels: Level[] = Array.from({ length: LEVEL_COUNT }, (_, i) => {
+    const id = i + 1;
+    return {
+      id,
+      title: t(`modules.sequences.page_levels.${id}.title`),
+      description: t(`modules.sequences.page_levels.${id}.desc`),
+      component: levelComponents[id],
+    };
+  });
 
   const handleComplete = () => {
     completeLevel(MODULE_ID, currentLevel);
@@ -188,7 +128,7 @@ export default function SequencesPage() {
                 disabled={progress.includes(currentLevel)}
                 className="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-900/10 disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {progress.includes(currentLevel) ? '完了済み' : 'このレベルを完了'}
+                {progress.includes(currentLevel) ? t('modules.sequences.page_ui.completed_btn') : t('modules.sequences.page_ui.complete_btn')}
               </button>
             </div>
 
@@ -201,13 +141,13 @@ export default function SequencesPage() {
                 >
                   <div className="bg-white border border-slate-200 p-10 rounded-[40px] shadow-2xl text-center max-w-sm">
                     <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-2">レベルクリア！</h3>
-                    <p className="text-sm text-slate-500 mb-8">次のレベルに進みましょう。</p>
+                    <h3 className="text-2xl font-bold mb-2">{t('modules.sequences.page_ui.level_clear')}</h3>
+                    <p className="text-sm text-slate-500 mb-8">{t('modules.sequences.page_ui.level_clear_desc')}</p>
                     <button
                       onClick={handleNext}
                       className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
                     >
-                      {currentLevel < levels.length ? '次のレベルへ' : 'モジュール完了'}
+                      {currentLevel < levels.length ? t('modules.sequences.page_ui.next_level') : t('modules.sequences.page_ui.module_complete')}
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -221,7 +161,7 @@ export default function SequencesPage() {
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-white border border-slate-200 rounded-[32px] p-6 shadow-sm">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-              レベル一覧
+              {t('modules.sequences.page_ui.level_list')}
             </h3>
             <div className="space-y-2 max-h-[60vh] overflow-y-auto">
               {levels.map((level) => {
@@ -253,7 +193,7 @@ export default function SequencesPage() {
 
           <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
             <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-4">
-              進捗
+              {t('modules.sequences.page_ui.progress')}
             </h3>
             <div className="text-3xl font-bold mb-2">
               {progress.length} / {levels.length}

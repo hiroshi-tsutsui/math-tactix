@@ -668,6 +668,31 @@
       },
       "actions": {
         "sync": "Execute Analysis"
+      },
+      "page_levels": {
+        "1": { "title": "Definition of Derivatives", "desc": "Experience the limit definition of derivatives with h→0 slider" },
+        "2": { "title": "Power Rule", "desc": "Verify the power rule for x^n by changing n with a slider" },
+        "3": { "title": "Tangent Line Equation", "desc": "Move points on the graph and observe tangent line changes" },
+        "4": { "title": "Derivative Graph", "desc": "Compare f(x) and f'(x) graphs side by side" },
+        "5": { "title": "Sign Chart", "desc": "Determine increase/decrease from the sign of f'(x)" },
+        "6": { "title": "Local Max & Min", "desc": "Visually understand f'(x)=0 points and extrema" },
+        "7": { "title": "Graph Sketching", "desc": "Practice sketching graphs from sign charts" },
+        "8": { "title": "Integral Definition (Riemann Sum)", "desc": "Watch Riemann sums approach the area as partitions increase" },
+        "9": { "title": "Indefinite Integral", "desc": "Understand the relationship between integrand and antiderivative" },
+        "10": { "title": "Definite Integral", "desc": "Visualize the definite integral as area" },
+        "11": { "title": "Area Between Curves", "desc": "Calculate the area of regions bounded by two curves" },
+        "12": { "title": "Tangent Line Applications", "desc": "Tackle applied problems using tangent lines of quadratics" },
+        "13": { "title": "Comprehensive Extrema Practice", "desc": "Practice sign charts, extrema, and graph sketching for cubics" }
+      },
+      "page_ui": {
+        "level_list": "Level List",
+        "progress": "Progress",
+        "complete_btn": "Complete This Level",
+        "completed_btn": "Completed",
+        "level_clear": "Level Clear!",
+        "level_clear_desc": "Let's move to the next level.",
+        "next_level": "Next Level",
+        "module_complete": "Module Complete"
       }
     },
     "trig": {
@@ -809,7 +834,32 @@
       }
     },
     "logs": {
-      "title": "Logarithms"
+      "title": "Logarithms",
+      "page_levels": {
+        "1": { "title": "Observing Exponential Growth", "desc": "Experience the rapid growth of exponential functions" },
+        "2": { "title": "Definition of Logarithms", "desc": "Understand the correspondence: log_a M = p and a^p = M" },
+        "3": { "title": "Logarithmic Scale Compression", "desc": "Experience making huge numbers manageable with logs" },
+        "4": { "title": "Basic Log Properties", "desc": "Visually learn product, quotient, and power log rules" },
+        "5": { "title": "Change of Base Formula", "desc": "Understand log_a b = log_c b / log_c a" },
+        "6": { "title": "Common Log & Digit Count", "desc": "Master digit counting using log base 10" },
+        "7": { "title": "Logarithmic Equations", "desc": "Verify solutions of log_a f(x) = k on graphs" },
+        "8": { "title": "Logarithmic Inequalities", "desc": "Visualize solutions and regions of log inequalities" },
+        "9": { "title": "Log Graph Shifts", "desc": "Manipulate shifts of y = log_a(x-h) + k" },
+        "10": { "title": "Exp-Log Symmetry", "desc": "Confirm that y = a^x and y = log_a x are symmetric about y=x" },
+        "11": { "title": "Comparing Logarithms", "desc": "Learn techniques for comparing logarithmic values" },
+        "12": { "title": "Comprehensive Log Practice", "desc": "Solve problems using all logarithm rules" },
+        "13": { "title": "Log Comprehensive Quiz", "desc": "Random quiz to test all your log knowledge!" }
+      },
+      "page_ui": {
+        "level_list": "Level List",
+        "progress": "Progress",
+        "complete_btn": "Complete This Level",
+        "completed_btn": "Completed",
+        "level_clear": "Level Clear!",
+        "level_clear_desc": "Let's move to the next level.",
+        "next_level": "Next Level",
+        "module_complete": "Module Complete"
+      }
     },
     "matrices": {
       "title": "Matrices",
@@ -913,6 +963,32 @@
       "log": {
         "title": "Activity Log",
         "start": "Started Stage {{level}}"
+      },
+      "page_levels": {
+        "1": { "title": "Arithmetic Sequence Basics", "desc": "Manipulate first term and common difference to observe arithmetic graphs" },
+        "2": { "title": "Geometric Sequence Basics", "desc": "Manipulate first term and common ratio to observe geometric behavior" },
+        "3": { "title": "Arithmetic vs Geometric", "desc": "Quiz: determine whether a sequence is arithmetic or geometric" },
+        "4": { "title": "Arithmetic General Term", "desc": "Experience a_n = a_1 + (n-1)d with sliders" },
+        "5": { "title": "Arithmetic Sum", "desc": "Visually understand S_n = n(a_1 + a_n)/2" },
+        "6": { "title": "Geometric General Term", "desc": "Observe exponential growth of a_n = a_1 * r^(n-1)" },
+        "7": { "title": "Geometric Sum", "desc": "Verify partial sum formula with bar charts" },
+        "8": { "title": "Sigma Notation & Formulas", "desc": "Visually learn Σk, Σk², Σk³ formulas" },
+        "9": { "title": "Sigma Properties", "desc": "Verify constant multiple, distribution, and constant sum properties" },
+        "10": { "title": "Recurrence Relations", "desc": "Analyze a_{n+1} = pa_n + q type recurrences" },
+        "11": { "title": "Infinite Geometric Series", "desc": "Visually understand convergence condition |r| < 1 and limits" },
+        "12": { "title": "Difference Sequences", "desc": "Find the general term from difference sequences" },
+        "13": { "title": "Partial Fractions & Series", "desc": "Learn the mechanism of telescoping sums" },
+        "14": { "title": "Sequences Comprehensive Quiz", "desc": "Random quiz to test all your sequence knowledge!" }
+      },
+      "page_ui": {
+        "level_list": "Level List",
+        "progress": "Progress",
+        "complete_btn": "Complete This Level",
+        "completed_btn": "Completed",
+        "level_clear": "Level Clear!",
+        "level_clear_desc": "Let's move to the next level.",
+        "next_level": "Next Level",
+        "module_complete": "Module Complete"
       }
     },
     "vectors": {
