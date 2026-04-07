@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 /* ── KaTeX helpers ── */
 const K = ({ tex }: { tex: string }) => {
@@ -329,6 +330,14 @@ export default function RootsPlacementViz() {
           <p className="text-sm font-bold text-green-700 pt-1">全ての条件が成立しています。</p>
         )}
       </div>
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "解の配置問題では「D ≥ 0（実数解の存在）」「軸の位置」「端点での関数値の符号」の3条件を確認します。" },
+        { step: 2, text: "両解が正: D ≥ 0, 軸 > 0, f(0) > 0 の3条件すべてが必要です。" },
+        { step: 3, text: "k をまたぐ: a > 0 のとき f(k) < 0 だけで十分です（D ≥ 0 は自動的に成立）。" },
+        { step: 4, text: "範囲内に2解: D ≥ 0, α < 軸 < β, f(α) > 0, f(β) > 0 の4条件が必要です。" },
+      ]} />
 
       {/* formula summary */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">

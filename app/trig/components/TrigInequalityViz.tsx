@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -296,6 +297,13 @@ export default function TrigInequalityViz() {
           <p className="text-sm text-green-600 dark:text-green-300">{problem.explanation}</p>
         </div>
       )}
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "不等式を解くには、まず対応する方程式（= k）を解いて境界角を求めます。" },
+        { step: 2, text: "単位円上で、関数値が k より大きい（小さい）領域を特定します。sin なら水平線の上下、cos なら垂直線の左右を見ます。" },
+        { step: 3, text: "等号の有無（≥ vs >）で端点を含むかどうかが変わります。図では塗りつぶし●と白抜き○で区別しています。" },
+      ]} />
 
       {/* Explanation */}
       <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-5 border border-indigo-200 dark:border-indigo-800">

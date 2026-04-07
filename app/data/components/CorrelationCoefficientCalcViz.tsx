@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 import {
   ScatterChart,
   Scatter,
@@ -394,6 +395,13 @@ export default function CorrelationCoefficientCalcViz({
           <p className="text-sm text-slate-500 text-center mt-1">{ds.description}</p>
         </div>
       )}
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "相関係数 r は「x と y の偏差の積の平均」を「それぞれの標準偏差の積」で割った値です。" },
+        { step: 2, text: "まず各データから平均を引いて偏差 dx, dy を求め、dx・dy の合計を計算します。" },
+        { step: 3, text: "r = Σ(dx・dy) / √(Σdx²・Σdy²) で求まります。-1 ≤ r ≤ 1 の範囲になります。" },
+      ]} />
 
       {/* Interpretation guide */}
       <div className="bg-indigo-50 rounded-2xl p-5 border border-indigo-200">
