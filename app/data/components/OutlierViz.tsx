@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import HintButton from '../../components/HintButton';
 
 export default function OutlierViz() {
   const [outlierValue, setOutlierValue] = useState<number>(50);
@@ -128,6 +129,12 @@ export default function OutlierViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "外れ値は平均値に大きく影響しますが、中央値にはほとんど影響しません" },
+        { step: 2, text: "外れ値の判定基準：Q1 - 1.5×IQR 未満、または Q3 + 1.5×IQR 超過" },
+        { step: 3, text: "中央値は順位が真ん中の値なので、外れ値に対して頑健（ロバスト）です" },
+      ]} />
     </div>
   );
 }

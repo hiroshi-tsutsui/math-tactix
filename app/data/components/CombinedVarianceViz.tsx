@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw, Calculator } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 const CombinedVarianceViz = () => {
   const [meanA, setMeanA] = useState(50);
@@ -157,6 +158,12 @@ const CombinedVarianceViz = () => {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "全体の平均は各群の平均の加重平均で求められます" },
+        { step: 2, text: "全体の分散 = 群内分散の加重平均 + 群間分散（平均値のズレの寄与）" },
+        { step: 3, text: "平均値のズレがあるため、単純な分散の平均よりも全体の分散は大きくなります" },
+      ]} />
     </div>
   );
 };

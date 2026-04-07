@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -300,6 +301,12 @@ export default function SineLawViz() {
           <li>直角三角形では 2R = 斜辺（直径）となる</li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "正弦定理は a/sinA = b/sinB = c/sinC = 2R という等式です" },
+        { step: 2, text: "外接円の半径 R を求めるには、1辺とその対角が分かれば R = a/(2sinA) です" },
+        { step: 3, text: "辺の長さを求めるには a = 2R sinA のように変形します" },
+      ]} />
     </div>
   );
 }

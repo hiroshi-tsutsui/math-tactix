@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -441,6 +442,12 @@ export default function QuartileAnalysisViz({
           </p>
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: "データを昇順に並べて中央値を求め、下半分からQ1、上半分からQ3を求めます" },
+        { step: 2, text: "IQR = Q3 - Q1 で四分位範囲を計算します" },
+        { step: 3, text: "外れ値は Q1 - 1.5×IQR 未満、または Q3 + 1.5×IQR 超過の値です" },
+      ]} />
     </div>
   );
 }

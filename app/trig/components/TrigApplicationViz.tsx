@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -464,6 +465,12 @@ export default function TrigApplicationViz() {
           )}
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "仰角・俯角の問題では、直角三角形を描いて tanθ = 対辺/隣辺 を使います" },
+        { step: 2, text: "高さ h = d × tanθ（d: 水平距離、θ: 仰角）で計算できます" },
+        { step: 3, text: "俯角は水平線から下向きの角度で、仰角と錯角の関係にあります" },
+      ]} />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, CheckCircle2, RotateCcw, HelpCircle } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function HypothesisTestingViz({ onComplete }: { onComplete?: () => void }) {
   const [tosses, setTosses] = useState<number[]>([]);
@@ -177,6 +178,12 @@ export default function HypothesisTestingViz({ onComplete }: { onComplete?: () =
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "帰無仮説 H₀（コインは公平）を立て、対立仮説 H₁（表が出やすい）を設定します" },
+        { step: 2, text: "帰無仮説のもとで観測結果以上の極端な結果が起こる確率（p値）を計算します" },
+        { step: 3, text: "p値が有意水準（通常5%）より小さければ帰無仮説を棄却します" },
+      ]} />
     </div>
   );
 }

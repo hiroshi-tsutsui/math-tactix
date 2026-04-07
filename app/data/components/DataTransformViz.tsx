@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -211,6 +212,12 @@ export default function DataTransformViz({ onComplete }: { onComplete: () => voi
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "y = ax + b の変換で、平均は ȳ = ax̄ + b と変換されます" },
+        { step: 2, text: "分散は s²_y = a² × s²_x（定数 b は影響しません）" },
+        { step: 3, text: "標準偏差は s_y = |a| × s_x（絶対値倍になります）" },
+      ]} />
     </div>
   );
 }

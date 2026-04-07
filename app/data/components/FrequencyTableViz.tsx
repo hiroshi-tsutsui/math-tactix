@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 const FrequencyTableViz = ({ onComplete }: { onComplete?: () => void }) => {
   // Class frequencies for [0,10), [10,20), [20,30), [30,40), [40,50)
@@ -178,6 +179,12 @@ const FrequencyTableViz = ({ onComplete }: { onComplete?: () => void }) => {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "階級値はその階級の中央の値です（例：0〜10の階級なら階級値は5）" },
+        { step: 2, text: "平均値 = (階級値 × 度数の合計) ÷ 総度数 で計算します" },
+        { step: 3, text: "最頻値（モード）は最も度数が大きい階級の階級値です" },
+      ]} />
     </div>
   );
 };

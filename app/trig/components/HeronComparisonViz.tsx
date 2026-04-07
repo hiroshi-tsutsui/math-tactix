@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -347,6 +348,12 @@ export default function HeronComparisonViz() {
           </div>
         </>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: "ヘロンの公式では、まず半周長 s = (a+b+c)/2 を計算します" },
+        { step: 2, text: "面積 S = √(s(s-a)(s-b)(s-c)) に代入して計算します" },
+        { step: 3, text: "S = (1/2)ab sinC の公式でも同じ結果が得られることを確認しましょう" },
+      ]} />
     </div>
   );
 }

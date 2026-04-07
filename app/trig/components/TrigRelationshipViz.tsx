@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -493,6 +494,12 @@ export default function TrigRelationshipViz() {
           <li>象限（θ の範囲）から正負の符号を決定する</li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "sin²θ + cos²θ = 1 を使って一方から他方を求めましょう" },
+        { step: 2, text: "tanθ = sinθ/cosθ なので、sinθ と cosθ が分かれば tanθ も分かります" },
+        { step: 3, text: "θ の範囲（象限）によって sin, cos, tan の正負が決まります" },
+      ]} />
     </div>
   );
 }

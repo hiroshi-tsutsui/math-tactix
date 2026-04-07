@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from '../../components/HintButton';
 
 function toRad(deg: number): number {
   return (deg * Math.PI) / 180;
@@ -380,6 +381,12 @@ export default function CosineInverseViz() {
           <li>最大辺に対する角が最大角になる</li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "cosA = (b²+c²-a²)/(2bc) に3辺を代入して cosA を計算しましょう" },
+        { step: 2, text: "cosA の符号で角度の種類が分かります（正→鋭角、0→直角、負→鈍角）" },
+        { step: 3, text: "A = arccos(cosA) で角度（度数）を求めます" },
+      ]} />
     </div>
   );
 }

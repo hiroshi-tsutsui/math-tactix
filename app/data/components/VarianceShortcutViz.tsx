@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { RefreshCw, Info } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface Props {
   onComplete?: () => void;
@@ -119,6 +120,12 @@ export default function VarianceShortcutViz({ onComplete }: Props) {
         <p>通常の分散の定義は <MathDisplay tex="s^2 = \frac{1}{n}\sum (x_i - \overline{x})^2" /> ですが、平均 <MathDisplay tex="\overline{x}" /> が小数になると、偏差 <MathDisplay tex="(x_i - \overline{x})" /> の2乗の計算が非常に複雑になります。</p>
         <p className="mt-2">このショートカット公式 <MathDisplay tex="s^2 = \overline{x^2} - (\overline{x})^2" /> を使えば、元のデータ <MathDisplay tex="x_i" /> を2乗して平均を出し、最後に平均の2乗を引くだけで済むため、計算ミスを大幅に減らすことができます。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "分散のショートカット公式: s² = x²の平均 - (xの平均)² です" },
+        { step: 2, text: "各データを2乗した値の平均（x²の平均）をまず計算します" },
+        { step: 3, text: "そこから平均値の2乗を引けば分散が求まります（偏差の計算が不要）" },
+      ]} />
     </div>
   );
 }

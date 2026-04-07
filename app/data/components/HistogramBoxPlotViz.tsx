@@ -1,6 +1,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function HistogramBoxPlotViz({ onComplete }: { onComplete?: () => void }) {
   // Bins: 0-10, 10-20, ... 90-100 (10 bins)
@@ -226,6 +227,12 @@ export default function HistogramBoxPlotViz({ onComplete }: { onComplete?: () =>
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "ヒストグラムは度数分布を棒グラフで視覚化したものです" },
+        { step: 2, text: "箱ひげ図の箱はQ1〜Q3の範囲を示し、中のデータの50%を含みます" },
+        { step: 3, text: "IQR（四分位範囲）= Q3 - Q1 でデータの散らばり具合が分かります" },
+      ]} />
     </div>
   );
 }
