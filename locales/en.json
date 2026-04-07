@@ -683,7 +683,8 @@
         "10": { "title": "Definite Integral", "desc": "Visualize the definite integral as area" },
         "11": { "title": "Area Between Curves", "desc": "Calculate the area of regions bounded by two curves" },
         "12": { "title": "Tangent Line Applications", "desc": "Tackle applied problems using tangent lines of quadratics" },
-        "13": { "title": "Comprehensive Extrema Practice", "desc": "Practice sign charts, extrema, and graph sketching for cubics" }
+        "13": { "title": "Comprehensive Extrema Practice", "desc": "Practice sign charts, extrema, and graph sketching for cubics" },
+        "14": { "title": "Volume of Revolution", "desc": "Use the disk method to find the volume of solids of revolution" }
       },
       "page_ui": {
         "level_list": "Level List",
