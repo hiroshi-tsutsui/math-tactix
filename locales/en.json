@@ -1200,6 +1200,10 @@
       "success_desc": "Burn this position into your brain.",
       "next": "Next Question",
       "wrong": "Wrong angle."
+    },
+    "page_levels": {
+      "25": { "title": "Double Angle Formulas", "desc": "Derive and visualize sin2α, cos2α, tan2α from addition formulas" },
+      "26": { "title": "Half Angle Formulas", "desc": "Derive sin²(α/2), cos²(α/2), tan²(α/2) from double angle formulas" }
     }
   },
   "codex": {

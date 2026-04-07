@@ -37,6 +37,8 @@ const TrigFunctionGraphViz = dynamic(() => import('./components/TrigFunctionGrap
 const CosineGraphViz = dynamic(() => import('./components/CosineGraphViz'), { ssr: false, loading: loadingFallback });
 const TangentGraphViz = dynamic(() => import('./components/TangentGraphViz'), { ssr: false, loading: loadingFallback });
 const UnitCircleAnimationViz = dynamic(() => import('./components/UnitCircleAnimationViz'), { ssr: false, loading: loadingFallback });
+const DoubleAngleViz = dynamic(() => import('./components/DoubleAngleViz'), { ssr: false, loading: loadingFallback });
+const HalfAngleViz = dynamic(() => import('./components/HalfAngleViz'), { ssr: false, loading: loadingFallback });
 
 // --- Types ---
 type State = {
@@ -161,6 +163,8 @@ export default function TrigPage() {
              level === 22 ? "y=acos(bx+c) グラフ (Cosine Graph)" :
              level === 23 ? "y=tanx グラフ (Tangent Graph)" :
              level === 24 ? "単位円アニメーション (Unit Circle)" :
+             level === 25 ? "倍角公式 (Double Angle)" :
+             level === 26 ? "半角公式 (Half Angle)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -196,7 +200,9 @@ export default function TrigPage() {
                       { id: 21, title: "Level 21: y=asin(bx+c) グラフ", desc: "振幅・周波数・位相をスライダーで変えてsinグラフを観察", icon: Activity },
                       { id: 22, title: "Level 22: y=acos(bx+c) グラフ", desc: "cosグラフの振幅・周波数・位相を操作", icon: Activity },
                       { id: 23, title: "Level 23: y=tanx グラフ", desc: "tanグラフの周期と漸近線を確認", icon: TrendingUp },
-                      { id: 24, title: "Level 24: 単位円アニメーション", desc: "単位円上の点の動きとsinグラフの関係", icon: Circle }
+                      { id: 24, title: "Level 24: 単位円アニメーション", desc: "単位円上の点の動きとsinグラフの関係", icon: Circle },
+                      { id: 25, title: "Level 25: 倍角公式", desc: "sin2α, cos2α, tan2α を加法定理から導出・可視化", icon: Zap },
+                      { id: 26, title: "Level 26: 半角公式", desc: "sin²(α/2), cos²(α/2), tan²(α/2) を倍角公式から導出", icon: Zap }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -446,6 +452,24 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-2xl mx-auto">
                   <UnitCircleAnimationViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 25: Double Angle */}
+      {level === 25 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <DoubleAngleViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 26: Half Angle */}
+      {level === 26 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <HalfAngleViz />
               </div>
           </main>
       )}

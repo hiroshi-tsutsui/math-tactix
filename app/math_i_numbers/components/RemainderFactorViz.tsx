@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -305,6 +306,16 @@ export default function RemainderFactorViz() {
           {problem.explanation}
         </p>
       </div>
+
+      {/* Hints */}
+      <HintButton
+        hints={[
+          { step: 1, text: "余りの定理: P(x) を (x - a) で割った余りは P(a) です。まず x = a を代入してみましょう。" },
+          { step: 2, text: "P(a) = 0 なら (x - a) は P(x) の因数です。これが因数定理です。" },
+          { step: 3, text: "因数を見つけたら、組み立て除法で商の多項式を求めましょう。さらに因数分解が続けられるかもしれません。" },
+          { step: 4, text: "整数の因数候補は、定数項の約数 ÷ 最高次係数の約数 で探すと効率的です。" },
+        ]}
+      />
 
       {/* Key points */}
       <div className="bg-indigo-50 rounded-2xl p-5 border border-indigo-100">

@@ -1,8 +1,16 @@
 # Math Tactix TODO
-現在のサイクル: 038
+現在のサイクル: 039
 最終更新: 2026-04-07
 
 ---
+
+## サイクル038 実施済み
+
+- [x] [優先度:高] app/components/HintButton.tsx: 段階的ヒント表示共通コンポーネント新規作成
+- [x] [優先度:高] 既存Viz 3本にHintButton統合（TrigFunctionGraphViz, QuadraticWordProblemViz, RemainderFactorViz）
+- [x] [優先度:高] trig Level 25: DoubleAngleViz（倍角公式）新規作成 — 単位円・公式検証・加法定理からの導出
+- [x] [優先度:高] trig Level 26: HalfAngleViz（半角公式）新規作成 — 単位円・公式検証・倍角公式からの導出
+- [x] [優先度:中] locales/ja.json, en.json に trig page_levels 25-26 追加
 
 ## サイクル037 実施済み
 

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -308,6 +309,16 @@ export default function TrigFunctionGraphViz() {
           <span className="w-2 h-2 rounded-full bg-slate-500 inline-block" /> ゼロ点
         </span>
       </div>
+
+      {/* Hints */}
+      <HintButton
+        hints={[
+          { step: 1, text: "y = a sin(bx + c) の a は振幅（グラフの上下の幅）を決めます。a を大きくするとグラフが縦に伸びます。" },
+          { step: 2, text: "b は角周波数で、周期 T = 2π/|b| を決めます。b を大きくするとグラフが横に縮みます。" },
+          { step: 3, text: "c は位相（グラフの左右のずれ）を決めます。c > 0 のとき左に、c < 0 のとき右にずれます。" },
+          { step: 4, text: "最大値は a、最小値は -a です。ゼロ点は sin(bx + c) = 0、すなわち bx + c = nπ (n は整数) のときです。" },
+        ]}
+      />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from "../../components/HintButton";
 
 type Scenario = "area" | "profit";
 
@@ -294,6 +295,23 @@ export default function QuadraticWordProblemViz() {
             <div className="text-xs text-green-400">{cfg.unit}</div>
           </div>
         </div>
+
+        {/* Hints */}
+        <HintButton
+          hints={
+            scenario === "area"
+              ? [
+                  { step: 1, text: "周の長さが 20m のロープで長方形を作るので、(縦 + 横) × 2 = 20、つまり 縦 + 横 = 10 です。" },
+                  { step: 2, text: "縦を x とすると横は 10 - x。面積 S = x(10 - x) = -x² + 10x です。" },
+                  { step: 3, text: "S = -(x² - 10x) = -(x - 5)² + 25。頂点は x = 5 で、最大値 S = 25 m² です。" },
+                ]
+              : [
+                  { step: 1, text: "単価 (100 + x) 円、販売数 (100 - x) 個。利益 P = (100 + x)(100 - x) です。" },
+                  { step: 2, text: "P = 10000 - x² なので、x = 0 のとき P は最大です。" },
+                  { step: 3, text: "つまり値上げしない（x = 0）のが最適。P の最大値は 10000 円です。" },
+                ]
+          }
+        />
 
         {/* Explanation */}
         <div className="mt-6 p-4 bg-slate-100 rounded-lg border border-slate-200">
