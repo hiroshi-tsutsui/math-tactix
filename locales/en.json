@@ -1333,5 +1333,23 @@
       "name": "Quiz Ace",
       "desc": "Achieved a perfect score in the Proficiency Test."
     }
+  },
+  "roadmap": {
+    "title": "Recommended Learning Path",
+    "subtitle": "Suggested study order",
+    "node_math_i_numbers": "Numbers & Expressions",
+    "node_quadratics": "Quadratic Functions",
+    "node_sets_logic": "Sets & Logic",
+    "node_trig_ratios": "Trigonometric Ratios",
+    "node_data": "Data Analysis",
+    "node_probability": "Probability",
+    "node_trig": "Trigonometric Functions",
+    "node_logs": "Exponents & Logs",
+    "node_sequences": "Sequences",
+    "node_calculus": "Calculus",
+    "node_vectors": "Vectors",
+    "node_complex": "Complex Numbers",
+    "node_matrices": "Matrices",
+    "node_functions": "Functions"
   }
 }

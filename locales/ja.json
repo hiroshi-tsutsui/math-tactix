@@ -1333,5 +1333,23 @@
       "28": { "title": "積和・和積変換", "desc": "三角関数の積⇔和の変換公式を導出・検証" },
       "29": { "title": "三角関数の合成", "desc": "a sinθ + b cosθ = R sin(θ+φ) の合成公式を視覚化" }
     }
+  },
+  "roadmap": {
+    "title": "推奨学習パス",
+    "subtitle": "おすすめの学習順序",
+    "node_math_i_numbers": "数と式",
+    "node_quadratics": "二次関数",
+    "node_sets_logic": "集合と論理",
+    "node_trig_ratios": "三角比",
+    "node_data": "データの分析",
+    "node_probability": "確率",
+    "node_trig": "三角関数",
+    "node_logs": "指数・対数",
+    "node_sequences": "数列",
+    "node_calculus": "微分積分",
+    "node_vectors": "ベクトル",
+    "node_complex": "複素数平面",
+    "node_matrices": "行列",
+    "node_functions": "関数"
   }
 }

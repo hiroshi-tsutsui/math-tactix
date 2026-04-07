@@ -3,18 +3,22 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 // --- Types ---
-export type ModuleId = 
-  | 'quadratics' 
-  | 'trig' 
-  | 'data' 
-  | 'vectors' 
-  | 'sequences' 
-  | 'probability' 
-  | 'calculus' 
-  | 'complex' 
+export type ModuleId =
+  | 'quadratics'
+  | 'trig'
+  | 'data'
+  | 'vectors'
+  | 'sequences'
+  | 'probability'
+  | 'calculus'
+  | 'complex'
   | 'logs'
   | 'matrices'
-  | 'functions';
+  | 'functions'
+  | 'math_i_numbers'
+  | 'sets_logic'
+  | 'trig_ratios'
+  | 'quiz';
 
 export interface ModuleProgress {
   id: ModuleId;
@@ -49,6 +53,10 @@ const defaultProgress: Record<ModuleId, ModuleProgress> = {
   logs: { id: 'logs', completedLevels: [], isMastered: false, xpEarned: 0 },
   matrices: { id: 'matrices', completedLevels: [], isMastered: false, xpEarned: 0 },
   functions: { id: 'functions', completedLevels: [], isMastered: false, xpEarned: 0 },
+  math_i_numbers: { id: 'math_i_numbers', completedLevels: [], isMastered: false, xpEarned: 0 },
+  sets_logic: { id: 'sets_logic', completedLevels: [], isMastered: false, xpEarned: 0 },
+  trig_ratios: { id: 'trig_ratios', completedLevels: [], isMastered: false, xpEarned: 0 },
+  quiz: { id: 'quiz', completedLevels: [], isMastered: false, xpEarned: 0 },
 };
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
@@ -67,7 +75,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     const savedCalibration = localStorage.getItem('omega_calibration');
 
     if (savedXp) setXp(parseInt(savedXp, 10));
-    if (savedProgress) setModuleProgress(JSON.parse(savedProgress));
+    if (savedProgress) {
+      const parsed = JSON.parse(savedProgress) as Record<string, ModuleProgress>;
+      // Merge with defaults to ensure new modules are included
+      setModuleProgress({ ...defaultProgress, ...parsed });
+    }
     if (savedCalibration) setCalibration(JSON.parse(savedCalibration));
     
     setIsLoaded(true);
