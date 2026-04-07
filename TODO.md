@@ -1,8 +1,16 @@
 # Math Tactix TODO
-現在のサイクル: 035
+現在のサイクル: 036
 最終更新: 2026-04-07
 
 ---
+
+## サイクル035 実施済み
+
+- [x] [優先度:高] quiz モジュールに6カテゴリ（数列・対数・微積分・ベクトル・複素数・行列）各5問、計30問を crossModuleQuestions に追加（22問→52問）
+- [x] [優先度:高] functions モジュール大幅拡充: 既存5レベル（Black Box） + 10レベル（Explore: 1次関数・分数関数・無理関数・絶対値関数・グラフ変換・偶奇関数・合成関数・逆関数・定義域値域・関数クイズ）
+- [x] [優先度:高] functions/components/ に10個の Viz コンポーネント新規作成（LinearFunctionViz, RationalFunctionViz, RadicalFunctionViz, AbsoluteValueFunctionViz, FunctionTransformViz, FunctionSymmetryViz, CompositeFunctionViz, InverseFunctionViz, DomainRangeViz, FunctionQuizViz）
+- [x] [優先度:高] functions/utils/functions-generator.ts 新規作成（linear, rational, composite, inverse, domain の各 generator）
+- [x] [優先度:中] functions/page.tsx にタブ切替UI（Black Box / Explore）を追加
 
 ## サイクル034 実施済み
 

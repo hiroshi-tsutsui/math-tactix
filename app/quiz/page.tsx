@@ -504,6 +504,522 @@ const crossModuleQuestions: QuestionData[] = [
       explanation: "f(t) = 2(t+1/4)² - 9/8. Min at t=-1/4, but 0≤t≤1, so f(0)=-1 is the minimum."
     }
   },
+  // --- Sequences (数列) ---
+  {
+    id: "MIX-023",
+    answer: "29",
+    correctIndex: 0,
+    ja: {
+      category: "数列",
+      query: "等差数列 a₁=2, d=3 の第10項 a₁₀ の値は？",
+      options: ["29", "32", "27", "30"],
+      explanation: "等差数列の一般項 aₙ = a₁ + (n-1)d より、a₁₀ = 2 + 9×3 = 29。"
+    },
+    en: {
+      category: "Sequences",
+      query: "Find a₁₀ for arithmetic sequence a₁=2, d=3.",
+      options: ["29", "32", "27", "30"],
+      explanation: "aₙ = a₁ + (n-1)d, so a₁₀ = 2 + 9×3 = 29."
+    }
+  },
+  {
+    id: "MIX-024",
+    answer: "31",
+    correctIndex: 1,
+    ja: {
+      category: "数列",
+      query: "等比数列 a₁=1, r=2, n=5 のとき、初項から第5項までの和 S₅ は？",
+      options: ["16", "31", "32", "15"],
+      explanation: "Sₙ = a₁(rⁿ - 1)/(r - 1) = 1×(2⁵ - 1)/(2 - 1) = 31。"
+    },
+    en: {
+      category: "Sequences",
+      query: "Find S₅ for geometric series a₁=1, r=2.",
+      options: ["16", "31", "32", "15"],
+      explanation: "Sₙ = a₁(rⁿ - 1)/(r - 1) = 1×(32-1)/1 = 31."
+    }
+  },
+  {
+    id: "MIX-025",
+    answer: "55",
+    correctIndex: 2,
+    ja: {
+      category: "数列",
+      query: "Σ(k=1 to 5) k² の値は？",
+      options: ["30", "25", "55", "50"],
+      explanation: "1² + 2² + 3² + 4² + 5² = 1 + 4 + 9 + 16 + 25 = 55。公式: n(n+1)(2n+1)/6 = 5×6×11/6 = 55。"
+    },
+    en: {
+      category: "Sequences",
+      query: "Calculate Σ(k=1 to 5) k².",
+      options: ["30", "25", "55", "50"],
+      explanation: "1+4+9+16+25 = 55. Formula: n(n+1)(2n+1)/6 = 5×6×11/6 = 55."
+    }
+  },
+  {
+    id: "MIX-026",
+    answer: "7",
+    correctIndex: 0,
+    ja: {
+      category: "数列",
+      query: "漸化式 aₙ₊₁ = 2aₙ + 1, a₁=1 のとき a₃ の値は？",
+      options: ["7", "5", "6", "9"],
+      explanation: "a₂ = 2×1 + 1 = 3, a₃ = 2×3 + 1 = 7。"
+    },
+    en: {
+      category: "Sequences",
+      query: "Given aₙ₊₁ = 2aₙ + 1, a₁=1. Find a₃.",
+      options: ["7", "5", "6", "9"],
+      explanation: "a₂ = 2×1+1 = 3, a₃ = 2×3+1 = 7."
+    }
+  },
+  {
+    id: "MIX-027",
+    answer: "2",
+    correctIndex: 1,
+    ja: {
+      category: "数列",
+      query: "無限等比級数 a₁=1, r=1/2 の和は？",
+      options: ["1", "2", "1/2", "∞"],
+      explanation: "|r| < 1 のとき S = a₁/(1-r) = 1/(1-1/2) = 2。"
+    },
+    en: {
+      category: "Sequences",
+      query: "Find the sum of infinite geometric series a₁=1, r=1/2.",
+      options: ["1", "2", "1/2", "∞"],
+      explanation: "Since |r|<1, S = a₁/(1-r) = 1/(1/2) = 2."
+    }
+  },
+  // --- Logarithms (対数) ---
+  {
+    id: "MIX-028",
+    answer: "3",
+    correctIndex: 0,
+    ja: {
+      category: "対数",
+      query: "log₂ 8 の値は？",
+      options: ["3", "4", "2", "8"],
+      explanation: "2³ = 8 なので log₂ 8 = 3。"
+    },
+    en: {
+      category: "Logarithms",
+      query: "What is log₂ 8?",
+      options: ["3", "4", "2", "8"],
+      explanation: "2³ = 8, so log₂ 8 = 3."
+    }
+  },
+  {
+    id: "MIX-029",
+    answer: "3",
+    correctIndex: 2,
+    ja: {
+      category: "対数",
+      query: "log₁₀ 100 + log₁₀ 10 の値は？",
+      options: ["1", "2", "3", "4"],
+      explanation: "log₁₀ 100 = 2, log₁₀ 10 = 1 なので、2 + 1 = 3。"
+    },
+    en: {
+      category: "Logarithms",
+      query: "Calculate log₁₀ 100 + log₁₀ 10.",
+      options: ["1", "2", "3", "4"],
+      explanation: "log₁₀ 100 = 2, log₁₀ 10 = 1, so 2+1 = 3."
+    }
+  },
+  {
+    id: "MIX-030",
+    answer: "2",
+    correctIndex: 1,
+    ja: {
+      category: "対数",
+      query: "log₃ 27 - log₃ 3 の値は？",
+      options: ["1", "2", "3", "0"],
+      explanation: "log₃ 27 = 3, log₃ 3 = 1 なので、3 - 1 = 2。"
+    },
+    en: {
+      category: "Logarithms",
+      query: "Calculate log₃ 27 - log₃ 3.",
+      options: ["1", "2", "3", "0"],
+      explanation: "log₃ 27 = 3, log₃ 3 = 1, so 3-1 = 2."
+    }
+  },
+  {
+    id: "MIX-031",
+    answer: "8",
+    correctIndex: 0,
+    ja: {
+      category: "対数",
+      query: "log₂ x = 3 のとき、x の値は？",
+      options: ["8", "6", "9", "4"],
+      explanation: "log₂ x = 3 ⟹ x = 2³ = 8。"
+    },
+    en: {
+      category: "Logarithms",
+      query: "Solve log₂ x = 3.",
+      options: ["8", "6", "9", "4"],
+      explanation: "log₂ x = 3 means x = 2³ = 8."
+    }
+  },
+  {
+    id: "MIX-032",
+    answer: "3/2",
+    correctIndex: 2,
+    ja: {
+      category: "対数",
+      query: "底の変換公式を用いて log₄ 8 を求めると？",
+      options: ["2", "1", "3/2", "4/3"],
+      explanation: "log₄ 8 = log₂ 8 / log₂ 4 = 3/2。"
+    },
+    en: {
+      category: "Logarithms",
+      query: "Find log₄ 8 using change of base formula.",
+      options: ["2", "1", "3/2", "4/3"],
+      explanation: "log₄ 8 = log₂ 8 / log₂ 4 = 3/2."
+    }
+  },
+  // --- Calculus (微分・積分) ---
+  {
+    id: "MIX-033",
+    answer: "3x² - 3",
+    correctIndex: 1,
+    ja: {
+      category: "微分・積分",
+      query: "f(x) = x³ - 3x の導関数 f'(x) は？",
+      options: ["3x² + 3", "3x² - 3", "x² - 3", "3x - 3"],
+      explanation: "(x³)' = 3x², (-3x)' = -3 なので f'(x) = 3x² - 3。"
+    },
+    en: {
+      category: "Calculus",
+      query: "Find f'(x) for f(x) = x³ - 3x.",
+      options: ["3x² + 3", "3x² - 3", "x² - 3", "3x - 3"],
+      explanation: "(x³)' = 3x², (-3x)' = -3, so f'(x) = 3x² - 3."
+    }
+  },
+  {
+    id: "MIX-034",
+    answer: "7",
+    correctIndex: 0,
+    ja: {
+      category: "微分・積分",
+      query: "f(x) = 2x² + 3x の x=1 での接線の傾きは？",
+      options: ["7", "5", "4", "6"],
+      explanation: "f'(x) = 4x + 3, f'(1) = 4 + 3 = 7。"
+    },
+    en: {
+      category: "Calculus",
+      query: "Find the slope of the tangent to f(x) = 2x² + 3x at x=1.",
+      options: ["7", "5", "4", "6"],
+      explanation: "f'(x) = 4x + 3, f'(1) = 4+3 = 7."
+    }
+  },
+  {
+    id: "MIX-035",
+    answer: "x³/3 + x² + C",
+    correctIndex: 2,
+    ja: {
+      category: "微分・積分",
+      query: "∫(x² + 2x)dx の不定積分は？",
+      options: ["x³ + x² + C", "x²/2 + 2x + C", "x³/3 + x² + C", "x³/3 + 2x + C"],
+      explanation: "∫x² dx = x³/3, ∫2x dx = x² なので、∫(x² + 2x)dx = x³/3 + x² + C。"
+    },
+    en: {
+      category: "Calculus",
+      query: "Find ∫(x² + 2x)dx.",
+      options: ["x³ + x² + C", "x²/2 + 2x + C", "x³/3 + x² + C", "x³/3 + 2x + C"],
+      explanation: "∫x²dx = x³/3, ∫2xdx = x², so ∫(x²+2x)dx = x³/3 + x² + C."
+    }
+  },
+  {
+    id: "MIX-036",
+    answer: "14/3",
+    correctIndex: 1,
+    ja: {
+      category: "微分・積分",
+      query: "∫₀² (x² + 1)dx の定積分の値は？",
+      options: ["4", "14/3", "10/3", "3"],
+      explanation: "[x³/3 + x]₀² = (8/3 + 2) - 0 = 8/3 + 6/3 = 14/3。"
+    },
+    en: {
+      category: "Calculus",
+      query: "Evaluate ∫₀² (x² + 1)dx.",
+      options: ["4", "14/3", "10/3", "3"],
+      explanation: "[x³/3 + x]₀² = (8/3+2) - 0 = 14/3."
+    }
+  },
+  {
+    id: "MIX-037",
+    answer: "x = ±1",
+    correctIndex: 0,
+    ja: {
+      category: "微分・積分",
+      query: "f(x) = x³ - 3x が極値をとる x の値は？",
+      options: ["x = ±1", "x = 0", "x = ±√3", "x = 3"],
+      explanation: "f'(x) = 3x² - 3 = 3(x+1)(x-1) = 0 より x = ±1。f''(±1) で符号が変わるため極値。"
+    },
+    en: {
+      category: "Calculus",
+      query: "Find the x-values where f(x) = x³ - 3x has extrema.",
+      options: ["x = ±1", "x = 0", "x = ±√3", "x = 3"],
+      explanation: "f'(x) = 3x²-3 = 3(x+1)(x-1) = 0 gives x = ±1."
+    }
+  },
+  // --- Vectors (ベクトル) ---
+  {
+    id: "MIX-038",
+    answer: "(3, 1)",
+    correctIndex: 0,
+    ja: {
+      category: "ベクトル",
+      query: "a = (2, 3), b = (1, -2) のとき a + b は？",
+      options: ["(3, 1)", "(1, 5)", "(3, -1)", "(2, 1)"],
+      explanation: "a + b = (2+1, 3+(-2)) = (3, 1)。"
+    },
+    en: {
+      category: "Vectors",
+      query: "Find a + b where a = (2,3), b = (1,-2).",
+      options: ["(3, 1)", "(1, 5)", "(3, -1)", "(2, 1)"],
+      explanation: "a + b = (2+1, 3+(-2)) = (3, 1)."
+    }
+  },
+  {
+    id: "MIX-039",
+    answer: "5",
+    correctIndex: 1,
+    ja: {
+      category: "ベクトル",
+      query: "a = (3, 4) の大きさ |a| は？",
+      options: ["7", "5", "√7", "25"],
+      explanation: "|a| = √(3² + 4²) = √(9 + 16) = √25 = 5。"
+    },
+    en: {
+      category: "Vectors",
+      query: "Find |a| for a = (3, 4).",
+      options: ["7", "5", "√7", "25"],
+      explanation: "|a| = √(9+16) = √25 = 5."
+    }
+  },
+  {
+    id: "MIX-040",
+    answer: "2",
+    correctIndex: 2,
+    ja: {
+      category: "ベクトル",
+      query: "a = (2, 1), b = (3, -4) の内積 a·b は？",
+      options: ["-2", "10", "2", "-10"],
+      explanation: "a·b = 2×3 + 1×(-4) = 6 - 4 = 2。"
+    },
+    en: {
+      category: "Vectors",
+      query: "Find the dot product a·b where a=(2,1), b=(3,-4).",
+      options: ["-2", "10", "2", "-10"],
+      explanation: "a·b = 2×3 + 1×(-4) = 6-4 = 2."
+    }
+  },
+  {
+    id: "MIX-041",
+    answer: "4",
+    correctIndex: 0,
+    ja: {
+      category: "ベクトル",
+      query: "a = (k, 2), b = (3, -6) が垂直のとき k の値は？",
+      options: ["4", "2", "-4", "6"],
+      explanation: "a⊥b ⟺ a·b = 0: 3k + 2×(-6) = 0, 3k = 12, k = 4。"
+    },
+    en: {
+      category: "Vectors",
+      query: "Find k such that a=(k,2) ⊥ b=(3,-6).",
+      options: ["4", "2", "-4", "6"],
+      explanation: "a·b = 0: 3k + 2×(-6) = 0, 3k = 12, k = 4."
+    }
+  },
+  {
+    id: "MIX-042",
+    answer: "(3/5, 4/5)",
+    correctIndex: 1,
+    ja: {
+      category: "ベクトル",
+      query: "a = (3, 4) の単位ベクトルは？",
+      options: ["(1, 1)", "(3/5, 4/5)", "(3/4, 1)", "(4/5, 3/5)"],
+      explanation: "|a| = 5 なので単位ベクトル = a/|a| = (3/5, 4/5)。"
+    },
+    en: {
+      category: "Vectors",
+      query: "Find the unit vector of a = (3, 4).",
+      options: ["(1, 1)", "(3/5, 4/5)", "(3/4, 1)", "(4/5, 3/5)"],
+      explanation: "|a| = 5, so unit vector = a/|a| = (3/5, 4/5)."
+    }
+  },
+  // --- Complex Numbers (複素数) ---
+  {
+    id: "MIX-043",
+    answer: "3 + i",
+    correctIndex: 0,
+    ja: {
+      category: "複素数",
+      query: "(2+3i) + (1-2i) の計算結果は？",
+      options: ["3 + i", "3 + 5i", "1 + i", "3 - i"],
+      explanation: "実部: 2+1=3, 虚部: 3i+(-2i)=i。よって 3+i。"
+    },
+    en: {
+      category: "Complex Numbers",
+      query: "Calculate (2+3i) + (1-2i).",
+      options: ["3 + i", "3 + 5i", "1 + i", "3 - i"],
+      explanation: "Real: 2+1=3, Imaginary: 3i+(-2i)=i. Result: 3+i."
+    }
+  },
+  {
+    id: "MIX-044",
+    answer: "3 + i",
+    correctIndex: 2,
+    ja: {
+      category: "複素数",
+      query: "(1+i)(2-i) の計算結果は？",
+      options: ["2 - i", "1 + 3i", "3 + i", "2 + i"],
+      explanation: "(1+i)(2-i) = 2 - i + 2i - i² = 2 + i + 1 = 3 + i。"
+    },
+    en: {
+      category: "Complex Numbers",
+      query: "Calculate (1+i)(2-i).",
+      options: ["2 - i", "1 + 3i", "3 + i", "2 + i"],
+      explanation: "(1+i)(2-i) = 2-i+2i-i² = 2+i+1 = 3+i."
+    }
+  },
+  {
+    id: "MIX-045",
+    answer: "5",
+    correctIndex: 1,
+    ja: {
+      category: "複素数",
+      query: "|3+4i| の絶対値は？",
+      options: ["7", "5", "√7", "25"],
+      explanation: "|3+4i| = √(3²+4²) = √(9+16) = √25 = 5。"
+    },
+    en: {
+      category: "Complex Numbers",
+      query: "Find |3+4i|.",
+      options: ["7", "5", "√7", "25"],
+      explanation: "|3+4i| = √(9+16) = √25 = 5."
+    }
+  },
+  {
+    id: "MIX-046",
+    answer: "2 - 3i",
+    correctIndex: 0,
+    ja: {
+      category: "複素数",
+      query: "2+3i の共役複素数は？",
+      options: ["2 - 3i", "-2 + 3i", "-2 - 3i", "3 + 2i"],
+      explanation: "z = a+bi の共役は z̄ = a-bi。よって 2+3i の共役は 2-3i。"
+    },
+    en: {
+      category: "Complex Numbers",
+      query: "Find the conjugate of 2+3i.",
+      options: ["2 - 3i", "-2 + 3i", "-2 - 3i", "3 + 2i"],
+      explanation: "Conjugate of a+bi is a-bi. So conjugate of 2+3i is 2-3i."
+    }
+  },
+  {
+    id: "MIX-047",
+    answer: "π/4",
+    correctIndex: 2,
+    ja: {
+      category: "複素数",
+      query: "z = 1+i の偏角 arg(z) は？",
+      options: ["π/6", "π/3", "π/4", "π/2"],
+      explanation: "z = 1+i は実部=虚部=1 なので、偏角は arctan(1/1) = π/4 (45°)。"
+    },
+    en: {
+      category: "Complex Numbers",
+      query: "Find arg(z) for z = 1+i.",
+      options: ["π/6", "π/3", "π/4", "π/2"],
+      explanation: "Real part = Imaginary part = 1, so arg = arctan(1/1) = π/4."
+    }
+  },
+  // --- Matrices (行列) ---
+  {
+    id: "MIX-048",
+    answer: "[[3,1],[3,7]]",
+    correctIndex: 0,
+    ja: {
+      category: "行列",
+      query: "[[1,2],[3,4]] + [[2,-1],[0,3]] の結果は？",
+      options: ["[[3,1],[3,7]]", "[[3,3],[3,7]]", "[[3,1],[3,1]]", "[[2,-2],[0,12]]"],
+      explanation: "各成分を足す: [[1+2, 2+(-1)], [3+0, 4+3]] = [[3,1],[3,7]]。"
+    },
+    en: {
+      category: "Matrices",
+      query: "Calculate [[1,2],[3,4]] + [[2,-1],[0,3]].",
+      options: ["[[3,1],[3,7]]", "[[3,3],[3,7]]", "[[3,1],[3,1]]", "[[2,-2],[0,12]]"],
+      explanation: "Add components: [[1+2,2-1],[3+0,4+3]] = [[3,1],[3,7]]."
+    }
+  },
+  {
+    id: "MIX-049",
+    answer: "[[2,4],[6,8]]",
+    correctIndex: 1,
+    ja: {
+      category: "行列",
+      query: "2 × [[1,2],[3,4]] の結果は？",
+      options: ["[[1,2],[3,4]]", "[[2,4],[6,8]]", "[[2,2],[6,4]]", "[[3,4],[5,6]]"],
+      explanation: "スカラー倍: 各成分を2倍して [[2,4],[6,8]]。"
+    },
+    en: {
+      category: "Matrices",
+      query: "Calculate 2 × [[1,2],[3,4]].",
+      options: ["[[1,2],[3,4]]", "[[2,4],[6,8]]", "[[2,2],[6,4]]", "[[3,4],[5,6]]"],
+      explanation: "Scalar multiplication: multiply each entry by 2 to get [[2,4],[6,8]]."
+    }
+  },
+  {
+    id: "MIX-050",
+    answer: "[[4,2],[10,4]]",
+    correctIndex: 2,
+    ja: {
+      category: "行列",
+      query: "[[1,2],[3,4]] × [[2,0],[1,1]] の結果は？",
+      options: ["[[2,0],[3,4]]", "[[3,2],[7,4]]", "[[4,2],[10,4]]", "[[4,2],[6,4]]"],
+      explanation: "行列積: [[1×2+2×1, 1×0+2×1], [3×2+4×1, 3×0+4×1]] = [[4,2],[10,4]]。"
+    },
+    en: {
+      category: "Matrices",
+      query: "Calculate [[1,2],[3,4]] × [[2,0],[1,1]].",
+      options: ["[[2,0],[3,4]]", "[[3,2],[7,4]]", "[[4,2],[10,4]]", "[[4,2],[6,4]]"],
+      explanation: "Matrix product: [[1×2+2×1,1×0+2×1],[3×2+4×1,3×0+4×1]] = [[4,2],[10,4]]."
+    }
+  },
+  {
+    id: "MIX-051",
+    answer: "5",
+    correctIndex: 0,
+    ja: {
+      category: "行列",
+      query: "det([[2,3],[1,4]]) の値は？",
+      options: ["5", "-5", "11", "2"],
+      explanation: "2×2行列の行列式: ad - bc = 2×4 - 3×1 = 8 - 3 = 5。"
+    },
+    en: {
+      category: "Matrices",
+      query: "Find det([[2,3],[1,4]]).",
+      options: ["5", "-5", "11", "2"],
+      explanation: "Determinant of 2×2: ad-bc = 2×4-3×1 = 8-3 = 5."
+    }
+  },
+  {
+    id: "MIX-052",
+    answer: "[[-2,1],[3/2,-1/2]]",
+    correctIndex: 1,
+    ja: {
+      category: "行列",
+      query: "A = [[1,2],[3,4]] の逆行列 A⁻¹ は？（det(A) = -2）",
+      options: ["[[4,-2],[-3,1]]", "[[-2,1],[3/2,-1/2]]", "[[1/2,1],[3/2,2]]", "逆行列は存在しない"],
+      explanation: "A⁻¹ = (1/det)×[[d,-b],[-c,a]] = (1/(-2))×[[4,-2],[-3,1]] = [[-2,1],[3/2,-1/2]]。"
+    },
+    en: {
+      category: "Matrices",
+      query: "Find A⁻¹ for A = [[1,2],[3,4]] (det = -2).",
+      options: ["[[4,-2],[-3,1]]", "[[-2,1],[3/2,-1/2]]", "[[1/2,1],[3/2,2]]", "No inverse exists"],
+      explanation: "A⁻¹ = (1/det)×[[d,-b],[-c,a]] = (-1/2)×[[4,-2],[-3,1]] = [[-2,1],[3/2,-1/2]]."
+    }
+  },
 ];
 
 // Fix MIX-013 which had an intentionally wrong answer
