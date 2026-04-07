@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -318,6 +319,13 @@ export default function TrigEquationViz() {
           </div>
         )}
       </div>
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "まず sin/cos/tan の値域を確認しましょう。sin θ, cos θ は [-1, 1]、tan θ は全実数です。|k| > 1 なら sin/cos の方程式に解はありません。" },
+        { step: 2, text: "単位円上で考えます。sin θ = k は「y 座標が k の水平線」との交点、cos θ = k は「x 座標が k の垂直線」との交点です。" },
+        { step: 3, text: "0° ≤ θ ≤ 180° の範囲で、sin θ は最大2個、cos θ は最大1個、tan θ は最大1個の解を持ちます。" },
+      ]} />
 
       {/* Explanation: why two solutions */}
       <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-5 border border-indigo-200 dark:border-indigo-800">

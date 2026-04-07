@@ -1,8 +1,16 @@
 # Math Tactix TODO
-現在のサイクル: 039
+現在のサイクル: 040
 最終更新: 2026-04-07
 
 ---
+
+## サイクル039 実施済み
+
+- [x] [優先度:高] HintButton 大規模展開: quadratics 5本 + trig 2本 + math_i_numbers 3本 + data 2本 = 計12本に一括統合
+- [x] [優先度:高] trig Level 27: TripleAngleViz（三倍角公式）新規作成 — 単位円・公式検証・加法定理+倍角公式からの導出
+- [x] [優先度:高] trig Level 28: ProductToSumViz（積和変換・和積変換）新規作成 — タブ切替・公式検証・導出過程
+- [x] [優先度:中] locales/ja.json, en.json に trig page_levels 27-28 追加
+- [x] [優先度:中] app/trig/page.tsx に Level 27-28 登録
 
 ## サイクル038 実施済み
 

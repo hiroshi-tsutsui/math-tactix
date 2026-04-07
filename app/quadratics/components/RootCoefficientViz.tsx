@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import katex from "katex";
 import "katex/dist/katex.min.css";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -324,6 +325,14 @@ export default function RootCoefficientViz() {
           </div>
         </div>
       )}
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "解と係数の関係: ax² + bx + c = 0 の2解 α, β について α+β = -b/a, αβ = c/a が成り立ちます。" },
+        { step: 2, text: "対称式は基本対称式（和と積）で表せます。例: α²+β² = (α+β)² - 2αβ" },
+        { step: 3, text: "α³+β³ = (α+β)³ - 3αβ(α+β) と因数分解できます。(α+β) と αβ に代入しましょう。" },
+        { step: 4, text: "|α-β| = √((α+β)² - 4αβ) = √D/|a| と判別式に関連します。" },
+      ]} />
 
       {/* Solution steps */}
       <div className="flex gap-2">

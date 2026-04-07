@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useCallback } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from "../../components/HintButton";
 
 interface Problem {
   /** Display: left-hand side before expansion */
@@ -347,6 +348,13 @@ export default function IdentityCoefficientsViz() {
             )}
           </div>
         )}
+
+        {/* Hint */}
+        <HintButton hints={[
+          { step: 1, text: "恒等式では「両辺の同次項の係数がそれぞれ等しい」という性質を使います。まず左辺を展開しましょう。" },
+          { step: 2, text: "展開した左辺を x² の項、x の項、定数項に整理し、右辺の各係数と比較する連立方程式を立てます。" },
+          { step: 3, text: "x² の係数比較から a が決まり、次に x の係数比較から b、最後に定数項比較から c が求まります。" },
+        ]} />
 
         {/* New problem button */}
         <div className="flex justify-center mt-4">

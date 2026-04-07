@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -201,6 +202,13 @@ export default function ParabolaLineViz() {
           </div>
         )}
       </div>
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "放物線 y = x² と直線 y = mx + n の共有点を求めるには、x² = mx + n つまり x² - mx - n = 0 を解きます。" },
+        { step: 2, text: "判別式 D = m² + 4n の符号で共有点の個数が決まります。D > 0 で2点、D = 0 で接する、D < 0 で共有点なしです。" },
+        { step: 3, text: "接する条件 D = 0 から n = -m²/4 が導けます。m を固定して n を変えると接線の条件が確認できます。" },
+      ]} />
 
       {/* Key points */}
       <div className="bg-amber-50 dark:bg-amber-900/20 rounded-2xl p-5 border border-amber-200 dark:border-amber-800">

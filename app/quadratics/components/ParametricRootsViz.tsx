@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -196,6 +197,13 @@ export default function ParametricRootsViz() {
           </div>
         )}
       </div>
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "判別式 D = b² - 4ac の符号で解の個数が決まります。D > 0 なら2つ、D = 0 なら重解、D < 0 なら実数解なしです。" },
+        { step: 2, text: "a = 0 のとき二次方程式ではなく一次方程式になります。この場合は bx + c = 0 を解くだけです。" },
+        { step: 3, text: "a が 0 に近づくと放物線が「開いていき」直線に連続的に変化する様子を観察しましょう。" },
+      ]} />
 
       {/* Key observations */}
       <div className="bg-amber-50 dark:bg-amber-900/20 rounded-2xl p-5 border border-amber-200 dark:border-amber-800">

@@ -1203,7 +1203,9 @@
     },
     "page_levels": {
       "25": { "title": "Double Angle Formulas", "desc": "Derive and visualize sin2α, cos2α, tan2α from addition formulas" },
-      "26": { "title": "Half Angle Formulas", "desc": "Derive sin²(α/2), cos²(α/2), tan²(α/2) from double angle formulas" }
+      "26": { "title": "Half Angle Formulas", "desc": "Derive sin²(α/2), cos²(α/2), tan²(α/2) from double angle formulas" },
+      "27": { "title": "Triple Angle Formulas", "desc": "Derive and visualize sin3α, cos3α, tan3α from addition + double angle formulas" },
+      "28": { "title": "Product-Sum Conversion", "desc": "Convert between products and sums of trigonometric functions" }
     }
   },
   "codex": {

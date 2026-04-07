@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useCallback } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from "../../components/HintButton";
 
 /* ── SVG constants ── */
 const W = 560;
@@ -319,6 +320,14 @@ export default function MovingDomainMaxMinViz() {
             <MathDisplay tex={`\\text{頂点: } x = ${fmt(vertexX)}, \\quad \\text{定義域: } [${fmt(domLeft)},\\, ${fmt(domRight)}]`} />
           </div>
         </div>
+
+        {/* Hint */}
+        <HintButton hints={[
+          { step: 1, text: "まず頂点の x 座標 x = -b/(2a) を求め、定義域 [m, m+d] と比較しましょう。" },
+          { step: 2, text: "頂点が定義域の内側にあるか外側にあるかで場合分けします。a > 0 なら頂点が最小値、a < 0 なら頂点が最大値になります。" },
+          { step: 3, text: "頂点が定義域外のとき、最大・最小は端点の関数値で決まります。頂点に近い端点が極値に近い値を持ちます。" },
+          { step: 4, text: "スライダーで m を動かし、頂点が定義域を通過する瞬間に最大値・最小値がどう切り替わるか確認しましょう。" },
+        ]} />
 
         {/* Formula */}
         <div className="mt-4 bg-slate-50 rounded-xl p-4 border border-slate-100">

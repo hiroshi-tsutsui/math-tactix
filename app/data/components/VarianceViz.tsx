@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 type Point1D = { id: number; value: number };
 
@@ -102,6 +103,12 @@ export default function VarianceViz({ onComplete }: { onComplete?: (v: number) =
           />
         ))}
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: "分散は「各データと平均値の差の2乗の平均」です。まず平均値を計算しましょう。" },
+        { step: 2, text: "各データ xi と平均 x̄ の差（偏差）を求め、それを2乗します。" },
+        { step: 3, text: "偏差の2乗をすべて足してデータ数で割ると分散 V が求まります。標準偏差は √V です。" },
+      ]} className="px-2" />
 
       <div className="flex w-full justify-between items-center px-2">
         <div className="flex gap-4">

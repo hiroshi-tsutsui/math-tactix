@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -340,6 +341,13 @@ export default function NestedRadical2Viz() {
           </div>
         </div>
       )}
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "√(a ± 2√b) の形を確認しましょう。係数が 2 でない場合（例: 4√3）は先に 2√(b') の形に変形します。" },
+        { step: 2, text: "p + q = a, pq = b を満たす正の数 p, q を求めます。t² - at + b = 0 を解けばOKです。" },
+        { step: 3, text: "中身が (√p ± √q)² の完全平方であることを確認し、外側の√を外します。減法形では √p > √q (p > q) に注意。" },
+      ]} />
 
       {/* Key formulas */}
       <div className="bg-indigo-50 rounded-2xl p-5 border border-indigo-200">

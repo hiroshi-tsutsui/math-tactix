@@ -39,6 +39,8 @@ const TangentGraphViz = dynamic(() => import('./components/TangentGraphViz'), { 
 const UnitCircleAnimationViz = dynamic(() => import('./components/UnitCircleAnimationViz'), { ssr: false, loading: loadingFallback });
 const DoubleAngleViz = dynamic(() => import('./components/DoubleAngleViz'), { ssr: false, loading: loadingFallback });
 const HalfAngleViz = dynamic(() => import('./components/HalfAngleViz'), { ssr: false, loading: loadingFallback });
+const TripleAngleViz = dynamic(() => import('./components/TripleAngleViz'), { ssr: false, loading: loadingFallback });
+const ProductToSumViz = dynamic(() => import('./components/ProductToSumViz'), { ssr: false, loading: loadingFallback });
 
 // --- Types ---
 type State = {
@@ -165,6 +167,8 @@ export default function TrigPage() {
              level === 24 ? "単位円アニメーション (Unit Circle)" :
              level === 25 ? "倍角公式 (Double Angle)" :
              level === 26 ? "半角公式 (Half Angle)" :
+             level === 27 ? "三倍角公式 (Triple Angle)" :
+             level === 28 ? "積和・和積変換 (Product-Sum)" :
              "相互関係の計算 (Identity Practice)"}
         </div>
         <div className="w-10" />
@@ -202,7 +206,9 @@ export default function TrigPage() {
                       { id: 23, title: "Level 23: y=tanx グラフ", desc: "tanグラフの周期と漸近線を確認", icon: TrendingUp },
                       { id: 24, title: "Level 24: 単位円アニメーション", desc: "単位円上の点の動きとsinグラフの関係", icon: Circle },
                       { id: 25, title: "Level 25: 倍角公式", desc: "sin2α, cos2α, tan2α を加法定理から導出・可視化", icon: Zap },
-                      { id: 26, title: "Level 26: 半角公式", desc: "sin²(α/2), cos²(α/2), tan²(α/2) を倍角公式から導出", icon: Zap }
+                      { id: 26, title: "Level 26: 半角公式", desc: "sin²(α/2), cos²(α/2), tan²(α/2) を倍角公式から導出", icon: Zap },
+                      { id: 27, title: "Level 27: 三倍角公式", desc: "sin3α, cos3α, tan3α を加法定理+倍角公式から導出", icon: Zap },
+                      { id: 28, title: "Level 28: 積和・和積変換", desc: "三角関数の積⇔和の変換公式を導出・検証", icon: Activity }
                   ].map((item) => (
                       <button key={item.id} onClick={() => dispatch({type: 'SET_LEVEL', payload: item.id})}
                         className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex items-center gap-4 hover:border-blue-500 dark:hover:border-blue-400 transition-all group text-left shadow-sm hover:shadow-md">
@@ -470,6 +476,24 @@ export default function TrigPage() {
           <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
               <div className="max-w-2xl mx-auto">
                   <HalfAngleViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 27: Triple Angle */}
+      {level === 27 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <TripleAngleViz />
+              </div>
+          </main>
+      )}
+
+      {/* Level 28: Product to Sum */}
+      {level === 28 && (
+          <main className="flex-1 overflow-y-auto bg-white dark:bg-slate-950 p-6">
+              <div className="max-w-2xl mx-auto">
+                  <ProductToSumViz />
               </div>
           </main>
       )}

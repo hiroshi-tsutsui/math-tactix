@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import MathDisplay from "@/app/lib/components/MathDisplay";
+import HintButton from "../../components/HintButton";
 
 /* ── Types ── */
 interface StepItem {
@@ -253,6 +254,14 @@ export default function FractionAdditionViz() {
           <MathDisplay tex={problem.lcdTex} displayMode />
         </div>
       </div>
+
+      {/* Hint */}
+      <HintButton hints={[
+        { step: 1, text: "各分母を因数分解して、LCD（最小公倍式）を求めましょう。" },
+        { step: 2, text: "各分数の分子・分母に足りない因数を掛けて通分します。" },
+        { step: 3, text: "通分後、分子どうしを加減して展開・整理します。約分できる場合はさらに簡単にしましょう。" },
+        { step: 4, text: "元の各分母が 0 になる x の値は定義域から除外することを忘れずに。" },
+      ]} />
 
       {/* General explanation */}
       <div className="bg-indigo-50 rounded-2xl p-5 border border-indigo-100">
