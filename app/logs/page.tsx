@@ -23,6 +23,7 @@ const LogInequalityViz = dynamic(() => import('./components/LogInequalityViz'), 
 const LogGraphShiftViz = dynamic(() => import('./components/LogGraphShiftViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const ExpLogSymmetryViz = dynamic(() => import('./components/ExpLogSymmetryViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const LogComparisonViz = dynamic(() => import('./components/LogComparisonViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const LogsQuizViz = dynamic(() => import('./components/LogsQuizViz'), { ssr: false, loading: () => <VizSkeleton /> });
 
 interface Level {
   id: number;
@@ -105,6 +106,12 @@ const levels: Level[] = [
     title: '対数の総合演習',
     description: '全ての対数法則を使って問題を解こう',
     component: LogPropertiesViz,
+  },
+  {
+    id: 13,
+    title: '対数総合クイズ',
+    description: 'ランダム問題で対数の知識を総チェック！',
+    component: LogsQuizViz,
   },
 ];
 
