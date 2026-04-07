@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const ScalarMultiplicationMatrixViz: React.FC = () => {
   const [scalar, setScalar] = useState(2);
@@ -89,6 +90,12 @@ const ScalarMultiplicationMatrixViz: React.FC = () => {
       <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 text-center">
         <MathDisplay tex={`${scalar} \\cdot ${matToTex(matrix)} = ${matToTex(result)}`} displayMode />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'スカラー倍 kA は行列 A の全成分に k を掛けた行列です。(kA)ᵢⱼ = k × Aᵢⱼ。' },
+        { step: 2, text: 'k(A + B) = kA + kB、(k + l)A = kA + lA が成り立ちます（分配法則）。' },
+        { step: 3, text: '0A = O（零行列）、1A = A、(-1)A = -A です。' },
+      ]} />
     </div>
   );
 };

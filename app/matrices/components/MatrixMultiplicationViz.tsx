@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const MatrixMultiplicationViz: React.FC = () => {
   const [matA, setMatA] = useState<number[][]>([[1, 2], [3, 4]]);
@@ -128,6 +129,12 @@ const MatrixMultiplicationViz: React.FC = () => {
       <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 text-center">
         <MathDisplay tex={`${matToTex(matA)} \\cdot ${matToTex(matB)} = ${matToTex(result)}`} displayMode />
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '行列の積 AB の (i,j) 成分は A の第 i 行と B の第 j 列の内積です。' },
+        { step: 2, text: '(AB)ᵢⱼ = Σ(k) Aᵢₖ × Bₖⱼ。A の列数と B の行数が等しい必要があります。' },
+        { step: 3, text: '一般に AB ≠ BA です（交換法則は成り立たない）。結合法則 (AB)C = A(BC) は成り立ちます。' },
+      ]} />
     </div>
   );
 };

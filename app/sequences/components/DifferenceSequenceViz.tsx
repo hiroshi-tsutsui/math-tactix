@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface DifferenceSequenceVizProps {
   mode?: 'explore';
@@ -229,6 +230,12 @@ const DifferenceSequenceViz: React.FC<DifferenceSequenceVizProps> = () => {
           <MathDisplay tex="a_n" /> の一般項を求められます。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '階差数列 bₙ = aₙ₊₁ - aₙ を求めます。元の数列の隣り合う項の差を取ったものです。' },
+        { step: 2, text: 'n ≥ 2 のとき aₙ = a₁ + Σ(k=1→n-1) bₖ で一般項が求まります。' },
+        { step: 3, text: '階差数列が等差数列や等比数列なら、その和の公式を使って aₙ を閉じた式で表せます。' },
+      ]} />
     </div>
   );
 };

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 import { motion } from 'framer-motion';
 
 const W = 440, H = 440;
@@ -131,6 +132,12 @@ export default function DeMoivreViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ド・モアブルの定理: [r(cosθ + i sinθ)]ⁿ = rⁿ(cos nθ + i sin nθ) です。' },
+        { step: 2, text: 'n乗すると絶対値は rⁿ に、偏角は nθ になります。' },
+        { step: 3, text: 'r = 1（単位円上）のとき、n乗しても単位円上に留まり、偏角だけが n 倍されます。' },
+      ]} />
     </div>
   );
 }

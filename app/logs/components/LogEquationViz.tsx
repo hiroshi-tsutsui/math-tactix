@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface LogEquationVizProps {
   mode?: 'explore';
@@ -201,6 +202,12 @@ const LogEquationViz: React.FC<LogEquationVizProps> = () => {
           x 座標が解です。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'log_a f(x) = k の形は f(x) = aᵏ に変換して解きます。' },
+        { step: 2, text: 'log_a f(x) = log_a g(x) の形は f(x) = g(x) に変換できます。' },
+        { step: 3, text: '解を求めた後、真数条件（f(x) > 0）を必ず確認しましょう。' },
+      ]} />
     </div>
   );
 };

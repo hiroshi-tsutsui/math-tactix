@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 export default function NecessarySufficientBasicViz() {
   const [scenario, setScenario] = useState(0);
@@ -82,6 +83,12 @@ export default function NecessarySufficientBasicViz() {
                   </button>
                 ))}
               </div>
+
+              <HintButton hints={[
+                { step: 1, text: 'P → Q が真のとき、P は Q の十分条件、Q は P の必要条件です。' },
+                { step: 2, text: '集合で考えると: P ⊂ Q なら P は十分条件。P を満たせば「十分に」Q を保証できるからです。' },
+                { step: 3, text: 'P ⊂ Q かつ Q ⊂ P（つまり P = Q）のとき、P と Q は必要十分条件（同値）です。' },
+              ]} />
           </div>
       </main>
     </div>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface ChangeOfBaseVizProps {
   mode?: 'explore';
@@ -143,6 +144,12 @@ const ChangeOfBaseViz: React.FC<ChangeOfBaseVizProps> = () => {
           電卓に <MathDisplay tex="\\log_{${a}}" /> ボタンがなくても計算可能です。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '底の変換公式: log_a b = log_c b / log_c a（任意の底 c に変換可能）。' },
+        { step: 2, text: '常用対数（底10）を使う場合: log_a b = log₁₀ b / log₁₀ a。' },
+        { step: 3, text: '自然対数（底e）でも同様: log_a b = ln b / ln a。電卓で計算するときに便利です。' },
+      ]} />
     </div>
   );
 };

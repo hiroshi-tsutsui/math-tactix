@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface LogPropertiesVizProps {
   mode?: 'explore';
@@ -191,6 +192,12 @@ const LogPropertiesViz: React.FC<LogPropertiesVizProps> = () => {
         <p className="font-bold mb-1">覚えておくこと</p>
         <p>掛け算が足し算に、割り算が引き算に、べき乗が掛け算に変換されます。これが対数の最大の利点です。</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'log_a MN = log_a M + log_a N（積 → 和に変換）。' },
+        { step: 2, text: 'log_a M/N = log_a M - log_a N（商 → 差に変換）。' },
+        { step: 3, text: 'log_a Mⁿ = n × log_a M（べき乗 → 定数倍に変換）。これが対数の最大の利点です。' },
+      ]} />
     </div>
   );
 };

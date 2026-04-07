@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const DeterminantViz: React.FC = () => {
   const [a, setA] = useState(2);
@@ -73,6 +74,12 @@ const DeterminantViz: React.FC = () => {
           {det > 0 ? '（正: 向きを保存）' : det < 0 ? '（負: 向きを反転）' : '（零: 逆行列なし！）'}
         </span>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '2×2 行列 [[a,b],[c,d]] の行列式は det A = ad - bc です。' },
+        { step: 2, text: 'det A > 0 なら向き保存、det A < 0 なら向き反転、det A = 0 なら逆行列が存在しません。' },
+        { step: 3, text: '行列式の絶対値 |det A| は、列ベクトルが張る平行四辺形の面積を表します。' },
+      ]} />
     </div>
   );
 };

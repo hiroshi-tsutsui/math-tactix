@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const InverseMatrixViz: React.FC = () => {
   const [a, setA] = useState(2);
@@ -120,6 +121,12 @@ const InverseMatrixViz: React.FC = () => {
           )}
         </>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: '逆行列が存在する条件: det A ≠ 0（行列式がゼロでない）。' },
+        { step: 2, text: '2×2 行列 [[a,b],[c,d]] の逆行列は A⁻¹ = (1/det A) × [[d,-b],[-c,a]] です。' },
+        { step: 3, text: '検証: AA⁻¹ = A⁻¹A = E（単位行列）が成り立つことを確認しましょう。' },
+      ]} />
     </div>
   );
 };

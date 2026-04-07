@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calculator } from 'lucide-react';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 export default function SetElementsViz() {
   const [nA, setNA] = useState(30);
@@ -105,6 +106,12 @@ export default function SetElementsViz() {
                       </p>
                   </div>
               </div>
+
+              <HintButton hints={[
+                { step: 1, text: 'A∩B（共通部分）は A にも B にも属する要素の集合です。' },
+                { step: 2, text: 'A∪B（和集合）は A または B の少なくとも一方に属する要素の集合です。' },
+                { step: 3, text: 'n(A∪B) = n(A) + n(B) - n(A∩B)。重複分を引くことを忘れずに。' },
+              ]} />
 
           </div>
       </main>

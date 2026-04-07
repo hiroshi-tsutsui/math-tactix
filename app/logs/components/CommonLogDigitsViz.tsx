@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface CommonLogDigitsVizProps {
   mode?: 'explore';
@@ -105,6 +106,12 @@ const CommonLogDigitsViz: React.FC<CommonLogDigitsVizProps> = () => {
           2 のべき乗の桁数がすぐに分かります。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'N の桁数 = floor(log₁₀ N) + 1 です。常用対数の整数部分+1が桁数になります。' },
+        { step: 2, text: 'log₁₀ 2 ≈ 0.3010、log₁₀ 3 ≈ 0.4771 は頻出値として覚えておきましょう。' },
+        { step: 3, text: '例: 2¹⁰ の桁数は floor(10 × 0.3010) + 1 = floor(3.010) + 1 = 4 桁（実際 1024）。' },
+      ]} />
     </div>
   );
 };

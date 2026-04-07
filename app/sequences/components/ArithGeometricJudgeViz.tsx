@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface ArithGeometricJudgeVizProps {
   mode?: 'practice';
@@ -187,6 +188,12 @@ const ArithGeometricJudgeViz: React.FC<ArithGeometricJudgeVizProps> = () => {
           <li>隣接する項の<strong>比</strong>が一定 → 等比数列</li>
         </ul>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '隣接する項の差 aₙ₊₁ - aₙ を計算してみましょう。差が一定なら等差数列です。' },
+        { step: 2, text: '隣接する項の比 aₙ₊₁ / aₙ を計算してみましょう。比が一定なら等比数列です。' },
+        { step: 3, text: '等差数列なら一般項 aₙ = a₁ + (n-1)d、等比数列なら aₙ = a₁ × rⁿ⁻¹ です。' },
+      ]} />
     </div>
   );
 };

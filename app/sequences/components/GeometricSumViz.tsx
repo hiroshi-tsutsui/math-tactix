@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface GeometricSumVizProps {
   a1?: number;
@@ -195,6 +196,12 @@ const GeometricSumViz: React.FC<GeometricSumVizProps> = ({
           ピンクの棒が各項、青い棒が部分和（累積）を表します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '等比数列の和の公式は Sₙ = a₁(1 - rⁿ)/(1 - r)（r ≠ 1）です。' },
+        { step: 2, text: '導出: Sₙ - rSₙ = a₁ - a₁rⁿ の両辺を (1-r) で割ります。' },
+        { step: 3, text: 'r = 1 のとき Sₙ = na₁（全項が同じ値 a₁）です。' },
+      ]} />
     </div>
   );
 };

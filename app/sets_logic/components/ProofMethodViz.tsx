@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 /* ── KaTeX helpers ── */
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
@@ -374,6 +375,12 @@ export default function ProofMethodViz() {
 
       {tab === "contradiction" && <ContradictionTab />}
       {tab === "contrapositive" && <ContrapositiveTab />}
+
+      <HintButton hints={[
+        { step: 1, text: '背理法: 結論の否定を仮定して矛盾を導きます。「もしそうでなかったら...」' },
+        { step: 2, text: '対偶証明: 「P → Q」を証明する代わりに「¬Q → ¬P」を証明します（同値なので）。' },
+        { step: 3, text: '使い分け: 直接証明が難しいとき、否定や対偶を考えると証明しやすくなることがあります。' },
+      ]} />
     </div>
   );
 }

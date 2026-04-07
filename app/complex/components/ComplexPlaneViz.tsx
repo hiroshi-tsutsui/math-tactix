@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const ORIGIN = { x: W / 2, y: H / 2 };
@@ -106,6 +107,12 @@ export default function ComplexPlaneViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '複素数 a+bi を座標 (a, b) で表した平面が複素平面（ガウス平面）です。' },
+        { step: 2, text: '横軸が実部（実軸）、縦軸が虚部（虚軸）を表します。' },
+        { step: 3, text: '絶対値 |z| = √(a²+b²) は原点からの距離、偏角 arg(z) は正の実軸からの角度です。' },
+      ]} />
     </div>
   );
 }

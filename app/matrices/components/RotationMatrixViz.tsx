@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 400;
 const H = 400;
@@ -151,6 +152,12 @@ const RotationMatrixViz: React.FC = () => {
           <MathDisplay tex={`\\det R(\\theta) = \\cos^2\\theta + \\sin^2\\theta = 1`} /> （面積が保存される）
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '回転行列 R(θ) = [[cosθ, -sinθ], [sinθ, cosθ]] は原点中心に角度 θ だけ回転する変換です。' },
+        { step: 2, text: 'det R(θ) = cos²θ + sin²θ = 1 なので、面積は保存されます（回転は等長変換）。' },
+        { step: 3, text: 'R(α)R(β) = R(α+β) が成り立ちます。回転の合成は角度の和になります。' },
+      ]} />
     </div>
   );
 };

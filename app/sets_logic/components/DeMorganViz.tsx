@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -350,6 +351,12 @@ export default function DeMorganViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '第1法則: ¬(A∧B) = ¬A∨¬B（「かつ」の否定は「または」になる）。' },
+        { step: 2, text: '第2法則: ¬(A∨B) = ¬A∧¬B（「または」の否定は「かつ」になる）。' },
+        { step: 3, text: '覚え方: NOT が分配されるとき AND と OR が入れ替わります。集合でも同様に (A∪B)ᶜ = Aᶜ∩Bᶜ です。' },
+      ]} />
     </div>
   );
 }

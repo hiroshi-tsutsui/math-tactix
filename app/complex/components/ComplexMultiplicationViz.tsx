@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 50;
@@ -158,6 +159,12 @@ export default function ComplexMultiplicationViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '乗法: (a+bi)(c+di) = (ac-bd) + (ad+bc)i。i² = -1 を使って展開します。' },
+        { step: 2, text: '極形式では |z₁z₂| = |z₁|×|z₂|（絶対値は積）、arg(z₁z₂) = arg(z₁)+arg(z₂)（偏角は和）。' },
+        { step: 3, text: 'z₂ を掛けることは「|z₂| 倍に拡大し、arg(z₂) だけ回転する」操作に対応します。' },
+      ]} />
     </div>
   );
 }

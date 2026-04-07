@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 import {
   generateLogDefinitionProblem,
   generateLogPropertiesProblem,
@@ -200,6 +201,12 @@ const LogsQuizViz: React.FC = () => {
           )}
         </div>
       )}
+
+      <HintButton hints={[
+        { step: 1, text: 'log_a b = x は aˣ = b と同じです。定義に立ち返りましょう。' },
+        { step: 2, text: '対数の性質: 積→和、商→差、べき乗→定数倍に変換できます。' },
+        { step: 3, text: '底の変換公式: log_a b = log_c b / log_c a で底を統一して計算しましょう。' },
+      ]} />
 
       {/* Stats */}
       <div className="text-xs text-slate-400 text-right">

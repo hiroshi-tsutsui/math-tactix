@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -546,6 +547,12 @@ export default function ConditionalPatternViz() {
           元の命題と対偶は常に同値。逆と裏は常に同値。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '「p → q」の逆は「q → p」、裏は「¬p → ¬q」、対偶は「¬q → ¬p」です。' },
+        { step: 2, text: '元の命題と対偶は常に同値（真偽が一致）。逆と裏も互いに同値です。' },
+        { step: 3, text: '4つすべてが真のとき、p と q は必要十分条件（同値）です。' },
+      ]} />
     </div>
   );
 }

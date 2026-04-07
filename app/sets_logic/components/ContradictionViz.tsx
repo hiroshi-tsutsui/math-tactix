@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Calculator } from 'lucide-react';
 import MathComponent from './MathComponent';
+import HintButton from '../../components/HintButton';
 
 export default function ContradictionViz() {
   const [step, setStep] = useState(0);
@@ -101,6 +102,12 @@ export default function ContradictionViz() {
                       </p>
                   </div>
               </div>
+
+              <HintButton hints={[
+                { step: 1, text: '背理法は「結論の否定」を仮定して矛盾を導く証明法です。' },
+                { step: 2, text: '手順: (1)結論の否定を仮定 → (2)論理的に推論 → (3)矛盾を発見 → (4)仮定が誤りと結論。' },
+                { step: 3, text: '√2 が無理数であることの証明が背理法の代表例です。「有理数と仮定」して矛盾を導きます。' },
+              ]} />
 
           </div>
       </main>

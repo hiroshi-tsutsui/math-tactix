@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface ArithmeticSumVizProps {
   a1?: number;
@@ -178,6 +179,12 @@ const ArithmeticSumViz: React.FC<ArithmeticSumVizProps> = ({
           ）になります。これが n 対あるので 2 で割ります。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '等差数列の和の公式は Sₙ = n(a₁ + aₙ)/2 です。初項と末項の平均に項数を掛けます。' },
+        { step: 2, text: '別の形: Sₙ = n{2a₁ + (n-1)d}/2。末項 aₙ = a₁ + (n-1)d を代入した形です。' },
+        { step: 3, text: '正順 aₖ と逆順 aₙ₊₁₋ₖ を足すと、どのペアも a₁ + aₙ になります。これが n 対あるので 2 で割ります。' },
+      ]} />
     </div>
   );
 };

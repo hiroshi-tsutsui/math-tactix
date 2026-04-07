@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface LogGraphShiftVizProps {
   mode?: 'explore';
@@ -232,6 +233,12 @@ const LogGraphShiftViz: React.FC<LogGraphShiftVizProps> = () => {
           漸近線は <MathDisplay tex="x = h" /> に移動します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'y = log_a(x - h) + k は基本グラフ y = log_a x を平行移動した形です。' },
+        { step: 2, text: 'x 方向に h、y 方向に k だけ移動します。漸近線は x = h になります。' },
+        { step: 3, text: '通過する点: (h+1, k) を通ります（log_a 1 = 0 より）。' },
+      ]} />
     </div>
   );
 };

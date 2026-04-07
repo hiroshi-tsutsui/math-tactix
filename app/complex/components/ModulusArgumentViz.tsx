@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 55;
@@ -124,6 +125,12 @@ export default function ModulusArgumentViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '絶対値 |z| = √(a²+b²) は原点からの距離です。r と書くこともあります。' },
+        { step: 2, text: '偏角 arg(z) = arctan(b/a) は正の実軸から反時計回りに測った角度です。θ と書きます。' },
+        { step: 3, text: 'a = r cosθ、b = r sinθ で、成分表示と極座標表示を相互に変換できます。' },
+      ]} />
     </div>
   );
 }

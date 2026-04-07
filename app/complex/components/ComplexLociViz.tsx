@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 55;
@@ -171,6 +172,12 @@ export default function ComplexLociViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '|z - α| = r は点 α を中心とする半径 r の円を表します。' },
+        { step: 2, text: '|z - α| = |z - β| は 2 点 α, β の垂直二等分線を表します。' },
+        { step: 3, text: 'arg(z - α) = θ は点 α を始点とする半直線を表します。' },
+      ]} />
     </div>
   );
 }

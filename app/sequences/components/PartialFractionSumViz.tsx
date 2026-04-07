@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface PartialFractionSumVizProps {
   mode?: 'explore';
@@ -177,6 +178,12 @@ const PartialFractionSumViz: React.FC<PartialFractionSumVizProps> = () => {
           <MathDisplay tex={`n \\to \\infty`} /> で <MathDisplay tex="1" /> に収束します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '1/k(k+1) = 1/k - 1/(k+1) と部分分数分解できます。' },
+        { step: 2, text: '和を取ると隣り合う項が打ち消し合い（テレスコーピング）、最初と最後の項だけが残ります。' },
+        { step: 3, text: 'Σ(k=1→n) 1/k(k+1) = 1 - 1/(n+1) = n/(n+1)。n→∞ で 1 に収束します。' },
+      ]} />
     </div>
   );
 };

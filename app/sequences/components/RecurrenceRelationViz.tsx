@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface RecurrenceRelationVizProps {
   p?: number;
@@ -228,6 +229,12 @@ const RecurrenceRelationViz: React.FC<RecurrenceRelationVizProps> = ({
           黄色の点線がこの収束先を表します。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'aₙ₊₁ = paₙ + q 型の漸化式は、特性方程式 α = pα + q を解きます。' },
+        { step: 2, text: 'α = q/(1-p) を求め、bₙ = aₙ - α とおくと bₙ₊₁ = p × bₙ（等比数列）になります。' },
+        { step: 3, text: 'bₙ = b₁ × pⁿ⁻¹ を求めて aₙ = bₙ + α に戻せば一般項が得られます。' },
+      ]} />
     </div>
   );
 };

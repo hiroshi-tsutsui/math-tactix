@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function QuadraticSetsViz() {
   const [aBounds, setABounds] = useState([-2, 3]);
@@ -132,6 +133,12 @@ export default function QuadraticSetsViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '二次不等式の解集合を数直線上に図示して、集合 A と B を特定します。' },
+        { step: 2, text: 'A∩B は両方の条件を同時に満たす範囲、A∪B はどちらか一方でも満たす範囲です。' },
+        { step: 3, text: '閉区間 [a,b]（≤, ≥）と開区間 (a,b)（<, >）の区別に注意しましょう。' },
+      ]} />
     </div>
   );
 }

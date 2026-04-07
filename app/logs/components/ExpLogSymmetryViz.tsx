@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface ExpLogSymmetryVizProps {
   mode?: 'explore';
@@ -210,6 +211,12 @@ const ExpLogSymmetryViz: React.FC<ExpLogSymmetryVizProps> = () => {
           <MathDisplay tex="(q, p)" /> はもう一方のグラフ上にあります。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'y = aˣ と y = log_a x は互いに逆関数の関係です。' },
+        { step: 2, text: 'グラフは直線 y = x に関して対称です。点 (p, q) が一方にあれば (q, p) がもう一方にあります。' },
+        { step: 3, text: 'a^(log_a x) = x かつ log_a(aˣ) = x が成り立ちます（逆関数の性質）。' },
+      ]} />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import katex from "katex";
+import HintButton from '../../components/HintButton';
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -353,6 +354,12 @@ export default function CompoundConditionViz() {
         </div>
         <p className="text-sm text-indigo-600 mt-3">{problem.explanation}</p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'ド・モルガンの法則: ¬(A∧B) = ¬A∨¬B、¬(A∨B) = ¬A∧¬B です。' },
+        { step: 2, text: '対偶: 「p → q」の対偶は「¬q → ¬p」で、元の命題と真偽が一致します。' },
+        { step: 3, text: '複合条件は真理値表を書いて、各場合の真偽を確認すると確実です。' },
+      ]} />
     </div>
   );
 }

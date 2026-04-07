@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface LogDefinitionVizProps {
   mode?: 'explore';
@@ -124,6 +125,12 @@ const LogDefinitionViz: React.FC<LogDefinitionVizProps> = () => {
           その答えが <MathDisplay tex="\\log_a M" /> です。
         </p>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: 'log_a b = x とは a^x = b のことです（a > 0, a ≠ 1, b > 0）。' },
+        { step: 2, text: '「底 a を何乗すると b になるか」がその答え x = log_a b です。' },
+        { step: 3, text: '特別な値: log_a 1 = 0（a⁰ = 1）、log_a a = 1（a¹ = a）を覚えておきましょう。' },
+      ]} />
     </div>
   );
 };

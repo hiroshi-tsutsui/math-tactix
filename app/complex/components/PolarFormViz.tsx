@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 440, H = 440;
 const OX = W / 2, OY = H / 2, S = 55;
@@ -145,6 +146,12 @@ export default function PolarFormViz() {
           </div>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '極形式: z = r(cosθ + i sinθ)。r は絶対値、θ は偏角です。' },
+        { step: 2, text: '乗法では「絶対値は積、偏角は和」になるため、回転の計算に極形式が便利です。' },
+        { step: 3, text: 'オイラーの公式 e^(iθ) = cosθ + i sinθ を使うと z = re^(iθ) とも書けます。' },
+      ]} />
     </div>
   );
 }

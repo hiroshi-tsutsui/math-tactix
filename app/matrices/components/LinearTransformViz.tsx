@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const W = 420;
 const H = 420;
@@ -219,6 +220,12 @@ const LinearTransformViz: React.FC = () => {
           </span>
         </div>
       </div>
+
+      <HintButton hints={[
+        { step: 1, text: '線形変換は原点を固定し、直線を直線に、平行線を平行線に写す変換です。' },
+        { step: 2, text: '変換行列の列ベクトルは、標準基底ベクトル e₁, e₂ の像 Te₁, Te₂ です。' },
+        { step: 3, text: 'det T は面積の変化率を表します。|det T| 倍に拡大・縮小されます。' },
+      ]} />
     </div>
   );
 };
