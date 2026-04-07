@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface FuncDef {
   label: string;
@@ -172,6 +173,11 @@ export default function InverseFunctionViz() {
           f(a) = b ならば f\u207B\u00B9(b) = a となります。
         </p>
       </div>
+      <HintButton hints={[
+        { step: 1, text: 'y = f(x) の逆関数は x と y を入れ替えて x = f(y) を y について解いて求めます。' },
+        { step: 2, text: 'y = f(x) と y = f\u207B\u00B9(x) のグラフは直線 y = x に関して対称です。' },
+        { step: 3, text: '逆関数が存在するには、元の関数が単射（1対1）である必要があります。y = x\u00B2 は x \u2265 0 に制限しないと逆関数が定義できません。' },
+      ]} />
     </div>
   );
 }

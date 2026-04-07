@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function AbsoluteValueFunctionViz() {
   const [a, setA] = useState(1);
@@ -109,6 +110,11 @@ export default function AbsoluteValueFunctionViz() {
             onChange={e => setVShift(Number(e.target.value))} className="w-full accent-blue-600" />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '絶対値関数 y = a|x - h| + v のグラフは V 字型（a > 0）または逆 V 字型（a < 0）です。' },
+        { step: 2, text: '頂点は (h, v) にあり、x = h を境にグラフが折れ曲がります。' },
+        { step: 3, text: '|a| が大きいほど V 字が鋭くなり、|a| が小さいほど緩やかになります。破線は絶対値を外した場合のグラフです。' },
+      ]} />
     </div>
   );
 }

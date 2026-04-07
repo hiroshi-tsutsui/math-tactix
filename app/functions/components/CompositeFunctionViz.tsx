@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface FuncOption {
   label: string;
@@ -183,6 +184,11 @@ export default function CompositeFunctionViz() {
         <input type="range" min={-5} max={5} step={0.5} value={probeX}
           onChange={e => setProbeX(Number(e.target.value))} className="w-full accent-blue-600" />
       </div>
+      <HintButton hints={[
+        { step: 1, text: '(f∘g)(x) = f(g(x)) は g を先に適用してから f を適用する合成関数です。' },
+        { step: 2, text: '合成の順序が重要です。一般に f(g(x)) と g(f(x)) は異なります。' },
+        { step: 3, text: '定義域は「g の定義域のうち、g(x) の値が f の定義域に入るもの」に限られます。' },
+      ]} />
     </div>
   );
 }

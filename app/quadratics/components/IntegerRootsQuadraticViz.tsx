@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function IntegerRootsQuadraticViz() {
   const [k, setK] = useState<number>(12); // constant term
   
@@ -236,6 +237,11 @@ export default function IntegerRootsQuadraticViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: 'x\u00B2 + ax + k = 0 が整数解 \u03B1, \u03B2 を持つとき、解と係数の関係から \u03B1 + \u03B2 = -a, \u03B1\u03B2 = k です。' },
+        { step: 2, text: 'k を因数分解して積が k になる整数の組 (\u03B1, \u03B2) を全て列挙し、それぞれについて a = -(\u03B1 + \u03B2) を求めます。' },
+        { step: 3, text: 'y 切片は常に k です。異なる因数分解の組は同じ y 切片を共有する異なる放物線に対応します。' },
+      ]} />
     </div>
   );
 }

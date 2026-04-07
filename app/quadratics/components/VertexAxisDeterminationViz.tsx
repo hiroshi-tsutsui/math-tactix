@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function VertexAxisDeterminationViz() {
   const [mode, setMode] = useState<'vertex' | 'axis'>('vertex');
@@ -220,6 +221,11 @@ export default function VertexAxisDeterminationViz() {
           <canvas ref={canvasRef} width={width} height={height} className="w-full max-w-[400px] bg-white border border-gray-100 rounded shadow-sm" />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '頂点が (p, q) で軸が x = p のとき、二次関数は y = a(x - p)\u00B2 + q の形に書けます。' },
+        { step: 2, text: '軸のみ分かっている場合は y = a(x - p)\u00B2 + q とおき、通る2点の座標を代入して a と q を決定します。' },
+        { step: 3, text: '頂点が分かっている場合は y = a(x - p)\u00B2 + q にもう1点を代入して a を決定します。' },
+      ]} />
     </div>
   );
 }

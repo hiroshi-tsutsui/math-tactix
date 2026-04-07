@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 type BaseFunc = 'x^2' | 'abs(x)' | 'sqrt(x)';
 
@@ -144,6 +145,11 @@ export default function FunctionTransformViz() {
           y軸方向に反転 (x軸対称)
         </label>
       </div>
+      <HintButton hints={[
+        { step: 1, text: 'y = f(x - h) は元のグラフを x 方向に +h 平行移動します。符号に注意: x - h の h が正なら右へ移動です。' },
+        { step: 2, text: 'y = f(x) + v は元のグラフを y 方向に +v 平行移動します。v > 0 なら上、v < 0 なら下です。' },
+        { step: 3, text: 'y = f(-x) は y 軸に関する対称移動、y = -f(x) は x 軸に関する対称移動です。' },
+      ]} />
     </div>
   );
 }

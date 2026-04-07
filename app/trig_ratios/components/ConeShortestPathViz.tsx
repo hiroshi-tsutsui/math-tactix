@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import HintButton from '../../components/HintButton';
 
 export default function ConeShortestPathViz() {
   const [r, setR] = useState(2); // Base radius
@@ -175,6 +176,11 @@ export default function ConeShortestPathViz() {
           </p>
         )}
       </div>
+      <HintButton hints={[
+        { step: 1, text: '円錐の側面上の最短距離は、展開図（扇形）上で直線を引くと求められます。' },
+        { step: 2, text: '展開図の中心角 \u03B8 = 360\u00B0 \u00D7 r/l（r: 底面半径、l: 母線の長さ）です。底面の円周と扇形の弧の長さが等しいことから導かれます。' },
+        { step: 3, text: '展開図上の2点を結ぶ直線の長さは、余弦定理 c\u00B2 = a\u00B2 + b\u00B2 - 2ab cos\u03B8 で計算できます。' },
+      ]} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface LinearFunctionVizProps {
   initialSlope?: number;
@@ -119,6 +120,11 @@ export default function LinearFunctionViz({ initialSlope = 1, initialIntercept =
           />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '一次関数 y = ax + b の a が傾き（変化率）、b が y 切片です。' },
+        { step: 2, text: 'a > 0 なら右上がり、a < 0 なら右下がりのグラフになります。a = 0 なら水平線です。' },
+        { step: 3, text: 'x = 0 のとき y = b（y 切片）、y = 0 のとき x = -b/a（x 切片）です。' },
+      ]} />
     </div>
   );
 }

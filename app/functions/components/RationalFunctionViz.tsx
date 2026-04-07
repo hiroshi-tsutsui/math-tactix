@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function RationalFunctionViz() {
   const [k, setK] = useState(1);
@@ -130,6 +131,11 @@ export default function RationalFunctionViz() {
             onChange={e => setVShift(Number(e.target.value))} className="w-full accent-blue-600" />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '分数関数 y = k/(x - h) + v は双曲線（hyperbola）です。' },
+        { step: 2, text: 'k > 0 なら第1・3象限型、k < 0 なら第2・4象限型の曲線になります（平行移動前）。' },
+        { step: 3, text: '漸近線は x = h（垂直漸近線）と y = v（水平漸近線）の2本です。グラフはこの2直線に限りなく近づきますが交わりません。' },
+      ]} />
     </div>
   );
 }

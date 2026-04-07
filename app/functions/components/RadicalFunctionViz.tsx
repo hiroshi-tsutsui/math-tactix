@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function RadicalFunctionViz() {
   const [a, setA] = useState(1);
@@ -112,6 +113,11 @@ export default function RadicalFunctionViz() {
             onChange={e => setVShift(Number(e.target.value))} className="w-full accent-blue-600" />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: '無理関数 y = a√(x - h) + v の定義域は x >= h です。根号の中身が負になると実数値が存在しません。' },
+        { step: 2, text: 'a > 0 なら右上に伸びる曲線、a < 0 なら右下に伸びる曲線になります。' },
+        { step: 3, text: 'グラフの始点は (h, v) で、x が大きくなると増加（a > 0 の場合）しますが、増加の割合は次第に緩やかになります。' },
+      ]} />
     </div>
   );
 }
