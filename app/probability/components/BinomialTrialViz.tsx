@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex, display = false }: { tex: string; display?: boolean }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -363,6 +364,15 @@ export default function BinomialTrialViz() {
           </div>
         </div>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "n 回の独立な試行で、成功確率 p の事象がちょうど k 回起こる確率を求めます" },
+          { step: 2, text: "n 回中 k 回を選ぶ組合せ C(n,k) × 成功 k 回の確率 p^k × 失敗 (n-k) 回の確率 (1-p)^(n-k)" },
+          { step: 3, text: "分布のグラフで棒が最も高い k の値が「最も起こりやすい成功回数」です" },
+          { step: 4, text: "期待値 E(X) = np は「平均的に何回成功するか」を表します" },
+        ]}
+      />
     </div>
   );
 }

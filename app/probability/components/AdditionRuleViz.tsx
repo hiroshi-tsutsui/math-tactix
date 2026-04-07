@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import katex from "katex";
+import HintButton from "../../components/HintButton";
 
 const K = ({ tex }: { tex: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -439,6 +440,15 @@ export default function AdditionRuleViz() {
           </div>
         )}
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "P(A∪B) = P(A) + P(B) - P(A∩B)（加法定理）が基本公式です" },
+          { step: 2, text: "排反事象（A∩B = 空集合）のとき P(A∪B) = P(A) + P(B) になります" },
+          { step: 3, text: "P(A∩B) を引くのは「重複してカウントされた部分」を修正するためです" },
+          { step: 4, text: "ベン図で A と B の重なり部分が P(A∩B) に対応しています" },
+        ]}
+      />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Diamond, RefreshCw, Layers } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import katex from 'katex';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = React.useRef<HTMLSpanElement>(null);
@@ -144,6 +145,15 @@ export default function NecklacePermutationViz() {
           </div>
         </div>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "じゅず順列は円順列にさらに「裏返しの重複」を除いたものです" },
+          { step: 2, text: "円順列の総数は (n-1)! 通りです" },
+          { step: 3, text: "ネックレスは裏返すと同じ並びが2つずつ重複するため、(n-1)!/2 通りになります" },
+          { step: 4, text: "回転ボタンと裏返しボタンを使って、同じ並びになることを確認してみましょう" },
+        ]}
+      />
     </div>
   );
 }

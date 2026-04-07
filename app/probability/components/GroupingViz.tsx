@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BlockMath, InlineMath } from 'react-katex';
+import HintButton from '../../components/HintButton';
 
 export default function GroupingViz() {
   const [totalPeople, setTotalPeople] = useState(6);
@@ -126,6 +127,15 @@ export default function GroupingViz() {
             </div>
           )}
         </div>
+
+        <HintButton
+          hints={[
+            { step: 1, text: "まず1つ目のグループに入れる人を C(n, r) 通り選びます" },
+            { step: 2, text: "残りの人から2つ目のグループを C(n-r, r) 通り選び、これを繰り返します" },
+            { step: 3, text: "グループに区別がある場合はこのまま掛け算すれば答えです" },
+            { step: 4, text: "グループに区別がない場合は、グループの順列（グループ数!）で割って重複を除きます" },
+          ]}
+        />
       </div>
     </div>
   );

@@ -60,6 +60,7 @@ import RationalizationAdvancedViz from './components/RationalizationAdvancedViz'
 import NestedRadical2Viz from './components/NestedRadical2Viz';
 import RemainderFactorViz from './components/RemainderFactorViz';
 import IdentityCoefficientsViz from './components/IdentityCoefficientsViz';
+import BinomialTheoremViz from './components/BinomialTheoremViz';
 
 
 
@@ -124,7 +125,8 @@ export default function MathINumbers() {
         { id: 49, title: '有理化（1次・2次）', type: 'rationalization_advanced' },
         { id: 50, title: '二重根号の変換（応用）', type: 'nested_radical_2' },
         { id: 51, title: '余りの定理・因数定理', type: 'remainder_factor' },
-        { id: 52, title: '恒等式の係数決定', type: 'identity_coefficients' }
+        { id: 52, title: '恒等式の係数決定', type: 'identity_coefficients' },
+        { id: 53, title: '二項定理 (Binomial Theorem)', type: 'binomial_theorem' }
 ];
 
   return (
@@ -737,6 +739,19 @@ export default function MathINumbers() {
                     ステップごとに展開・比較の過程を確認しましょう。
                   </p>
                   <IdentityCoefficientsViz />
+                </div>
+              </div>
+            )}
+
+            {currentLevel === 53 && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                  <h2 className="text-lg font-bold text-slate-800 mb-2">二項定理 (Binomial Theorem)</h2>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    <InlineMath math="(a + b)^n" /> の展開公式と、パスカルの三角形の関係を学びます。
+                    二項係数 <InlineMath math="\binom{n}{k}" /> の意味と数値検証を通じて理解を深めましょう。
+                  </p>
+                  <BinomialTheoremViz />
                 </div>
               </div>
             )}

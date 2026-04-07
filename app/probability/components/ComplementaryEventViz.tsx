@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -238,6 +239,15 @@ export default function ComplementaryEventViz() {
           <li>試行回数 n を増やすと、余事象の確率は急速に小さくなる</li>
         </ul>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "「少なくとも1回起こる」の余事象は「1回も起こらない」です" },
+          { step: 2, text: "1回の試行で起こらない確率は (面数-1)/面数 です" },
+          { step: 3, text: "n回独立に試行するので、全て起こらない確率は ((面数-1)/面数)^n です" },
+          { step: 4, text: "P(少なくとも1回) = 1 - P(1回も起こらない) で求まります" },
+        ]}
+      />
     </div>
   );
 }

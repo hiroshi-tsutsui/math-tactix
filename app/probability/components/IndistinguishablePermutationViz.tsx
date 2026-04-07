@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import HintButton from '../../components/HintButton';
 
 const IndistinguishablePermutationViz: React.FC = () => {
   const [numA, setNumA] = useState(2);
@@ -87,6 +88,15 @@ const IndistinguishablePermutationViz: React.FC = () => {
           <span className="ml-2 text-3xl font-bold text-green-600">{totalArrangements} 通り</span>
         </div>
       </div>
+
+      <HintButton
+        hints={[
+          { step: 1, text: "すべて区別すると (A+B)! 通りの並び方があります" },
+          { step: 2, text: "同じ種類のもの同士を入れ替えても見た目は変わりません" },
+          { step: 3, text: "A が numA 個なら A 同士の入れ替え numA! 通りが重複しています" },
+          { step: 4, text: "よって総数は (A+B)! / (A! × B!) = C(A+B, A) 通りです" },
+        ]}
+      />
     </div>
   );
 };

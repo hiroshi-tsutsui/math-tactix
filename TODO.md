@@ -1,8 +1,16 @@
 # Math Tactix TODO
-現在のサイクル: 040
+現在のサイクル: 041
 最終更新: 2026-04-07
 
 ---
+
+## サイクル040 実施済み
+
+- [x] [優先度:高] trig Level 29: TrigSynthesisViz（三角関数の合成）新規作成 — a sinθ + b cosθ = R sin(θ+φ) の視覚化・SVGグラフ重ね描画・加法定理からの導出
+- [x] [優先度:高] math_i_numbers Level 53: BinomialTheoremViz（二項定理基礎）新規作成 — パスカルの三角形・展開式・数値検証
+- [x] [優先度:高] probability モジュール全体への HintButton 展開（10本に統合）
+- [x] [優先度:中] locales/ja.json, en.json に trig page_levels 29, math_i_numbers page_levels 53 追加
+- [x] [優先度:中] app/trig/page.tsx に Level 29 登録、app/math_i_numbers/page.tsx に Level 53 登録
 
 ## サイクル039 実施済み
 
