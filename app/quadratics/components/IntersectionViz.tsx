@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 const IntersectionViz = () => {
   const [k, setK] = useState(0); // Line intercept parameter
@@ -180,6 +181,11 @@ const IntersectionViz = () => {
         />
       </div>
       
+      <HintButton hints={[
+        { step: 1, text: "放物線と直線の共有点は、2つの方程式を連立して得られる2次方程式の実数解に対応します。" },
+        { step: 2, text: "連立方程式の判別式 D の符号で共有点の数が決まります。D > 0 で2点、D = 0 で接する、D < 0 で共有点なしです。" },
+        { step: 3, text: "接する条件 D = 0 から、パラメータ k の値を求めることができます。" },
+      ]} />
       <div className="mt-4 p-3 bg-blue-50 text-sm text-blue-800 rounded">
         <p className="font-bold mb-1">ポイント:</p>
         <ul className="list-disc pl-5 space-y-1">

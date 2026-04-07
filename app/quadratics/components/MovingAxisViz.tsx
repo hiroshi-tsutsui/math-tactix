@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface MovingAxisVizProps {
   domain: { start: number; end: number };
@@ -262,7 +263,13 @@ const MovingAxisViz: React.FC<MovingAxisVizProps> = ({ domain, q = 3, initialMod
         <p className={`mt-2 text-sm font-bold ${mode === 'min' ? 'text-red-700' : 'text-amber-700'}`}>
           {caseText}
         </p>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "軸（パラメータ）が動くと、定義域に対する頂点の位置が変わり、最大値・最小値が変化します。" },
+        { step: 2, text: "場合分け: 軸が定義域の左、中、右にある3つの場合を考えます。" },
+        { step: 3, text: "各場合で最大値（または最小値）がどの点で達成されるか確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 ;
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export default function IndependentVariablesViz() {
   const [xVal, setXVal] = useState(0);
@@ -74,7 +75,13 @@ export default function IndependentVariablesViz() {
             だからこそ「それぞれの最小値の和が全体の最小値になる」のです。
           </p>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "z = f(x) + g(y) の最小値は、f(x) の最小値と g(y) の最小値の和です（変数が独立な場合）。" },
+        { step: 2, text: "各変数について個別に平方完成を行い、それぞれの最小値を求めます。" },
+        { step: 3, text: "独立変数の場合、x の最適値と y の最適値を同時に達成できます。" },
+      ]} />
+    </div>
     </div>
   );
 }

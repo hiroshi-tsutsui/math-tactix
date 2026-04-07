@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function QuadraticFormulaViz() {
   const [a, setA] = useState<number>(1);
   const [b, setB] = useState<number>(-4);
@@ -164,6 +165,11 @@ export default function QuadraticFormulaViz() {
           />
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "解の公式 x = (-b ± √(b²-4ac)) / (2a) は、軸 x = -b/(2a) からの距離 ±√D/(2|a|) を表しています。" },
+        { step: 2, text: "判別式 D = b² - 4ac が正なら2実数解、0なら重解、負なら実数解なしです。" },
+        { step: 3, text: "2つの解は軸に関して対称に配置されます。グラフで確認してみましょう。" },
+      ]} />
     </div>
   );
 }

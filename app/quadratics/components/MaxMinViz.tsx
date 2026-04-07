@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface MaxMinVizProps {
   a: number; // 1 or -1
@@ -185,6 +186,11 @@ const MaxMinViz: React.FC<MaxMinVizProps> = ({ a, p, q, domain, target }) => {
          <span className="flex items-center gap-1"><span className="w-3 h-3 bg-blue-500 rounded-full inline-block"></span>定義域内のグラフ</span>
          <span className="flex items-center gap-1"><span className="w-3 h-3 bg-green-200 border border-green-500 inline-block"></span>定義域 ({domain[0]} ≦ x ≦ {domain[1]})</span>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "頂点の y 座標が最大値または最小値の候補です。a > 0 なら最小値、a < 0 なら最大値になります。" },
+        { step: 2, text: "頂点が定義域の中にあるかどうかを確認します。定義域の外なら、端点での値が最大・最小の候補になります。" },
+        { step: 3, text: "定義域の両端 f(左端) と f(右端) を計算し、頂点の値と比較して最大値・最小値を決定します。" },
+      ]} />
     </div>
   );
 };

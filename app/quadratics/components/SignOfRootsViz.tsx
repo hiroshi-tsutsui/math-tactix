@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 const SignOfRootsViz = ({ problem }: { problem: any }) => {
   const [m, setM] = useState(-2.5);
 
@@ -97,7 +98,13 @@ const SignOfRootsViz = ({ problem }: { problem: any }) => {
             />
           </svg>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "解の符号は解と係数の関係で判定できます。α + β = -b/a、αβ = c/a です。" },
+        { step: 2, text: "2解とも正: D ≧ 0、α + β > 0、αβ > 0 の3条件。" },
+        { step: 3, text: "2解とも負: D ≧ 0、α + β < 0、αβ > 0。正と負: αβ < 0 のみ。" },
+      ]} />
+    </div>
     </div>
   );
 };

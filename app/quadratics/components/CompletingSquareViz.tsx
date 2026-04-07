@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import { fraction, format } from 'mathjs';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 interface CompletingSquareVizProps {
   equation?: string; // Expecting "y = ax^2 + bx + c"
@@ -122,6 +123,11 @@ const CompletingSquareViz: React.FC<CompletingSquareVizProps> = ({ equation = ""
             次のステップ →
           </button>
        </div>
+      <HintButton hints={[
+        { step: 1, text: "ax² + bx + c を a(x - h)² + k の形に変形するのが平方完成です。" },
+        { step: 2, text: "x の係数の半分の2乗を足して引きます: a(x² + (b/a)x + (b/2a)² - (b/2a)²) + c" },
+        { step: 3, text: "頂点の座標は (-b/(2a), c - b²/(4a)) となります。軸の方程式は x = -b/(2a) です。" },
+      ]} />
     </div>
   );
 };

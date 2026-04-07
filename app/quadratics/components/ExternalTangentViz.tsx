@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 export const ExternalTangentViz: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -178,7 +179,13 @@ export const ExternalTangentViz: React.FC = () => {
             </p>
           )}
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "外部の点から放物線に引いた接線は、一般に2本存在します。" },
+        { step: 2, text: "接線 y - q = m(x - p) と放物線の連立方程式の判別式 D = 0 から m を求めます。" },
+        { step: 3, text: "D = 0 の条件から m の2次方程式が得られ、その2解が2本の接線の傾きです。" },
+      ]} />
+    </div>
     </div>
   );
 };

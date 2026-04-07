@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle, Info } from 'lucide-react';
 import katex from 'katex';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -180,6 +181,12 @@ export default function CoefficientSignsViz() {
           </div>
         </div>
       </div>
+      <HintButton hints={[
+        { step: 1, text: "a の符号はグラフの開き方を決めます。a > 0 で下に凸、a < 0 で上に凸です。" },
+        { step: 2, text: "c の値は y 切片（x = 0 のときの y の値）です。c > 0 なら y 軸との交点は正の側にあります。" },
+        { step: 3, text: "軸の方程式 x = -b/(2a) から、a と b が同符号なら軸は負の側、異符号なら正の側にあります。" },
+        { step: 4, text: "f(1) = a + b + c なので、a + b + c の符号は x = 1 での y の値の符号と一致します。" },
+      ]} />
     </div>
   );
 }

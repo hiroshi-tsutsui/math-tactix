@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 const CommonRootsViz: React.FC = () => {
   const [m, setM] = useState(-2);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -180,7 +181,13 @@ const CommonRootsViz: React.FC = () => {
 
       <div ref={containerRef} className="w-full h-[400px] bg-gray-50 rounded-lg border border-gray-200 relative overflow-hidden">
         <canvas ref={canvasRef} className="w-full h-full" />
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの2次方程式が共通解を持つ条件は、差を取って1次方程式を作ることで求められます。" },
+        { step: 2, text: "f(x) - g(x) = 0 から共通解の候補を求め、元の方程式に代入して確認します。" },
+        { step: 3, text: "グラフでは、2つの放物線が交わる点の x 座標が共通解に対応します。" },
+      ]} />
+    </div>
     </div>
   );
 };

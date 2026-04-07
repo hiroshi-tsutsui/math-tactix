@@ -1,4 +1,5 @@
 import React from 'react';
+import HintButton from '../../components/HintButton';
 
 interface Point {
   x: number;
@@ -95,6 +96,11 @@ const CoefficientViz: React.FC<CoefficientVizProps> = ({ params }) => {
       <p className="mt-2 text-sm text-gray-500">
         赤: 通る点 / 緑: 頂点 (Vertex)
       </p>
+      <HintButton hints={[
+        { step: 1, text: "2次関数 y = ax² + bx + c は3つの係数 a, b, c で決まります。3つの条件があれば係数を決定できます。" },
+        { step: 2, text: "通る点の座標を代入すると、a, b, c に関する連立方程式が得られます。" },
+        { step: 3, text: "頂点が与えられている場合は y = a(x - p)² + q の形を使うと効率的です。" },
+      ]} />
     </div>
   );
 };

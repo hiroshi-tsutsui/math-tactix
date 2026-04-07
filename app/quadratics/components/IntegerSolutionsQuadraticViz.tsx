@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function IntegerSolutionsQuadraticViz() {
   const [a, setA] = useState(2);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -147,7 +148,13 @@ export default function IntegerSolutionsQuadraticViz() {
         <p className="font-bold mb-1">💡 学習のポイント:</p>
         <p>2次不等式 <span className="font-mono">f(x) &lt; 0</span> の整数解の個数を考える問題は、グラフの <strong>x軸より下の部分（紫の帯）</strong> に含まれる整数（赤丸）を数えることと同じです。</p>
         <p className="mt-1">パラメータ <span className="font-mono">a</span> を動かすと放物線の軸が移動し、紫の帯が伸縮・移動します。特定の個数の整数解を持たせるための <span className="font-mono">a</span> の範囲を視覚的に確認しましょう。</p>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2次不等式 f(x) < 0 の整数解の個数は、グラフが x 軸より下にある範囲に含まれる整数の数です。" },
+        { step: 2, text: "まず f(x) = 0 の解を求めて、解の範囲を確定します。" },
+        { step: 3, text: "パラメータを動かすと解の範囲が移動し、含まれる整数の個数が変わります。" },
+      ]} />
+    </div>
     </div>
   );
 }

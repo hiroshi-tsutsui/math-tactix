@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 const MovingRightEdgeViz: React.FC = () => {
   const [a, setA] = useState(1.5);
@@ -207,7 +208,13 @@ const MovingRightEdgeViz: React.FC = () => {
         <div className="w-full md:w-1/2 bg-slate-50 p-4 rounded-lg border border-slate-200 flex justify-center">
             <canvas ref={canvasRef} width={400} height={350} className="bg-white border border-slate-300 rounded-md shadow-sm w-full max-w-[400px]" />
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "定義域の右端が動くとき、最小値・最大値の取り方が場合分けで変わります。" },
+        { step: 2, text: "右端が軸の左側か右側かで、最小値がどの点で達成されるかが変わります。" },
+        { step: 3, text: "スライダーを動かして、場合分けの境界がどこにあるか確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 };

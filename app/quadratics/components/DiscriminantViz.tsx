@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 const DiscriminantViz = () => {
   const [c, setC] = useState(0); // y-intercept
@@ -150,6 +151,11 @@ const DiscriminantViz = () => {
         />
       </div>
       
+      <HintButton hints={[
+        { step: 1, text: "判別式 D = b² - 4ac は、2次方程式 ax² + bx + c = 0 の解の個数を決めます。" },
+        { step: 2, text: "D > 0 なら異なる2つの実数解、D = 0 なら重解（接する）、D < 0 なら実数解なしです。" },
+        { step: 3, text: "グラフで見ると、D の符号は放物線と x 軸の交点の数に対応しています。" },
+      ]} />
       <div className="mt-4 p-3 bg-blue-50 text-sm text-blue-800 rounded">
         <p className="font-bold mb-1">判別式 D = b² - 4ac の意味:</p>
         <ul className="list-disc pl-5 space-y-1">

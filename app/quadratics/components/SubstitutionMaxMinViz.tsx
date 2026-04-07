@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Problem } from '../types';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 interface SubstitutionMaxMinVizProps {
   problem: Problem;
 }
@@ -221,7 +222,13 @@ export default function SubstitutionMaxMinViz({ problem }: SubstitutionMaxMinViz
           onChange={(e) => setCurrentX(parseFloat(e.target.value))}
           className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"
         />
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "置換を使って変数を変えると、新しい変数の範囲に注意が必要です。" },
+        { step: 2, text: "t = f(x) と置くと、t の定義域は f(x) の値域に制限されます。" },
+        { step: 3, text: "t の2次関数の最大値・最小値を、制限された定義域の中で求めます。" },
+      ]} />
+    </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Maximize2, AlertCircle } from 'lucide-react';
+import HintButton from '../../components/HintButton';
 
 export default function FenceEnclosureViz() {
   const [x, setX] = useState<number>(3); // initial x
@@ -270,7 +271,13 @@ export default function FenceEnclosureViz() {
             </p>
           </div>
         </motion.div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "壁を利用して3辺をフェンスで囲む場合、面積 S = x(L - 2x) は2次関数になります。" },
+        { step: 2, text: "S = -2x² + Lx の頂点 x = L/4 で面積が最大になります。" },
+        { step: 3, text: "定義域 0 < x < L/2 の中で最大値を取ることを確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

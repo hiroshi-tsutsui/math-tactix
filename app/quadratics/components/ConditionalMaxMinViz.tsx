@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -124,7 +125,13 @@ export default function ConditionalMaxMinViz() {
             {r2 < 8 ? "交点なし (条件を満たさない)" : r2 === 8 ? "接する (最小値!)" : "2点で交わる"}
           </p>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "条件付き最大・最小では、制約条件を使って変数を減らします（例: x + y = 一定）。" },
+        { step: 2, text: "x² + y² = k とすると、原点からの距離が √k の円です。直線との接点が最小値を与えます。" },
+        { step: 3, text: "最小値は点と直線の距離の公式で求められます: d² = (c²/2) → k_min = c²/2。" },
+      ]} />
+    </div>
     </div>
   );
 }

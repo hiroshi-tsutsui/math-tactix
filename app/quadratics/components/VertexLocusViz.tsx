@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { RefreshCw } from 'lucide-react';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 
 export const VertexLocusViz = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -140,7 +141,13 @@ export const VertexLocusViz = () => {
           <p>4. <strong>Y</strong> の式にある <strong>p</strong> を <strong>X</strong> に置き換えると、<MathDisplay tex="Y = -X^2 + X" /> になります。</p>
           <p>5. したがって、頂点は常に <strong>赤い点線</strong>（<MathDisplay tex="y = -x^2 + x" />）の上を動くことになります。</p>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "パラメータを含む放物線の頂点は、パラメータに依存して動きます。" },
+        { step: 2, text: "頂点の座標を (X, Y) とし、パラメータを消去すると Y = f(X) の関係が得られます。" },
+        { step: 3, text: "この Y = f(X) が頂点の軌跡（通り道）の方程式です。" },
+      ]} />
+    </div>
     </div>
   );
 };

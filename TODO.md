@@ -1,8 +1,16 @@
 # Math Tactix TODO
-現在のサイクル: 044
+現在のサイクル: 045
 最終更新: 2026-04-07
 
 ---
+
+## サイクル044 実施済み
+
+- [x] [優先度:高] quadratics モジュール全66本のVizにHintButton統合（Level 1-50+の基礎〜上級レベル全体）
+- [x] [優先度:高] data Level 20: SamplingDistributionViz（標本分布）新規作成
+- [x] [優先度:高] data Level 21: ConfidenceIntervalViz（信頼区間）新規作成
+- [x] [優先度:中] app/data/page.tsx に Level 20-21 登録
+- [x] [優先度:中] locales/ja.json, en.json に data Level 20-21 キー追加
 
 ## サイクル043 実施済み
 

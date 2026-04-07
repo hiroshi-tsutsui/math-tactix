@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function TwoParabolasSizeViz() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -149,7 +150,13 @@ export default function TwoParabolasSizeViz() {
             <input type="range" min="-5" max="5" step="0.5" value={b} onChange={e => setB(Number(e.target.value))} className="w-full accent-red-500" />
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの放物線の大小関係は、差 f(x) - g(x) の符号で判定できます。" },
+        { step: 2, text: "同じ x で f(x) > g(x) なら、その x での放物線 f のグラフが上にあります。" },
+        { step: 3, text: "常に f(x) ≧ g(x) であるための条件は、差の最小値が 0 以上であることです。" },
+      ]} />
+    </div>
     </div>
   );
 }

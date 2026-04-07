@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface Props {
   problem: {
@@ -89,7 +90,13 @@ export default function AbsoluteGraphLineViz({ problem }: Props) {
       </div>
       <div className="text-sm text-gray-600 bg-blue-50 p-4 rounded-md w-full max-w-md">
         {problem.explanation}
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "y = |f(x)| のグラフと直線 y = x + k の交点の数は、k の値によって変わります。" },
+        { step: 2, text: "絶対値グラフは x 軸より下の部分が折り返されるため、W字型になります。" },
+        { step: 3, text: "k を動かして交点の数が変わる境界値を見つけましょう。接する瞬間が境界です。" },
+      ]} />
+    </div>
     </div>
   );
 }

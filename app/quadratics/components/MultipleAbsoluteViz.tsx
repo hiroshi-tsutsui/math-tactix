@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Settings, Maximize2, RefreshCw } from 'lucide-react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import HintButton from '../../components/HintButton';
 
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {
     const containerRef = useRef<HTMLSpanElement>(null);
@@ -176,7 +177,13 @@ export default function MultipleAbsoluteViz() {
                         </ul>
                     </div>
                 </div>
-            </div>
+            
+      <HintButton hints={[
+        { step: 1, text: "|x - a| + |x - b| = k の解の個数は、V字グラフの和と直線 y = k の交点の数です。" },
+        { step: 2, text: "a ≦ x ≦ b のとき |x-a| + |x-b| = b - a（一定）、それ以外は直線的に増加します。" },
+        { step: 3, text: "k < |a - b| で解なし、k = |a - b| で無数、k > |a - b| で2つの解があります。" },
+      ]} />
+    </div>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Line, XAxis, YAxis, CartesianGrid, ReferenceLine, Scatter } from 'recharts';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export const IntersectionParabolasViz: React.FC = () => {
   const [k, setK] = useState<number>(1);
 
@@ -81,7 +82,13 @@ export const IntersectionParabolasViz: React.FC = () => {
             <p className="text-blue-600 font-bold mt-2 text-center">★ 2交点を通る新たな放物線になります。</p>
           )}
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの放物線の交点を通る曲線族は f(x) + k·g(x) = 0 で表されます。" },
+        { step: 2, text: "k = 1 のとき2次の項が消え、2つの交点を通る直線（共通弦）になります。" },
+        { step: 3, text: "k の値を変えると、2交点を通る様々な放物線が得られます。" },
+      ]} />
+    </div>
     </div>
   );
 };

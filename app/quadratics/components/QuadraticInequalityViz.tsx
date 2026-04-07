@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface QuadraticInequalityVizProps {
   a: number;
@@ -186,7 +187,13 @@ const QuadraticInequalityViz: React.FC<QuadraticInequalityVizProps> = ({ a, b, c
             <span className="w-3 h-3 bg-red-600 inline-block rounded-full"></span>
             <span>解の範囲 (x軸)</span>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2次不等式 f(x) > 0 の解は、放物線 y = f(x) が x 軸より上にある x の範囲です。" },
+        { step: 2, text: "まず f(x) = 0 の解 α, β を求めます（α < β とする）。" },
+        { step: 3, text: "a > 0 のとき: f(x) > 0 の解は x < α または x > β、f(x) < 0 の解は α < x < β です。" },
+      ]} />
+    </div>
     </div>
   );
 };

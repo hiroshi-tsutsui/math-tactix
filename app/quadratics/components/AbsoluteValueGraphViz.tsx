@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface AbsoluteValueGraphVizProps {
   initialA?: number; // Parameter for y = |x^2 - a^2|
@@ -142,6 +143,12 @@ const AbsoluteValueGraphViz: React.FC<AbsoluteValueGraphVizProps> = ({ initialA 
         height={400} 
         className="w-full border rounded bg-white"
       />
+      <HintButton hints={[
+        { step: 1, text: "y = |x² - a²| は、y = x² - a² のグラフで x 軸より下の部分を折り返したものです。" },
+        { step: 2, text: "x = -a, x = a で x 軸に接し、x = 0 で高さ a² の山ができます。" },
+        { step: 3, text: "灰色の点線が元の関数 y = x² - a²、青い実線が絶対値をとった後のグラフです。" },
+      ]} />
+    
     </div>
   );
 };

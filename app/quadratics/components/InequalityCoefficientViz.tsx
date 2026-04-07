@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 interface VizProps {
   levelParams: any;
   onSuccess: () => void;
@@ -165,7 +166,13 @@ export default function InequalityCoefficientViz({ levelParams, onSuccess }: Viz
             )}
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "不等式の解の形からグラフの概形（上に凸か下に凸か）を判断します。" },
+        { step: 2, text: "解が「区間の外側」なら a > 0（下に凸）、「内側」なら a < 0（上に凸）です。" },
+        { step: 3, text: "x 切片の位置と不等号の向きから、a と b の符号と値を決定できます。" },
+      ]} />
+    </div>
     </div>
   );
 }

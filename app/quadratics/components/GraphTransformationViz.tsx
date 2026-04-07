@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface GraphTransformationVizProps {
   initialParams?: { a: number, p: number, q: number };
@@ -237,6 +238,12 @@ const GraphTransformationViz: React.FC<GraphTransformationVizProps> = ({
             <button onClick={() => setMode('symmetryY')} className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm">Y軸対称</button>
         </div>
       )}
+      <HintButton hints={[
+        { step: 1, text: "y = f(x) を x 軸方向に p、y 軸方向に q だけ平行移動すると y - q = f(x - p) になります。" },
+        { step: 2, text: "x 軸対称は y → -y、y 軸対称は x → -x、原点対称は (x,y) → (-x,-y) です。" },
+        { step: 3, text: "頂点の移動を追跡すると変換が理解しやすくなります。" },
+      ]} />
+    
     </div>
   );
 };

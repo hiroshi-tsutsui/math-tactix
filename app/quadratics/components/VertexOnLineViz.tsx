@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import MathDisplay from '@/app/lib/components/MathDisplay';
+import HintButton from '../../components/HintButton';
 export default function VertexOnLineViz() {
   const [p, setP] = useState(0);
 
@@ -137,7 +138,13 @@ export default function VertexOnLineViz() {
             これにより、未知数が p だけになります。
           </div>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "頂点が直線 y = 2x - 1 上にあるという条件から、頂点 (p, q) に q = 2p - 1 を代入します。" },
+        { step: 2, text: "これにより未知数が p のみになり、もう1つの条件と合わせて p を決定できます。" },
+        { step: 3, text: "スライダーで p を動かして、頂点が直線上を動く様子を確認しましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

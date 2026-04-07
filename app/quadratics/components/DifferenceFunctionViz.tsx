@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 export default function DifferenceFunctionViz({ onComplete }: { onComplete?: () => void }) {
   const [a, setA] = useState(1);
@@ -138,7 +139,13 @@ export default function DifferenceFunctionViz({ onComplete }: { onComplete?: () 
           <label className="text-gray-300 text-sm block mb-1">直線の切片 k: {k.toFixed(1)}</label>
           <input type="range" min="-5" max="5" step="0.5" value={k} onChange={e => setK(parseFloat(e.target.value))} className="w-full" />
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2つの関数 f(x) と g(x) の差 f(x) - g(x) が正の範囲は、f(x) > g(x) が成り立つ範囲です。" },
+        { step: 2, text: "差関数のグラフが x 軸より上にある範囲が解です。" },
+        { step: 3, text: "差関数の零点（交点）を求めて、符号の変化を調べましょう。" },
+      ]} />
+    </div>
     </div>
   );
 }

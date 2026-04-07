@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import HintButton from '../../components/HintButton';
 
 interface PointXY {
   x: number;
@@ -271,7 +272,13 @@ const DeterminationViz: React.FC<DeterminationVizProps> = ({ params: rawParams }
             <span className="w-3 h-3 bg-green-600 inline-block rounded-full"></span>
             <span>通るべき点</span>
         </div>
-      </div>
+      
+      <HintButton hints={[
+        { step: 1, text: "2次関数の決定には、与えられた条件に応じて適切な形を選びます。" },
+        { step: 2, text: "頂点が分かるなら y = a(x-p)² + q、x 切片が分かるなら y = a(x-α)(x-β) が便利です。" },
+        { step: 3, text: "3点を通る場合は y = ax² + bx + c に代入して連立方程式を解きます。" },
+      ]} />
+    </div>
     </div>
   );
 };
