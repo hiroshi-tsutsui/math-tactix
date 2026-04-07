@@ -9,24 +9,28 @@ import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import VarianceViz from './components/VarianceViz';
-import BoxPlotViz from './components/BoxPlotViz';
-import HypothesisTestingViz from './components/HypothesisTestingViz';
-import FrequencyTableViz from "./components/FrequencyTableViz";
-import DataTransformViz from './components/DataTransformViz';
-import HistogramBoxPlotViz from './components/HistogramBoxPlotViz';
-import CovarianceViz from './components/CovarianceViz';
-import OutlierViz from './components/OutlierViz';
-import CombinedVarianceViz from './components/CombinedVarianceViz';
-import VarianceShortcutViz from './components/VarianceShortcutViz';
-import CorrelationInterpretViz from './components/CorrelationInterpretViz';
-import QuartileAnalysisViz from './components/QuartileAnalysisViz';
-import StandardDeviationViz from './components/StandardDeviationViz';
-import ResidualViz from './components/ResidualViz';
-import RSquaredViz from './components/RSquaredViz';
-import CorrelationCoefficientCalcViz from './components/CorrelationCoefficientCalcViz';
-import VarianceTransformViz from './components/VarianceTransformViz';
-import BoxPlotComparisonViz from './components/BoxPlotComparisonViz';
+import dynamic from 'next/dynamic';
+
+const loadingFallback = () => <div className="animate-pulse bg-slate-100 rounded-2xl h-64" />;
+
+const VarianceViz = dynamic(() => import('./components/VarianceViz'), { ssr: false, loading: loadingFallback });
+const BoxPlotViz = dynamic(() => import('./components/BoxPlotViz'), { ssr: false, loading: loadingFallback });
+const HypothesisTestingViz = dynamic(() => import('./components/HypothesisTestingViz'), { ssr: false, loading: loadingFallback });
+const FrequencyTableViz = dynamic(() => import('./components/FrequencyTableViz'), { ssr: false, loading: loadingFallback });
+const DataTransformViz = dynamic(() => import('./components/DataTransformViz'), { ssr: false, loading: loadingFallback });
+const HistogramBoxPlotViz = dynamic(() => import('./components/HistogramBoxPlotViz'), { ssr: false, loading: loadingFallback });
+const CovarianceViz = dynamic(() => import('./components/CovarianceViz'), { ssr: false, loading: loadingFallback });
+const OutlierViz = dynamic(() => import('./components/OutlierViz'), { ssr: false, loading: loadingFallback });
+const CombinedVarianceViz = dynamic(() => import('./components/CombinedVarianceViz'), { ssr: false, loading: loadingFallback });
+const VarianceShortcutViz = dynamic(() => import('./components/VarianceShortcutViz'), { ssr: false, loading: loadingFallback });
+const CorrelationInterpretViz = dynamic(() => import('./components/CorrelationInterpretViz'), { ssr: false, loading: loadingFallback });
+const QuartileAnalysisViz = dynamic(() => import('./components/QuartileAnalysisViz'), { ssr: false, loading: loadingFallback });
+const StandardDeviationViz = dynamic(() => import('./components/StandardDeviationViz'), { ssr: false, loading: loadingFallback });
+const ResidualViz = dynamic(() => import('./components/ResidualViz'), { ssr: false, loading: loadingFallback });
+const RSquaredViz = dynamic(() => import('./components/RSquaredViz'), { ssr: false, loading: loadingFallback });
+const CorrelationCoefficientCalcViz = dynamic(() => import('./components/CorrelationCoefficientCalcViz'), { ssr: false, loading: loadingFallback });
+const VarianceTransformViz = dynamic(() => import('./components/VarianceTransformViz'), { ssr: false, loading: loadingFallback });
+const BoxPlotComparisonViz = dynamic(() => import('./components/BoxPlotComparisonViz'), { ssr: false, loading: loadingFallback });
 
 // --- Types ---
 type Point = { id: number; x: number; y: number };

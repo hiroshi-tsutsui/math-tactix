@@ -13,22 +13,25 @@ import 'katex/dist/katex.min.css';
 import katex from 'katex';
 import Link from 'next/link';
 import BackButton from '../components/BackButton';
-import ShortestPathViz from './components/ShortestPathViz';
-import CircularPermutationViz from "./components/CircularPermutationViz";
-import NecklacePermutationViz from "./components/NecklacePermutationViz";
-import IndistinguishablePermutationViz from "./components/IndistinguishablePermutationViz";
+import dynamic from 'next/dynamic';
 
-import { CombinationRepetitionViz } from './components/CombinationRepetitionViz';
-import GroupingViz from "./components/GroupingViz";
-import ComplementaryEventViz from "./components/ComplementaryEventViz";
-import IndependentEventViz from "./components/IndependentEventViz";
-import AdditionRuleViz from "./components/AdditionRuleViz";
-import ConditionalProbabilityViz from "./components/ConditionalProbabilityViz";
-import BinomialTrialViz from "./components/BinomialTrialViz";
-import BayesTheoremViz from "./components/BayesTheoremViz";
-import ConditionalProbabilityTableViz from "./components/ConditionalProbabilityTableViz";
-import ExpectedValueViz from "./components/ExpectedValueViz";
-import RecurrenceViz from "./components/RecurrenceViz";
+const loadingFallback = () => <div className="animate-pulse bg-slate-100 dark:bg-slate-800 rounded-2xl h-64" />;
+
+const ShortestPathViz = dynamic(() => import('./components/ShortestPathViz'), { ssr: false, loading: loadingFallback });
+const CircularPermutationViz = dynamic(() => import('./components/CircularPermutationViz'), { ssr: false, loading: loadingFallback });
+const NecklacePermutationViz = dynamic(() => import('./components/NecklacePermutationViz'), { ssr: false, loading: loadingFallback });
+const IndistinguishablePermutationViz = dynamic(() => import('./components/IndistinguishablePermutationViz'), { ssr: false, loading: loadingFallback });
+const CombinationRepetitionViz = dynamic(() => import('./components/CombinationRepetitionViz').then(mod => ({ default: mod.CombinationRepetitionViz })), { ssr: false, loading: loadingFallback });
+const GroupingViz = dynamic(() => import('./components/GroupingViz'), { ssr: false, loading: loadingFallback });
+const ComplementaryEventViz = dynamic(() => import('./components/ComplementaryEventViz'), { ssr: false, loading: loadingFallback });
+const IndependentEventViz = dynamic(() => import('./components/IndependentEventViz'), { ssr: false, loading: loadingFallback });
+const AdditionRuleViz = dynamic(() => import('./components/AdditionRuleViz'), { ssr: false, loading: loadingFallback });
+const ConditionalProbabilityViz = dynamic(() => import('./components/ConditionalProbabilityViz'), { ssr: false, loading: loadingFallback });
+const BinomialTrialViz = dynamic(() => import('./components/BinomialTrialViz'), { ssr: false, loading: loadingFallback });
+const BayesTheoremViz = dynamic(() => import('./components/BayesTheoremViz'), { ssr: false, loading: loadingFallback });
+const ConditionalProbabilityTableViz = dynamic(() => import('./components/ConditionalProbabilityTableViz'), { ssr: false, loading: loadingFallback });
+const ExpectedValueViz = dynamic(() => import('./components/ExpectedValueViz'), { ssr: false, loading: loadingFallback });
+const RecurrenceViz = dynamic(() => import('./components/RecurrenceViz'), { ssr: false, loading: loadingFallback });
 
 // --- Components ---
 const MathComponent = ({ tex, className = "" }: { tex: string; className?: string }) => {

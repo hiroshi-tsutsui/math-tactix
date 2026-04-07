@@ -378,6 +378,132 @@ const crossModuleQuestions: QuestionData[] = [
       explanation: "Variance = Σ(xi - x̄)² / n. Standard deviation is the square root of variance."
     }
   },
+  // --- Cross-Module: Quadratics x Probability ---
+  {
+    id: "MIX-016",
+    answer: "1/4",
+    correctIndex: 0,
+    ja: {
+      category: "二次関数 x 確率",
+      query: "y = x² - 4x + 3 について、x = 1,2,3,4 からランダムに整数を1つ選ぶとき y < 0 となる確率は？",
+      options: ["1/4", "2/4", "3/4", "1/2"],
+      explanation: "y = (x-1)(x-3) なので 1 < x < 3 で y < 0。x = 1,2,3,4 のうち y < 0 となるのは x = 2 の1つ。P = 1/4。"
+    },
+    en: {
+      category: "Quadratics x Probability",
+      query: "For y = x² - 4x + 3, picking a random integer from {1,2,3,4}: what is P(y < 0)?",
+      options: ["1/4", "2/4", "3/4", "1/2"],
+      explanation: "y = (x-1)(x-3), so y < 0 when 1 < x < 3. Among {1,2,3,4}, only x=2 gives y < 0. P = 1/4."
+    }
+  },
+  // --- Cross-Module: Sets x Propositions ---
+  {
+    id: "MIX-017",
+    answer: "十分条件だが必要条件ではない",
+    correctIndex: 1,
+    ja: {
+      category: "集合 x 命題",
+      query: "A = {x | x² = 4} = {-2, 2}、B = {x | |x| ≤ 3 の整数} = {-3,-2,-1,0,1,2,3} のとき、「x ∈ A」は「x ∈ B」の何条件？",
+      options: ["必要十分条件", "十分条件だが必要条件ではない", "必要条件だが十分条件ではない", "必要条件でも十分条件でもない"],
+      explanation: "A ⊂ B（AはBの部分集合）なので、x ∈ A ならば x ∈ B は真。逆は偽（例: x=0）。よって十分条件だが必要条件ではない。"
+    },
+    en: {
+      category: "Sets x Propositions",
+      query: "A = {-2, 2}, B = {-3,-2,-1,0,1,2,3}. Is 'x ∈ A' a __ condition for 'x ∈ B'?",
+      options: ["Necessary and sufficient", "Sufficient but not necessary", "Necessary but not sufficient", "Neither"],
+      explanation: "A ⊂ B, so x ∈ A implies x ∈ B (sufficient). But x ∈ B does not imply x ∈ A (e.g., x=0). Sufficient only."
+    }
+  },
+  // --- Cross-Module: Data x Probability ---
+  {
+    id: "MIX-018",
+    answer: "68%",
+    correctIndex: 0,
+    ja: {
+      category: "データ x 確率",
+      query: "あるテストの得点が平均60点、標準偏差10点の正規分布に従うとき、50点から70点の間に入る生徒の割合は約何%？",
+      options: ["68%", "50%", "95%", "34%"],
+      explanation: "正規分布において平均±1σの範囲に約68%のデータが含まれます。50 = 60-10 = μ-σ、70 = 60+10 = μ+σ なので約68%。"
+    },
+    en: {
+      category: "Data x Probability",
+      query: "Test scores follow N(60, 10²). What percentage falls between 50 and 70?",
+      options: ["68%", "50%", "95%", "34%"],
+      explanation: "In a normal distribution, about 68% falls within μ±σ. 50=μ-σ, 70=μ+σ, so approximately 68%."
+    }
+  },
+  // --- Cross-Module: Trig x Numbers ---
+  {
+    id: "MIX-019",
+    answer: "√2",
+    correctIndex: 2,
+    ja: {
+      category: "三角比 x 数と式",
+      query: "sin 45° + cos 45° を簡略化すると？",
+      options: ["1", "√3", "√2", "√2/2"],
+      explanation: "sin 45° = cos 45° = √2/2 なので、sin 45° + cos 45° = √2/2 + √2/2 = √2。"
+    },
+    en: {
+      category: "Trig x Numbers",
+      query: "Simplify sin 45° + cos 45°.",
+      options: ["1", "√3", "√2", "√2/2"],
+      explanation: "sin 45° = cos 45° = √2/2, so sin 45° + cos 45° = √2/2 + √2/2 = √2."
+    }
+  },
+  // --- Cross-Module: Quadratics x Data ---
+  {
+    id: "MIX-020",
+    answer: "最小二乗法",
+    correctIndex: 0,
+    ja: {
+      category: "二次関数 x データ",
+      query: "回帰分析で残差の二乗和 S = Σ(yi - ŷi)² を最小にする直線を求める方法を何と言いますか？この S は a,b の二次関数です。",
+      options: ["最小二乗法", "最大尤度法", "モーメント法", "ベイズ推定"],
+      explanation: "残差の二乗和 S(a,b) は a,b について下に凸の二次関数であり、S を最小にする a,b を求める方法が最小二乗法です。"
+    },
+    en: {
+      category: "Quadratics x Data",
+      query: "What method minimizes the sum of squared residuals S = Σ(yi - ŷi)²? (S is a quadratic function of a,b)",
+      options: ["Least squares", "Maximum likelihood", "Method of moments", "Bayesian estimation"],
+      explanation: "S(a,b) is a convex quadratic function of a and b. The method of finding a,b that minimize S is called least squares."
+    }
+  },
+  // --- Cross-Module: Probability x Sets ---
+  {
+    id: "MIX-021",
+    answer: "P(A) + P(B) - P(A ∩ B)",
+    correctIndex: 2,
+    ja: {
+      category: "確率 x 集合",
+      query: "事象AとBが互いに排反でないとき、P(A ∪ B) の公式は？（包除原理）",
+      options: ["P(A) × P(B)", "P(A) + P(B)", "P(A) + P(B) - P(A ∩ B)", "P(A) + P(B) + P(A ∩ B)"],
+      explanation: "和事象の確率は包除原理（集合の要素の個数の公式と同じ構造）から P(A∪B) = P(A) + P(B) - P(A∩B) です。"
+    },
+    en: {
+      category: "Probability x Sets",
+      query: "For non-mutually exclusive events A and B, what is P(A ∪ B)?",
+      options: ["P(A) × P(B)", "P(A) + P(B)", "P(A) + P(B) - P(A ∩ B)", "P(A) + P(B) + P(A ∩ B)"],
+      explanation: "By inclusion-exclusion (same structure as set cardinality): P(A∪B) = P(A) + P(B) - P(A∩B)."
+    }
+  },
+  // --- Cross-Module: Trig x Quadratics ---
+  {
+    id: "MIX-022",
+    answer: "-1",
+    correctIndex: 1,
+    ja: {
+      category: "三角比 x 二次関数",
+      query: "sin²θ + cos²θ = 1 を t = sinθ と置換すると、cos²θ = 1 - t² となります。f(t) = 2t² + t - 1（0 ≤ t ≤ 1）の最小値は？",
+      options: ["-9/8", "-1", "0", "2"],
+      explanation: "f(t) = 2t² + t - 1 = 2(t + 1/4)² - 9/8。t = -1/4 で最小だが 0 ≤ t ≤ 1 なので、t=0 で f(0) = -1 が最小値。"
+    },
+    en: {
+      category: "Trig x Quadratics",
+      query: "Let t = sinθ (0 ≤ t ≤ 1). Find the minimum of f(t) = 2t² + t - 1.",
+      options: ["-9/8", "-1", "0", "2"],
+      explanation: "f(t) = 2(t+1/4)² - 9/8. Min at t=-1/4, but 0≤t≤1, so f(0)=-1 is the minimum."
+    }
+  },
 ];
 
 // Fix MIX-013 which had an intentionally wrong answer

@@ -5,25 +5,29 @@ import { GeistSans } from 'geist/font/sans';
 import { ChevronLeft, Compass, Search, SplitSquareHorizontal, Calculator } from 'lucide-react';
 import 'katex/dist/katex.min.css';
 import BackButton from '../components/BackButton';
-import SetMaxMinViz from '../components/math/SetMaxMinViz';
-import ConditionNumberLineViz from '../components/math/ConditionNumberLineViz';
-import ThreeSetsViz from "@/app/components/math/ThreeSetsViz";
-import CounterexampleViz from "../components/math/CounterexampleViz";
-import ConditionalPropositionViz from "./components/ConditionalPropositionViz";
-import NecessarySufficientAdvancedViz from "./components/NecessarySufficientViz";
-import DeMorganViz from "./components/DeMorganViz";
-import ProofMethodViz from "./components/ProofMethodViz";
+import dynamic from 'next/dynamic';
 import MathComponent from "./components/MathComponent";
-import NecessarySufficientBasicViz from "./components/NecessarySufficientBasicViz";
-import ContrapositiveViz from "./components/ContrapositiveViz";
-import SetElementsViz from "./components/SetElementsViz";
-import ContradictionViz from "./components/ContradictionViz";
-import QuadraticSetsViz from "./components/QuadraticSetsViz";
-import QuantifierNegationViz from "./components/QuantifierNegationViz";
-import CompoundConditionViz from "./components/CompoundConditionViz";
-import InclusionExclusionViz from "./components/InclusionExclusionViz";
-import NecessarySufficientConditionViz from "./components/NecessarySufficientConditionViz";
-import ConditionalPatternViz from "./components/ConditionalPatternViz";
+
+const loadingFallback = () => <div className="animate-pulse bg-slate-100 rounded-2xl h-64" />;
+
+const SetMaxMinViz = dynamic(() => import('../components/math/SetMaxMinViz'), { ssr: false, loading: loadingFallback });
+const ConditionNumberLineViz = dynamic(() => import('../components/math/ConditionNumberLineViz'), { ssr: false, loading: loadingFallback });
+const ThreeSetsViz = dynamic(() => import('@/app/components/math/ThreeSetsViz'), { ssr: false, loading: loadingFallback });
+const CounterexampleViz = dynamic(() => import('../components/math/CounterexampleViz'), { ssr: false, loading: loadingFallback });
+const ConditionalPropositionViz = dynamic(() => import('./components/ConditionalPropositionViz'), { ssr: false, loading: loadingFallback });
+const NecessarySufficientAdvancedViz = dynamic(() => import('./components/NecessarySufficientViz'), { ssr: false, loading: loadingFallback });
+const DeMorganViz = dynamic(() => import('./components/DeMorganViz'), { ssr: false, loading: loadingFallback });
+const ProofMethodViz = dynamic(() => import('./components/ProofMethodViz'), { ssr: false, loading: loadingFallback });
+const NecessarySufficientBasicViz = dynamic(() => import('./components/NecessarySufficientBasicViz'), { ssr: false, loading: loadingFallback });
+const ContrapositiveViz = dynamic(() => import('./components/ContrapositiveViz'), { ssr: false, loading: loadingFallback });
+const SetElementsViz = dynamic(() => import('./components/SetElementsViz'), { ssr: false, loading: loadingFallback });
+const ContradictionViz = dynamic(() => import('./components/ContradictionViz'), { ssr: false, loading: loadingFallback });
+const QuadraticSetsViz = dynamic(() => import('./components/QuadraticSetsViz'), { ssr: false, loading: loadingFallback });
+const QuantifierNegationViz = dynamic(() => import('./components/QuantifierNegationViz'), { ssr: false, loading: loadingFallback });
+const CompoundConditionViz = dynamic(() => import('./components/CompoundConditionViz'), { ssr: false, loading: loadingFallback });
+const InclusionExclusionViz = dynamic(() => import('./components/InclusionExclusionViz'), { ssr: false, loading: loadingFallback });
+const NecessarySufficientConditionViz = dynamic(() => import('./components/NecessarySufficientConditionViz'), { ssr: false, loading: loadingFallback });
+const ConditionalPatternViz = dynamic(() => import('./components/ConditionalPatternViz'), { ssr: false, loading: loadingFallback });
 
 
 export default function SetsLogicPage() {

@@ -1,8 +1,14 @@
 # Math Tactix TODO
-現在のサイクル: 028
+現在のサイクル: 029
 最終更新: 2026-04-07
 
 ---
+
+## サイクル029 実施済み
+
+- [x] [優先度:低] NARRATIVE.md を data/probability/sets_logic モジュールに展開（quadratics と同じフォーマットに統一）
+- [x] [優先度:低] quiz: クロスモジュール問題を7問追加（合計22問プール）— 二次関数x確率、集合x命題、データx確率、三角比x数と式 等
+- [x] [優先度:低] trig/data/probability/sets_logic の page.tsx を next/dynamic に変換（ビルドパフォーマンス改善）
 
 ## サイクル028 実施済み
 
@@ -153,7 +159,7 @@
 - [ ] [優先度:低] data モジュールの新レベル（Level 16+）用の components/ 準備
 - [x] [優先度:低] 全モジュールの問題難易度テーブルを作成し、学習順序の推奨パスを設計 → サイクル022
 - [x] [優先度:低] ビルドパフォーマンスの改善（動的インポートの導入検討）→ サイクル028
-- [ ] [優先度:低] NARRATIVE.md を他モジュール（data, probability, sets_logic）にも展開
+- [x] [優先度:低] NARRATIVE.md を他モジュール（data, probability, sets_logic）にも展開 → サイクル029
 - [x] [優先度:低] sets_logic Level 12 以降の問題バリエーション増加（条件命題のパターン追加）→ サイクル027
 - [x] [優先度:低] trig_ratios と trig の統合可能性の検討（ユーザー導線の最適化）→ サイクル027（ダッシュボード整理で学習順序明確化）
 - [ ] [優先度:低] math_i_numbers の sets_logic 連携（集合と不等式のクロスリファレンス）
