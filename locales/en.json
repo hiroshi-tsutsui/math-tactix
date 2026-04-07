@@ -33,6 +33,7 @@
     "launch_btn": "LAUNCH MODULE",
     "status_completed": "COMPLETE",
     "status_dev": "DEV",
+    "status_in_progress": "IN PROGRESS",
     "footer": "Math-Tactix — {{year}} — Mathematical OS",
     "modules": {
       "algebraic_logic": {
@@ -1150,7 +1151,8 @@
         "9": { "title": "Unit Vector", "desc": "Learn vector normalization (making magnitude 1)" },
         "10": { "title": "Position Vector & Internal Division", "desc": "Learn internal division points using position vectors" },
         "11": { "title": "Vectors Comprehensive Quiz", "desc": "Random quiz to test all your vector knowledge!" },
-        "12": { "title": "Space Vectors (3D)", "desc": "Explore dot product, magnitude, and angles in 3D space" }
+        "12": { "title": "Space Vectors (3D)", "desc": "Explore dot product, magnitude, and angles in 3D space" },
+        "13": { "title": "Cross Product", "desc": "Learn cross product components, parallelogram area, and parallel condition in 3D" }
       },
       "page_ui": {
         "level_list": "Level List",

@@ -9,6 +9,24 @@ import SystemMessages from './components/SystemMessages';
 import DashboardSkeleton from './components/DashboardSkeleton';
 import LearningRoadmap from './components/LearningRoadmap';
 
+const MODULE_TOTAL_LEVELS: Record<string, number> = {
+  math_i_numbers: 55,
+  quadratics: 74,
+  trig: 29,
+  data: 21,
+  sets_logic: 19,
+  probability: 20,
+  calculus: 13,
+  sequences: 13,
+  logs: 12,
+  vectors: 13,
+  complex: 12,
+  matrices: 12,
+  functions: 10,
+  trig_ratios: 20,
+  quiz: 1,
+};
+
 export default function Home() {
   const { moduleProgress, calibration, isLoaded } = useProgress();
   const { t } = useLanguage();
@@ -275,11 +293,14 @@ export default function Home() {
                        
                        const isMastered = moduleProgress[m.id as ModuleId]?.isMastered;
                        const isLocked = m.status === 'LOCKED';
-                       
+                       const completedLevels = moduleProgress[m.id as ModuleId]?.completedLevels || [];
+                       const totalLevels = MODULE_TOTAL_LEVELS[m.id] || 0;
+                       const progressPct = totalLevels > 0 ? Math.round((completedLevels.length / totalLevels) * 100) : 0;
+
                        return (
                           <div key={m.id} className="relative">
-                            <Link 
-                                href={isLocked ? '#' : `/${m.id}`} 
+                            <Link
+                                href={isLocked ? '#' : `/${m.id}`}
                                 className={`group block relative p-10 bg-white border border-slate-200 rounded-[40px] transition-all duration-300 shadow-sm
                                     ${isLocked ? 'opacity-60 cursor-not-allowed' : 'hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1'}
                                 `}
@@ -294,18 +315,44 @@ export default function Home() {
                                     <Lock className="w-3 h-3" /> {t('dashboard.status_dev')}
                                     </div>
                                 )}
+                                {!isLocked && !isMastered && completedLevels.length > 0 && (
+                                    <div className="absolute top-6 right-6 bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase">
+                                    {t('dashboard.status_in_progress')}
+                                    </div>
+                                )}
 
                                 <div className={`text-[11px] font-black tracking-widest mb-4 uppercase ${isLocked ? 'text-slate-300' : 'text-blue-600'}`}>
                                     {m.subtitle}
                                 </div>
-                                
+
                                 <h2 className={`text-2xl font-black mb-4 tracking-tight ${isLocked ? 'text-slate-400' : 'text-slate-900'}`}>
                                     {m.title}
                                 </h2>
-                                
-                                <p className={`text-sm leading-relaxed mb-10 font-medium ${isLocked ? 'text-slate-300' : 'text-slate-500'}`}>
+
+                                <p className={`text-sm leading-relaxed mb-6 font-medium ${isLocked ? 'text-slate-300' : 'text-slate-500'}`}>
                                     {m.desc}
                                 </p>
+
+                                {/* Progress section */}
+                                {!isLocked && totalLevels > 0 && (
+                                    <div className="mb-6 space-y-2">
+                                        <div className="flex justify-between items-center text-xs">
+                                            <span className="font-bold text-slate-500">
+                                                Lv {completedLevels.length} / {totalLevels}
+                                            </span>
+                                            <span className="font-black text-slate-400">{progressPct}%</span>
+                                        </div>
+                                        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full rounded-full transition-all duration-700"
+                                                style={{
+                                                    width: `${progressPct}%`,
+                                                    backgroundColor: progressPct === 100 ? '#22c55e' : '#3b82f6',
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
 
                                 {!isLocked && (
                                     <div className="flex items-center text-xs font-black text-slate-400 group-hover:text-blue-600 transition-colors">
