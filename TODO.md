@@ -1,14 +1,20 @@
 # Math Tactix TODO
-現在のサイクル: 049
+現在のサイクル: 050
 最終更新: 2026-04-08
 
 ---
 
-## サイクル049 タスクリスト
+## サイクル050 タスクリスト
 
-- [ ] [優先度:中] [担当:エンジニア] LearningRoadmap i18n対応（日英ラベル切り替え）
-- [ ] [優先度:高] [担当:エンジニア] ProgressContext に math_i_numbers / sets_logic / trig_ratios / quiz の ModuleId 追加
-- [ ] [優先度:中] [担当:エンジニア] ダッシュボード ダークモード対応
+- [ ] [優先度:高] [担当:エンジニア] math_i_numbers Level 56+ 新規Vizコンポーネント追加
+- [ ] [優先度:高] [担当:エンジニア] calculus Level 14+ 新規Vizコンポーネント追加
+- [ ] [優先度:中] [担当:エンジニア] モジュールページ（各page.tsx）ダークモード対応
+
+## サイクル049 実施済み
+
+- [x] [優先度:高] [担当:エンジニア] ProgressContext に math_i_numbers / sets_logic / trig_ratios / quiz の ModuleId 追加
+- [x] [優先度:中] [担当:エンジニア] ダッシュボード ダークモード対応
+- [x] [優先度:中] [担当:エンジニア] LearningRoadmap i18n対応（日英ラベル切り替え）
 
 ## サイクル048 実施済み
 
