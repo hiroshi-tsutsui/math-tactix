@@ -1,160 +1,168 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import { GeistSans } from 'geist/font/sans';
-import { CheckCircle2, ChevronRight, RotateCw, Activity, Info, Zap } from 'lucide-react';
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import BackButton from '../components/BackButton';
 import { useProgress } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle2, Lock, ChevronRight } from 'lucide-react';
+import { GeistSans } from 'geist/font/sans';
 
 const MODULE_ID = 'complex';
 
+// --- Dynamic Viz component imports (code-split for bundle size) ---
+const VizSkeleton = () => <div className="animate-pulse bg-slate-100 rounded-2xl h-48" />;
+
+const ComplexPlaneViz = dynamic(() => import('./components/ComplexPlaneViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ComplexArithmeticViz = dynamic(() => import('./components/ComplexArithmeticViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ComplexMultiplicationViz = dynamic(() => import('./components/ComplexMultiplicationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ConjugateViz = dynamic(() => import('./components/ConjugateViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ComplexDivisionViz = dynamic(() => import('./components/ComplexDivisionViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ModulusArgumentViz = dynamic(() => import('./components/ModulusArgumentViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const PolarFormViz = dynamic(() => import('./components/PolarFormViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DeMoivreViz = dynamic(() => import('./components/DeMoivreViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ComplexEquationViz = dynamic(() => import('./components/ComplexEquationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const QuadraticComplexRootsViz = dynamic(() => import('./components/QuadraticComplexRootsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ComplexLociViz = dynamic(() => import('./components/ComplexLociViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ComplexQuizViz = dynamic(() => import('./components/ComplexQuizViz'), { ssr: false, loading: () => <VizSkeleton /> });
+
+// --- Level definitions ---
+interface LevelDef {
+  id: number;
+  title: string;
+  subtitle: string;
+  component: React.ComponentType;
+}
+
+const levels: LevelDef[] = [
+  { id: 1, title: '複素平面', subtitle: 'アルガン図の基本、a+bi を平面上の点として表示', component: ComplexPlaneViz },
+  { id: 2, title: '加法・減法', subtitle: 'ベクトルの和と差、平行四辺形の法則', component: ComplexArithmeticViz },
+  { id: 3, title: '乗法', subtitle: '回転とスケーリング、|z₁z₂| = |z₁||z₂|', component: ComplexMultiplicationViz },
+  { id: 4, title: '共役複素数', subtitle: '実軸対称、z·z̄ = |z|²', component: ConjugateViz },
+  { id: 5, title: '除法', subtitle: '共役を使った実数化のステップ', component: ComplexDivisionViz },
+  { id: 6, title: '絶対値と偏角', subtitle: '|z| と arg(z) の定義、極座標との対応', component: ModulusArgumentViz },
+  { id: 7, title: '極形式', subtitle: 'r(cosθ + i sinθ)、スライダーで r と θ を変化', component: PolarFormViz },
+  { id: 8, title: 'ド・モアブルの定理', subtitle: '(cosθ + i sinθ)^n = cos(nθ) + i sin(nθ)', component: DeMoivreViz },
+  { id: 9, title: '複素数の方程式', subtitle: 'z² = -1, z³ = 1 など', component: ComplexEquationViz },
+  { id: 10, title: '二次方程式の複素数解', subtitle: '判別式 D < 0 の場合の複素根', component: QuadraticComplexRootsViz },
+  { id: 11, title: '点の軌跡', subtitle: '|z - a| = r, |z - a| = |z - b| などの図形', component: ComplexLociViz },
+  { id: 12, title: '総合クイズ', subtitle: 'ランダム問題で理解度チェック', component: ComplexQuizViz },
+];
+
 export default function ComplexPage() {
   const { moduleProgress, completeLevel } = useProgress();
-  const { t, language } = useLanguage();
-  const { unlockBadge } = useGamification();
-  const [currentLevel, setCurrentLevel] = useState(1);
-  const [re1, setRe1] = useState(1);
-  const [im1, setIm1] = useState(0);
-  const [re2, setRe2] = useState(0);
-  const [im2, setIm2] = useState(1); // i
-  
-  const [showUnlock, setShowUnlock] = useState(false);
-  const [log, setLog] = useState<string[]>([]);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { t } = useLanguage();
+  const { addXP } = useGamification();
+  const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
 
-  const LEVELS = [
-    { id: 1, name: t('modules.complex.levels.1.name'), desc: t('modules.complex.levels.1.desc'), condition: (r: number, i: number) => Math.abs(r) < 0.1 && Math.abs(i - 1) < 0.1 },
-    { id: 2, name: t('modules.complex.levels.2.name'), desc: t('modules.complex.levels.2.desc'), condition: (r: number, i: number) => Math.abs(r - i) < 0.2 && Math.sqrt(r*r + i*i) > 1.2 },
-    { id: 3, name: t('modules.complex.levels.3.name'), desc: t('modules.complex.levels.3.desc'), condition: (r: number, i: number) => Math.abs(i) < 0.1 && Math.abs(r) > 0.5 }
-  ];
+  const completedLevels = moduleProgress[MODULE_ID]?.completedLevels || [];
 
-  useEffect(() => {
-    const progress = moduleProgress[MODULE_ID]?.completedLevels || [];
-    const next = progress.length + 1 > 3 ? 3 : progress.length + 1;
-    setCurrentLevel(next);
-    addLog(t('modules.complex.stage_start', { level: next }));
-  }, [moduleProgress, language]);
-
-  const addLog = (msg: string) => setLog(prev => [msg, ...prev].slice(0, 5));
-
-  // Complex mult: (a+bi)(c+di) = (ac-bd) + (ad+bc)i
-  const resRe = re1 * re2 - im1 * im2;
-  const resIm = re1 * im2 + im1 * re2;
-
-  useEffect(() => {
-    if (LEVELS[currentLevel - 1].condition(resRe, resIm) && !showUnlock) {
-      setShowUnlock(true);
-      addLog(t('modules.complex.stage_clear'));
-    }
-  }, [resRe, resIm]);
-
-  const handleNext = () => {
-    completeLevel(MODULE_ID, currentLevel);
-    if (currentLevel < 3) {
-      setCurrentLevel(currentLevel + 1);
-      setShowUnlock(false);
-    } else {
-      unlockBadge('complex_navigator');
-      window.location.href = "/";
-    }
+  const handleComplete = (levelId: number) => {
+    completeLevel(MODULE_ID, levelId);
+    addXP(15);
   };
 
-  // Draw
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const w = canvas.width, h = canvas.height, cx = w/2, cy = h/2, unit = 50;
+  const isLevelAccessible = (levelId: number): boolean => {
+    if (levelId === 1) return true;
+    return completedLevels.includes(levelId - 1);
+  };
 
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = '#f1f5f9'; ctx.lineWidth = 1;
-    for(let x=0; x<w; x+=unit) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
-    for(let y=0; y<h; y+=unit) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
-    
-    ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
-
-    const drawVec = (r: number, i: number, color: string, label: string, bold = false) => {
-        const tx = cx + r * unit, ty = cy - i * unit;
-        ctx.strokeStyle = color; ctx.lineWidth = bold ? 4 : 2;
-        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty); ctx.stroke();
-        ctx.fillStyle = color; ctx.beginPath(); ctx.arc(tx, ty, bold?6:4, 0, Math.PI*2); ctx.fill();
-        ctx.font = bold ? "bold 12px sans-serif" : "10px sans-serif";
-        ctx.fillText(label, tx + 10, ty);
-    };
-
-    drawVec(re1, im1, '#3b82f6', t('modules.complex.original_num'));
-    drawVec(re2, im2, '#10b981', t('modules.complex.multiplier'));
-    drawVec(resRe, resIm, '#ef4444', t('modules.complex.result'), true);
-
-  }, [re1, im1, re2, im2, resRe, resIm, language]);
+  const ActiveViz = selectedLevel !== null ? levels.find(l => l.id === selectedLevel)?.component : null;
 
   return (
     <div className={`min-h-screen bg-slate-50 text-slate-900 font-sans ${GeistSans.className}`}>
+      {/* Nav */}
       <nav className="border-b border-slate-200 bg-white/80 backdrop-blur-md sticky top-0 z-50 h-16">
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
           <BackButton href="/" label={t('common.back_root')} />
           <span className="text-sm font-bold">{t('modules.complex.title')}</span>
+          <span className="text-xs text-slate-400">{completedLevels.length}/{levels.length}</span>
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 space-y-8">
-           <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-sm">
-              <div className="p-8 border-b border-slate-100 flex justify-between items-center">
-                 <h2 className="font-bold flex items-center gap-2 text-slate-800"><RotateCw className="w-5 h-5 text-blue-600" /> {t('modules.complex.rotation_vis')}</h2>
-                 <div className="bg-slate-900 px-4 py-2 rounded-xl text-white font-mono text-sm">
-                    {resRe.toFixed(1)} {resIm >= 0 ? '+' : ''} {resIm.toFixed(1)}i
-                 </div>
-              </div>
-              <div className="p-10 space-y-10">
-                 <div className="relative aspect-video bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden shadow-inner">
-                    <canvas ref={canvasRef} width={800} height={450} className="w-full h-full" />
-                 </div>
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        {selectedLevel === null ? (
+          /* Level selection grid */
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900 mb-2">{t('modules.complex.title')}</h1>
+              <p className="text-slate-500 text-sm">{t('modules.complex.desc')}</p>
+            </div>
 
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="space-y-6">
-                       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">{t('modules.complex.real_part')}</h3>
-                       <input type="range" min="-3" max="3" step="0.5" value={re1} onChange={e=>setRe1(parseFloat(e.target.value))} className="w-full accent-blue-600" />
-                       <input type="range" min="-3" max="3" step="0.5" value={im1} onChange={e=>setIm1(parseFloat(e.target.value))} className="w-full accent-blue-600" />
-                    </div>
-                    <div className="space-y-6">
-                       <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">{t('modules.complex.multiplier')}</h3>
-                       <input type="range" min="-2" max="2" step="0.5" value={re2} onChange={e=>setRe2(parseFloat(e.target.value))} className="w-full accent-green-600" />
-                       <input type="range" min="-2" max="2" step="0.5" value={im2} onChange={e=>setIm2(parseFloat(e.target.value))} className="w-full accent-green-600" />
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {levels.map(level => {
+                const isCompleted = completedLevels.includes(level.id);
+                const isAccessible = isLevelAccessible(level.id);
 
-        <div className="lg:col-span-4 space-y-6">
-           <div className="bg-slate-900 rounded-[32px] p-8 text-white shadow-xl">
-              <h3 className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">{t('modules.complex.mission_title')}</h3>
-              <h4 className="text-xl font-bold mb-4">{LEVELS[currentLevel-1].name}</h4>
-              <p className="text-sm text-slate-300 leading-relaxed font-medium">{LEVELS[currentLevel-1].desc}</p>
-           </div>
-           <AnimatePresence>
-            {showUnlock && (
-                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white border border-slate-200 p-8 rounded-[32px] text-center shadow-xl">
-                    <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto mb-4" />
-                    <button onClick={handleNext} className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold">{t('modules.complex.controls.next_btn')}</button>
-                </motion.div>
-            )}
-           </AnimatePresence>
-           <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">{t('modules.complex.log_title')}</h4>
-              <div className="space-y-2 font-mono text-[11px]">
-                {log.map((msg, i) => <div key={i} className={i===0 ? 'text-blue-600' : 'text-slate-400'}>{msg}</div>)}
+                return (
+                  <button
+                    key={level.id}
+                    onClick={() => isAccessible && setSelectedLevel(level.id)}
+                    disabled={!isAccessible}
+                    className={`text-left p-6 rounded-2xl border transition-all duration-200 ${
+                      isCompleted
+                        ? 'bg-green-50 border-green-200 hover:border-green-300'
+                        : isAccessible
+                          ? 'bg-white border-slate-200 hover:border-blue-300 hover:shadow-md'
+                          : 'bg-slate-100 border-slate-200 opacity-60 cursor-not-allowed'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <span className={`text-xs font-bold px-2 py-1 rounded-lg ${
+                        isCompleted ? 'bg-green-100 text-green-700' : isAccessible ? 'bg-blue-100 text-blue-700' : 'bg-slate-200 text-slate-400'
+                      }`}>
+                        Level {level.id}
+                      </span>
+                      {isCompleted ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      ) : !isAccessible ? (
+                        <Lock className="w-4 h-4 text-slate-400" />
+                      ) : (
+                        <ChevronRight className="w-4 h-4 text-slate-400" />
+                      )}
+                    </div>
+                    <h3 className="font-bold text-slate-800 mb-1">{level.title}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">{level.subtitle}</p>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          /* Active level view */
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <button onClick={() => setSelectedLevel(null)} className="text-sm text-blue-600 font-bold hover:underline flex items-center gap-1">
+                <ChevronRight className="w-4 h-4 rotate-180" />
+                レベル一覧に戻る
+              </button>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-bold bg-blue-100 text-blue-700 px-3 py-1 rounded-lg">
+                  Level {selectedLevel}
+                </span>
+                <h2 className="font-bold text-slate-800">
+                  {levels.find(l => l.id === selectedLevel)?.title}
+                </h2>
               </div>
-           </div>
-        </div>
+              {!completedLevels.includes(selectedLevel) && (
+                <button
+                  onClick={() => handleComplete(selectedLevel)}
+                  className="px-4 py-2 bg-green-600 text-white rounded-xl text-sm font-bold hover:bg-green-700 transition"
+                >
+                  完了にする
+                </button>
+              )}
+              {completedLevels.includes(selectedLevel) && (
+                <span className="flex items-center gap-1 text-green-600 text-sm font-bold">
+                  <CheckCircle2 className="w-4 h-4" /> 完了済み
+                </span>
+              )}
+            </div>
+
+            {ActiveViz && <ActiveViz />}
+          </div>
+        )}
       </main>
     </div>
   );
