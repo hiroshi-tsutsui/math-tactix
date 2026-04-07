@@ -27,6 +27,7 @@ const ArithGeometricJudgeViz = dynamic(() => import('./components/ArithGeometric
 const InfiniteGeometricViz = dynamic(() => import('./components/InfiniteGeometricViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const DifferenceSequenceViz = dynamic(() => import('./components/DifferenceSequenceViz'), { ssr: false, loading: () => <VizSkeleton /> });
 const PartialFractionSumViz = dynamic(() => import('./components/PartialFractionSumViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SequencesQuizViz = dynamic(() => import('./components/SequencesQuizViz'), { ssr: false, loading: () => <VizSkeleton /> });
 
 interface Level {
   id: number;
@@ -115,6 +116,12 @@ const levels: Level[] = [
     title: '部分分数分解と級数',
     description: 'テレスコーピング和の仕組みを学ぼう',
     component: PartialFractionSumViz,
+  },
+  {
+    id: 14,
+    title: '数列総合クイズ',
+    description: 'ランダム問題で数列の知識を総チェック！',
+    component: SequencesQuizViz,
   },
 ];
 

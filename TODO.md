@@ -1,8 +1,15 @@
 # Math Tactix TODO
-現在のサイクル: 032
+現在のサイクル: 033
 最終更新: 2026-04-07
 
 ---
+
+## サイクル032 実施済み
+
+- [x] [優先度:高] sequences/logs に generator 統合クイズ Viz を追加（SequencesQuizViz, LogsQuizViz）— ランダム問題出題・正誤判定・解説表示・正答率トラッキング
+- [x] [優先度:高] vectors モジュール大幅拡充: 既存2レベル → 11レベル（ベクトル基本・成分表示・和と差・スカラー倍・大きさ・内積・角度・垂直条件・単位ベクトル・位置ベクトルと内分点・総合クイズ）
+- [x] [優先度:高] vectors/utils/vectors-generator.ts 新規作成（成分・和・大きさ・内積・角度・垂直条件・スカラー倍の各 generator）
+- [x] [優先度:高] vectors/page.tsx を next/dynamic + レベル選択UI に全面リファクタリング
 
 ## サイクル031 実施済み
 
