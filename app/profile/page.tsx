@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { GeistSans } from 'geist/font/sans';
-import { ArrowLeft, User, Shield, Activity, Award, CheckCircle2, TrendingUp } from 'lucide-react';
+import { ArrowLeft, User, Shield, Activity, Award, CheckCircle2, TrendingUp, BarChart3 } from 'lucide-react';
 import { useProgress, ModuleId } from '../contexts/ProgressContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useGamification } from '../contexts/GamificationContext';
 import { motion } from 'framer-motion';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const BADGES = [
   { id: 'first_step', icon: '🎯' },
@@ -16,6 +17,143 @@ const BADGES = [
   { id: 'function_novice', icon: '📦' },
   { id: 'causality_master', icon: '⚡' }
 ];
+
+// Module total level counts for progress rate calculation
+const MODULE_TOTAL_LEVELS: Partial<Record<ModuleId, number>> = {
+  quadratics: 74,
+  trig: 20,
+  data: 19,
+  probability: 20,
+  functions: 10,
+  vectors: 5,
+  sequences: 5,
+  calculus: 5,
+  complex: 5,
+  logs: 5,
+  matrices: 5,
+};
+
+const MODULE_COLORS: Record<string, string> = {
+  quadratics: '#3b82f6',
+  trig: '#f59e0b',
+  data: '#10b981',
+  probability: '#8b5cf6',
+  functions: '#ec4899',
+  vectors: '#06b6d4',
+  sequences: '#84cc16',
+  calculus: '#ef4444',
+  complex: '#6366f1',
+  logs: '#14b8a6',
+  matrices: '#f97316',
+};
+
+interface ChartDataItem {
+  name: string;
+  moduleId: string;
+  completed: number;
+  total: number;
+  rate: number;
+  fill: string;
+}
+
+function ModuleProgressChart({
+  moduleProgress,
+  t,
+}: {
+  moduleProgress: Record<ModuleId, { id: ModuleId; completedLevels: number[]; isMastered: boolean; xpEarned: number }>;
+  t: (key: string) => string;
+}) {
+  const chartData: ChartDataItem[] = Object.values(moduleProgress).map((mod) => {
+    const total = MODULE_TOTAL_LEVELS[mod.id] ?? 5;
+    const completed = mod.completedLevels.length;
+    const rate = Math.min(Math.round((completed / total) * 100), 100);
+    const translatedName = t(`dashboard.modules.${mod.id}.title`);
+    const name = translatedName !== `dashboard.modules.${mod.id}.title` ? translatedName : mod.id;
+    return {
+      name: name.length > 6 ? name.slice(0, 6) + '...' : name,
+      moduleId: mod.id,
+      completed,
+      total,
+      rate,
+      fill: MODULE_COLORS[mod.id] || '#94a3b8',
+    };
+  });
+
+  // Sort by rate descending
+  chartData.sort((a, b) => b.rate - a.rate);
+
+  const maxRate = Math.max(...chartData.map((d) => d.rate), 0);
+  const minRate = Math.min(...chartData.map((d) => d.rate), 100);
+  const bestModule = chartData[0];
+  const worstModule = chartData[chartData.length - 1];
+
+  return (
+    <div className="space-y-4">
+      <div className="h-64">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={chartData} margin={{ top: 5, right: 10, left: -10, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+            <XAxis
+              dataKey="name"
+              tick={{ fontSize: 10, fill: '#64748b' }}
+              tickLine={false}
+              axisLine={{ stroke: '#cbd5e1' }}
+              interval={0}
+              angle={-30}
+              textAnchor="end"
+              height={50}
+            />
+            <YAxis
+              domain={[0, 100]}
+              tick={{ fontSize: 11, fill: '#64748b' }}
+              tickLine={false}
+              axisLine={{ stroke: '#cbd5e1' }}
+              unit="%"
+            />
+            <Tooltip
+              formatter={(value, _name, props) => {
+                const item = props.payload as unknown as ChartDataItem;
+                return [`${value}% (${item.completed}/${item.total} levels)`, '進捗率'];
+              }}
+              contentStyle={{
+                borderRadius: '12px',
+                border: '1px solid #e2e8f0',
+                fontSize: '12px',
+              }}
+            />
+            <Bar dataKey="rate" radius={[6, 6, 0, 0]} maxBarSize={40}>
+              {chartData.map((entry, index) => (
+                <Cell key={index} fill={entry.fill} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      {/* Highlights */}
+      <div className="grid grid-cols-2 gap-3">
+        {bestModule && bestModule.rate > 0 && (
+          <div className="bg-green-50 border border-green-100 rounded-xl p-3">
+            <div className="text-[10px] font-bold text-green-500 uppercase tracking-widest mb-1">
+              {t('profile.progress.most_advanced') !== 'profile.progress.most_advanced' ? t('profile.progress.most_advanced') : '最も進んでいる'}
+            </div>
+            <div className="text-sm font-bold text-green-800">{bestModule.name}</div>
+            <div className="text-xs text-green-600 font-mono">{bestModule.rate}%</div>
+          </div>
+        )}
+        {worstModule && chartData.length > 1 && (
+          <div className="bg-amber-50 border border-amber-100 rounded-xl p-3">
+            <div className="text-[10px] font-bold text-amber-500 uppercase tracking-widest mb-1">
+              {t('profile.progress.needs_work') !== 'profile.progress.needs_work' ? t('profile.progress.needs_work') : '伸びしろあり'}
+            </div>
+            <div className="text-sm font-bold text-amber-800">{worstModule.name}</div>
+            <div className="text-xs text-amber-600 font-mono">{worstModule.rate}%</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function ProfilePage() {
   const { xp, level, title, moduleProgress, calibration } = useProgress();
@@ -192,6 +330,15 @@ export default function ProfilePage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Module Progress Chart */}
+            <div className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm">
+              <div className="flex items-center gap-2 mb-6">
+                <BarChart3 className="w-5 h-5 text-blue-600" />
+                <h3 className="text-lg font-bold">{t('profile.progress.chart_title') !== 'profile.progress.chart_title' ? t('profile.progress.chart_title') : 'モジュール別進捗'}</h3>
+              </div>
+              <ModuleProgressChart moduleProgress={moduleProgress} t={t} />
             </div>
 
             <div className="grid grid-cols-3 gap-8 pt-10 border-t border-slate-100">

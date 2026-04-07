@@ -1,29 +1,12 @@
 "use client";
-import BackButton from "../components/BackButton";
-import RightTriangleRectangleViz from "./components/RightTriangleRectangleViz";
-import MovingPointAreaViz from "./components/MovingPointAreaViz";
-import VertexOnLineViz from "./components/VertexOnLineViz";
-import ChordLengthViz from "./components/ChordLengthViz";
-import ThreePointsDeterminationViz from "./components/ThreePointsDeterminationViz";
-import XInterceptsDeterminationViz from "./components/XInterceptsDeterminationViz";
-import AbsoluteInequalityAllRealsViz from "./components/AbsoluteInequalityAllRealsViz";
-import RootsPlacementViz from "./components/RootsPlacementViz";
-import VerticalSegmentMaxViz from "./components/VerticalSegmentMaxViz";
-import CommonTangentViz from "./components/CommonTangentViz";
-import { IntersectionParabolasViz } from "./components/IntersectionParabolasViz";
-import IntegerSolutionsQuadraticViz from "./components/IntegerSolutionsQuadraticViz";
-import TangentCoefficientDeterminationViz from "./components/TangentCoefficientDeterminationViz";
-import VertexAxisDeterminationViz from "./components/VertexAxisDeterminationViz";
-import TranslationQuadraticViz from "./components/TranslationQuadraticViz";
-import MaxMinCoefficientDeterminationViz from "./components/MaxMinCoefficientDeterminationViz";
-import QuadraticInequalityGraphViz from "./components/QuadraticInequalityGraphViz";
-import BothRootsBetweenViz from './components/BothRootsBetweenViz';
-import FenceEnclosureViz from './components/FenceEnclosureViz';
-import WireSquaresViz from './components/WireSquaresViz';
-
-import DomainAlwaysPositiveViz from './components/DomainAlwaysPositiveViz';
-
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import BackButton from "../components/BackButton";
+import 'katex/dist/katex.min.css';
+import { LEVELS } from './data/levels';
+import MathDisplay from '@/app/lib/components/MathDisplay';
+
+// --- Generator imports (lightweight, kept static) ---
 import { generateRootsLocationProblem } from './utils/roots-location-generator';
 import { generateDefiniteInequalityProblem } from './utils/definite-inequality-generator';
 import { generateParametricInequalityProblem } from './utils/parametric-inequality-generator';
@@ -46,93 +29,103 @@ import { generateDiscriminantProblem } from './utils/discriminant-generator';
 import { generateMaxMinProblem } from './utils/max-min-generator';
 import { generateSubstitutionMaxMinProblem } from './utils/substitution-max-min-generator';
 import { generateTwoParabolasProblem } from './utils/two-parabolas-generator';
-import TwoParabolasSizeViz from './components/TwoParabolasSizeViz';
 import { generateTwoParabolasSizeProblem } from './utils/two-parabolas-size-generator';
-import TwoParabolasViz from './components/TwoParabolasViz';
 import { generateDifferenceFunctionProblem } from './utils/difference-function-generator';
-import DifferenceFunctionViz from './components/DifferenceFunctionViz';
-
-import RootsLocationViz from './components/RootsLocationViz';
-import DefiniteInequalityViz from './components/DefiniteInequalityViz';
-import ParametricInequalityViz from './components/ParametricInequalityViz';
-import MovingDomainViz from './components/MovingDomainViz';
-import CoefficientViz from './components/CoefficientViz';
-import GraphTransformationViz from './components/GraphTransformationViz';
-import CompletingSquareViz from './components/CompletingSquareViz';
-import SimultaneousInequalityViz from './components/SimultaneousInequalityViz';
-import IntersectionViz from './components/IntersectionViz';
-import QuadraticInequalityViz from './components/QuadraticInequalityViz';
-import AbsoluteValueGraphViz from './components/AbsoluteValueGraphViz';
-import MovingAxisViz from './components/MovingAxisViz';
-import MovingRightEdgeViz from './components/MovingRightEdgeViz';
 import { generateMovingRightEdgeProblem } from './utils/moving-right-edge-generator';
-
 import { generateIndependentVariablesProblem } from './utils/independent-variables-generator';
-import IndependentVariablesViz from './components/IndependentVariablesViz';
-import QuadraticFormulaViz from './components/QuadraticFormulaViz';
-import InscribedPerimeterViz from './components/InscribedPerimeterViz';
-import TranslationDeterminationViz from './components/TranslationDeterminationViz';
 import { generateTranslationDeterminationProblem } from './utils/translation-determination-generator';
-import ShapeOptimizationViz from './components/ShapeOptimizationViz';
-import AbsoluteValueEquationViz from './components/AbsoluteValueEquationViz';
-import SolutionsInRangeViz from './components/SolutionsInRangeViz';
-import DeterminationViz from './components/DeterminationViz';
-import CommonRootsViz from './components/CommonRootsViz';
-import AtLeastOnePositiveRootViz from './components/AtLeastOnePositiveRootViz';
-import { AbsoluteValueMaxMinViz } from './components/AbsoluteValueMaxMinViz';
-import { IntersectionDistanceViz } from './components/IntersectionDistanceViz';
-import DiscriminantViz from './components/DiscriminantViz';
-import MaxMinViz from './components/MaxMinViz';
-import ConditionalMaxMinViz from './components/ConditionalMaxMinViz';
-import SubstitutionMaxMinViz from './components/SubstitutionMaxMinViz';
 import { generateInequalityCoefficientProblem } from './utils/inequality-coefficient-generator';
 import { generateSegmentLengthProblem } from './utils/segment-length-generator';
 import { generateConditionalMaxMinProblem } from './utils/conditional-max-min-generator';
 import { generateAbsoluteInequalityProblem } from './utils/absolute-inequality-generator';
-import InequalityCoefficientViz from './components/InequalityCoefficientViz';
-import AbsoluteValueInequalityViz from './components/AbsoluteValueInequalityViz';
 import { generateAbsoluteValueInequalityProblem } from './utils/absolute-value-inequality-generator';
-import SegmentLengthViz from './components/SegmentLengthViz';
-import AbsoluteInequalityViz from './components/AbsoluteInequalityViz';
-import SignOfRootsViz from './components/SignOfRootsViz';
 import { generateSignOfRootsProblem } from './utils/sign-of-roots-generator';
 import { generateCoefficientSignsProblem } from './utils/coefficient-signs-generator';
-
-import AbsoluteGraphLineViz from './components/AbsoluteGraphLineViz';
-import MultipleAbsoluteViz from './components/MultipleAbsoluteViz';
-import CoefficientSignsViz from './components/CoefficientSignsViz';
-import VertexLocusViz from './components/VertexLocusViz';
-import TriangleAreaViz from './components/TriangleAreaViz';
 import { generateVertexLocusProblem } from './utils/vertex-locus-generator';
 import { generateTriangleAreaProblem } from './utils/triangle-area-generator';
-
-
 import { generateAbsoluteGraphLineProblem } from './utils/absolute-graph-line-generator';
 import { generateMultipleAbsoluteProblem } from './utils/multiple-absolute-generator';
-
-
-
-
-// LaTeX Support
 import { generateExternalTangentProblem } from "./utils/external-tangent-generator";
-import { ExternalTangentViz } from "./components/ExternalTangentViz";
-import DifferentSignsViz from './components/DifferentSignsViz';
-import ProfitMaximizationViz from './components/ProfitMaximizationViz';
 import { generateDifferentSignsProblem } from './utils/different-signs-generator';
-import OneRealRootConditionViz from './components/OneRealRootConditionViz';
 import { generateOneRealRootCondition } from './utils/one-real-root-generator';
 
-import 'katex/dist/katex.min.css';
-import IntegerRootsQuadraticViz from "./components/IntegerRootsQuadraticViz";
-import ParametricRootsViz from "./components/ParametricRootsViz";
-import ParabolaLineViz from "./components/ParabolaLineViz";
-import MovingDomainMaxMinViz from "./components/MovingDomainMaxMinViz";
-import RootCoefficientViz from "./components/RootCoefficientViz";
-import AbsoluteQuadraticViz from "./components/AbsoluteQuadraticViz";
-import QuadraticWordProblemViz from "./components/QuadraticWordProblemViz";
+// --- Dynamic Viz component imports (code-split for bundle size) ---
+const VizSkeleton = () => <div className="animate-pulse bg-slate-100 rounded-2xl h-64" />;
 
-import { LEVELS } from './data/levels';
-import MathDisplay from '@/app/lib/components/MathDisplay';
+const RightTriangleRectangleViz = dynamic(() => import('./components/RightTriangleRectangleViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MovingPointAreaViz = dynamic(() => import('./components/MovingPointAreaViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const VertexOnLineViz = dynamic(() => import('./components/VertexOnLineViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ChordLengthViz = dynamic(() => import('./components/ChordLengthViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ThreePointsDeterminationViz = dynamic(() => import('./components/ThreePointsDeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const XInterceptsDeterminationViz = dynamic(() => import('./components/XInterceptsDeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteInequalityAllRealsViz = dynamic(() => import('./components/AbsoluteInequalityAllRealsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const RootsPlacementViz = dynamic(() => import('./components/RootsPlacementViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const VerticalSegmentMaxViz = dynamic(() => import('./components/VerticalSegmentMaxViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const CommonTangentViz = dynamic(() => import('./components/CommonTangentViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const IntersectionParabolasViz = dynamic(() => import('./components/IntersectionParabolasViz').then(m => ({ default: m.IntersectionParabolasViz })), { ssr: false, loading: () => <VizSkeleton /> });
+const IntegerSolutionsQuadraticViz = dynamic(() => import('./components/IntegerSolutionsQuadraticViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const TangentCoefficientDeterminationViz = dynamic(() => import('./components/TangentCoefficientDeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const VertexAxisDeterminationViz = dynamic(() => import('./components/VertexAxisDeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const TranslationQuadraticViz = dynamic(() => import('./components/TranslationQuadraticViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MaxMinCoefficientDeterminationViz = dynamic(() => import('./components/MaxMinCoefficientDeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const QuadraticInequalityGraphViz = dynamic(() => import('./components/QuadraticInequalityGraphViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const BothRootsBetweenViz = dynamic(() => import('./components/BothRootsBetweenViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const FenceEnclosureViz = dynamic(() => import('./components/FenceEnclosureViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const WireSquaresViz = dynamic(() => import('./components/WireSquaresViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DomainAlwaysPositiveViz = dynamic(() => import('./components/DomainAlwaysPositiveViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const TwoParabolasSizeViz = dynamic(() => import('./components/TwoParabolasSizeViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const TwoParabolasViz = dynamic(() => import('./components/TwoParabolasViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DifferenceFunctionViz = dynamic(() => import('./components/DifferenceFunctionViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const RootsLocationViz = dynamic(() => import('./components/RootsLocationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DefiniteInequalityViz = dynamic(() => import('./components/DefiniteInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ParametricInequalityViz = dynamic(() => import('./components/ParametricInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MovingDomainViz = dynamic(() => import('./components/MovingDomainViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const CoefficientViz = dynamic(() => import('./components/CoefficientViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const GraphTransformationViz = dynamic(() => import('./components/GraphTransformationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const CompletingSquareViz = dynamic(() => import('./components/CompletingSquareViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SimultaneousInequalityViz = dynamic(() => import('./components/SimultaneousInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const IntersectionViz = dynamic(() => import('./components/IntersectionViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const QuadraticInequalityViz = dynamic(() => import('./components/QuadraticInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteValueGraphViz = dynamic(() => import('./components/AbsoluteValueGraphViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MovingAxisViz = dynamic(() => import('./components/MovingAxisViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MovingRightEdgeViz = dynamic(() => import('./components/MovingRightEdgeViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const IndependentVariablesViz = dynamic(() => import('./components/IndependentVariablesViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const QuadraticFormulaViz = dynamic(() => import('./components/QuadraticFormulaViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const InscribedPerimeterViz = dynamic(() => import('./components/InscribedPerimeterViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const TranslationDeterminationViz = dynamic(() => import('./components/TranslationDeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ShapeOptimizationViz = dynamic(() => import('./components/ShapeOptimizationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteValueEquationViz = dynamic(() => import('./components/AbsoluteValueEquationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SolutionsInRangeViz = dynamic(() => import('./components/SolutionsInRangeViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const DeterminationViz = dynamic(() => import('./components/DeterminationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const CommonRootsViz = dynamic(() => import('./components/CommonRootsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AtLeastOnePositiveRootViz = dynamic(() => import('./components/AtLeastOnePositiveRootViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteValueMaxMinViz = dynamic(() => import('./components/AbsoluteValueMaxMinViz').then(m => ({ default: m.AbsoluteValueMaxMinViz })), { ssr: false, loading: () => <VizSkeleton /> });
+const IntersectionDistanceViz = dynamic(() => import('./components/IntersectionDistanceViz').then(m => ({ default: m.IntersectionDistanceViz })), { ssr: false, loading: () => <VizSkeleton /> });
+const DiscriminantViz = dynamic(() => import('./components/DiscriminantViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MaxMinViz = dynamic(() => import('./components/MaxMinViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ConditionalMaxMinViz = dynamic(() => import('./components/ConditionalMaxMinViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SubstitutionMaxMinViz = dynamic(() => import('./components/SubstitutionMaxMinViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const InequalityCoefficientViz = dynamic(() => import('./components/InequalityCoefficientViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteValueInequalityViz = dynamic(() => import('./components/AbsoluteValueInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SegmentLengthViz = dynamic(() => import('./components/SegmentLengthViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteInequalityViz = dynamic(() => import('./components/AbsoluteInequalityViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const SignOfRootsViz = dynamic(() => import('./components/SignOfRootsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteGraphLineViz = dynamic(() => import('./components/AbsoluteGraphLineViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MultipleAbsoluteViz = dynamic(() => import('./components/MultipleAbsoluteViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const CoefficientSignsViz = dynamic(() => import('./components/CoefficientSignsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const VertexLocusViz = dynamic(() => import('./components/VertexLocusViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const TriangleAreaViz = dynamic(() => import('./components/TriangleAreaViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ExternalTangentViz = dynamic(() => import('./components/ExternalTangentViz').then(m => ({ default: m.ExternalTangentViz })), { ssr: false, loading: () => <VizSkeleton /> });
+const DifferentSignsViz = dynamic(() => import('./components/DifferentSignsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ProfitMaximizationViz = dynamic(() => import('./components/ProfitMaximizationViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const OneRealRootConditionViz = dynamic(() => import('./components/OneRealRootConditionViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const IntegerRootsQuadraticViz = dynamic(() => import('./components/IntegerRootsQuadraticViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ParametricRootsViz = dynamic(() => import('./components/ParametricRootsViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const ParabolaLineViz = dynamic(() => import('./components/ParabolaLineViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const MovingDomainMaxMinViz = dynamic(() => import('./components/MovingDomainMaxMinViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const RootCoefficientViz = dynamic(() => import('./components/RootCoefficientViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const AbsoluteQuadraticViz = dynamic(() => import('./components/AbsoluteQuadraticViz'), { ssr: false, loading: () => <VizSkeleton /> });
+const QuadraticWordProblemViz = dynamic(() => import('./components/QuadraticWordProblemViz'), { ssr: false, loading: () => <VizSkeleton /> });
 
 // Problem Type Definitions
 interface Problem {

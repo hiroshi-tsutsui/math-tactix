@@ -21,9 +21,26 @@ type Mode = "elevation" | "depression";
 
 export default function TrigApplicationViz() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 420, height: 320 });
   const [mode, setMode] = useState<Mode>("elevation");
   const [distance, setDistance] = useState(50);
   const [angleDeg, setAngleDeg] = useState(35);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const w = Math.min(entry.contentRect.width - 32, 600);
+        if (w > 0) {
+          setCanvasSize({ width: Math.round(w), height: Math.round(w * 0.76) });
+        }
+      }
+    });
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   const angleRad = toRad(angleDeg);
   const tanVal = Math.tan(angleRad);
@@ -326,12 +343,13 @@ export default function TrigApplicationViz() {
       </div>
 
       {/* Canvas */}
-      <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-4 border border-slate-100 dark:border-slate-800 flex items-center justify-center">
+      <div ref={containerRef} className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-4 border border-slate-100 dark:border-slate-800 flex items-center justify-center">
         <canvas
           ref={canvasRef}
-          width={420}
-          height={320}
-          className="w-full max-w-[420px]"
+          width={canvasSize.width}
+          height={canvasSize.height}
+          className="w-full"
+          style={{ maxWidth: canvasSize.width }}
         />
       </div>
 
